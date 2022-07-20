@@ -29,7 +29,7 @@ function toggleMobileMenu(){
 
 // Shopping-Cart mostrar/ocultar
 const shoppingCart = document.querySelector('.navbar-shopping-cart')
-const myOrderDesktop = document.querySelector('.product-detail')
+const myOrderDesktop = document.querySelector('#shoppingCartContainer')
 
 // Añadimos un evento al hacer click en el Shopping Cart
 shoppingCart.addEventListener('click',toggleCarritoAside);
