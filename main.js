@@ -6,7 +6,7 @@
     const menuMobile = document.querySelector('.mobile-menu');
 
     const cartMenu = document.querySelector('.navbar-shopping-cart');
-    const showCart = document.querySelector('.product-detail');
+    const shoppingCartContainer = document.querySelector('#shoppingCartContainer');
 
     const cardsContainer = document.querySelector('.cards-container');
 
@@ -14,10 +14,10 @@
 
     menuEmail.addEventListener('click', toggleDesktopMenu);
     function toggleDesktopMenu() {
-        const ishowCartClosed = showCart.classList.contains('inactive');
+        const ishowCartClosed = shoppingCartContainer.classList.contains('inactive');
 
     if (!ishowCartClosed) {
-    showCart.classList.add('inactive');
+        shoppingCartContainer.classList.add('inactive');
     }
         desktopMenu.classList.toggle('inactive');
     }
@@ -28,10 +28,10 @@
 burguerMenu.addEventListener('click', toggleMenuMobile); 
 
     function toggleMenuMobile() {
-    const ishowCartClosed = showCart.classList.contains('inactive');
+    const ishowCartClosed = shoppingCartContainer.classList.contains('inactive');
 
     if (!ishowCartClosed) {
-    showCart.classList.add('inactive');
+        shoppingCartContainer.classList.add('inactive');
     }
 
     {
@@ -51,7 +51,7 @@ burguerMenu.addEventListener('click', toggleMenuMobile);
     }
     
     {
-        showCart.classList.toggle('inactive');
+        shoppingCartContainer.classList.toggle('inactive');
     }
 }
 //---------- INVENTARIO----------------------------
