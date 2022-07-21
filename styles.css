@@ -11,16 +11,32 @@
   body {
     margin: 0;
     font-family: 'Quicksand', sans-serif;
+    height: 100%;
   }
   .inactive
   {
     display: none;
   }
+
+  /* Darken */
+
+  .darken
+  {
+    width: 100%;
+    height: calc(100%);
+    position: fixed;
+    top: 0;
+    background-color: rgba(0, 0, 0, 0.5);
+  }
+  
   nav {
+    position: relative;
     display: flex;
     justify-content: space-between;
     padding: 0 24px;
     border-bottom: 1px solid var(--very-light-pink);
+    background-color: var(--white);
+    z-index: 1;
   }
   .burguerMenu {
     display: none;
@@ -168,7 +184,14 @@
   }
   .title-container {
     display: flex;
+    width: 100px;
   }
+
+  .title-container:hover
+  {
+    cursor: pointer;
+  }
+
   .title-container img {
     transform: rotate(180deg);
     margin-right: 14px;
@@ -252,6 +275,11 @@
     border-radius: 20px;
     object-fit: cover;
   }
+
+  .product-card img:hover
+  {
+    cursor: pointer;
+  }
   .product-info {
     display: flex;
     justify-content: space-between;
@@ -282,10 +310,13 @@
 
   .product-detail {
     width: 360px;
-    padding-bottom: 24px;
-    position: absolute;
-    right: 0;
+    padding: 24px;
+    position: fixed;
+    top: 120px;
+    right: 50%;
+    transform: translate(50%, 0);
     background-color: var(--white);
+    border-radius: 10px;
   }
   .product-detail-close {
     background: var(--white);
@@ -305,7 +336,7 @@
     width: 100%;
     height: 360px;
     object-fit: cover;
-    border-radius: 0 0 20px 20px;
+    border-radius: 20px;
   }
   .product-detail-info {
     margin: 24px 24px 0 24px;
@@ -374,7 +405,7 @@
       height: 140px;
     }
     .product-detail {
-      width: 100%;
+      width: calc(100% - 48px);
     }
   }
 
