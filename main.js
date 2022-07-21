@@ -1,3 +1,4 @@
+// SELECTORES !!!!!!!!!!!!
 // desktop 
 const navEmail = document.querySelector(".navbar-email");
 const desktopMenu = document.querySelector(".desktop-menu"); //el HTML que aparece o desaparece
@@ -8,29 +9,60 @@ const mobileMenu = document.querySelector(".mobile-menu"); //el HTML que aparece
 const shoppingCartContainer = document.querySelector("#shoppingCartContainer"); //el HTML que aparece o desaparece
 const carrito = document.querySelector(".navbar-shopping-cart");
 
+// product detail
+const productDetailContainer = document.querySelector("#productDetail");
+const productDetailCloseIcon = document.querySelector('.product-detail-close');
+
 // contenedor de las cards
 const cardsContainer = document.querySelector('.cards-container');
 
+
+// EVENTOS!!!!!!!!!!!!!!!!
+
+//evento1 va con la funcion "toggleDesktopMenu"
 navEmail.addEventListener("click", toggleDesktopMenu);
+
+//evento 2 va con la funcion "toggleMobileMenu"
+burgerMenu.addEventListener("click", toggleMobileMenu);
+
+//evento 3 va con la funcion "toggleshoppingCartContainer"
+carrito.addEventListener("click",toggleshoppingCartContainer);
+
+//evento 5 va con la funcion "closeProductDetail"
+productDetailCloseIcon.addEventListener('click', closeProductDetail);
+
+// FUNCIONES!!!!!!!!!!!!!!!!!
 
 function toggleDesktopMenu(){
     shoppingCartContainer.classList.add("inactive");
+    productDetailContainer.classList.add('inactive')
     desktopMenu.classList.toggle('inactive'); //de esta forma lo que logro es que cuando le den click a la etiqueta desktopmenu me quita o me ponga la clase dependiendo si esta existe ya o no
 }
 
-burgerMenu.addEventListener("click", toggleMobileMenu);
-
 function toggleMobileMenu(){
     shoppingCartContainer.classList.add("inactive");
+    productDetailContainer.classList.add('inactive');
     mobileMenu.classList.toggle("inactive");
 }
-
-carrito.addEventListener("click",toggleshoppingCartContainer);
 
 function toggleshoppingCartContainer(){
     desktopMenu.classList.add("inactive")
     mobileMenu.classList.add('inactive');
+    productDetailContainer.classList.add('inactive')
     shoppingCartContainer.classList.toggle("inactive");
+}
+
+// esta funcion no tiene evento directamente declarado aca el evento se declara en la funcion renderProducts al ser un elemento HTML creado desde js 
+
+function openProductDetailAside(){
+    productDetailContainer.classList.remove('inactive');
+    desktopMenu.classList.add('inactive');
+    shoppingCartContainer.classList.add("inactive");
+    mobileMenu.classList.add('inactive');
+}
+
+function closeProductDetail(){
+    productDetailContainer.classList.add('inactive');
 }
 
 
@@ -77,6 +109,7 @@ function renderProducts(arr){
     
         const productImg = document.createElement('img');
         productImg.setAttribute('src', product.image);
+        productImg.addEventListener("click",openProductDetailAside);
     
         const productInfo = document.createElement('div');
         productInfo.classList.add('product-info');
