@@ -342,6 +342,7 @@ aside {
   color: var(--very-light-pink);
 }
 
+/* media - responsive */
 
 @media (max-width: 640px) {
   .menu {
