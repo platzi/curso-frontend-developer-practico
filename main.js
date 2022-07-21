@@ -5,7 +5,7 @@ const desktopMenu = document.querySelector(".desktop-menu"); //el HTML que apare
 const burgerMenu = document.querySelector(".menu");
 const mobileMenu = document.querySelector(".mobile-menu"); //el HTML que aparece o desaparece
 // carrito
-const productDetail = document.querySelector(".product-detail"); //el HTML que aparece o desaparece
+const shoppingCartContainer = document.querySelector("#shoppingCartContainer"); //el HTML que aparece o desaparece
 const carrito = document.querySelector(".navbar-shopping-cart");
 
 // contenedor de las cards
@@ -14,23 +14,23 @@ const cardsContainer = document.querySelector('.cards-container');
 navEmail.addEventListener("click", toggleDesktopMenu);
 
 function toggleDesktopMenu(){
-    productDetail.classList.add("inactive");
+    shoppingCartContainer.classList.add("inactive");
     desktopMenu.classList.toggle('inactive'); //de esta forma lo que logro es que cuando le den click a la etiqueta desktopmenu me quita o me ponga la clase dependiendo si esta existe ya o no
 }
 
 burgerMenu.addEventListener("click", toggleMobileMenu);
 
 function toggleMobileMenu(){
-    productDetail.classList.add("inactive");
+    shoppingCartContainer.classList.add("inactive");
     mobileMenu.classList.toggle("inactive");
 }
 
-carrito.addEventListener("click",toggleProductDetail);
+carrito.addEventListener("click",toggleshoppingCartContainer);
 
-function toggleProductDetail(){
+function toggleshoppingCartContainer(){
     desktopMenu.classList.add("inactive")
     mobileMenu.classList.add('inactive');
-    productDetail.classList.toggle("inactive");
+    shoppingCartContainer.classList.toggle("inactive");
 }
 
 
