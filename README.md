@@ -11,6 +11,6 @@ Files/components merged:
 - clase6.html (product list)
 - clase12.html (product detail)
 
-The page is deployed at: https://manuducos.github.io/curso-frontend-developer-javascript-practico/
+The page is deployed at: https://manuducos.github.io/simple-shopping-page-with-js/
 
 ###### Note that the info and images are just ilustrative and don't match with the product info displayed when an item is clicked. However, the render of each item is taken into practice in a similar way to what would be if there was a backend (see main.js).
