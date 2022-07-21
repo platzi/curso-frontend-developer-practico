@@ -108,13 +108,13 @@ function closeMenus()
 
 const productList = [];
 
-for(let i = 0; i < 58; i++)
+for(let i = 0; i < 36; i++)
 {
     productList.push(
         {
             name: 'Bike',
             price: 120.00,
-            image: 'https://images.pexels.com/photos/276517/pexels-photo-276517.jpeg?auto=compress&cs=tinysrgb&dpr=2&h=650&w=940'
+            image: 'https://images.pexels.com/photos/276517/pexels-photo-276517.jpeg?auto=compress&cs=tinysrgb&dpr=2&h=650&w=940',
         }
     );
 }
