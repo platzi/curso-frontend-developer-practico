@@ -3,12 +3,15 @@ const desktopMenu = document.querySelector(".desktop-menu");
 const btnMobileMenu = document.querySelector(".menu");
 const mobileMenu = document.querySelector(".mobile-menu");
 const shoppingCartIcon = document.querySelector(".navbar-shopping-cart");
-const asideProductDetail = document.querySelector(".product-detail");
+const orderDetail = document.querySelector(".order-detail");
 const cardsContainer = document.querySelector(".cards-container");
+const productDetail = document.querySelector(".product-detail");
+const productDetailClose = document.querySelector(".product-detail-close");
 
 navEmail.addEventListener("click", toggleDesktopMenu);
 btnMobileMenu.addEventListener("click", toggleMobileMenu);
-shoppingCartIcon.addEventListener("click", toggleAsideProductDetail);
+shoppingCartIcon.addEventListener("click", toggleorderDetail);
+productDetailClose.addEventListener("click", toggleProductDetail)
 
 const productList = [];
 for (let i = 0; i < 5; i++) {
@@ -46,20 +49,35 @@ for (let i = 0; i < 5; i++) {
 
 renderProducts(productList);
 
+const productCardList = document.querySelectorAll(".product-card");
+for (productCard of productCardList) {
+    productCard.addEventListener("click", toggleProductDetail);
+}
+
+function toggleProductDetail() {
+  productDetail.classList.toggle("inactive");
+  orderDetail.classList.add("inactive");
+  mobileMenu.classList.add("inactive");
+  desktopMenu.classList.add("inactive");
+}
+
 function toggleDesktopMenu() {
   desktopMenu.classList.toggle("inactive");
-  asideProductDetail.classList.add("inactive");
+  orderDetail.classList.add("inactive");
+  productDetail.classList.add("inactive");
 }
 
 function toggleMobileMenu() {
   mobileMenu.classList.toggle("inactive");
-  asideProductDetail.classList.add("inactive");
+  orderDetail.classList.add("inactive");
+  productDetail.classList.add("inactive");
 }
 
-function toggleAsideProductDetail() {
-  asideProductDetail.classList.toggle("inactive");
+function toggleorderDetail() {
+  orderDetail.classList.toggle("inactive");
   mobileMenu.classList.add("inactive");
   desktopMenu.classList.add("inactive");
+  productDetail.classList.add("inactive");
 }
 
 function renderProducts(productList) {
@@ -71,7 +89,7 @@ function renderProducts(productList) {
     productImg.src = product.image;
 
     const productInfo = document.createElement("div");
-    productInfo.classList.add("product-info");
+    productInfo.classList.add("product-card-info");
 
     const productInfoDiv = document.createElement("div");
     const productPrice = document.createElement("p");
