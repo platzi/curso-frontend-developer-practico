@@ -125,7 +125,10 @@
 
   .mobile-menu {
     position: absolute;
+    background-color: var(--white);
+    width: 100%;
     top: 60px;
+    left: 0;
     padding: 24px;
   }
   .mobile-menu a {
