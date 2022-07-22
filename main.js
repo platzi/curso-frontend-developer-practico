@@ -5,23 +5,35 @@ const iconMenu = document.querySelector('.mobile-menu');
 const shoppingCart = document.querySelector('.navbar-shopping-cart');
 const aside = document.querySelector('.product-detail');
 const cardContainer = document.querySelector('.cards-container');
+const productCard = document.querySelectorAll('.product-card');
+const detailProduct = document.querySelector('.detail-product');
+const detailProductClose = document.querySelector('.detail-product-close');
 
 menuEmail.addEventListener('click', toggleDesktopMenu);
 menuMobile.addEventListener('click', toggleMobileMenu);
 shoppingCart.addEventListener('click', toggleShoppingCart);
+detailProductClose.addEventListener('click', closeDetailProduct);
 
 
 //inactivar o activar el menu, se usa toggle ya que es una funcion que quita o pone la clase si esta está o no
 function toggleDesktopMenu(){
     if(!aside.classList.contains('inactive')){
         aside.classList.add('inactive');
+    }else if (!detailProduct.classList.contains('inactive')){
+        detailProduct.classList.add('inactive');
     }
     menuDesktop.classList.toggle('inactive');
+}
+
+function closeDetailProduct(){
+    detailProduct.classList.add('inactive');
 }
 
 function toggleMobileMenu(){
     if(!aside.classList.contains('inactive')){
         aside.classList.add('inactive');
+    }else if (!detailProduct.classList.contains('inactive')){
+        detailProduct.classList.add('inactive');
     }
     iconMenu.classList.toggle('inactive');
 }
@@ -31,6 +43,8 @@ function toggleShoppingCart(){
         menuDesktop.classList.add('inactive');
     } else if (!iconMenu.classList.contains('inactive')){
         iconMenu.classList.add('inactive');
+    }else if (!detailProduct.classList.contains('inactive')){
+        detailProduct.classList.add('inactive');
     }
     aside.classList.toggle('inactive');
 }
@@ -71,6 +85,7 @@ for( product of productList){
 
     const img = document.createElement('img');
     img.src = product.img;
+    img.addEventListener('click', openDetailProduct)
 
     const productInfo = document.createElement('div');
     productInfo.classList.add('product-info');
@@ -99,4 +114,14 @@ for( product of productList){
     cardContainer.appendChild(productCard);
 
 }
+
+function openDetailProduct(){
+    menuDesktop.classList.add('inactive');
+    aside.classList.add('inactive');
+    menuMobile.classList.add('inactive');
+    detailProduct.classList.remove('inactive');
+}
+
+
+
 }
