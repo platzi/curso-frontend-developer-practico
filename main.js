@@ -3,28 +3,12 @@ const menuMobile = document.querySelector('.mobile-menu');
 const cartIcon = document.querySelector('.navbar-shopping-cart');
 const navEmail = document.querySelector('.navbar-email');
 const hamMenu = document.querySelector('.menu');
-const productDetailOrder = document.querySelector('.product-detail');
+const productDetailOrder = document.querySelector('#product-detail-ordered');
 const cards = document.querySelector('.cards-container');
-
-navEmail.addEventListener('click', () => {
-    menuDesktop.classList.toggle('inactive');
-    menuMobile.classList.add('inactive');
-    productDetailOrder.classList.add('inactive')
-});
-hamMenu.addEventListener('click', () => {
-    menuMobile.classList.toggle('inactive');
-    menuDesktop.classList.add('inactive');
-    productDetailOrder.classList.add('inactive')
-
-});
-cartIcon.addEventListener('click', () => {
-    productDetailOrder.classList.toggle('inactive');
-    menuMobile.classList.add('inactive');
-    menuDesktop.classList.add('inactive');
-});
+const productDetail = document.querySelector('#product-detail');
+const productDetailClose = document.querySelector('.product-detail-close');
 
 // PRODUCT LIST
-
 const productList = [];
 productList.push({
     name: 'Bike',
@@ -44,6 +28,12 @@ productList.push({
     img: 'https://picsum.photos/550',
     "add-to-cart": './icons/bt_add_to_cart.svg',
 });
+productList.push({
+    name: 'Phone',
+    price: "820.000",
+    img: 'https://picsum.photos/650',
+    "add-to-cart": './icons/bt_add_to_cart.svg',
+});
 
 function renderProduct(array) {
     for (const item of array) {
@@ -52,6 +42,12 @@ function renderProduct(array) {
         productCard.classList.add('product-card');
         let img = document.createElement('img');
         img.setAttribute('src', item.img)
+        img.addEventListener('click', () => {
+            productDetail.classList.remove('inactive');
+            productDetailOrder.classList.add('inactive');
+            menuMobile.classList.add('inactive');
+            menuDesktop.classList.add('inactive');
+        });
         productCard.appendChild(img);
 
         // DIV - PRODUCT INFO
@@ -82,3 +78,26 @@ function renderProduct(array) {
     }
 }
 renderProduct(productList);
+
+navEmail.addEventListener('click', () => {
+    menuDesktop.classList.toggle('inactive');
+    menuMobile.classList.add('inactive');
+    productDetailOrder.classList.add('inactive');
+    productDetail.classList.add('inactive');
+});
+hamMenu.addEventListener('click', () => {
+    menuMobile.classList.toggle('inactive');
+    menuDesktop.classList.add('inactive');
+    productDetailOrder.classList.add('inactive');
+    productDetail.classList.add('inactive');
+
+});
+cartIcon.addEventListener('click', () => {
+    productDetailOrder.classList.toggle('inactive');
+    menuMobile.classList.add('inactive');
+    menuDesktop.classList.add('inactive');
+    productDetail.classList.add('inactive');
+});
+productDetailClose.addEventListener('click', () => {
+    productDetail.classList.add('inactive');
+});
