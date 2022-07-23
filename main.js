@@ -2,31 +2,31 @@ const menuEmail = document.querySelector('.navbar-email');
 const desktopMenu = document.querySelector('.desktop-menu');
 const burguerMenu = document.querySelector('.burguer-menu');
 const menuCarritoIcon = document.querySelector('.navbar-shopping-cart');
-const aside = document.querySelector('.product-detail');
+const shoppingCartContainer = document.querySelector('#shopping-cart');
 const mobileMenu = document.querySelector('.mobile-menu');
 const cardsContainer= document.querySelector('.cards-container');
 
 menuEmail.addEventListener('click', toggleDesktopMenu);
 burguerMenu.addEventListener('click', toggleMobileMenu);
-menuCarritoIcon.addEventListener('click', toggleCarritoAside)
+menuCarritoIcon.addEventListener('click', toggleCarritoAside);
 
 function toggleDesktopMenu(){
-    const isAsideClosed = aside.classList.contains('inactive');
+    const isAsideClosed = shoppingCartContainer.classList.contains('inactive');
 
     if(isAsideClosed){
         desktopMenu.classList.toggle('inactive');
     } else {
-        aside.classList.toggle('inactive');
+        shoppingCartContainer.classList.toggle('inactive');
         desktopMenu.classList.toggle('inactive');
     }
 }
 
 function toggleMobileMenu(){
-    const isAsideClosed = aside.classList.contains('inactive');
+    const isAsideClosed = shoppingCartContainer.classList.contains('inactive');
     if (isAsideClosed){
         mobileMenu.classList.toggle('inactive');
     } else {
-        aside.classList.toggle('inactive');
+        shoppingCartContainer.classList.toggle('inactive');
         mobileMenu.classList.toggle('inactive');
     }
 }
@@ -36,10 +36,10 @@ function toggleCarritoAside(){
     const isDesktopMenuClosed = desktopMenu.classList.contains('inactive');
     
     if(isMobileMenuClosed){
-        aside.classList.toggle('inactive');
+        shoppingCartContainer.classList.toggle('inactive');
     } else{
         mobileMenu.classList.toggle('inactive');
-        aside.classList.toggle('inactive');
+        shoppingCartContainer.classList.toggle('inactive');
     }
 }
 
