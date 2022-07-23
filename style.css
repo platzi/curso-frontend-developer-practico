@@ -167,6 +167,13 @@
     position: absolute;
     right: 0;
   }
+
+  #product.product-detail{
+    width: 360px;
+    padding-bottom: 24px;
+    position: absolute;
+    right: 0;
+  }
   .title-container {
     display: flex;
   }
@@ -276,6 +283,10 @@
     margin-bottom: 0;
     color: var(--very-light-pink);
   }
+  
+
+
+  
   @media (max-width: 640px) {
       .menu {
           display: block;
