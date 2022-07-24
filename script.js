@@ -3,23 +3,22 @@ const desktopMenu = document.querySelector('.desktop-menu');
 const hamburgerMenu = document.querySelector('.menu');
 const mobileMenu = document.querySelector('.mobile-menu');
 const menuCarritoIcon = document.querySelector('.navbar-shopping-cart');
-const aside = document.querySelector('.product-detail');
-
+const shoppingCartContainer = document.querySelector('#shoppingCartContainer');
 const cardsContainer = document.querySelector('.cards-container');
 
 hamburgerMenu.addEventListener('click',()=> {
     mobileMenu.classList.toggle('inactive')
-    aside.classList.add('inactive')
+    shoppingCartContainer.classList.add('inactive')
 })
 
 
 menuEmail.addEventListener('click',()=> {
     desktopMenu.classList.toggle('inactive')
-    aside.classList.add('inactive')
+    shoppingCartContainer.classList.add('inactive')
 })
 
 menuCarritoIcon.addEventListener('click',()=> {
-    aside.classList.toggle('inactive')
+    shoppingCartContainer.classList.toggle('inactive')
     desktopMenu.classList.add('inactive')
     mobileMenu.classList.add('inactive')
 })
