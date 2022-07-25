@@ -275,6 +275,7 @@ aside {
 }
 .product-detail-close:hover {
   cursor: pointer;
+  background-color: var(--black);
 }
 #productDetail > img:nth-child(2) {
   width: 100%;
@@ -330,12 +331,18 @@ aside {
 }
 .product-card {
   width: 240px;
+  border-radius: 12px;
 }
 .product-card img {
   width: 240px;
   height: 240px;
   border-radius: 20px;
   object-fit: cover;
+  cursor: pointer;
+}
+.product-card img:hover {
+  background-color: var(--hospital-green);
+  padding: 4px;
 }
 .product-card .product-info {
   display: flex;
