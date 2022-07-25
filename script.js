@@ -3,25 +3,34 @@ const desktopMenu = document.querySelector('.desktop-menu');
 const hamburgerMenu = document.querySelector('.menu');
 const mobileMenu = document.querySelector('.mobile-menu');
 const menuCarritoIcon = document.querySelector('.navbar-shopping-cart');
+const productDetailCloseIcon = document.querySelector('.product-detail-close');
 const shoppingCartContainer = document.querySelector('#shoppingCartContainer');
+const productDetailContainer = document.querySelector('#productDetail');
 const cardsContainer = document.querySelector('.cards-container');
+
+
 
 hamburgerMenu.addEventListener('click',()=> {
     mobileMenu.classList.toggle('inactive')
     shoppingCartContainer.classList.add('inactive')
+    productDetailContainer.classList.add('inactive')
 })
-
 
 menuEmail.addEventListener('click',()=> {
     desktopMenu.classList.toggle('inactive')
     shoppingCartContainer.classList.add('inactive')
+    productDetailContainer.classList.add('inactive')
 })
 
 menuCarritoIcon.addEventListener('click',()=> {
     shoppingCartContainer.classList.toggle('inactive')
     desktopMenu.classList.add('inactive')
     mobileMenu.classList.add('inactive')
+    productDetailContainer.classList.add('inactive')
 })
+
+productDetailCloseIcon.addEventListener('click',()=>productDetailContainer.classList.add('inactive'));
+
 
 const productList = [];
 
@@ -41,6 +50,7 @@ productList.push({
     image: 'https://picsum.photos/300/200',
 });
 
+
 function renderProducts(arr){
     for (product of arr){
         const productCard = document.createElement('div');
@@ -48,7 +58,11 @@ function renderProducts(arr){
     
         const productImg = document.createElement('img');
         productImg.setAttribute('src',product.image);
-    
+        productImg.addEventListener('click',()=>{
+            productDetailContainer.classList.remove('inactive');
+            menuCarritoIcon,classList,add('inactive');
+        });
+
         const productInfo = document.createElement('div');
         productInfo.classList.add('product-info');
     
