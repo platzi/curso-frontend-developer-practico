@@ -3,7 +3,7 @@ const desktopMenu = document.querySelector('.desktop-menu')
 const BurguerMenu = document.querySelector('.menu')
 const mobileMenu = document.querySelector('.mobile-menu')
 const cartMenu = document.querySelector('.navbar-shopping-cart')
-const cart = document.querySelector('.product-detail') 
+const cart = document.querySelector('#cartContainer') 
 const cardsContainer = document.querySelector('.cards-container')
 
 navEmail.addEventListener('click',() => {
@@ -23,7 +23,7 @@ cartMenu.addEventListener('click',() => {
 })
 
 const productList = []
-for (let i = 0; i < 10; i++) {
+for (let i = 0; i < 12; i++) {
   productList.push({
     name: 'bike',
     price: 120,
