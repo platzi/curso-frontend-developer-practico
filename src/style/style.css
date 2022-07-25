@@ -1,0 +1,26 @@
+@import url(./generales.css);
+@import url(./navbar.css);
+@import url(./menuEmail.css);
+@import url(./menuBurguer.css);
+
+.inactive{
+    display: none;
+}
+
+@media (max-width: 640px) {
+    .menu {
+      display: block;
+    }
+    .menu:hover{cursor:pointer}
+
+
+    .navbar-left ul, .navbar-email, .desktop-menu {
+      display: none;
+    }
+  }
+
+  @media (min-width: 641px){
+    .mobile-menu {
+        display: none;
+    }
+  }
