@@ -2,7 +2,7 @@
 ---
 This project was made during the JavaScript Practical Course from Platzi
 
-🌐 Deploy available here: [YardSale](https://canti21.github.io/frontend-developer-practico-js-practico/)
+🌐 Deploy available here: [YardSale](https://canti21.github.io/yardsale/)
 
 ### Objective 🎯
 
