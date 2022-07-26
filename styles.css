@@ -127,6 +127,7 @@
     position: absolute;
     left: 0;
     width: 100%;
+    height: 100%;
     background-color: var(--white);
     top: 60px;
     padding: 24px;
@@ -159,6 +160,7 @@
 
   /* Aside product detail y icon carrito */
   .product-detail {
+    height: 100%;
     background-color: var(--white);
     width: 360px;
     padding: 0 24px;
@@ -360,6 +362,7 @@
     }
     .product-detail {
       width: 100%;
+      height: 100%;
     }
     .cards-container {
       grid-template-columns: repeat(auto-fill, 140px);
