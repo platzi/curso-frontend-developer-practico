@@ -1,22 +1,20 @@
-let emailMenu = document.querySelector('.navbar-email');
-let desktopMenu = document.querySelector('.desktop-menu');
-let iconMenuMobile = document.querySelector('.menu');
-let mobileMenu = document.querySelector('.mobile-menu');
-let iconShopping = document.querySelector('.navbar-shopping-cart');
-let asideShopping = document.querySelector('.product-detail');
-let divcardscontainer = document.querySelector('.cards-container')
-let productDetailLeft = document.querySelector('.product-detail-left')
-let productDetailClose = document.querySelector('.product-detail-close')
+let emailMenu           = document.querySelector('.navbar-email');
+let desktopMenu         = document.querySelector('.desktop-menu');
+let iconMenuMobile      = document.querySelector('.menu');
+let mobileMenu          = document.querySelector('.mobile-menu');
+let iconShopping        = document.querySelector('.navbar-shopping-cart');
+let asideShopping       = document.querySelector('.product-detail');
+let divcardscontainer   = document.querySelector('.cards-container')
+let productDetailLeft   = document.querySelector('.product-detail-left')
+let productDetailClose  = document.querySelector('.product-detail-close')
 let myordercontentContainer = document.querySelector('.my-order-content')
-let countCarrito = document.querySelector('.navbar-shopping-cart div')
-let totalCarrito = document.querySelector('.total')
-let modal = document.querySelector('.modal')
-let cerrarModal = document.querySelector('.boton-modal')
-
-let productosEnCarrito = []
+let countCarrito        = document.querySelector('.navbar-shopping-cart div')
+let totalCarrito        = document.querySelector('.total')
+let modal               = document.querySelector('.modal')
+let cerrarModal         = document.querySelector('.boton-modal')
+let productosEnCarrito  = []
 
 countCarrito.innerText = document.querySelectorAll('.shopping-cart').length
-
 totalCarrito.innerText = '$0.00'
 
 emailMenu.addEventListener('click', toggleMenu);
@@ -157,15 +155,17 @@ function renderListProduct(productList){
                 image: product.image
             })
             agregarCarrito(productoAgregado)
-            
         })
     }
 }
 
+/* Funcion para agregar productos al carrito */
 function agregarCarrito(producto){
     if(verificarProducto(producto[0].name)){
         return modal.style.display = 'grid'
     }
+
+    /* Creacion de elemtentos HTML */
     let divShoppingCart = document.createElement('div')
     let figureShoppingCart = document.createElement('figure')
     let imgfigureShoppingCart = document.createElement('img')
@@ -173,7 +173,7 @@ function agregarCarrito(producto){
     let ppriceShoppingCart = document.createElement('p')
     let imgcloseShoppingCart = document.createElement('img')
 
-
+    /* Se agrega contenido a cada uno de los elementos */
     divShoppingCart.classList.add('shopping-cart')
     imgfigureShoppingCart.setAttribute('src', producto[0].image)
     pnameShoppingCart.innerText = producto[0].name
@@ -181,21 +181,20 @@ function agregarCarrito(producto){
     imgcloseShoppingCart.setAttribute('src','./icons/icon_close.png')
     imgcloseShoppingCart.classList.add('removeList')
 
+    /* Se insertan los documentos */
     figureShoppingCart.appendChild(imgfigureShoppingCart)
     divShoppingCart.appendChild(figureShoppingCart)
     divShoppingCart.appendChild(pnameShoppingCart)
     divShoppingCart.appendChild(ppriceShoppingCart)
     divShoppingCart.appendChild(imgcloseShoppingCart)
-
     myordercontentContainer.appendChild (divShoppingCart)
 
+    /* Se agregan la cantidad de productos ademas de la suma de precios */
     countCarrito.innerText = document.querySelectorAll('.shopping-cart').length
     totalCarrito.innerText = '$' + (Number(totalCarrito.innerText.substring(1)) + Number(producto[0].price))
-
     productosEnCarrito.push(producto[0].name)
     
-    
-
+    /* Funcion para quitar productos del carrito */
     imgcloseShoppingCart.addEventListener('click', function(){
         divShoppingCart.remove()
         countCarrito.innerText = document.querySelectorAll('.shopping-cart').length

@@ -381,10 +381,10 @@
     width: 100%;
     height: 100vh;
     place-content: center;
-    background-color: #ec80213d;
+    background-color: rgba(255, 99, 71, 0.317);
     position: fixed;
     top: 0;
-    left: 0;
+    left: 0; 
   }
 
   .modal-contenido{
