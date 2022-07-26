@@ -2,6 +2,8 @@
 @import url(./navbar.css);
 @import url(./menuEmail.css);
 @import url(./menuBurguer.css);
+@import url(./carrito.css);
+@import url(./sectionProductList.css);
 
 .inactive{
     display: none;
@@ -11,9 +13,12 @@
     .menu {
       display: block;
     }
-    .menu:hover{cursor:pointer}
-
-
+    .menu:hover{
+        cursor:pointer;
+    }
+    .product-detail {
+        width: 100%;
+    }
     .navbar-left ul, .navbar-email, .desktop-menu {
       display: none;
     }
