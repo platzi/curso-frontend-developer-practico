@@ -1,1 +1,1 @@
-Editando repositorio de Platzi como un diseño Responsive.
+Editando repositorio de Platzi para un diseño Responsive.
