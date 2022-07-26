@@ -91,7 +91,9 @@
         </li>
         <li class="navbar-shopping-cart">
           <img src="./icons/icon_shopping_cart.svg" alt="shopping cart">
-          <div>2</div>
+          <div>
+            0
+          </div>
         </li>
       </ul>
     </div>
@@ -119,45 +121,30 @@
     </div>
 
     <div class="my-order-content">
-      <div class="shopping-cart">
-        <figure>
-          <img src="https://images.pexels.com/photos/276517/pexels-photo-276517.jpeg?auto=compress&cs=tinysrgb&dpr=2&h=650&w=940" alt="bike">
-        </figure>
-        <p>Bike</p>
-        <p>$30,00</p>
-        <img src="./icons/icon_close.png" alt="close">
-      </div>
 
-      <div class="shopping-cart">
+     <!--  <div class="shopping-cart">
         <figure>
           <img src="https://images.pexels.com/photos/276517/pexels-photo-276517.jpeg?auto=compress&cs=tinysrgb&dpr=2&h=650&w=940" alt="bike">
         </figure>
         <p>Bike</p>
         <p>$30,00</p>
         <img src="./icons/icon_close.png" alt="close">
-      </div>
+      </div> -->
 
-      <div class="shopping-cart">
-        <figure>
-          <img src="https://images.pexels.com/photos/276517/pexels-photo-276517.jpeg?auto=compress&cs=tinysrgb&dpr=2&h=650&w=940" alt="bike">
-        </figure>
-        <p>Bike</p>
-        <p>$30,00</p>
-        <img src="./icons/icon_close.png" alt="close">
-      </div>
+    </div>
 
       <div class="order">
         <p>
           <span>Total</span>
         </p>
-        <p>$560.00</p>
+        <p class="total">$560.00</p>
       </div>
-
+    <div class="button-product-detail--container">
       <button class="primary-button">
         Checkout
       </button>
     </div>
-  </div>
+  
   </aside>
 
   <aside class="product-detail-left inactive">
@@ -194,6 +181,15 @@
 
     </div>
   </section>
+
+  <div class="modal inactive">
+    <div class="modal-contenido">
+      <p class="modal-title">Este producto ya esta agregado en la lista</p>
+      <div class="boton-modal">
+        <p>Aceptar</p>
+      </div>
+    </div>
+  </div>
 
   
 </body>

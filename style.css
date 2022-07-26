@@ -127,12 +127,15 @@
   }
 
   .mobile-menu {
-    width: 100%;
+    width: calc(100% - 24px);
+    height: 100%;
     background-color: var(--white);
     position: absolute;
     top: 60px;
     left: 0;
-    padding: 0 24px;
+    padding-left: 24px;
+    overflow-y: hidden;
+
   }
   .mobile-menu a {
     text-decoration: none;
@@ -162,19 +165,32 @@
 
   .product-detail {
     width: 360px;
-    padding: 0 24px 15px;
+    
+    padding: 0 0 15px 24px;
     background-color: var(--white);
     box-sizing: border-box;
     position: absolute;
     right: 0;
   }
-
-  #product.product-detail{
-    width: 360px;
-    padding-bottom: 24px;
-    position: absolute;
-    right: 0;
+  .button-product-detail--container{
+    padding-right: 10px;
   }
+
+  .my-order-content{
+    max-height: 420px;
+    overflow-y: auto;
+    padding-right: 10px;
+  }
+
+  ::-webkit-scrollbar{
+    width: 5px;
+  }
+  ::-webkit-scrollbar-thumb{
+      background: var(--hospital-green);
+      border-radius: 5px;
+  }
+
+ 
   .title-container {
     display: flex;
     padding: 15px 0;
@@ -194,8 +210,11 @@
     align-items: center;
     background-color: var(--text-input-field);
     margin-bottom: 24px;
+    margin-right: 10px;
     border-radius: 8px;
-    padding: 0 24px;
+    padding: 10px 24px;
+    border-top: 2px solid var(--hospital-green);
+  
   }
   .order p:nth-child(1) {
     display: flex;
@@ -242,6 +261,10 @@
     font-size: var(--md);
     font-weight: bold;
     height: 50px;
+  }
+
+  .removeList{
+    cursor: pointer;
   }
 
   .cards-container {
@@ -353,6 +376,47 @@
     justify-content: center;
   }
   
+
+  .modal{
+    width: 100%;
+    height: 100vh;
+    place-content: center;
+    background-color: #ec80213d;
+    position: fixed;
+    top: 0;
+    left: 0;
+  }
+
+  .modal-contenido{
+    width: 400px;
+    height: 200px;
+    background-color: var(--white);
+    display: grid;
+    grid-template-rows: 1fr auto;
+    align-items: center;
+    place-content: center;
+    border-radius: 20px;
+  }
+
+  .boton-modal{
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    height: 80px;
+  }
+  .boton-modal p{
+    display: inline-block;
+    padding: 10px 20px;
+    background-color: tomato;
+    color: var(--white);
+    border-radius: 10px;
+    opacity: 0.8;
+    cursor: pointer;
+  }
+
+  .boton-modal p:hover{
+    opacity: 1;
+  }
 
 
   
