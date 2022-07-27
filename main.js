@@ -1,17 +1,22 @@
 const menuEmail = document.querySelector('.navbar-email'); // las clases de CSS se 
 const desktopMenu = document.querySelector('.desktop-menu'); // importan con un punto al inicio
 const menuIcon = document.querySelector('.menu');
+const productCloseIcon = document.querySelector('.product-detail-close');
 const mobileMenu = document.querySelector('.mobile-menu');
 const shoppingCart = document.querySelector('.navbar-shopping-cart');
 const shoppingCartContainer = document.querySelector('#shoppingCartContainer');
+const productDetailContainer = document.querySelector('#productDetail');
 const cardsContainer = document.querySelector('.cards-container');
+
 
 menuEmail.addEventListener('click', toggleDesktopMenu); // El segundo parametro es una funcion a ejecutarse cuando se hace click (primero parametro)
 menuIcon.addEventListener('click', toggleMobileMenu);
 shoppingCart.addEventListener('click', toggleCarritoAside);
+productCloseIcon.addEventListener('click', closeProductDetailAside);
 
 function toggleDesktopMenu()
 {
+    productDetailContainer.classList.add('inactive');
     const isAsideMenuClosed = shoppingCartContainer.classList.contains('inactive');
 
     if(!isAsideMenuClosed)
@@ -23,6 +28,7 @@ function toggleDesktopMenu()
 
 function toggleMobileMenu()
 {
+    productDetailContainer.classList.add('inactive');
     const isAsideMenuClosed = shoppingCartContainer.classList.contains('inactive');
 
     if(!isAsideMenuClosed)
@@ -34,6 +40,8 @@ function toggleMobileMenu()
 
 function toggleCarritoAside()
 {
+    productDetailContainer.classList.add('inactive');
+    
     desktopMenu.classList.add('inactive'); // De esta forma siempre que entre
                                          // a esta funcion, se cierra el desktop Menu
     const isMobileMenuClosed = mobileMenu.classList.contains('inactive');
@@ -44,6 +52,18 @@ function toggleCarritoAside()
         mobileMenu.classList.add('inactive');
     }
     shoppingCartContainer.classList.toggle('inactive');
+}
+
+function openProductDetailAside()
+{
+    shoppingCartContainer.classList.add('inactive');
+    desktopMenu.classList.add('inactive');
+    productDetailContainer.classList.remove('inactive')
+}
+
+function closeProductDetailAside()
+{
+    productDetailContainer.classList.add('inactive');
 }
 
 const productList = [];
@@ -76,6 +96,7 @@ function renderProducts(arr)
         // product = {name, price, image} -> product.image
         const productImg = document.createElement('img');
         productImg.setAttribute('src', product.image);
+        productImg.addEventListener('click', openProductDetailAside);
 
         const productInfo = document.createElement('div');
         productInfo.classList.add('product-info');
