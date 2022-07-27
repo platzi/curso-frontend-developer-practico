@@ -1,4 +1,4 @@
-Adjunto el demo de la integraciones de componentes realizada:
+Adjunto la demo de la integracion de componentes realizada:
 
 https://balbinfurio.github.io/curso_frontend_developer_js/
 
