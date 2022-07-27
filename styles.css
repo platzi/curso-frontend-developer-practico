@@ -366,9 +366,16 @@
         width: 140px;
         height: 140px;
       }
-
+    }
     @media (min-width: 641px) {
         .mobile-menu{
             display: none;
         }
+    }
+
+    @media (min-width: 1300px) {
+      .cards-container {
+        grid-template-columns: repeat(4, 240px);
+        gap: 35px;
+      }
     }
