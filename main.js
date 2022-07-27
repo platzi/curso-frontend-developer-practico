@@ -83,7 +83,7 @@ function createProductDetailContainer(name, price, image) {
   productName.innerText = name;
 
   const productDescription = document.createElement('p');
-  productDescription.innerText = 'Description';
+  productDescription.innerText = 'Description Description Description Description Description Description Description Description Description';
 
   const cartButton = document.createElement('button');
   cartButton.classList.add('primary-button');
