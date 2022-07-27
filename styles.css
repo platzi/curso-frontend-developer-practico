@@ -1,9 +1,9 @@
 /* General */
 :root {
-    --white: #FFFFFF;
+    --white: #ffffff;
     --black: #000000;
     --dark:  #53585f;
-    --very-light-pink:  #C7C7C7;
+    --very-light-pink:  #c0c0c0;
     --text-input-field: #F7F7F7;
     --hospital-green:   #ACD9B2;
     --sm: 14px;
@@ -13,6 +13,7 @@
 body {
   margin: 0;
   font-family: 'Quicksand', sans-serif;
+  background-color: var(--white);
 }
 .inactive {
   display: none;
@@ -20,6 +21,12 @@ body {
 
 
 /* Navbar (general) */
+header {
+  position: fixed;
+  top: 0;
+  background-color: var(--white);
+  width: 100%;;
+}
 nav {
   display: flex;
   justify-content: space-between;
@@ -173,12 +180,16 @@ nav {
   border: solid 1px var(--very-light-pink);
   border-radius: 8px;
   box-sizing: border-box;
-  position: absolute;
+  position: fixed;
+  top: 61px;
   right: 0;
   background-color: var(--white);
 }
 .title-container {
   display: flex;
+}
+.title-container p {
+  color: var(--black)
 }
 .title-container img {
   transform: rotate(180deg);
@@ -232,6 +243,7 @@ nav {
 .shopping-cart p:nth-child(3) {
   font-size: var(--md);
   font-weight: bold;
+  color: var(--very-light-pink);
 }
 .primary-button {
   background-color: var(--hospital-green);
@@ -250,9 +262,10 @@ nav {
 .product-detail {
   width: 360px;
   padding-bottom: 24px;
-  border: solid 1px var(--very-light-pink);
-  position: absolute;
-  right: 0;
+  border-left: solid 1px var(--very-light-pink);
+  position: fixed;
+  top: 61px;
+  right: 0px;
   height: 100vh;
   background-color: var(--white)
 }
@@ -270,7 +283,7 @@ nav {
 .product-detail-close:hover {
   cursor: pointer;
 }
-.product-detail > img:nth-child(2) {
+.product-detail div > img:nth-child(2) {
   width: 100%;
   height: 360px;
   object-fit: cover;
@@ -284,6 +297,7 @@ nav {
   font-size: var(--md);
   margin-top: 0;
   margin-bottom: 4px;
+  color: var(--black)
 }
 .product-detail-info p:nth-child(2) {
   color: var(--very-light-pink);
@@ -321,7 +335,8 @@ nav {
   grid-template-columns: repeat(auto-fill, 240px);
   gap: 26px;
   place-content: center;
-  margin-top: 20px;
+  padding-top: 81px;
+  padding-bottom: 20px;
 }
 .product-card {
   width: 240px;
@@ -351,6 +366,7 @@ nav {
   font-size: var(--md);
   margin-top: 0;
   margin-bottom: 4px;
+  color: var(--black)
 }
 .product-info div p:nth-child(2) {
   font-size: var(--sm);
@@ -389,6 +405,8 @@ nav {
   }
   .product-detail {
     width: 100%;
+    position: fixed;
+    top: 61px;
   }
 }
 
