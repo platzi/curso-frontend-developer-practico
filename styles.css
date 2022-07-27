@@ -18,6 +18,9 @@
     display: none;
   }
 
+  .hover {
+    z-index: 3;
+  }
   /* Navbar (General) */
   nav {
     display: flex;
@@ -366,7 +369,7 @@
     .desktop-menu {
         display: none;
     }
-    .product-detail {
+    aside {
         width: 100%;
     }
     .cards-container {
