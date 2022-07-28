@@ -3,28 +3,41 @@ const desktopMenu = document.querySelector('.desktop-menu');
 const menuCarritoIcon = document.querySelector('.navbar-shopping-cart');
 const menuHamIcon = document.querySelector('.menu');
 const menuMobile = document.querySelector('.mobile-menu');
-const aside = document.querySelector('.product-detail');
+const shoppingCartContainer = document.querySelector('#shoppingCartContainer');
 const cardsContainer = document.querySelector('.cards-container');
+const productDetailContainer = document.querySelector('#productDetail');
+const productDetailCloseIcon = document.querySelector('.product-detail-close');
 
 menuEmail.addEventListener('click', toggleDesktopMenu);
 menuHamIcon.addEventListener('click', toggleMobileMenu);
 menuCarritoIcon.addEventListener('click', toggleCarritoAside);
+productDetailCloseIcon.addEventListener('click', closeProductDetail);
 
 function toggleDesktopMenu() {
-    const isCarritoClosed = aside.classList.contains('inactive')
+    const isCarritoClosed = shoppingCartContainer.classList.contains('inactive')
+    const isProductDetailClosed = productDetailContainer.classList.contains('inactive')
 
     if (!isCarritoClosed) {
-        aside.classList.add('inactive')
+        shoppingCartContainer.classList.add('inactive')
+    }
+
+    if (!isProductDetailClosed) {
+        productDetailContainer.classList.add('inactive')
     }
     
     desktopMenu.classList.toggle('inactive')
 }
 
 function toggleMobileMenu() {
-    const isCarritoClosed = aside.classList.contains('inactive')
+    const isCarritoClosed = shoppingCartContainer.classList.contains('inactive')
+    const isProductDetailClosed = productDetailContainer.classList.contains('inactive')
 
     if (!isCarritoClosed) {
-        aside.classList.add('inactive')
+        shoppingCartContainer.classList.add('inactive')
+    }
+
+    if (!isProductDetailClosed) {
+        productDetailContainer.classList.add('inactive')
     }
 
     menuMobile.classList.toggle('inactive')
@@ -33,6 +46,7 @@ function toggleMobileMenu() {
 function toggleCarritoAside() {
     const isMobileMenuClosed = menuMobile.classList.contains('inactive')
     const isDesktopMenuClosed = desktopMenu.classList.contains('inactive')
+    const isProductDetailClosed = productDetailContainer.classList.contains('inactive')
 
     if (!isMobileMenuClosed) {
         menuMobile.classList.add('inactive')
@@ -40,11 +54,32 @@ function toggleCarritoAside() {
         desktopMenu.classList.add('inactive')
     }
 
-    aside.classList.toggle('inactive')
+    if (!isProductDetailClosed) {
+        productDetailContainer.classList.add('inactive')
+    }
+
+    shoppingCartContainer.classList.toggle('inactive')
+}
+function openProductDetail() {
+    const isDesktopMenuClosed = desktopMenu.classList.contains('inactive')
+    const isCarritoClosed = shoppingCartContainer.classList.contains('inactive')
+    
+    if (!isDesktopMenuClosed) {
+        desktopMenu.classList.add('inactive')
+    }
+
+    if (!isCarritoClosed) {
+        shoppingCartContainer.classList.add('inactive');
+    }
+
+    productDetailContainer.classList.remove('inactive');
+}
+function closeProductDetail() {
+    productDetailContainer.classList.add('inactive');
 }
 
 //Arrray de objetos (Porductos de la tienda -> objetos)
-const productList = [];
+const productList = []; //Creamos o declaramos un array y lo llenamos de objetos
 productList.push ({ //Se agrega un nuevo elemento con el metodo .push()
     name: 'Bike',
     price: 120,
@@ -62,19 +97,21 @@ productList.push ({ //Se agrega un nuevo elemento con el metodo .push()
 })
 
 function renderProducts(array) {
-    for (product of array) {
-        const productCard = document.createElement('div');
-        productCard.classList.add('product-card');
+    for (product of array) { // for of Loop, donde product es el elemento del array
+        const productCard = document.createElement('div'); //Creamos una etiqueta o elemnto HTML desde JavaScript
+        productCard.classList.add('product-card');//Le añadimos una clase a la etiqueta o elemnto div
     
         
         //product = {name, price, image}
         const productImage = document.createElement('img');
-        productImage.setAttribute('src', product.image);
+        productImage.setAttribute('src', product.image);//Agregamos un atributo al elemento img
+        productImage.addEventListener('click', openProductDetail); //Puedo agregar un addEventListner a un elemnto HTML creado desde JS
+
         
         const productInfo = document.createElement('div');
         productInfo.classList.add('product-info');
         
-        productCard.appendChild(productImage);
+        productCard.appendChild(productImage); //Asignamos como hijo directo con el metodo appendChild()
         productCard.appendChild(productInfo);
     
         const productInfoDiv = document.createElement('div');
@@ -82,7 +119,7 @@ function renderProducts(array) {
         productInfo.appendChild(productInfoDiv);
     
         const productPrice = document.createElement('p');
-        productPrice.innerText = '$' + product.price;
+        productPrice.innerText = '$' + product.price; //Asignamos un contenido o texto a la etiqueta p con el metodo innerText()
         
         const productName = document.createElement('p');
         productName.innerText = product.name;
@@ -101,6 +138,6 @@ function renderProducts(array) {
     
         cardsContainer.appendChild(productCard);
     }
-}
+} //Lo convertimos en una funcion donde array es el parametro de la funcion
 
-renderProducts(productList);
+renderProducts(productList); //Se invoca la funcion en el .js para que funcione en la web
