@@ -3,7 +3,7 @@ const desktopMenu = document.querySelector('.desktop-menu');
 const mobileMenu = document.querySelector('.mobile-menu');
 const menuHamIcon = document.querySelector('.menu');
 const menuCarIcon = document.querySelector('.navbar-shopping-cart');
-const aside = document.querySelector('.product-detail');
+const shoppingCartContainer = document.querySelector('#shoppingCartContainer');
 const cardsContainer = document.querySelector('.cards-container');
 
 menuEmail.addEventListener('click', toggleDesktopMenu);
@@ -13,14 +13,14 @@ menuCarIcon.addEventListener('click', toggleCarritoAside);
 
 function toggleDesktopMenu(){
     
-    aside.classList.add('inactive');
+    shoppingCartContainer.classList.add('inactive');
     mobileMenu.classList.add('inactive');
     desktopMenu.classList.toggle('inactive');//classList.toggle, quita o pone una clase dependiendo si la tiene o no
 }
 
 function toggleMobilepMenu(){
     desktopMenu.classList.add('inactive'); 
-    aside.classList.add('inactive');
+    shoppingCartContainer.classList.add('inactive');
     mobileMenu.classList.toggle('inactive');
 
 }
@@ -29,7 +29,7 @@ function toggleCarritoAside(){
 
     mobileMenu.classList.add('inactive');
     desktopMenu.classList.add('inactive');
-    aside.classList.toggle('inactive');
+    shoppingCartContainer.classList.toggle('inactive');
 }
 
 const productList =[];
@@ -96,7 +96,7 @@ function renderProducts(arrayProducts){
        //para ingresar una etiqueta dentro de otra
        productInfo.append(productInfoDiv, productInfoFigure);
     
-       productCard.appendChild(productImg, productInfo);
+       productCard.append(productImg, productInfo);
       //vamos a unir el contenedor que hicimos en js al contenedor que se encuentra en html llamado con la clase cards-container(el cual ya le creamos al inicio un selector con el nombre de const cardsContainer )
       
       cardsContainer.appendChild(productCard);
