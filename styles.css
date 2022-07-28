@@ -165,6 +165,7 @@
     box-sizing: border-box;
     position: absolute;
     right: 0;
+    background-color: var(--white);
   }
   .title-container {
     display: flex;
@@ -241,6 +242,8 @@
     grid-template-columns: repeat(auto-fill, 240px);
     gap: 26px;
     place-content: center;
+    margin-top: 20px;
+    margin-bottom: 20px;
   }
   .product-card {
     width: 240px;
@@ -274,7 +277,7 @@
     font-size: var(--sm);
     margin-top: 0;
     margin-bottom: 0;
-    color: var(--very-light-pink);
+    color: var(--black);
   }
 
 
