@@ -33,7 +33,7 @@
           <li class="navbar-email">platzi@example.com</li>
           <li class="navbar-shopping-cart">
             <img src="./icons/icon_shopping_cart.svg" alt="shopping cart">
-            <div>3</div>
+            <div class="shopping-quantity">0</div>
           </li>
         </ul>
       </div>
@@ -72,43 +72,20 @@
 
   <aside class="shopping-cart-detail inactive">
     <div class="title-container">
-      <img src="./icons/flechita.svg" alt="arrow">
+      <img src="./icons/flechita.svg" alt="arrow" class="close-cart">
       <p class="title">My order</p>
     </div>
 
     <div class="my-order-content">
-      <div class="shopping-cart">
-        <figure>
-          <img src="https://images.pexels.com/photos/276517/pexels-photo-276517.jpeg?auto=compress&cs=tinysrgb&dpr=2&h=650&w=940" alt="bike">
-        </figure>
-        <p>Bike</p>
-        <p>$30,00</p>
-        <img src="./icons/icon_close.png" alt="close">
-      </div>
-
-      <div class="shopping-cart">
-        <figure>
-          <img src="https://images.pexels.com/photos/276517/pexels-photo-276517.jpeg?auto=compress&cs=tinysrgb&dpr=2&h=650&w=940" alt="bike">
-        </figure>
-        <p>Bike</p>
-        <p>$30,00</p>
-        <img src="./icons/icon_close.png" alt="close">
-      </div>
-
-      <div class="shopping-cart">
-        <figure>
-          <img src="https://images.pexels.com/photos/276517/pexels-photo-276517.jpeg?auto=compress&cs=tinysrgb&dpr=2&h=650&w=940" alt="bike">
-        </figure>
-        <p>Bike</p>
-        <p>$30,00</p>
-        <img src="./icons/icon_close.png" alt="close">
-      </div>
-
       <div class="order">
+
+      </div>
+
+      <div class="summary">
         <p>
           <span>Total</span>
         </p>
-        <p>$90.00</p>
+        <p class="summary-total"></p>
       </div>
 
       <button class="primary-button">

@@ -143,8 +143,8 @@ nav {
   position: fixed;
   top: 61px;
   left: 0;
-  width: 91%;
-  height: 91%;
+  width: calc(100% - 48px);
+  height: calc(100% - 48px);
   background-color: var(--white)
 }
 .mobile-menu a {
@@ -181,7 +181,7 @@ nav {
   border: solid 1px var(--very-light-pink);
   border-radius: 8px;
   box-sizing: border-box;
-  position: fixed;
+  position: absolute;
   top: 61px;
   right: 0;
   background-color: var(--white);
@@ -195,12 +195,13 @@ nav {
 .title-container img {
   transform: rotate(180deg);
   margin-right: 14px;
+  cursor: pointer;
 }
 .title {
   font-size: var(--lg);
   font-weight: bold;
 }
-.order {
+.summary {
   display: grid;
   grid-template-columns: auto 1fr;
   gap: 16px;
@@ -210,15 +211,15 @@ nav {
   border-radius: 8px;
   padding: 0 24px;
 }
-.order p:nth-child(1) {
+.summary p:nth-child(1) {
   display: flex;
   flex-direction: column;
 }
-.order p span:nth-child(1) {
+.summary p span:nth-child(1) {
   font-size: var(--md);
   font-weight: bold;
 }
-.order p:nth-child(2) {
+.summary p:nth-child(2) {
   text-align: end;
   font-weight: bold;
 }
@@ -228,6 +229,9 @@ nav {
   gap: 16px;
   margin-bottom: 24px;
   align-items: center;
+}
+.shopping-cart > img {
+  cursor: pointer;
 }
 .shopping-cart figure {
   margin: 0;
