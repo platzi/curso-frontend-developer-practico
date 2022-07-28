@@ -12,6 +12,9 @@
     margin: 0;
     font-family: 'Quicksand', sans-serif;
   }
+  .inactive {
+    display:none;
+  }
   nav {
     display: flex;
     justify-content: space-between;
@@ -53,6 +56,7 @@
     color: var(--hospital-green);
   }
   .navbar-email {
+    cursor: pointer;
     color: var(--very-light-pink);
     font-size: var(--sm);
     margin-right: 12px;
@@ -75,6 +79,10 @@
     align-items: center;
   }
   .desktop-menu {
+    position: absolute;
+    top: 60px;
+    right: 60px;
+    background-color: var(--white);
     width: 100px;
     height: auto;
     border: 1px solid var(--very-light-pink);
