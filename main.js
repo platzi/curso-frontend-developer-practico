@@ -4,12 +4,15 @@ const logoMenu = document.querySelector('.menu');
 const mobilMenu = document.querySelector('.mobile-menu');
 const menuCarrito = document.querySelector('.navbar-shopping-cart');
 const shoppingCartContainer = document.querySelector('#shoppingCartContainer');
+const productDeatailContainer = document.querySelector('#productDetail');
+const productDetailClose = document.querySelector('.product-detail-close')
 const cartsContainer = document.querySelector('.cards-container')
 const productList = [];
 
 navEmail.addEventListener('click', toggleDesktopMenu);
 logoMenu.addEventListener('click', toggleMobilMenu);
-menuCarrito.addEventListener('click', toggleAside);
+menuCarrito.addEventListener('click', toggleCarritoAside);
+productDetailClose.addEventListener('click', CloseDetail)
 
 function toggleDesktopMenu () {
     const isAsaidClosed = shoppingCartContainer.classList.contains('inactive')
@@ -24,17 +27,32 @@ function toggleMobilMenu(){
         shoppingCartContainer.classList.add('inactive');
     }
     mobilMenu.classList.toggle('inactive');
+    CloseDetail()
 }
-function toggleAside (){
+function toggleCarritoAside (){
     const isDesktopMenuClose = desktopMenu.classList.contains('inactive')
     const isMobilMenuClosed = mobilMenu.classList.contains('inactive')
+    const isProductDeatailClose = productDeatailContainer.classList.contains('inactive')
     if(!isMobilMenuClosed){
         mobilMenu.classList.add('inactive');
     } else if (!isDesktopMenuClose){
         desktopMenu.classList.add('inactive')
+    } else if (!isProductDeatailClose){
+        productDeatailContainer.classList.add('inactive')
     }
     shoppingCartContainer.classList.toggle('inactive');
 }
+
+function openProductAside(){
+    shoppingCartContainer.classList.add('inactive')
+    productDeatailContainer.classList.remove('inactive')
+}
+function CloseDetail(){
+    productDeatailContainer.classList.add('inactive')
+}
+
+
+
 productList.push({
     name: 'bike',
     price: 500,
@@ -57,6 +75,7 @@ function renderProducts (arr){
     
         const productImg = document.createElement('img');
         productImg.setAttribute('src', product.img);
+        productImg.addEventListener('click', openProductAside)
     
         const productInfo = document.createElement('div');
         productInfo.classList.add("product-info");
