@@ -343,6 +343,7 @@ nav {
   /* Product Detailed View */
 
   .product-detailed-view {
+    background-color: var(--white);
     width: 360px;
     margin: 0 20px;
     padding-bottom: 24px;
