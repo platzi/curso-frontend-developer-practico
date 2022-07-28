@@ -1,82 +1,86 @@
-const navbarEmail = document.querySelector('.navbar-email');
-const desktopMenu = document.querySelector('.desktop-menu');
-const burguerMenu = document.querySelector('.menu');
-const mobileMenu = document.querySelector('.mobile-menu');
-const cartIcon = document.querySelector('.navbar-shopping-cart');
-const cartMenu = document.querySelector('.product-detail-cart');
-const cardContainerProduct = document.querySelector('.cards-container');
-const productDetail = document.querySelector('.product-detail');
-const productDetailClose = document.querySelector('.product-detail-close')
+const navbarEmail = document.querySelector(".navbar-email");
+const desktopMenu = document.querySelector(".desktop-menu");
+const burguerMenu = document.querySelector(".menu");
+const mobileMenu = document.querySelector(".mobile-menu");
+const cartIcon = document.querySelector(".navbar-shopping-cart");
+const cartMenu = document.querySelector(".product-detail-cart");
+const cardContainerProduct = document.querySelector(".cards-container");
+const productDetail = document.querySelector(".product-detail");
+const productDetailClose = document.querySelector(".product-detail-close");
 
-navbarEmail.addEventListener('click', showDesktopMenu);
-burguerMenu.addEventListener('click', showMobileMenu);
-cartIcon.addEventListener('click', showCartMenu);
-productDetailClose.addEventListener('click', closeProductDetail);
+navbarEmail.addEventListener("click", showDesktopMenu);
+burguerMenu.addEventListener("click", showMobileMenu);
+cartIcon.addEventListener("click", showCartMenu);
+productDetailClose.addEventListener("click", closeProductDetail);
 
 function showDesktopMenu() {
-    desktopMenu.classList.toggle('inactive');
-    cartMenu.classList.add('inactive')
-    productDetail.classList.add('inactive');
-};
+    desktopMenu.classList.toggle("inactive");
+    cartMenu.classList.add("inactive");
+    productDetail.classList.add("inactive");
+}
 
 function showMobileMenu() {
-    mobileMenu.classList.toggle('inactive');
-    cartMenu.classList.add('inactive')
-    productDetail.classList.add('inactive');
-};
+    mobileMenu.classList.toggle("inactive");
+    cartMenu.classList.add("inactive");
+    productDetail.classList.add("inactive");
+}
 
 function showCartMenu() {
-    cartMenu.classList.toggle('inactive');
-    mobileMenu.classList.add('inactive');
-    desktopMenu.classList.add('inactive');
-    productDetail.classList.add('inactive');
+    cartMenu.classList.toggle("inactive");
+    mobileMenu.classList.add("inactive");
+    desktopMenu.classList.add("inactive");
+    productDetail.classList.add("inactive");
 }
 
 function showProductDetail() {
-    productDetail.classList.remove('inactive');
-    cartMenu.classList.add('inactive');
-    mobileMenu.classList.add('inactive');
-};
+    productDetail.classList.remove("inactive");
+    cartMenu.classList.add("inactive");
+    mobileMenu.classList.add("inactive");
+}
 
 function closeProductDetail() {
-    productDetail.classList.add('inactive');
-    cartMenu.classList.add('inactive');
-    mobileMenu.classList.add('inactive');
-    desktopMenu.classList.add('inactive')
-};
+    productDetail.classList.add("inactive");
+    cartMenu.classList.add("inactive");
+    mobileMenu.classList.add("inactive");
+    desktopMenu.classList.add("inactive");
+}
 
 const productList = [];
-productList.push ({
-    name:'Bike',
+productList.push({
+    name: "Bike",
     price: 12700,
-    image: 'https://images.pexels.com/photos/276517/pexels-photo-276517.jpeg?auto=compress&cs=tinysrgb&dpr=2&h=650&w=940'
+    image:
+        "https://images.pexels.com/photos/276517/pexels-photo-276517.jpeg?auto=compress&cs=tinysrgb&dpr=2&h=650&w=940",
 });
-productList.push ({
-    name:'Bicycle helmet',
+productList.push({
+    name: "Bicycle helmet",
     price: 1200,
-    image: 'https://assets.specialized.com/i/specialized/60821-104_HLMT_ALIGN-II-HLMT-MIPS-CE-BLK-BLKREFL-S-M_HERO?bg=rgb(241,241,241)&w=1600&h=900&fmt=auto'
+    image:
+        "https://assets.specialized.com/i/specialized/60821-104_HLMT_ALIGN-II-HLMT-MIPS-CE-BLK-BLKREFL-S-M_HERO?bg=rgb(241,241,241)&w=1600&h=900&fmt=auto",
 });
-productList.push ({
-    name:'Bicycle helmet',
+productList.push({
+    name: "Bicycle helmet",
     price: 1600,
-    image: 'https://m.media-amazon.com/images/I/61eExL-rIAL._AC_SL1001_.jpg'
+    image: "https://m.media-amazon.com/images/I/61eExL-rIAL._AC_SL1001_.jpg",
 });
 
-productList.push ({
-    name:'Sunglasses',
+productList.push({
+    name: "Sunglasses",
     price: 800,
-    image: 'https://cdn.siroko.com/s/files/1/1220/6874/products/gafas-siroko-tech-k3s-london-lateral/1200x/crop_center.jpg?v=1635209602'
+    image:
+        "https://cdn.siroko.com/s/files/1/1220/6874/products/gafas-siroko-tech-k3s-london-lateral/1200x/crop_center.jpg?v=1635209602",
 });
-productList.push ({
-    name:'Sunglasses',
+productList.push({
+    name: "Sunglasses",
     price: 600,
-    image: 'https://cdn.siroko.com/s/files/1/1220/6874/products/siroko-tech-k3s-clearfog-lente-antiniebla-frontal/1200x/crop_center.jpg?v=1635209603'
+    image:
+        "https://cdn.siroko.com/s/files/1/1220/6874/products/siroko-tech-k3s-clearfog-lente-antiniebla-frontal/1200x/crop_center.jpg?v=1635209603",
 });
-productList.push ({
-    name:'Bicycle seat bag',
+productList.push({
+    name: "Bicycle seat bag",
     price: 876,
-    image: 'https://m.media-amazon.com/images/I/81k2Gmal+VL._AC_SL1500_.jpg'
-}); 
+    image: "https://m.media-amazon.com/images/I/81k2Gmal+VL._AC_SL1500_.jpg",
+});
 /*
 function renderProducts(array) {
 for (product of array) {
@@ -102,42 +106,36 @@ renderProducts(productList);
 */
 
 function renderProducts(array) {
+    for (product of array) {
+        const productCard = document.createElement("div");
+        productCard.classList.add("product-card");
 
-for (product of array) {
-const productCard = document.createElement('div');
-productCard.classList.add('product-card');
+        const productImg = document.createElement("img");
+        productImg.setAttribute("src", product.image);
+        productImg.addEventListener("click", showProductDetail);
 
-const productImg = document.createElement('img');
-productImg.setAttribute('src', product.image )
-productImg.addEventListener('click', showProductDetail)
+        productInfo = document.createElement("div");
+        productInfo.classList.add("product-info");
 
-productInfo = document.createElement('div');
-productInfo.classList.add('product-info');
+        productInfoDiv = document.createElement("div");
 
-productInfoDiv = document.createElement('div');
+        productPrice = document.createElement("p");
+        productPrice.innerText = product.price;
 
+        productName = document.createElement("p");
+        productName.innerText = product.name;
 
-productPrice = document.createElement('p');
-productPrice.innerText = product.price;
+        productFigure = document.createElement("figure");
+        productFigureImg = document.createElement("img");
+        productFigureImg.setAttribute("src", "./icons/bt_add_to_cart.svg");
 
-productName = document.createElement('p');
-productName.innerText = product.name;
+        productFigure.append(productFigureImg);
+        productInfoDiv.append(productPrice, productName);
 
+        productInfo.append(productInfoDiv, productFigure);
 
-productFigure = document.createElement('figure')
-productFigureImg = document.createElement('img')
-productFigureImg.setAttribute('src', './icons/bt_add_to_cart.svg')
-
-productFigure.append(productFigureImg);
-productInfoDiv.append(productPrice, productName);
-
-productInfo.append(productInfoDiv, productFigure);
-
-productCard.append(productImg,productInfo);
-cardContainerProduct.append(productCard);
-
-} 
+        productCard.append(productImg, productInfo);
+        cardContainerProduct.append(productCard);
+    }
 }
-renderProducts(productList)
-
-
+renderProducts(productList);
