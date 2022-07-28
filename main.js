@@ -8,7 +8,7 @@ const mobileMenu = document.querySelector(".mobile-menu");
 
 /* Variables para desplegar el shopping-cart */
 const shoppingCartButton = document.querySelector(".navbar-shopping-cart");
-const shoppingCartAside = document.querySelector(".product-detail");
+const shoppingCartAside = document.querySelector(".shopping-cart-container");
 
 navMail.addEventListener("click", () => {
   desktopMenu.classList.toggle("inactive");
