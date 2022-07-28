@@ -2,30 +2,48 @@ const navbarEmail = document.querySelector('.navbar-email');
 const desktopMenu = document.querySelector('.desktop-menu');
 const burguerMenu = document.querySelector('.menu');
 const mobileMenu = document.querySelector('.mobile-menu');
-const cartIcon = document.querySelector('.navbar-shopping-cart')
+const cartIcon = document.querySelector('.navbar-shopping-cart');
 const cartMenu = document.querySelector('.product-detail-cart');
-const cardContainerProduct = document.querySelector('.cards-container')
-
+const cardContainerProduct = document.querySelector('.cards-container');
+const productDetail = document.querySelector('.product-detail');
+const productDetailClose = document.querySelector('.product-detail-close')
 
 navbarEmail.addEventListener('click', showDesktopMenu);
 burguerMenu.addEventListener('click', showMobileMenu);
-cartIcon.addEventListener('click', showCartMenu)
+cartIcon.addEventListener('click', showCartMenu);
+productDetailClose.addEventListener('click', closeProductDetail);
 
 function showDesktopMenu() {
     desktopMenu.classList.toggle('inactive');
     cartMenu.classList.add('inactive')
+    productDetail.classList.add('inactive');
 };
 
 function showMobileMenu() {
     mobileMenu.classList.toggle('inactive');
     cartMenu.classList.add('inactive')
+    productDetail.classList.add('inactive');
 };
 
 function showCartMenu() {
     cartMenu.classList.toggle('inactive');
     mobileMenu.classList.add('inactive');
+    desktopMenu.classList.add('inactive');
+    productDetail.classList.add('inactive');
 }
 
+function showProductDetail() {
+    productDetail.classList.remove('inactive');
+    cartMenu.classList.add('inactive');
+    mobileMenu.classList.add('inactive');
+};
+
+function closeProductDetail() {
+    productDetail.classList.add('inactive');
+    cartMenu.classList.add('inactive');
+    mobileMenu.classList.add('inactive');
+    desktopMenu.classList.add('inactive')
+};
 
 const productList = [];
 productList.push ({
@@ -59,7 +77,7 @@ productList.push ({
     price: 876,
     image: 'https://m.media-amazon.com/images/I/81k2Gmal+VL._AC_SL1500_.jpg'
 }); 
-
+/*
 function renderProducts(array) {
 for (product of array) {
 const cardProduct = `<div class="product-card">
@@ -74,13 +92,15 @@ const cardProduct = `<div class="product-card">
   </figure>
 </div>
 </div> `
+
 cardContainerProduct.innerHTML += cardProduct;
 }
 }
 
 renderProducts(productList);
 
-/*
+*/
+
 function renderProducts(array) {
 
 for (product of array) {
@@ -89,6 +109,7 @@ productCard.classList.add('product-card');
 
 const productImg = document.createElement('img');
 productImg.setAttribute('src', product.image )
+productImg.addEventListener('click', showProductDetail)
 
 productInfo = document.createElement('div');
 productInfo.classList.add('product-info');
@@ -119,5 +140,4 @@ cardContainerProduct.append(productCard);
 }
 renderProducts(productList)
 
-*/
 
