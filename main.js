@@ -6,6 +6,7 @@ const desktopMenu = document.querySelector('.desktop-menu');
 const shoppingCartContainer = document.querySelector('#shoppingCartContainer');
 const productDetailContainer = document.querySelector('#productDetail');
 const productCloseDetailContainer = document.querySelector('.product-detail-close');
+const productDetailImg = document.querySelector('.productDetailImg');
 const cardsContainer = document.querySelector('.cards-container');
 
 
@@ -73,6 +74,10 @@ function oppenProductDetailAside (){
         desktopMenu.classList.add('hover');
     }
 
+    function imgReference(objName) {
+        productDetailImg.setAttribute("src", objName.image )
+    }
+    imgReference
     productDetailContainer.classList.remove("inactive");
 }
 
@@ -87,22 +92,57 @@ function closeProductDetailAside (){
 
 }
  
+// ---------------------ProductsList---------------------
+
 const productsList = [];
-productsList.push({
-    name: "Bike",
-    price: 120,
-    image:"https://images.pexels.com/photos/276517/pexels-photo-276517.jpeg?auto=compress&cs=tinysrgb&dpr=2&h=650&w=940",
-})
-productsList.push({
-    name: "Pantalla",
-    price: 200,
-    image:"https://images.pexels.com/photos/276517/pexels-photo-276517.jpeg?auto=compress&cs=tinysrgb&dpr=2&h=650&w=940",
-})
-productsList.push({
-    name: "Computer",
-    price: 300,
-    image:"https://images.pexels.com/photos/276517/pexels-photo-276517.jpeg?auto=compress&cs=tinysrgb&dpr=2&h=650&w=940",
-})
+
+function addToProductList(VarOfTheProduct) {
+    productsList.push(VarOfTheProduct);
+};
+
+class CreateProducts{
+    constructor(
+        name,
+        price,
+        image,
+        description = "Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat. Duis aute irure dolor in reprehenderit in voluptate velit esse cillum dolore eu fugiat nulla pariatur. Excepteur sint occaecat cupidatat non proident, sunt in culpa qui officia deserunt mollit anim id est laborum.",
+    ) {
+        this.name = name;
+        this.price = price;
+        this.image = image;
+        this.description = description;
+    }
+}
+
+// ------------------------Products------------------------
+
+let productBike = new CreateProducts("Bike", 100, "./images/Product-Bike.jpg");
+let productVase = new CreateProducts("Vase", 10, "./images/Product-vase.jpg");
+let productComputer= new CreateProducts("Computer", 500, "./images/Product-Electronic-laptop.jpg");
+let productXylophone= new CreateProducts("Xylophone", 4, "./images/Product-Toy-music.jpg");
+let productCrocks= new CreateProducts("Crocks", 12, "./images/Product-crocks.jpg");
+let productIron= new CreateProducts("Iron", 15, "./images/Product-Electronic-Iron.jpg");
+let productWeights= new CreateProducts("Wheaves", 8, "./images/Product-pesas.jpg");
+let productShirt= new CreateProducts("Shirt", 10.50, "./images/Product-shirt.jpg");
+let productShoes= new CreateProducts("Shoes", 15, "./images/Product-shoes.jpg");
+let productTennisBall= new CreateProducts("Tennis Ball", 1.20, "./images/Product-tennisBall.jpg");
+let productMrio= new CreateProducts("Action Figure of Mario ", 3 , "./images/Product-Toy-mario.jpg");
+let productSpiner= new CreateProducts("Spiner", 2.50, "./images/Product-Toy-spiner.jpg");
+
+addToProductList(productBike);
+addToProductList(productVase);
+addToProductList(productComputer);
+addToProductList(productXylophone);
+addToProductList(productCrocks);
+addToProductList(productIron);
+addToProductList(productWeights);
+addToProductList(productShirt);
+addToProductList(productShoes);
+addToProductList(productTennisBall);
+addToProductList(productMrio);
+addToProductList(productSpiner);
+
+
 
 
 /* <div class="product-card">
@@ -118,7 +158,7 @@ productsList.push({
         </div>
     </div> */
 
-    for (product of productsList) {
+for (product of productsList) {
         const productCard = document.createElement('div');
         productCard.classList.add('product-card');
       
@@ -136,9 +176,10 @@ productsList.push({
         productPrice.innerText = '$' + product.price;
         const productName = document.createElement('p');
         productName.innerText = product.name;
-      
-        productInfoDiv.appendChild(productPrice);
+
         productInfoDiv.appendChild(productName);
+        productInfoDiv.appendChild(productPrice);
+
       
         const productInfoFigure = document.createElement('figure');
         const productImgCart = document.createElement('img');
@@ -154,3 +195,5 @@ productsList.push({
       
         cardsContainer.appendChild(productCard);
       }
+// ---------------------productDetaleImg---------------------
+
