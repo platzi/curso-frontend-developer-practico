@@ -1,17 +1,18 @@
 const menuEmail = document.querySelector('.navbar-email');
 const menuHamIcon = document.querySelector('.menu');
 const menuCarritoIcon = document.querySelector('.navbar-shopping-cart');
-const productDetailCloseIcon = document.querySelector('.product-detail-close')
+
 const desktopMenu = document.querySelector('.desktop-menu');
 const mobileMenu = document.querySelector('.mobile-menu');
 const shoppingCartContainer = document.querySelector('#shoppingCartContainer');
 const productDetailContainer = document.querySelector('#productDetail');
 const cardsContainer = document.querySelector('.cards-container');
 
+
 menuEmail.addEventListener('click', toggleDesktopMenu);
 menuHamIcon.addEventListener('click', toggleMobileMenu);
 menuCarritoIcon.addEventListener('click', toggleCarritoAside);
-productDetailCloseIcon.addEventListener('click', closeProductDetailAside);
+
 
 function toggleDesktopMenu() {
   const isAsideClosed = shoppingCartContainer.classList.contains('inactive');
@@ -59,9 +60,11 @@ function toggleCarritoAside() {
   shoppingCartContainer.classList.toggle('inactive');
 }
 
-function openProductDetailAside() {
+function openProductDetailAside(product) {
+  console.log(product)
   desktopMenu.classList.add('inactive');
   shoppingCartContainer.classList.add('inactive');
+  selectedProduct(product);
   productDetailContainer.classList.remove('inactive');
 }
 
@@ -87,15 +90,18 @@ productList.push({
 });
 
 function renderProducts(arr) {
-  for (product of arr) {
+  arr.forEach((product) => {
     const productCard = document.createElement('div');
     productCard.classList.add('product-card');
-  
+    
+    productCard.addEventListener('click',()=>{
+            openProductDetailAside(product);
+    })
+
     // product= {name, price, image} -> product.image
     const productImg = document.createElement('img');
-    productImg.setAttribute('src', product.image);
-    productImg.addEventListener('click', openProductDetailAside);
-  
+    productImg.setAttribute('src', product.image);       
+      
     const productInfo = document.createElement('div');
     productInfo.classList.add('product-info');
   
@@ -122,8 +128,31 @@ function renderProducts(arr) {
     productCard.appendChild(productInfo);
   
     cardsContainer.appendChild(productCard);
-  }
+  })
+}
+renderProducts(productList);
+
+function selectedProduct(product) {
+  const productoSeleccionado = `
+  <div class="product-detail-close">
+            <img src="./icons/icon_close.png" alt="close">
+          </div>
+      <img src=${product.image} alt=${product.name}>
+      <div class="product-info">
+        <p>$${product.price}</p>
+        <p>${product.name}</p>
+        <p>With its practical position, this ${product.name} also fulfills a decorative function, add your hall or workspace.</p>
+        <button class="primary-button add-to-cart-button">
+          <img src="./icons/bt_add_to_cart.svg" alt="add to cart">
+          <img>/   Add to cart
+        </button> 
+      </div>
+    `
+    productDetailContainer.innerHTML = productoSeleccionado
+    const productDetailCloseIcon = document.querySelector('.product-detail-close')
+    productDetailCloseIcon.addEventListener('click', closeProductDetailAside);
+
 }
 
-renderProducts(productList);
+
 
