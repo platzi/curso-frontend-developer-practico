@@ -6,14 +6,25 @@ const mobilemenu=document.querySelector(`.mobile-menu`);
 const shoppingcarticon=document.querySelector(`.navbar-shopping-cart`);
 const detailshoppingcart=document.querySelector(`.product-detail`);
 const cardContainer=document.querySelector(`.cards-container`);
+const closedetailproduct=document.querySelector(`.product-detail-close2`)
+const productdetail2=document.querySelector(`.product-detail2`)
 //se añade los eventos de click para los menu de inicio 
 email.addEventListener(`click`,toggleDesktopMenu);
 iconmenu.addEventListener(`click`,togglemobileMenu);
 shoppingcarticon.addEventListener(`click`,toggleshoppingcartMenu);
+closedetailproduct.addEventListener(`click`,togglesdetailproduct2);
 
 //funcion de el desktop menu
 function toggleDesktopMenu(){
     const isDetailShoppinCartClosed= detailshoppingcart.classList.contains(`inactive`)
+    const isproductdetail2Closed= productdetail2.classList.contains(`inactive`);
+    const isDesktopMenuClosed=Desktopmenu.classList.contains(`inactive`);
+    if(!isDesktopMenuClosed){
+        Desktopmenu.classList.add(`inactive`);
+    }
+    if(!isproductdetail2Closed){
+        productdetail2.classList.add(`inactive`);
+    }
     if(!isDetailShoppinCartClosed){
         detailshoppingcart.classList.add(`inactive`)
     }
@@ -22,6 +33,10 @@ function toggleDesktopMenu(){
 //funcion para el menu de mobile
 function togglemobileMenu(){
     const isDetailShoppinCartClosed= detailshoppingcart.classList.contains(`inactive`)
+    const isproductdetail2Closed= productdetail2.classList.contains(`inactive`);
+    if(!isproductdetail2Closed){
+        productdetail2.classList.add(`inactive`);
+    }
     if(!isDetailShoppinCartClosed){
         detailshoppingcart.classList.add(`inactive`)
     }
@@ -31,7 +46,11 @@ function togglemobileMenu(){
 // funcion para el menu de shoppping cart
 function toggleshoppingcartMenu(){
     const isMobileMenuClosed= mobilemenu.classList.contains(`inactive`);
+    const isproductdetail2Closed= productdetail2.classList.contains(`inactive`);
     const isDesktopMenuClosed=Desktopmenu.classList.contains(`inactive`);
+    if(!isproductdetail2Closed){
+        productdetail2.classList.add(`inactive`);
+    }
     if(!isDesktopMenuClosed){
         Desktopmenu.classList.add(`inactive`);
     }
@@ -40,6 +59,27 @@ function toggleshoppingcartMenu(){
     }
     detailshoppingcart.classList.toggle(`inactive`);
     //detailshoppingcart.classList.toggle(`inactive`)
+}
+//funcion para cerrar el detail product 2
+function togglesdetailproduct2(){
+    const isproductdetail2Closed= productdetail2.classList.contains(`inactive`);
+    const isDesktopMenuClosed=Desktopmenu.classList.contains(`inactive`);
+    const isDetailShoppinCartClosed= detailshoppingcart.classList.contains(`inactive`)
+    if(!isDesktopMenuClosed){
+        Desktopmenu.classList.add(`inactive`);
+    }
+    if(!isDetailShoppinCartClosed){
+        detailshoppingcart.classList.add(`inactive`)
+    }
+    if(!isproductdetail2Closed){
+        productdetail2.classList.add(`inactive`);
+    }
+    isproductdetail2Closed.classList.toggle(`inactive`);
+    //detailshoppingcart.classList.toggle(`inactive`)
+}
+//funcion para abrir usando la imagen
+function opendetailproduct2(){
+    productdetail2.classList.remove(`inactive`);
 }
 //array vacio que se le agregan los push con los productos que necesitamos 
 //pagina de inicio cards via js ( simulando a las API)
@@ -86,7 +126,7 @@ function renderproducts(arr){
         const productinfofigure=document.createElement(`figure`);
         const imagefigure=document.createElement(`img`);
     
-    
+        imgproduct.addEventListener(`click`,opendetailproduct2);
         //asignar clase al product info
         prodcutinfo.classList.add(`product-info`)
         //cambiar el src de img product por el de nuestra imagen en el array
