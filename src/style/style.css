@@ -1,0 +1,38 @@
+@import url(./generales.css);
+@import url(./navbar.css);
+@import url(./menuEmail.css);
+@import url(./menuBurguer.css);
+@import url(./carrito.css);
+@import url(./sectionProductList.css);
+@import url(./productDetailsMain.css);
+
+.inactive{
+    display: none;
+}
+
+@media (max-width: 640px) {
+    .menu {
+      display: block;
+    }
+    .menu:hover{
+        cursor:pointer;
+    }
+    .product-detail {
+        width: 100%;
+    }
+    .navbar-left ul, .navbar-email, .desktop-menu {
+      display: none;
+    }
+  }
+
+  @media (min-width: 641px){
+    .mobile-menu {
+        display: none;
+    }
+  }
+
+  @media (max-width: 640px) {
+    .product-detail-main {
+      width: 100%;
+    }
+  }
