@@ -20,6 +20,8 @@ function toggleDesktopMenu() {
         shoppingCartContainer.classList.add('inactive');
     }
     
+    closeProductDetailAside();
+
     desktopMenu.classList.toggle('inactive');
 }
 
@@ -54,6 +56,7 @@ function toggleCarritoAside() {
 
 function openProductDetailAside() {
     shoppingCartContainer.classList.add('inactive');
+    desktopMenu.classList.add('inactive');
     productDetailContainer.classList.remove('inactive')
 }
 
