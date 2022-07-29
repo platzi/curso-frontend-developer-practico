@@ -1,5 +1,6 @@
 const navEmail = document.querySelector('.navbar-email')
 const desktopMenu = document.querySelector('.desktop-menu')
+const productDetailCloseIcon = document.querySelector('.product-detail-close')
 const burgerMenuIcon = document.querySelector('.menu')
 const mobileMenu = document.querySelector('.mobile-menu')
 const menuIconCar = document.querySelector('.navbar-shopping-cart')
@@ -7,7 +8,7 @@ const productCar = document.querySelector('.product-cart')
 const productDetail = document.querySelector('.product-detail')
 
 
-const createProductsComponents = (data) => {
+const renderProducts = (data) => {
   const cardsContainer = document.querySelector('.cards-container')
   data.forEach(product => {
   const productCard = document.createElement('div');
@@ -15,6 +16,7 @@ const createProductsComponents = (data) => {
 
   const productImg = document.createElement('img');
   productImg.setAttribute('src', product.images[0]);
+  productImg.addEventListener('click', openProductDetail)
 
   const productInfo = document.createElement('div');
   productInfo.classList.add('product-info_list');
@@ -52,31 +54,47 @@ function getProducts(){
   fetch(API)
     .then(res => res.json())
     .then(data => {
-      createProductsComponents(data)
+      renderProducts(data)
     })
 } getProducts()
 
+const openProductDetail = () => {
+  productDetail.classList.remove('inactive')
+  
+  const isDesktopMenuClose = desktopMenu.classList.contains('inactive')
+  const isMobileMenuClose = mobileMenu.classList.contains('inactive')
+
+  if(!isDesktopMenuClose || !isMobileMenuClose) {
+    desktopMenu.classList.add('inactive')
+    mobileMenu.classList.add('inactive')
+  }
+  isCarClose()
+}
+productDetailCloseIcon.addEventListener('click', closeProductDetail)
 
 navEmail.addEventListener('click', () => {
   desktopMenu.classList.toggle('inactive')
+
+  productDetail.classList.add('inactive')
   isCarClose()
 })
 
 burgerMenuIcon.addEventListener('click', () => {
   mobileMenu.classList.toggle('inactive')
+  productDetail.classList.add('inactive')
   isCarClose()
 })
-
-console.log(window)
 
 menuIconCar.addEventListener('click', () => {
   productCar.classList.toggle('inactive')
   const isBurgerMenuClose = burgerMenuIcon.classList.contains('inactive')
   const isDesktopMenuClose = desktopMenu.classList.contains('inactive')
+  const isProductDetailClose = productDetail.classList.contains('inactive')
   
-  if(!isBurgerMenuClose || !isDesktopMenuClose) {
+  if(!isBurgerMenuClose || !isDesktopMenuClose || !isProductDetailClose) {
     mobileMenu.classList.add('inactive')
     desktopMenu.classList.add('inactive')
+    productDetail.classList.add('inactive')
   }
 })
 
@@ -85,4 +103,7 @@ const isCarClose = () => {
   if(!isproductCarClose) {
     productCar.classList.add('inactive')
   }
+}
+function closeProductDetail() {
+  productDetail.classList.add('inactive')
 }

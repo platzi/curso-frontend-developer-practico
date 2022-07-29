@@ -358,6 +358,9 @@ nav {
   .details {
     width: 100%;
   }
+  .mobile {
+    width: 100%;
+  }
   .cards-container {
     grid-template-columns: repeat(auto-fill, 140px);
   }
