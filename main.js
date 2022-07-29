@@ -8,9 +8,11 @@ const desktopMenu = document.querySelector('.desktop-menu');
 const menuMobile = document.querySelector('.mobile-menu');
 const mobileBurger = document.querySelector('.menu');
 const showCartBtn = document.querySelector('.navbar-shopping-cart');
-const shoppingCart = document.querySelector('.product-detail');
+const shoppingCart = document.querySelector('.products-cart');
 const cartArrow = document.querySelector('.cart-arrow');
 const cardsContainer = document.querySelector('.cards-container');
+const cardImage = document.querySelector('.product-card-img');
+const productCartInfo = document.querySelector('.product-detail')
 
 //Event listeners
 mobileBurger.addEventListener('click', () => {
@@ -50,6 +52,7 @@ function showProductCards(arr) {
 
     const productImg = document.createElement('img');
     productImg.setAttribute('src', cur.img)
+    productImg.classList.add('product-card-img')
 
     const productInfo = document.createElement('div');
     productInfo.classList.add('product-info');
@@ -76,6 +79,8 @@ function showProductCards(arr) {
 
     console.log(card);
     cardsContainer.appendChild(card);
+
+    card.addEventListener('click', showProductInfo)
   })
 }
 
@@ -83,4 +88,8 @@ function cleanHTML() {
   while(cardsContainer.firstChild) {
     cardsContainer.removeChild(cardsContainer.firstChild);
   }
+}
+
+function showProductInfo(e) {
+  console.log(e.target.parentElement());
 }
