@@ -3,7 +3,8 @@ const desktopMenu = document.querySelector('.desktop-menu')
 const burgerMenuIcon = document.querySelector('.menu')
 const mobileMenu = document.querySelector('.mobile-menu')
 const menuIconCar = document.querySelector('.navbar-shopping-cart')
-const aside = document.querySelector('.product-detail')
+const productCar = document.querySelector('.product-cart')
+const productDetail = document.querySelector('.product-detail')
 
 
 const createProductsComponents = (data) => {
@@ -16,7 +17,7 @@ const createProductsComponents = (data) => {
   productImg.setAttribute('src', product.images[0]);
 
   const productInfo = document.createElement('div');
-  productInfo.classList.add('product-info');
+  productInfo.classList.add('product-info_list');
 
   const productInfoDiv = document.createElement('div');
 
@@ -66,8 +67,10 @@ burgerMenuIcon.addEventListener('click', () => {
   isCarClose()
 })
 
+console.log(window)
+
 menuIconCar.addEventListener('click', () => {
-  aside.classList.toggle('inactive')
+  productCar.classList.toggle('inactive')
   const isBurgerMenuClose = burgerMenuIcon.classList.contains('inactive')
   const isDesktopMenuClose = desktopMenu.classList.contains('inactive')
   
@@ -78,8 +81,8 @@ menuIconCar.addEventListener('click', () => {
 })
 
 const isCarClose = () => {
-  const isAsideClose = aside.classList.contains('inactive')
-  if(!isAsideClose) {
-    aside.classList.add('inactive')
+  const isproductCarClose = productCar.classList.contains('inactive')
+  if(!isproductCarClose) {
+    productCar.classList.add('inactive')
   }
 }
