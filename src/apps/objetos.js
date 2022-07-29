@@ -8,32 +8,32 @@ productList.push({
 
 },
 {
-    name: 'Bike',
+    name: 'Reloj',
     price: 180,
     img: "https://images.pexels.com/photos/276517/pexels-photo-276517.jpeg?auto=compress&cs=tinysrgb&dpr=2&h=650&w=940",
 
 },
 {
-    name: 'Bike',
+    name: 'Car',
     price: 75,
     img: "https://images.pexels.com/photos/276517/pexels-photo-276517.jpeg?auto=compress&cs=tinysrgb&dpr=2&h=650&w=940",
 
 },
 {
-    name: 'Bike',
+    name: 'SkateBoard',
     price: 40,
     img: "https://images.pexels.com/photos/276517/pexels-photo-276517.jpeg?auto=compress&cs=tinysrgb&dpr=2&h=650&w=940",
 
 },
 {
-    name: 'Bike',
+    name: 'Bus',
     price: 120,
     img: "https://images.pexels.com/photos/276517/pexels-photo-276517.jpeg?auto=compress&cs=tinysrgb&dpr=2&h=650&w=940",
 
 },
 {
-    name: 'Bike',
-    price: 200,
+    name: 'Truck',
+    price: 300,
     img: "https://images.pexels.com/photos/276517/pexels-photo-276517.jpeg?auto=compress&cs=tinysrgb&dpr=2&h=650&w=940",
 
 });

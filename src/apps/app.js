@@ -1,22 +1,18 @@
-// SELECCION DE ELEMENTOS HTML
-let menuEmail = document.querySelector('.desktop-menu');
-let email = document.querySelector('.navbar-email');
-let iconMenu= document.querySelector('#iconMenu');
-let menuBurger= document.querySelector('.mobile-menu');
-let cartMenu = document.querySelector('.product-detail');
-let cartIcon = document.querySelector('.navbar-shopping-cart');
-const cardsContainer = document.querySelector('.cards-container')
-const mainContainer = document.querySelector('.main-container')
-
-
-
 //FUNCIONES CREADAS
-const showProductsOnScreen= (object)=>{
-
-    for(product of object){
+const showProductsOnScreen= (lista)=>{ //crea los productos en el menu
+    
+    lista.forEach(product => {
         const productCard= document.createElement('div');
         productCard.classList.add('product-card');
-    
+
+        productCard.addEventListener('click',()=>{
+            openProductInfo(product);
+            closeMenu(cartMenu);
+            closeMenu(menuEmail);
+            closeMenu(menuBurger);
+
+        })
+
         const image = document.createElement('img');
         image.src= product.img;
         
@@ -44,33 +40,30 @@ const showProductsOnScreen= (object)=>{
         productCard.appendChild(infoProduct);
         cardsContainer.appendChild(productCard);
         mainContainer.appendChild(cardsContainer);
-    }
+        
+    });
 }
-const showMenu = (navComp)=>{  // mostrar el menu del email
+const showMenu = (navComp)=>{  // mostrar los menu
     navComp.classList.toggle('inactive');
 }
 
-const closeMenu = (menu1)=>{
+const closeMenu = (menu1)=>{ //cerrar los menu
     isMenuOpen1 = !menu1.classList.contains('inactive');
     if(isMenuOpen1){
         menu1.classList.add('inactive');
     }
 }
 
+const openProductInfo = (product)=>{ //muestra el aside con la info del producto seleccionado
+        aside.classList.remove('inactive');
+        productImg.setAttribute('src',product.img);
+        productPrice.textContent= product.price;
+        productName.textContent= product.name;
+
+}
+
 //LLAMADA DE FUNCIONES
 showProductsOnScreen(productList);
-//ADDEVENTLISTENER
 
-email.addEventListener('click',()=>{
-    showMenu(menuEmail);
-    closeMenu(cartMenu);
-});
-iconMenu.addEventListener('click',()=>{
-    showMenu(menuBurger);
-    closeMenu(cartMenu);
-});
-cartIcon.addEventListener('click',()=>{
-    showMenu(cartMenu);
-    closeMenu(menuBurger);
-    closeMenu(menuEmail);
-});
+
+

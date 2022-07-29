@@ -4,6 +4,7 @@
 @import url(./menuBurguer.css);
 @import url(./carrito.css);
 @import url(./sectionProductList.css);
+@import url(./productDetailsMain.css);
 
 .inactive{
     display: none;
@@ -27,5 +28,11 @@
   @media (min-width: 641px){
     .mobile-menu {
         display: none;
+    }
+  }
+
+  @media (max-width: 640px) {
+    .product-detail-main {
+      width: 100%;
     }
   }
