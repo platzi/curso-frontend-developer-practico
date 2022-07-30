@@ -3,7 +3,7 @@ const desktopMenu = document.querySelector('.desktop-menu');
 const menuHamIcon = document.querySelector('.menu');
 const mobileMenu = document.querySelector('.mobile-menu');
 const menuCarritoIcon = document.querySelector('.navbar-shopping-cart');
-const productDetail = document.querySelector('.product-detail')
+const productDetail = document.querySelector('#shoppingCartContainer')
 const productoG = document.querySelector('.cards-container')
 
 
@@ -61,7 +61,7 @@ for(producto of productList){
     const img = document.createElement('img');
     img.setAttribute('src', producto.ima);
     const classinfo = document.createElement('div');
-    classProduc.classList.add('product-info');
+    classinfo.classList.add('product-info');
 
     const vacio = document.createElement('div');
     const precio = document.createElement('p');
