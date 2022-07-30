@@ -90,13 +90,31 @@ productList.push({
 productList.push({  
     name: 'Balon',
     price: 320,
-    image: 'https://images.pexels.com/photos/276517/pexels-photo-276517.jpeg?auto=compress&cs=tinysrgb&dpr=2&h=650&w=940',
+    image: 'https://assets.adidas.com/images/w_383,h_383,f_auto,q_auto,fl_lossy,c_fill,g_auto/edf69e93a0624f4f972aae680086e3f1_9366/al-rihla-competition-ball.jpg',
 }) 
 
 productList.push({  
-    name: 'Compu',
+    name: 'Computador',
     price: 620,
-    image: 'https://images.pexels.com/photos/276517/pexels-photo-276517.jpeg?auto=compress&cs=tinysrgb&dpr=2&h=650&w=940',
+    image: 'https://pisces.bbystatic.com/image2/BestBuy_US/images/products/6504/6504566_sd.jpg;maxHeight=640;maxWidth=550',
+}) 
+
+productList.push({  
+    name: 'Teclado Mecanico',
+    price: 60,
+    image: 'https://m.media-amazon.com/images/S/aplus-media-library-service-media/ba46d704-e254-4c21-859f-c2ebb5d011e3.__CR0,0,970,600_PT0_SX970_V1___.png',
+}) 
+
+productList.push({  
+    name: 'Mouse Gaming',
+    price: 70,
+    image: 'https://resource.logitechg.com/w_692,c_limit,q_auto,f_auto,dpr_1.0/d_transparent.gif/content/dam/gaming/en/products/g502-hero-kda/g502-hero-kda-gallery-01.png?v=1',
+}) 
+
+productList.push({  
+    name: 'Mochila Dell',
+    price: 13,
+    image: 'https://732166-2448411-raikfcquaxqncofqfm.stackpathdns.com/pub/media/mf_webp/png/media/catalog/product/cache/0d911eba3dcfc918870446451461cd49/0/6/06601-899.webp',
 }) 
 
 function renderProduct(array){
