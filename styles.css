@@ -67,6 +67,7 @@ nav {
 }
 .navbar-shopping-cart {
   position: relative;
+  cursor: pointer;
 }
 .navbar-shopping-cart div {
   width: 16px;
@@ -79,6 +80,7 @@ nav {
   top: -6px;
   right: -3px;
   display: flex;
+  cursor: pointer;
   justify-content: center;
   align-items: center;
 }
@@ -91,6 +93,7 @@ nav {
   background: var(--white);
   width: 100px;
   height: auto;
+  z-index: 2;
   border: 1px solid var(--very-light-pink);
   border-radius: 6px;
   padding: 20px 20px 0 20px;
@@ -130,6 +133,7 @@ nav {
   left: 0;
   width: 100%;
   padding: 24px;
+  z-index: 2;
 }
 .mobile-menu a {
   text-decoration: none;
@@ -213,6 +217,7 @@ aside {
 }
 .shopping-cart figure {
   margin: 0;
+  cursor: pointer;
 }
 .shopping-cart figure img {
   width: 70px;
@@ -281,6 +286,11 @@ aside {
   margin-top: 0;
   margin-bottom: 36px;
 }
+
+.product-detail{
+  padding: 0 24px;
+}
+
 .primary-button {
   background-color: var(--hospital-green);
   border-radius: 8px;
@@ -322,10 +332,10 @@ aside {
   align-items: center;
   margin-top: 12px;
 }
-.product-card .product-info figure {
+.product-info figure {
   margin: 0;
 }
-.product-card .product-info figure img {
+.product-info figure img {
   width: 35px;
   height: 35px;
 }
@@ -356,7 +366,9 @@ aside {
   .desktop-menu {
     display: none;
   }
-
+  .product-dtail{
+    width: 100%;
+  }
   aside {
     width: 100%;
   }
