@@ -93,7 +93,7 @@ nav {
   background: var(--white);
   width: 100px;
   height: auto;
-  z-index: 2;
+  z-index: 5;
   border: 1px solid var(--very-light-pink);
   border-radius: 6px;
   padding: 20px 20px 0 20px;
@@ -133,7 +133,7 @@ nav {
   left: 0;
   width: 100%;
   padding: 24px;
-  z-index: 2;
+  z-index: 5;
 }
 .mobile-menu a {
   text-decoration: none;
@@ -174,6 +174,7 @@ aside {
 /* ShoppingCart */
 #shoppingCartContainer {
   padding: 0 24px;
+  z-index: 4;
 }
 .title-container {
   display: flex;
