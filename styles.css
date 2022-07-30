@@ -243,8 +243,9 @@ nav {
   box-sizing: border-box;
   width: 360px;
   background-color: var(--white);
-  position: absolute;
-  right: 0;
+  position: fixed;
+  left: calc(50% - 180px);
+  top: calc(50% - 291px);
   padding: 0 0 20px 0;
   box-shadow: 2px 2px 8px #969595;
 }

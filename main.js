@@ -4,7 +4,7 @@ const productDetailCloseIcon = document.querySelector('.product-detail-close')
 const burgerMenuIcon = document.querySelector('.menu')
 const mobileMenu = document.querySelector('.mobile-menu')
 const menuIconCar = document.querySelector('.navbar-shopping-cart')
-const productCar = document.querySelector('.product-cart')
+const productCart = document.querySelector('.product-cart')
 const productDetail = document.querySelector('.product-detail')
 
 
@@ -58,7 +58,18 @@ function getProducts(){
     })
 } getProducts()
 
-const openProductDetail = () => {
+function setProductDetail(detail) {
+
+  const src = detail.childNodes[0].src
+  const price = detail.childNodes[1].firstChild.childNodes[0].innerText
+  const title = detail.childNodes[1].firstChild.childNodes[1].innerText
+
+  productDetail.childNodes[3].src = src
+  productDetail.childNodes[5].children[0].innerText = price
+  productDetail.childNodes[5].children[1].innerText = title
+}
+
+const openProductDetail = (e) => {
   productDetail.classList.remove('inactive')
   
   const isDesktopMenuClose = desktopMenu.classList.contains('inactive')
@@ -69,6 +80,7 @@ const openProductDetail = () => {
     mobileMenu.classList.add('inactive')
   }
   isCarClose()
+  setProductDetail(e.target.parentNode)
 }
 productDetailCloseIcon.addEventListener('click', closeProductDetail)
 
@@ -86,7 +98,7 @@ burgerMenuIcon.addEventListener('click', () => {
 })
 
 menuIconCar.addEventListener('click', () => {
-  productCar.classList.toggle('inactive')
+  productCart.classList.toggle('inactive')
   const isBurgerMenuClose = burgerMenuIcon.classList.contains('inactive')
   const isDesktopMenuClose = desktopMenu.classList.contains('inactive')
   const isProductDetailClose = productDetail.classList.contains('inactive')
@@ -99,9 +111,9 @@ menuIconCar.addEventListener('click', () => {
 })
 
 const isCarClose = () => {
-  const isproductCarClose = productCar.classList.contains('inactive')
-  if(!isproductCarClose) {
-    productCar.classList.add('inactive')
+  const isproductCartClose = productCart.classList.contains('inactive')
+  if(!isproductCartClose) {
+    productCart.classList.add('inactive')
   }
 }
 function closeProductDetail() {
