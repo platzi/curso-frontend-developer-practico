@@ -1,17 +1,25 @@
 const menuEmail = document.querySelector('.navbar-email');
 const desktopMenu = document.querySelector('.desktop-menu');
 const menuHamburguesa = document.querySelector('.menu');
+const productDetailCloseIcon = document.querySelector('.product-detail-close');
+
 const mobileMenu = document.querySelector('.mobile-menu');
 const menuCarritoIcon = document.querySelector('.navbar-shopping-cart');
 const shoppingCartContainer = document.querySelector('#shoppingCartContainer');
-const cardsContainer = document.querySelector('.cards-container')
+const productDetailContainer = document.querySelector('#productDetail');
+const cardsContainer = document.querySelector('.cards-container');
+
+
 
 
 
 menuEmail.addEventListener('click', toggleDesktopMenu);
 menuHamburguesa.addEventListener('click', toggleMobileMenu);
-menuCarritoIcon.addEventListener('click', toggleCarritoShoppingCartContainer);
-shoppingCartContainer.addEventListener('click', toggleShoppingCartContainer);
+menuCarritoIcon.addEventListener('click', toggleCarritoAside);
+// shoppingCartContainer.addEventListener('click', toggleShoppingCartContainer);
+productDetailCloseIcon.addEventListener('click', closeProductDetailAside);
+
+
 
 
 function toggleDesktopMenu () { //Si esta abierto el shoppingCartContainer y presiono el DesktopMenu...
@@ -20,10 +28,22 @@ function toggleDesktopMenu () { //Si esta abierto el shoppingCartContainer y pre
 }
 
 
-function toggleShoppingCartContainer () {   //al clickear Aside
-    desktopMenu.classList.add('inactive'); //Si el desktop estaba abierto, se cerrará
-    shoppingCartContainer.classList.toggle('inactive'); //Y el aside se abrirá.
-}
+
+
+
+// function toggleShoppingCartContainer () {   
+    // desktopMenu.classList.add('inactive'); 
+    // shoppingCartContainer.classList.toggle('inactive'); 
+
+//     const isDesktopMenuClosed = desktopMenu.classList.contains('inactive');
+
+//     if (!isDesktopMenuClosed) {
+//         desktopMenu.classList.add ('inactive');
+//     }
+    
+//     shoppingCartContainer.classList.toggle('inactive');
+// }
+
 
 
 function toggleMobileMenu() {
@@ -34,18 +54,48 @@ function toggleMobileMenu() {
     }
     
     mobileMenu.classList.toggle('inactive');
+
+
+    closeProductDetailAside(); 
+    //cada vez que le demos click a ese boton (El mobileMenu/menuHambueguesa) 
+    //llamamos a esta función que CIERRA el productDetailAside
+
 }
 
 
-function toggleCarritoShoppingCartContainer() {
-    const isMobileMenuClosed = mobileMenu.classList.contains('inactive');
+function toggleCarritoAside() {
+    const isMobileMenuClosed = mobileMenu.classList.contains('inactive');   //Abro CarritoAside, si estaba abierto mobileMmenu, se cierra.
 
     if (!isMobileMenuClosed) {
         mobileMenu.classList.add ('inactive');
     }
 
+
+    const isProductDetailClosed = productDetailContainer.classList.contains('inactive'); //Abro CarritoAside, si estaba abierto productDetail, se cierra.
+
+    if (!isProductDetailClosed) {
+        productDetail.classList.add ('inactive');
+    }
+
+
     shoppingCartContainer.classList.toggle('inactive');
+
 }
+
+function openProductDetailAside() {     //Al darle click a la img de algun producto, abro el productDetailContainer
+    productDetailContainer.classList.remove('inactive'); //Al sacarle (remove) la clase "inactive", dejará de estar inactivo y aparecerá/se abrirá.
+
+    const isShoppingCartContainerClosed = shoppingCartContainer.classList.contains('inactive'); // "isShoppingCartContainerClosed" significa que esta cerrado.
+
+    if (!isShoppingCartContainerClosed) {   //Si shoppingCartContainer estaba abierto, se cierra! ahora que abrí ProductDetailAside.
+        shoppingCartContainer.classList.add ('inactive');
+    }    
+}
+
+function closeProductDetailAside() {
+    productDetailContainer.classList.add('inactive');
+}
+
 
 
 const productList = []; //Este array es el que nos devolvería nuestro codigo JS al hacer las consultas a la BD, etc.
@@ -128,6 +178,7 @@ function renderProducts (arr) {
         const productImg = document.createElement('img');
         productImg.setAttribute('src', product.image);
         //product = {name, price, image} -> product.image
+        productImg.addEventListener('click', openProductDetailAside);
     
         const productInfo = document.createElement('div'); //creo un div
         productInfo.classList.add('product-info'); // a ese div le pongo una class
