@@ -5,7 +5,7 @@ const menuHambur = document.querySelector('.menu');
 const mHambur = document.querySelector('.mobile-menu');
 
 const menuCarritoIcon  = document.querySelector('.navbar-shopping-cart');
-const menuProdDetail = document.querySelector('.product-detail');
+const shoppingCartDetail = document.querySelector('#shoppingCartContainer');
 
 const cardsContainer = document.querySelector('.cards-container');
 
@@ -15,16 +15,16 @@ menuCarritoIcon .addEventListener('click', toggleCarritoAside);
 
 function toggleMobileMenu(){
     mHambur.classList.toggle('inactive');
-    menuProdDetail.classList.add('inactive');
+    shoppingCartDetail.classList.add('inactive');
 }
 
 function toggleDesktopMenu(){
     desktopMenu.classList.toggle('inactive');
-    menuProdDetail.classList.add('inactive');
+    shoppingCartDetail.classList.add('inactive');
 }
 
 function toggleCarritoAside(){
-    menuProdDetail.classList.toggle('inactive');
+    shoppingCartDetail.classList.toggle('inactive');
     mHambur.classList.add('inactive');
     desktopMenu.classList.add('inactive');
 }
