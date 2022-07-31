@@ -2,52 +2,64 @@
 const menuEmail = document.querySelector(".navbar-email");
 const desktopMenu = document.querySelector(".desktop-menu");
 const hamburguerMenu = document.querySelector(".menu-hamburguer");
+const iconChange = document.querySelector(".icon-x");
 const menuCarritoIcon = document.querySelector(".navbar-shopping-cart");
-const menuCarritoDetalles = document.querySelector(".product-detail");
+const menuCarritoDetalles = document.querySelector(".shopping-cart-detail");
 const mobileMenu = document.querySelector(".mobile-menu");
 
 /*Variables con contenedor HTML */
 const cardContainer = document.querySelector(".cards-container");
+const detallesDeProducto = document.querySelector(".product-detail");
 
 /*Productos ingresados en el Array*/
 const productList = [];
 productList.push({
-    name: "Bike",
+    name: "Bicicleta",
     price: 120,
-    image: "https://images.pexels.com/photos/276517/pexels-photo-276517.jpeg?auto=compress&cs=tinysrgb&dpr=2&h=650&w=940"
+    image:
+        "https://images.pexels.com/photos/276517/pexels-photo-276517.jpeg?auto=compress&cs=tinysrgb&dpr=2&h=650&w=940",
+    description: "Es una bicicleta 1",
 });
 productList.push({
     name: "Bike",
     price: 120,
-    image: "https://images.pexels.com/photos/276517/pexels-photo-276517.jpeg?auto=compress&cs=tinysrgb&dpr=2&h=650&w=940",
+    image:
+        "https://images.pexels.com/photos/276517/pexels-photo-276517.jpeg?auto=compress&cs=tinysrgb&dpr=2&h=650&w=940",
+    description: "Es una bicicleta 2",
 });
 productList.push({
     name: "Bike",
     price: 120,
-    image: "https://images.pexels.com/photos/276517/pexels-photo-276517.jpeg?auto=compress&cs=tinysrgb&dpr=2&h=650&w=940",
+    image:
+        "https://images.pexels.com/photos/276517/pexels-photo-276517.jpeg?auto=compress&cs=tinysrgb&dpr=2&h=650&w=940",
+    description: "Es una bicicleta 3",
 });
 productList.push({
     name: "Bike",
     price: 120,
-    image: "https://images.pexels.com/photos/276517/pexels-photo-276517.jpeg?auto=compress&cs=tinysrgb&dpr=2&h=650&w=940"
+    image:
+        "https://images.pexels.com/photos/276517/pexels-photo-276517.jpeg?auto=compress&cs=tinysrgb&dpr=2&h=650&w=940",
+    description: "Es una bicicleta 4",
 });
-productList.push({
-    name: "Bike",
-    price: 120,
-    image: "https://images.pexels.com/photos/276517/pexels-photo-276517.jpeg?auto=compress&cs=tinysrgb&dpr=2&h=650&w=940",
-});
-productList.push({
-    name: "Bike",
-    price: 120,
-    image: "https://images.pexels.com/photos/276517/pexels-photo-276517.jpeg?auto=compress&cs=tinysrgb&dpr=2&h=650&w=940",
-});
-
-/*Eventos */
+/*Asignando Eventos */
 menuEmail.addEventListener("click", toggleDesktopMenu);
 hamburguerMenu.addEventListener("click", toggleMobileMenu);
 menuCarritoIcon.addEventListener("click", toggleMenuCarrito);
+iconChange.addEventListener("click", toggleMobileMenu);
+
+/*Evento que ayudara a reajustar los iconos cada ves que sobre pase los 640 pixeles de dimensión */
+addEventListener("resize", () => {
+    if (innerWidth > 640) {
+        hamburguerMenu.style.display = "none";
+        iconChange.style.display = "none";
+        mobileMenu.classList.add("inactive");
+    } else {
+        hamburguerMenu.style.display = "block";
+    }
+});
 
 /*Funciones */
+/*Función que muestra el menú para cerrar sección o mostrar nuestra información */
 function toggleDesktopMenu() {
     /*Se crea una variable local en la función para preguntar si el menú del carrito de compras contiene la clase "Inactive" */
     const isCarritoClosed = menuCarritoDetalles.classList.contains("inactive");
@@ -58,20 +70,31 @@ function toggleDesktopMenu() {
     /*Al presionar en el menu DesktopMenu se cambia por cada click su clase "Inactive" */
     desktopMenu.classList.toggle("inactive");
 }
-
+/*Función que muestra el menú del navbar al hacer click en el menú hamburguesa */
 function toggleMobileMenu() {
     const isCarritoClosed = menuCarritoDetalles.classList.contains("inactive");
+    const isMobileMenuOpen = mobileMenu.classList.contains("inactive");
 
     if (!isCarritoClosed) {
         menuCarritoDetalles.classList.add("inactive");
     }
 
+    if (isMobileMenuOpen) {
+        hamburguerMenu.style.display = "none";
+        iconChange.style.display = "block";
+    } else {
+        hamburguerMenu.style.display = "block";
+        iconChange.style.display = "none";
+    }
+
+    /*Por cada click que se genere se cambiara a clase "Inactive" o se le removera esa clase */
     mobileMenu.classList.toggle("inactive");
 }
-
+/*Función que muestra el menú del carrito de compras */
 function toggleMenuCarrito() {
     const isMobileMenuClosed = mobileMenu.classList.contains("inactive");
     const isDesktopMenuClosed = desktopMenu.classList.contains("inactive");
+    const menuCarritoOpen = menuCarritoDetalles.classList.contains("inactive");
 
     if (!isDesktopMenuClosed) {
         desktopMenu.classList.add("inactive");
@@ -81,54 +104,111 @@ function toggleMenuCarrito() {
         mobileMenu.classList.add("inactive");
     }
 
+    if (menuCarritoOpen && innerWidth < 640) {
+        iconChange.style.display = "none";
+        hamburguerMenu.style.display = "block";
+    }
+
     menuCarritoDetalles.classList.toggle("inactive");
 }
 /*Función que ejecuta la renderización de productos de nuestro catalogo */
-function renderProducts (arr) {
-    for (product of productList) {
-        /*Creando contenedor y agregando su clase */
+
+const showProductsOnScreen = (lista) => {
+    lista.forEach((product) => {
         const productCard = document.createElement("div");
         productCard.classList.add("product-card");
-        
-        /*Creando contenedor y agregando su clase */
+
+        productCard.addEventListener("click", () => {
+            openProductDetailContainer(product);
+        });
+
         const productImage = document.createElement("img");
         productImage.setAttribute("src", product.image);
-    
         /*Creando contenedor y agregando su clase */
         const productInfo = document.createElement("div");
-        productInfo.classList.add("product-info");
-    
+        productInfo.classList.add("product-detail-info");
+
         /*Insertando los contenedores dentro de otros como hijos */
         productCard.appendChild(productImage);
         productCard.appendChild(productInfo);
-    
+
         /*Creando contenedor y agregando su clase */
         const productInfoDiv = document.createElement("div");
         productInfo.appendChild(productInfoDiv);
-    
+
         /*Creando contenedor y agregando su clase o datos */
         const productPrice = document.createElement("p");
-        productPrice.innerText = "$ " + product.price;
+        productPrice.innerText = product.price;
         const productName = document.createElement("p");
-        productName.innerText = "$ " + product.name;
-    
+        productName.innerText = product.name;
+
         /*Insertando los contenedores dentro de otros como hijos */
         productInfoDiv.appendChild(productPrice);
         productInfoDiv.appendChild(productName);
-    
+
         /*Creando contenedor y agregando su clase o datos */
         const productInfoFigure = document.createElement("figure");
         const productImgCard = document.createElement("img");
         productImgCard.setAttribute("src", "/icons/bt_add_to_cart.svg");
-    
+
         /*Insertando los contenedores dentro de otros como hijos */
         productInfo.appendChild(productInfoFigure);
         productInfoFigure.appendChild(productImgCard);
-    
+
         /*CARDS-CONTAINER */
         cardContainer.appendChild(productCard);
-    }
-}
-/*Invocando a la función para el catalogo de productos */
-renderProducts(productList);
+        const mainContainer = document.querySelector(".main-container");
+        mainContainer.append(cardContainer);
+    });
+};
+showProductsOnScreen(productList);
 
+/*Función que renderiza y obtiene los datos para mostrarlos como detalles del producto */
+const openProductDetailContainer = (product) => {
+    
+        const productDetailClosed = document.createElement("div");
+        productDetailClosed.classList.add("product-detail-close");
+        const productDetailCloseIcon = document.createElement("img");
+        productDetailCloseIcon.classList.add("product-detail-close__icon");
+        productDetailCloseIcon.setAttribute("src", "./icons/icon_close.png");
+        productDetailCloseIcon.addEventListener("click", closeDetailsProduct);
+        productDetailClosed.append(productDetailCloseIcon);
+    
+        const productDetailImg = document.createElement("img");
+        productDetailImg.setAttribute("src", product.image);
+    
+        const productInfo = document.createElement("div");
+        productInfo.classList.add("product-info");
+    
+        const productPrice = document.createElement("p");
+        productPrice.innerText = "$ " + product.price;
+    
+        const productName = document.createElement("p");
+        productName.innerText = "$ " + product.name;
+    
+        const productDescription = document.createElement("p");
+        productDescription.innerText = product.description;
+    
+        const addCartButton = document.createElement("button");
+        addCartButton.classList.add("primary-button", "add-to-cart-button");
+        addCartButton.innerText = "Add to cart";
+        const addCartIcon = document.createElement("img");
+        addCartIcon.setAttribute("src", "./icons/bt_add_to_cart.svg");
+        addCartButton.appendChild(addCartIcon);
+    
+        productInfo.append(
+            productPrice,
+            productName,
+            productDescription,
+            addCartButton
+        );
+
+
+    detallesDeProducto.append(productDetailClosed, productDetailImg, productInfo);
+    detallesDeProducto.classList.remove("inactive");
+};
+
+/*Función para cerrar el contenedor de los detalles del producto */
+function closeDetailsProduct() {
+    detallesDeProducto.classList.add("inactive");
+}
