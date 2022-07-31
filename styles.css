@@ -173,6 +173,7 @@
   /*Inicio de asaid carrito overlya*/
   .product-detail {
     width: 360px;
+    background-color: var(--white);
     padding: 0 24px;
     box-sizing: border-box;
     position: absolute;
