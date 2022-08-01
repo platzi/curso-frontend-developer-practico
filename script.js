@@ -9,6 +9,8 @@ const cardContainer = $(".cards-container");
 const productDetail = $("#productDetail");
 const productDetailClose = $(".product-detail-close");
 const imgProductDetail = $(".img-productDetail");
+const counter = $(".counter");
+
 console.log({ menu });
 
 email.addEventListener("click", toggleDesktop);
@@ -168,6 +170,9 @@ function renderProducts(arr) {
     const productInfoFigure = document.createElement("figure");
     const productInfoFigureImg = document.createElement("img");
     productInfoFigureImg.setAttribute("src", "./icons/bt_add_to_cart.svg");
+    productInfoFigureImg.addEventListener('click', () => {
+      addToCart(product.name, product.price);
+    });
 
     productInfoFigure.appendChild(productInfoFigureImg);
     productInfo.appendChild(div);
@@ -179,6 +184,13 @@ function renderProducts(arr) {
     cardContainer.appendChild(productCard);
   }
 }
+
+addToCart = (name, price) => {
+  counter.innerHTML = parseInt(counter.innerHTML) + 1;
+  //const cartItem = document.createElement("div");
+}
+
+
 renderProducts(productList);
 
 function displayProductInfo(img) {
