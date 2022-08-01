@@ -192,7 +192,6 @@ function renderProducts(arr) {
         toggleCart();
         toggleCart();
       }
-      
     });
 
     productInfoFigure.appendChild(productInfoFigureImg);
@@ -206,6 +205,17 @@ function renderProducts(arr) {
   }
 }
 
+
+function removeFromCart(name, price, image) {
+  let arr = productListCart;
+  for(let i = 0; i < arr.length; i++){
+    
+    if(arr[i].name == name && arr[i].price == price && arr[i].image == image){
+      arr.splice(i, 1);
+      console.log('Se borro un elemento');
+    }
+  }
+}
 
 function renderProductsCart(arr) {
   let TOTAL = 0;
@@ -224,6 +234,15 @@ function renderProductsCart(arr) {
     //console.log(product.price.typeof);
     const shoppingCartClose = document.createElement("img");
     shoppingCartClose.setAttribute("src", "./icons/icon_close.png");
+    shoppingCartClose.addEventListener('click', () => {
+      removeFromCart(shoppingCartProductName.innerText, shoppingCartProductPrice.innerText.replace('$', ''), shoppingCartFigureImg.getAttribute('src'));
+      counter.innerHTML = parseInt(counter.innerHTML) - 1;
+      let isMenuCartClosed = shoppingCartContainer.classList.contains("inactive");
+      if(!isMenuCartClosed){
+        toggleCart();
+        toggleCart();
+      }
+    });
 
     shoppingCartFigure.appendChild(shoppingCartFigureImg);
     shoppingCart.appendChild(shoppingCartFigure);
