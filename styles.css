@@ -27,6 +27,7 @@ nav {
 
 .menu {
     display: none;
+    cursor: pointer;
 }
 
 .logo {
@@ -67,7 +68,7 @@ nav {
 }
 
 .navbar-email {
-    user-select:none;
+    user-select: none;
     cursor: pointer;
     color: var(--very-light-pink);
     font-size: var(--sm);
@@ -77,7 +78,7 @@ nav {
     transition: text-decoration-color 300ms;
 }
 
-.navbar-email:hover{
+.navbar-email:hover {
     text-decoration-color: var(--hospital-green);
 }
 
@@ -142,6 +143,45 @@ nav {
     text-decoration: none;
     margin-bottom: 20px;
     display: inline-block;
+}
+
+.mobile-menu {
+    position: absolute;
+    background-color: var(--white);
+    top:61px;
+    left:0px;
+    padding: 24px;
+}
+
+.mobile-menu a {
+    text-decoration: none;
+    color: var(--black);
+    font-weight: bold;
+    /* margin-bottom: 24px; */
+}
+
+.mobile-menu ul {
+    padding: 0;
+    margin: 24px 0 0;
+    list-style: none;
+}
+
+.mobile-menu ul:nth-child(1) {
+    border-bottom: 1px solid var(--very-light-pink);
+}
+
+.mobile-menu ul li {
+    margin-bottom: 24px;
+}
+
+.email {
+    font-size: var(--sm);
+    font-weight: 300 !important;
+}
+
+.sign-out {
+    font-size: var(--sm);
+    color: var(--hospital-green) !important;
 }
 
 @media (max-width: 640px) {
