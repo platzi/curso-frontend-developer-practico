@@ -5,8 +5,8 @@ const menuHamIcon = document.querySelector('.menu');
 const carIcon = document.querySelector('.navbar-shopping-cart');
 const menuCar = document.querySelector('.product-detail');
 const cardsContainer = document.querySelector('.cards-container');
-let validador = menuEmail.classList.contains("inactive");
-
+const asideContainer = document.querySelector('.product-detail1');
+const asideXIcon = document.querySelector('.product-detail-close');
 
 
 //menuEmail.addEventListener('click',toggleDesktopMenu);
@@ -26,7 +26,11 @@ menuEmail.addEventListener('click',toggleProfesor);
 
 function toggleProfesor() {
     const menuCarcheck = menuCar.classList.contains('inactive');
+    const asideContainery = asideContainer.classList.contains('inactive');
 
+    if(!asideContainery){
+        asideContainer.classList.add('inactive');
+    }
     if(!menuCarcheck){        
         menuCar.classList.add('inactive');
     }
@@ -57,7 +61,11 @@ carIcon.addEventListener('click', carMenuActive);
 function carMenuActive(){
     const menuHamcheck = menuHam.classList.contains('inactive'); 
     const isdesktopMenuOpend = desktopMenu.classList.contains('inactive');
+    const asideContainery = asideContainer.classList.contains('inactive');
 
+    if(!asideContainery){
+        asideContainer.classList.add('inactive');   
+    }
     if(!menuHamcheck){
         menuHam.classList.add('inactive');
     }
@@ -68,6 +76,8 @@ function carMenuActive(){
 
     menuCar.classList.toggle('inactive');        
 }
+
+
 
 const producList = [];
 
@@ -91,15 +101,17 @@ producList.push({
 });
 
 //ESTO ES MUY IMPORTANTE CUCHO !!!!
+//Recorre el array completo e imprime cada una de las categorias en esta caso name
 
-for (product of producList){ //Recorre el array completo e imprime cada una de las categorias en esta caso name
-    console.log(product.name) ;
-}
+// for (product of producList){ 
+//     console.log(product.name) ;
+// }
+// //Imprime el numero de indice uno x 1
 
-for (product in producList){ //Imprime el numero de indice uno x 1
-    console.log(product);
-}
-
+// for (product in producList){ 
+//     console.log(product);
+// }
+//////////////////////////////////////////////////////////////////////////////////
 // Escribiendo html desde js 
 
 /*   
@@ -131,7 +143,7 @@ for (product of producList){
 
 //Product es = {name,price,img};
   const imgCard = document.createElement('img');
-  imgCard.setAttribute('src',product.img);
+  imgCard.setAttribute('src',product.img); 
 
 
   const prodctInfo = document.createElement('div');
@@ -204,7 +216,23 @@ for (product of producList){
 
  }
 
- renderProducts(producList);
+ renderProducts(producList); 
+
+ //Asaid de Product detail 1 
+
+ asideXIcon.addEventListener('click', asaidMenuActive);
+ imgCard.addEventListener('click', asaidMenuActive);
+
+function asaidMenuActive(){
+   
+    const asideContainery = asideContainer.classList.contains('inactive');
+    console.log(asideContainery);      
+    
+    // if(asideContainery){
+    //     asideContainer.classList.add('inactive');
+    // }  
+
+    asideContainer.classList.toggle('inactive');        
+}
 
 
- 
