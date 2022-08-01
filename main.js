@@ -133,3 +133,4 @@ function renderProducts(arr){
 }
 
 renderProducts(productList);
+// 1
