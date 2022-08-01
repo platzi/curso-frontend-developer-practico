@@ -7,6 +7,8 @@ const btnCart = $(".navbar-shopping-cart");
 const shoppingCartContainer = $("#shoppingCartContainer");
 const cardContainer = $(".cards-container");
 const productDetail = $("#productDetail");
+const productDetailClose = $(".product-detail-close");
+const imgProductDetail = $(".img-productDetail");
 console.log({ menu });
 
 email.addEventListener("click", toggleDesktop);
@@ -27,6 +29,7 @@ function toggleDesktop() {
 function toggleMenu() {
   let isMenuCartClosed = shoppingCartContainer.classList.contains("inactive");
   let productDetailClosed = productDetail.classList.contains("inactive");
+  
   if (!isMenuCartClosed) {
     shoppingCartContainer.classList.toggle("inactive");
   }
@@ -124,6 +127,18 @@ productList.push({
   image:
     "https://images.unsplash.com/photo-1563296291-14f26f10c20f?ixlib=rb-1.2.1&ixid=MnwxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8&auto=format&fit=crop&w=1332&q=80",
 });
+productList.push({
+  name: "Bike",
+  price: "$100",
+  image:
+    'https://images.pexels.com/photos/276517/pexels-photo-276517.jpeg?auto=compress&cs=tinysrgb&dpr=2&h=650&w=940"',
+});
+productList.push({
+  name: "Scooter",
+  price: "$200",
+  image:
+    "https://images.unsplash.com/photo-1597260491619-bab87197869f?ixlib=rb-1.2.1&ixid=MnwxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8&auto=format&fit=crop&w=626&q=80",
+});
 
 function renderProducts(arr) {
   for (product of arr) {
@@ -132,6 +147,11 @@ function renderProducts(arr) {
 
     const img = document.createElement("img");
     img.setAttribute("src", product.image);
+    img.addEventListener('click', () => { 
+      displayProductInfo(img.getAttribute('src'));
+    }
+    );
+    productDetailClose.addEventListener('click', closeProductInfo);
 
     const productInfo = document.createElement("div");
     productInfo.classList.add("product-info");
@@ -160,3 +180,23 @@ function renderProducts(arr) {
   }
 }
 renderProducts(productList);
+
+function displayProductInfo(img) {
+  let isMenuCartClosed = shoppingCartContainer.classList.contains("inactive");
+  let isMobileMenuClosed = !mobileMenu.classList.contains("slide-right-menu");
+  let desktopMenuClosed = desktopMenu.classList.contains("inactive");
+  if (!desktopMenuClosed) {
+    desktopMenu.classList.toggle("inactive");
+  }
+  if (!isMobileMenuClosed) {
+    mobileMenu.classList.toggle("slide-right-menu");
+  }
+  if (!isMenuCartClosed) {
+    shoppingCartContainer.classList.toggle("inactive");
+  }
+  imgProductDetail.setAttribute("src", img);
+  productDetail.classList.remove("inactive");
+}
+function closeProductInfo() {
+  productDetail.classList.add("inactive");
+}
