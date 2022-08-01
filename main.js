@@ -7,6 +7,10 @@ const menuContainMobile = document.querySelector('.mobile-menu');
 //CardsContainer: donde se incluyen cada artículo
 const cardsContainer = document.querySelector('.cards-container');
 
+//Aside de la información de un articulo (barra lateral)
+const asideProductInfoDetail = document.querySelector('.product-info-detail');
+const iconCloseAsideProductInfoDetail = document.querySelector('.product-info-detail-close');
+
 const menuIconCar = document.querySelector('.navbar-shopping-cart');
 const aside = document.querySelector('.product-detail');
 
@@ -19,6 +23,9 @@ menuHamburguesa.addEventListener('click', ()=> {
   toggleMenuHamburguesa();
   const isActiveAside = aside.classList.contains('inactive');
   !isActiveAside && toggleMenuShoppingCar();
+  //Para cerrar el aside con la información o detalle de un producto si está abierto
+  const isActiveAsideDetail = asideProductInfoDetail.classList.contains('inactive');
+  !isActiveAsideDetail && asideProductInfoDetail.classList.add('inactive');
 });
 menuIconCar.addEventListener('click', ()=> {
   toggleMenuShoppingCar();
@@ -28,7 +35,11 @@ menuIconCar.addEventListener('click', ()=> {
   //Para cerrar el menu Account si está abierto
   const isActiveMenuAccount = menuContainAccount.classList.contains('inactive');
   !isActiveMenuAccount && toggleMenu();
+  //Para cerrar el aside con la información o detalle de un producto si está abierto
+  const isActiveAside = asideProductInfoDetail.classList.contains('inactive');
+  !isActiveAside && asideProductInfoDetail.classList.add('inactive');
 });
+iconCloseAsideProductInfoDetail.addEventListener('click', closeDetailInfoAside)
 
 const toggleMenu = () => menuContainAccount.classList.toggle('inactive');
 const toggleMenuHamburguesa = () => menuContainMobile.classList.toggle('inactive');
@@ -69,20 +80,20 @@ const db = [
   },
 ];
 
-/*
-<div class="product-card">
-        <img src="https://images.pexels.com/photos/276517/pexels-photo-276517.jpeg?auto=compress&cs=tinysrgb&dpr=2&h=650&w=940" alt="">
-        <div class="product-info">
-          <div>
-            <p>$120,00</p>
-            <p>Bike</p>
-          </div>
-          <figure>
-            <img src="./icons/bt_add_to_cart.svg" alt="">
-          </figure>
-        </div>
-      </div>
-*/
+const openDetailInfoAside = () => {
+  const isActiveAside = asideProductInfoDetail.classList.contains('inactive');
+  const isOpenCartAside = aside.classList.contains('inactive');
+  const isOpenMenuMobile = menuContainMobile.classList.contains('inactive');
+  if(isActiveAside){
+    asideProductInfoDetail.classList.remove('inactive');
+    !isOpenCartAside && aside.classList.add('inactive');
+    !isOpenMenuMobile && menuContainMobile.classList.add('inactive')
+  };
+}
+
+function closeDetailInfoAside(){
+  asideProductInfoDetail.classList.add('inactive');
+}
 
 
 
@@ -117,6 +128,7 @@ const renderHtml = (url, name, price) => {
 
   const imgPrincipal = document.createElement('img');
   imgPrincipal.setAttribute('src', url);
+  imgPrincipal.addEventListener('click', openDetailInfoAside)
 
   const divProductInfo = document.createElement('div');
   divProductInfo.classList.add('product-info');
@@ -125,7 +137,7 @@ const renderHtml = (url, name, price) => {
   const pPrice = document.createElement('p');
   pPrice.append(`$ ${price}`);
   const pName = document.createElement('p');
-  pName.innerText = `$ ${name}`;
+  pName.innerText = `${name}`;
   divChild.append(pPrice, pName);
 
   const figure = document.createElement('figure');
