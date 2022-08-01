@@ -3,35 +3,57 @@ const desktopMenu = document.querySelector('.desktop-menu')
 const burgerMenu = document.querySelector('.burger-menu')
 const mobileMenu = document.querySelector('.mobile-menu')
 const shoppingcart = document.querySelector('.navbar-shopping-cart')
-const aside = document.querySelector('.product-detail')
+const shoppingCartContainer = document.querySelector('#shoppingCartContainer')
+const productDetailContainer = document.querySelector('#productDetail')
+const productDetailCloseIcon = document.querySelector('.product-detail-close')
 
-const toggleMenu = () => {
-    const isAsideOpen = !aside.classList.contains('inactive')
-
-    //if(isAsideOpen) {
-    aside.classList.add('inactive')
-    //}
-
+function toggleMenu() {
+    shoppingCartContainer.classList.add('inactive')
+    productDetailContainer.classList.add('inactive')
     desktopMenu.classList.toggle('inactive')
     mobileMenu.classList.toggle('inactive')
 }
-navBarEmail.addEventListener('click', toggleMenu)
-burgerMenu.addEventListener('click', toggleMenu)
 
-const toggleCart = () => {
-    const isMobileMenuOpen = !mobileMenu.classList.contains('inactive')
-    const isDesktopMenuOpen = !desktopMenu.classList.contains('inactive')
-
-    //if(isMobileMenuOpen || isDesktopMenuOpen) {
+function toggleCart() {
     mobileMenu.classList.add('inactive')
     desktopMenu.classList.add('inactive')
-    //}
-
-    aside.classList.toggle('inactive')
+    productDetailContainer.classList.add('inactive')
+    shoppingCartContainer.classList.toggle('inactive')
 }
+
+function closeProductDetail() {
+    productDetailContainer.classList.add('inactive')
+}
+
+function openProductDetail() {
+    mobileMenu.classList.add('inactive')
+    desktopMenu.classList.add('inactive')
+    shoppingCartContainer.classList.add('inactive')
+    productDetailContainer.classList.remove('inactive')
+}
+
+navBarEmail.addEventListener('click', toggleMenu)
+burgerMenu.addEventListener('click', toggleMenu)
 shoppingcart.addEventListener('click', toggleCart)
+productDetailCloseIcon.addEventListener('click', closeProductDetail)
+
 
 const productList = []
+productList.push({
+    name: 'Bike',
+    price: 120,
+    image: 'https://images.pexels.com/photos/276517/pexels-photo-276517.jpeg?auto=compress&cs=tinysrgb&dpr=2&h=650&w=940',
+})
+productList.push({
+    name: 'TV',
+    price: 1300,
+    image: 'https://images.pexels.com/photos/276517/pexels-photo-276517.jpeg?auto=compress&cs=tinysrgb&dpr=2&h=650&w=940',
+})
+productList.push({
+    name: 'PC',
+    price: 4400,
+    image: 'https://images.pexels.com/photos/276517/pexels-photo-276517.jpeg?auto=compress&cs=tinysrgb&dpr=2&h=650&w=940',
+})
 productList.push({
     name: 'Bike',
     price: 120,
@@ -77,6 +99,7 @@ function renderProducts(arr) {
 
         const img = document.createElement('img')
         img.setAttribute('src', product.image)
+        img.addEventListener('click', openProductDetail)
 
         const productInfo = document.createElement('div')
         productInfo.classList.add('product-info')
