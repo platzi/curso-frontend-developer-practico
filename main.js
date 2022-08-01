@@ -8,13 +8,16 @@ const menuCarritoIcon = document.querySelector(".navbar-shopping-cart");
 const carritoDeCompras = document.querySelector("#shoppingCartContainer");
 const cardsContainer = document.querySelector(".cards-container");
 const mainContainer = document.querySelector(".main-container");
-
+const productDetailContainer = document.querySelector("#productDetail");
+const productDetailButtonClose = document.querySelector(".product-detail-close");
 
 
 menuCarritoIcon.addEventListener('click', toggleCarritoCompras);
 menuEmail.addEventListener('click', toggleDesktopMenu);
 menuHamIcon.addEventListener('click', toggleMobileMenu);
 mainContainer.addEventListener('click', colseMenusClick);
+productDetailButtonClose.addEventListener('click', closeProductDetail);
+
 
 function colseMenusClick() {
 
@@ -40,6 +43,7 @@ function toggleDesktopMenu() {
             carritoDeCompras.classList.add("inactive");
        
     }
+    productDetailContainer.classList.add('inactive');
     desktopMenu.classList.toggle('inactive');
 }
 
@@ -51,6 +55,7 @@ function toggleMobileMenu() {
             carritoDeCompras.classList.add("inactive");
        
     }
+    productDetailContainer.classList.add('inactive');
     mobileMenu.classList.toggle('inactive');
 }
 
@@ -64,9 +69,21 @@ function toggleCarritoCompras() {
         desktopMenu.classList.add("inactive");   
    
     }
-
+    productDetailContainer.classList.add('inactive');
     carritoDeCompras.classList.toggle("inactive")
 
+}
+function openProductDetailContainer() {
+    desktopMenu.classList.toggle('inactive');
+    carritoDeCompras.classList.toggle("inactive")
+    productDetailContainer.classList.remove('inactive');
+
+    
+}
+function closeProductDetail() {
+    
+    productDetailContainer.classList.add('inactive');
+    
 }
 
 const productList = [];
@@ -126,6 +143,7 @@ productList.push({
     
             const productImg = document.createElement('img');
             productImg.setAttribute('src', product.image);
+            productImg.addEventListener('click', openProductDetailContainer);
     
             const productInfo = document.createElement('div');
             productInfo.classList.add('product-info');
@@ -162,7 +180,7 @@ productList.push({
     
         }
     }
-
+  
     renderProducts(productList);
 
     
