@@ -6,6 +6,7 @@ const productDetailCloseIcon = document.querySelector('.product-detail-close');
 const mobileMenu = document.querySelector('.mobile-menu');
 const shoppingCartContainer = document.querySelector('#shoppingCartContainer');
 const productDetailContainer = document.querySelector('#productDetail');
+const flechitaTitleContainer = document.querySelector('.title-container');
 const cardsContainer = document.querySelector('.cards-container');
 
 
@@ -13,6 +14,7 @@ menuEmail.addEventListener('click', toggleDesktopMenu);
 menuHamIcon.addEventListener('click', toggleMobileMenu);
 menuCarritoIcon.addEventListener('click', toggleShoppingCartDesktop);
 productDetailCloseIcon.addEventListener('click', closeProductDetailAside);
+flechitaTitleContainer.addEventListener('click', toggleShoppingCartDesktop);
 
 /* FUNCION MENU EMAIL */
 function toggleDesktopMenu(){
