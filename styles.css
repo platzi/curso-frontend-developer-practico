@@ -31,7 +31,7 @@ nav {
 .products-cart.slide-left {
   right: 0;
 }
-.products-detail.slide-left {
+.product-detail.slide-left {
   right: 0;
 }
 /* Mobile menu */
@@ -299,6 +299,8 @@ nav {
   position: absolute;
   right: -1000px;
   top: 61px;
+
+background: var(--white);
 
   width: 360px;
   padding-bottom: 24px;

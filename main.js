@@ -2,38 +2,46 @@
 let productsList = [];
 
 //Selectors
-
-const navBarEmail = document.querySelector('.navbar-email');
-const desktopMenu = document.querySelector('.desktop-menu');
-const menuMobile = document.querySelector('.mobile-menu');
-const mobileBurger = document.querySelector('.menu');
-const showCartBtn = document.querySelector('.navbar-shopping-cart');
-const shoppingCart = document.querySelector('.products-cart');
-const cartArrow = document.querySelector('.cart-arrow');
-const cardsContainer = document.querySelector('.cards-container');
-const cardImage = document.querySelector('.product-card-img');
-const productCartInfo = document.querySelector('.product-detail')
+  //Containers
+  const desktopMenu = document.querySelector('.desktop-menu');
+  const menuMobile = document.querySelector('.mobile-menu');
+  const shoppingCart = document.querySelector('.products-cart');
+  const cardsContainer = document.querySelector('.cards-container');
+  const productCartInfo = document.querySelector('.product-detail')
+  //Elements
+  const navBarEmail = document.querySelector('.navbar-email');
+  const mobileBurger = document.querySelector('.menu');
+  const cardImage = document.querySelector('.product-card-img');
+  //Buttons
+  const cartArrow = document.querySelector('.cart-arrow');
+  const productInfoCloseBtn = document.querySelector('.product-detail-close')
+  const showCartBtn = document.querySelector('.navbar-shopping-cart');
+//
 
 //Event listeners
 mobileBurger.addEventListener('click', () => {
   menuMobile.classList.toggle('slide-right');
   shoppingCart.classList.remove('slide-left');
+  productCartInfo.classList.remove('slide-left');
 });
 
 navBarEmail.addEventListener('click', () => {
   desktopMenu.classList.toggle('inactive');
   shoppingCart.classList.remove('slide-left');
+  productCartInfo.classList.remove('slide-left');
 });
 
 showCartBtn.addEventListener('click', () => {
-shoppingCart.classList.toggle('slide-left');
-menuMobile.classList.remove('slide-right');
-desktopMenu.classList.add('inactive');
+  shoppingCart.classList.toggle('slide-left');
+  menuMobile.classList.remove('slide-right');
+  desktopMenu.classList.add('inactive');
+  productCartInfo.classList.remove('slide-left');
 });
 
 cartArrow.addEventListener('click', () => shoppingCart.classList.remove('slide-left'))
+productInfoCloseBtn.addEventListener('click', () => productCartInfo.classList.remove('slide-left'))
 
-
+//Functions
 function addProduct(image, price, name) {
   const obj = {
     img: image,
@@ -52,7 +60,12 @@ function showProductCards(arr) {
 
     const productImg = document.createElement('img');
     productImg.setAttribute('src', cur.img)
-    productImg.classList.add('product-card-img')
+    productImg.addEventListener('click', () => {
+      productCartInfo.classList.add('slide-left');
+      menuMobile.classList.remove('slide-right');
+      shoppingCart.classList.remove('slide-left');
+      desktopMenu.classList.add('inactive')
+    })
 
     const productInfo = document.createElement('div');
     productInfo.classList.add('product-info');
@@ -80,7 +93,6 @@ function showProductCards(arr) {
     console.log(card);
     cardsContainer.appendChild(card);
 
-    card.addEventListener('click', showProductInfo)
   })
 }
 
@@ -88,8 +100,4 @@ function cleanHTML() {
   while(cardsContainer.firstChild) {
     cardsContainer.removeChild(cardsContainer.firstChild);
   }
-}
-
-function showProductInfo(e) {
-  console.log(e.target.parentElement());
 }
