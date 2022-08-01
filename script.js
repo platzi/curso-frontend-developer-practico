@@ -10,6 +10,7 @@ const productDetail = $("#productDetail");
 const productDetailClose = $(".product-detail-close");
 const imgProductDetail = $(".img-productDetail");
 const counter = $(".counter");
+const orderContent =$('.my-order-content');
 
 console.log({ menu });
 
@@ -59,85 +60,85 @@ function toggleCart() {
 const productList = [];
 productList.push({
   name: "Bike",
-  price: "$100",
+  price: "100",
   image:
     'https://images.pexels.com/photos/276517/pexels-photo-276517.jpeg?auto=compress&cs=tinysrgb&dpr=2&h=650&w=940"',
 });
 productList.push({
   name: "Scooter",
-  price: "$200",
+  price: "200",
   image:
     "https://images.unsplash.com/photo-1597260491619-bab87197869f?ixlib=rb-1.2.1&ixid=MnwxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8&auto=format&fit=crop&w=626&q=80",
 });
 productList.push({
   name: "Car",
-  price: "$300",
+  price: "300",
   image:
     "https://images.unsplash.com/photo-1605475300127-0a31e8273bc2?ixlib=rb-1.2.1&ixid=MnwxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8&auto=format&fit=crop&w=1807&q=80",
 });
 productList.push({
   name: "Motorcycle",
-  price: "$400",
+  price: "400",
   image:
     "https://images.unsplash.com/photo-1591637333184-19aa84b3e01f?ixlib=rb-1.2.1&ixid=MnwxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8&auto=format&fit=crop&w=687&q=80",
 });
 productList.push({
   name: "Truck",
-  price: "$500",
+  price: "500",
   image:
     "https://images.unsplash.com/photo-1592838064575-70ed626d3a0e?ixlib=rb-1.2.1&ixid=MnwxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8&auto=format&fit=crop&w=1718&q=80",
 });
 productList.push({
   name: "Boat",
-  price: "$600",
+  price: "600",
   image:
     "https://images.unsplash.com/photo-1563296291-14f26f10c20f?ixlib=rb-1.2.1&ixid=MnwxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8&auto=format&fit=crop&w=1332&q=80",
 });
 productList.push({
   name: "Bike",
-  price: "$100",
+  price: "100",
   image:
     'https://images.pexels.com/photos/276517/pexels-photo-276517.jpeg?auto=compress&cs=tinysrgb&dpr=2&h=650&w=940"',
 });
 productList.push({
   name: "Scooter",
-  price: "$200",
+  price: "200",
   image:
     "https://images.unsplash.com/photo-1597260491619-bab87197869f?ixlib=rb-1.2.1&ixid=MnwxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8&auto=format&fit=crop&w=626&q=80",
 });
 productList.push({
   name: "Car",
-  price: "$300",
+  price: "300",
   image:
     "https://images.unsplash.com/photo-1605475300127-0a31e8273bc2?ixlib=rb-1.2.1&ixid=MnwxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8&auto=format&fit=crop&w=1807&q=80",
 });
 productList.push({
   name: "Motorcycle",
-  price: "$400",
+  price: "400",
   image:
     "https://images.unsplash.com/photo-1591637333184-19aa84b3e01f?ixlib=rb-1.2.1&ixid=MnwxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8&auto=format&fit=crop&w=687&q=80",
 });
 productList.push({
   name: "Truck",
-  price: "$500",
+  price: "500",
   image:
     "https://images.unsplash.com/photo-1592838064575-70ed626d3a0e?ixlib=rb-1.2.1&ixid=MnwxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8&auto=format&fit=crop&w=1718&q=80",
 });
 productList.push({
   name: "Boat",
-  price: "$600",
+  price: "600",
   image:
     "https://images.unsplash.com/photo-1563296291-14f26f10c20f?ixlib=rb-1.2.1&ixid=MnwxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8&auto=format&fit=crop&w=1332&q=80",
 });
 productList.push({
   name: "Bike",
-  price: "$100",
+  price: "100",
   image:
     'https://images.pexels.com/photos/276517/pexels-photo-276517.jpeg?auto=compress&cs=tinysrgb&dpr=2&h=650&w=940"',
 });
 productList.push({
   name: "Scooter",
-  price: "$200",
+  price: "200",
   image:
     "https://images.unsplash.com/photo-1597260491619-bab87197869f?ixlib=rb-1.2.1&ixid=MnwxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8&auto=format&fit=crop&w=626&q=80",
 });
@@ -160,7 +161,7 @@ function renderProducts(arr) {
 
     const div = document.createElement("div");
     const productPrice = document.createElement("p");
-    productPrice.innerText = product.price;
+    productPrice.innerText = "$"+product.price;
 
     const productName = document.createElement("p");
     productName.innerText = product.name;
@@ -185,9 +186,76 @@ function renderProducts(arr) {
   }
 }
 
+
+// div class="shopping-cart">
+//   <figure>
+//       <img src="https://images.pexels.com/photos/276517/pexels-photo-276517.jpeg?auto=compress&cs=tinysrgb&dpr=2&h=650&w=940" alt="bike">
+//     </figure>
+//   <p>Bike</p>
+//   <p>$30,00</p>
+//   <img src="./icons/icon_close.png" alt="close">
+
+// </div>
+/* <div class="order">
+<p>
+  <span>Total</span>
+</p>
+<p>$0.0</p>
+</div> */
+/* <button class="primary-button">
+        Checkout
+      </button> */
+
+
+function renderProductsCart(arr) {
+  let TOTAL = 0;
+  for (product of arr) {
+    const shoppingCart = document.createElement("div");
+    shoppingCart.classList.add("shopping-cart");
+  
+    const shoppingCartFigure = document.createElement("figure");
+    const shoppingCartFigureImg = document.createElement("img");
+    shoppingCartFigureImg.setAttribute("src", product.image);
+    const shoppingCartProductName = document.createElement("p");
+    shoppingCartProductName.innerText = product.name;
+    const shoppingCartProductPrice = document.createElement("p");
+    shoppingCartProductPrice.innerText = product.price;
+    TOTAL += parseFloat(product.price);
+    console.log(product.price.typeof);
+    const shoppingCartClose = document.createElement("img");
+    shoppingCartClose.setAttribute("src", "./icons/icon_close.png");
+
+    shoppingCartFigure.appendChild(shoppingCartFigureImg);
+    shoppingCart.appendChild(shoppingCartFigure);
+    shoppingCart.appendChild(shoppingCartProductName);
+    shoppingCart.appendChild(shoppingCartProductPrice);
+    shoppingCart.appendChild(shoppingCartClose);
+    
+    orderContent.appendChild(shoppingCart);
+  }
+  const order = document.createElement("div");
+  order.classList.add("order");
+  const pOrder = document.createElement("p");
+  const spanTotal = document.createElement("span");
+  spanTotal.innerText = "Total";
+  const pTotal = document.createElement("p");
+  pTotal.innerText = TOTAL;
+  pOrder.appendChild(spanTotal);
+  order.appendChild(pOrder);
+  order.appendChild(pTotal);
+  
+  const buttonCheckout = document.createElement("button");
+  buttonCheckout.classList.add("primary-button");
+  buttonCheckout.innerText = "Checkout";
+  //order.appendChild(buttonCheckout);
+  orderContent.appendChild(order);
+  orderContent.appendChild(buttonCheckout);
+}
+
+renderProductsCart(productList);
+
 addToCart = (name, price) => {
   counter.innerHTML = parseInt(counter.innerHTML) + 1;
-  //const cartItem = document.createElement("div");
 }
 
 
