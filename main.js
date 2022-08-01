@@ -45,6 +45,11 @@ menuHamIcon.addEventListener('click',inactiveHamMenu);
 
 function inactiveHamMenu() {   
     const menuCarcheck = menuCar.classList.contains('inactive');
+    const asideContainery = asideContainer.classList.contains('inactive');
+
+    if(!asideContainery){
+        asideContainer.classList.add('inactive');   
+    }
      
 
     if(!menuCarcheck){
@@ -136,42 +141,41 @@ producList.push({
 --Crear en las variables globales la parte de html al cual queremos insertarle el js creado 
 */
 
-for (product of producList){
+/*for (product of producList){
 
   const productCard = document.createElement('div');
   productCard.classList.add('product-card');
-
+*/
 //Product es = {name,price,img};
-  const imgCard = document.createElement('img');
-  imgCard.setAttribute('src',product.img); 
+//   const imgCard = document.createElement('img');
+//   imgCard.setAttribute('src',product.img);  
+
+//   const prodctInfo = document.createElement('div');
+//   prodctInfo.classList.add('product-info');
+
+//   const divContainerInfo = document.createElement('div');  
+
+//   const pPrice = document.createElement('p');
+//   pPrice.innerText = '$' + product.price;
+//   const pName = document.createElement('p');
+//   pName.innerText = product.name;
+//   divContainerInfo.appendChild(pPrice);
+//   divContainerInfo.appendChild(pName);  
+
+//   const figure = document.createElement('figure');
+//   const imgBottonCard = document.createElement('img');
+//   imgBottonCard.setAttribute('src', './icons/bt_add_to_cart.svg');
+
+//   figure.appendChild(imgBottonCard);
+//   prodctInfo.appendChild(divContainerInfo);
+//   prodctInfo.appendChild(figure);
 
 
-  const prodctInfo = document.createElement('div');
-  prodctInfo.classList.add('product-info');
+//   productCard.appendChild(imgCard);
+//   productCard.appendChild(prodctInfo);  
 
-  const divContainerInfo = document.createElement('div');  
-
-  const pPrice = document.createElement('p');
-  pPrice.innerText = '$' + product.price;
-  const pName = document.createElement('p');
-  pName.innerText = product.name;
-  divContainerInfo.appendChild(pPrice);
-  divContainerInfo.appendChild(pName);  
-
-  const figure = document.createElement('figure');
-  const imgBottonCard = document.createElement('img');
-  imgBottonCard.setAttribute('src', './icons/bt_add_to_cart.svg');
-
-  figure.appendChild(imgBottonCard);
-  prodctInfo.appendChild(divContainerInfo);
-  prodctInfo.appendChild(figure);
-
-
-  productCard.appendChild(imgCard);
-  productCard.appendChild(prodctInfo);  
-
-  cardsContainer.appendChild(productCard);
-}
+//   cardsContainer.appendChild(productCard);
+// }
 
  // Modo funcion
 
@@ -184,7 +188,8 @@ for (product of producList){
       
       //Product es = {name,price,img};
         const imgCard = document.createElement('img');
-        imgCard.setAttribute('src',product.img);
+        imgCard.setAttribute('src',product.img);   
+        imgCard.addEventListener('click', openProductAside);  //No requiere de () el console porque esta dentro del addEvenetlisener.   
       
       
         const prodctInfo = document.createElement('div');
@@ -202,6 +207,7 @@ for (product of producList){
         const figure = document.createElement('figure');
         const imgBottonCard = document.createElement('img');
         imgBottonCard.setAttribute('src', './icons/bt_add_to_cart.svg');
+        
       
         figure.appendChild(imgBottonCard);
         prodctInfo.appendChild(divContainerInfo);
@@ -217,22 +223,37 @@ for (product of producList){
  }
 
  renderProducts(producList); 
+ 
 
  //Asaid de Product detail 1 
+ 
 
- asideXIcon.addEventListener('click', asaidMenuActive);
- imgCard.addEventListener('click', asaidMenuActive);
+ asideXIcon.addEventListener('click', asaidMenuActive); 
 
 function asaidMenuActive(){
    
-    const asideContainery = asideContainer.classList.contains('inactive');
-    console.log(asideContainery);      
+    const asideContainery = asideContainer.classList.contains('inactive');      
     
     // if(asideContainery){
     //     asideContainer.classList.add('inactive');
     // }  
 
     asideContainer.classList.toggle('inactive');        
+}
+
+function openProductAside (){
+    const desktopMenuCheker = desktopMenu.classList.contains('inactive');
+    const isCarOpened = menuCar.classList.contains('inactive');
+
+    if(!desktopMenuCheker){
+        desktopMenu.classList.add('inactive');
+
+    }
+    if(!isCarOpened){
+        menuCar.classList.add('inactive');
+    }
+    asideContainer.classList.remove('inactive');
+    
 }
 
 
