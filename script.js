@@ -11,12 +11,15 @@ const productDetailClose = $(".product-detail-close");
 const imgProductDetail = $(".img-productDetail");
 const counter = $(".counter");
 const orderContent =$('.my-order-content');
+const closeOrder = $('.closeOrderCart');
 
 console.log({ menu });
 
 email.addEventListener("click", toggleDesktop);
 menu.addEventListener("click", toggleMenu);
 btnCart.addEventListener("click", toggleCart);
+closeOrder.addEventListener('click', toggleCart);
+
 
 function toggleDesktop() {
   let isMenuCartClosed = shoppingCartContainer.classList.contains("inactive");
@@ -54,7 +57,18 @@ function toggleCart() {
   if (!productDetailClosed) {
     productDetail.classList.toggle("inactive");
   }
+  if (shoppingCartContainer.classList.contains("inactive")) {
+    renderProductsCart(productListCart);
+  }else{
+    removeAllChildNodes(orderContent);
+  }
   shoppingCartContainer.classList.toggle("inactive");
+}
+
+function removeAllChildNodes(parent) {
+  while (parent.firstChild) {
+      parent.removeChild(parent.firstChild);
+  }
 }
 
 const productList = [];
@@ -172,7 +186,13 @@ function renderProducts(arr) {
     const productInfoFigureImg = document.createElement("img");
     productInfoFigureImg.setAttribute("src", "./icons/bt_add_to_cart.svg");
     productInfoFigureImg.addEventListener('click', () => {
-      addToCart(product.name, product.price);
+      let isMenuCartClosed = shoppingCartContainer.classList.contains("inactive");
+      addToCart(productName.innerText, productPrice.innerText.replace('$', ''), img.getAttribute('src'));
+      if(!isMenuCartClosed){
+        toggleCart();
+        toggleCart();
+      }
+      
     });
 
     productInfoFigure.appendChild(productInfoFigureImg);
@@ -185,26 +205,6 @@ function renderProducts(arr) {
     cardContainer.appendChild(productCard);
   }
 }
-
-
-// div class="shopping-cart">
-//   <figure>
-//       <img src="https://images.pexels.com/photos/276517/pexels-photo-276517.jpeg?auto=compress&cs=tinysrgb&dpr=2&h=650&w=940" alt="bike">
-//     </figure>
-//   <p>Bike</p>
-//   <p>$30,00</p>
-//   <img src="./icons/icon_close.png" alt="close">
-
-// </div>
-/* <div class="order">
-<p>
-  <span>Total</span>
-</p>
-<p>$0.0</p>
-</div> */
-/* <button class="primary-button">
-        Checkout
-      </button> */
 
 
 function renderProductsCart(arr) {
@@ -221,7 +221,7 @@ function renderProductsCart(arr) {
     const shoppingCartProductPrice = document.createElement("p");
     shoppingCartProductPrice.innerText = product.price;
     TOTAL += parseFloat(product.price);
-    console.log(product.price.typeof);
+    //console.log(product.price.typeof);
     const shoppingCartClose = document.createElement("img");
     shoppingCartClose.setAttribute("src", "./icons/icon_close.png");
 
@@ -252,10 +252,17 @@ function renderProductsCart(arr) {
   orderContent.appendChild(buttonCheckout);
 }
 
-renderProductsCart(productList);
+//renderProductsCart(productListCart);
 
-addToCart = (name, price) => {
+const productListCart = [];
+
+addToCart = (name, price, img) => {
   counter.innerHTML = parseInt(counter.innerHTML) + 1;
+  productListCart.push({
+    name: name,
+    price: price,
+    image: img,
+  });
 }
 
 
