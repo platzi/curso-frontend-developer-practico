@@ -4,24 +4,34 @@ const desktopMenu = document.querySelector('.desktop-menu')
 const menuHamIcon = document.querySelector('.menu')
 const mobileMEnu = document.querySelector('.mobile-menu')
 const menuCarritoIcon = document.querySelector('.navbar-shopping-cart')
-const aside = document.querySelector('.product-detail')
+const shopingCartContainer = document.querySelector('#shoping-cart-container')
+
+const productDetail = document.querySelector('#product-detail')
+
 
  navbarEmail.addEventListener('click',function(){
     desktopMenu.classList.toggle('inactive')
 })
 menuHamIcon.addEventListener('click',function(){
 
-    let isAsideClose = aside.classList.contains('inactive')
-    if(!isAsideClose) aside.classList.add('inactive')
+    productDetail.classList.add('inactive')
+    shopingCartContainer.classList.add('inactive')
     mobileMEnu.classList.toggle('inactive')
+
+    // let isshopingCartContainerClose = shopingCartContainer.classList.contains('inactive')
+    // if(!isshopingCartContainerClose) shopingCartContainer.classList.add('inactive')
+    // mobileMEnu.classList.toggle('inactive')
     
 })
 
 menuCarritoIcon.addEventListener('click',function(){
 
-    let mobileMenuClose = mobileMEnu.classList.contains('inactive')
-    if(!mobileMenuClose)mobileMEnu.classList.add('inactive') 
-    aside.classList.toggle('inactive')
+    mobileMEnu.classList.add('inactive')
+    productDetail.classList.add('inactive')
+    shopingCartContainer.classList.toggle('inactive')
+    // let mobileMenuClose = mobileMEnu.classList.contains('inactive')
+    // if(!mobileMenuClose)mobileMEnu.classList.add('inactive') 
+    // shopingCartContainer.classList.toggle('inactive')
 
 })
  
@@ -43,23 +53,72 @@ const productList =[{
 }
 ]
 
-for(product of productList){
+function renderProducts(arr){
+    for(product of arr){
 
-    const htmlCards = `
-    <div class="product-card">
-        <img src=${product.img} alt="">
-        <div class="product-info">
-          <div>
-            <p>$${product.price}</p>
-            <p>${product.name}</p>
+        const htmlCards = `
+        <div class="product-card">
+            <img id=${product.name} src=${product.img} alt="">
+            <div class="product-info">
+              <div>
+                <p>$${product.price}</p>
+                <p>${product.name}</p>
+              </div>
+              <figure>
+                <img src="./icons/bt_add_to_cart.svg" alt="">
+              </figure>
+            </div>
           </div>
-          <figure>
-            <img src="./icons/bt_add_to_cart.svg" alt="">
-          </figure>
-        </div>
-      </div>
-    `
+        `
+    
+        const cardContainer = document.querySelector('.cards-container')
+        cardContainer.innerHTML += htmlCards
+    }
+    
+    arr.forEach((e) => {
 
-    const cardContainer = document.querySelector('.cards-container')
-    cardContainer.innerHTML += htmlCards
+        console.log('num');
+
+
+
+
+
+        let hola = document.getElementById(e.name)
+    
+        hola.addEventListener('click',function(){
+
+            shopingCartContainer.classList.add('inactive')
+            mobileMEnu.classList.toggle('inactive')
+            productDetail.classList.toggle('inactive')
+
+
+                 
+                const detalles = `
+                
+                <div class="product-detail-close">
+                  <img src="./icons/icon_close.png" alt="close">
+                </div>
+                <img src=${e.img} alt="bike">
+                <div class="product-info">
+                  <p>${e.price}</p>
+                  <p>${e.name}</p>
+                  <p>With its practical position, this bike also fulfills a decorative function, add your hall or workspace.</p>
+                  <button class="primary-button add-to-cart-button">
+                    <img src="./icons/bt_add_to_cart.svg" alt="add to cart">
+                    Add to cart
+                  </button>
+                </div>
+                
+                `
+
+                productDetail.innerHTML=detalles
+                const productDetailClose = document.querySelector('.product-detail-close')
+                productDetailClose.addEventListener('click',()=>{
+                productDetail.classList.add('inactive')
+                })
+        })
+        
+    });
 }
+
+renderProducts(productList)
