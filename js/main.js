@@ -25,7 +25,9 @@ function toogleDesktopMenu(){
     // if aside is open we add the inactive class to close it
     if (!isAsideClosed){
         shoppingCartContainer.classList.add('inactive');
-    } 
+    }
+    // We call the function to close the product detail, in case it was open
+    closeProductDetailAside()
     desktopMenu.classList.toggle('inactive');
     
 }
