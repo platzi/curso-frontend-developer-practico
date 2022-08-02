@@ -78,6 +78,23 @@ function toggleMyOrder_Detail() {
 }
 
 function openProudctDeatil(){
+    const isMobileMenuClosed = mobileMenu.classList.contains('inactive') ;
+    const isDesktopMenuClosed = desktopMenu.classList.contains('inactive');
+
+    if (!isMobileMenuClosed) {
+        mobileMenu.classList.add('inactive');
+    };
+
+    if (!isDesktopMenuClosed) {
+        desktopMenu.classList.add('inactive');
+    }
+
+    const isMyOrder_DetailClosed = myOrder_Detail.classList.contains('inactive') ;
+
+    if (!isMyOrder_DetailClosed){
+        myOrder_Detail.classList.add('inactive');
+    }
+
     product_detail.classList.remove('inactive');
 };
 
