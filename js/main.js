@@ -5,21 +5,26 @@ const burguerMenu = document.querySelector('.menu');
 const mobileMenu = document.querySelector('.mobile-menu');
 
 const navbarShoppingCart = document.querySelector('.navbar-shopping-cart');
-const aside = document.querySelector('.product-detail');
+const shoppingCartContainer = document.querySelector('#shoppingCartContainer');
 
 const cardsContainer = document.querySelector('.cards-container');
+
+const productDetailContainer = document.querySelector('#productDetail');
+const productDetailCloseIcon = document.querySelector('.product-detail-close')
 
 navbarEmail.addEventListener('click', toogleDesktopMenu);
 burguerMenu.addEventListener('click', toogleMobileMenu);
 navbarShoppingCart.addEventListener('click', toogleAsideDetail);
+productDetailCloseIcon.addEventListener('click', closeProductDetailAside);
+
 
 function toogleDesktopMenu(){
     // Constant that show us if the element isn't being displayed
-    const isAsideClosed = aside.classList.contains('inactive');
+    const isAsideClosed = shoppingCartContainer.classList.contains('inactive');
     
     // if aside is open we add the inactive class to close it
     if (!isAsideClosed){
-        aside.classList.add('inactive');
+        shoppingCartContainer.classList.add('inactive');
     } 
     desktopMenu.classList.toggle('inactive');
     
@@ -27,12 +32,14 @@ function toogleDesktopMenu(){
 
 function toogleMobileMenu(){
      // Constant that show us if the element isn't being displayed
-    const isAsideClosed = aside.classList.contains('inactive');
+    const isAsideClosed = shoppingCartContainer.classList.contains('inactive');
     
     // if aside is open we add the inactive class to close it
     if (!isAsideClosed){
-        aside.classList.add('inactive');
+        shoppingCartContainer.classList.add('inactive');
     } 
+    // We call the function to close the product detail, in case it was open
+    closeProductDetailAside()
     mobileMenu.classList.toggle('inactive');
 }
 
@@ -40,6 +47,7 @@ function toogleAsideDetail(){
     // Constant that show us if the element isn't being displayed
     const isMobileMenuClosed = mobileMenu.classList.contains('inactive');
     const isDesktopMenuClosed = desktopMenu.classList.contains('inactive');
+    const isProductDetailClosed = productDetailContainer.classList.contains('inactive');
 
     // if mobile menu is open we add the inactive class to close it
     if (!isMobileMenuClosed){
@@ -47,8 +55,24 @@ function toogleAsideDetail(){
     } // Also if desktop menu is open we add the inactive class to close it
     if (!isDesktopMenuClosed){
         desktopMenu.classList.add('inactive');
+    }// Also if product detail is open we add the inactive class to close it
+    if (!isProductDetailClosed){
+        productDetailContainer.classList.add('inactive');
     }
-    aside.classList.toggle('inactive');
+    shoppingCartContainer.classList.toggle('inactive');
+}
+
+function openProductDetailAside(){
+    // If we want to open the product detail, we make sure to close the other menus
+    shoppingCartContainer.classList.add('inactive');
+    desktopMenu.classList.add('inactive');
+    mobileMenu.classList.add('inactive');
+
+    productDetailContainer.classList.remove('inactive');
+}
+
+function closeProductDetailAside() {
+    productDetailContainer.classList.add('inactive');
 }
 
 const productList = [];
@@ -94,7 +118,7 @@ productList.push({
 });
 
 
-/*  We bring the original HTML to better see what we have to add via JS
+/*  We bring here the original HTML to better see what we have to add via JS
 
 <div class="product-card">
     <img src="https://images.pexels.com/photos/276517/pexels-photo-276517.jpeg?auto=compress&cs=tinysrgb&dpr=2&h=650&w=940" alt="">
@@ -114,9 +138,13 @@ function productRender(listOfProducts) {
     for (product of listOfProducts) {
         const productCard = document.createElement('div');
         productCard.classList.add('product-card')
-    
+        
+        // product = {name, price, img} --> product.price ...
         const img = document.createElement('img');
         img.setAttribute('src', product.img);
+        // Listening to display the aside of the product detail
+        img.addEventListener('click', openProductDetailAside);
+
         
         const productInfo = document.createElement('div');
         productInfo.classList.add('product-info')
