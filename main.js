@@ -17,14 +17,15 @@ const mobilemenu = document.querySelector('.mobile-menu');
 menuIcon.addEventListener('click', toggleMobileMenu);
 
 function toggleMobileMenu (){
-    shoppifig.classList.add('inactive');  //la otra seria esta, mucho mas facil
+    detailProduct.classList.add('inactive')
+    ShoppingCarContainers.classList.add('inactive');  //la otra seria esta, mucho mas facil
     mobilemenu.classList.toggle('inactive');
 }
 
 /* CARRITO DE COMPRAS */
 
 const carsmenu = document.querySelector('.navbar-shopping-cart');
-const shoppifig = document.querySelector('.product-detail');
+const ShoppingCarContainers = document.querySelector('#ShoppingCarContainers');
 
 carsmenu.addEventListener('click', togglecars);
 
@@ -35,7 +36,13 @@ function togglecars(){
     if (mobileMenuClose) {
         mobilemenu.classList.add('inactive');  
     }
-    shoppifig.classList.toggle('inactive');
+
+    const detailProductClose = detailProduct.classList.add('inactive');
+    if (detailProductClose) {
+        detailProduct.classList.add('inactive');  
+    }
+
+    ShoppingCarContainers.classList.toggle('inactive');
 }
 
 
@@ -51,7 +58,7 @@ productLista.push({
 productLista.push({
     name: 'Manillas',
     price: 50.000,
-    image: "https://images.pexels.com/photos/276517/pexels-photo-276517.jpeg?auto=compress&cs=tinysrgb&dpr=2&h=650&w=940",
+    image: "https://m.media-amazon.com/images/I/61SucG+SVmL._AC_UY500_.jpg",
 });
 
 productLista.push({
@@ -79,6 +86,15 @@ for (productos of productLista ) {
     //productos = {name, price, image} -> productos.image
     const img = document.createElement('img');
     img.setAttribute('src', productos.image);
+    
+        /* logica para que abra el detalle del producto */
+        const productDetail = document.querySelector('#product-detail');
+
+        img.addEventListener('click', openProduct);
+
+        function openProduct(){
+            productDetail.classList.remove('inactive');
+        }
 
     const productinfo = document.createElement('div');
     productinfo.classList.add('product-info');
@@ -111,4 +127,16 @@ for (productos of productLista ) {
     /* EN ESTE CASO TRAEMOS LA CLASE DEL CONTAINER MAYOR Y PARA INGRESAR PRODUCT CARD */
 
     cardsContainer.appendChild(productCard); 
+
 }
+    /* PARA CERRAR CON LA X DE LA IMAGEN*/
+
+    const closeProduct = document.querySelector('.product-detail-close');
+    const detailProduct = document.querySelector('#product-detail');
+
+    closeProduct.addEventListener('click', closeDetailProduct);
+
+    function closeDetailProduct(){
+        ShoppingCarContainers.classList.add('inactive');
+        detailProduct.classList.toggle('inactive');
+    }
