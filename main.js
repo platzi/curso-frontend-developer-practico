@@ -10,6 +10,9 @@ const myOrder_Detail = document.querySelector('.myOrder-detail');
 
 const cardsContainer = document.querySelector('.cards-container');
 
+const product_detail = document.querySelector('.product-detail');
+
+const productDetailCloseIcon = document.querySelector('.product-detail-close')
 
 
 navBarEmail.addEventListener("click", toggleDesktopMenu);
@@ -18,6 +21,7 @@ hamburgerMenu.addEventListener("click", toggleMobileMenu);
 
 shoppingCar.addEventListener("click", toggleMyOrder_Detail);
 
+productDetailCloseIcon.addEventListener('click', closeProductDetailAside);
 
 
 function toggleDesktopMenu() {
@@ -55,6 +59,14 @@ function toggleMyOrder_Detail() {
     myOrder_Detail.classList.toggle('inactive');
 }
 
+function openProudctDeatil(){
+    product_detail.classList.remove('inactive');
+};
+
+function closeProductDetailAside() {
+    product_detail.classList.add('inactive');
+  }
+
 const productList = [];
 
 productList.push({
@@ -80,41 +92,43 @@ productList.push({
 
 for (product of productList) {
 
-    const productCard = document.createElement('div');
-    productCard.classList.add('product-card'); 
-    
-    const img = document.createElement('img');
-    img.setAttribute('src', product.image);
+const productCard = document.createElement('div');
+productCard.classList.add('product-card'); 
 
-    const productInfo = document.createElement('div');
-    productInfo.classList.add('product-info');
+const img = document.createElement('img');
+img.setAttribute('src', product.image);
+img.addEventListener('click', openProudctDeatil);
 
-    const nonNameDiv = document.createElement('div');
+const productInfo = document.createElement('div');
+productInfo.classList.add('product-info');
 
-    const productInfo_price = document.createElement('p');
-    productInfo_price.innerText = '$' + product.price;
+const nonNameDiv = document.createElement('div');
 
-    const productInfo_name = document.createElement('p');
-    productInfo_name.innerText = product.name;
+const productInfo_price = document.createElement('p');
+productInfo_price.innerText = '$' + product.price;
 
-    const productInfo_figure = document.createElement('figure');
+const productInfo_name = document.createElement('p');
+productInfo_name.innerText = product.name;
 
-
-    const productInfo_figureImg = document.createElement('img');
-    productInfo_figureImg.setAttribute('src', './icons/bt_add_to_cart.svg');
-
-    cardsContainer.appendChild(productCard);
-
-    productCard.appendChild(img);
-    productCard.appendChild(productInfo);
-
-    productInfo.appendChild(nonNameDiv);
-    productInfo.appendChild(productInfo_figure);
+const productInfo_figure = document.createElement('figure');
 
 
-    nonNameDiv.appendChild(productInfo_price);
-    nonNameDiv.appendChild(productInfo_name);
+const productInfo_figureImg = document.createElement('img');
+productInfo_figureImg.setAttribute('src', './icons/bt_add_to_cart.svg');
 
-    productInfo_figure.appendChild(productInfo_figureImg);
-    
+cardsContainer.appendChild(productCard);
+
+productCard.appendChild(img);
+productCard.appendChild(productInfo);
+
+productInfo.appendChild(nonNameDiv);
+productInfo.appendChild(productInfo_figure);
+
+
+nonNameDiv.appendChild(productInfo_price);
+nonNameDiv.appendChild(productInfo_name);
+
+productInfo_figure.appendChild(productInfo_figureImg);
 }
+
+
