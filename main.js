@@ -6,31 +6,39 @@ const menuHamIcon = document.querySelector('.menu');
 const mobileMenu = document.querySelector('.mobile-menu');
 const menuCartIcon = document.querySelector('.navbar-shopping-cart');
 const shoppingCartContainer = document.querySelector('#shoppingCartContainer');
+const productDetailContainer = document.querySelector('#productDetail');
+const productDetailClose = document.querySelector('.product-detail-close');
 
 menuEmail.addEventListener('click', toggleDesktopMenu);
 menuHamIcon.addEventListener('click', toggleMobileMenu);
 menuCartIcon.addEventListener('click', toggleCartMenu);
+productDetailClose.addEventListener('click', closeProductDetailAside)
 
+// Activar-Inactivar el menú desktop
 function toggleDesktopMenu() {
-    const isProductDetailClosed = shoppingCartContainer.classList.contains('inactive');
+    const isShoppingCartClosed = shoppingCartContainer.classList.contains('inactive');
 
-    if (!isProductDetailClosed) {
+    if (!isShoppingCartClosed) {
         shoppingCartContainer.classList.add('inactive');
     }
 
+    closeProductDetailAside();
     desktopMenu.classList.toggle('inactive');
 }
 
+// Activar-Inactivar el menú mobile
 function toggleMobileMenu() {
-    const isProductDetailClosed = shoppingCartContainer.classList.contains('inactive');
+    const isShoppingCartClosed = shoppingCartContainer.classList.contains('inactive');
 
-    if (!isProductDetailClosed) {
+    if (!isShoppingCartClosed) {
         shoppingCartContainer.classList.add('inactive');
     }
 
+    closeProductDetailAside();
     mobileMenu.classList.toggle('inactive');
 }
 
+// Activar-Inactivar el carrito de compras
 function toggleCartMenu() {
     const isMobileMenuClosed = mobileMenu.classList.contains('inactive');
     const isDesktopMenuClosed = desktopMenu.classList.contains('inactive');
@@ -40,7 +48,23 @@ function toggleCartMenu() {
         desktopMenu.classList.add('inactive');
     }
 
+    closeProductDetailAside();
     shoppingCartContainer.classList.toggle('inactive');
+}
+
+// Activar-Inactivar detalles del producto
+function openProductDetailAside() {
+    // Si abro el productDetail cierro las demás vistas
+    shoppingCartContainer.classList.add('inactive');
+    mobileMenu.classList.add('inactive');
+    desktopMenu.classList.add('inactive');
+
+    productDetailContainer.classList.remove('inactive');
+}
+
+function closeProductDetailAside() {
+    productDetailContainer.classList.add('inactive');
+    
 }
 
 // Generación de la lista de productos
@@ -86,6 +110,7 @@ function renderProducts(arr) {
     
         const productImg = document.createElement('img');
         productImg.setAttribute('src', product.image);
+        productImg.addEventListener('click', openProductDetailAside);
     
         const productInfo = document.createElement('div');
         productInfo.classList.add('product-info');
