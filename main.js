@@ -57,7 +57,7 @@ function renderProducts(arr){
     for(product of arr){
 
         const htmlCards = `
-        <div class="product-card">
+        <div class="product-card hover">
             <img id=${product.name} src=${product.img} alt="">
             <div class="product-info">
               <div>
@@ -76,46 +76,53 @@ function renderProducts(arr){
     }
     
     arr.forEach((e) => {
+    
 
         console.log('num');
-
-
-
-
 
         let hola = document.getElementById(e.name)
     
         hola.addEventListener('click',function(){
+            
 
-            shopingCartContainer.classList.add('inactive')
-            mobileMEnu.classList.toggle('inactive')
-            productDetail.classList.toggle('inactive')
+            if(productDetail.classList.contains('inactive')){
 
 
-                 
-                const detalles = `
+                shopingCartContainer.classList.add('inactive')
+                mobileMEnu.classList.toggle('inactive')
+                productDetail.classList.remove('inactive')
+
+
+                    const detalles = `
+                    
+                    <div class="product-detail-close">
+                      <img src="./icons/icon_close.png" alt="close">
+                    </div>
+                    <img src=${e.img} alt="bike">
+                    <div class="product-info">
+                      <p>${e.price}</p>
+                      <p>${e.name}</p>
+                      <p>With its practical position, this bike also fulfills a decorative function, add your hall or workspace.</p>
+                      <button class="primary-button add-to-cart-button">
+                        <img src="./icons/bt_add_to_cart.svg" alt="add to cart">
+                        Add to cart
+                      </button>
+                    </div>
+                    
+                    `
+                    productDetail.innerHTML=detalles
+                    const productDetailClose = document.querySelector('.product-detail-close')
+                    productDetailClose.addEventListener('click',()=>{
+                    productDetail.classList.add('inactive')
+                    
+                    })
                 
-                <div class="product-detail-close">
-                  <img src="./icons/icon_close.png" alt="close">
-                </div>
-                <img src=${e.img} alt="bike">
-                <div class="product-info">
-                  <p>${e.price}</p>
-                  <p>${e.name}</p>
-                  <p>With its practical position, this bike also fulfills a decorative function, add your hall or workspace.</p>
-                  <button class="primary-button add-to-cart-button">
-                    <img src="./icons/bt_add_to_cart.svg" alt="add to cart">
-                    Add to cart
-                  </button>
-                </div>
+            }else{
                 
-                `
+                
+            }
 
-                productDetail.innerHTML=detalles
-                const productDetailClose = document.querySelector('.product-detail-close')
-                productDetailClose.addEventListener('click',()=>{
-                productDetail.classList.add('inactive')
-                })
+
         })
         
     });
