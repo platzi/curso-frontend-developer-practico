@@ -31,6 +31,12 @@ function toggleDesktopMenu() {
         myOrder_Detail.classList.add('inactive');
     }
 
+    const isProduct_detailClosed = product_detail.classList.contains('inactive') ;
+
+    if (!isProduct_detailClosed){
+        closeProductDetailAside();
+    }
+
     desktopMenu.classList.toggle('inactive');
 }
 
@@ -39,6 +45,12 @@ function toggleMobileMenu() {
 
     if (!isMyOrder_DetailClosed){
         myOrder_Detail.classList.add('inactive');
+    }
+
+    const isProduct_detailClosed = product_detail.classList.contains('inactive') ;
+
+    if (!isProduct_detailClosed){
+        closeProductDetailAside();
     }
 
     mobileMenu.classList.toggle('inactive');
@@ -54,6 +66,12 @@ function toggleMyOrder_Detail() {
 
     if (!isDesktopMenuClosed) {
         desktopMenu.classList.add('inactive');
+    }
+
+    const isProduct_detailClosed = product_detail.classList.contains('inactive') ;
+
+    if (!isProduct_detailClosed){
+        closeProductDetailAside();
     }
 
     myOrder_Detail.classList.toggle('inactive');
