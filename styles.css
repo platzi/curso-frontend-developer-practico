@@ -401,6 +401,14 @@ aside {
 
 /* --- Media Queries --- */
 @media (max-width: 640px) {
+    #shoppingCartContainer {
+        width: 100%;    
+    }
+
+    #productDetail{
+        width: 100%;
+    }
+
     .menu {
         display: block;
     }
