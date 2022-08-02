@@ -18,10 +18,6 @@ nav {
   padding: 0 24px;
   border-bottom: 1px solid var(--very-light-pink);
 }
-
-.inactive {
-  display: none;
-}
 .menuIconHamburguesa {
   display: none;
 }
@@ -163,6 +159,7 @@ nav {
   position: absolute;
   right: 0;
   background-color: var(--white);
+  height: 100%;
 }
 .title-container {
   display: flex;
@@ -221,6 +218,9 @@ nav {
   font-size: var(--md);
   font-weight: bold;
 }
+.shopping-cart img {
+  cursor: pointer;
+}
 .primary-button {
   background-color: var(--hospital-green);
   border-radius: 8px;
@@ -263,6 +263,7 @@ nav {
 .product-info figure img {
   width: 35px;
   height: 35px;
+  cursor: pointer;
 }
 .product-info div p:nth-child(1) {
   font-weight: bold;
@@ -382,4 +383,8 @@ nav {
   .mobile-menu {
     display: none;
   }
+}
+
+.inactive {
+  display: none;
 }
