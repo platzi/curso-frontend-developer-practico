@@ -25,18 +25,17 @@ nav {
     display: none;
 }
 
-.menu {
-    display: none;
-}
 
 .logo {
     width: 100px;
 }
 
+/* MENU DESKTOP */
 .navbar-right{
     position: relative;
     box-sizing: border-box;
 }
+
 .navbar-left ul,
 .navbar-right ul {
     list-style: none;
@@ -46,7 +45,6 @@ nav {
     align-items: center;
     height: 60px;
 }
-
 .navbar-left {
     display: flex;
 }
@@ -74,6 +72,9 @@ nav {
     color: var(--very-light-pink);
     font-size: var(--sm);
     margin-right: 12px;
+}
+.navbar-email:hover{
+    cursor: pointer;
 }
 
 .navbar-shopping-cart {
@@ -110,30 +111,74 @@ nav {
     list-style: none;
     padding: 0;
     margin: 0;
-  }
-  .desktop-menu ul li {
-  }
+}
   .desktop-menu ul li:nth-child(1),
   .desktop-menu ul li:nth-child(2) {
-    font-weight: bold;
-  }
-  .desktop-menu ul li:last-child {
-    padding-top: 20px;
-    border-top: 1px solid var(--very-light-pink);
+      font-weight: bold;
+    }
+    .desktop-menu ul li:last-child {
+        padding-top: 20px;
+        border-top: 1px solid var(--very-light-pink);
   }
   .desktop-menu ul li:last-child a {
     color: var(--hospital-green);
     font-size: var(--sm);
-  }
-  .desktop-menu ul li a {
+}
+.desktop-menu ul li a {
     color: var(--back);
     text-decoration: none;
     margin-bottom: 20px;
     display: inline-block;
+}
+
+/* MENU HAMBURGUESA DESPLEGABLE MOBILE */
+.burguerMenu{
+    position: relative;
+    width: 22px;
+    align-self: center;
+}
+
+.menu{
+    width: 100%;
+}
+.menu:hover{
+    cursor:pointer;
+}
+
+.mobile-menu {
+    padding: 20px 0 10px;
+    position:absolute;
+    top:20px;
+
+  }
+  .mobile-menu a {
+    text-decoration: none;
+    color: var(--black);
+    font-weight: bold;
+    /* margin-bottom: 24px; */
+}
+.mobile-menu ul {
+    padding: 0;
+    margin: 24px 0 0;
+    list-style: none;
+  }
+  .mobile-menu ul:nth-child(1) {
+    border-bottom: 1px solid var(--very-light-pink);
+  }
+  .mobile-menu ul li {
+    margin-bottom: 24px;
+  }
+  .email {
+    font-size: var(--sm);
+    font-weight: 300 !important;
+  }
+  .sign-out {
+    font-size: var(--sm);
+    color: var(--hospital-green) !important;
   }
 
 @media (max-width: 640px) {
-    .menu {
+    .burguerMenu {
         display: block;
     }
 
@@ -144,4 +189,8 @@ nav {
     .navbar-email {
         display: none;
     }
+    /* .desktop-menu-container{
+        display: none;
+    } */
+    
 }
