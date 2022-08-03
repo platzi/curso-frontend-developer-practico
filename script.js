@@ -101,6 +101,36 @@ productList.push({
     name:'backpack',
     price:449,
     img:'https://m.media-amazon.com/images/I/71OboCuNnAL._AC_AA220_.jpg'
+},
+{
+    name:'French press',
+    price:444.34,
+    img:'https://ae01.alicdn.com/kf/H54127ff5df8245fd877a0c6eb357bb8ch/New-French-Press-Coffee-Tea-Maker-12Oz-Thickened-Borosilicate-Glass-Coffee-Press-Rust-Free-and-Dishwasher.jpg'
+},
+{
+    name:'coffee makes',
+    price:999,
+    img:'https://m.media-amazon.com/images/I/61cd+qt1e9L._AC_SL1200_.jpg'
+},
+{
+    name:'headphones',
+    price:2835,
+    img:'https://m.media-amazon.com/images/I/71QbbvhjDcL._AC_SL1500_.jpg'
+},
+{
+    name:'Wallet',
+    price:608,
+    img:'https://cdn.shopify.com/s/files/1/0250/0657/1613/products/vulkit_RFID_wallet_cardholder_3.jpg?v=1652340704'
+},
+{
+    name:'Mi band 7',
+    price:949,
+    img:'https://mistoremx.oss-us-east-1.aliyuncs.com/data/gallery_album/240/original_img/1655247456879976409.webp'
+},
+{
+    name:'Logitech c920',
+    price:1224,
+    img:'https://resource.logitech.com/w_800,c_lpad,ar_1:1,q_auto,f_auto,dpr_1.0/d_transparent.gif/content/dam/logitech/en/products/webcams/c920s/gallery/c920s-gallery-1.png?v=1'
 });
 
 function renderProducts(arr){
