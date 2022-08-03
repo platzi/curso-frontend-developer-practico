@@ -26,3 +26,9 @@ archivo clase8.html al darle click al menú hamburguesa.
 CARRITO DE COMPRAS / FUNCIONE EN CONJUNTO CON LOS ANTERIORES COMPONENTES AGREGADOS
 Click en desktop debe aparecer el aside con info del carrito (clase13.html)
 Click en mobile y que el carrito ocupe todo el espacio posible ()
+
+LISTA DE PRODUCTOS
+El objetivo es que aparezca la lista de productos funcionando en conjunto con el menú y que con un solo componente (producto) se replique lo necesario para tener la lista "completa".
+
+La idea es que toda la info de los productos se guarden en una base de datos a la que accederá nuestro backend por medio de una APIRest que le permitirá al front-end hacer consultas para traer esa lista de productos que querramos mostrar y gracias a esa info que tendrá JS se la podremos insertar gracias a una manipulación dinámica del DOM en el HTML. Actualmente salto este paso de asincronismo y consulta y agarro tal cual como si se tuviera esa info traida desde el backend, estando de forma ordenada en JS y ya no en el HTML lo que permitirá hacer la migración de forma exageradamente fácil cuando llegue el momento de hacerle consultas a la APIRest.
+
