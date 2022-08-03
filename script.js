@@ -5,31 +5,31 @@ const mobileBtn = document.querySelector("#mobile-menu-btn")
 const mobileMenu = document.querySelector(".mobile-menu");
 
 const cartBtn = document.querySelector(".navbar-shopping-cart");
-const cart = document.querySelector(".product-detail");
+const shoppingCartContainer = document.querySelector("#shopping-cart-container");
 
 const productContainer = document.querySelector(".cards-container");
 
 
 
 function toggleDesktopMenu(){
-    let otherMenusClosed = cart.classList.contains("inactive") && mobileMenu.classList.contains("inactive");
+    let otherMenusClosed = shoppingCartContainer.classList.contains("inactive") && mobileMenu.classList.contains("inactive");
     if(otherMenusClosed){
         desktopMenu.classList.toggle("inactive");
     }
     else{
-        cart.classList.add("inactive");
+        shoppingCartContainer.classList.add("inactive");
         mobileMenu.classList.add("inactive");
         desktopMenu.classList.toggle("inactive");
     }
 }
 
 function toggleMobileMenu(){
-    let otherMenusClosed = cart.classList.contains("inactive") && desktopMenu.classList.contains("inactive");
+    let otherMenusClosed = shoppingCartContainer.classList.contains("inactive") && desktopMenu.classList.contains("inactive");
     if(otherMenusClosed){
         mobileMenu.classList.toggle("inactive");
     }
     else{
-        cart.classList.add("inactive");
+        shoppingCartContainer.classList.add("inactive");
         desktopMenu.classList.add("inactive");
         mobileMenu.classList.toggle("inactive");
     }
@@ -38,12 +38,12 @@ function toggleMobileMenu(){
 function toggleCart(){
     let otherMenusClosed = mobileMenu.classList.contains("inactive") && desktopMenu.classList.contains("inactive");
     if(otherMenusClosed){
-        cart.classList.toggle("inactive");
+        shoppingCartContainer.classList.toggle("inactive");
     }
     else{
         desktopMenu.classList.add("inactive");
         mobileMenu.classList.add("inactive");
-        cart.classList.toggle("inactive");
+        shoppingCartContainer.classList.toggle("inactive");
     }
 }
 
