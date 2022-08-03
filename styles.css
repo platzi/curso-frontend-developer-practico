@@ -13,6 +13,10 @@ body {
     margin: 0;
     font-family: 'Quicksand', sans-serif;
 }
+.inactivo{
+    display: none;
+}
+/*  Estilos Navbar*/
 nav {
     display: flex;
     justify-content: space-between;
@@ -75,6 +79,58 @@ nav {
     justify-content: center;
     align-items: center;
 }
+/* Estilos Mobil Menu*/
+.mobile-menu {
+    position: absolute;
+    top: 35px;
+    left: 35px;
+    background-color: var(--white);
+    border: 1px solid var(--hospital-green);
+    padding: 24px;
+    border-radius: 8px;
+    box-shadow: 0px 0px 15px 6px rgba(0,0,0,0.56);
+    animation: 1s mainMobil 0s ease-in-out;
+}
+@keyframes mainMobil{
+    0%{
+        transform: translateX(-200px)
+    }
+    100%{
+        transform: translateX(0px);
+    }
+    60%{
+        transform: translateX(15px);
+    }
+    100%{
+        transform: translateX(0px);
+    }
+}
+  .mobile-menu a {
+    text-decoration: none;
+    color: var(--black);
+    font-weight: bold;
+    /* margin-bottom: 24px; */
+  }
+  .mobile-menu ul {
+    padding: 0;
+    margin: 24px 0 0;
+    list-style: none;
+  }
+  .mobile-menu ul:nth-child(1) {
+    border-bottom: 1px solid var(--very-light-pink);
+  }
+  .mobile-menu ul li {
+    margin-bottom: 24px;
+  }
+  .email {
+    font-size: var(--sm);
+    font-weight: 300 !important;
+  }
+  .sign-out {
+    font-size: var(--sm);
+    color: var(--hospital-green) !important;
+  }
+/* Estilos Desktop Menu*/
 .desktop-menu {
     position: absolute;
     top: 60px;
@@ -85,7 +141,23 @@ nav {
     border: 1px solid var(--very-light-pink);
     border-radius: 6px;
     padding: 20px 20px 0 20px;
-  }
+    box-shadow: 0px 0px 15px 6px rgba(0,0,0,0.56);
+    animation: 1s mainDesktop 0s ease-in-out;
+}    
+@keyframes mainDesktop{
+    0%{
+        transform: translateY(-200px)
+    }
+    100%{
+        transform: translateY(0px);
+    }
+    60%{
+        transform: translateY(30px);
+    }
+    100%{
+        transform: translateY(0px);
+    }
+}
   .navbar-email:hover{
       cursor: pointer;
       border: 1px solid var(--hospital-green);
@@ -122,9 +194,9 @@ nav {
   .desktop-menu ul li a:hover{
     transform: scale(1.1);
   }
-  .inactivo{
-      display: none;
-  }
+
+  /* Media Query
+  De 640px para abajo se ocultara*/
 @media (max-width: 640px) {
     .menu {
     display: block;
@@ -134,5 +206,14 @@ nav {
     }
     .navbar-email {
     display: none;
+    }
+    .desktop-menu{
+        display: none;
+    }   
+}
+/* De 641px para arriba se ocultara*/
+@media (min-width: 641px){
+    .mobile-menu{
+        display: none;
     }
 }

@@ -1,8 +1,21 @@
+/* Traemos los datos del menu desktop*/ 
 const email = document.querySelector('.navbar-email');
-const menu = document.querySelector('.desktop-menu');
+const menuDesktop = document.querySelector('.desktop-menu');
 
-email.addEventListener('click', toggleMenu);
+/* Traemos los datos del menu mobil */
+const menuHamburguesa = document.querySelector('.menu');
+const menuMobil = document.querySelector('.mobile-menu');
 
-function toggleMenu() {
-    menu.classList.toggle('inactivo');
+/*  Creamos un evento para cada tipo de menu */
+email.addEventListener('click', toggleMenuDesktop);
+menuHamburguesa.addEventListener('click', toggleMenuMobil);
+
+/* Creamos las funciones que vamos a ejecutar en el menu desktop*/
+function toggleMenuDesktop() {
+    menuDesktop.classList.toggle('inactivo');
+}
+
+/* Creamos las funciones que vamos a ejecutar en el menu mobil*/
+function toggleMenuMobil() {
+    menuMobil.classList.toggle('inactivo');
 }
