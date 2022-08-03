@@ -111,6 +111,7 @@ nav {
 
 .desktop-menu {
     position: absolute;
+    z-index: 2;
     top: 60px;
     right: 60px;
     background-color: var(--white);
@@ -159,6 +160,7 @@ nav {
 /* MOBILE NAV */
 .mobile-menu {
     position: absolute;
+    z-index: 2;
     background-color: var(--white);
     top: 61px;
     left: 0px;
@@ -204,6 +206,7 @@ aside {
     width: 360px;
     box-sizing: border-box;
     position: absolute;
+    z-index: 2;
     right: 0;
     background-color: var(--white);
 
@@ -303,6 +306,16 @@ aside {
 
 .product-card {
     width: 240px;
+    cursor: pointer;
+    position: relative;
+    bottom:0px;
+    transition-duration: .5s;
+    transition-property: bottom;
+    z-index: 0;
+}
+
+.product-card:hover{
+    bottom:15px;
 }
 
 .product-card img {
@@ -345,6 +358,10 @@ aside {
 
 
 /* PRODUCT DETAILS */
+#product-detail{
+    z-index: 2;
+}
+
 .product-detail-close {
     background: var(--white);
     width: 14px;
@@ -446,6 +463,10 @@ aside {
     .product-card img {
         width: 140px;
         height: 140px;
+    }
+
+    #product-detail{
+        width:100%;
     }
 }
 
