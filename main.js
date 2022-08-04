@@ -3,7 +3,7 @@ const desktopMenu = document.querySelector('.desktop-menu');
 const carrito = document.querySelector('.navbar-shopping-cart');
 const burguerIcon = document.querySelector('.menu');
 const menuMobile = document.querySelector('.mobile-menu');
-const menuCarrito = document.querySelector('.product-detail');
+const menuCarrito = document.querySelector('#containerIconoCarrito');
 const cardsContainer =document.querySelector('.cards-container')
 
 menuEmail.addEventListener('click', mostrarMenu);
@@ -118,7 +118,7 @@ function renderProducts(arr) {
     const productPrice = document.createElement('p');
     productPrice.innerText = '$' + product.price;
     const productName = document.createElement('p');
-    productPrice.innerText = product.name;
+    productName.innerText = product.name;
   
     productInfoDIv.appendChild(productPrice);
     productInfoDIv.appendChild(productName);
