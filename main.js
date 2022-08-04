@@ -86,7 +86,7 @@ for (product of productList) {
   const productInfoDiv = document.createElement('div');
 
   const productPrice = document.createElement('p');
-  productPrice.innerText = '$' + productPrice;
+  productPrice.innerText = '$' + product.price;
   const productName = document.createElement('p');
   productName.innerText = product.name;
 
@@ -94,7 +94,7 @@ for (product of productList) {
   productInfoDiv.appendChild(productName);
 
   const productInfoFigure = document.createElement('figure');
-  const productImgCart = document.createElement('imge');
+  const productImgCart = document.createElement('img');
   productImgCart.setAttribute('src', './icons/bt_add_to_cart.svg');
 
   productInfoFigure.appendChild(productImgCart);
