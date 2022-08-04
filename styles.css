@@ -332,9 +332,12 @@ nav {
     width: 360px;
     padding-bottom: 24px;
     position: absolute;
+    top: 80px;
+    left: 0;
     right: 0;
-    margin-right: 3px;
-    margin-top: 3px;
+    margin: auto;
+    background: var(--white);
+    border-radius: 20px;
 }
 
 .detailed-product-close {
@@ -357,7 +360,8 @@ nav {
     width: 100%;
     height: 360px;
     object-fit: cover;
-    border-radius: 20px;
+    border-radius: 20px 20px 0 0;
+
 }
 
 .detailed-product-info {
@@ -394,6 +398,13 @@ nav {
 @media (max-width: 640px) {
     .detailed-product {
         width: 100%;
+        margin: 0;
+        top: 61px;
+
+    }
+
+    .detailed-product>img:nth-child(2) {
+        border-radius: 0;
     }
 }
 
