@@ -6,22 +6,27 @@ const menuMobil = document.querySelector('.mobile-menu');
 const carrito = document.querySelector('.navbar-shopping-cart');
 const misOrdenes = document.querySelector('#shoppingCartContainer');
 const containerCards = document.querySelector('.cards-container')
+const detallesProducto = document.querySelector('#productDetail');
+const cartasProducto = document.querySelector('.product-card');
 
 /*  Creamos un evento para cada tipo de accion */
 email.addEventListener('click', toggleMenuDesktop);
 menuHamburguesa.addEventListener('click', toggleMenuMobil);
 carrito.addEventListener('click', toggleOrdenes);
+detallesProducto.addEventListener('click', toggleDetalles);
 
 /* Creamos las funciones que vamos a ejecutar en el menu desktop*/
 function toggleMenuDesktop() {
     misOrdenes.classList.add('inactivo');
     menuDesktop.classList.toggle('inactivo');
+    detallesProducto.classList.add('inactivo');
 }
 /* Creamos las funciones que vamos a ejecutar en el menu mobil*/
 function toggleMenuMobil() {
     /* Cuando haga 'click' se agrege la clase 'inactivo'*/
     misOrdenes.classList.add('inactivo');
     menuMobil.classList.toggle('inactivo');
+    detallesProducto.classList.add('inactivo');
 }
 /* Creamos las funciones que vamos a ejecutar en el carrito de compras*/
 function toggleOrdenes() {
@@ -31,6 +36,14 @@ function toggleOrdenes() {
     /* Cuando haga 'click' se agrege la clase 'inactivo' a menuDesktop*/
     menuDesktop.classList.add('inactivo');
     misOrdenes.classList.toggle('inactivo');
+    detallesProducto.classList.add('inactivo');
+}
+/* Creamos las funciones que vamos a ejecutar en Detalles de producto*/
+function toggleDetalles() {
+    menuMobil.classList.add('inactivo');
+    misOrdenes.classList.add('inactivo');
+    menuDesktop.classList.add('inactivo');
+    detallesProducto.classList.toggle('inactivo');
 }
 /* Creamos un array vacio al cual le vamos hacer Push*/
 const productoArray = [];
@@ -137,6 +150,8 @@ function render(arr) {
     
         const productInfo = document.createElement('div');
         productInfo.classList.add('product-info');
+
+        productImg.addEventListener('click', toggleDetalles)
     
         const productInfoDiv = document.createElement('div');
     
