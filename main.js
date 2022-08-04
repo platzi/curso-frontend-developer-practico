@@ -1,16 +1,20 @@
 const menuEmail = document.querySelector('.navbar-email');
 const desktopMenu = document.querySelector('.desktop-menu');
 const menuCarritoIcon= document.querySelector('.navbar-shopping-cart');
+const productDetailCloseIcon = document.querySelector('.product-detail-close')
 const burguerMenu= document.querySelector('.menu');
 const mobileMenu = document.querySelector('.mobile-menu');
 const aside = document.querySelector('aside')
 const cardsContainer = document.querySelector('.cards-container')
+const productDetailContainer = document.querySelector('#productDetail')
 
 burguerMenu.addEventListener('click', toggleMobileMenu);
 
 menuEmail.addEventListener('click', toggleDesktopMenu);
 
 menuCarritoIcon.addEventListener('click', toggleCarritoAside);
+
+productDetailCloseIcon.addEventListener('click', closeProductDetailAside)
 
 
 function toggleDesktopMenu(){
@@ -31,6 +35,8 @@ function toggleMobileMenu(){
 
 
     mobileMenu.classList.toggle('inactive');
+
+    closeProductDetailAside();
 }
 function toggleCarritoAside(){
     const isMobileMenuClosed = mobileMenu.classList.contains('inactive');
@@ -39,8 +45,23 @@ function toggleCarritoAside(){
         mobileMenu.classList.add('inactive');
     }
 
+    const isProductDetailClosed = productDetailContainer.classList.contains('inactive');
+
+    if(!isProductDetailClosed){
+        productDetailContainer.classList.add('inactive');
+    }
+
         aside.classList.toggle('inactive');
   
+}
+function openProductDetailAside(){
+    aside.classList.add('inactive');
+
+    productDetailContainer.classList.remove('inactive');
+}
+
+function closeProductDetailAside(){
+    productDetailContainer.classList.add('inactive');
 }
 
 const productList = [];
@@ -67,7 +88,7 @@ function renderProducts(arr){
      
         const productImage = document.createElement ('img');
         productImage.setAttribute('src', product.image);
-        productImage.addEventListener('click', console.log);
+        productImage.addEventListener('click', openProductDetailAside);
         // product= {name, price, image} -> product.image
      
         const productInfo = document.createElement('div');
