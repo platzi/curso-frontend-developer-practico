@@ -3,7 +3,7 @@ const desktopMenu = document.querySelector('.desktop-menu');
 const menuCarritoIcon= document.querySelector('.navbar-shopping-cart');
 const burguerMenu= document.querySelector('.menu');
 const mobileMenu = document.querySelector('.mobile-menu');
-const aside = document.querySelector('.product-detail')
+const aside = document.querySelector('aside')
 const cardsContainer = document.querySelector('.cards-container')
 
 burguerMenu.addEventListener('click', toggleMobileMenu);
@@ -65,8 +65,9 @@ function renderProducts(arr){
         const productCard = document.createElement('div');
         productCard.classList.add('product-card');
      
-        const productImage = document.createElement ('img')
-        productImage.setAttribute('src', product.image)
+        const productImage = document.createElement ('img');
+        productImage.setAttribute('src', product.image);
+        productImage.addEventListener('click', console.log);
         // product= {name, price, image} -> product.image
      
         const productInfo = document.createElement('div');
