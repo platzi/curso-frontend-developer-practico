@@ -25,6 +25,7 @@
   }
   .menu {
     display: none;
+    cursor: pointer;
   }
   .logo {
     width: 100px;
@@ -61,9 +62,11 @@
     color: var(--very-light-pink);
     font-size: var(--sm);
     margin-right: 12px;
+    cursor: pointer;
   }
   .navbar-shopping-cart {
     position: relative;
+    cursor: pointer;
   }
   .navbar-shopping-cart div {
     width: 16px;
@@ -169,6 +172,9 @@
     padding: 0 24px;
   }
 
+  .icon1, .icon2 {
+    cursor: pointer;
+  }
   .title-container {
     display: flex;
   }
@@ -243,13 +249,14 @@
   .product-detail-close {
     background: var(--white);
     width: 14px;
-    height: 14px;
+    height: 16px;
     position: absolute;
     top: 24px;
     left: 24px;
     z-index: 2;
-    padding: 12px;
+    padding: 10px;
     border-radius: 50%;
+    cursor: pointer;
   }
   #productDetail-close:hover {
     cursor: pointer;
@@ -315,6 +322,7 @@
     height: 240px;
     border-radius: 20px;
     object-fit: cover;
+    cursor: pointer;
   }
   .product-card .product-info {
     display: flex;
