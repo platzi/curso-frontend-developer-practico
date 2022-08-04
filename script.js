@@ -35,56 +35,45 @@ function toggleCarAside() {
   aside.classList.toggle("inactive");
 }
 
-const productList = [];
-productList.push({
-  name: "Bike",
-  price: 20,
-  image:
-    "https://images.pexels.com/photos/276517/pexels-photo-276517.jpeg?auto=compress&cs=tinysrgb&dpr=2&h=650&w=940",
-});
-productList.push({
-  name: "Monitor",
-  price: 40,
-  image:
-    "https://images.pexels.com/photos/276517/pexels-photo-276517.jpeg?auto=compress&cs=tinysrgb&dpr=2&h=650&w=940",
-});
-productList.push({
-  name: "Computer",
-  price: 200,
-  image:
-    "https://images.pexels.com/photos/276517/pexels-photo-276517.jpeg?auto=compress&cs=tinysrgb&dpr=2&h=650&w=940",
-});
+renderCharacters();
 
-renderProducts(productList);
+function renderCharacters() {
+  const urlAPI =
+    "http://gateway.marvel.com/v1/public/characters?apikey=12780ff20459b276fa4be703631a0990";
 
-function renderProducts(arr) {
-  arr.forEach((product) => {
-    const cardsContainer = document.querySelector('.cards-container');
-    const productCard = document.createElement("div");
-    cardsContainer.appendChild(productCard);
-    productCard.classList.add("product-card");
+  fetch(urlAPI)
+    .then((res) => res.json())
+    .then((json) => {
+      json.data.results.forEach((character) => {
+        const cardsContainer = document.querySelector(".cards-container");
+        const productCard = document.createElement("div");
+        cardsContainer.appendChild(productCard);
+        productCard.classList.add("product-card");
 
-    const img = document.createElement("img");
-    img.setAttribute("src", product.image);
-    productCard.appendChild(img);
+        const img = document.createElement("img");
+        img.setAttribute(
+          "src",
+          `${character.thumbnail.path}.${character.thumbnail.extension}`
+        );
+        productCard.appendChild(img);
 
-    const productInfo = document.createElement("div");
-    const contentInfo = document.createElement("div");
-    const productPrice = document.createElement("p");
-    const ProductName = document.createElement("p");
-    productInfo.classList.add("product-info");
-    productPrice.innerText = `$${product.price}`;
-    ProductName.innerText = product.name;
-    productCard.appendChild(productInfo);
-    productInfo.appendChild(contentInfo);
-    contentInfo.appendChild(productPrice);
-    contentInfo.appendChild(ProductName);
+        const productInfo = document.createElement("div");
+        const contentInfo = document.createElement("div");
+        const productPrice = document.createElement("p");
+        const ProductName = document.createElement("p");
+        productInfo.classList.add("product-info");
+        productPrice.innerText = character.id;
+        ProductName.innerText = character.name;
+        productCard.appendChild(productInfo);
+        productInfo.appendChild(contentInfo);
+        contentInfo.appendChild(productPrice);
+        contentInfo.appendChild(ProductName);
 
-    const addCartFigure = document.createElement("figure");
-    const addCartImg = document.createElement("img");
-    addCartImg.setAttribute("src", "./icons/bt_add_to_cart.svg");
-    productInfo.appendChild(addCartFigure);
-    addCartFigure.appendChild(addCartImg);
-  });
+        const addCartFigure = document.createElement("figure");
+        const addCartImg = document.createElement("img");
+        addCartImg.setAttribute("src", "./icons/bt_add_to_cart.svg");
+        productInfo.appendChild(addCartFigure);
+        addCartFigure.appendChild(addCartImg);
+      });
+    });
 }
-
