@@ -244,6 +244,9 @@ aside {
 }
 
 /* Product Detail */
+#productDetail {
+  padding: 0 0 20px 0;
+}
 .product-detail-close {
   background: var(--white);
   width: 14px;
@@ -364,6 +367,6 @@ aside {
     display: none;
   }
   aside {
-    border-radius: 20px;
+    border-radius: 0 0 20px 20px;
   }
 }
