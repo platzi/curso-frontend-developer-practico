@@ -4,7 +4,7 @@ const menuDesktop = document.querySelector('.desktop-menu');
 const menuHamburguesa = document.querySelector('.menu');
 const menuMobil = document.querySelector('.mobile-menu');
 const carrito = document.querySelector('.navbar-shopping-cart');
-const misOrdenes = document.querySelector('.product-detail');
+const misOrdenes = document.querySelector('#shoppingCartContainer');
 const containerCards = document.querySelector('.cards-container')
 
 /*  Creamos un evento para cada tipo de accion */
@@ -43,12 +43,12 @@ productoArray.push({
 productoArray.push({
     nombre: 'Suculenta Captus',
     precio: "8.000",
-    imagen: 'https://lh3.googleusercontent.com/chat_attachment/AJh6FpoaM0k2k8pxWOZKQFOKAjFEWVDkiXSaFMfSHHcGOGnuJLJon7RnrTfCJHBp2g7gBQP0ikS7O14C8l-QvQP7QLPcuNjK-1hfohwP3uukusUlyhgVyXRO1y5wVdo0q8Nb7Ze87s2N3Bj0fZMcr4FajLXqTcHkF7EYbByWL0kplyW8Xzqy9_WkmPIUuGVEiIWMzyjMVvGs_6acZDoq6GMM_1k8xz8JZMujolEzOMCRpqTZ3SB-nQXPj90=w512',
+    imagen: 'https://scontent.fclo7-1.fna.fbcdn.net/v/t1.15752-9/294486398_441816501202544_8060135236541180597_n.jpg?stp=dst-jpg_p1080x2048&_nc_cat=109&ccb=1-7&_nc_sid=ae9488&_nc_ohc=-zgdEUChgysAX_JmUW8&_nc_ht=scontent.fclo7-1.fna&oh=03_AVK97eu4_IHsG48mLTC_UFgGqLm_3NugsT8d3zWZ7iK3fg&oe=63128F39',
 })
 productoArray.push({
     nombre: 'Suculenta Captus',
     precio: "10.000",
-    imagen: 'https://lh3.googleusercontent.com/chat_attachment/AJh6FporglxzohPNaNqyDKXSCQD72PSU_JyF4zwktfV_y0iQcQOEmDRNr3ei4siv25N60OqmNHXhfE9bGZ61-DWSnHjK6sKKuH6t3oyCPUKljmjX7vz94mVWop0CS6dTaoUihrWMnPFd8w_cCeR9sb32pH8bI3_l0Vv3_0VM8J_1ZSf3nmKjeeQhyAEh9bpGnPM_l71JKSSbq6zQuQ3-VFy793XmTFLtr45rV3Oc5WjddWbZOg15CAdgkZ8=w512',
+    imagen: 'https://scontent.fclo7-1.fna.fbcdn.net/v/t1.15752-9/295115545_454348990035838_842313640917950448_n.jpg?stp=dst-jpg_p1080x2048&_nc_cat=106&ccb=1-7&_nc_sid=ae9488&_nc_ohc=jXKijeX6dQkAX8-44i2&tn=e4h_8areNIKgw5-r&_nc_ht=scontent.fclo7-1.fna&oh=03_AVKXHu5IiJ4E9rzpCkpIYTiNcHaWGPZpnIPuM-37XgM3jA&oe=630FDC23',
 })
 productoArray.push({
     nombre: 'Austrocylindropuntia',
