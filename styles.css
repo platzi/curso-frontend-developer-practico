@@ -16,8 +16,13 @@ body {
 .inactive {
   display: none;
 }
+.shadows {
+  box-shadow: 0px 0px 400px 2000px rgb(0 0 0 / 25%);
+}
+
 /*NAVBAR*/
 nav {
+  position: relative;
   display: flex;
   justify-content: space-between;
   padding: 0 24px;
@@ -233,6 +238,7 @@ nav {
 .primary-button {
   background-color: var(--hospital-green);
   border-radius: 8px;
+  margin-bottom: 30px;
   border: none;
   color: var(--white);
   width: 100%;
@@ -384,5 +390,12 @@ nav {
 @media (min-width: 641px) {
   .mobile-menu {
     display: none;
+  }
+  .product-detail {
+    position: absolute;
+    left: 50%;
+    margin-left: -180px;
+    width: 360px;
+    padding-bottom: 24px;
   }
 }
