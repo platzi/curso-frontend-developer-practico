@@ -3,7 +3,7 @@ const desktopmenu = document.querySelector('.desktop-menu');
 const mobilicon = document.querySelector('.menu');
 const mobilemenu = document.querySelector('.mobile-menu');
 const menucarticon = document.querySelector('.navbar-shopping-cart');
-const aside = document.querySelector('.product-detail');
+const shoppingcartcontainer = document.querySelector('#shoppingcartcontainer');
 const cardscontainer = document.querySelector('.cards-container');
 
 
@@ -13,18 +13,18 @@ menucarticon.addEventListener('click', toggleshopingcart);
 
 
 function toggledesktopmenu() {
-    const isasideclose = aside.classList.contains('inactive');
+    const isasideclose = shoppingcartcontainer.classList.contains('inactive');
     if (!isasideclose){
-        aside.classList.add('inactive');
+        shoppingcartcontainer.classList.add('inactive');
     }
     desktopmenu.classList.toggle('inactive');
 }
 
 function togglemobilemenu(){
     
-    const isasideclose = aside.classList.contains('inactive');
+    const isasideclose = shoppingcartcontainer.classList.contains('inactive');
     if (!isasideclose){
-        aside.classList.add('inactive');
+        shoppingcartcontainer.classList.add('inactive');
     }
     mobilemenu.classList.toggle('inactive');
 }
@@ -37,27 +37,12 @@ function toggleshopingcart(){
         mobilemenu.classList.add('inactive');
         desktopmenu.classList.add('inactive')
     }
-    aside.classList.toggle('inactive');
+    shoppingcartcontainer.classList.toggle('inactive');
 
 }
 
     const productlist = [];
     
-    productlist.push({
-        name:   'Bike',
-        price: 120,
-        image: 'https://images.pexels.com/photos/276517/pexels-photo-276517.jpeg?auto=compress&cs=tinysrgb&dpr=2&h=650&w=940',
-    })
-    productlist.push({
-        name:   'Balon',
-        price: 120,
-        image: 'https://www.pngmart.com/files/1/2014-World-Cup-Soccer-Ball-PNG.png',
-    })
-    productlist.push({
-        name:   'Carro',
-        price: 999999,
-        image: 'https://www.pngplay.com/wp-content/uploads/13/Kia-Niro-EV-PNG-Photos.png',
-    })
     productlist.push({
         name:   'Bike',
         price: 120,
