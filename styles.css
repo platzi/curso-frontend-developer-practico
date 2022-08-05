@@ -4,7 +4,7 @@
   --black: #000000;
   --very-light-pink: #c7c7c7;
   --text-input-field: #f7f7f7;
-  --hospital-green: #acd9b2;
+  --hospital-green: #EC1D24;
   --sm: 14px;
   --md: 16px;
   --lg: 18px;
@@ -33,6 +33,7 @@ nav {
 }
 .logo {
   width: 100px;
+  object-fit: contain;
 }
 .navbar-left ul,
 .navbar-right ul {
@@ -163,7 +164,7 @@ nav {
 
 /* Aside (product detail y carrito) */
 aside {
-  position: absolute;
+  position: fixed;
   top: 61px;
   width: 360px;
   box-sizing: border-box;

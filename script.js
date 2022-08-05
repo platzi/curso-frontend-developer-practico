@@ -55,7 +55,9 @@ function openProductDetailAside() {
   !isDesktopMenuClosed ? desktopMenu.classList.add('inactive') : true;
   !isAsideClosed ? shoppingCartContainer.classList.add('inactive') : true;
 
-  productDetailContainer.classList.remove('inactive');
+  const characterID = this.id;
+
+  getCharacterByID(characterID);
 }
 
 function closeProductDetailAside() {
@@ -75,6 +77,17 @@ function getCharacters() {
     });
 }
 
+function getCharacterByID (ID) {
+  const urlAPI =
+    `http://gateway.marvel.com/v1/public/characters/${ID}?apikey=12780ff20459b276fa4be703631a0990`;
+
+  fetch(urlAPI)
+    .then((res) => res.json())
+    .then((json) => {
+      renderCharacterDetail(json.data.results[0]);
+    });
+}
+
 function renderCharacters (characters) {
   characters.forEach((character) => {
     const cardsContainer = document.querySelector('.cards-container');
@@ -86,6 +99,10 @@ function renderCharacters (characters) {
     productImg.setAttribute(
       'src',
       `${character.thumbnail.path}.${character.thumbnail.extension}`
+    );
+    productImg.setAttribute(
+      'id',
+      character.id
     );
     productCard.appendChild(productImg);
     productImg.addEventListener('click', openProductDetailAside)
@@ -108,4 +125,24 @@ function renderCharacters (characters) {
     productInfo.appendChild(addCartFigure);
     addCartFigure.appendChild(addCartImg);
   });
+}
+
+function renderCharacterDetail (character) {
+  const characterImg = document.querySelector('#productDetail > img');
+  const characterID = document.querySelector('#productDetail .product-info p:nth-child(1)');
+  const characterName = document.querySelector('#productDetail .product-info p:nth-child(2)');
+  const characterDescription = document.querySelector('#productDetail .product-info p:nth-child(3)');
+
+  characterImg.setAttribute(
+    'src',
+    `${character.thumbnail.path}.${character.thumbnail.extension}`
+  );
+  characterImg.setAttribute(
+    'alt',
+    character.name
+  );
+  characterID.innerText = character.id;
+  characterName.innerText = character.name;
+  characterDescription.innerText = character.description;
+  productDetailContainer.classList.remove('inactive');
 }
