@@ -6,30 +6,43 @@ const mobileMenu = document.querySelector(".mobile-menu")
 const aside = document.querySelector(".cart-product")
 const cardsContainer = document.querySelector(".cards-container")
 const productDetails = document.querySelector(".product-specifities")
+const productDetailCloseIcon = document.querySelector(".product-detail-close")
+const productShadow = document.querySelector(".shadow")
 
 menuEmail.addEventListener("click", toggleDesktopMenu)
 menuHamIcon.addEventListener("click", toggleMobileMenu)
 menuCartIcon.addEventListener("click", toggleAsideCart)
+productDetailCloseIcon.addEventListener("click", toggleAsideDetails)
+productShadow.addEventListener("click", toggleMobileMenu)
 
-function closeAll(){
-    aside.classList.add("inactive")
-    mobileMenu.classList.add("inactive")
-    productDetails.classList.add("inactive")
-    desktopMenu.classList.add("inactive")
-}
 
 function toggleDesktopMenu() {
-    closeAll()
+    mobileMenu.classList.add("inactive")
+    aside.classList.add("inactive")
+    cardsContainer.classList.add("inactive")
+    productDetails.classList.add("inactive")
+
     desktopMenu.classList.toggle("inactive")
 }
 
 function toggleMobileMenu() {
-    closeAll()
+    desktopMenu.classList.add("inactive")
+    aside.classList.add("inactive")
+    cardsContainer.classList.add("inactive")
+    productDetails.classList.add("inactive")
+
     mobileMenu.classList.toggle("inactive")
+    if(window.innerWidth < 640) {
+        productShadow.classList.toggle("inactive")
+    }
 }
 
 function toggleAsideCart() {
-    closeAll()
+    mobileMenu.classList.add("inactive")
+    desktopMenu.classList.add("inactive")
+    cardsContainer.classList.add("inactive")
+    productDetails.classList.add("inactive")
+
     aside.classList.toggle("inactive")
 }
 
@@ -116,6 +129,10 @@ for (let i = 0; i < cardProduct.length; i++) {
 }
 
 function toggleAsideDetails() {
-    closeAll()
+    mobileMenu.classList.add("inactive")
+    aside.classList.add("inactive")
+    cardsContainer.classList.add("inactive")
+    desktopMenu.classList.add("inactive")
+    
     productDetails.classList.toggle("inactive")
 }
