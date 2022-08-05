@@ -68,7 +68,7 @@ getCharacters();
 
 function getCharacters() {
   const urlAPI =
-    'http://gateway.marvel.com/v1/public/characters?apikey=12780ff20459b276fa4be703631a0990';
+    'http://gateway.marvel.com/v1/public/characters?ts=1&apikey=12780ff20459b276fa4be703631a0990&hash=3ddcf6c9e58150c4861c4694629fa5ea';
 
   fetch(urlAPI)
     .then((res) => res.json())
@@ -79,7 +79,7 @@ function getCharacters() {
 
 function getCharacterByID (ID) {
   const urlAPI =
-    `http://gateway.marvel.com/v1/public/characters/${ID}?apikey=12780ff20459b276fa4be703631a0990`;
+    `http://gateway.marvel.com/v1/public/characters/${ID}?ts=1&apikey=12780ff20459b276fa4be703631a0990&hash=3ddcf6c9e58150c4861c4694629fa5ea`;
 
   fetch(urlAPI)
     .then((res) => res.json())
