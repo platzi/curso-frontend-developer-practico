@@ -249,7 +249,8 @@ aside {
   padding: 0 0 20px 0;
 }
 .product-detail-close {
-  background: var(--white);
+  background: var(--hospital-green);
+  opacity: 0.5;
   width: 14px;
   height: 14px;
   position: absolute;
