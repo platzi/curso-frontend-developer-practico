@@ -3,34 +3,34 @@ const burguerMenu = document.querySelector(".menu");
 const menuCarritoIcon = document.querySelector(".navbar-shopping-cart");
 const desktopMenu = document.querySelector(".desktop-menu");
 const mobileMenu = document.querySelector(".mobile-menu");
-const aside = document.querySelector(".product-detail");
+const shoppingCartContainer = document.querySelector("#shoppingCartContainer");
 const cardsContainer = document.querySelector(".cards-container");
 
 menuEmail.addEventListener("click", toggleDesktopMenu);
 burguerMenu.addEventListener("click", toggleMobileMenu);
-menuCarritoIcon.addEventListener("click", toggleCarritoAside);
+menuCarritoIcon.addEventListener("click", toggleCarritoshoppingCartContainer);
 
 function toggleDesktopMenu() {
-    const isAsideClosed = aside.classList.contains("inactive");
+    const isShoppingCartContainerClosed = shoppingCartContainer.classList.contains("inactive");
 
-    if (!isAsideClosed) {
-        aside.classList.add("inactive");
+    if (!isShoppingCartContainerClosed) {
+        shoppingCartContainer.classList.add("inactive");
     }
 
     desktopMenu.classList.toggle("inactive");
 }
 
-function toggleMobileMenu() { //no podemos mostrar a la vez menu aside y menu mobile, asi que:
-    const isAsideClosed = aside.classList.contains("inactive");
+function toggleMobileMenu() { //no podemos mostrar a la vez menu shoppingCartContainer y menu mobile, asi que:
+    const isShoppingCartContainerClosed = shoppingCartContainer.classList.contains("inactive");
 
-    if (!isAsideClosed) {
-        aside.classList.add("inactive");
+    if (!isShoppingCartContainerClosed) {
+        shoppingCartContainer.classList.add("inactive");
     }
 
     mobileMenu.classList.toggle("inactive");
 }
 
-function toggleCarritoAside() { //no podemos mostrar a la vez menu aside y menu mobile, asi que:
+function toggleCarritoshoppingCartContainer() { //no podemos mostrar a la vez menu shoppingCartContainer y menu mobile, asi que:
     const isMobileMenuClosed = mobileMenu.classList.contains("inactive"); // comprueba si menu mobile está cerrado
     const isDesktopMenuClosed = desktopMenu.classList.contains("inactive");
     
@@ -42,7 +42,7 @@ function toggleCarritoAside() { //no podemos mostrar a la vez menu aside y menu 
         desktopMenu.classList.add("inactive");
     }
 
-    aside.classList.toggle("inactive"); // como ya hemos cerrado el mobile menu actúa nuestro aside
+    shoppingCartContainer.classList.toggle("inactive"); // como ya hemos cerrado el mobile menu actúa nuestro shoppingCartContainer
 }
 
 const productList = [];
