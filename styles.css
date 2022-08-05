@@ -313,7 +313,7 @@ nav {
     width: 240px;
     padding: 12px;
     border-radius: 20px;
-    box-shadow: 12px 21px 39px 5px rgba(0,0,0,0.83);
+    box-shadow: 14px 12px 18px 5px rgba(0,0,0,0.58);
     cursor: pointer;
     transition: .7s;
     background-color: var(--white);
