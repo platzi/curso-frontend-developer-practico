@@ -3,7 +3,7 @@ const desktopMenu = document.querySelector('.desktop-menu');
 const MenuHamIcon = document.querySelector('.menu');
 const MenuCarritoIcon = document.querySelector('.navbar-shopping-cart');
 const mobileMenu = document.querySelector('.mobile-menu');
-const aside = document.querySelector('.product-detail');
+const shoppingCartContainer = document.querySelector('#shoppingCartContainer');
 const cardsContainer = document.querySelector('.cards-container');
 
 menuEmail.addEventListener('click', toggleDesktopMenu);
@@ -13,10 +13,10 @@ MenuCarritoIcon.addEventListener('click',toggleCarritoAside);
 
 //quita o pen la funcion inactive dependiendo si la tiene o no latiene
 function toggleDesktopMenu() {
-  const isAsideClosed = aside.classList.contains('inactive');
+  const isAsideClosed = shoppingCartContainer.classList.contains('inactive');
 
   if (!isAsideClosed) {
-    aside.classList.add('inactive');
+    shoppingCartContainer.classList.add('inactive');
   }
 
  desktopMenu.classList.toggle('inactive');
@@ -29,10 +29,10 @@ const toggleDesktopMenu = () => {
 };*/
 
 function toggleMobileMenu() {
-  const isAsideClosed = aside.classList.contains('inactive');
+  const isAsideClosed = shoppingCartContainer.classList.contains('inactive');
 
   if (!isAsideClosed) {
-    aside.classList.add('inactive');
+    shoppingCartContainer.classList.add('inactive');
   }
   mobileMenu.classList.toggle('inactive');
 
@@ -47,7 +47,7 @@ function toggleCarritoAside() {
   }
 
   
- aside.classList.toggle('inactive');
+  shoppingCartContainer.classList.toggle('inactive');
 }
 
 const productList =[];
@@ -62,7 +62,7 @@ productList.push({
 productList.push({
    name: 'pantalla',
    price:220,
-   image:'https://m.media-amazon.com/images/I/61QFciI0TqL._AC_SL1500_.jpg',
+   image:'https://upload.wikimedia.org/wikipedia/commons/e/e2/LG_smart_TV.jpg',
 });
 
 
