@@ -5,7 +5,7 @@ const menuHamIcon = document.querySelector('.menu');
 const mobileMenu = document.querySelector('.mobile-menu');
 
 const menuCarrito = document.querySelector('.navbar-shopping-cart');
-const asidecarrito = document.querySelector('.product-detail');
+const shopingCartContainer = document.querySelector('#shoppingCartContainer');
 
 const CardsContainer = document.querySelector('.cards-container')
 
@@ -16,17 +16,17 @@ menuCarrito.addEventListener('click', toggleAsideCarrito)
 
 function toggDesktopMenu(){
     desktopMenu.classList.toggle('inactive');
-    asidecarrito.classList.add('inactive');
+    shopingCartContainer.classList.add('inactive');
 
 }
 
 function toggleMobileMenu(){
     mobileMenu.classList.toggle('inactive');
-    asidecarrito.classList.add('inactive');
+    shopingCartContainer.classList.add('inactive');
 }
 
 function toggleAsideCarrito(){
-    asidecarrito.classList.toggle('inactive');
+    shopingCartContainer.classList.toggle('inactive');
     desktopMenu.classList.add('inactive');
     mobileMenu.classList.add('inactive');
 
@@ -123,21 +123,3 @@ function renderProducts (arr){
 }
 
 renderProducts(productList);
-
-
-
-/* <div class="product-card">
-<img src="https://images.pexels.com/photos/276517/pexels-photo-276517.jpeg?auto=compress&cs=tinysrgb&dpr=2&h=650&w=940" alt="">
-<div class="product-info">
-
-  <div>
-    <p>$120,00</p>
-    <p>Bike</p>
-  </div>
-
-  <figure>
-    <img src="./icons/bt_add_to_cart.svg" alt="">
-  </figure>
-
-</div>
-</div> */
