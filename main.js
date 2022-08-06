@@ -11,7 +11,7 @@ MenuHamIcon.addEventListener('click', toggleMobileMenu);
 MenuCarritoIcon.addEventListener('click',toggleCarritoAside);
 
 
-//quita o pene la funcion inactive dependiendo si la tiene o no latiene
+//quita o pen la funcion inactive dependiendo si la tiene o no latiene
 function toggleDesktopMenu() {
   const isAsideClosed = aside.classList.contains('inactive');
 
@@ -62,18 +62,18 @@ productList.push({
 productList.push({
    name: 'pantalla',
    price:220,
-   image:'https://images.pexels.com/photos/276517/pexels-photo-276517.jpeg?auto=compress&cs=tinysrgb&dpr=2&h=650&w=940',
+   image:'https://m.media-amazon.com/images/I/61QFciI0TqL._AC_SL1500_.jpg',
 });
 
 
 productList.push({
    name: 'computadora',
    price:620,
-   image:'https://images.pexels.com/photos/276517/pexels-photo-276517.jpeg?auto=compress&cs=tinysrgb&dpr=2&h=650&w=940',
+   image:'https://m.media-amazon.com/images/I/51oIgFw0gfL._AC_SL1000_.jpg',
 });
 
 function renderProducts(arr) {
-  for (product of productList) {
+  for (product of arr) {
     const productCard =  document.createElement('div');
     productCard.classList.add('product-card');
   
