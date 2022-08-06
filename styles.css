@@ -337,7 +337,7 @@ aside {
 
 /* Media Query */
 @media (max-width: 640px) {
-    .menu {
+    .burger-menu-icon {
         display: block;
     }
     .navbar-left ul {
