@@ -304,7 +304,7 @@
     border-radius: 0 0 20px 20px;
   }
   .product-descrition-info- {
-    margin: 24px 24px 0 24px;
+    margin: 20px 24px 0 24px;
   }
   .product-descrition-info- p:nth-child(1) {
     font-weight: bold;
@@ -316,13 +316,13 @@
     color: var(--very-light-pink);
     font-size: var(--md);
     margin-top: 0;
-    margin-bottom: 36px;
+    margin-bottom: 20px;
   }
   .product-descrition-info- p:nth-child(3) {
     color: var(--very-light-pink);
     font-size: var(--sm);
     margin-top: 0;
-    margin-bottom: 36px;
+    margin-bottom: 20px;
   }
 /*   .primary-button {
     background-color: var(--hospital-green);

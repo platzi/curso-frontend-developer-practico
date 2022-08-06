@@ -62,6 +62,54 @@ listProduct.push(
         descr: 'Las plantas son los seres vivos miembros del reino vegetal o phylum plantae. Se trata de organismos autótrofos, desprovistos de capacidad de movimiento',
     }
 );
+listProduct.push(
+    {
+        name: 'Rosas',
+        precio: 20,
+        image: 'https://images.pexels.com/photos/15242/flower-roses-bloom-blossom.jpg?auto=compress&cs=tinysrgb&w=400',
+        descr: 'El género Rosa está compuesto por un conocido grupo de arbustos generalmente espinosos y floridos representantes principales de la familia de las rosáceas',
+    }
+);
+listProduct.push(
+    {
+        name: 'Flores',
+        precio: 30,
+        image: 'https://images.pexels.com/photos/2106037/pexels-photo-2106037.jpeg?auto=compress&cs=tinysrgb&w=400',
+        descr: 'La flor es la estructura reproductiva característica de las plantas llamadas espermatofitas o fanerógamas. La función de una flor es producir semillas',
+    }
+);
+listProduct.push(
+    {
+        name: 'PLantas',
+        precio: 15,
+        image: 'https://images.pexels.com/photos/696996/pexels-photo-696996.jpeg?auto=compress&cs=tinysrgb&w=400',
+        descr: 'Las plantas son los seres vivos miembros del reino vegetal o phylum plantae. Se trata de organismos autótrofos, desprovistos de capacidad de movimiento',
+    }
+);
+listProduct.push(
+    {
+        name: 'Rosas',
+        precio: 20,
+        image: 'https://images.pexels.com/photos/15242/flower-roses-bloom-blossom.jpg?auto=compress&cs=tinysrgb&w=400',
+        descr: 'El género Rosa está compuesto por un conocido grupo de arbustos generalmente espinosos y floridos representantes principales de la familia de las rosáceas',
+    }
+);
+listProduct.push(
+    {
+        name: 'Flores',
+        precio: 30,
+        image: 'https://images.pexels.com/photos/2106037/pexels-photo-2106037.jpeg?auto=compress&cs=tinysrgb&w=400',
+        descr: 'La flor es la estructura reproductiva característica de las plantas llamadas espermatofitas o fanerógamas. La función de una flor es producir semillas',
+    }
+);
+listProduct.push(
+    {
+        name: 'PLantas',
+        precio: 15,
+        image: 'https://images.pexels.com/photos/696996/pexels-photo-696996.jpeg?auto=compress&cs=tinysrgb&w=400',
+        descr: 'Las plantas son los seres vivos miembros del reino vegetal o phylum plantae. Se trata de organismos autótrofos, desprovistos de capacidad de movimiento',
+    }
+);
 
 function renderProducts(arr) {
    arr.forEach(product => {
@@ -97,11 +145,15 @@ function renderProducts(arr) {
     });
 
 }
-function openAsidePoductcDescription(evento) {
+function openAsidePoductcDescription(evento) {  
+    asideProduct.classList.remove('inactive');
+    asideCart.classList.add('inactive');
+    mobileMenu.classList.add('inactive');
+    desktopMenu.classList.add('inactive');
     const element = listProduct.find(product => product.image == evento.target.src);
     console.log(evento.target.src)
 
-    const productDescritionInfoImg= document.querySelector('#product-descrition-info-img');
+/*     const productDescritionInfoImg= document.querySelector('#product-descrition-info-img');
     productDescritionInfoImg.setAttribute('src', element.image);
     productDescritionInfoImg.setAttribute('alt', element.name);
 
@@ -112,18 +164,17 @@ function openAsidePoductcDescription(evento) {
     productName.textContent = `${element.name}`;
    
     const productDescr = document.querySelector('#product-descrition-info-descrip');
-    productDescr.textContent = `${element.descr}`;
-
-    
-/*     const mostrarElement = `
+    productDescr.textContent = `${element.descr}`;   */  
+        
+    const mostrarElement = `
     <div class="product-descrition-close ">
-      <img src="./icons/icon_close.png" alt="close">
+      <img class="imgClose" src="./icons/icon_close.png" alt="close">
     </div>
-    <img id="product-descrition-info-img" src=${element.image} alt=${element.name}>
+    <img class="product-descrition-info-img" src=${element.image} alt=${element.name}>
     <div class="product-descrition-info-">
-      <p id="product-descrition-info-precio">$${element.precio}</p>
-      <p id="product-descrition-info-name">${element.name}</p>
-      <p id="product-descrition-info-descrip">${element.descr}</p>
+      <p class="product-descrition-info-precio">$${element.precio}</p>
+      <p class="product-descrition-info-name">${element.name}</p>
+      <p class="product-descrition-info-descrip">${element.descr}</p>
       <button class="primary-button add-to-cart-button">
         <img src="./icons/bt_add_to_cart.svg" alt="add to cart">
         Add to cart
@@ -131,17 +182,12 @@ function openAsidePoductcDescription(evento) {
     </div>
     `;
     const prueba = document.querySelector('.product-descrition');
-    prueba.innerHTML = mostrarElement; */
-
-    asideProduct.classList.remove('inactive');
-    asideCart.classList.add('inactive');
-    mobileMenu.classList.add('inactive');
-    desktopMenu.classList.add('inactive');
+    prueba.innerHTML = mostrarElement;
 
     const productDescriptionClose = document.querySelector('.product-descrition-close');
     productDescriptionClose.addEventListener("click", closeAsidePoductcDescription);
     function closeAsidePoductcDescription() {
-    asideProduct.classList.add('inactive');
+        asideProduct.classList.add('inactive');
     }
 }
 
