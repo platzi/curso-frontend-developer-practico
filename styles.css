@@ -86,6 +86,7 @@
     position: absolute;
     top: 60px;
     right: 60px;
+    /* Hemos colocado position absolute para desligarlo del contenido principal, y luego lo hemos posicionado con top/right */
     background: white;
     width: 100px;
     height: auto;
