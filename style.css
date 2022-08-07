@@ -132,6 +132,8 @@
     position: absolute;
     top:60px;
     padding: 24px;
+    left: 0;
+    width: 100%;
   }
   .mobile-menu a {
     text-decoration: none;
@@ -164,10 +166,13 @@
   .product-detail {
     background: var(--white);
     width: 360px;
-    padding: 0 24px;
+    
     box-sizing: border-box;
     position: absolute;
     right: 0;
+  }
+  .my-orders-content{
+    padding: 0 24px;
   }
   .title-container {
     display: flex;
