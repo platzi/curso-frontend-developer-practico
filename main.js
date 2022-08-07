@@ -5,26 +5,38 @@ const desktopMenu = document.querySelector(".desktop-menu");
 const menuMobile = document.querySelector(".mobile-menu");
 const shoppingCartContainer = document.querySelector("#shoppingCartContainer");
 const cardContainer = document.querySelector(".cards-container");
+const productDetail = document.querySelector("#productDetail");
 
 
 navmenu.addEventListener("click", toggleMenuDesktop);
 burguerMenu.addEventListener("click", toggleMenuMobile);
 menuCarritoIcon.addEventListener("click", toggleCarrito);
+cardContainer.addEventListener("click", toggleProductDetail);
 
+// activar el menu desktop
 function toggleMenuDesktop(){
-    desktopMenu.classList.toggle("inactive");
-    shoppingCartContainer.classList.add("inactive");
+    desktopMenu.classList.toggle("inactive"); // saca el "inactivo" al menu desktop
+    shoppingCartContainer.classList.add("inactive"); // // oculta el shopping cart
+}
+// activar el menu mobile
+function toggleMenuMobile(){
+    menuMobile.classList.toggle("inactive"); // saca el "inactivo" al menu mobile
+    shoppingCartContainer.classList.add("inactive"); // oculta el shopping cart
+}
+// activar el carrito
+function toggleCarrito(){
+    shoppingCartContainer.classList.toggle("inactive"); // saca el "inactivo" al shopping cart
+    menuMobile.classList.add("inactive"); // oculta el menu mobile
+    desktopMenu.classList.add("inactive"); // oculta el menu desktop
+}
+// activar el product detail
+function toggleProductDetail(){
+    productDetail.classList.toggle("inactive");
+    shoppingCartContainer.classList.add("inactive"); // // oculta el shopping cart
+    menuMobile.classList.add("inactive"); // oculta el menu mobile
+    desktopMenu.classList.add("inactive"); // oculta el menu desktop
 }
 
-function toggleMenuMobile(){
-    menuMobile.classList.toggle("inactive");
-    shoppingCartContainer.classList.add("inactive");
-}
-function toggleCarrito(){
-    shoppingCartContainer.classList.toggle("inactive");
-    menuMobile.classList.add("inactive");
-    desktopMenu.classList.add("inactive");
-}
 
 const productList = [];
 productList.push({
