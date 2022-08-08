@@ -6,6 +6,7 @@ const cart = document.querySelector('.navbar-shopping-cart');
 const asideProductDetail = document.querySelector('.product-detail');
 const cardsContainer = document.querySelector('.cards-container');
 
+
 menuEmail.addEventListener('click', toggleDesktopMenu);
 hamburgerMenu.addEventListener('click', toggleMobileMenu);
 cart.addEventListener('click', toggleCartMenu);
