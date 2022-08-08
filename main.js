@@ -100,6 +100,7 @@ function renderProducts(arr){
         const productImg = document.createElement("img");
         //product = {name, price, image} => product.image
         productImg.setAttribute("src", product.image);
+        productImg.addEventListener("click", console.log);
     
         const productInfo = document.createElement("div");
         productInfo.classList.add("product-info");
