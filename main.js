@@ -3,7 +3,7 @@ const desktopMenu = document.querySelector(".desktop-menu");
 const menuMobileBoton = document.querySelector(".menu");
 const menuMobile = document.querySelector(".mobile-menu");
 const menuCarritoIcon = document.querySelector(".navbar-shopping-cart");
-const aside = document.querySelector(".product-detail");
+const shoppingCartContainer = document.querySelector("#shoppingCartContainer");
 /* Creamos el contenedor de cardscontainer con los elementos de abajo para clonarlo */
 const cardsContainer = document.querySelector(".cards-container")
 /* QuerySelector selecciona cualquier selector ya sea clase/id */
@@ -13,9 +13,9 @@ menuMobileBoton.addEventListener("click", toggleMobileMenu);
 menuCarritoIcon.addEventListener("click", toggleCarritoAside);
 
 function toggleDesktopMenu(){
-    const isAsideClosed = aside.classList.contains("inactive");
+    const isAsideClosed = shoppingCartContainer.classList.contains("inactive");
     if(!isAsideClosed){
-        aside.classList.add("inactive");
+        shoppingCartContainer.classList.add("inactive");
         desktopMenu.classList.remove("inactive");
     }
 
@@ -29,10 +29,10 @@ function toggleDesktopMenu(){
 }
 
 function toggleMobileMenu(){
-    const isAsideClosed = aside.classList.contains("inactive");
+    const isAsideClosed = shoppingCartContainer.classList.contains("inactive");
     /* Si el aside está abierto entonces lo cerramos y abrimos este */
     if(!isAsideClosed){
-        aside.classList.add("inactive");
+        shoppingCartContainer.classList.add("inactive");
         menuMobile.classList.remove("inactive");
     }
     /* De lo contrario que togglée sin problema */
@@ -47,12 +47,12 @@ function toggleCarritoAside(){
 /*     Si el menú mobile está abierto entonces lo cierras y abrimos este */
     if(!isMobileMenuClosed){
         menuMobile.classList.add("inactive");
-        aside.classList.remove("inactive");
+        shoppingCartContainer.classList.remove("inactive");
     }
 
      /* Si no hay conflictos, que togglée */
     else{
-        aside.classList.toggle("inactive");
+        shoppingCartContainer.classList.toggle("inactive");
     }
 }
 
