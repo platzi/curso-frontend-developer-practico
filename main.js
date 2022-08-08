@@ -6,7 +6,6 @@ const menuCarritoIcon = document.querySelector(".navbar-shopping-cart");
 const productDetailCloseIcon = document.querySelector(".product-detail-close");
 const shoppingCartContainer = document.querySelector("#shoppingCartContainer");
 const productDetailContainer = document.querySelector("#productDetail");
-
 const cardsContainer = document.querySelector(".cards-container");
 
 menuEmail.addEventListener("click", toggleDesktopMenu);
@@ -16,22 +15,14 @@ menuCarritoIcon.addEventListener("click", toggleCarritoAside);
 productDetailCloseIcon.addEventListener("click", closeProductDetailAside);
 
 function toggleDesktopMenu(e) {
-	const isAsideClosed = shoppingCartContainer.classList.contains("inactive");
-	if (!isAsideClosed) {
-		shoppingCartContainer.classList.add("inactive");
-	}
-	closeProductDetailAside();
+	closeAsidePanels();
 	desktopMenu.classList.toggle("inactive");
 }
 function toggleMobileMenu(e) {
-	const isAsideClosed = shoppingCartContainer.classList.contains("inactive");
-
-	if (!isAsideClosed) {
-		shoppingCartContainer.classList.add("inactive");
-	}
-	closeProductDetailAside();
+	closeAsidePanels();
 	mobileMenu.classList.toggle("inactive");
 }
+
 function toggleCarritoAside(e) {
 	const isMobileMenuClosed = mobileMenu.classList.contains("inactive");
 	const isDesktopMenuClosed = desktopMenu.classList.contains("inactive");
@@ -52,9 +43,7 @@ function toggleCarritoAside(e) {
 
 function openProductDetailAside(e) {
 	desktopMenu.classList.add("inactive");
-
 	mobileMenu.classList.add("inactive");
-
 	shoppingCartContainer.classList.add("inactive");
 
 	productDetailContainer.classList.remove("inactive");
@@ -64,23 +53,31 @@ function closeProductDetailAside(e) {
 	productDetailContainer.classList.add("inactive");
 }
 
-const productList = [];
+function closeAsidePanels() {
+	const isAsideClosed = shoppingCartContainer.classList.contains("inactive");
+	if (!isAsideClosed) {
+		shoppingCartContainer.classList.add("inactive");
+	}
+	closeProductDetailAside();
+}
 
-productList.push({
-	name: "Bike",
-	price: 120,
-	image: "https://images.pexels.com/photos/276517/pexels-photo-276517.jpeg?auto=compress&cs=tinysrgb&dpr=2&h=650&w=940",
-});
-productList.push({
-	name: "TV",
-	price: 1344,
-	image: "https://images.pexels.com/photos/276517/pexels-photo-276517.jpeg?auto=compress&cs=tinysrgb&dpr=2&h=650&w=940",
-});
-productList.push({
-	name: "PC",
-	price: 3200,
-	image: "https://images.pexels.com/photos/276517/pexels-photo-276517.jpeg?auto=compress&cs=tinysrgb&dpr=2&h=650&w=940",
-});
+const productList = [
+	{
+		name: "Bike",
+		price: 120,
+		image: "https://images.pexels.com/photos/276517/pexels-photo-276517.jpeg?auto=compress&cs=tinysrgb&dpr=2&h=650&w=940",
+	},
+	{
+		name: "TV",
+		price: 1344,
+		image: "https://images.pexels.com/photos/276517/pexels-photo-276517.jpeg?auto=compress&cs=tinysrgb&dpr=2&h=650&w=940",
+	},
+	{
+		name: "PC",
+		price: 3200,
+		image: "https://images.pexels.com/photos/276517/pexels-photo-276517.jpeg?auto=compress&cs=tinysrgb&dpr=2&h=650&w=940",
+	},
+];
 
 renderProducts(productList);
 
@@ -103,12 +100,13 @@ function renderProducts(arr) {
 
 		const productName = document.createElement("p");
 		productName.innerText = product.name;
-		productInfoDiv.appendChild(productPrice);
-		productInfoDiv.appendChild(productName);
 
 		const productInfoFigure = document.createElement("figure");
 		const productImgCart = document.createElement("img");
 		productImgCart.setAttribute("src", "./icons/bt_add_to_cart.svg");
+
+		productInfoDiv.appendChild(productPrice);
+		productInfoDiv.appendChild(productName);
 
 		productInfoFigure.appendChild(productImgCart);
 
