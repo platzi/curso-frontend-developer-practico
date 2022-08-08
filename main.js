@@ -52,31 +52,61 @@ const productLista = [];
 productLista.push({
     name: 'bike',
     price: 120,
-    image: "https://images.pexels.com/photos/276517/pexels-photo-276517.jpeg?auto=compress&cs=tinysrgb&dpr=2&h=650&w=940",
+    image: "https://ae01.alicdn.com/kf/H1700c5c720914866a65b9ea10d33df9eo/Pulseras-africanas-de-oro-de-24k-para-mujer-accesorios-para-esposa-regalos-de-boda-amor-de.jpg_Q90.jpg_.webp",
 });
 
 productLista.push({
     name: 'Manillas',
     price: 50.000,
-    image: "https://m.media-amazon.com/images/I/61SucG+SVmL._AC_UY500_.jpg",
+    image: "http://d3ugyf2ht6aenh.cloudfront.net/stores/999/705/products/img-9407-jpg1-2ad89bc11a836378ec16492589506565-640-0.jpg",
 });
 
 productLista.push({
     name: 'Reloj Digital',
     price: 300.000,
-    image: "https://images.pexels.com/photos/276517/pexels-photo-276517.jpeg?auto=compress&cs=tinysrgb&dpr=2&h=650&w=940",
+    image: "https://ae01.alicdn.com/kf/H9a044f7f33c8473f85fb0894416e2026J/Pulsera-de-cadena-circular-para-mujer-brazalete-con-forma-de-Zigzag-geom-trico-Color-dorado-Vintage.jpg_Q90.jpg_.webp",
 });
 
 productLista.push({
     name: 'Reloj Digital',
     price: 300.000,
-    image: "https://images.pexels.com/photos/276517/pexels-photo-276517.jpeg?auto=compress&cs=tinysrgb&dpr=2&h=650&w=940",
+    image: "https://cf.shopee.com.co/file/59f98dd6cc48020c95b7305e364b1673",
 });
    
 productLista.push({
     name: 'Reloj Digital',
     price: 300.000,
-    image: "https://images.pexels.com/photos/276517/pexels-photo-276517.jpeg?auto=compress&cs=tinysrgb&dpr=2&h=650&w=940",
+    image: "https://ae01.alicdn.com/kf/H89724b506bed4650b319ec85f696e7fbM.jpg",
+});
+
+productLista.push({
+    name: 'bike',
+    price: 120,
+    image: "https://ae01.alicdn.com/kf/H1700c5c720914866a65b9ea10d33df9eo/Pulseras-africanas-de-oro-de-24k-para-mujer-accesorios-para-esposa-regalos-de-boda-amor-de.jpg_Q90.jpg_.webp",
+});
+
+productLista.push({
+    name: 'Manillas',
+    price: 50.000,
+    image: "http://d3ugyf2ht6aenh.cloudfront.net/stores/999/705/products/img-9407-jpg1-2ad89bc11a836378ec16492589506565-640-0.jpg",
+});
+
+productLista.push({
+    name: 'Reloj Digital',
+    price: 300.000,
+    image: "https://ae01.alicdn.com/kf/H9a044f7f33c8473f85fb0894416e2026J/Pulsera-de-cadena-circular-para-mujer-brazalete-con-forma-de-Zigzag-geom-trico-Color-dorado-Vintage.jpg_Q90.jpg_.webp",
+});
+
+productLista.push({
+    name: 'Reloj Digital',
+    price: 300.000,
+    image: "https://cf.shopee.com.co/file/59f98dd6cc48020c95b7305e364b1673",
+});
+   
+productLista.push({
+    name: 'Reloj Digital',
+    price: 300.000,
+    image: "https://ae01.alicdn.com/kf/H89724b506bed4650b319ec85f696e7fbM.jpg",
 });
 
 for (productos of productLista ) {
@@ -110,6 +140,13 @@ for (productos of productLista ) {
 
     const productimgcart = document.createElement('img');
     productimgcart.setAttribute('src', './icons/bt_add_to_cart.svg');
+        
+        //aqui abrimos el carrito pequeñito
+        productimgcart.addEventListener('click', openCars);
+
+        function openCars(){
+            ShoppingCarContainers.classList.toggle('inactive');
+        }
 
     /* AHORA NOS TOCA DEVOLVERNOS Y METER CADA ELEMENTO DENTRO DE LA ETIQUETA CORRESPONDIENTE */
 
@@ -139,4 +176,12 @@ for (productos of productLista ) {
     function closeDetailProduct(){
         ShoppingCarContainers.classList.add('inactive');
         detailProduct.classList.toggle('inactive');
+    }
+
+    const closeFlechita = document.querySelector('.title-container');
+
+    closeFlechita.addEventListener('click', closeFlechaCars);
+
+    function closeFlechaCars(){
+        ShoppingCarContainers.classList.add('inactive');
     }
