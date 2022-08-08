@@ -169,6 +169,13 @@ aside {
   box-sizing: border-box;
   position: absolute;
   right: 0;
+  transition: all 0.4s cubic-bezier(0.075, 0.82, 0.165, 1);
+  opacity: 1;
+}
+
+aside.inactive{
+  display: block;
+  opacity: 0;
 }
 
 #shoppingCartContainer{
