@@ -35,7 +35,6 @@ function toggleAsideCarrito(){  //carrito desplegable
     mobileMenu.classList.add('inactive');
     productDetailContainer.classList.add('inactive');
 
-
 }
 
 function openProductDetailAside(){
