@@ -13,8 +13,15 @@ body {
   margin: 0;
   font-family: 'Quicksand', sans-serif;
 }
+
+.inactive{
+    display: none;
+}
+
+
 nav {
   display: flex;
+  cursor: pointer;
   justify-content: space-between;
   padding: 0 24px;
   border-bottom: 1px solid var(--very-light-pink);
@@ -103,6 +110,10 @@ nav {
     font-family: 'Quicksand', sans-serif;
   }
   .desktop-menu {
+    position: absolute;
+    top: 60px;
+    right: 60px;
+    background: var(--white);
     width: 100px;
     height: auto;
     border: 1px solid var(--very-light-pink);
