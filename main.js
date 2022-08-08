@@ -3,7 +3,7 @@ const desktopMenu = document.querySelector('.desktop-menu');
 const menuHamIcon = document.querySelector('.menu');
 const menuCarritoIcon = document.querySelector('.navbar-shopping-cart');
 const mobileMenu = document.querySelector('.mobile-menu');
-const aside = document.querySelector('.product-detail');
+const shoppingCartContainer = document.querySelector('#shoppingCartContainer');
 const cardsContainer = document.querySelector('.cards-container');
 
 
@@ -12,17 +12,17 @@ menuHamIcon.addEventListener('click', toggleMobileMenu);
 menuCarritoIcon.addEventListener('click', toggleCarritoAside);
 
 function toggleDestopMenu() {
-    const isAsideClose= aside.classList.contains('inactive');
+    const isAsideClose= shoppingCartContainer.classList.contains('inactive');
 
     if (!isAsideClose) {
-        aside.classList.add('inactive');
+        shoppingCartContainer.classList.add('inactive');
     }
     
     desktopMenu.classList.toggle('inactive');
 }
 
 function toggleMobileMenu() {
-    const isAsideClose= aside.classList.contains('inactive');
+    const isAsideClose= shoppingCartContainer.classList.contains('inactive');
 
     if (!isAsideClose) {
         aside.classList.add('inactive');
@@ -38,7 +38,7 @@ function toggleCarritoAside() {
         mobileMenu.classList.add('inactive');
     }
 
-    aside.classList.toggle('inactive');
+    shoppingCartContainer.classList.toggle('inactive');
 }
 
 const productList = []; 
@@ -50,12 +50,12 @@ productList.push({
 productList.push({
     name: 'Pantalla',
     price: 220,
-    image: 'https://images.pexels.com/photos/276517/pexels-photo-276517.jpeg?auto=compress&cs=tinysrgb&dpr=2&h=650&w=940'
+    image: 'https://images.pexels.com/photos/1571458/pexels-photo-1571458.jpeg?auto=compress&cs=tinysrgb&w=600'
 });
 productList.push({
     name: 'Computadora',
     price: 620,
-    image: 'https://images.pexels.com/photos/276517/pexels-photo-276517.jpeg?auto=compress&cs=tinysrgb&dpr=2&h=650&w=940'
+    image: 'https://images.pexels.com/photos/1714341/pexels-photo-1714341.jpeg?auto=compress&cs=tinysrgb&w=600'
 });
 
 /* <div class="product-card">
@@ -72,7 +72,7 @@ productList.push({
 </div> */
 
 function renderProducts(arr) {
-    for (product of arr){
+    for (product of arr) {
         const productCard = document.createElement('div');
         productCard.classList.add('product-card');
     
