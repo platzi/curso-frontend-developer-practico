@@ -5,13 +5,16 @@ const iconMenu = document.querySelector(".menu");
 const mobileMenu = document.querySelector(".mobile-menu");
 
 const menuCarritoIcon = document.querySelector(".navbar-shopping-cart");
+const productDetailCloseIcon = document.querySelector(".product-detail-close");
 const asideProductDetail = document.querySelector("#shoppingCartContainer");
+const productDetailContainer = document.querySelector("#productDetail");
 
 const cardsContainer = document.querySelector(".cards-container");
 
 navEmail.addEventListener('click', toggleDesktopMenu);
 iconMenu.addEventListener('click', toggleMobileMenu);
 menuCarritoIcon.addEventListener('click', toggleCarritoAside);
+productDetailCloseIcon.addEventListener('click',closeProductDetailAside)
 
 function toggleDesktopMenu(){
     const isAsideClosed = asideProductDetail.classList.contains('inactive');
@@ -29,6 +32,7 @@ function toggleMobileMenu(){
     if(!isAsideClosed){
         asideProductDetail.classList.add('inactive');
     }
+    closeProductDetailAside();
     mobileMenu.classList.toggle('inactive');
 }
 
@@ -44,9 +48,14 @@ function toggleCarritoAside(){
     if(!isDesktopMenuClosed){
         desktopMenu.classList.add('inactive');
     }
+
+    const isProductDetailClosed = productDetailContainer.classList.contains('inactive');
+    if(!isProductDetailClosed){
+        productDetailContainer.classList.add("inactive")
+    }
+
     asideProductDetail.classList.toggle('inactive');
 }
-
 
 const productsList = [];
 productsList.push( {
@@ -72,7 +81,9 @@ function renderProducts(arrayProducts){
     
         const img = document.createElement("img");
         img.setAttribute("src",product.img);
-    
+        
+        img.addEventListener('click', openProductDetailAside);
+
         const productInfo = document.createElement("div");
         productInfo.classList.add("product-info");
     
@@ -104,3 +115,11 @@ function renderProducts(arrayProducts){
 }
 
 renderProducts(productsList);
+
+function openProductDetailAside(){
+    asideProductDetail.classList.add("inactive");
+    productDetailContainer.classList.remove("inactive");
+}
+function closeProductDetailAside(){
+    productDetailContainer.classList.add("inactive");
+}
