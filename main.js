@@ -48,7 +48,7 @@ function toggleCarritoAside(){  //cada vez que querramos abrir el carrito si le 
 }
 
 
-const producList = [];
+const producList = []; //Este array lo utilizamos cuando hacemos la solicitud a BD
 producList.push({
     name: 'JavaScript',
     price: 120,
