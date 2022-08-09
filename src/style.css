@@ -99,9 +99,6 @@ nav {
   .desktop-menu{
     display: none;
   }
-  #product-detail{
-    width: 100%;
-  }
 }
 
 @media (min-width: 641px) {
