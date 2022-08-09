@@ -7,16 +7,36 @@ const aside = document.querySelector('.product-detail');
 
 menuEmail.addEventListener('click', toggleDesktopMenu);
 menuHamIcon.addEventListener('click', toggleMobilepMenu)
-aside.addEventListener('click', toggleAside)
+menuCarritoIcon.addEventListener('click', toggleCarritoAside)
 
 function toggleDesktopMenu (){
+  const isAsideClose = aside.classList.contains('inactive');
+
+  if(!isAsideClose){
+    aside.classList.add('inactive');
+  }
   desktopMenu.classList.toggle('inactive');
 }
 
 function toggleMobilepMenu (){
+  const isAsideClose = aside.classList.contains('inactive');
+
+  if(!isAsideClose){
+    aside.classList.add('inactive');
+  }
   mobileMenu.classList.toggle('inactive');
 }
 
-function toggleAside (){
+function toggleCarritoAside (){
+  const isMobileMenuClose = mobileMenu.classList.contains('inactive');
+  const isDesktopMenuClose = desktopMenu.classList.contains('inactive');
+  
+  if (!isMobileMenuClose){
+    mobileMenu.classList.add('inactive');
+  }
+
+  if(!isDesktopMenuClose){
+    desktopMenu.classList.add('inactive');
+  }
   aside.classList.toggle('inactive');
 }
