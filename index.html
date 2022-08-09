@@ -45,7 +45,7 @@
         <li class="navbar-email">platzi@example.com</li>
         <li class="navbar-shopping-cart">
           <img src="./assets/icons/icon_shopping_cart.svg" alt="shopping cart">
-          <div>2</div>
+          <div id="shopping-cart-count"></div>
         </li>
       </ul>
     </div>
@@ -125,7 +125,7 @@
           <p>
             <span>Total</span>
           </p>
-          <p>$560.00</p>
+          <p id="total-price"></p>
         </div>
   
         <button class="primary-button">
@@ -144,7 +144,7 @@
         <p id="product-price"></p>
         <p id="product-name"></p>
         <p>With its practical position, this bike also fulfills a decorative function, add your hall or workspace.</p>
-        <button class="primary-button add-to-cart-button" type="button" onclick="createProductInfo()">
+        <button class="primary-button add-to-cart-button" type="button" onclick="createProductCart()">
           <img src="./assets/icons/bt_add_to_cart.svg" alt="add to cart">
           Add to cart
         </button>

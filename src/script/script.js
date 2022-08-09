@@ -10,7 +10,34 @@ const closeProductDetailIcon = document.querySelector('.product-detail-close');
 const orderContent = document.querySelector('.my-order-content');
 const order = document.querySelector('.order');
 const productDetailsClose = document.querySelector('.product-detail-close');
-let index = 0;
+
+/*Variables globales*/
+
+var getDataList = [];
+var getPriceNumber;
+var totalSumOrder = 0;
+var countNow = 0;
+
+function totalSum(){
+        let getData = getDataList[2];
+        getPriceNumber = getData.split('$', 2);
+        let getNumber = parseInt(getPriceNumber[1]);
+
+        totalSumOrder += getNumber;
+        
+        return totalSumOrder;
+}
+
+window.addEventListener('load', countProduct);
+function countProduct(){
+    const cartCount  = document.querySelector('#shopping-cart-count');
+    countNow += getDataList.length/3;
+    if(countNow === 0){
+        cartCount.innerText = 0;
+    }else{
+        cartCount.innerText = countNow;
+    }
+}
 
 menuEmail.addEventListener('click', toggleDesktopMenu);
     function toggleDesktopMenu(){
@@ -53,37 +80,37 @@ carButtonIcon.addEventListener('click', toggleProductDetail);
     let productDetail = [];
     productDetail.push({
         image: 'https://images.pexels.com/photos/276517/pexels-photo-276517.jpeg?auto=compress&cs=tinysrgb&dpr=2&h=650&w=940',
-        price: '120.00',
+        price: 120.00,
         name: 'Bike'
     })
     productDetail.push({
         image: 'https://www.sellcell.com/assets/images/home/sell-phone.png',
-        price: '250.00',
+        price: 250.00,
         name: 'Phone'
     })    
     productDetail.push({
         image: 'https://static2.4gsm.com/eng_pl_WK-Design-Wireless-Bluetooth-Headphones-black-M8-black-79905_1.jpg',
-        price: '20.00',
+        price: 20.00,
         name: 'Headphone'
     })
     productDetail.push({
         image: 'https://panamericana.vteximg.com.br/arquivos/ids/373973-414-317/camara-instantanea-square-sq1-azul-74101203400.jpg?v=637437445697130000',
-        price: '80.00',
+        price: 80.00,
         name: 'Camera'
     })
     productDetail.push({
         image: 'https://http2.mlstatic.com/D_NQ_NP_997147-MLA49718399013_042022-V.jpg',
-        price: '350.00',
+        price: 350.00,
         name: 'Laptop'
     })
     productDetail.push({
         image: 'https://www.venta-de.com.co/sh-img/u_10167312_monitor%2Bpc.jpg',
-        price: '440.00',
+        price: 440.00,
         name: 'Computer'
     })
     productDetail.push({
         image: 'https://www.sony.com.co/image/d7b7a583061ec800dfa74bea7bc37941?fmt=pjpeg&wid=220&bgcolor=FFFFFF&bgc=FFFFFF',
-        price: '40.00',
+        price: 40.00,
         name: 'wireless headphones'
     })
 
@@ -110,7 +137,7 @@ carButtonIcon.addEventListener('click', toggleProductDetail);
             const productInfoDiv = document.createElement('div');
                 
             const productPrice = document.createElement('p');
-                productPrice.innerText= '$' + product.price;
+                productPrice.innerText= '$' + product.price + "." + '00';
                 productPrice.setAttribute('id', 'price');
 
             const productName= document.createElement('p');
@@ -131,23 +158,22 @@ carButtonIcon.addEventListener('click', toggleProductDetail);
     }
     createProductCard(productDetail);
 
-    let getDataList = [];
-
     function getProductsDetail(){
         const productCardActive = document.querySelector('#activeCard');
 
         const productCardActiveImg = productCardActive.firstElementChild;
         const productCardActiveImgUrl = productCardActiveImg.getAttribute('src');
-        getDataList.push(productCardActiveImgUrl);
         const oldImgCard = document.getElementById('product-detail-img');
         oldImgCard.setAttribute('src', productCardActiveImgUrl);
 
         const nextSiblingElement = productCardActiveImg.nextElementSibling;
         const productInfo = nextSiblingElement.querySelector('div');
         const nameProduct = productInfo.querySelector('#name').textContent;
-        getDataList.push(nameProduct);
         const priceProduct = productInfo.querySelector('#price').textContent;
-        getDataList.push(priceProduct);
+
+        getDataList.unshift(priceProduct);
+        getDataList.unshift(nameProduct);
+        getDataList.unshift(productCardActiveImgUrl);
 
         const getPrice = document.getElementById('product-price');
         const getName = document.getElementById('product-name');
@@ -171,16 +197,17 @@ carButtonIcon.addEventListener('click', toggleProductDetail);
             activeCard.removeAttribute('id');
         }
 
-        function createProductInfo(){
+        function createProductCart(){
+            countProduct();
             const shoppingCart = document.createElement('div');
                 shoppingCart.classList.add('shopping-cart');
             const shoppingFigure = document.createElement('figure');
             const shoppingFigureImg = document.createElement('img');
-                shoppingFigureImg.setAttribute('src', getDataList[index]);
+                shoppingFigureImg.setAttribute('src', getDataList[0]);
             const shoppingName = document.createElement('p');
-                shoppingName.innerText= getDataList[index+1];
+                shoppingName.innerText= getDataList[1];
             const shoppingPrice = document.createElement('p');
-                shoppingPrice.innerText= getDataList[index+2];
+                shoppingPrice.innerText= getDataList[2];
             const shoppingCloseImg =  document.createElement('img');
                 shoppingCloseImg.setAttribute('src', "./assets/icons/icon_close.png")
                 shoppingCloseImg.setAttribute('alt', "close")
@@ -188,6 +215,10 @@ carButtonIcon.addEventListener('click', toggleProductDetail);
             shoppingFigure.appendChild(shoppingFigureImg);
             shoppingCart.append(shoppingFigure,shoppingName,shoppingPrice,shoppingCloseImg);
             orderContent.insertBefore(shoppingCart,order);
+
+            const totalPriceSelect = document.querySelector('#total-price');
+
+            totalPriceSelect.innerText = "$" + totalSum();
 
         }
 

@@ -60,9 +60,9 @@
   }
   .navbar-email {
     cursor: pointer;
-    color: var(--very-light-pink);
-    font-size: var(--sm);
     margin-right: 12px;
+    font-size: var(--sm);
+    color: var(--very-light-pink);
   }
   .navbar-shopping-cart {
     position: relative;
@@ -87,11 +87,13 @@
     position: absolute;
     top: 60px;
     right: 20px;
+    padding: 20px 20px 0 20px;
     width: 100px;
     height: auto;
     border: 1px solid var(--very-light-pink);
     border-radius: 6px;
-    padding: 20px 20px 0 20px;
+    background-color: var(--white);
+    z-index: 3;
   }
   .desktop-menu ul {
     list-style: none;
@@ -236,6 +238,10 @@
 
   /*main container*/
 
+  .main-content{
+    position: relative;
+  }
+
   .cards-container {
     display: grid;
     grid-template-columns: repeat(auto-fill, 240px);
@@ -283,7 +289,7 @@
     width: 360px;
     padding:inherit 0 24px 0;
     position: absolute;
-    right: 40%;
+    right: 35%;
     background-color: var(--white);
   }
   .product-detail-close {
@@ -367,6 +373,9 @@
     .product-card img {
       width: 140px;
       height: 140px;
+    }
+    #product-detail{
+      right:0;
     }
   }
 
