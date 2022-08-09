@@ -122,7 +122,7 @@
 
   /*mobile menu*/
   .mobile-menu {
-    position: fixed;
+    position: absolute;
     top: 60px;
     left: 0;
     padding: 24px;
@@ -283,7 +283,7 @@
     width: 360px;
     padding:inherit 0 24px 0;
     position: absolute;
-    right: 0;
+    right: 40%;
     background-color: var(--white);
   }
   .product-detail-close {
