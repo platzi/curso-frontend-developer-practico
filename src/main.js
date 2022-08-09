@@ -12,7 +12,7 @@ menuBurguerIcon.addEventListener("click", toggleMobileMenu);
 
 // ASIDE CART MENU
 const menuCart = document.querySelector(".navbar-shopping-cart");
-const aside = document.querySelector(".product-detail")
+const shoppingCartContainer = document.querySelector("#shoppingCartContainer")
 menuCart.addEventListener("click",  toggleAsideCart);
 
 // CARDS CONTAINER
@@ -22,13 +22,13 @@ const cardsContainer = document.querySelector(".cards-container")
 
 // MENU BAR
 function toggleDesktopMenu(){
-    aside.classList.add("inactive");
+    shoppingCartContainer.classList.add("inactive");
     desktopMenu.classList.toggle("inactive");
 }
 
 // MOBILE MENU
 function toggleMobileMenu(){
-    aside.classList.add("inactive");
+    shoppingCartContainer.classList.add("inactive");
     mobileMenu.classList.toggle("inactive");
 }
 
@@ -36,7 +36,7 @@ function toggleMobileMenu(){
 function toggleAsideCart(){
     mobileMenu.classList.add("inactive")
     desktopMenu.classList.add("inactive")
-    aside.classList.toggle("inactive")
+    shoppingCartContainer.classList.toggle("inactive")
 }
 
 const productList = [];
@@ -84,7 +84,7 @@ function renderProducts (arr){
         const productImgCart = document.createElement("img")
         productImgCart.setAttribute ("src", "../icons/bt_add_to_cart.svg")
     
-        // INSIDE THE FIGURE WE PUT THE CART IMG
+        // INSIDE THE FIGURE WE PUT THE CART 
         productFigure.append(productImgCart);
 
         productInfo.append(productInfoDiv, productFigure);
