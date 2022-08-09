@@ -1,29 +1,46 @@
 const menuEmail = document.querySelector('.navbar-email');
 const desktopMenu = document.querySelector('.desktop-menu');
 const cartMenu = document.querySelector('.navbar-shopping-cart');
+const productDetailCloseIcon = document.querySelector('.product-detail-close');
 
 const burguerMenu = document.querySelector('.menu');
 const mobileMenu = document.querySelector('.mobile-menu');
 const shoppingCartContainer = document.querySelector('#shoppingCartContainer');
 const cardContainer = document.querySelector('.cards-container');
+const productDetailContainer = document.querySelector('#productDetail');
+
 
 menuEmail.addEventListener('click', toggleDesktopMenu);
 burguerMenu.addEventListener('click', toggleMobileMenu);
 cartMenu.addEventListener('click', toggleAsideCart);
+productDetailCloseIcon.addEventListener('click',closeProductDetailAside);
+
+function closeProductDetailAside(){
+    productDetailContainer.classList.add('inactive');
+}
 
 function toggleDesktopMenu(){
+    productDetailContainer.classList.add('inactive');
     shoppingCartContainer.classList.add('inactive');
     desktopMenu.classList.toggle('inactive');
+    
 }
 
 function toggleMobileMenu(){
+    productDetailContainer.classList.add('inactive');
     shoppingCartContainer.classList.add('inactive');
     mobileMenu.classList.toggle('inactive');
 }
 
 function toggleAsideCart(){
+    productDetailContainer.classList.add('inactive');
     shoppingCartContainer.classList.toggle('inactive');
     mobileMenu.classList.add('inactive');
+}
+
+function openProductDetailAside(){
+    productDetailContainer.classList.remove('inactive');
+    shoppingCartContainer.classList.add('inactive');
 }
 
 
@@ -54,6 +71,7 @@ function renderProducts(arr){
     
         const productImg = document.createElement('img');
         productImg.setAttribute('src',product.image);
+        productImg.addEventListener('click', openProductDetailAside);
     
         const productInfo = document.createElement('div');
         productInfo.classList.add('product-info');
