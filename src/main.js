@@ -92,10 +92,10 @@ function renderProducts (arr){
         productInfo.classList.add("product-info");
     
         const productPrice =  document.createElement("p")
-        productPrice.innerText = "$" + product.price
+        productPrice.innerText = `$ ${product.price}`
     
         const productName = document.createElement("p")
-        productName.innerHTML = "$" + product.name
+        productName.innerHTML = `${product.name}`
     
         const productInfoDiv = document.createElement("div");
         productInfoDiv.appendChild(productPrice);
