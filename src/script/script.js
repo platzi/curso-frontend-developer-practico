@@ -14,9 +14,9 @@ const productDetailsClose = document.querySelector('.product-detail-close');
 /*Variables globales*/
 
 var getDataList = [];
+var countProductAdd = [];
 var getPriceNumber;
 var totalSumOrder = 0;
-var countNow = 0;
 
 function totalSum(){
         let getData = getDataList[2];
@@ -29,15 +29,10 @@ function totalSum(){
 }
 
 window.addEventListener('load', countProduct);
-function countProduct(){
+    function countProduct(){
     const cartCount  = document.querySelector('#shopping-cart-count');
-    countNow += getDataList.length/3;
-    if(countNow === 0){
-        cartCount.innerText = 0;
-    }else{
-        cartCount.innerText = countNow;
+    cartCount.innerText = countProductAdd.length;
     }
-}
 
 menuEmail.addEventListener('click', toggleDesktopMenu);
     function toggleDesktopMenu(){
@@ -198,6 +193,7 @@ carButtonIcon.addEventListener('click', toggleProductDetail);
         }
 
         function createProductCart(){
+            countProductAdd.push('Add to the cart');
             countProduct();
             const shoppingCart = document.createElement('div');
                 shoppingCart.classList.add('shopping-cart');
@@ -219,6 +215,5 @@ carButtonIcon.addEventListener('click', toggleProductDetail);
             const totalPriceSelect = document.querySelector('#total-price');
 
             totalPriceSelect.innerText = "$" + totalSum();
-
         }
 
