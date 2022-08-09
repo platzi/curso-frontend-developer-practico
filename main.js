@@ -7,6 +7,8 @@ const mobileMenu = document.querySelector(".mobile-menu");
 const menuCarritoIcon = document.querySelector(".navbar-shopping-cart");
 const asideProductDetail = document.querySelector(".product-detail");
 
+const cardsContainer = document.querySelector(".cards-container");
+
 navEmail.addEventListener('click', toggleDesktopMenu);
 iconMenu.addEventListener('click', toggleMobileMenu);
 menuCarritoIcon.addEventListener('click', toggleCarritoAside);
@@ -44,3 +46,61 @@ function toggleCarritoAside(){
     }
     asideProductDetail.classList.toggle('inactive');
 }
+
+
+const productsList = [];
+productsList.push( {
+    name: "Bike",
+    price: 120,
+    img: "https://images.pexels.com/photos/276517/pexels-photo-276517.jpeg?auto=compress&cs=tinysrgb&dpr=2&h=650&w=940"
+} );
+productsList.push( {
+    name: "Moto",
+    price: 1000,
+    img: "https://i.pinimg.com/originals/71/d7/ba/71d7ba74879bff474478b884a03146b8.jpg"
+} );
+productsList.push( {
+    name: "Auto",
+    price: 3000,
+    img: "https://stimg.cardekho.com/images/carexteriorimages/930x620/Lamborghini/Aventador/6721/Lamborghini-Aventador-SVJ/1621849426405/front-left-side-47.jpg"
+} );
+
+function renderProducts(arrayProducts){
+    for(product of arrayProducts){
+        const productCard = document.createElement("div");
+        productCard.classList.add("product-card");
+    
+        const img = document.createElement("img");
+        img.setAttribute("src",product.img);
+    
+        const productInfo = document.createElement("div");
+        productInfo.classList.add("product-info");
+    
+        const productInfoDiv = document.createElement("div");
+        
+        const productPrice = document.createElement("p");
+        productPrice.innerText = "$" + product.price;
+    
+        const productName = document.createElement("p");
+        productName.innerText = product.name;
+    
+        productInfoDiv.appendChild(productPrice);
+        productInfoDiv.appendChild(productName);
+    
+        const productInfoFigure = document.createElement("figure");
+        const productImgCart = document.createElement("img");
+        productImgCart.setAttribute("src","./icons/bt_add_to_cart.svg");
+    
+        productInfoFigure.appendChild(productImgCart);
+        
+        productInfo.appendChild(productInfoDiv);
+        productInfo.appendChild(productInfoFigure);
+    
+        productCard.appendChild(img);
+        productCard.appendChild(productInfo);
+    
+        cardsContainer.appendChild(productCard);
+    }
+}
+
+renderProducts(productsList);
