@@ -70,6 +70,7 @@ function renderProducts(arr) {
         productCard.classList.add('product-card');
 
         const productImg = document.createElement('img');
+        productImg.classList.add('product-img')
         productImg.setAttribute('src', product.image);
         productImg.addEventListener('click', openProductDetailAside);
 

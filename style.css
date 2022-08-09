@@ -28,6 +28,7 @@ nav {
 }
 .menu {
   display: none;
+  cursor: pointer;
 }
 .logo {
   width: 100px;
@@ -68,6 +69,7 @@ nav {
 }
 .navbar-shopping-cart {
   position: relative;
+  cursor: pointer;
 }
 .navbar-shopping-cart div {
   width: 16px;
@@ -344,6 +346,9 @@ aside {
   margin-top: 0;
   margin-bottom: 0;
   color: var(--very-light-pink);
+}
+.product-img {
+  cursor: pointer;
 }
 
 @media (max-width: 640px) {
