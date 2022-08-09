@@ -17,7 +17,6 @@
     display: none;
   }
 
-
  /*navbar (general)*/ 
   nav {
     display: flex;
@@ -159,7 +158,7 @@
     color: var(--hospital-green) !important;
   }
 
-/* ASIDE (product detail) */
+/* ASIDE (product detail general) */
   aside {
     background: var(--white);
     width: 360px; 

@@ -86,7 +86,6 @@ productList.push({
     image: 'https://images.pexels.com/photos/2385477/pexels-photo-2385477.jpeg?auto=compress&cs=tinysrgb&w=1260&h=750&dpr=1',
 });
 
-
 function renderProducts(arr){
     for (product of arr) {
         const productCar = document.createElement('div');
