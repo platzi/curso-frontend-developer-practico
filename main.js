@@ -1,8 +1,8 @@
 const menuEmail = document.querySelector(".navbar-email");
-continue
+const desktopMenu= document.querySelector(".desktop-menu");
 
 menuEmail.addEventListener("click", toggleDesktopMenu);
 
 function toggleDesktopMenu(){
- // CONTINUAR CLASE DESDE MINUTO 18:00
+    desktopMenu.classList.toggle('inactive');
 }
