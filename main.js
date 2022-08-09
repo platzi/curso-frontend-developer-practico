@@ -104,7 +104,7 @@ function renderProducts(arr){
         productImgCart.setAttribute('src', './icons/bt_add_to_cart.svg'); //También le hacemos una insersión del atributo src.
     
         productInfoFigure.appendChild(productImgCart);
-    
+     
         productInfo.appendChild(productInfoDiv);
         productInfo.appendChild(productInfoFigure);
     
