@@ -3,8 +3,13 @@ const desktopMenu =document.querySelector('.desktop-menu');
 const menuHamIcon =document.querySelector('.menu');
 const mobileMenu =document.querySelector('.mobile-menu');
 const menuCarritoIcon= document.querySelector('.navbar-shopping-cart');
+
+const productDetailCloseIcon =document.querySelector('.product-detail-close');
+
 const shoppingCartContainer= document.querySelector('#shoppingCartContainer');
 const cardsContainer=document.querySelector('.cards-container')
+
+const productDetailContainer=document.querySelector('#productDetail');
 
 
 menuEmail.addEventListener('click',toggleDesktopMenu)
@@ -12,6 +17,36 @@ menuEmail.addEventListener('click',toggleDesktopMenu)
 menuHamIcon.addEventListener('click',toggleMobileMenu)
 
 menuCarritoIcon.addEventListener('click',toggleCarritoAside)
+
+
+/*escucho cuando aprieta la x del detalle de producto*/
+productDetailCloseIcon.addEventListener('click',closeProductDetailAside);
+
+/*hago aparecer el menu de detalle de producto sacandole la clase inactive*/
+function openProductDetailAside(){
+/*siempre que tengamos el detalle de producto abierto cerramos todo lo otro*/
+
+    
+    shoppingCartContainer.classList.add('inactive');
+
+
+    productDetailContainer.classList.remove('inactive');
+
+    
+
+
+
+
+};
+
+
+function closeProductDetailAside(){
+    productDetailContainer.classList.add('inactive');
+
+}
+
+
+
 
 
 function toggleMobileMenu(){
@@ -25,6 +60,9 @@ function toggleMobileMenu(){
     if (!isAsideCLosed) {
         shoppingCartContainer.classList.add('inactive');
     }
+
+    closeProductDetailAside();
+
     mobileMenu.classList.toggle('inactive');
 
     }
@@ -44,10 +82,21 @@ desktopMenu.classList.toggle('inactive');
 function toggleCarritoAside(){
 //Cuando abrimos el carrito cerramos el menu movile siempre con la primera expresion
     const isMobileMenuCLosed=mobileMenu.classList.contains('inactive');
-//si el menu movile esta abierto se mantiene se mantiene cerrado
+//si el menu movile esta abierto se mantiene cerrado
     if (!isMobileMenuCLosed) {
         mobileMenu.classList.add('inactive');
     }
+//Cuando abrimos el product carrito de compras cerramos el product detail :me fijo si esta inactivo 
+const isproductDetailAsideClosed=productDetailContainer.classList.contains('inactive');
+//si esta inactivo 
+    if (!isproductDetailAsideClosed) {
+        productDetailContainer.classList.add('inactive');
+    }
+
+
+
+
+
     shoppingCartContainer.classList.toggle('inactive');
     }
 
@@ -103,6 +152,11 @@ for (product of arr){
    //seteo la propiedad src (source) con el atributo imagen del
    //objeto producto que cree anteriormente
    productImg.setAttribute('src',product.image)
+
+   /* Agrego el eventListener porque es un elemento htm credo desde javascript y tiene los mismos atributos que cualquier otro. Le agrego la capacidad de abrirse cuando apreto el boton*/
+
+   productImg.addEventListener('click',openProductDetailAside);
+
 
    const productInfo = document.createElement('div');
    //Le agrego la clase product info que fue creada en el html

@@ -298,12 +298,7 @@ aside {
 
 /*productDetail when you choose the photo*/
 
-.product-detailed {
-  width: 360px;
-  padding-bottom: 24px;
-  position: absolute;
-  right: 0;
-}
+
 .product-detailed-close {
   background: var(--white);
   width: 14px;
