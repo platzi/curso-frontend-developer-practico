@@ -84,15 +84,12 @@ function renderProducts (arr){
         const productImgCart = document.createElement("img")
         productImgCart.setAttribute ("src", "../icons/bt_add_to_cart.svg")
     
+        // INSIDE THE FIGURE WE PUT THE CART IMG
         productFigure.append(productImgCart);
-    
-        productInfo.appendChild(productInfoDiv);
-        productInfo.appendChild(productFigure);
-    
-        productCard.appendChild(productImg);
-        productCard.appendChild(productInfo);
-    
-        cardsContainer.appendChild(productCard)
+
+        productInfo.append(productInfoDiv, productFigure);
+        productCard.append(productImg, productInfo);
+        cardsContainer.append(productCard)
     
     }
 }
