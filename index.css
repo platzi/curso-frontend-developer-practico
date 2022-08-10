@@ -14,11 +14,10 @@
   }
 
   .inactive{
+    display: none;
     opacity: 0;
   }
-  .activate{
-    opacity: 100;
-  }
+ 
 
   nav {
     display: flex;
