@@ -80,8 +80,8 @@ function renderProducts(arr){
     const productName = document.createElement('p');
     productName.innerText = product.name; //*Agrega un nombre que proviene del array y la key name.
 
-    productInfoDiv.appendChild(productPrice);
-    productInfoDiv.appendChild(productName);
+    productInfoDiv.append(productPrice,productName);
+    //productInfoDiv.appendChild(productName);
 
     const productInfoFigure = document.createElement('figure');
     const productImgCart = document.createElement('img');
@@ -89,11 +89,11 @@ function renderProducts(arr){
 
     productInfoFigure.appendChild(productImgCart);
 
-    productInfo.appendChild(productInfoDiv);
-    productInfo.appendChild(productInfoDiv);
+    productInfo.append(productInfoDiv,productInfoDiv);//*Con este método se puede agregar mas elementos en una sola línea.
+    //productInfo.appendChild(productInfoDiv);
 
-    productCard.appendChild(productImg);
-    productCard.appendChild(productInfo);
+    productCard.append(productImg,productInfo);
+    //productCard.appendChild(productInfo);
 
     cardsContainer.appendChild(productCard);
   }
