@@ -126,7 +126,7 @@ nav {
   display: inline-block;
 }
 
-@media (max-width: 640px) {
+@media (max-width: 775px) {
   .menu {
     display: block;
   }
