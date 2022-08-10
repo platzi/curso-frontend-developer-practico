@@ -5,6 +5,11 @@ const desktopMenu = document.querySelector(".desktop-menu");
 const mobileMenu = document.querySelector(".mobile-menu");
 const aside = document.querySelector(".product-detail");
 const cardsContainer = document.querySelector(".cards-container");
+
+
+
+
+
 menuEmail.addEventListener("click", toggleDesktopMenu);
 menuHamIcon.addEventListener("click", toggleMobileMenu);
 menuCarritoIcon.addEventListener("click", toggleCarritoAside);
@@ -32,6 +37,10 @@ function toggleCarritoAside() {
   }
   aside.classList.toggle("inactive");
 }
+
+
+
+
 const productList = [];
 productList.push({
   name: "Bike",
@@ -87,3 +96,32 @@ function renderProducts(arr) {
   }
 }
 renderProducts(productList);
+
+const cardProducto = document.querySelector('.product-card');
+
+const detalleProducto = document.querySelector('.detalle-de-producto')
+
+const closee = document.querySelector('.detalle-de-producto-close')
+
+
+
+closee.addEventListener("click", toggleDetalleProducto);
+
+cardProducto.addEventListener("click", toggleCardProducto);
+
+
+
+function toggleCardProducto() {
+  
+  detalleProducto.classList.toggle("inactive");
+}
+
+// detalle de producto
+
+function toggleDetalleProducto() {
+  
+  detalleProducto.classList.toggle("inactive");
+}
+
+
+// fin de detalle de producto
