@@ -393,6 +393,10 @@
       .detalle-de-producto {
         width: 100%;
       }
+      .mobile-menu{
+        box-sizing: border-box;
+        width: 100%;
+      }
     }
 
     @media (min-width: 641px) {

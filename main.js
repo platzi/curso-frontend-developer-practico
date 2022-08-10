@@ -7,12 +7,18 @@ const aside = document.querySelector(".product-detail");
 const cardsContainer = document.querySelector(".cards-container");
 
 
+const cardProducto = document.querySelector('.product-card');
+const detalleProducto = document.querySelector('.detalle-de-producto')
+const closee = document.querySelector('.detalle-de-producto-close')
+
+
 
 
 
 menuEmail.addEventListener("click", toggleDesktopMenu);
 menuHamIcon.addEventListener("click", toggleMobileMenu);
 menuCarritoIcon.addEventListener("click", toggleCarritoAside);
+closee.addEventListener('click', closeProductDetailAside)
 
 function toggleDesktopMenu() {
   const isAsideClosed = aside.classList.contains("inactive");
@@ -28,6 +34,8 @@ function toggleMobileMenu() {
     aside.classList.add("inactive");
   }
   mobileMenu.classList.toggle("inactive");
+
+  closeProductDetailAside()
 }
 
 function toggleCarritoAside() {
@@ -35,10 +43,28 @@ function toggleCarritoAside() {
   if (!isMobileMenuClosed) {
     mobileMenu.classList.add("inactive");
   }
+
+
+  const isProductDetailClosed = detalleProducto.classList.contains("inactive");
+
+  if (!isProductDetailClosed) {
+    detalleProducto.classList.add("inactive");
+  }
+
   aside.classList.toggle("inactive");
 }
 
 
+function openProductDetailAside(){
+
+aside.classList.add('inactive')
+
+  detalleProducto.classList.remove('inactive');
+}
+
+function closeProductDetailAside(){
+  detalleProducto.classList.add('inactive');
+}
 
 
 const productList = [];
@@ -67,7 +93,9 @@ function renderProducts(arr) {
     productCard.classList.add("product-card");
 
     const productImg = document.createElement("img");
-    productImg.setAttribute("src", product.image);
+    productImg.setAttribute('src', product.image);
+
+    productImg.addEventListener('click', openProductDetailAside)
 
     const productInfo = document.createElement("div");
     productInfo.classList.add("product-info");
@@ -97,31 +125,6 @@ function renderProducts(arr) {
 }
 renderProducts(productList);
 
-const cardProducto = document.querySelector('.product-card');
-
-const detalleProducto = document.querySelector('.detalle-de-producto')
-
-const closee = document.querySelector('.detalle-de-producto-close')
 
 
 
-closee.addEventListener("click", toggleDetalleProducto);
-
-cardProducto.addEventListener("click", toggleCardProducto);
-
-
-
-function toggleCardProducto() {
-  
-  detalleProducto.classList.toggle("inactive");
-}
-
-// detalle de producto
-
-function toggleDetalleProducto() {
-  
-  detalleProducto.classList.toggle("inactive");
-}
-
-
-// fin de detalle de producto
