@@ -32,3 +32,7 @@ El objetivo es que aparezca la lista de productos funcionando en conjunto con el
 
 La idea es que toda la info de los productos se guarden en una base de datos a la que accederá nuestro backend por medio de una APIRest que le permitirá al front-end hacer consultas para traer esa lista de productos que querramos mostrar y gracias a esa info que tendrá JS se la podremos insertar gracias a una manipulación dinámica del DOM en el HTML. Actualmente salto este paso de asincronismo y consulta y agarro tal cual como si se tuviera esa info traida desde el backend, estando de forma ordenada en JS y ya no en el HTML lo que permitirá hacer la migración de forma exageradamente fácil cuando llegue el momento de hacerle consultas a la APIRest.
 
+Integro el siguiente componente: detalles del producto (clase12):
+Me encontré con el problema de tener 2 elementos html iguales. Etiquetas aside que tienen la clase product-detail (uno para carrito de compras y otro para detalles de producto). Tengo que hacer que ambos aside convivan. Y los mantuve a los 2 aside por separado dando un nombre distinto a c/u y los estilos que sirven de un aside se los aplico al otro.
+
+Saco la clase product-detail de ambos. Pero a cada aside le pongo su propio ID. Entonces a todo lo que llamo product-detail en el pasado en el css y js y los cambio por aside (no clase, ni selector de ID). Todo lo que tenga la etiqueta aside le doy esos estilos.
