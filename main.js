@@ -1,15 +1,18 @@
 const menuEmail = document.querySelector('.navbar-email'); //Creamos una variable en la cual seleccinamos el elemento 
 const menuHamIcon = document.querySelector('.menu'); //Creamos un selector para el mobileMenu para hacer que aparezca o desaparezca con la misma clase incative
 const menuCarritoIcon = document.querySelector('.navbar-shopping-cart'); //Creamos un selector para el mobileMenu para hacer que aparezca o desaparezca con la misma clase incative
+const productDetailCloseIcon = document.querySelector('.product-detail-close');
 const desktopMenu = document.querySelector('.desktop-menu'); // Cremamos una variable llamada desktopMenu y le decimos que seleccione a cualquier elemento que tenga la clase desktop-menu  
 const mobileMenu = document.querySelector('.mobile-menu');  //También necesitamos un selector para ese menú hamburguesa 
 const shoppingCartContainer = document.querySelector('#shoppingCartContainer');
+const productDetailContainer = document.querySelector('#productDetail');
 const cardsContainer = document.querySelector('.cards-container'); //Creamos el selector cardsContainer
 
 
-menuEmail.addEventListener('click', toggleDesktopMenu); //utilizamos su propiedad addEventListener para ejecutar algo cuando le demo click.
-menuHamIcon.addEventListener('click', toggleMobileMenu); //utilizamos su propiedad addEventListener para ejecutar algo cuando le demo click.
+menuEmail.addEventListener('click', toggleDesktopMenu); //utilizamos su propiedad addEventListener para ejecutar algo cuando le demos click.
+menuHamIcon.addEventListener('click', toggleMobileMenu); //utilizamos su propiedad addEventListener para ejecutar algo cuando le demos click.
 menuCarritoIcon.addEventListener('click', toggleCarritoAside); //utilizamos su propiedad addEventListener para ejecutar algo cuando le demo click.
+productDetailCloseIcon.addEventListener('click', closeProductDetailAside);
 
 //toggleDesktopMenu es el nombre de una función que debemos crear.
 
@@ -33,6 +36,7 @@ function toggleMobileMenu(){
         shoppingCartContainer.classList.add('inactive');
     }
 
+    closeProductDetailAside();
 
     mobileMenu.classList.toggle('inactive');
 }
@@ -44,7 +48,22 @@ function toggleCarritoAside(){  //cada vez que querramos abrir el carrito si le 
         mobileMenu.classList.add('inactive');
     }
 
+    const isProductDetailClosed = productDetailContainer.classList.contains('inactive'); 
+
+    if(!isProductDetailClosed){ //Si nuestro MobileMenu no tiene la clase inactive, es decir, si no esta cerrado  
+        productDetailContainer.classList.add('inactive');
+    }
+
     shoppingCartContainer.classList.toggle('inactive');
+}
+
+function openProductDetailAside(){
+    shoppingCartContainer.classList.add('inactive');
+    productDetailContainer.classList.remove('inactive');
+}
+
+function closeProductDetailAside(){
+    productDetailContainer.classList.add('inactive');
 }
 
 
@@ -83,7 +102,8 @@ function renderProducts(arr){
     
         const productImg = document.createElement('img');      //Creamos una imagen y no le agregamos una clase sino un src
         //el src no debe ser el enlace de la imagen, sino que debe ser la propiedad image de cada uno de los objetos que representan un producto dentro del array de productos.
-        productImg.setAttribute('src', product.image); //se cambia el atributo de src y se le agrega lo que venga en product.image
+        productImg.setAttribute('src', product.image); //se cambia el atributo de src y se le agrega lo que venga en product.image.
+        productImg.addEventListener('click', openProductDetailAside);
     
         const productInfo = document.createElement('div');  //Creamos un componente div
         productInfo.classList.add('product-info');      //Le asignamos una clase
