@@ -5,12 +5,16 @@ const mobileMenu = document.querySelector('.mobile-menu');
 const menuCarritoIcon = document.querySelector('.navbar-shopping-cart');
 const shoppingCardContainer = document.querySelector('#shoppingCardContainer');
 const cardsContainer = document.querySelector('.cards-container');
+const productDetailContainer = document.querySelector('#productDetail');
+const productDetailCloseIcon = document.querySelector('.product-detail-close');
 
 menuEmail.addEventListener('click',toggleDesktopMenu);
 
 menuHamIcon.addEventListener('click',toggleMobilepMenu);
 
 menuCarritoIcon.addEventListener('click',toggleCarritoAside);
+
+productDetailCloseIcon.addEventListener('click',closeProductDetailAside);
 
 function toggleDesktopMenu(){
     const isAsideClose = shoppingCardContainer.classList.contains('inactive');
@@ -23,7 +27,7 @@ function toggleDesktopMenu(){
 
 function toggleMobilepMenu(){
     const isAsideClose = shoppingCardContainer.classList.contains('inactive');
-
+    closeProductDetailAside();
     if(!isAsideClose){
         shoppingCardContainer.classList.add('inactive');
     }
@@ -33,14 +37,28 @@ function toggleMobilepMenu(){
 function toggleCarritoAside(){
     const isDesktopMenuClose = desktopMenu.classList.contains('inactive');
     const isMobileMenuClose = mobileMenu.classList.contains('inactive');
+    const isProductDetailClose = productDetailContainer.classList.contains('inactive');
 
     if(!isMobileMenuClose || !isDesktopMenuClose){
         mobileMenu.classList.add('inactive');
         desktopMenu.classList.add('inactive');
     }
+
+    if(!isProductDetailClose){
+        productDetailContainer.classList.add('inactive');
+    }
     
     shoppingCardContainer.classList.toggle('inactive');
 
+}
+
+function openProductDetailAside(){
+    productDetailContainer.classList.remove('inactive');
+    shoppingCardContainer.classList.add('inactive');
+}
+
+function closeProductDetailAside(){
+    productDetailContainer.classList.add('inactive');
 }
 
 const productList = [];
@@ -62,22 +80,6 @@ productList.push({
     image : 'https://images.pexels.com/photos/276517/pexels-photo-276517.jpeg?auto=compress&cs=tinysrgb&dpr=2&h=650&w=940'
 });
 
-/*
-<div class="product-card">
-<img src="https://images.pexels.com/photos/276517/pexels-photo-276517.jpeg?auto=compress&cs=tinysrgb&dpr=2&h=650&w=940" alt="">
-<div class="product-info">
-  <div>
-    <p>$120,00</p>
-    <p>Bike</p>
-  </div>
-  <figure>
-    <img src="./icons/bt_add_to_cart.svg" alt="">
-  </figure>
-</div>
-</div> 
-*/
-
-
 function renderProducts(arrayProducts){
     for(product of arrayProducts){
         const productCard = document.createElement('div');
@@ -85,6 +87,8 @@ function renderProducts(arrayProducts){
     
         const img = document.createElement('img');
         img.setAttribute('src', product.image);
+
+        img.addEventListener('click',openProductDetailAside)
     
         const productInfo = document.createElement('div');
         productInfo.classList.add('product-info');
