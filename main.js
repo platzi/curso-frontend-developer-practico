@@ -3,7 +3,7 @@ const menuHamIcon = document.querySelector('.menu'); //Creamos un selector para 
 const menuCarritoIcon = document.querySelector('.navbar-shopping-cart'); //Creamos un selector para el mobileMenu para hacer que aparezca o desaparezca con la misma clase incative
 const desktopMenu = document.querySelector('.desktop-menu'); // Cremamos una variable llamada desktopMenu y le decimos que seleccione a cualquier elemento que tenga la clase desktop-menu  
 const mobileMenu = document.querySelector('.mobile-menu');  //También necesitamos un selector para ese menú hamburguesa 
-const aside = document.querySelector('.product-detail');
+const shoppingCartContainer = document.querySelector('#shoppingCartContainer');
 const cardsContainer = document.querySelector('.cards-container'); //Creamos el selector cardsContainer
 
 
@@ -15,10 +15,10 @@ menuCarritoIcon.addEventListener('click', toggleCarritoAside); //utilizamos su p
 
 function toggleDesktopMenu(){ //acá es donde hacemos que aparezca o desaparezca el pequeño menu.
 
-    const isAsideClosed = aside.classList.contains('inactive'); 
+    const isAsideClosed = shoppingCartContainer.classList.contains('inactive'); 
 
     if(!isAsideClosed){ //Si nuestro MobileMenu no tiene la clase inactive, es decir, si no esta cerrado  
-        aside.classList.add('inactive');
+        shoppingCartContainer.classList.add('inactive');
     }
 
 
@@ -27,10 +27,10 @@ function toggleDesktopMenu(){ //acá es donde hacemos que aparezca o desaparezca
 }
 
 function toggleMobileMenu(){
-    const isAsideClosed = aside.classList.contains('inactive'); 
+    const isAsideClosed = shoppingCartContainer.classList.contains('inactive'); 
 
     if(!isAsideClosed){ //Si nuestro MobileMenu no tiene la clase inactive, es decir, si no esta cerrado  
-        aside.classList.add('inactive');
+        shoppingCartContainer.classList.add('inactive');
     }
 
 
@@ -44,7 +44,7 @@ function toggleCarritoAside(){  //cada vez que querramos abrir el carrito si le 
         mobileMenu.classList.add('inactive');
     }
 
-    aside.classList.toggle('inactive');
+    shoppingCartContainer.classList.toggle('inactive');
 }
 
 
