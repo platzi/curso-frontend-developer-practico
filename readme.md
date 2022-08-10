@@ -1,0 +1,1 @@
+Fusión de componentes
