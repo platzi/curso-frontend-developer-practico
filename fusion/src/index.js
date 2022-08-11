@@ -6,16 +6,34 @@ const cartIcon = document.querySelector('.navbar-shopping-cart');
 const shoppingCart = document.querySelector('.shopping-cart-container');
 
 
-const toggleDesktopMenu = () => desktopMenu.classList.toggle('toggle');
-const toggleMobileMenu = () => mobileMenu.classList.toggle('mobile-menu-toggle');
-const toggleShoppingCart = () => shoppingCart.classList.toggle('toggle-shopping-cart');
+const toggleDesktopMenu = () => {
+  const isCartOpen = shoppingCart.classList.contains('toggle-shopping-cart');
+  if(isCartOpen) {
+    shoppingCart.classList.remove('toggle-shopping-cart');
+  }
+
+  desktopMenu.classList.toggle('desktop-menu-toggle');
+}
+
+const toggleMobileMenu = () => {
+  const isCartOpen = shoppingCart.classList.contains('toggle-shopping-cart');
+  if(isCartOpen) {
+    shoppingCart.classList.remove('toggle-shopping-cart');
+  }
+
+  mobileMenu.classList.toggle('mobile-menu-toggle');
+}
+
+const toggleShoppingCart = () => {
+  const isMobileMenuOpen = mobileMenu.classList.contains('mobile-menu-toggle'); 
+  const isDesktopMenuOpen = desktopMenu.classList.contains('desktop-menu-toggle'); 
+  
+  isMobileMenuOpen && toggleMobileMenu();
+  isDesktopMenuOpen && toggleDesktopMenu();
+  
+  shoppingCart.classList.toggle('toggle-shopping-cart');
+};
 
 navbarEmail.addEventListener('click', toggleDesktopMenu);
 menuHamburger.addEventListener('click', toggleMobileMenu);
 cartIcon.addEventListener('click', toggleShoppingCart);
-
-window.addEventListener("click",  ({ target }) => {
-  if(desktopMenu.classList.contains('toggle') && target != desktopMenu && target != navbarEmail) {
-    toggleDesktopMenu();
-  }
-});

@@ -1,3 +1,8 @@
+* {
+  margin: 0;
+  padding: 0;
+  box-sizing: border-box;
+}
 :root {
   --white: #FFFFFF;
   --black: #000000;
@@ -17,7 +22,9 @@ nav {
   justify-content: space-between;
   padding: 0 24px;
   border-bottom: 1px solid var(--very-light-pink);
-  position: relative;
+  position: fixed;
+  width: 100%;
+  background-color: var(--white);
 }
 .menu {
   display: none;
@@ -65,6 +72,7 @@ nav {
   color: var(--hospital-green);
 }
 .navbar-shopping-cart {
+  cursor: pointer;
   position: relative;
 }
 .navbar-shopping-cart div {
@@ -84,7 +92,7 @@ nav {
 
 /* DESKTOP MENU */
 .desktop-menu {
-  width: 100px;
+  width: auto;
   height: auto;
   border: 1px solid var(--very-light-pink);
   border-radius: 6px;
@@ -96,7 +104,7 @@ nav {
   transition: .3s;
   top: 60px;
 }
-.toggle {
+.desktop-menu-toggle {
   transition: .3s;
   right: 64px;
 }
@@ -135,13 +143,16 @@ nav {
   width: 50vw;
   min-width: fit-content;
   max-width: 260px;
-  min-height: calc(100vh - 108px);
+  min-height: calc(100vh - 60px);
+  height: 100%;
   box-shadow: 1px 1px 5px var(--very-light-pink);
   top: 61px;
   background-color: var(--white);
   z-index: 20;
   left: -310px;
   transition: .3s;
+  overflow-y: scroll;
+  scroll-behavior: smooth;
 }
 .mobile-menu-toggle {
   left: 0;
@@ -174,6 +185,9 @@ nav {
 
 /* Aside (product-detail y shopping-cart) */
 .product-detail {
+  top: 61px;
+  height: 500px;
+  z-index: -5;
   display: none;
   background-color: var(--white);
   width: 360px;
@@ -185,10 +199,13 @@ nav {
   box-shadow: 1px 1px 6px var(--very-light-pink);
 }
 .toggle-shopping-cart {
-  display: block;
+  display: flex;
+  flex-direction: column;
+  justify-content: space-between;
 }
 .title-container {
   display: flex;
+  padding: 20px 0;
 }
 .title-container img {
   transform: rotate(180deg);
@@ -198,15 +215,21 @@ nav {
   font-size: var(--lg);
   font-weight: bold;
 }
+.my-order-content {
+  height: 70%;
+  padding-right: 20px;
+  overflow-y: auto;
+  margin-bottom: 10px;
+}
 .order {
   display: grid;
   grid-template-columns: auto 1fr;
   gap: 16px;
   align-items: center;
   background-color: var(--text-input-field);
-  margin-bottom: 24px;
+  margin-bottom: 15px;
   border-radius: 8px;
-  padding: 0 24px;
+  padding: 15px 24px;
 }
 .order p:nth-child(1) {
   display: flex;
@@ -220,6 +243,7 @@ nav {
   text-align: end;
   font-weight: bold;
 }
+
 .shopping-cart {
   display: grid;
   grid-template-columns: auto 1fr auto auto;
@@ -253,6 +277,10 @@ nav {
   font-size: var(--md);
   font-weight: bold;
   height: 50px;
+  transition: .2s;
+}
+.primary-button:hover {
+  box-shadow: 0 0 6px var(--hospital-green);
 }
 
 
@@ -275,6 +303,11 @@ nav {
   .product-detail {
     width: 100%;
     min-width: 300px;
-    min-height: 100%;
+    min-height: calc(100% - 60px);
+    box-shadow: none;
+  }
+  .my-order-content {
+    flex-direction: column;
+    justify-content: space-around;
   }
 }
