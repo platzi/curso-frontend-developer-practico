@@ -90,7 +90,8 @@ nav {
   border-radius: 6px;
   padding: 20px 20px 0 20px;
   position: fixed;
-  z-index: -2;
+  z-index: 30;
+  background-color: var(--white);
   right: -142px;
   transition: .3s;
   top: 60px;
@@ -130,14 +131,15 @@ nav {
 .mobile-menu {
   display: none;
   padding: 24px;
-  position: fixed;
+  position: absolute;
   width: 50vw;
   min-width: fit-content;
   max-width: 260px;
   min-height: calc(100vh - 108px);
   box-shadow: 1px 1px 5px var(--very-light-pink);
   top: 61px;
-  z-index: 0;
+  background-color: var(--white);
+  z-index: 20;
   left: -310px;
   transition: .3s;
 }
@@ -170,6 +172,90 @@ nav {
   color: var(--hospital-green) !important;
 }
 
+/* Aside (product-detail y shopping-cart) */
+.product-detail {
+  display: none;
+  background-color: var(--white);
+  width: 360px;
+  padding: 0 24px 24px;
+  box-sizing: border-box;
+  position: absolute;
+  right: 0;
+  border-radius: 0 0 0 10px;
+  box-shadow: 1px 1px 6px var(--very-light-pink);
+}
+.toggle-shopping-cart {
+  display: block;
+}
+.title-container {
+  display: flex;
+}
+.title-container img {
+  transform: rotate(180deg);
+  margin-right: 14px;
+}
+.title {
+  font-size: var(--lg);
+  font-weight: bold;
+}
+.order {
+  display: grid;
+  grid-template-columns: auto 1fr;
+  gap: 16px;
+  align-items: center;
+  background-color: var(--text-input-field);
+  margin-bottom: 24px;
+  border-radius: 8px;
+  padding: 0 24px;
+}
+.order p:nth-child(1) {
+  display: flex;
+  flex-direction: column;
+}
+.order p span:nth-child(1) {
+  font-size: var(--md);
+  font-weight: bold;
+}
+.order p:nth-child(2) {
+  text-align: end;
+  font-weight: bold;
+}
+.shopping-cart {
+  display: grid;
+  grid-template-columns: auto 1fr auto auto;
+  gap: 16px;
+  margin-bottom: 24px;
+  align-items: center;
+}
+.shopping-cart figure {
+  margin: 0;
+}
+.shopping-cart figure img {
+  width: 70px;
+  height: 70px;
+  border-radius: 20px;
+  object-fit: cover;
+}
+.shopping-cart p:nth-child(2) {
+  color: var(--very-light-pink);
+}
+.shopping-cart p:nth-child(3) {
+  font-size: var(--md);
+  font-weight: bold;
+}
+.primary-button {
+  background-color: var(--hospital-green);
+  border-radius: 8px;
+  border: none;
+  color: var(--white);
+  width: 100%;
+  cursor: pointer;
+  font-size: var(--md);
+  font-weight: bold;
+  height: 50px;
+}
+
+
 @media (max-width: 775px) {
   .menu {
     display: block;
@@ -185,5 +271,10 @@ nav {
   }
   .mobile-menu {
     display: block;
+  }
+  .product-detail {
+    width: 100%;
+    min-width: 300px;
+    min-height: 100%;
   }
 }
