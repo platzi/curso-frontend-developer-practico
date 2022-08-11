@@ -11,5 +11,5 @@ function toggleDesktopMenu() {
 }
 
 function toggleMobileMenu() {
-    mobileMenu.classList.toggle('.inactive');
+    mobileMenu.classList.toggle('inactive');
 }
