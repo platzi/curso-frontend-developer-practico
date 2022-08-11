@@ -17,12 +17,16 @@ body {
   margin: 0;
   font-family: 'Quicksand', sans-serif;
 }
+
+
+
 nav {
   display: flex;
   justify-content: space-between;
   padding: 0 24px;
   border-bottom: 1px solid var(--very-light-pink);
   position: fixed;
+  top: 0;
   width: 100%;
   background-color: var(--white);
 }
@@ -90,6 +94,8 @@ nav {
   align-items: center;
 }
 
+
+
 /* DESKTOP MENU */
 .desktop-menu {
   width: auto;
@@ -134,6 +140,8 @@ nav {
   margin-bottom: 20px;
   display: inline-block;
 }
+
+
 
 /* MOBILE MENU */
 .mobile-menu {
@@ -183,6 +191,8 @@ nav {
   color: var(--hospital-green) !important;
 }
 
+
+
 /* Aside (product-detail y shopping-cart) */
 .product-detail {
   top: 61px;
@@ -193,9 +203,10 @@ nav {
   width: 360px;
   padding: 0 24px 24px;
   box-sizing: border-box;
-  position: absolute;
+  position: fixed;
   right: 0;
   border-radius: 0 0 0 10px;
+  z-index: 19;
   box-shadow: 1px 1px 6px var(--very-light-pink);
 }
 .toggle-shopping-cart {
@@ -284,6 +295,54 @@ nav {
 }
 
 
+
+/* Cards Container */
+.main-container {
+margin: 80px 0;
+}
+
+.cards-container {
+  display: grid;
+  grid-template-columns: repeat(auto-fill, 240px);
+  gap: 26px;
+  place-content: center;
+}
+.product-card {
+  width: 240px;
+}
+.product-card img {
+  width: 240px;
+  height: 240px;
+  border-radius: 20px;
+  object-fit: cover;
+}
+.product-info {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  margin-top: 12px;
+}
+.product-info figure {
+  margin: 0;
+}
+.product-info figure img {
+  width: 35px;
+  height: 35px;
+}
+.product-info div p:nth-child(1) {
+  font-weight: bold;
+  font-size: var(--md);
+  margin-top: 0;
+  margin-bottom: 4px;
+}
+.product-info div p:nth-child(2) {
+  font-size: var(--sm);
+  margin-top: 0;
+  margin-bottom: 0;
+  color: var(--very-light-pink);
+}
+
+
 @media (max-width: 775px) {
   .menu {
     display: block;
@@ -303,11 +362,22 @@ nav {
   .product-detail {
     width: 100%;
     min-width: 300px;
+    height: 430px;
     min-height: calc(100% - 60px);
     box-shadow: none;
   }
   .my-order-content {
     flex-direction: column;
     justify-content: space-around;
+  }
+  .cards-container {
+    grid-template-columns: repeat(auto-fill, 140px);
+  }
+  .product-card {
+    width: 140px;
+  }
+  .product-card img {
+    width: 140px;
+    height: 140px;
   }
 }
