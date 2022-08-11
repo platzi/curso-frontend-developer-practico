@@ -272,7 +272,7 @@ aside {
   border-radius: 0 0 20px 20px;
 }
 #productDetail .product-info {
-  margin: 24px 24px 0 24px;
+  margin: 24px;
 }
 #productDetail .product-info p:nth-child(1) {
   font-weight: bold;
