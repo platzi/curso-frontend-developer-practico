@@ -3,7 +3,9 @@ const menuDesktop = document.querySelector('.desktop-menu');
 const menuHamburgesa = document.querySelector('.menu')
 const menuMobile = document.querySelector('.mobile-menu')
 const shoppingCar = document.querySelector('.navbar-shopping-cart')
+const order_detail = document.querySelector('.order-detail')
 const product_detail = document.querySelector('.product-detail')
+const productCard = document.querySelector('.product-card')
 const productsContainer = document.querySelector('.cards-container')
 
 menuMail.addEventListener('click', toggleMenu)
@@ -56,9 +58,14 @@ products.push(lastProduct)
 
 renderElements(products) 
 
-
+// 1. Que la pagina de detalles de producto aparesca cuando le de clic en el producto
+// 2.Que funcione el boton cerrar
+productCard.addEventListener('click',toggleDetailsProducts)
 
 //Funciones
+function toggleDetailsProducts(){
+    product_detail.classList.toggle("inactive")
+}
 function renderElements(arr) {
     for (let product of products) {
         const cardsContainer = document.createElement('div');
@@ -91,16 +98,16 @@ function renderElements(arr) {
     }
 }
 function toggleMenu() {
-    if (!product_detail.classList.contains("inactive")) {
+    if (!order_detail.classList.contains("inactive")) {
 
-        product_detail.classList.add("inactive")
+        order_detail.classList.add("inactive")
     }
     menuDesktop.classList.toggle("inactive")
 }
 function toggleMenuMobile() {
-    if (!product_detail.classList.contains("inactive")) {
+    if (! order_detail.classList.contains("inactive")) {
 
-        product_detail.classList.add("inactive")
+        order_detail.classList.add("inactive")
     }
     if (!menuDesktop.classList.contains("inactive")) {
 
@@ -119,6 +126,6 @@ function toggleMenushoppingCar() {
 
         menuMobile.classList.add("inactive")
     }
-    product_detail.classList.toggle("inactive")
+    order_detail.classList.toggle("inactive")
 }
 
