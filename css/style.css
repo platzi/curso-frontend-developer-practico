@@ -28,6 +28,9 @@
   .menu {
     display: none;
   }
+  .menu:hover {
+    cursor: pointer;
+  }
   .logo {
     width: 100px;
   }
@@ -68,6 +71,12 @@
   .navbar-shopping-cart {
     position: relative;
   }
+  .navbar-shopping-cart:hover {
+    cursor: pointer;
+    /* background-color: var(--very-light-pink);
+    padding: .2rem;
+    border-radius: 50%; */
+  }
   .navbar-shopping-cart div {
     width: 16px;
     height: 16px;
@@ -76,8 +85,10 @@
     font-size: var(--sm);
     font-weight: bold;
     position: absolute;
-    top: -6px;
-    right: -3px;
+
+    top: -50%;
+    right: -50%;
+    translate: transform(-50%, -50%);
     display: flex;
     justify-content: center;
     align-items: center;
@@ -86,14 +97,16 @@
   /* Menu on desktop */
   .desktop-menu {
     position: absolute;
-    top: 62px;
+    top: 65px;
     right: 58px;
     background: var(--white);
     width: 100px;
     height: auto;
-    border: 1px solid var(--very-light-pink);
+    /* border: 1px solid var(--very-light-pink); */
     border-radius: 6px;
     padding: 20px 20px 0 20px;
+    border-radius: .5rem;
+    box-shadow: rgba(50, 50, 93, 0.25) 0px 6px 12px -2px, rgba(0, 0, 0, 0.3) 0px 3px 7px -3px;
   }
   .desktop-menu ul {
     list-style: none;
@@ -125,10 +138,11 @@
   /* Menu on mobile */
   .mobile-menu {
     position: absolute;
-    top: 62px;
-    /* left: 58px; */
+    top: 65px;
     padding: 24px;
     background-color: var(--white);
+    border-radius: .5rem;
+    box-shadow: rgba(50, 50, 93, 0.25) 0px 6px 12px -2px, rgba(0, 0, 0, 0.3) 0px 3px 7px -3px;
   }
   .mobile-menu a {
     text-decoration: none;
