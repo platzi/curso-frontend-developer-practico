@@ -245,11 +245,12 @@ aside {
   width: 14px;
   height: 14px;
   position: absolute;
-  top: 24px;
-  left: 24px;
+  top: 12px;
+  left: 12px;
   z-index: 2;
-  padding: 12px;
+  padding: 8px;
   border-radius: 50%;
+  display: flex;
 }
 .product-detail-close:hover {
   cursor: pointer;
@@ -306,6 +307,7 @@ aside > img:nth-child(2) {
   height: 240px;
   border-radius: 20px;
   object-fit: cover;
+  cursor: pointer;
 }
 .product-info {
   display: flex;

@@ -4,12 +4,15 @@ const burgerMenu = document.querySelector('.menu'); //Boton
 const mobileMenu = document.querySelector('.mobile-menu') //Elemento dinámico
 const shoppingCartIcon = document.querySelector('.navbar-shopping-cart');
 const shoppingCart = document.querySelector('#shoppingCartContainer');
-const cardsContainer = document.querySelector('.cards-container')
+const cardsContainer = document.querySelector('.cards-container');
+const productDetailContainer = document.querySelector('#productDetailContainer');
+const closeButtonProductDetail = document.querySelector('.product-detail-close');
 
 
 menuEmail.addEventListener('click', toggleDesktopMenu);
 burgerMenu.addEventListener('click', toggleMobileMenu);
 shoppingCartIcon.addEventListener('click', toggleShoppingCart);
+closeButtonProductDetail.addEventListener('click', closeProductDetailAside)
 
 
 function toggleDesktopMenu(){
@@ -21,27 +24,81 @@ function toggleDesktopMenu(){
     desktopMenu.classList.toggle('inactive');
 }
 
-
 function toggleMobileMenu(){
     const isAsideClosed = shoppingCart.classList.contains('inactive'); //Si no contiene la clase
+    const isProductDetailClosed = productDetailContainer.classList.contains('inactive') //Si no contiene la clase
 
     if (!isAsideClosed){
         shoppingCart.classList.add('inactive');
     }
-
+    closeProductDetailAside();
     mobileMenu.classList.toggle('inactive');
 }
 
-
 function toggleShoppingCart(){
     const isMobileMenuClosed = mobileMenu.classList.contains('inactive') //Si no contiene la clase
+    const isProductDetailClosed = productDetailContainer.classList.contains('inactive') //Si no contiene la clase
 
     if (!isMobileMenuClosed){
         mobileMenu.classList.add('inactive')
     }else{
         desktopMenu.classList.add('inactive');
     }
+
+    if (!isProductDetailClosed){
+        productDetailContainer.classList.add('inactive')
+    }
+
     shoppingCart.classList.toggle('inactive')
+}
+
+function openProductDetailAside(){
+    const isShoppingCartClosed = shoppingCart.classList.contains('inactive');
+
+    if(!isShoppingCartClosed){
+        shoppingCart.classList.add('inactive');
+    }
+
+    productDetailContainer.classList.remove('inactive');
+}
+
+function closeProductDetailAside(){
+    productDetailContainer.classList.add('inactive');
+}
+
+function renderProducts(productArray){
+    for (product of productList){
+        const productCard = document.createElement('div');
+        productCard.classList.add('product-card');
+    
+        const productImg = document.createElement('img');
+        productImg.setAttribute('src', product.image);
+        productImg.addEventListener('click', openProductDetailAside);
+    
+        const productInfo = document.createElement('div');
+        productInfo.classList.add('product-info')
+    
+        const productDescriptionDiv = document.createElement('div');
+    
+        const productDescriptionPrice = document.createElement('p');
+        productDescriptionPrice.innerText = '$' + product.price;
+    
+        const productDescriptionName = document.createElement('p');
+        productDescriptionName.innerText = product.name;
+    
+        productDescriptionDiv.append(productDescriptionPrice, productDescriptionName);
+    
+        const productFigure = document.createElement('figure');
+        const productFigureImg = document.createElement('img');
+        productFigureImg.setAttribute('src', './icons/bt_add_to_cart.svg');
+    
+        productFigure.appendChild(productFigureImg);
+    
+        productInfo.append(productDescriptionDiv, productFigure);
+        productCard.append(productImg, productInfo);
+        cardsContainer.append(productCard);
+    
+    }
 }
 
 const productList = [];
@@ -62,34 +119,5 @@ productList.push({
     image: 'https://store.storeimages.cdn-apple.com/4668/as-images.apple.com/is/refurb-macbook-air-gold-m1-202010?wid=1144&hei=1144&fmt=jpeg&qlt=90&.v=1634145607000'
 });
 
-for (product of productList){
-    const productCard = document.createElement('div');
-    productCard.classList.add('product-card');
+renderProducts(productList);
 
-    const productImg = document.createElement('img');
-    productImg.setAttribute('src', product.image);
-
-    const productInfo = document.createElement('div');
-    productInfo.classList.add('product-info')
-
-    const productDescriptionDiv = document.createElement('div');
-
-    const productDescriptionPrice = document.createElement('p');
-    productDescriptionPrice.innerText = '$' + product.price;
-
-    const productDescriptionName = document.createElement('p');
-    productDescriptionName.innerText = product.name;
-
-    productDescriptionDiv.append(productDescriptionPrice, productDescriptionName);
-
-    const productFigure = document.createElement('figure');
-    const productFigureImg = document.createElement('img');
-    productFigureImg.setAttribute('src', './icons/bt_add_to_cart.svg');
-
-    productFigure.appendChild(productFigureImg);
-
-    productInfo.append(productDescriptionDiv, productFigure);
-    productCard.append(productImg, productInfo);
-    cardsContainer.append(productCard);
-
-}
