@@ -8,6 +8,10 @@ const product_detail = document.querySelector(".product-detail");
 const productCard = document.querySelector(".product-card");
 const productsContainer = document.querySelector(".cards-container");
 const product_detail_close = document.querySelector(".product-detail-close");
+
+// pantallla gris
+const darker = document.querySelector(".darker")
+//
 class productGenerator {
     constructor({
         src = "https://images.pexels.com/photos/276517/pexels-photo-276517.jpeg?auto=compress&cs=tinysrgb&dpr=2&h=650&w=940",
@@ -53,7 +57,7 @@ menuMail.addEventListener("click", toggleMenu);
 menuHamburgesa.addEventListener("click", toggleMenuMobile);
 shoppingCar.addEventListener("click", toggleMenushoppingCar);
 product_detail_close.addEventListener("click", closeDetails);
-
+darker.addEventListener("click",closeMenusandDarker)
 
 
 // //
@@ -154,6 +158,7 @@ function addToCar(){
     console.log("Agregado al carrito")
 }
 function toggleMenu() {
+   
     if(!product_detail.classList.contains("inactive")){
         product_detail.classList.add("inactive");
     }
@@ -161,7 +166,15 @@ function toggleMenu() {
         order_detail.classList.add("inactive");
     }
     menuDesktop.classList.toggle("inactive");
+    if(true){
+        if(menuDesktop.classList.contains("inactive")){
+            darker.classList.add("inactive");
+        }else{
+            darker.classList.remove("inactive");
+        }
+    }
 }
+
 function toggleMenuMobile() {
     if (!order_detail.classList.contains("inactive")) {
         order_detail.classList.add("inactive");
@@ -188,4 +201,25 @@ function toggleMenushoppingCar() {
         product_detail.classList.add("inactive");
     }
     order_detail.classList.toggle("inactive");
+    if(true){
+        if(order_detail.classList.contains("inactive")){
+            darker.classList.add("inactive");
+        }else{
+            darker.classList.remove("inactive");
+        }
+    }
+}
+
+function closeMenusandDarker(){
+    if(!darker.classList.contains("inactive")){
+        darker.classList.add("inactive");
+    }
+    if(!menuDesktop.classList.contains("inactive")){
+        menuDesktop.classList.add("inactive");
+        return
+    }
+    if (!order_detail.classList.contains("inactive")) {
+        order_detail.classList.add("inactive");
+        return
+    }
 }
