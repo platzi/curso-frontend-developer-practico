@@ -5,6 +5,10 @@ const mobileMenu = document.querySelector('.mobile-menu');
 const shoppingIcon = document.querySelector('.navbar-shopping-cart');
 const asideProductDetail = document.querySelector('.product-detail');
 
+const asideProductCart = document.querySelector('.product-detail-Cart');
+const asideProductCartIcon = document.querySelector('.product-detail-Cart-close');
+asideProductCartIcon.addEventListener('click', closeProductDetail);
+
 menuEmail.addEventListener('click', toggleDesktopMenu);
 burgerMenu.addEventListener('click', toggleMobileMenu);
 shoppingIcon.addEventListener('click', toggleProductDetail);
@@ -13,6 +17,8 @@ function toggleDesktopMenu() {
   desktopMenu.classList.toggle('inactive');
   if (!asideProductDetail.classList.contains('inactive')) {
     asideProductDetail.classList.add('inactive');
+  } else if (!asideProductCart.classList.contains('inactive')) {
+    closeProductDetail();
   }
 }
 
@@ -27,21 +33,10 @@ function toggleProductDetail() {
   asideProductDetail.classList.toggle('inactive');
   if (!mobileMenu.classList.contains('inactive')) {
     mobileMenu.classList.add('inactive');
+  } else if (!asideProductCart.classList.contains('inactive')) {
+    closeProductDetail();
   }
 }
-
-/* <div class="product-card">
-<img src="https://images.pexels.com/photos/276517/pexels-photo-276517.jpeg?auto=compress&cs=tinysrgb&dpr=2&h=650&w=940" alt="">
-<div class="product-info">
-  <div>
-    <p>$120,00</p>
-    <p>Bike</p>
-  </div>
-  <figure>
-    <img src="./icons/bt_add_to_cart.svg" alt="">
-  </figure>
-</div>
-</div> */
 
 const cardsContainer = document.querySelector('.cards-container');
 
@@ -63,6 +58,7 @@ productList.push({
   image:'https://images.pexels.com/photos/276517/pexels-photo-276517.jpeg?auto=compress&cs=tinysrgb&dpr=2&h=650&w=940',
 })
 
+
 //otra utilidad de las funciones es la organización, podemos tener el ciclo for of por dentro de una funcion para poder reutilizar el mismo código cada vez que mandemos a llamar a la funcion. Esto nos permite activar el ciclo cada vez que hagamos click a un determinado boton u otra cosa.
 
 function renderProducts(arr) {
@@ -73,6 +69,7 @@ function renderProducts(arr) {
     //product = {name, price, image} -> product.image
     const productImage = document.createElement('img');
     productImage.setAttribute('src', product.image);
+    productImage.addEventListener('click', showProductDetail);
   
     const productInfo = document.createElement('div');
     productInfo.classList.add('product-info');  
@@ -105,4 +102,17 @@ function renderProducts(arr) {
 }
 
 renderProducts(productList);
+
+function showProductDetail() {
+  asideProductCart.classList.remove('inactive');
+  if (!asideProductDetail.classList.contains('inactive')) {
+    asideProductDetail.classList.add('inactive');
+  } else if (!desktopMenu.classList.contains('inactive')) {
+    toggleDesktopMenu();
+    asideProductCart.classList.remove('inactive');
+  }
+}
+function closeProductDetail() {
+  asideProductCart.classList.add('inactive');
+}
 
