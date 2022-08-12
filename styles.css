@@ -210,6 +210,7 @@ aside {
   gap: 16px;
   margin-bottom: 24px;
   align-items: center;
+  margin-left: 15px;
 }
 .shopping-cart figure {
   margin: 0;
@@ -256,10 +257,11 @@ aside {
   cursor: pointer;
 }
 #productDetail > img:nth-child(2) {
+  display: flex;
   width: 100%;
   height: 360px;
   object-fit: cover;
-  border-radius: 0 0 20px 20px;
+  border-radius: 20px 20px 20px 20px;
 }
 #productDetail .product-info {
   margin: 24px 24px 0 24px;
