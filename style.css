@@ -261,18 +261,6 @@ font-size: var(--md);
 font-weight: bold;
 }
 
-.primary-button {
-background-color: var(--hospital-green);
-border-radius: 8px;
-border: none;
-color: var(--white);
-width: 100%;
-cursor: pointer;
-font-size: var(--md);
-font-weight: bold;
-height: 50px;
-}
-
 /* Lista de Productos */
 
 .cards-container {
@@ -292,6 +280,7 @@ width: 240px;
 height: 240px;
 border-radius: 20px;
 object-fit: cover;
+cursor: pointer;
 }
 
 .product-card .product-info {
@@ -384,6 +373,7 @@ cursor: pointer;
 font-size: var(--md);
 font-weight: bold;
 height: 50px;
+margin-bottom: 20px;
 }
 
 .add-to-cart-button {

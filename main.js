@@ -5,29 +5,42 @@ let mobileMenu = document.querySelector(".mobile-menu")
 let menuCarritoIcon = document.querySelector(".navbar-shopping-cart");
 let shoppingCartContainer = document.querySelector("#shoppingCartContainer");
 let cardsContainer = document.querySelector(".cards-container")
+let productDetail = document.querySelector("#productDetail");
+let iconProductDetailClose = document.querySelector(".product-detail-close")
 
 menuEmail.addEventListener("click", toggleDesktopMenu);
 menuHamburguesa.addEventListener("click", toggleBurguerMenu);
-menuCarritoIcon.addEventListener("click", toggleProductDetail)
+menuCarritoIcon.addEventListener("click", toggleProductDetail);
+iconProductDetailClose.addEventListener("click", productDetailClose)
 
 
 function toggleBurguerMenu() {
-    let isproductDetailClosed = shoppingCartContainer.classList.contains("inactivo");
+    let isShoppingCartContainerClosed = shoppingCartContainer.classList.contains("inactivo");
+    let isProductDetailClose = productDetail.classList.contains("inactivo");
 
-    if (!isproductDetailClosed) {
+    if (!isShoppingCartContainerClosed) {
         shoppingCartContainer.classList.add("inactivo")
     } 
+
+    if (!isProductDetailClose) {
+        productDetailClose()
+    }
 
     mobileMenu.classList.toggle("inactivo");
     console.log("hola")
 }
 
 function toggleDesktopMenu() {
-    let isproductDetailClosed = shoppingCartContainer.classList.contains("inactivo");
-
-    if (!isproductDetailClosed) {
+    let isShoppingCartContainer = shoppingCartContainer.classList.contains("inactivo");
+    let isProductDetailClosed = productDetail.classList.contains("inactive");
+    
+    if (!isShoppingCartContainer) {
         shoppingCartContainer.classList.add("inactivo")
     } 
+
+    if (!isProductDetailClosed) {
+        productDetail.classList.add("inactivo")
+    }
 
     desktopMenu.classList.toggle("inactivo");
     console.log("hola")
@@ -35,8 +48,8 @@ function toggleDesktopMenu() {
 
 function toggleProductDetail() {
     let isMobileMenuClosed = mobileMenu.classList.contains("inactivo");
-
     let isDesktopMenuClosed = desktopMenu.classList.contains("inactivo");
+    let isProductDetailClose = productDetail.classList.contains("inactivo");
 
     if (!isDesktopMenuClosed) {
         desktopMenu.classList.add("inactivo")
@@ -46,10 +59,51 @@ function toggleProductDetail() {
         mobileMenu.classList.add("inactivo")
     } 
 
+    if (!isProductDetailClose) {
+        productDetailClose()
+    }
+
     shoppingCartContainer.classList.toggle("inactivo");
     console.log("hola")
 }
 
+
+
+function productDetailOpen() {
+    let isShoppingCartContainerClosed = shoppingCartContainer.classList.contains("inactivo");
+    let isMobileMenuClosed = mobileMenu.classList.contains("inactivo");
+    let isDesktopMenuClosed = desktopMenu.classList.contains("inactivo");
+
+    if (!isShoppingCartContainerClosed) {
+        shoppingCartContainer.classList.add("inactivo")
+    }
+
+    if (!isMobileMenuClosed) {
+        mobileMenu.classList.add("inactivo")
+    }
+
+    if (!isDesktopMenuClosed) {
+        desktopMenu.classList.add("inactivo")
+    }
+
+    productDetail.classList.remove("inactivo")
+}
+
+function productDetailClose() {
+    productDetail.classList.add("inactivo")
+}
+
+
+
+
+
+
+
+
+
+
+
+/* Crear Productos a travez de un array */
 const arrayProducts = [];
 arrayProducts.push({
     name: "Bike",
@@ -92,7 +146,6 @@ arrayProducts.push({
     image: "https://images.pexels.com/photos/276517/pexels-photo-276517.jpeg?auto=compress&cs=tinysrgb&dpr=2&h=650&w=940",
 })
 
-
 function crerarProductos(arr) {
     for (products of arr) {
         let productCard = document.createElement("div");
@@ -100,6 +153,7 @@ function crerarProductos(arr) {
         
         let imagenProducto = document.createElement("img");
         imagenProducto.setAttribute("src", products.image);
+        imagenProducto.addEventListener("click", productDetailOpen)
     
         let productInfo = document.createElement("div");
         productInfo.classList.add("product-info")
