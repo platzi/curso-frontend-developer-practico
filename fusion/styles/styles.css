@@ -197,13 +197,10 @@ nav {
 /* Aside (product-detail y shopping-cart) */
 aside {
   top: 61px;
-  height: 500px;
   z-index: -5;
   display: none;
   background-color: var(--white);
   width: 360px;
-  padding: 0 24px 24px;
-  box-sizing: border-box;
   position: fixed;
   right: 0;
   border-radius: 0 0 0 10px;
@@ -213,8 +210,11 @@ aside {
 
 
 
-
 /* Shopping Cart */
+#shoppingCartContainer {
+  padding: 0 24px 24px;
+  height: 500px;
+}
 .toggle-shopping-cart {
   display: flex;
   flex-direction: column;
@@ -303,6 +303,12 @@ aside {
 
 
 /* Product Detail */
+#productDetail {
+  padding-bottom: 15px;
+}
+.toggle-product-detail {
+  display: block;
+}
 .product-detail-close {
   display: grid;
   place-content: center;
@@ -310,8 +316,8 @@ aside {
   width: 14px;
   height: 14px;
   position: absolute;
-  top: 10px;
-  left: 36px;
+  top: 15px;
+  left: 15px;
   z-index: 2;
   padding: 12px;
   border-radius: 50%;
@@ -338,13 +344,13 @@ aside {
   color: var(--very-light-pink);
   font-size: var(--md);
   margin-top: 0;
-  margin-bottom: 20px;
+  margin-bottom: 30px;
 }
 .product-detail-info p:nth-child(3) {
   color: var(--very-light-pink);
   font-size: var(--sm);
   margin-top: 0;
-  margin-bottom: 10px;
+  margin-bottom: 30px;
 }
 .primary-button {
   background-color: var(--hospital-green);
