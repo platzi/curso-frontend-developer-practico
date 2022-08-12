@@ -22,7 +22,9 @@ menuHam.addEventListener('click', toggMobileMenu);
 
 function toggMobileMenu(){
     const isCarroMenuClosed = carroMenu.classList.contains('inactive');
-    if(!isCarroMenuClosed){
+    const isProductDetailClosed = productDetailContainer.classList.contains('inactive'); 
+    if(!isCarroMenuClosed || !isProductDetailClosed){
+        productDetailContainer.classList.add('inactive');
         carroMenu.classList.add('inactive');
     }
     mobileMenu.classList.toggle('inactive');
@@ -31,25 +33,31 @@ function toggMobileMenu(){
 /* Carrito de compras */
 
 const menuCarroIcon = document.querySelector('.navbar-shopping-cart')
-const carroMenu = document.querySelector('.product-detail')
+const carroMenu = document.querySelector('#shoppingCartContainer')
 
 menuCarroIcon.addEventListener('click', toggDesktopMenuCarro);
 
 function toggDesktopMenuCarro(){
     const isMobileMenuClosed = mobileMenu.classList.contains('inactive'); 
     const isDektopMenuClosed = dektopMenu.classList.contains('inactive');
+    const isProductDetailClosed = productDetailContainer.classList.contains('inactive'); 
 
-    if(!isMobileMenuClosed || !isDektopMenuClosed){
+    if(!isMobileMenuClosed || !isDektopMenuClosed || !isProductDetailClosed){
         mobileMenu.classList.add('inactive');
         dektopMenu.classList.add('inactive'); 
+        productDetailContainer.classList.add('inactive');
     }
 
     carroMenu.classList.toggle('inactive');
 }
 
-/* Product List*/
+/* Product List and Product Detail*/
 
-cardsContainer = document.querySelector('.cards-container');
+const cardsContainer = document.querySelector('.cards-container');
+const productDetailContainer = document.querySelector('#productDetail');
+const productDetailClose = document.querySelector('.product-detail-close');
+productDetailClose.addEventListener('click', closeProductDetail);
+
 
 
 const productList = [];
@@ -69,7 +77,13 @@ productList.push({
     image: 'https://global-uploads.webflow.com/60f066754425cb9b4fc5881e/616c449bba4e0b4b178ac593_f8wjUZKsLcvvrDi116WG9SKlm7tXGX2zJ1UOwzWnLtEybvubxOkyqPAhd1Ps9TZqd9M92Qo41xBqN6DWH4w_kOwWRxF-cMQrSkavdFTeYAVIJwEWZgGfnHBOaJNrmYAU3Dcj7sla%3Ds0.jpeg',
 });
 
-
+function closeProductDetail(){
+    productDetailContainer.classList.add('inactive');
+}
+function openProductDetailAside(){
+    carroMenu.classList.add('inactive');
+    productDetailContainer.classList.remove('inactive');
+}
 function renderProducts(arr){
     for(product of arr){
         const productCard = document.createElement('div');
@@ -77,6 +91,7 @@ function renderProducts(arr){
         
         const productImg = document.createElement('img');
         productImg.setAttribute('src', product.image)
+        productImg.addEventListener('click', openProductDetailAside);
     
         const productInfo = document.createElement('div');
         productInfo.classList.add('product-info');
