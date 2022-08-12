@@ -275,6 +275,10 @@
     color: var(--very-light-pink);
   }
 
+  .todo {
+    display: none;
+  }
+
   @media (max-width: 640px) {
     .menu {
       display: block;
