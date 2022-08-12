@@ -9,11 +9,19 @@ const aside = document.querySelector('#shoppingCartDetail');
 
 const cardsContainer = document.querySelector('.cards-container');
 
+const productDetailContainer = document.querySelector('#productDetail');
+const productDetailCloseIcon = document.querySelector('.product-detail-close');
+
+
 //---------------------------
 
 const toggleDesktopMenu = () => {
     const isAsideClosed = aside.classList.contains('inactive');
-
+    const isDesktopMenuOpen = desktopMenu.classList.contains('inactive')
+    
+    if(isDesktopMenuOpen){
+        productDetailContainer.classList.add('inactive');
+    }
 
     if(!isAsideClosed){
         aside.classList.add('inactive');
@@ -25,10 +33,15 @@ const toggleDesktopMenu = () => {
 
 navBarEmail.addEventListener('click', toggleDesktopMenu);
 
+//---------------------------
 
 const toggleMobileMenu = () => {
     const isAsideClosed = aside.classList.contains('inactive');
+    const isMobileMenuOpen = mobileMenu.classList.contains('inactive');
 
+    if(isMobileMenuOpen){
+        productDetailContainer.classList.add('inactive');
+    }
 
     if(!isAsideClosed){
         aside.classList.add('inactive');
@@ -40,10 +53,12 @@ const toggleMobileMenu = () => {
 
 btnBurger.addEventListener('click', toggleMobileMenu);
 
+//---------------------------
 
 const showDetailCart = () => {
     const isMobileMenuClosed = mobileMenu.classList.contains('inactive');
     const isShowDetailCart = aside.classList.contains('inactive')
+    const isProductDetailOpen = !productDetailContainer.classList.contains('inactive')
 
     if(!isMobileMenuClosed){
         mobileMenu.classList.add('inactive');
@@ -53,11 +68,38 @@ const showDetailCart = () => {
         desktopMenu.classList.add('inactive');
     }
 
+    if (isProductDetailOpen){
+        productDetailContainer.classList.add('inactive');
+    }
+
     
     aside.classList.toggle('inactive');
 }
 
 menuCartIcon.addEventListener('click', showDetailCart);
+
+//Abrir Product Detail ==============================
+const openProductDetailAside = () => {
+    productDetailContainer.classList.remove('inactive');
+
+    const isProductDetailOpen = !productDetailContainer.classList.contains('inactive')
+
+    if (isProductDetailOpen){
+        aside.classList.add('inactive');
+    }
+
+    if (isProductDetailOpen){
+        desktopMenu.classList.add('inactive');
+    }
+
+}
+
+//Cerrar Product Detail ==============================
+const closeProductDetailAside = () => {
+    productDetailContainer.classList.add('inactive');
+}
+
+productDetailCloseIcon.addEventListener('click', closeProductDetailAside);
 
 
 //--------------------------- Product List
@@ -116,7 +158,9 @@ const renderProducts = (arr) => {
     
         const img = document.createElement('img');
         img.setAttribute('src', product.image);
+        img.addEventListener('click', openProductDetailAside);
         img.classList.add('img-product');
+        
     
         const productInfo = document.createElement('div');
         productInfo.classList.add('product-info');
