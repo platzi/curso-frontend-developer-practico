@@ -68,6 +68,7 @@ function renderProducts(arr) {
         // product = {name, price, image}
         const productImg =document.createElement('img');
         productImg.setAttribute('src', product.image);
+        productImg.addEventListener('click');
     
         const productInfo = document.createElement('div');
         productInfo.classList.add('product-info');

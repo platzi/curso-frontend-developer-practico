@@ -264,9 +264,7 @@ nav {
     object-fit: cover;
     border-radius: 0 0 20px 20px;
   }
-  #productDetail {
-    
-  }
+ 
   #productDetail p:nth-child(1) {
     font-weight: bold;
     font-size: var(--md);
