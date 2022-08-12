@@ -260,12 +260,13 @@ nav {
 }
 
 /*termina*/
-/* Productos principal */
+/* Productos ppagina principal */
 .cards-container {
     display: grid;
     grid-template-columns: repeat(auto-fill, 240px);
     gap: 26px;
     place-content: center;
+    padding-block-start: 30px;
 }
 
 .product-card {
