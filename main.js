@@ -18,5 +18,6 @@ function toggleMobileMenu() {
 }
 
 function toggleCarritoAside() {
-    aside.classList.toggle('inactive');
+    const isMobileMenuOpen = mobileMenu.classList.contains('inactive');
+    const isAsideOpen = aside.classList.contains('inactive');
 }
