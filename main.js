@@ -93,16 +93,6 @@ function productDetailClose() {
     productDetail.classList.add("inactivo")
 }
 
-
-
-
-
-
-
-
-
-
-
 /* Crear Productos a travez de un array */
 const arrayProducts = [];
 arrayProducts.push({
