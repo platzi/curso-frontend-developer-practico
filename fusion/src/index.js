@@ -5,22 +5,22 @@ const desktopMenu = document.querySelector('.desktop-menu');
 const mobileMenu = document.querySelector('.mobile-menu');
 const menuHamburger = document.querySelector('.hamburger');
 const cartIcon = document.querySelector('.navbar-shopping-cart');
-const shoppingCart = document.querySelector('.shopping-cart-container');
+const shoppingCartContainer = document.querySelector('#shoppingCartContainer');
 
 
 const toggleDesktopMenu = () => {
-  const isCartOpen = shoppingCart.classList.contains('toggle-shopping-cart');
+  const isCartOpen = shoppingCartContainer.classList.contains('toggle-shopping-cart');
   if(isCartOpen) {
-    shoppingCart.classList.remove('toggle-shopping-cart');
+    shoppingCartContainer.classList.remove('toggle-shopping-cart');
   }
 
   desktopMenu.classList.toggle('desktop-menu-toggle');
 }
 
 const toggleMobileMenu = () => {
-  const isCartOpen = shoppingCart.classList.contains('toggle-shopping-cart');
+  const isCartOpen = shoppingCartContainer.classList.contains('toggle-shopping-cart');
   if(isCartOpen) {
-    shoppingCart.classList.remove('toggle-shopping-cart');
+    shoppingCartContainer.classList.remove('toggle-shopping-cart');
   }
 
   mobileMenu.classList.toggle('mobile-menu-toggle');
@@ -33,7 +33,7 @@ const toggleShoppingCart = () => {
   isMobileMenuOpen && toggleMobileMenu();
   isDesktopMenuOpen && toggleDesktopMenu();
   
-  shoppingCart.classList.toggle('toggle-shopping-cart');
+  shoppingCartContainer.classList.toggle('toggle-shopping-cart');
 };
 
 navbarEmail.addEventListener('click', toggleDesktopMenu);
