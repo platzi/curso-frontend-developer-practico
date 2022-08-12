@@ -16,6 +16,7 @@
   .inactive {
     display: none;
   }
+
 /*estilos navbar*/
   nav {
     display: flex;
@@ -81,7 +82,6 @@
     align-items: center;
   }
  
-
 /*estilos menu-destop*/
   .desktop-menu {
     position: absolute;
@@ -156,7 +156,6 @@
     color: var(--hospital-green) !important;
   }
 
-
   /*estilos aside-product-detail y carrito*/
   aside {
     width: 360px;
@@ -167,9 +166,8 @@
   }
 
   /*estilos shopping-cart*/
-
   #shoppingCartContainer {
-    padding: 0 24px;
+    padding: 0 24px 12px 24px;
   }
   .title-container {
     display: flex;
@@ -239,7 +237,7 @@
     height: 50px;
   }
  
-/*estilos produst-list*/
+/*estilos product-list*/
   .cards-container {
     display: grid;
     grid-template-columns: repeat(auto-fill, 240px);
@@ -256,7 +254,7 @@
     border-radius: 20px;
     object-fit: cover;
   }
-  .product-card  .product-info {
+  .product-card .product-info {
     display: flex;
     justify-content: space-between;
     align-items: center;
@@ -265,24 +263,23 @@
   .product-card .product-info figure {
     margin: 0;
   }
-  .product-card  .product-info figure img {
+  .product-card .product-info figure img {
     width: 35px;
     height: 35px;
   }
-  .product-card  .product-info div p:nth-child(1) {
+  .product-card .product-info div p:nth-child(1) {
     font-weight: bold;
     font-size: var(--md);
     margin-top: 0;
     margin-bottom: 4px;
   }
-  .product-card  .product-info div p:nth-child(2) {
+  .product-card .product-info div p:nth-child(2) {
     font-size: var(--sm);
     margin-top: 0;
     margin-bottom: 0;
     color: var(--very-light-pink);
   }
  
-
   .product-detail-close {
     background: var(--white);
     width: 14px;
@@ -324,7 +321,7 @@
     margin-top: 0;
     margin-bottom: 36px;
   }
-  .primary-button {
+  #productDetail  .primary-button {
     background-color: var(--hospital-green);
     border-radius: 8px;
     border: none;
@@ -334,6 +331,7 @@
     font-size: var(--md);
     font-weight: bold;
     height: 50px;
+    margin-bottom: 10px;
   }
   .add-to-cart-button {
     display: flex;
@@ -341,7 +339,6 @@
     justify-content: center;
   }
 
-  
 
   @media (max-width: 640px) {
     .menu {

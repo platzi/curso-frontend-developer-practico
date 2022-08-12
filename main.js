@@ -13,6 +13,7 @@ menuHamIcon.addEventListener('click', toggleMobileMenu);
 menuCarritoIcon.addEventListener('click', toggleCarritoAside);
 productDetailCloseIcon.addEventListener('click', closeProductDetailAside);
 
+
 function toggleDestopMenu() {
     desktopMenu.classList.toggle('inactive');
 }
@@ -46,6 +47,7 @@ function toggleCarritoAside() {
     shoppingCartContainer.classList.toggle('inactive');
 }
 
+
 function openProductDetailAside() {
     shoppingCartContainer.classList.add('inactive');
 
@@ -53,12 +55,31 @@ function openProductDetailAside() {
     productDetailContainer.classList.remove('inactive')
 }
 
+
 function closeProductDetailAside() {
     productDetailContainer.classList.add('inactive')
 }
 
 
 const productList = [];
+productList.push({
+    name: 'Bike',
+    price: 120,
+    image: 'https://images.pexels.com/photos/276517/pexels-photo-276517.jpeg?auto=compress&cs=tinysrgb&dpr=2&h=650&w=940'
+});
+
+productList.push({
+    name: 'Pantalla',
+    price: 220,
+    image: 'https://images.pexels.com/photos/276517/pexels-photo-276517.jpeg?auto=compress&cs=tinysrgb&dpr=2&h=650&w=940'
+});
+
+productList.push({
+    name: 'Compu',
+    price: 620,
+    image: 'https://images.pexels.com/photos/276517/pexels-photo-276517.jpeg?auto=compress&cs=tinysrgb&dpr=2&h=650&w=940'
+});
+
 productList.push({
     name: 'Bike',
     price: 120,
