@@ -7,10 +7,7 @@ const order_detail = document.querySelector('.order-detail')
 const product_detail = document.querySelector('.product-detail')
 const productCard = document.querySelector('.product-card')
 const productsContainer = document.querySelector('.cards-container')
-
-menuMail.addEventListener('click', toggleMenu)
-menuHamburgesa.addEventListener('click', toggleMenuMobile)
-shoppingCar.addEventListener('click', toggleMenushoppingCar)
+const product_detail_close = document.querySelector('.product-detail-close')
 class productGenerator{
     constructor({
         src="https://images.pexels.com/photos/276517/pexels-photo-276517.jpeg?auto=compress&cs=tinysrgb&dpr=2&h=650&w=940",
@@ -49,6 +46,13 @@ class productGenerator{
         place.appendChild(productCard);
     }
 }
+menuMail.addEventListener('click', toggleMenu)
+menuHamburgesa.addEventListener('click', toggleMenuMobile)
+shoppingCar.addEventListener('click', toggleMenushoppingCar)
+product_detail_close.addEventListener('click', closeDetails)
+
+
+
 const firstProduct=new productGenerator({});
 const lastProduct=new productGenerator({name:'Ultimo',price:1000});
 
@@ -60,11 +64,17 @@ renderElements(products)
 
 // 1. Que la pagina de detalles de producto aparesca cuando le de clic en el producto
 // 2.Que funcione el boton cerrar
-productCard.addEventListener('click',toggleDetailsProducts)
+// productCard.addEventListener('click',toggleDetailsProducts)
 
 //Funciones
 function toggleDetailsProducts(){
     product_detail.classList.toggle("inactive")
+}
+function openDetails(){
+    product_detail.classList.remove("inactive")
+}
+function closeDetails(){
+    product_detail.classList.add("inactive")
 }
 function renderElements(arr) {
     for (let product of products) {
@@ -92,6 +102,7 @@ function renderElements(arr) {
         productInfo.append(productInfoDetail,productIconContainer);
         //..
         productCard.append(productImg,productInfo);
+        productCard.addEventListener('click',openDetails)
         productsContainer.appendChild(productCard);
         
 
@@ -113,6 +124,11 @@ function toggleMenuMobile() {
 
         menuDesktop.classList.add("inactive")
     }
+    if (!product_detail.classList.contains("inactive")) {
+
+        product_detail.classList.add("inactive")
+    }
+    
     menuMobile.classList.toggle("inactive")
 }
 function toggleMenushoppingCar() {
