@@ -291,11 +291,13 @@ nav {
 
 .cards-container .product-info figure {
     margin: 0;
+   
 }
 
 .cards-container .product-info figure img {
     width: 35px;
     height: 35px;
+    cursor: pointer;
 }
 
 .cards-container .product-info div p:nth-child(1) {
@@ -319,6 +321,8 @@ nav {
     padding-bottom: 24px;
     position: absolute;
     right: 0;
+    background-color: var(--white);
+    box-sizing: border-box;
 }
 
 .product-detail-close {
@@ -413,7 +417,14 @@ nav {
 
     .product-detail {
         width: 100%;
+        
+        /* margin:0 10px; */
     }
+    .product-info-details{
+        padding: 0 10px;
+    }
+    /* .product-detail.product-info */
+   
     .order-detail {
         width: 100%;
     }
