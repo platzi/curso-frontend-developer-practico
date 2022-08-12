@@ -8,39 +8,40 @@
   <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
   <link href="https://fonts.googleapis.com/css2?family=Quicksand:wght@300;500;700&display=swap" rel="stylesheet">
   <title>YardSale: tienda online</title>
-  <link rel="stylesheet" href="./style.css">
+  <!-- <link rel="stylesheet" href="./style.css"> -->
+  <link rel="stylesheet" href="./css/styles.css">
 </head>
 <body>
-  <nav>
+  <nav class="navbar">
     <img src="./icons/icon_menu.svg" alt="menu" class="menu">
 
     <div class="navbar-left">
       <img src="./logos/logo_yard_sale.svg" alt="logo" class="logo">
 
-      <ul>
+      <ul class="navbar__list">
         <li>
-          <a href="/">All</a>
+          <a href="/" class="navbar__link">All</a>
         </li>
         <li>
-          <a href="/">Clothes</a>
+          <a href="/" class="navbar__link">Clothes</a>
         </li>
         <li>
-          <a href="/">Electronics</a>
+          <a href="/" class="navbar__link">Electronics</a>
         </li>
         <li>
-          <a href="/">Furnitures</a>
+          <a href="/" class="navbar__link"> Furnitures</a>
         </li>
         <li>
-          <a href="/">Toys</a>
+          <a href="/" class="navbar__link">Toys</a>
         </li>
         <li>
-          <a href="/">Others</a>
+          <a href="/" class="navbar__link">Others</a>
         </li>
       </ul>
     </div>
 
     <div class="navbar-right">
-      <ul>
+      <ul class="navbar__list">
         <li class="navbar-email">platzi@example.com</li>
         <li class="navbar-shopping-cart">
           <img src="./icons/icon_shopping_cart.svg" alt="shopping cart">
@@ -49,17 +50,17 @@
       </ul>
     </div>
     <div class="desktop-menu inactive">
-      <ul>
-        <li>
-          <a href="/" class="title">My orders</a>
+      <ul class="desktop-menu__list">
+        <li class="desktop-menu__item">
+          <a href="/" class="desktop-menu__link title">My orders</a>
         </li>
   
-        <li>
-          <a href="/">My account</a>
+        <li class="desktop-menu__item">
+          <a href="/" class="desktop-menu__link">My account</a>
         </li>
   
-        <li>
-          <a href="/">Sign out</a>
+        <li class="desktop-menu__item">
+          <a href="/" class="desktop-menu__link">Sign out</a>
         </li>
       </ul>
     </div>

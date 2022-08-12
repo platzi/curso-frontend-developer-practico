@@ -1,0 +1,24 @@
+{
+  "name": "cfrontend",
+  "version": "1.0.0",
+  "description": "",
+  "main": "index.js",
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1",
+    "sass": "sass -w src/sass:css"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/marti-gutierrez/cfrontend-js.git"
+  },
+  "keywords": [],
+  "author": "Martin Gutierrez",
+  "license": "MIT",
+  "bugs": {
+    "url": "https://github.com/marti-gutierrez/cfrontend-js/issues"
+  },
+  "homepage": "https://github.com/marti-gutierrez/cfrontend-js#readme",
+  "devDependencies": {
+    "sass": "^1.54.4"
+  }
+}

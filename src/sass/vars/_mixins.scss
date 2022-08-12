@@ -1,0 +1,17 @@
+@use './mediaQuery' as bp;
+
+@mixin media-up($breakpoint)
+{
+    @media screen and (min-width: map-get($breakpoints,$breakpoint))
+    {
+        @content;
+    }
+}
+
+@mixin media-down($breakpoint)
+{
+    @media screen and (max-width: map-get(bp.$breakpoints,$breakpoint))
+    {
+        @content;
+    }
+}
