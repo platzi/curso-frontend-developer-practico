@@ -399,7 +399,7 @@
 }
 
    @media (max-width: 640px) {
-       .menu {
+        .menu {
            display: block;
        }
 
