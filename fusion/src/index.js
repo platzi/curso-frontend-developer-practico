@@ -42,10 +42,9 @@ const toggleShoppingCart = () => {
 
 const openProductDetail = (product) => {
 
-  const isCartOpen = shoppingCartContainer.classList.contains('toggle-shopping-cart');
-  const isDesktopMenuOpen = desktopMenu.classList.contains('mobile-menu-toggle');
-  isCartOpen && toggleShoppingCart();
-  isDesktopMenuOpen && toggleDesktopMenu();
+  shoppingCartContainer.classList.remove('toggle-shopping-cart');
+  desktopMenu.classList.remove('desktop-menu-toggle');
+  mobileMenu.classList.remove('mobile-menu-toggle');
 
   const closeDetail = document.createElement('div');
   closeDetail.classList.add('product-detail-close');
