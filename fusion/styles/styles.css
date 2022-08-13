@@ -457,6 +457,9 @@ margin: 80px 0;
     width: 140px;
     height: 140px;
   }
+  #shoppingCartContainer {
+    height: 430px;
+  }
   #productDetail > img:nth-child(2) {
     height: 40%;
   }
