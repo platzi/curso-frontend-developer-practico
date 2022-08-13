@@ -171,9 +171,9 @@ nav {
 }
 
 
-/* PRODUCT DETAIL */
+/* PRODUCT DETAIL - Shopping cart */
 
-.product-detail {
+#shoppingCartContainer {
     background: var(--white);
     width: 360px;
     padding: 0 24px;
@@ -286,7 +286,7 @@ nav {
     object-fit: cover;
 }
 
-.product-info {
+.product-card .product-info {
     display: flex;
     justify-content: space-between;
     align-items: center;
@@ -317,6 +317,75 @@ nav {
 }
 
 
+/* PRODUCT DETAIL */
+
+#productDetail {
+    background: var(--white);
+    width: 360px;
+    padding-bottom: 24px;
+    position: absolute;
+    right: 0;
+    z-index: 999;
+  }
+  .product-detail-close {
+    background: var(--white);
+    width: 14px;
+    height: 14px;
+    position: absolute;
+    top: 24px;
+    left: 24px;
+    z-index: 2;
+    padding: 12px;
+    border-radius: 50%;
+  }
+  .product-detail-close:hover {
+    cursor: pointer;
+  }
+  #productDetail > img:nth-child(2) {
+    width: 100%;
+    height: 360px;
+    object-fit: cover;
+    border-radius: 0 0 20px 20px;
+  }
+  #productDetail .product-info {
+    margin: 24px 24px 0 24px;
+    background: var(--white);
+  }
+  .product-info p:nth-child(1) {
+    font-weight: bold;
+    font-size: var(--md);
+    margin-top: 0;
+    margin-bottom: 4px;
+  }
+  .product-info p:nth-child(2) {
+    color: var(--very-light-pink);
+    font-size: var(--md);
+    margin-top: 0;
+    margin-bottom: 36px;
+  }
+  .product-info p:nth-child(3) {
+    color: var(--very-light-pink);
+    font-size: var(--sm);
+    margin-top: 0;
+    margin-bottom: 36px;
+  }
+  .primary-button {
+    background-color: var(--hospital-green);
+    border-radius: 8px;
+    border: none;
+    color: var(--white);
+    width: 100%;
+    cursor: pointer;
+    font-size: var(--md);
+    font-weight: bold;
+    height: 50px;
+  }
+  .add-to-cart-button {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+  }
+
 
 
 @media (max-width: 640px) {
@@ -344,12 +413,14 @@ nav {
     /* BARMENU */
 
     .mobile-menu {
+        background: var(--white);
+        width: 100%;
         padding: 24px;
         position: absolute;
         top: 40px;
         left: 0;
         right: 0;
-        bottom: 0;
+        z-index: 99;
     }
 
     .mobile-menu a {
@@ -402,4 +473,10 @@ nav {
         width: 180px;
         height: 180px;
     }
+    
+    @media (max-width: 640px) {
+        #product-detail {
+          width: 100%;
+        }
+      }
 }

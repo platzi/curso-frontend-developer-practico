@@ -3,12 +3,17 @@ const desktopMenu = document.querySelector('.desktop-menu');
 
 const menuBar = document.querySelector('.menu');
 const mobileMenu = document.querySelector('.mobile-menu');
+const productDetailCloseIcon = document.querySelector('.product-detail-close');
 
 const menuCarritoItem = document.querySelector('.navbar-shopping-cart');
-const DivproductDetail = document.querySelector('.product-detail');
+const DivproductDetail = document.querySelector('#shoppingCartContainer');
+const productDetailContainer = document.querySelector('#productDetail');
 const cardsContainer = document.querySelector('.cards-container');
 
     menuEmail.addEventListener('click', toggleDesktopMenu);
+    menuBar.addEventListener('click', toggleMobileMenu);
+    menuCarritoItem.addEventListener('click', toggleProductDetail);
+    productDetailCloseIcon.addEventListener('click', closeProductDetailAside);
 
         function toggleDesktopMenu(){
 
@@ -20,10 +25,7 @@ const cardsContainer = document.querySelector('.cards-container');
             
             desktopMenu.classList.toggle('inactive');
         }
-
-    
-    menuBar.addEventListener('click', toggleMobileMenu);
-    
+  
         function toggleMobileMenu(){
 
             const isProductDetailClosed = DivproductDetail.classList.contains('inactive');
@@ -33,11 +35,8 @@ const cardsContainer = document.querySelector('.cards-container');
                 }
 
                 mobileMenu.classList.toggle('inactive');
+                closeProductDetailAside();
         }
-
-
-
-    menuCarritoItem.addEventListener('click', toggleProductDetail);
     
         function toggleProductDetail(){
 
@@ -47,10 +46,25 @@ const cardsContainer = document.querySelector('.cards-container');
                     mobileMenu.classList.add('inactive');
                 }
 
-                DivproductDetail.classList.toggle('inactive');
+        const isProductDetailClosed = productDetailContainer.classList.contains('inactive');
+
+            if (!isProductDetailClosed){
+                productDetailContainer.classList.add('inactive');
+            }
+
+            DivproductDetail.classList.toggle('inactive');
            
         }
 
+        function openProductDetailAside(){
+
+            DivproductDetail.classList.add('inactive');
+            productDetailContainer.classList.remove('inactive');
+        }
+        
+        function closeProductDetailAside(){
+            productDetailContainer.classList.add('inactive');
+        }
 
 const productList = [];
 
@@ -71,18 +85,6 @@ productList.push({
     image: 'https://images.pexels.com/photos/12718985/pexels-photo-12718985.jpeg?auto=compress&cs=tinysrgb&w=1260&h=750&dpr=1',
 })
 
-/* <div class="product-card">
-        <img src="https://images.pexels.com/photos/276517/pexels-photo-276517.jpeg?auto=compress&cs=tinysrgb&dpr=2&h=650&w=940" alt="">
-        <div class="product-info">
-          <div>
-            <p>$120,00</p>
-            <p>Bike</p>
-          </div>
-          <figure>
-            <img src="./icons/bt_add_to_cart.svg" alt="">
-          </figure>
-        </div>
-</div>  */
 
 
 function renderProducts(arr) {
@@ -92,6 +94,7 @@ function renderProducts(arr) {
     
         const imgProduct = document.createElement('img');
         imgProduct.src = product.image;
+        imgProduct.addEventListener('click', openProductDetailAside)
     
         const productInfo = document.createElement('div');
         productInfo.classList.add('product-info');
