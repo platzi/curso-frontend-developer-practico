@@ -64,13 +64,13 @@ function closeCarritoAside () {
 
 const productsList = [];
 productsList.push({
-    name: 'Rosa pasión',
+    name: 'Rosa esperanza',
     price:  120,
     image: 'https://cdn.pixabay.com/photo/2012/03/01/00/55/flowers-19830_960_720.jpg'
 });
 
 productsList.push({
-    name: 'Rosa esperanza',
+    name: 'Rosa pasión',
     price:  240,
     image: 'https://cdn.pixabay.com/photo/2014/04/10/11/24/rose-320868_960_720.jpg'
 });
@@ -80,62 +80,32 @@ productsList.push({
     image: 'https://cdn.pixabay.com/photo/2015/04/19/08/32/rose-729509_960_720.jpg'
 });
 productsList.push({
-    name: 'Rosa pasión',
-    price:  120,
-    image: 'https://cdn.pixabay.com/photo/2012/03/01/00/55/flowers-19830_960_720.jpg'
+    name: 'Rosa terciopelo',
+    price:  360,
+    image: 'https://images.pexels.com/photos/56866/garden-rose-red-pink-56866.jpeg?auto=compress&cs=tinysrgb&w=1260&h=750&dpr=1'
+});
+productsList.push({
+    name: 'Rosa pálida',
+    price:  360,
+    image: 'https://images.pexels.com/photos/736230/pexels-photo-736230.jpeg?auto=compress&cs=tinysrgb&w=1260&h=750&dpr=1'
+});
+productsList.push({
+    name: 'Girasol',
+    price:  360,
+    image: 'https://images.pexels.com/photos/46216/sunflower-flowers-bright-yellow-46216.jpeg?auto=compress&cs=tinysrgb&w=1260&h=750&dpr=1'
+});
+productsList.push({
+    name: 'Violeta',
+    price:  360,
+    image: 'https://images.pexels.com/photos/757889/pexels-photo-757889.jpeg?auto=compress&cs=tinysrgb&w=1600'
+});
+productsList.push({
+    name: 'Orquidea',
+    price:  360,
+    image: 'https://images.pexels.com/photos/40744/orchid-flower-plant-exotic-40744.jpeg?auto=compress&cs=tinysrgb&w=1260&h=750&dpr=1'
 });
 
-productsList.push({
-    name: 'Rosa esperanza',
-    price:  240,
-    image: 'https://cdn.pixabay.com/photo/2014/04/10/11/24/rose-320868_960_720.jpg'
-});
-productsList.push({
-    name: 'Rosa imaginación',
-    price:  360,
-    image: 'https://cdn.pixabay.com/photo/2015/04/19/08/32/rose-729509_960_720.jpg'
-});
-productsList.push({
-    name: 'Rosa pasión',
-    price:  120,
-    image: 'https://cdn.pixabay.com/photo/2012/03/01/00/55/flowers-19830_960_720.jpg'
-});
 
-productsList.push({
-    name: 'Rosa esperanza',
-    price:  240,
-    image: 'https://cdn.pixabay.com/photo/2014/04/10/11/24/rose-320868_960_720.jpg'
-});
-productsList.push({
-    name: 'Rosa imaginación',
-    price:  360,
-    image: 'https://cdn.pixabay.com/photo/2015/04/19/08/32/rose-729509_960_720.jpg'
-});
-productsList.push({
-    name: 'Rosa imaginación',
-    price:  360,
-    image: 'https://cdn.pixabay.com/photo/2022/07/11/11/01/fishes-7314666_960_720.jpg'
-});
-productsList.push({
-    name: 'Rosa imaginación',
-    price:  360,
-    image: 'https://cdn.pixabay.com/photo/2022/07/11/11/01/fishes-7314666_960_720.jpg'
-});
-productsList.push({
-    name: 'Rosa imaginación',
-    price:  360,
-    image: 'https://cdn.pixabay.com/photo/2022/07/11/11/01/fishes-7314666_960_720.jpg'
-});
-productsList.push({
-    name: 'Rosa imaginación',
-    price:  360,
-    image: 'https://cdn.pixabay.com/photo/2022/07/11/11/01/fishes-7314666_960_720.jpg'
-});
-productsList.push({
-    name: 'Rosa imaginación',
-    price:  360,
-    image: 'https://cdn.pixabay.com/photo/2022/07/11/11/01/fishes-7314666_960_720.jpg'
-});
 
 function renderProducts(arr) {
     for (product of arr) {
