@@ -96,7 +96,27 @@ productsList.push({
 productsList.push({
     name: 'Rosa imaginación',
     price:  360,
-    image: 'https://cdn.pixabay.com/photo/2015/04/19/08/32/rose-729509_960_720.jpg'
+    image: 'https://cdn.pixabay.com/photo/2022/07/11/11/01/fishes-7314666_960_720.jpg'
+});
+productsList.push({
+    name: 'Rosa imaginación',
+    price:  360,
+    image: 'https://cdn.pixabay.com/photo/2022/07/11/11/01/fishes-7314666_960_720.jpg'
+});
+productsList.push({
+    name: 'Rosa imaginación',
+    price:  360,
+    image: 'https://cdn.pixabay.com/photo/2022/07/11/11/01/fishes-7314666_960_720.jpg'
+});
+productsList.push({
+    name: 'Rosa imaginación',
+    price:  360,
+    image: 'https://cdn.pixabay.com/photo/2022/07/11/11/01/fishes-7314666_960_720.jpg'
+});
+productsList.push({
+    name: 'Rosa imaginación',
+    price:  360,
+    image: 'https://cdn.pixabay.com/photo/2022/07/11/11/01/fishes-7314666_960_720.jpg'
 });
 
 function renderProducts(arr) {
