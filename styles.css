@@ -136,7 +136,7 @@ nav {
   position: absolute;
   top: 60px;
   left: 0;
-  padding: calc(100% - 24px);
+  padding: 24px;
   width: 100%;
   padding-left: 24px;
 }
