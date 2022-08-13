@@ -3,7 +3,7 @@ const desktopMenu = document.querySelector('.desktop-menu');
 const menuHamIcon = document.querySelector('.menu');
 const menuCarritoIcon = document.querySelector('.navbar-shopping-cart');
 const mobileMenu = document.querySelector('.mobile-menu');
-const aside = document.querySelector('.product-detail');
+const carritoAside = document.querySelector('.product-detail');
 const cardsContainer = document.querySelector('.cards-container');
 
 menuEmail.addEventListener('click', toggleDesktopMenu);
@@ -11,16 +11,39 @@ menuHamIcon.addEventListener('click', toggleMobileMenu);
 menuCarritoIcon.addEventListener('click', toggleCarritoAside);
 
 function toggleDesktopMenu() {
+    const isCarritoAsideClosed = carritoAside.classList.contains('inactive');
+
+    if(!isCarritoAsideClosed){
+        carritoAside.classList.add('inactive');
+    }
+
     desktopMenu.classList.toggle('inactive');
 }
 
 function toggleMobileMenu() {
+    const isCarritoAsideClosed = carritoAside.classList.contains('inactive');
+
+    if (!isCarritoAsideClosed){
+        carritoAside.classList.add('inactive');
+    }
+
     mobileMenu.classList.toggle('inactive');
 }
 
 function toggleCarritoAside() {
-    aside.classList.toggle('inactive');
-}
+    const isMobileMenuClosed = mobileMenu.classList.contains('inactive'); 
+    const isDesktopMenuClosed = desktopMenu.classList.contains('inactive')   
+
+    if (!isMobileMenuClosed){
+        mobileMenu.classList.add('inactive')
+    }
+    if (!isDesktopMenuClosed) {
+        desktopMenu.classList.add('inactive')
+    }
+
+    carritoAside.classList.toggle('inactive'); 
+
+}   
 const productsList = [];
 productsList.push({
     name: 'Rosa pasión',
