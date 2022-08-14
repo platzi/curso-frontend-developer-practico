@@ -115,9 +115,8 @@
   .desktop-menu {
     position: absolute;
     top: 60px;
-    right: 0;
+    right: 10px;
     background: var(--white);
-    width: 100px;
     height: auto;
     border: 1px solid var(--very-light-pink);
     border-radius: 6px;
