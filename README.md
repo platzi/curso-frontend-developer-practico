@@ -8,5 +8,6 @@ Main view of an online store where you can sell the best products
 - Lazy Loading
 - Skeleton
 - Products from an array
+- Responsive design
 - Deployment in github pages with a command `npm run deploy`
 
