@@ -24,7 +24,7 @@ export const renderProducts = (container: HTMLDivElement, products: Product[]) =
         productPrice.innerText = `$${product.price}`
 
         const productTitle = document.createElement("p")
-        productTitle.innerText = `$${product.name}`
+        productTitle.innerText = product.name
         
         const iconContainer = document.createElement("figure")
 
