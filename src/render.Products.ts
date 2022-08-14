@@ -1,5 +1,6 @@
 import { Product } from "./products"
 import { registerImage } from "./lazy"
+import { showMenu, productDetailContainer } from "./main"
 
 const skeleton = Array.from(document.querySelectorAll(".skeleton")) as HTMLDivElement[]
 
@@ -10,6 +11,7 @@ export const renderProducts = (container: HTMLDivElement, products: Product[]) =
 
         const productImage = document.createElement("img")
         productImage.dataset.src = product.image ?? "https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcTNOpzttfGscRIdh36ivzPxFb_vDdSvrm4UxhDEgmSubTGqq_ojSiTTrz2B5zXMNd87vZw&usqp=CAU"
+        productImage.addEventListener("click", showMenu(productDetailContainer))
         registerImage(productImage)
 
         const productInfo = document.createElement("div")
@@ -21,7 +23,7 @@ export const renderProducts = (container: HTMLDivElement, products: Product[]) =
         productPrice.innerText = `$${product.price}`
 
         const productTitle = document.createElement("p")
-        productTitle.innerText = `$${product.price}`
+        productTitle.innerText = `$${product.name}`
         
         const iconContainer = document.createElement("figure")
 
