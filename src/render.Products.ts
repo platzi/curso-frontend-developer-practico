@@ -1,3 +1,4 @@
+import iconCartURL from "../icons/bt_add_to_cart.svg"
 import { Product } from "./products"
 import { registerImage } from "./lazy"
 import { showMenu, productDetailContainer } from "./main"
@@ -28,7 +29,7 @@ export const renderProducts = (container: HTMLDivElement, products: Product[]) =
         const iconContainer = document.createElement("figure")
 
         const iconCart = document.createElement("img")
-        iconCart.src = "./icons/bt_add_to_cart.svg"
+        iconCart.src = iconCartURL
 
         iconContainer.append(iconCart)
         productDiv.append(productPrice, productTitle)
