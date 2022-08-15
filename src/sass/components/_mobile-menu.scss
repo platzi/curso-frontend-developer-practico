@@ -1,0 +1,37 @@
+@use '../vars/colors' as c;
+
+.mobile-menu
+{
+    position: absolute;
+    top: 60px;
+    padding: 24px;
+    background-color: c.$white;
+    & a
+    {
+        text-decoration: none;
+        color: c.$black;
+        font-weight: bold;
+        /* margin-bottom: 24px; */
+    }
+    ul
+    {
+        padding: 0;
+        margin: 24px 0 0;
+        list-style: none;
+        &:nth-child(1)
+        {
+            border-bottom: 1px solid c.$very-light-pink;
+        }
+    }
+}
+  .mobile-menu ul li {
+    margin-bottom: 24px;
+  }
+  .email {
+    font-size: var(--sm);
+    font-weight: 300 !important;
+  }
+  .sign-out {
+    font-size: var(--sm);
+    color: c.$hospital-green !important;
+  }
