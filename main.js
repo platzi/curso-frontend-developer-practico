@@ -3,7 +3,7 @@ const menuEmail = document.querySelector('.navbar-email');
 const desktopMenu = document.querySelector('.desktop-menu');
 /* carrito */
 const menuCarritoIcon = document.querySelector('.navbar-shopping-cart');
-const aside = document.querySelector('.product-detail');
+const shoppingCartContainer = document.querySelector('#shoppingCartContainer');
 /* opciones menu celular */
 const menuHamIcon = document.querySelector('.hamburgesita');
 const mobileMenu = document.querySelector('.mobile-menu');
@@ -14,23 +14,23 @@ menuEmail.addEventListener('click',toggleDesktopMenu);
 
 menuHamIcon.addEventListener('click',toggleMobileMenu);
 
-menuCarritoIcon.addEventListener('click',toggleCarritoAside)
+menuCarritoIcon.addEventListener('click',toggleCarritoshoppingCartContainer)
 /* funciones */
 
 
 function toggleDesktopMenu(){
 desktopMenu.classList.toggle('inactive')
-aside.classList.add('inactive') 
+shoppingCartContainer.classList.add('inactive') 
 };
 
 function toggleMobileMenu(){
     mobileMenu.classList.toggle('inactive')
-    aside.classList.add('inactive') 
+    shoppingCartContainer.classList.add('inactive') 
        
 };
 
-function toggleCarritoAside(){
-    aside.classList.toggle('inactive')
+function toggleCarritoshoppingCartContainer(){
+    shoppingCartContainer.classList.toggle('inactive')
     mobileMenu.classList.add('inactive')
     desktopMenu.classList.add('inactive')
     
@@ -82,10 +82,14 @@ function renderProducts(arr) {
         productImgCart.setAttribute('src','./icons/bt_add_to_cart.svg');
     
     
-        productCard.append(productInfo,productImg)
-        productInfo.append(productInfoDiv,productInfoFigure);
-        productInfoDiv.append(productPrice, productName);
+    
+        
+        
+        
         productInfoFigure.append(productImgCart);
+        productInfoDiv.append(productPrice, productName);
+        productInfo.append(productInfoDiv,productInfoFigure);
+        productCard.append(productImg,productInfo);
         cardsContainer.appendChild(productCard);
     };
 };
