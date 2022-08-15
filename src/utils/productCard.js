@@ -14,7 +14,7 @@ export class ProductCard
         image.setAttribute('src',this.img);
 
         const productInfo = document.createElement('div');
-        productInfo.classList.add("product-info");
+        productInfo.classList.add("product-card__info");
 
         const div1 = document.createElement('div');
 

@@ -1,14 +1,6 @@
 @use '../vars/colors' as c;
 @use '../vars/font' as size;
 
-.product-detail {
-    width: 360px;
-    padding: 0 24px;
-    box-sizing: border-box;
-    background-color: c.$white;
-    position: absolute;
-    right: 0;
-  }
   .title-container {
     display: flex;
   }

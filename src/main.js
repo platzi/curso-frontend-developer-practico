@@ -76,7 +76,7 @@ productList.forEach(product => {
     image.setAttribute('src',product.image);
 
     const productInfo = document.createElement('div');
-    productInfo.classList.add("product-info");
+    productInfo.classList.add("product-card__info");
 
     const div1 = document.createElement('div');
 
