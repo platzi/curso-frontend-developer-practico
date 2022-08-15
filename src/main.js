@@ -4,7 +4,9 @@ const menuCarritoIcon = document.querySelector('li.navbar-shopping-cart');
 const burguerMenu = document.querySelector('img.menu');
 const movileMenu = document.querySelector('.mobile-menu');
 const shoppingCartContainer = document.querySelector('#shoppingCartContainer');
+const productDetailContainer = document.querySelector('#productDetail');
 const cardsContainer = document.querySelector('.cards-container');
+const productDetailCloseIcon = document.querySelector('.product-detail__close');
 
 const toggleDesktopMenu = () =>
 {
@@ -23,15 +25,22 @@ const toggleMobileMenu = () =>
     {
         shoppingCartContainer.classList.add('inactive');
     }
+    closeProductDetail();
 
 }
 const toggleCarritoAside = () =>
 {
     const isMobileMenuClose = movileMenu.classList.contains('inactive');
     const isDesktopMenuClose = desktopMenu.classList.contains('inactive');
+    const isProductDetailClose = productDetailContainer.classList.contains('inactive');
+
     if(!isMobileMenuClose)
     {
         movileMenu.classList.add('inactive');
+    }
+    if(!isProductDetailClose)
+    {
+        productDetailContainer.classList.add('inactive');
     }
     if(!isDesktopMenuClose)
     {
@@ -40,9 +49,12 @@ const toggleCarritoAside = () =>
     shoppingCartContainer.classList.toggle('inactive');
 }
 
+const closeProductDetail = () => productDetailContainer.classList.add('inactive');
+
 menuEmail.addEventListener('click',toggleDesktopMenu);
 burguerMenu.addEventListener('click',toggleMobileMenu);
 menuCarritoIcon.addEventListener('click',toggleCarritoAside);
+productDetailCloseIcon.addEventListener('click',closeProductDetail);
 
 const productList = [];
 productList.push(
@@ -67,6 +79,12 @@ productList.push(
     }
 );
 
+const openProductDetailAside = () =>
+{
+    shoppingCartContainer.classList.add('inactive');
+    productDetailContainer.classList.remove('inactive');
+}
+
 const allCardProducts = [];
 productList.forEach(product => {
     const productCard = document.createElement('div');
@@ -74,6 +92,7 @@ productList.forEach(product => {
 
     const image = document.createElement('img');
     image.setAttribute('src',product.image);
+    image.addEventListener('click',openProductDetailAside);
 
     const productInfo = document.createElement('div');
     productInfo.classList.add("product-card__info");
