@@ -141,8 +141,10 @@ body {
 
 .mobile-menu {
   position: absolute;
-  top: 60px;
-  padding: 24px;
+  top: 61px;
+  left: 0;
+  inline-size: calc(100% - 24px);
+  padding-left: 24px;
   background-color: #FFFFFF;
 }
 .mobile-menu a {
