@@ -1,0 +1,44 @@
+$breakpoints:
+(
+    movil: 540px,
+    tablet: 640px,
+    laptop: 1040px,
+);
+
+@media (max-width: 640px) {
+    .menu {
+      display: block;
+    }
+    .navbar-left ul {
+      display: none;
+    }
+    .navbar-email {
+      display: none;
+    }
+    .desktop-menu
+    {
+        display: none;
+    }
+    .product-detail
+    {
+        width: 100%;
+    }
+    .cards-container {
+      grid-template-columns: repeat(auto-fill, 140px);
+    }
+    .product-card {
+      width: 140px;
+    }
+    .product-card img {
+      width: 140px;
+      height: 140px;
+    }
+}
+
+@media (min-width: 641px)
+{
+    .mobile-menu
+    {
+        display: none;
+    }
+}

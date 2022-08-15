@@ -1,0 +1,68 @@
+@use '../vars/colors' as c;
+@use '../vars/font' as size;
+@use '../vars/mixins' as mix;
+@use '../vars/mediaQuery' as long;
+
+.navbar
+{
+    display: flex;
+    justify-content: space-between;
+    padding: 0 24px;
+    border-bottom: 1px solid c.$very-light-pink;
+    &__list
+    {
+        list-style: none;
+        padding: 0;
+        margin: 0;
+        display: flex;
+        align-items: center;
+        height: 60px;
+    }
+    &__link
+    {
+        text-decoration: none;
+        color: c.$very-light-pink;
+        border: 1px solid c.$white;
+        padding: 8px;
+        border-radius: 8px;
+        &:hover
+        {
+            border: 1px solid c.$hospital-green;
+            color: c.$hospital-green;
+        }
+    }
+    &-left
+    {
+        display: flex;
+        & ul
+        {
+            margin-left: 12px;
+        }
+    }
+    &-email
+    {
+        color: c.$very-light-pink;
+        cursor: pointer;
+        font-size: size.$sm;
+        margin-right: 12px;
+    }
+    &-shopping-cart
+    {
+        position: relative;
+        & div
+        {
+            width: 16px;
+            height: 16px;
+            background-color: c.$hospital-green;
+            border-radius: 50%;
+            font-size: size.$sm;
+            font-weight: bold;
+            position: absolute;
+            top: -6px;
+            right: -3px;
+            display: flex;
+            justify-content: center;
+            align-items: center;
+        }
+    }
+}

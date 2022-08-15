@@ -1,0 +1,47 @@
+@use '../vars/colors' as c;
+@use '../vars/font' as size;
+
+.desktop-menu
+{
+    position: absolute;
+    top: 60px;
+    right: 60px;
+    background-color: c.$white;
+    width: 100px;
+    height: auto;
+    border: 1px solid c.$very-light-pink;
+    border-radius: 6px;
+    padding: 20px 20px 0 20px;
+    &__list
+    {
+        list-style: none;
+        padding: 0;
+        margin: 0;
+    }
+    &__item
+    {
+        text-align: end;
+        &:nth-child(1),
+        &:nth-child(2)
+        {
+            font-weight: bold;
+        }
+        &:last-child
+        {
+            padding-top: 20px;
+            border-top: 1px solid c.$very-light-pink;
+            & a
+            {
+                color: c.$hospital-green;
+                font-size: size.$sm;
+            }
+        }
+    }
+    &__link
+    {
+        color: c.$black;
+        text-decoration: none;
+        margin-bottom: 20px;
+        display: inline-block;
+    }
+}

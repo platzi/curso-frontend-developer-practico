@@ -1,0 +1,109 @@
+@use '../vars/colors' as c;
+@use '../vars/font' as size;
+
+.cards-container {
+    display: grid;
+    grid-template-columns: repeat(auto-fill, 240px);
+    gap: 26px;
+    place-content: center;
+    margin-top: 25px;
+  }
+.product-card {
+  width: 240px;
+  & img
+  {
+    width: 240px;
+    height: 240px;
+    border-radius: 20px;
+    object-fit: cover;
+  }
+  &__info
+  {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    margin-top: 12px;
+    & div p:nth-child(1)
+    {
+      font-weight: bold;
+      font-size: size.$md;
+      margin-top: 0;
+      margin-bottom: 4px;
+    }
+    & div p:nth-child(2)
+    {
+      font-size: size.$sm;
+      margin-top: 0;
+      margin-bottom: 0;
+      color: c.$very-light-pink;
+    }
+    & figure
+    {
+      margin: 0;
+      & img
+      {
+        width: 35px;
+        height: 35px;
+      }
+    }
+  }
+}
+
+.product-detail
+{
+  width: 360px;
+  padding: 0 24px;
+  box-sizing: border-box;
+  background-color: c.$white;
+  position: absolute;
+  right: 0;
+  &--aside
+  {
+    padding: 0;
+  }
+  &__close
+  {
+    background: c.$white;
+    width: 14px;
+    height: 14px;
+    position: absolute;
+    top: 24px;
+    left: 24px;
+    z-index: 2;
+    padding: 12px;
+    border-radius: 50%;
+    &:hover
+    {
+      cursor: pointer;
+    }
+  }
+  & > img:nth-child(2)
+  {
+    width: 100%;
+    height: 360px;
+    object-fit: cover;
+    border-radius: 0 0 20px 20px;
+  }
+  &__info
+  {
+    margin: 24px 24px 0 24px;
+    & p:nth-child(1) {
+      font-weight: bold;
+      font-size: size.$md;
+      margin-top: 0;
+      margin-bottom: 4px;
+    }
+    & p:nth-child(2) {
+      color: c.$very-light-pink;
+      font-size: size.$md;
+      margin-top: 0;
+      margin-bottom: 36px;
+    }
+    & p:nth-child(3) {
+      color: c.$very-light-pink;
+      font-size: size.$sm;
+      margin-top: 0;
+      margin-bottom: 36px;
+    }
+  }
+}

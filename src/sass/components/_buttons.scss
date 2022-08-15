@@ -1,0 +1,20 @@
+@use '../vars/colors' as c;
+@use '../vars/font' as size;
+
+.primary-button {
+    background-color: c.$hospital-green;
+    border-radius: 8px;
+    border: none;
+    color: c.$white;
+    width: 100%;
+    cursor: pointer;
+    font-size: size.$md;
+    font-weight: bold;
+    height: 50px;
+    &--add-cart
+    {
+        display: flex;
+        align-items: center;
+        justify-content: center;
+    }
+}
