@@ -68,7 +68,6 @@ function toggleProductDetail() {
 }
 
 
-
 function productDetailOpen() {
     let isShoppingCartContainerClosed = shoppingCartContainer.classList.contains("inactivo");
     let isMobileMenuClosed = mobileMenu.classList.contains("inactivo");
