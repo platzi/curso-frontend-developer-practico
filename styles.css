@@ -303,7 +303,10 @@ aside {
   border-radius: 0 0 20px 20px;
 }
 #productDetail .product-info {
-  margin: 24px 24px 0 24px;
+  padding: 24px;
+  border-bottom-left-radius: 12px;
+  border-bottom-right-radius: 12px;
+  background: var(--white);
 }
 #productDetail .product-info p:nth-child(1) {
   font-weight: bold;
