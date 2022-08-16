@@ -2,28 +2,41 @@ const $menuEmail = document.querySelector(".navbar-email");
 const $desktopMenu = document.querySelector(".desktop-menu");
 const $iconHamburgerMenu = document.querySelector(".menu");
 const $mobileMenu = document.querySelector(".mobile-menu");
-const $aside = document.querySelector(".product-detail");
+const $shoppingCardContainer = document.querySelector("#shoppingCardContainer");
 const $menuCarritoIcon = document.querySelector(".navbar-shopping-cart");
 const $productContainer = document.querySelector(".cards-container");
+const $productDetail = document.querySelector("#productDetail");
+const $btnProducDetailClose = document.querySelector(".product-detail-close");
 
 $menuEmail.addEventListener("click", toggleMenuDesktop);
 $iconHamburgerMenu.addEventListener("click", toggleMenuMobile);
 $menuCarritoIcon.addEventListener("click", toggleCarritoAside);
+$btnProducDetailClose.addEventListener("click", toggleProductDetail);
 
 function toggleMenuDesktop() {
-  $aside.classList.add("inactive");
+  $shoppingCardContainer.classList.add("inactive");
+  $productDetail.classList.add("inactive");
   $desktopMenu.classList.toggle("inactive");
 }
 
 function toggleMenuMobile() {
-  $aside.classList.add("inactive");
+  $shoppingCardContainer.classList.add("inactive");
+  $productDetail.classList.add("inactive");
   $mobileMenu.classList.toggle("inactive");
 }
 
 function toggleCarritoAside() {
   $desktopMenu.classList.add("inactive");
   $mobileMenu.classList.add("inactive");
-  $aside.classList.toggle("inactive");
+  $productDetail.classList.add("inactive");
+  $shoppingCardContainer.classList.toggle("inactive");
+}
+
+function toggleProductDetail() {
+  $desktopMenu.classList.add("inactive");
+  $mobileMenu.classList.add("inactive");
+  $shoppingCardContainer.classList.add("inactive");
+  $productDetail.classList.toggle("inactive");
 }
 
 const productList = [];
@@ -66,13 +79,14 @@ productList.push({
 });
 
 function renderProduct(arr) {
-  for (let product of productList) {
+  for (let product of arr) {
     const { image, name, price } = product;
     const $productCard = document.createElement("div");
     $productCard.classList.add("product-card");
 
     const $productImg = document.createElement("img");
     $productImg.setAttribute("src", image);
+    $productImg.onclick = toggleProductDetail; // $productImg.addEventListner("click",toggleProductDetail);
 
     const $productInfo = document.createElement("div");
     $productInfo.classList.add("product-info");
