@@ -52,7 +52,7 @@ const productLista = [];
 productLista.push({
     name: 'bike',
     price: 120,
-    image: "https://ae01.alicdn.com/kf/H1700c5c720914866a65b9ea10d33df9eo/Pulseras-africanas-de-oro-de-24k-para-mujer-accesorios-para-esposa-regalos-de-boda-amor-de.jpg_Q90.jpg_.webp",
+    image: "https://www.clara.es/medio/2018/12/10/ropa-para-mujer-de-40-anos-moderna-vanesa-lorenzo_78fbc71a_1000x1500.jpg",
 });
 
 productLista.push({
@@ -140,12 +140,18 @@ for (productos of productLista ) {
 
     const productimgcart = document.createElement('img');
     productimgcart.setAttribute('src', './icons/bt_add_to_cart.svg');
-        
+
+
+    const sumatoria = document.querySelector('#dinamico');
+    let contador = 0;
+
         //aqui abrimos el carrito pequeñito
         productimgcart.addEventListener('click', openCars);
-
+    
         function openCars(){
             ShoppingCarContainers.classList.toggle('inactive');
+            contador++
+            sumatoria.textContent = contador;
         }
 
     /* AHORA NOS TOCA DEVOLVERNOS Y METER CADA ELEMENTO DENTRO DE LA ETIQUETA CORRESPONDIENTE */
@@ -185,3 +191,7 @@ for (productos of productLista ) {
     function closeFlechaCars(){
         ShoppingCarContainers.classList.add('inactive');
     }
+
+
+
+    

@@ -30,6 +30,8 @@
   }
   .logo {
     width: 100px;
+    cursor: pointer;
+    left: 0;
   }
   .navbar-left ul,
   .navbar-right ul {
@@ -42,9 +44,10 @@
   }
   .navbar-left {
     display: flex;
+    text-align: center;
   }
   .navbar-left ul {
-    margin-left: 12px;
+    margin-left: 300px;
   }
   .navbar-left ul li a,
   .navbar-right ul li a {
@@ -106,7 +109,7 @@
     margin: 0;
   }
   .desktop-menu ul li {
-    text-align: end;
+    text-align: center;
   }
   .desktop-menu ul li:nth-child(1),
   .desktop-menu ul li:nth-child(2) {
@@ -118,7 +121,7 @@
   }
   .desktop-menu ul li:last-child a {
     color: var(--hospital-green);
-    font-size: var(--sm);
+    font-size: var(--md);
   }
   .desktop-menu ul li a {
     color: var(--back);
@@ -356,7 +359,124 @@
     color: var(--very-light-pink);
   }
 
- 
+ /* login y registro*/
+
+ .login{
+    width: 100%;
+    padding: 20px;
+    margin: auto;
+    margin-top: 100px;
+ }
+ .contener{
+    width: 100%;
+    max-width: 800px;
+    margin: 0 auto ;
+    position: relative;
+ }
+
+ .cajaTrasera{
+    width: 100%;
+    padding: 5px 10px;
+    display: flex;
+    justify-content: center;
+    backdrop-filter: blur(8px);
+    background-color: var(--hospital-green);
+ }
+
+ .cajaTrasera div{
+    margin: 100px 40px;
+    color: var(--text-input-field);
+    transition: all 500ms;
+ }
+
+ .cajaTrasera div p,
+ .cajaTrasera div button{
+    margin-top: 30px;
+ }
+
+ .cajaTrasera div h3{
+    font-weight: bold;
+    font-size: 25px;
+}
+
+  .cajaTrasera button{
+    padding: 10px 40px;
+    border: 2px solid var(--white);
+    background: transparent;
+    font-size: var(--md);
+    font-weight: bold;
+    cursor: pointer;
+    color: var(--white);
+    outline: none;
+    transition: all 300ms;
+    border-radius: 5px;
+  }
+
+  .cajaTrasera button:hover{
+    background-color: var(--white);
+    color: var(--very-light-pink);
+  }
+
+
+      /* FORMULARIOS */
+
+  .ContenedorLoginRegister{
+    display: flex;
+    align-items: center;
+    width: 100%;
+    max-width: 380px;
+    position: relative;
+    top: -202px;
+    left: 10px;
+  }    
+    
+  .ContenedorLoginRegister form{
+    width: 100%;
+    padding: 80px 8px;
+    background-color: var(--white);
+    position: absolute;
+    border-radius: 20px;
+  } 
+  
+  .ContenedorLoginRegister form h2{
+    font-size: 30px;
+    text-align: center;
+    margin-bottom: 20px;
+    color: var(--hospital-green);
+  } 
+
+  .ContenedorLoginRegister form input{
+    width: 94%;
+    margin-top: 20px;
+    padding: 10px;
+    border: none;
+    background-color: #f2f2f2;
+    font-size: var(--md);
+    outline: none;
+  } 
+
+  .ContenedorLoginRegister form button{
+    background-color: var(--hospital-green);
+    border-radius: 8px;
+    border: none;
+    color: var(--white);
+    width: 100%;
+    cursor: pointer;
+    font-size: var(--md);
+    font-weight: bold;
+    height: 50px;
+    margin-top: 20px;
+  } 
+
+  .fomularioLogin{
+    opacity: 1;
+    display: block;
+  }
+  .formularioRegister{
+    display: none;
+  }
+
+
 
   @media (max-width: 640px) {
     .menu {
@@ -391,3 +511,5 @@
         display: none;
     }
   }
+
+  /*login responsive*/
