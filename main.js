@@ -1,21 +1,27 @@
 const menuEmail = document.querySelector('.navbar-email');
 const menuHamburgerIcon = document.querySelector('.menu');
 const menuCarritoIcon = document.querySelector('.navbar-shopping-cart');
+const productDetailCloseIcon= document.querySelector('.product-detail-close-secondary');
+
 const desktopMenu = document.querySelector('.desktop-menu');
 const mobileMenu = document.querySelector('.mobile-menu');
 const aside = document.querySelector('.product-detail');
+const asideSecondary = document.querySelector('.product-detail-secondary');
 const cardsContainer = document.querySelector('.cards-container');
-
 
 menuEmail.addEventListener('click', toggleDesktopMenu);
 menuHamburgerIcon.addEventListener('click', toggleMobileMenu);
 menuCarritoIcon.addEventListener('click', toggleCarritoAside);
+productDetailCloseIcon.addEventListener('click', closeProductDetailAsideSecondary);
 
 function toggleDesktopMenu(params) {
     // console.log('Estoy haciendo click');
     desktopMenu.classList.toggle('inactive');
     if (!aside.classList.contains('inactive')) {
         aside.classList.toggle('inactive');
+    };
+    if (!asideSecondary.classList.contains('inactive')) {
+        asideSecondary.classList.toggle('inactive');
     };
 };
 
@@ -24,6 +30,7 @@ function toggleMobileMenu(params) {
     if (!aside.classList.contains('inactive')) {
         aside.classList.toggle('inactive');
     };
+    closeProductDetailAsideSecondary();
 };
 
 function toggleCarritoAside(params) {
@@ -34,7 +41,20 @@ function toggleCarritoAside(params) {
     if (!desktopMenu.classList.contains('inactive')) {
         desktopMenu.classList.toggle('inactive');
     };
+    if (!asideSecondary.classList.contains('inactive')) {
+        asideSecondary.classList.toggle('inactive');
+    };
 };
+
+function openProductDetailAsideSecondary(params) {
+    asideSecondary.classList.remove('inactive');
+    aside.classList.add('inactive');
+    desktopMenu.classList.add('inactive');
+}
+
+function closeProductDetailAsideSecondary(params) {
+    asideSecondary.classList.add('inactive');
+}
 
 const productList = [];
 productList.push({
@@ -78,6 +98,8 @@ function renderProducts(arr) {
     
         const productImg = document.createElement('img');
         productImg.setAttribute('src', product.image);
+        // productImg.addEventListener('click', console.log);
+        productImg.addEventListener('click', openProductDetailAsideSecondary);
         
         const productInfo = document.createElement('div');
         productInfo.classList.add('product-info');
