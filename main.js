@@ -16,23 +16,23 @@ menuCarritoIcon.addEventListener('click', toggleCarritoAside)
 function toggleDesktopMenu() {
   console.log('click');
   shoppingCartContainer.classList.add('inactive');
-  productDetailContainer.classList.add('inactive');
   desktopMenu.classList.toggle('inactive');
+  closeProductDetailAside()
 }
 
 function toggleMobileMenu() {
   console.log('click');
   shoppingCartContainer.classList.add('inactive');
-  productDetailContainer.classList.add('inactive');
   mobileMenu.classList.toggle('inactive');
+  closeProductDetailAside()
 }
 
 function toggleCarritoAside() {
   console.log('click');
   mobileMenu.classList.add('inactive');
   desktopMenu.classList.add('inactive');
-  productDetailContainer.classList.add('inactive');
   shoppingCartContainer.classList.toggle('inactive');
+  closeProductDetailAside()
 }
 
 function openProductDetailAside() {
