@@ -125,10 +125,11 @@
  .mobile-menu {
   background-color: var(--white);
   position: absolute;
-  top: 60px;
+  top: 61px;
   left: 0;
-  width: 100%;
-  padding: 24px;
+  right: 0;
+  width: calc(100% -24px);
+  padding-left: 24px;
   transition: 400ms;
 }
 .mobile-menu a {
@@ -262,7 +263,8 @@ aside {
   border-radius: 0 0 20px 20px;
 }
 #productDetail {
-  margin: 24px 24px 0 24px;
+  margin: 0px 0px 0 24px;
+  padding: 8px;
 }
 #productDetail p:nth-child(1) {
   font-weight: bold;
@@ -369,6 +371,7 @@ aside {
       width: 140px;
       height: 140px;
     }
+    
   }
 
   @media (min-width: 641px) {
