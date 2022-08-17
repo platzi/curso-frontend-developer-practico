@@ -4,7 +4,7 @@ const desktopMenu=document.querySelector('.desktop-menu');
 const menuCarritoIcon=document.querySelector('.navbar-shopping-cart');
 const menuHamIcon=document.querySelector('.menu');//elemento que clicekamos
 const mobileMenu=document.querySelector('.mobile-menu');//elmento que modificamos al clickear
-const aside=document.querySelector('.product-detail')
+const shoppingCartContaiener=document.querySelector('#shoppingCartContaiener')
 const cardsContainer=document.querySelector('.cards-container')
 
 
@@ -14,22 +14,22 @@ menuCarritoIcon.addEventListener('click',toggleCarritoAside);
 
 function toggleDesktopMenu(){
     desktopMenu.classList.toggle('inactive')
-    const isAsideClosed= aside.classList.contains('inactive')
+    const isAsideClosed= shoppingCartContaiener.classList.contains('inactive')
     if(!isAsideClosed){ //aside=menu carrito
-        aside.classList.add('inactive')//agrega clase inactive a el aside
+        shoppingCartContaiener.classList.add('inactive')//agrega clase inactive a el aside
     }   
 }
 
 function toggleMobileMenu(){ //funcion
     mobileMenu.classList.toggle('inactive')
-    const isAsideClosed= aside.classList.contains('inactive')
+    const isAsideClosed= shoppingCartContaiener.classList.contains('inactive')
     if(!isAsideClosed){ //aside=menu carrito
-        aside.classList.add('inactive')//agrega clase inactive a el aside
+        shoppingCartContaiener.classList.add('inactive')//agrega clase inactive a el aside
     }    
 }
 
 function toggleCarritoAside(){
-    aside.classList.toggle('inactive') 
+    shoppingCartContaiener.classList.toggle('inactive') 
     const isMobileMenuCosed= mobileMenu.classList.contains('inactive')//boolean
     if(!isMobileMenuCosed){ //! cambia el balor boleano si es true devuelve false (invierte pos)
         mobileMenu.classList.add('inactive') //si no tiene inactive 
@@ -81,7 +81,7 @@ for(product of arr){ //'product' es cada uno de los objetos
     const productImgCart=document.createElement('img');//crea un <img> en el HTML
     productImgCart.setAttribute('src','./icons/bt_add_to_cart.svg')//agrega un src=direccion a la imagen
  
-    productInfoFigure.appendChild(productImgCart);//Con Element.append() podriamos haber agregar varias etiquetas y texto mientras que con appendChild solo 1
+    productInfoFigure.appendChild(productImgCart);//Con Element.append() podriamos haber agregar varias etiquetas  y texto mientras que con appendChild solo 1
     productInfo.appendChild(productInfoDiv)
     productInfo.appendChild(productInfoFigure)
  
