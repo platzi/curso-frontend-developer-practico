@@ -100,9 +100,9 @@ nav {
   background-color: var(--white);
   position: absolute;
   top: 61px;
-  padding: 24px;
   left: 0;
-  width: 100%;
+  width:calc(100% - 24px) ;
+  padding-left: 24px;
 }
 
 .mobile-menu a {
@@ -400,7 +400,7 @@ aside {
     display: none;
     /* si esta en mobile y pasa a desktop desaparece */
   }
-  .product-detail {
+  #productDetail {
     width: 100%;
   }
   .cards-container {
