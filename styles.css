@@ -380,7 +380,10 @@ aside {
         width: 140px;
         height: 140px;
     }
-      
+    
+    #productDentail{
+        width: 100%;
+    }
 }
 
 @media (min-width: 640px) {
