@@ -182,7 +182,7 @@ nav {
 .product-detail {
    background-color: var(--white);
    width: 360px;
-   padding: 0 24px;
+   padding: 0 24px 24px;
    box-sizing: border-box;
    position: absolute;
    right: 0;
@@ -349,6 +349,7 @@ nav {
    gap: 26px;
    place-content: center;
    margin-top: 20px;
+   cursor: pointer;
 }
 
 .product-card {
