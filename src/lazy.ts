@@ -3,9 +3,9 @@ const isIntersecting = (entry: IntersectionObserverEntry) => {
 }
 
 const loadImage = (entry: IntersectionObserverEntry) => {
-    const urlImage = (entry.target as HTMLImageElement).dataset.src
     const image = entry.target as HTMLImageElement
-    
+    const urlImage = image.dataset.src
+
     if(urlImage) {
         image.src = urlImage
     }
@@ -14,7 +14,9 @@ const loadImage = (entry: IntersectionObserverEntry) => {
 }
 
 const observer = new IntersectionObserver((entries) => {
-    entries.filter(isIntersecting).forEach(loadImage)
+    entries
+        .filter(isIntersecting)
+        .forEach(loadImage)
 })
 
 export const registerImage = (image: HTMLImageElement) => {
