@@ -11,7 +11,7 @@ const $btnProducDetailClose = document.querySelector(".product-detail-close");
 $menuEmail.addEventListener("click", toggleMenuDesktop);
 $iconHamburgerMenu.addEventListener("click", toggleMenuMobile);
 $menuCarritoIcon.addEventListener("click", toggleCarritoAside);
-$btnProducDetailClose.addEventListener("click", toggleProductDetail);
+$btnProducDetailClose.addEventListener("click", closeProductDetail);
 
 function toggleMenuDesktop() {
   $shoppingCardContainer.classList.add("inactive");
@@ -32,61 +32,207 @@ function toggleCarritoAside() {
   $shoppingCardContainer.classList.toggle("inactive");
 }
 
-function toggleProductDetail() {
+function closeProductDetail() {
+  $productDetail.classList.add("inactive");
+}
+
+function openProductDetail(product) {
   $desktopMenu.classList.add("inactive");
   $mobileMenu.classList.add("inactive");
   $shoppingCardContainer.classList.add("inactive");
-  $productDetail.classList.toggle("inactive");
+  const buscarProductShow = () => {
+    return productList.find((productActual) => productActual.isShow);
+  };
+  const productIsShow = buscarProductShow();
+  if (!product.isShow) {
+    product.isShow = "true";
+  }
+  if (productIsShow) {
+    productIsShow.isShow = false;
+    closeProductDetail();
+    console.log("Ocultando producto");
+  }
+  $productDetail.classList.remove("inactive");
+  renderProductDetailContent(product);
 }
 
+function renderProductDetailContent(product) {
+  const $productDetailImg = document.querySelector("#productDetailImg");
+  const $productDetailPrice = document.querySelector("#productDetailPrice");
+  const $productDetailName = document.querySelector("#productDetailName");
+  const $productDetailDescription = document.querySelector(
+    "#productDetailDescription"
+  );
+  const { image, price, name, description } = product;
+  $productDetailImg.setAttribute("src", image);
+  $productDetailPrice.innerText = `$${price}`;
+  $productDetailName.innerText = name;
+  $productDetailDescription.innerText = description.replace(
+    "bike",
+    name.toLowerCase()
+  );
+}
 const productList = [];
 
-productList.push({
-  image:
-    "https://images.pexels.com/photos/276517/pexels-photo-276517.jpeg?auto=compress&cs=tinysrgb&dpr=2&h=650&w=940",
-  name: "Bike",
-  price: 120,
-});
-productList.push({
-  image:
-    "https://images.pexels.com/photos/276517/pexels-photo-276517.jpeg?auto=compress&cs=tinysrgb&dpr=2&h=650&w=940",
-  name: "Pantalla",
-  price: 300,
-});
-productList.push({
-  image:
-    "https://images.pexels.com/photos/276517/pexels-photo-276517.jpeg?auto=compress&cs=tinysrgb&dpr=2&h=650&w=940",
-  name: "Computadora",
-  price: 620,
-});
-productList.push({
-  image:
-    "https://images.pexels.com/photos/276517/pexels-photo-276517.jpeg?auto=compress&cs=tinysrgb&dpr=2&h=650&w=940",
-  name: "Bike",
-  price: 120,
-});
-productList.push({
-  image:
-    "https://images.pexels.com/photos/276517/pexels-photo-276517.jpeg?auto=compress&cs=tinysrgb&dpr=2&h=650&w=940",
-  name: "Pantalla",
-  price: 300,
-});
-productList.push({
-  image:
-    "https://images.pexels.com/photos/276517/pexels-photo-276517.jpeg?auto=compress&cs=tinysrgb&dpr=2&h=650&w=940",
-  name: "Computadora",
-  price: 620,
-});
+function addProductToList() {
+  productList.push({
+    image:
+      "https://images.pexels.com/photos/276517/pexels-photo-276517.jpeg?auto=compress&cs=tinysrgb&dpr=2&h=650&w=940",
+    name: "Bike",
+    price: 100,
+    description:
+      "With its practical position, this bike also fulfills a decorative function, add your hall or workspace.",
+  });
+  productList.push({
+    image:
+      "https://images.pexels.com/photos/2529148/pexels-photo-2529148.jpeg?auto=compress&cs=tinysrgb&w=600",
+    name: "Shoes",
+    price: 125,
+    description:
+      "With its practical position, this bike also fulfills a decorative function, add your hall or workspace.",
+  });
+  productList.push({
+    image:
+      "https://images.pexels.com/photos/701877/pexels-photo-701877.jpeg?auto=compress&cs=tinysrgb&w=600",
+    name: "Sunglasses",
+    price: 80,
+    description:
+      "With its practical position, this bike also fulfills a decorative function, add your hall or workspace.",
+  });
+  productList.push({
+    image:
+      "https://images.pexels.com/photos/303383/pexels-photo-303383.jpeg?auto=compress&cs=tinysrgb&w=1260&h=750&dpr=1",
+    name: "Computer",
+    price: 680,
+    description:
+      "With its practical position, this bike also fulfills a decorative function, add your hall or workspace.",
+  });
+  productList.push({
+    image:
+      "https://images.pexels.com/photos/1983037/pexels-photo-1983037.jpeg?auto=compress&cs=tinysrgb&w=1260&h=750&dpr=1",
+    name: "Camara",
+    price: 60,
+    description:
+      "With its practical position, this bike also fulfills a decorative function, add your hall or workspace.",
+  });
+  productList.push({
+    image:
+      "https://images.pexels.com/photos/914996/pexels-photo-914996.jpeg?auto=compress&cs=tinysrgb&w=1260&h=750&dpr=1",
+    name: "ice skates",
+    price: 300,
+    description:
+      "With its practical position, this bike also fulfills a decorative function, add your hall or workspace.",
+  });
+  productList.push({
+    image:
+      "https://images.pexels.com/photos/276517/pexels-photo-276517.jpeg?auto=compress&cs=tinysrgb&dpr=2&h=650&w=940",
+    name: "Bike",
+    price: 100,
+    description:
+      "With its practical position, this bike also fulfills a decorative function, add your hall or workspace.",
+  });
+  productList.push({
+    image:
+      "https://images.pexels.com/photos/2529148/pexels-photo-2529148.jpeg?auto=compress&cs=tinysrgb&w=600",
+    name: "Shoes",
+    price: 125,
+    description:
+      "With its practical position, this bike also fulfills a decorative function, add your hall or workspace.",
+  });
+  productList.push({
+    image:
+      "https://images.pexels.com/photos/701877/pexels-photo-701877.jpeg?auto=compress&cs=tinysrgb&w=600",
+    name: "Sunglasses",
+    price: 80,
+    description:
+      "With its practical position, this bike also fulfills a decorative function, add your hall or workspace.",
+  });
+  productList.push({
+    image:
+      "https://images.pexels.com/photos/303383/pexels-photo-303383.jpeg?auto=compress&cs=tinysrgb&w=1260&h=750&dpr=1",
+    name: "Computer",
+    price: 680,
+    description:
+      "With its practical position, this bike also fulfills a decorative function, add your hall or workspace.",
+  });
+  productList.push({
+    image:
+      "https://images.pexels.com/photos/1983037/pexels-photo-1983037.jpeg?auto=compress&cs=tinysrgb&w=1260&h=750&dpr=1",
+    name: "Camara",
+    price: 60,
+    description:
+      "With its practical position, this bike also fulfills a decorative function, add your hall or workspace.",
+  });
+  productList.push({
+    image:
+      "https://images.pexels.com/photos/914996/pexels-photo-914996.jpeg?auto=compress&cs=tinysrgb&w=1260&h=750&dpr=1",
+    name: "ice skates",
+    price: 300,
+    description:
+      "With its practical position, this bike also fulfills a decorative function, add your hall or workspace.",
+  });
+  productList.push({
+    image:
+      "https://images.pexels.com/photos/276517/pexels-photo-276517.jpeg?auto=compress&cs=tinysrgb&dpr=2&h=650&w=940",
+    name: "Bike",
+    price: 100,
+    description:
+      "With its practical position, this bike also fulfills a decorative function, add your hall or workspace.",
+  });
+  productList.push({
+    image:
+      "https://images.pexels.com/photos/2529148/pexels-photo-2529148.jpeg?auto=compress&cs=tinysrgb&w=600",
+    name: "Shoes",
+    price: 125,
+    description:
+      "With its practical position, this bike also fulfills a decorative function, add your hall or workspace.",
+  });
+  productList.push({
+    image:
+      "https://images.pexels.com/photos/701877/pexels-photo-701877.jpeg?auto=compress&cs=tinysrgb&w=600",
+    name: "Sunglasses",
+    price: 80,
+    description:
+      "With its practical position, this bike also fulfills a decorative function, add your hall or workspace.",
+  });
+  productList.push({
+    image:
+      "https://images.pexels.com/photos/303383/pexels-photo-303383.jpeg?auto=compress&cs=tinysrgb&w=1260&h=750&dpr=1",
+    name: "Computer",
+    price: 680,
+    description:
+      "With its practical position, this bike also fulfills a decorative function, add your hall or workspace.",
+  });
+  productList.push({
+    image:
+      "https://images.pexels.com/photos/1983037/pexels-photo-1983037.jpeg?auto=compress&cs=tinysrgb&w=1260&h=750&dpr=1",
+    name: "Camara",
+    price: 60,
+    description:
+      "With its practical position, this bike also fulfills a decorative function, add your hall or workspace.",
+  });
+  productList.push({
+    image:
+      "https://images.pexels.com/photos/914996/pexels-photo-914996.jpeg?auto=compress&cs=tinysrgb&w=1260&h=750&dpr=1",
+    name: "ice skates",
+    price: 300,
+    description:
+      "With its practical position, this bike also fulfills a decorative function, add your hall or workspace.",
+  });
+}
 
 function renderProduct(arr) {
-  for (let product of arr) {
+  arr.forEach((product) => {
     const { image, name, price } = product;
     const $productCard = document.createElement("div");
     $productCard.classList.add("product-card");
 
     const $productImg = document.createElement("img");
     $productImg.setAttribute("src", image);
-    $productImg.onclick = toggleProductDetail; // $productImg.addEventListner("click",toggleProductDetail);
+    $productImg.addEventListener(
+      "click",
+      openProductDetail.bind(this, product)
+    ); // $productImg.onClick = openProductDetail;
 
     const $productInfo = document.createElement("div");
     $productInfo.classList.add("product-info");
@@ -116,7 +262,8 @@ function renderProduct(arr) {
     $productCard.appendChild($productInfo);
 
     $productContainer.appendChild($productCard);
-  }
+  });
 }
 
+addProductToList();
 renderProduct(productList);
