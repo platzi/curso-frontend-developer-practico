@@ -3,14 +3,17 @@ const desktopMenu = document.querySelector(".desktop-menu");
 
 const mobileMenu = document.querySelector(".mobile-menu");
 const hamBtn = document.querySelector(".menu");
+const productDetailCloseIcon = document.querySelector(".product-detail-close");
 
 const cartIcon = document.querySelector(".navbar-shopping-cart");
 const shoppingCartContainer = document.querySelector("#shoppingCartContainer");
+const productDetailContainer = document.querySelector("#productDetail");
 const cardsContainer = document.querySelector(".cards-container");
 
 menuEmail.addEventListener("click", toggleDesktopMenu);
 hamBtn.addEventListener("click", toggleMobileMenu);
 cartIcon.addEventListener("click", toggleCart);
+productDetailCloseIcon.addEventListener("click", closeProductDetailAside)
 
 function toggleDesktopMenu() {
     const isAsideClosed = shoppingCartContainer.classList.contains("inactive");
@@ -30,6 +33,8 @@ function toggleMobileMenu() {
         shoppingCartContainer.classList.add("inactive");
     }
 
+    closeProductDetailAside();
+
     mobileMenu.classList.toggle("inactive");
 }
 function toggleCart() {
@@ -38,6 +43,13 @@ function toggleCart() {
     //si no esta cerrado el menu mobile lo cierro
     if (!isMobileMenuClosed) {
         mobileMenu.classList.add("inactive");
+    }
+
+    const isProductDetailClosed = productDetailContainer.classList.contains("inactive");
+
+    //si no esta cerrado el menu mobile lo cierro
+    if (!isProductDetailClosed) {
+        productDetailContainer.classList.add("inactive");
     }
 
     shoppingCartContainer.classList.toggle("inactive");
@@ -65,13 +77,22 @@ productList.push({
     image: "https://images.pexels.com/photos/276517/pexels-photo-276517.jpeg?auto=compress&cs=tinysrgb&dpr=2&h=650&w=940",
 })
 
+function openProductDetailAside() {
+    shoppingCartContainer.classList.add("inactive");
+    productDetailContainer.classList.remove("inactive");
+}
+function closeProductDetailAside() {
+    productDetailContainer.classList.add("inactive");
+}
+
 function renderProducts(arr) {
     for (product of arr) {
         const productCard = document.createElement('div');
         productCard.classList.add('product-card');
 
-        const img = document.createElement('img');
-        img.setAttribute('src', product.image);
+        const productImg = document.createElement('img');
+        productImg.setAttribute('src', product.image);
+        productImg.addEventListener("click", openProductDetailAside);
 
         const productInfo = document.createElement('div');
         productInfo.classList.add('product-info');
@@ -94,7 +115,7 @@ function renderProducts(arr) {
 
         productInfo.append(productInfoDiv, productInfoFigure);
 
-        productCard.append(img, productInfo);
+        productCard.append(productImg, productInfo);
 
         cardsContainer.append(productCard);
     }
