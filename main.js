@@ -5,13 +5,14 @@ const burgerMenu = document.querySelector('.menu');
 const carritoMenuIcon = document.querySelector('.navbar-shopping-cart');
 const shoppingCartContainer = document.querySelector('#shoppingCartContainer');
 const cardsContainer = document.querySelector('.cards-container');
+
 const productDetailAside = document.querySelector('#productDetail');
-const productDetailClose = document.querySelector('.product-detail-close');
+//const productDetailClose = document.querySelector('.product-detail-close');
 
 menuEmail.addEventListener('click',toggleDesktopMenu);
 burgerMenu.addEventListener('click',toggleMobileMenu);
 carritoMenuIcon.addEventListener('click',toggleCarritoAside);
-productDetailClose.addEventListener('click',closeProductDetail);
+//productDetailClose.addEventListener('click',closeProductDetail);
 
 function toggleDesktopMenu(){
    
@@ -31,9 +32,13 @@ function toggleCarritoAside(){
 }
 
 function openProductDetail(event) {
+    productDetailAside.replaceChildren();
     console.log(event);
+    console.log(this.alt);
      let productDetail ='productDetail';
      closeWindows(productDetail);
+    renderProductDetail(this.alt);
+
 }
 
 function closeProductDetail() {
@@ -98,6 +103,7 @@ for (const product of arr) {
     
     const img = document.createElement('img');
     img.setAttribute('src',product.image);
+    img.setAttribute('alt',product.name);
 
     img.addEventListener('click',openProductDetail);
     
@@ -129,6 +135,64 @@ for (const product of arr) {
     cardsContainer.appendChild(productCard);
         
     }
+}
+
+function renderProductDetail(productName){
+ /*    
+ <div class="product-detail-close">
+    <img src="./icons/icon_close.png" alt="close">
+  </div>
+  <img src="https://images.pexels.com/photos/276517/pexels-photo-276517.jpeg?auto=compress&cs=tinysrgb&dpr=2&h=650&w=940" alt="bike">
+  <div class="product-info">
+    <p>$35,00</p>
+    <p>Bike</p>
+    <p>With its practical position, this bike also fulfills a decorative function, add your hall or workspace.</p>
+    <button class="primary-button add-to-cart-button">
+      <img src="./icons/bt_add_to_cart.svg" alt="add to cart">
+      Add to cart
+    </button>
+  </div>
+ */
+  const productClicked = productList.find(function (product) {
+    return product.name === productName;
+  })
+
+  const productDetailClose = document.createElement('div');
+  productDetailClose.classList.add('product-detail-close');
+    const imgClose = document.createElement('img');
+    imgClose.setAttribute('src','./icons/icon_close.png')
+    imgClose.setAttribute('atl','close');
+
+    productDetailClose.addEventListener('click',closeProductDetail);
+
+    productDetailClose.appendChild(imgClose);
+
+  const productDetailImg = document.createElement('img');
+  productDetailImg.setAttribute('src',productClicked.image);
+  productDetailImg.setAttribute('alt',productClicked.name);
+
+  const productDetailInfo = document.createElement('div');
+  productDetailInfo.classList.add('product-info');
+    const productDetailPrice =document.createElement('p');
+    productDetailPrice.innerText = '$'+productClicked.price;
+    const productDetailName = document.createElement('p');
+    productDetailName.innerText =productClicked.name;
+    const productDetailDescription =document.createElement('p');
+    productDetailDescription.innerText='With its practical position, this bike also fulfills a decorative function, add your hall or workspace.';
+
+    const productDetailBtn = document.createElement('button');
+    productDetailBtn.classList.add('primary-button');
+    productDetailBtn.classList.add('add-to-cart-button');
+        const productDetialBtnImg = document.createElement('img');
+        productDetialBtnImg.setAttribute('src','./icons/bt_add_to_cart.svg');
+        productDetialBtnImg.setAttribute('alt','add to cart');
+    productDetailBtn.innerText='Add to cart';
+
+    productDetailBtn.appendChild(productDetialBtnImg); 
+  productDetailInfo.append(productDetailPrice,productDetailName,productDetailDescription,productDetailBtn)  
+  
+productDetailAside.append(productDetailClose,productDetailImg,productDetailInfo)
+
 }
 
 const productList =[];
