@@ -214,6 +214,30 @@ productList.push({
     image: 'https://m.media-amazon.com/images/I/71n0k0TSRwS._AC_SL1500_.jpg'
 });
 
+productList.push({
+    name: 'Sofa',
+    price: 3500,
+    image: 'https://www.klaussner.com/cid645/css/1235/images/hp-tile-living-room.jpg'
+});
+
+productList.push({
+    name: 'Cama',
+    price: 600,
+    image: 'https://media.admagazine.com/photos/618a60d829327ed3de99d538/3:2/w_3498,h_2332,c_limit/86276.jpg'
+});
+
+productList.push({
+    name: 'Audifonos',
+    price: 600,
+    image: 'https://m.media-amazon.com/images/I/61VR62H-uBL._AC_SS450_.jpg'
+});
+
+productList.push({
+    name: 'Iphone',
+    price: 1120,
+    image: 'https://skytree.com.au/wp-content/uploads/2020/01/1.jpeg'
+});
+
 console.log(productList);
 renderProducts(productList);
 
