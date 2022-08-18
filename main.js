@@ -48,7 +48,7 @@ function openProductDetail(product) {
     product.isShow = "true";
   }
   if (productIsShow) {
-    if (productIsShow != product) {
+    if (productIsShow !== product) {
       productIsShow.isShow = false;
       closeProductDetail();
       console.log("Ocultando producto");
@@ -56,6 +56,13 @@ function openProductDetail(product) {
   }
   $productDetail.classList.remove("inactive");
   renderProductDetailContent(product);
+}
+
+function removeProductCartShopping(productToRemove) {
+  listProductCartShopping = listProductCartShopping.filter(
+    (product) => product !== productToRemove
+  );
+  renderProductCartShopping();
 }
 
 function renderProductDetailContent(product) {
@@ -96,7 +103,7 @@ function renderProductCartShopping() {
 
   cleanParentElementContent($orderContent);
 
-  listProductCartShopping.forEach((product) => {
+  listProductCartShopping.forEach((product, indice) => {
     const { image, price, name } = product;
 
     $productOrderDiv = document.createElement("div");
@@ -115,7 +122,13 @@ function renderProductCartShopping() {
 
     $btnRemoveProductOrder = document.createElement("img");
     $btnRemoveProductOrder.setAttribute("src", "./icons/icon_close.png");
-    $btnRemoveProductOrder.setAttribute("id", "btnRemoveProductOrder");
+    $btnRemoveProductOrder.setAttribute(
+      "id",
+      `btnRemoveProductOrder-${indice}`
+    );
+    $btnRemoveProductOrder.onclick = () => {
+      removeProductCartShopping(product);
+    };
 
     $productOrderFigure.appendChild($productOrderImg);
     $productOrderDiv.appendChild($productOrderFigure);
@@ -126,7 +139,7 @@ function renderProductCartShopping() {
   });
 }
 const productList = [];
-const listProductCartShopping = [];
+let listProductCartShopping = [];
 
 function addProductToList() {
   productList.push({
