@@ -83,9 +83,6 @@ function renderProducts(arr) {
         const productName = document.createElement('p');
         productName.innerText = product.name;
     
-        
-    
-    
         const productInfoFigure = document.createElement('figure');
         const productImgCart = document.createElement('img');
         productImgCart.setAttribute('src', './icons/bt_add_to_cart.svg');
