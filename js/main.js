@@ -80,6 +80,12 @@ window.onresize = function () {
     price: 30,
     image: "https://images.unsplash.com/photo-1576566588028-4147f3842f27?ixlib=rb-1.2.1&ixid=MnwxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8&auto=format&fit=crop&w=764&q=80",
   });
+
+  productList.push({
+    name: 'Runners shoes',
+    price: 25,
+    image: "https://images.pexels.com/photos/12714890/pexels-photo-12714890.jpeg?auto=compress&cs=tinysrgb&w=1260&h=750&dpr=1",
+  });
 //   <!-- <div class="product-card">
 //         <img src="https://images.pexels.com/photos/276517/            pexels-photo-276517.jpeg?auto=compress&cs=tinysrgb&dpr=2&h=650&w=940" alt="">
 //         <div class="product-info">
