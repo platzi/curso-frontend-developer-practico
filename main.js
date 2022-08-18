@@ -74,7 +74,54 @@ function renderProductDetailContent(product) {
     name.toLowerCase()
   );
 }
+
+function addProductCartShopping(product) {
+  listProductCartShopping.push(product);
+  renderProductCartShopping();
+}
+
+function cleanParentElementContent($parentElement) {
+  while ($parentElement.firstChild) {
+    $parentElement.removeChild($parentElement.firstChild);
+  }
+}
+
+function renderProductCartShopping() {
+  const $orderContent = document.querySelector(".my-order-content");
+
+  cleanParentElementContent($orderContent);
+
+  listProductCartShopping.forEach((product) => {
+    const { image, price, name } = product;
+
+    $productOrderDiv = document.createElement("div");
+    $productOrderDiv.classList.add("shopping-cart");
+
+    $productOrderFigure = document.createElement("figure");
+
+    $productOrderImg = document.createElement("img");
+    $productOrderImg.setAttribute("src", image);
+
+    $productOrderName = document.createElement("p");
+    $productOrderName.innerText = name;
+
+    $productOrderPrice = document.createElement("p");
+    $productOrderPrice.innerText = price;
+
+    $btnRemoveProductOrder = document.createElement("img");
+    $btnRemoveProductOrder.setAttribute("src", "./icons/icon_close.png");
+    $btnRemoveProductOrder.setAttribute("id", "btnRemoveProductOrder");
+
+    $productOrderFigure.appendChild($productOrderImg);
+    $productOrderDiv.appendChild($productOrderFigure);
+    $productOrderDiv.appendChild($productOrderName);
+    $productOrderDiv.appendChild($productOrderPrice);
+    $productOrderDiv.appendChild($btnRemoveProductOrder);
+    $orderContent.appendChild($productOrderDiv);
+  });
+}
 const productList = [];
+const listProductCartShopping = [];
 
 function addProductToList() {
   productList.push({
@@ -251,6 +298,10 @@ function renderProduct(arr) {
     $productInfoDiv.appendChild($productName);
 
     const $productInfoFigure = document.createElement("figure");
+    $productInfoFigure.addEventListener(
+      "click",
+      addProductCartShopping.bind(this, product)
+    );
 
     const $productImgCard = document.createElement("img");
     $productImgCard.setAttribute("src", "./icons/bt_add_to_cart.svg");
