@@ -43,14 +43,15 @@ function toogleMobileMenu(){
 
 function toogleDesktopMenu(){
     const isAsideClosed = asideProduct.classList.contains('inactive');
-    const isProductDetail = productDetail.classList.contains('inactive');
+    // const isProductDetail = productDetail.classList.contains('inactive');
     if (!isAsideClosed){
         asideProduct.classList.add('inactive');
     }
-    if(!isProductDetail){
-        productDetail.classList.add('inactive');
-    }
+    // if(!isProductDetail){
+    //     productDetail.classList.add('inactive');
+    // }
     desktopMenu.classList.toggle('inactive');
+    desktopMenu.classList.add('index')
 }
 function openProductDetailAside(){
     const isAsideClosed = asideProduct.classList.contains('inactive');

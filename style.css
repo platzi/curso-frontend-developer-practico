@@ -13,7 +13,9 @@
     margin: 0;
     font-family: 'Quicksand', sans-serif;
   }
-
+  .index{
+    z-index: 1;
+  }
   .inactive{
     display: none;
   }
