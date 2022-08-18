@@ -48,9 +48,11 @@ function openProductDetail(product) {
     product.isShow = "true";
   }
   if (productIsShow) {
-    productIsShow.isShow = false;
-    closeProductDetail();
-    console.log("Ocultando producto");
+    if (productIsShow != product) {
+      productIsShow.isShow = false;
+      closeProductDetail();
+      console.log("Ocultando producto");
+    }
   }
   $productDetail.classList.remove("inactive");
   renderProductDetailContent(product);
