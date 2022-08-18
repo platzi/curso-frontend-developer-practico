@@ -6,7 +6,10 @@ const mobileMenu = document.querySelector('.mobile-menu');
  
 
 const menuShoppingCar = document.querySelector('.navbar-shopping-cart');
-const aside = document.querySelector('.product-detail');
+const shoppinCartContainer = document.querySelector('#shoppinCartContainer');
+
+const productDetailContainer = document.querySelector('#product-detail');
+const productDetailClose = document.querySelector('.product-detail-close');
 
 const cardsContainer = document.querySelector('.cards-container');
 
@@ -15,19 +18,24 @@ const cardsContainer = document.querySelector('.cards-container');
 menuEmail.addEventListener('click', toggleDesktopMenu);
 iconMenu.addEventListener('click',  toggleMobileMenu);
 menuShoppingCar.addEventListener('click',  toggleAside);
+productDetailClose.addEventListener('click', closeProductDetailIside);
 
 
 function toggleDesktopMenu(){
-    
-    aside.classList.add('inactive')
+
     desktopMenu.classList.toggle('inactive');
+
+    shoppinCartContainer.classList.add('inactive');
+    productDetailContainer.classList.add('inactive');
 
 }
 
    function toggleMobileMenu(){   
     
-    aside.classList.add('inactive')
+    
     mobileMenu.classList.toggle('inactive');
+    shoppinCartContainer.classList.add('inactive')
+    productDetailContainer.classList.add('inactive');
 
 /*const isAsideClosed = aside.classList.contains('inactive');
 
@@ -44,8 +52,11 @@ function toggleDesktopMenu(){
 
 function toggleAside(){
 
+    shoppinCartContainer.classList.toggle('inactive')
+
     mobileMenu.classList.add('inactive');
-    aside.classList.toggle('inactive')
+    productDetailContainer.classList.add('inactive');
+    
 
    /* const isMobileClosed = mobileMenu.classList.contains('inactive');
 
@@ -55,6 +66,18 @@ function toggleAside(){
     aside.classList.toggle('inactive')*/
 }
 
+function openProductDetail(){
+    productDetailContainer.classList.remove('inactive');
+    
+}
+
+function closeProductDetailIside(){
+    productDetailContainer.classList.add('inactive');
+    mobileMenu.classList.add('inactive');
+    shoppinCartContainer.classList.add('inactive');
+    desktopMenu.classList.add('inactive');
+    
+}
 
 
            const productList = [];
@@ -99,6 +122,7 @@ function toggleAside(){
         //product = {name, price, image} --> product.image
         const productImg = document.createElement('img'); 
         productImg.setAttribute('src', product.image); //modificar su propiedad src, por el objeto 
+        productImg.addEventListener('click', openProductDetail);
          
         const productInfo= document.createElement('div');
         productInfo.classList.add('product-info');
