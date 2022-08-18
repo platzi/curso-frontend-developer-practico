@@ -63,6 +63,7 @@ function removeProductCartShopping(productToRemove) {
     (product) => product !== productToRemove
   );
   renderProductCartShopping();
+  updateQuantityProducts();
 }
 
 function renderProductDetailContent(product) {
@@ -90,12 +91,18 @@ function renderProductDetailContent(product) {
 function addProductCartShopping(product) {
   listProductCartShopping.push(product);
   renderProductCartShopping();
+  updateQuantityProducts();
 }
 
 function cleanParentElementContent($parentElement) {
   while ($parentElement.firstChild) {
     $parentElement.removeChild($parentElement.firstChild);
   }
+}
+
+function updateQuantityProducts() {
+  const $quantityProducts = document.querySelector("#quantityProducts");
+  $quantityProducts.innerText = listProductCartShopping.length;
 }
 
 function renderProductCartShopping() {
