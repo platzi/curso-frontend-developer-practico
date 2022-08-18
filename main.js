@@ -1,14 +1,17 @@
 const menuEmail = document.querySelector('.navbar-email');
 const menuCarritoIcon = document.querySelector('.navbar-shopping-cart');
+const productDetailCloseIcon =document.querySelector('.product-detail-close')
 const desktopMenu = document.querySelector('.desktop-menu');
 const BurguerMenu = document.querySelector('.menu');
 const MobileMenu = document.querySelector('.mobile-menu');
 const shoppingCartContainer = document.querySelector('#shoppingCartContainer');
+const productDetailContainer = document.querySelector('#productDetail');
 const cardsContainer = document.querySelector('.cards-container');
 
 menuEmail.addEventListener('click', toggleDesktopMenu)
 BurguerMenu.addEventListener('click', toggleMobileMenu)
 menuCarritoIcon.addEventListener('click', toggleCarritoAside)
+productDetailCloseIcon.addEventListener('click', closeProductDetailAside)
 
 function toggleDesktopMenu() {
 
@@ -27,6 +30,7 @@ function toggleMobileMenu() {
     if(!isAsideClosed) {
         shoppingCartContainer.classList.add('inactive')
     }
+    closeProductDetailAside()
 
     MobileMenu.classList.toggle('inactive')
 }
@@ -37,6 +41,8 @@ function toggleCarritoAside() {
 
     const isDesktopMenuClosed = desktopMenu.classList.contains('inactive');
 
+    const isProductDetailClosed = productDetailContainer.classList.contains('inactive');
+
     if(!isDesktopMenuClosed) {
         desktopMenu.classList.add('inactive')
     }
@@ -44,8 +50,26 @@ function toggleCarritoAside() {
     if(!isMobileMenuClosed) {
         MobileMenu.classList.add('inactive')
     }
+
+    if(!isProductDetailClosed) {
+        productDetailContainer.classList.add('inactive')
+    }
         
     shoppingCartContainer.classList.toggle('inactive')
+}
+
+function openProductDetailAside () {
+
+    shoppingCartContainer.classList.add('inactive')
+
+
+    productDetailContainer.classList.remove('inactive')
+}
+
+function closeProductDetailAside() {
+    
+
+    productDetailContainer.classList.add('inactive')
 }
 
 const productList = [];
@@ -91,9 +115,11 @@ function renderProducts(arr) {
 
     for (product of arr){
         const productCard = document.createElement('div');
-        productCard.classList.add('product-card')
+        productCard.classList.add('product-card');
+
         const productoImg = document.createElement('img');
-        productoImg.setAttribute('src', product.image)
+        productoImg.setAttribute('src', product.image);
+        productoImg.addEventListener('click', openProductDetailAside)
     
         const productInfo = document.createElement('div');
         productInfo.classList.add('product-info');
