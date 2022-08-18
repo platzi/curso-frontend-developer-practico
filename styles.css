@@ -172,6 +172,7 @@
 
   #shoppingCartContainer {
     padding: 0 24px;
+    background-color: var(--white);
   }
   .title-container {
     display: flex;
