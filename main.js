@@ -65,7 +65,9 @@ function renderProductDetailContent(product) {
   const $productDetailDescription = document.querySelector(
     "#productDetailDescription"
   );
+  const $btnAddToCartProduct = document.querySelector(".add-to-cart-button");
   const { image, price, name, description } = product;
+
   $productDetailImg.setAttribute("src", image);
   $productDetailPrice.innerText = `$${price}`;
   $productDetailName.innerText = name;
@@ -73,6 +75,9 @@ function renderProductDetailContent(product) {
     "bike",
     name.toLowerCase()
   );
+  $btnAddToCartProduct.onclick = () => {
+    addProductCartShopping(product);
+  };
 }
 
 function addProductCartShopping(product) {
