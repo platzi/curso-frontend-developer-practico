@@ -48,7 +48,7 @@ function openProductDetail(product) {
     product.isShow = "true";
   }
   if (productIsShow) {
-    if (productIsShow != product) {
+    if (productIsShow !== product) {
       productIsShow.isShow = false;
       closeProductDetail();
       console.log("Ocultando producto");
@@ -58,6 +58,15 @@ function openProductDetail(product) {
   renderProductDetailContent(product);
 }
 
+function removeProductCartShopping(productToRemove) {
+  listProductCartShopping = listProductCartShopping.filter(
+    (product) => product !== productToRemove
+  );
+  renderProductCartShopping();
+  updateQuantityProducts();
+  renderTotalCostsCartShopping();
+}
+
 function renderProductDetailContent(product) {
   const $productDetailImg = document.querySelector("#productDetailImg");
   const $productDetailPrice = document.querySelector("#productDetailPrice");
@@ -65,7 +74,9 @@ function renderProductDetailContent(product) {
   const $productDetailDescription = document.querySelector(
     "#productDetailDescription"
   );
+  const $btnAddToCartProduct = document.querySelector(".add-to-cart-button");
   const { image, price, name, description } = product;
+
   $productDetailImg.setAttribute("src", image);
   $productDetailPrice.innerText = `$${price}`;
   $productDetailName.innerText = name;
@@ -73,8 +84,83 @@ function renderProductDetailContent(product) {
     "bike",
     name.toLowerCase()
   );
+  $btnAddToCartProduct.onclick = () => {
+    addProductCartShopping(product);
+  };
+}
+
+function addProductCartShopping(product) {
+  listProductCartShopping.push(product);
+  renderProductCartShopping();
+  updateQuantityProducts();
+  renderTotalCostsCartShopping();
+}
+
+function cleanParentElementContent($parentElement) {
+  while ($parentElement.firstChild) {
+    $parentElement.removeChild($parentElement.firstChild);
+  }
+}
+
+function updateQuantityProducts() {
+  const $quantityProducts = document.querySelector("#quantityProducts");
+  $quantityProducts.innerText = listProductCartShopping.length;
+}
+
+function calculateTotalCostsCartShopping() {
+  const inicialValor = 0;
+  return listProductCartShopping.reduce(
+    (AcumCosts, { price }) => AcumCosts + price,
+    inicialValor
+  );
+}
+
+function renderTotalCostsCartShopping() {
+  $totalCostsCartShopping = document.querySelector("#totalCostsCartShopping");
+  $totalCostsCartShopping.innerText = `$${calculateTotalCostsCartShopping()}`;
+}
+function renderProductCartShopping() {
+  const $orderContent = document.querySelector(".my-order-content");
+
+  cleanParentElementContent($orderContent);
+
+  listProductCartShopping.forEach((product, indice) => {
+    const { image, price, name } = product;
+
+    $productOrderDiv = document.createElement("div");
+    $productOrderDiv.classList.add("shopping-cart");
+
+    $productOrderFigure = document.createElement("figure");
+
+    $productOrderImg = document.createElement("img");
+    $productOrderImg.setAttribute("src", image);
+
+    $productOrderName = document.createElement("p");
+    $productOrderName.innerText = name;
+
+    $productOrderPrice = document.createElement("p");
+    $productOrderPrice.innerText = price;
+
+    $btnRemoveProductOrder = document.createElement("img");
+    $btnRemoveProductOrder.setAttribute("src", "./icons/icon_close.png");
+    $btnRemoveProductOrder.setAttribute(
+      "id",
+      `btnRemoveProductOrder-${indice}`
+    );
+    $btnRemoveProductOrder.onclick = () => {
+      removeProductCartShopping(product);
+    };
+
+    $productOrderFigure.appendChild($productOrderImg);
+    $productOrderDiv.appendChild($productOrderFigure);
+    $productOrderDiv.appendChild($productOrderName);
+    $productOrderDiv.appendChild($productOrderPrice);
+    $productOrderDiv.appendChild($btnRemoveProductOrder);
+    $orderContent.appendChild($productOrderDiv);
+  });
 }
 const productList = [];
+let listProductCartShopping = [];
 
 function addProductToList() {
   productList.push({
@@ -251,6 +337,10 @@ function renderProduct(arr) {
     $productInfoDiv.appendChild($productName);
 
     const $productInfoFigure = document.createElement("figure");
+    $productInfoFigure.addEventListener(
+      "click",
+      addProductCartShopping.bind(this, product)
+    );
 
     const $productImgCard = document.createElement("img");
     $productImgCard.setAttribute("src", "./icons/bt_add_to_cart.svg");
