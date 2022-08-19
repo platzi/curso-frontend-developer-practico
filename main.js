@@ -5,10 +5,14 @@ const desktopMenu = document.querySelector('.desktop-menu ');
 const mobileMenu = document.querySelector('.mobile-menu');
 const shoppingCartContainer = document.querySelector('#shoppingCartContainer');
 const cardsContainer = document.querySelector('.cards-container')
+const productDetailContainer = document.querySelector('#productDetail');
+const productDetailCloseIcon = document.querySelector('.product-detail-close');
+
 
 menuEmail.addEventListener('click', toggleDesktopMenu);
 menuBurguer.addEventListener('click', toggleMobileMenu);
 menuCarritoIcon.addEventListener('click', toggleCarritoAside);
+productDetailCloseIcon.addEventListener('click', closeProductDetailAside);
 
 
 function toggleDesktopMenu() {
@@ -29,6 +33,8 @@ function toggleMobileMenu() {
     if (!isAsideClosed) {
         shoppingCartContainer.classList.add('inactive');
     }
+
+    closeProductDetailAside();
 }
 
 function toggleCarritoAside() {
@@ -44,6 +50,21 @@ function toggleCarritoAside() {
     if (!isDesktopMenuClosed) {
         desktopMenu.classList.add('inactive');
     }
+
+    const isProductDetailClosed = productDetailContainer.classList.contains('inactive');
+    if (!isProductDetailClosed) {
+        productDetailContainer.classList.add('inactive');
+    }
+}
+
+function openProductDetailAside(){
+    shoppingCartContainer.classList.add('inactive');
+    
+    productDetailContainer.classList.remove('inactive');
+}
+
+function closeProductDetailAside(){
+    productDetailContainer.classList.add('inactive');
 }
 
 /* Product List */
@@ -96,12 +117,12 @@ productList.push({
 
 function renderProducts(arr) {
     for (product of arr) {
-        /*
         const productCard = document.createElement('div');
         productCard.classList.add('product-card');
     
         const productImg = document.createElement('img')
         productImg.setAttribute('src', product.image);
+        productImg.addEventListener('click', openProductDetailAside)
     
         const productInfo = document.createElement('div');
         productInfo.classList.add('product-info');
@@ -129,8 +150,8 @@ function renderProducts(arr) {
 
 
         cardsContainer.appendChild(productCard);
-        */
 
+        /*
         const productCard = `
         <div class="product-card">
         <img src="${product.image}" alt="">
@@ -147,6 +168,7 @@ function renderProducts(arr) {
 
 
         cardsContainer.innerHTML += productCard;
+        */
     }
 }
 
