@@ -30,25 +30,26 @@ function toggleAnimationOpenAndClose(isContainsValor, $elementToToggle) {
   if (!isContainsValor) {
     $elementToToggle.style.animationName = "leave";
     setTimeout(() => {
-      $shoppingCardContainer.classList.add("inactive");
+      $elementToToggle.classList.add("inactive");
     }, 600);
     return;
   }
   $elementToToggle.classList.remove("inactive");
   $elementToToggle.style.animationName = "enter";
-  console.log($elementToToggle.style.animationName);
 }
 
 function toggleCarritoAside() {
   $desktopMenu.classList.add("inactive");
   $mobileMenu.classList.add("inactive");
   $productDetail.classList.add("inactive");
-  const isContainsValor = $shoppingCardContainer.classList.contains("inactive");
-  toggleAnimationOpenAndClose(isContainsValor, $shoppingCardContainer);
+  const isContainsInactive =
+    $shoppingCardContainer.classList.contains("inactive");
+  toggleAnimationOpenAndClose(isContainsInactive, $shoppingCardContainer);
 }
 
 function closeProductDetail() {
-  $productDetail.classList.add("inactive");
+  const isContainsInactive = $productDetail.classList.contains("inactive");
+  toggleAnimationOpenAndClose(isContainsInactive, $productDetail);
 }
 
 function openProductDetail(product) {
@@ -59,17 +60,29 @@ function openProductDetail(product) {
     return productList.find((productActual) => productActual.isShow);
   };
   const productIsShow = buscarProductShow();
+  debugger;
   if (!product.isShow) {
-    product.isShow = "true";
+    // innecesario
+    product.isShow = true;
   }
   if (productIsShow) {
     if (productIsShow !== product) {
       productIsShow.isShow = false;
       closeProductDetail();
-      console.log("Ocultando producto");
+      setTimeout(() => {
+        const isContainsInactive =
+          $productDetail.classList.contains("inactive");
+        toggleAnimationOpenAndClose(isContainsInactive, $productDetail);
+        renderProductDetailContent(product);
+      }, 600);
+      return;
+    } else {
+      return;
     }
   }
-  $productDetail.classList.remove("inactive");
+
+  const isContainsInactive = $productDetail.classList.contains("inactive");
+  toggleAnimationOpenAndClose(isContainsInactive, $productDetail);
   renderProductDetailContent(product);
 }
 
@@ -134,6 +147,7 @@ function renderTotalCostsCartShopping() {
   $totalCostsCartShopping = document.querySelector("#totalCostsCartShopping");
   $totalCostsCartShopping.innerText = `$${calculateTotalCostsCartShopping()}`;
 }
+
 function renderProductCartShopping() {
   const $orderContent = document.querySelector(".my-order-content");
 
