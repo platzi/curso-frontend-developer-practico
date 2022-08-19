@@ -12,12 +12,15 @@ const $btnCloseCartShopping = document.querySelector("#closeCartShopping");
 $menuEmail.addEventListener("click", toggleMenuDesktop);
 $iconHamburgerMenu.addEventListener("click", toggleMenuMobile);
 $menuCarritoIcon.addEventListener("click", toggleCarritoAside);
-$btnProducDetailClose.addEventListener("click", closeProductDetail);
+$btnProducDetailClose.addEventListener(
+  "click",
+  animationClose.bind(this, $productDetail)
+);
 $btnCloseCartShopping.addEventListener("click", toggleCarritoAside);
 
 function toggleMenuDesktop() {
-  $shoppingCardContainer.classList.add("inactive");
-  $productDetail.classList.add("inactive");
+  animationClose($shoppingCardContainer);
+  animationClose($productDetail);
   $desktopMenu.classList.toggle("inactive");
 }
 
@@ -26,63 +29,57 @@ function toggleMenuMobile() {
   $productDetail.classList.add("inactive");
   $mobileMenu.classList.toggle("inactive");
 }
-function toggleAnimationOpenAndClose(isContainsValor, $elementToToggle) {
-  if (!isContainsValor) {
-    $elementToToggle.style.animationName = "leave";
-    setTimeout(() => {
-      $elementToToggle.classList.add("inactive");
-    }, 600);
-    return;
-  }
-  $elementToToggle.classList.remove("inactive");
-  $elementToToggle.style.animationName = "enter";
+
+function animationOpen($elementToOpen) {
+  $elementToOpen.classList.remove("inactive");
+  $elementToOpen.style.animationName = "enter";
+}
+
+function animationClose($elementToClose) {
+  $elementToClose.style.animationName = "leave";
+  setTimeout(() => {
+    $elementToClose.classList.add("inactive");
+  }, 600);
 }
 
 function toggleCarritoAside() {
   $desktopMenu.classList.add("inactive");
   $mobileMenu.classList.add("inactive");
-  $productDetail.classList.add("inactive");
+  animationClose($productDetail);
   const isContainsInactive =
     $shoppingCardContainer.classList.contains("inactive");
-  toggleAnimationOpenAndClose(isContainsInactive, $shoppingCardContainer);
-}
-
-function closeProductDetail() {
-  const isContainsInactive = $productDetail.classList.contains("inactive");
-  toggleAnimationOpenAndClose(isContainsInactive, $productDetail);
+  if (!isContainsInactive) {
+    animationClose($shoppingCardContainer);
+    return;
+  }
+  animationOpen($shoppingCardContainer);
 }
 
 function openProductDetail(product) {
   $desktopMenu.classList.add("inactive");
   $mobileMenu.classList.add("inactive");
-  $shoppingCardContainer.classList.add("inactive");
+  animationClose($shoppingCardContainer);
   const buscarProductShow = () => {
     return productList.find((productActual) => productActual.isShow);
   };
-  const productIsShow = buscarProductShow();
-  debugger;
+  let productIsShow;
   if (!product.isShow) {
+    productIsShow = buscarProductShow();
     // innecesario
     product.isShow = true;
   }
   if (productIsShow) {
     if (productIsShow !== product) {
       productIsShow.isShow = false;
-      closeProductDetail();
+      animationClose($productDetail);
       setTimeout(() => {
-        const isContainsInactive =
-          $productDetail.classList.contains("inactive");
-        toggleAnimationOpenAndClose(isContainsInactive, $productDetail);
-        renderProductDetailContent(product);
+        //toggleAnimationOpenAndClose(isContainsInactive, $productDetail);
+        openProductDetail(product);
       }, 600);
-      return;
-    } else {
       return;
     }
   }
-
-  const isContainsInactive = $productDetail.classList.contains("inactive");
-  toggleAnimationOpenAndClose(isContainsInactive, $productDetail);
+  animationOpen($productDetail);
   renderProductDetailContent(product);
 }
 
