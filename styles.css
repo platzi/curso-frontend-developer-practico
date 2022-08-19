@@ -271,10 +271,12 @@
   }
 /* Aside product detail */
   .product-detail-dos {
-    width: 360px;
+    width: 350px;
     padding-bottom: 24px;
     position: absolute;
-    right: 0;
+    top: auto;
+    left: 50%;
+    margin-left: -175px;
   }
   .product-detail-close {
     background: var(--white);
@@ -355,6 +357,8 @@
     /* Aside product detail */
     .product-detail-dos {
       width: 100%;
+      left: initial;
+      margin-left: initial;
     }
   }
 /* Movile menu media */
