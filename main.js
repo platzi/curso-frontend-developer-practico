@@ -64,6 +64,7 @@ function removeProductCartShopping(productToRemove) {
   );
   renderProductCartShopping();
   updateQuantityProducts();
+  renderTotalCostsCartShopping();
 }
 
 function renderProductDetailContent(product) {
@@ -92,6 +93,7 @@ function addProductCartShopping(product) {
   listProductCartShopping.push(product);
   renderProductCartShopping();
   updateQuantityProducts();
+  renderTotalCostsCartShopping();
 }
 
 function cleanParentElementContent($parentElement) {
@@ -105,6 +107,18 @@ function updateQuantityProducts() {
   $quantityProducts.innerText = listProductCartShopping.length;
 }
 
+function calculateTotalCostsCartShopping() {
+  const inicialValor = 0;
+  return listProductCartShopping.reduce(
+    (AcumCosts, { price }) => AcumCosts + price,
+    inicialValor
+  );
+}
+
+function renderTotalCostsCartShopping() {
+  $totalCostsCartShopping = document.querySelector("#totalCostsCartShopping");
+  $totalCostsCartShopping.innerText = `$${calculateTotalCostsCartShopping()}`;
+}
 function renderProductCartShopping() {
   const $orderContent = document.querySelector(".my-order-content");
 
