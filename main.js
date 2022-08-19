@@ -66,4 +66,16 @@ function toggleAsideShoppingCart(){
     
     // si estuviera activo el desktopMenu, lo oculto 
     desktopMenu.classList.add('inactive');
+
+
+    // pruebas con metodos classList ///////////////
+    // enumera la cantidad de clases 
+    console.log(mobileMenu.classList.length);
+    const cantidadMobileMenu = mobileMenu.classList.length;
+    for(i=0;i<cantidadMobileMenu;i++){
+        // cita las clases del elemento
+        console.log(mobileMenu.classList.item(i));   
+    }
+
+    
 }
