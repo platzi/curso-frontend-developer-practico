@@ -139,7 +139,7 @@ function renderProductCartShopping() {
     $productOrderName.innerText = name;
 
     $productOrderPrice = document.createElement("p");
-    $productOrderPrice.innerText = price;
+    $productOrderPrice.innerText = `$${price}`;
 
     $btnRemoveProductOrder = document.createElement("img");
     $btnRemoveProductOrder.setAttribute("src", "./icons/icon_close.png");
