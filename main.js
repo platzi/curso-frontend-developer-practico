@@ -26,12 +26,25 @@ function toggleMenuMobile() {
   $productDetail.classList.add("inactive");
   $mobileMenu.classList.toggle("inactive");
 }
+function toggleAnimationOpenAndClose(isContainsValor, $elementToToggle) {
+  if (!isContainsValor) {
+    $elementToToggle.style.animationName = "leave";
+    setTimeout(() => {
+      $shoppingCardContainer.classList.add("inactive");
+    }, 600);
+    return;
+  }
+  $elementToToggle.classList.remove("inactive");
+  $elementToToggle.style.animationName = "enter";
+  console.log($elementToToggle.style.animationName);
+}
 
 function toggleCarritoAside() {
   $desktopMenu.classList.add("inactive");
   $mobileMenu.classList.add("inactive");
   $productDetail.classList.add("inactive");
-  $shoppingCardContainer.classList.toggle("inactive");
+  const isContainsValor = $shoppingCardContainer.classList.contains("inactive");
+  toggleAnimationOpenAndClose(isContainsValor, $shoppingCardContainer);
 }
 
 function closeProductDetail() {

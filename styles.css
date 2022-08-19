@@ -165,6 +165,25 @@ nav {
   width: 360px;
   position: absolute;
   right: 0;
+  transform: translate(100%);
+  animation-iteration-count: 1;
+  animation-duration: 0.6s;
+  animation-direction: reverse;
+  animation-fill-mode: forwards;
+  animation-name: enter;
+}
+@keyframes enter {
+  from {
+    transform: translate(0);
+  }
+}
+@keyframes leave {
+  to {
+    transform: translate(0);
+  }
+  from {
+    transform: translate(100%);
+  }
 }
 
 /* produc-detail-primary */
