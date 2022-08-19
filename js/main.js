@@ -5,7 +5,8 @@ const mobileMenu = document.querySelector('.mobile-menu');
 // Cuando demos click aquí (sig L.9)...
 const menuCartIcon = document.querySelector('.navbar-shopping-cart');
 // Este aparecera o desaparecera con la función en -> (sig L.25)
-const aside = document.querySelector('.product-detail');
+const aside = document.querySelector('.myOrder');
+
 const cardsContainer = document.querySelector('.cards-container');
 
 menuEmail.addEventListener('click', toggleDesktopMenu);
