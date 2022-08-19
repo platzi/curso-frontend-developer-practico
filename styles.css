@@ -176,6 +176,11 @@ nav {
 .title-container {
   display: flex;
 }
+.title-container_imagen {
+  display: grid;
+  place-content: center;
+  cursor: pointer;
+}
 .title-container img {
   transform: rotate(180deg);
   margin-right: 14px;

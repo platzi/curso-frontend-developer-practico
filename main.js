@@ -7,11 +7,13 @@ const $menuCarritoIcon = document.querySelector(".navbar-shopping-cart");
 const $productContainer = document.querySelector(".cards-container");
 const $productDetail = document.querySelector("#productDetail");
 const $btnProducDetailClose = document.querySelector(".product-detail-close");
+const $btnCloseCartShopping = document.querySelector("#closeCartShopping");
 
 $menuEmail.addEventListener("click", toggleMenuDesktop);
 $iconHamburgerMenu.addEventListener("click", toggleMenuMobile);
 $menuCarritoIcon.addEventListener("click", toggleCarritoAside);
 $btnProducDetailClose.addEventListener("click", closeProductDetail);
+$btnCloseCartShopping.addEventListener("click", toggleCarritoAside);
 
 function toggleMenuDesktop() {
   $shoppingCardContainer.classList.add("inactive");
