@@ -12,51 +12,91 @@ const $btnCloseCartShopping = document.querySelector("#closeCartShopping");
 $menuEmail.addEventListener("click", toggleMenuDesktop);
 $iconHamburgerMenu.addEventListener("click", toggleMenuMobile);
 $menuCarritoIcon.addEventListener("click", toggleCarritoAside);
-$btnProducDetailClose.addEventListener("click", closeProductDetail);
+$btnProducDetailClose.addEventListener(
+  "click",
+  animationClose.bind(this, $productDetail, "leave-to-right")
+);
 $btnCloseCartShopping.addEventListener("click", toggleCarritoAside);
 
+function animationOpen($elementToOpen, nameAnimation) {
+  $elementToOpen.classList.remove("inactive");
+  $elementToOpen.style.animationName = nameAnimation;
+}
+
+function animationClose($elementToClose, nameAnimation) {
+  $elementToClose.style.animationName = nameAnimation;
+  setTimeout(() => {
+    $elementToClose.classList.add("inactive");
+  }, 600);
+}
+
 function toggleMenuDesktop() {
-  $shoppingCardContainer.classList.add("inactive");
-  $productDetail.classList.add("inactive");
+  const nameAnimation = "leave-to-right";
+  animationClose($shoppingCardContainer, nameAnimation);
+  animationClose($productDetail, nameAnimation);
   $desktopMenu.classList.toggle("inactive");
 }
 
 function toggleMenuMobile() {
-  $shoppingCardContainer.classList.add("inactive");
-  $productDetail.classList.add("inactive");
-  $mobileMenu.classList.toggle("inactive");
+  let nameAnimation = "leave-to-right";
+  animationClose($shoppingCardContainer, nameAnimation);
+  animationClose($productDetail, nameAnimation);
+
+  const isContainsInactive = $mobileMenu.classList.contains("inactive");
+
+  if (!isContainsInactive) {
+    nameAnimation = "leave-to-left";
+    animationClose($mobileMenu, nameAnimation);
+    return;
+  }
+  nameAnimation = "enter-to-left";
+  animationOpen($mobileMenu, nameAnimation);
 }
 
 function toggleCarritoAside() {
   $desktopMenu.classList.add("inactive");
-  $mobileMenu.classList.add("inactive");
-  $productDetail.classList.add("inactive");
-  $shoppingCardContainer.classList.toggle("inactive");
-}
-
-function closeProductDetail() {
-  $productDetail.classList.add("inactive");
+  let nameAnimation = "leave-to-left";
+  animationClose($mobileMenu, nameAnimation);
+  nameAnimation = "leave-to-right";
+  animationClose($productDetail, nameAnimation);
+  const isContainsInactive =
+    $shoppingCardContainer.classList.contains("inactive");
+  if (!isContainsInactive) {
+    nameAnimation = "leave-to-right";
+    animationClose($shoppingCardContainer, nameAnimation);
+    return;
+  }
+  nameAnimation = "enter-to-right";
+  animationOpen($shoppingCardContainer, nameAnimation);
 }
 
 function openProductDetail(product) {
   $desktopMenu.classList.add("inactive");
-  $mobileMenu.classList.add("inactive");
-  $shoppingCardContainer.classList.add("inactive");
+  let nameAnimation = "leave-to-left";
+  animationClose($mobileMenu, nameAnimation);
+  nameAnimation = "leave-to-right";
+  animationClose($shoppingCardContainer, nameAnimation);
   const buscarProductShow = () => {
     return productList.find((productActual) => productActual.isShow);
   };
-  const productIsShow = buscarProductShow();
+  let productIsShow;
   if (!product.isShow) {
-    product.isShow = "true";
+    productIsShow = buscarProductShow();
+    product.isShow = true;
   }
   if (productIsShow) {
     if (productIsShow !== product) {
       productIsShow.isShow = false;
-      closeProductDetail();
-      console.log("Ocultando producto");
+      nameAnimation = "leave-to-right";
+      animationClose($productDetail, nameAnimation);
+      setTimeout(() => {
+        openProductDetail(product);
+      }, 600);
+      return;
     }
   }
-  $productDetail.classList.remove("inactive");
+  nameAnimation = "enter-to-right";
+  animationOpen($productDetail, nameAnimation);
   renderProductDetailContent(product);
 }
 
@@ -121,6 +161,7 @@ function renderTotalCostsCartShopping() {
   $totalCostsCartShopping = document.querySelector("#totalCostsCartShopping");
   $totalCostsCartShopping.innerText = `$${calculateTotalCostsCartShopping()}`;
 }
+
 function renderProductCartShopping() {
   const $orderContent = document.querySelector(".my-order-content");
 
