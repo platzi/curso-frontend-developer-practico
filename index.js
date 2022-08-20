@@ -7,6 +7,7 @@ let menu_hamb = document.querySelector(".menu");
 
 let icono_carrito = document.querySelector(".navbar-shopping-cart");
 let aside = document.querySelector(".product-detail");
+let contenedor_template = document.querySelector(".cards-container");
 
 
 //Eventos
@@ -25,6 +26,13 @@ menu_hamb.addEventListener("click", () => {
     if (!aside.classList.contains('oculta')) {
         aside.classList.add('oculta')
     }
+
+    if (!contenedor_template.classList.contains('oculta')) {
+        contenedor_template.classList.add('oculta');
+    } else {
+        contenedor_template.classList.remove('oculta');
+    }
+
 });
 
 icono_carrito.addEventListener("click", () => {
@@ -46,73 +54,86 @@ let Lista_articulos = [];
 Lista_articulos.push({
     imagen: "/image/depositphotos_6339600-stock-photo-italian-pizza.png",
     nombre: "Pizza de Queso",
-    precio: 180
+    precio: 180,
+    id: "food"
 
 });
 Lista_articulos.push({
     imagen: "/image/depositphotos_6339600-stock-photo-italian-pizza.png",
     nombre: "Pizza de Jamon",
-    precio: 230
+    precio: 230,
+    id: "food"
 
 });
 Lista_articulos.push({
     imagen: "/image/depositphotos_6339600-stock-photo-italian-pizza.png",
     nombre: "Pizza de Vejetales",
-    precio: 200
+    precio: 200,
+    id: "food"
 
 });
 
-let contenedor_template = document.querySelector(".cards-container");
-for (const iterator of Lista_articulos) {
-    let imagen_item = iterator.imagen;
-    let nombre_item = iterator.nombre;
-    let precio_item = iterator.precio;
+function template(arr) {
+
+
+    for (const iterator of arr) {
+        let imagen_item = iterator.imagen;
+        let nombre_item = iterator.nombre;
+        let precio_item = iterator.precio;
+        let id_item = iterator.precio;
 
 
 
 
-    //Creando un template de un articulo con  las propiedades   de este 
+        //Creando un template de un articulo con  las propiedades   de este 
 
-    let t_tarjeta = document.createElement('div')
-    t_tarjeta.classList.add('product-card');
+        let t_tarjeta = document.createElement('div')
+        t_tarjeta.classList.add('product-card');
 
-    let t_img = document.createElement('img');
-    t_img.setAttribute("src", imagen_item);
+        let t_img = document.createElement('img');
+        t_img.setAttribute("src", imagen_item);
 
-    let product_div = document.createElement('div');
-    product_div.classList.add('product-info')
+        let hr = document.createElement('hr');
 
-    let div_info = document.createElement('div');
+        let product_div = document.createElement('div');
+        product_div.classList.add('product-info')
 
-    let precio_info = document.createElement('p');
-    precio_info.innerHTML = '$ ' + precio_item;
+        let div_info = document.createElement('div');
 
-    let nombre_info = document.createElement('p');
-    nombre_info.innerHTML = nombre_item;
+        let precio_info = document.createElement('p');
+        precio_info.innerHTML = '$ ' + precio_item;
 
-    let figure_div = document.createElement('figure')
+        let nombre_info = document.createElement('p');
+        nombre_info.innerHTML = nombre_item;
 
-    let img_comprar = document.createElement('img');
-    img_comprar.setAttribute("src", "./icons/bt_add_to_cart.svg");
+        let figure_div = document.createElement('figure')
 
-
-    figure_div.append(img_comprar);
-
-
-    div_info.append(precio_info);
-    div_info.append(nombre_info);
+        let img_comprar = document.createElement('img');
+        img_comprar.setAttribute("src", "./icons/bt_add_to_cart.svg");
 
 
-
-    product_div.append(div_info);
-    product_div.append(figure_div);
-
-    t_tarjeta.append(t_img);
-    t_tarjeta.append(product_div);
-
-    contenedor_template.append(t_tarjeta);
+        figure_div.append(img_comprar);
 
 
+        div_info.append(precio_info);
+        div_info.append(nombre_info);
+
+
+
+        product_div.append(div_info);
+        product_div.append(figure_div);
+
+        t_tarjeta.append(t_img);
+        t_tarjeta.append(hr);
+        t_tarjeta.append(product_div);
+
+        contenedor_template.append(t_tarjeta);
+
+
+
+    }
 
 }
+
+template(Lista_articulos);
 

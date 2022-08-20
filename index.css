@@ -13,6 +13,7 @@
 body {
     margin: 0;
     font-family: 'Quicksand', sans-serif;
+
 }
 
 nav {
@@ -96,7 +97,7 @@ nav {
     align-items: center;
 }
 
-/* otro archivo */
+/* menu de escritorio */
 .desktop-menu {
     position: absolute;
     top: 60px;
@@ -143,7 +144,8 @@ nav {
 
 /* Aside carrito de compra */
 .product-detail {
-    top: 30px;
+    background-color: white;
+    top: 61px;
     width: 360px;
     padding: 24px;
     box-sizing: border-box;
@@ -233,27 +235,33 @@ nav {
 
 /* Menu de compra  */
 .cards-container {
+
     margin-top: 100px;
     display: grid;
     grid-template-columns: repeat(auto-fill, 240px);
     gap: 26px;
     place-content: center;
-    /* margin: 100px */
 }
 
 .product-card {
-    border: 1px solid black;
-    /* width: 300px; */
-    /* background-color: red; */
-
-
+    width: 240px;
+    border: 1px solid var(--black);
+    box-shadow: 4px 5px 5px var(--black);
+    padding: 5px;
 }
+
+/* prueba */
+/* .cards-container:hover {
+    height: 200px;
+} */
+
+/* prueba */
 
 .product-card img {
     width: 240px;
     height: 240px;
     border-radius: 20px;
-    object-fit: contain;
+    object-fit: cover;
 }
 
 .product-info {
