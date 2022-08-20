@@ -5,6 +5,14 @@ const burgerMenu = document.querySelector('.menu');
 const carritoMenuIcon = document.querySelector('.navbar-shopping-cart');
 const shoppingCartContainer = document.querySelector('#shoppingCartContainer');
 const cardsContainer = document.querySelector('.cards-container');
+const shoppingCartCount= document.querySelector('.navbar-shopping-cart__count');
+const addToCartShopping = document.querySelector('.my-order-content');
+
+let addedItem=0;
+let total;
+let shoppingCartList =[];
+
+shoppingCartCount.style.setProperty('display','none');
 
 const productDetailAside = document.querySelector('#productDetail');
 //const productDetailClose = document.querySelector('.product-detail-close');
@@ -93,6 +101,172 @@ function closeWindows(etiqueta){
 
 }
 
+function addToCart(event) {
+    addToCartShopping.replaceChildren();
+    console.log(event);
+    console.log(this.alt);
+    shoppingCartCount.style.setProperty('display','flex');
+    addedItem+=1;
+    shoppingCartCount.innerText = addedItem;
+    renderAddToCartItem(this.alt,shoppingCartList);
+}
+
+function deleteItemFromCart() {
+    total=0;
+    addedItem=addedItem-1;
+    shoppingCartCount.innerText = addedItem;
+    if (addedItem==0) {
+        shoppingCartCount.style.setProperty('display','none');
+        toggleCarritoAside();    
+    }
+    addToCartShopping.replaceChildren();
+    shoppingCartList.pop(this.alt);
+    for (const productAddedToCart of shoppingCartList) {
+        const shoppingCart = document.createElement('div');
+            shoppingCart.classList.add('shopping-cart');
+               
+               const shoppingCartFigure =document.createElement('figure');
+                 const shoppingCartFigureImg = document.createElement('img');
+                 shoppingCartFigureImg.setAttribute('src',productAddedToCart.image);
+         
+               shoppingCartFigure.appendChild(shoppingCartFigureImg);
+         
+               const shoppingCartItemName = document.createElement('p');
+               shoppingCartItemName.innerText = productAddedToCart.name;
+               
+               const shoppingCartItemPrice = document.createElement('p');
+               shoppingCartItemPrice.innerText ='$'+productAddedToCart.price;
+         
+               const shoppingCartDeleteItem = document.createElement('img');
+               shoppingCartDeleteItem.setAttribute('src','./icons/icon_close.png');
+               shoppingCartDeleteItem.setAttribute('alt',productAddedToCart.name);
+               shoppingCartDeleteItem.addEventListener('click',deleteItemFromCart)
+         
+               shoppingCart.append(shoppingCartFigure,shoppingCartItemName,shoppingCartItemPrice,shoppingCartDeleteItem);
+         
+            
+             addToCartShopping.append(shoppingCart)
+             
+             //addToCartShopping.insertAdjacentElement("afterbegin",shoppingCart);//para insertar un elemento antes de otro ya existente podemos ocupar insertAdjacentElement(parametroDePosicion,ElementoAgregado); los paramatros de posicion pueden ser los siguientes: 
+             /* 
+             beforebegin: El elemento se inserta antes de la etiqueta HTML de apertura.
+             afterbegin: El elemento se inserta dentro de la etiqueta HTML, antes de su primer hijo.
+             beforeend: El elemento se inserta dentro de la etiqueta HTML, después de su último hijo. Es el equivalente a usar el método .appendChild().
+             afterend: El elemento se inserta después de la etiqueta HTML de cierre.
+             */
+          
+            
+        }
+        
+        const totalOrder = document.createElement('div');
+        totalOrder.classList.add('order');
+          const totalOrderP=document.createElement('p');
+            const totalOrderPSpan = document.createElement('span');
+            totalOrderPSpan.innerText='Total';
+          totalOrderP.appendChild(totalOrderPSpan);
+          const totalOrderSum= document.createElement('p');
+
+          let sumOfPricesAddedToCart=shoppingCartList.map(function (prices) {
+                return prices.price;
+          });
+          for (let i = 0; i < sumOfPricesAddedToCart.length; i++) {
+            total = total + sumOfPricesAddedToCart[i];
+          }
+
+          totalOrderSum.innerText='$'+total;
+        totalOrder.append(totalOrderP,totalOrderSum);
+        
+        const shoppingCartBtn = document.createElement('button');
+        shoppingCartBtn.classList.add('primary-button');
+        shoppingCartBtn.innerText='Checkout';
+        
+        addToCartShopping.append(totalOrder,shoppingCartBtn);
+        
+}
+
+function renderAddToCartItem(item,arr) {
+    total=0;
+    const itemAddedCart = productList.find(function (product) {
+        return product.name === item;
+      })
+    arr.push(itemAddedCart);
+    console.log(shoppingCartList.length);
+
+
+/* 
+    <div class="shopping-cart">
+      <figure>
+        <img src="https://images.pexels.com/photos/276517/pexels-photo-276517.jpeg?auto=compress&cs=tinysrgb&dpr=2&h=650&w=940" alt="bike">
+      </figure>
+      <p>Bike</p>
+      <p>$30,00</p>
+      <img src="./icons/icon_close.png" alt="close">
+    </div>
+ */
+for (const productAddedToCart of arr) {
+const shoppingCart = document.createElement('div');
+    shoppingCart.classList.add('shopping-cart');
+       
+       const shoppingCartFigure =document.createElement('figure');
+         const shoppingCartFigureImg = document.createElement('img');
+         shoppingCartFigureImg.setAttribute('src',productAddedToCart.image);
+ 
+       shoppingCartFigure.appendChild(shoppingCartFigureImg);
+ 
+       const shoppingCartItemName = document.createElement('p');
+       shoppingCartItemName.innerText = productAddedToCart.name;
+       
+       const shoppingCartItemPrice = document.createElement('p');
+       shoppingCartItemPrice.innerText ='$'+productAddedToCart.price;
+ 
+       const shoppingCartDeleteItem = document.createElement('img');
+       shoppingCartDeleteItem.setAttribute('src','./icons/icon_close.png');
+       shoppingCartDeleteItem.setAttribute('alt',productAddedToCart.name);
+       shoppingCartDeleteItem.addEventListener('click',deleteItemFromCart)
+ 
+       shoppingCart.append(shoppingCartFigure,shoppingCartItemName,shoppingCartItemPrice,shoppingCartDeleteItem);
+ 
+    
+     addToCartShopping.append(shoppingCart)
+     
+     //addToCartShopping.insertAdjacentElement("afterbegin",shoppingCart);//para insertar un elemento antes de otro ya existente podemos ocupar insertAdjacentElement(parametroDePosicion,ElementoAgregado); los paramatros de posicion pueden ser los siguientes: 
+     /* 
+     beforebegin: El elemento se inserta antes de la etiqueta HTML de apertura.
+     afterbegin: El elemento se inserta dentro de la etiqueta HTML, antes de su primer hijo.
+     beforeend: El elemento se inserta dentro de la etiqueta HTML, después de su último hijo. Es el equivalente a usar el método .appendChild().
+     afterend: El elemento se inserta después de la etiqueta HTML de cierre.
+     */
+  
+    
+}
+
+const totalOrder = document.createElement('div');
+totalOrder.classList.add('order');
+  const totalOrderP=document.createElement('p');
+    const totalOrderPSpan = document.createElement('span');
+    totalOrderPSpan.innerText='Total';
+  totalOrderP.appendChild(totalOrderPSpan);
+  const totalOrderSum= document.createElement('p');
+
+  let sumOfPricesAddedToCart=arr.map(function (prices) {
+    return prices.price;
+});
+for (let i = 0; i < sumOfPricesAddedToCart.length; i++) {
+ total = total + sumOfPricesAddedToCart[i];
+}
+
+totalOrderSum.innerText='$'+total;
+
+totalOrder.append(totalOrderP,totalOrderSum);
+
+const shoppingCartBtn = document.createElement('button');
+shoppingCartBtn.classList.add('primary-button');
+shoppingCartBtn.innerText='Checkout';
+
+addToCartShopping.append(totalOrder,shoppingCartBtn);
+
+}
+
 function renderProducts(arr) {
   /* el for of nos siver para recorrer un objeto por sus atributos, esto nos sirve para que no tengamos que usar el indice de un array con mayor dificultad cuando se habla de objetos.
   
@@ -125,6 +299,9 @@ for (const product of arr) {
     const productImgCart = document.createElement('img');
     productImgCart.setAttribute('src','./icons/bt_add_to_cart.svg');
     
+    productImgCart.addEventListener('click',addToCart)
+    productImgCart.setAttribute('alt',product.name);
+
     productInfoFigure.appendChild(productImgCart);
     
     productInfo.appendChild(productInfoDiv);
