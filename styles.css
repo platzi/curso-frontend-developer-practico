@@ -133,6 +133,24 @@ nav {
   right: 0;
   padding: 24px;
   background-color: var(--white);
+  transform: translate(-100%);
+  animation-iteration-count: 1;
+  animation-duration: 0.6s;
+  animation-fill-mode: forwards;
+  animation-name: enter-to-left;
+}
+@keyframes enter-to-left {
+  to {
+    transform: translate(0);
+  }
+}
+@keyframes leave-to-left {
+  from {
+    transform: translate(0);
+  }
+  to {
+    transform: translate(-100%);
+  }
 }
 .mobile-menu a {
   text-decoration: none;
@@ -168,20 +186,19 @@ nav {
   transform: translate(100%);
   animation-iteration-count: 1;
   animation-duration: 0.6s;
-  animation-direction: reverse;
   animation-fill-mode: forwards;
-  animation-name: enter;
+  animation-name: enter-to-right;
 }
-@keyframes enter {
-  from {
-    transform: translate(0);
-  }
-}
-@keyframes leave {
+@keyframes enter-to-right {
   to {
     transform: translate(0);
   }
+}
+@keyframes leave-to-right {
   from {
+    transform: translate(0);
+  }
+  to {
     transform: translate(100%);
   }
 }

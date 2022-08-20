@@ -14,72 +14,89 @@ $iconHamburgerMenu.addEventListener("click", toggleMenuMobile);
 $menuCarritoIcon.addEventListener("click", toggleCarritoAside);
 $btnProducDetailClose.addEventListener(
   "click",
-  animationClose.bind(this, $productDetail)
+  animationClose.bind(this, $productDetail, "leave-to-right")
 );
 $btnCloseCartShopping.addEventListener("click", toggleCarritoAside);
 
-function toggleMenuDesktop() {
-  animationClose($shoppingCardContainer);
-  animationClose($productDetail);
-  $desktopMenu.classList.toggle("inactive");
-}
-
-function toggleMenuMobile() {
-  $shoppingCardContainer.classList.add("inactive");
-  $productDetail.classList.add("inactive");
-  $mobileMenu.classList.toggle("inactive");
-}
-
-function animationOpen($elementToOpen) {
+function animationOpen($elementToOpen, nameAnimation) {
   $elementToOpen.classList.remove("inactive");
-  $elementToOpen.style.animationName = "enter";
+  $elementToOpen.style.animationName = nameAnimation;
 }
 
-function animationClose($elementToClose) {
-  $elementToClose.style.animationName = "leave";
+function animationClose($elementToClose, nameAnimation) {
+  $elementToClose.style.animationName = nameAnimation;
   setTimeout(() => {
     $elementToClose.classList.add("inactive");
   }, 600);
 }
 
+function toggleMenuDesktop() {
+  const nameAnimation = "leave-to-right";
+  animationClose($shoppingCardContainer, nameAnimation);
+  animationClose($productDetail, nameAnimation);
+  $desktopMenu.classList.toggle("inactive");
+}
+
+function toggleMenuMobile() {
+  let nameAnimation = "leave-to-right";
+  animationClose($shoppingCardContainer, nameAnimation);
+  animationClose($productDetail, nameAnimation);
+
+  const isContainsInactive = $mobileMenu.classList.contains("inactive");
+
+  if (!isContainsInactive) {
+    nameAnimation = "leave-to-left";
+    animationClose($mobileMenu, nameAnimation);
+    return;
+  }
+  nameAnimation = "enter-to-left";
+  animationOpen($mobileMenu, nameAnimation);
+}
+
 function toggleCarritoAside() {
   $desktopMenu.classList.add("inactive");
-  $mobileMenu.classList.add("inactive");
-  animationClose($productDetail);
+  let nameAnimation = "leave-to-left";
+  animationClose($mobileMenu, nameAnimation);
+  nameAnimation = "leave-to-right";
+  animationClose($productDetail, nameAnimation);
   const isContainsInactive =
     $shoppingCardContainer.classList.contains("inactive");
   if (!isContainsInactive) {
-    animationClose($shoppingCardContainer);
+    nameAnimation = "leave-to-right";
+    animationClose($shoppingCardContainer, nameAnimation);
     return;
   }
-  animationOpen($shoppingCardContainer);
+  nameAnimation = "enter-to-right";
+  animationOpen($shoppingCardContainer, nameAnimation);
 }
 
 function openProductDetail(product) {
   $desktopMenu.classList.add("inactive");
-  $mobileMenu.classList.add("inactive");
-  animationClose($shoppingCardContainer);
+  let nameAnimation = "leave-to-left";
+  animationClose($mobileMenu, nameAnimation);
+  nameAnimation = "leave-to-right";
+  animationClose($shoppingCardContainer, nameAnimation);
   const buscarProductShow = () => {
     return productList.find((productActual) => productActual.isShow);
   };
   let productIsShow;
   if (!product.isShow) {
     productIsShow = buscarProductShow();
-    // innecesario
     product.isShow = true;
   }
   if (productIsShow) {
     if (productIsShow !== product) {
       productIsShow.isShow = false;
-      animationClose($productDetail);
+      nameAnimation = "leave-to-right";
+      animationClose($productDetail, nameAnimation);
       setTimeout(() => {
-        //toggleAnimationOpenAndClose(isContainsInactive, $productDetail);
         openProductDetail(product);
       }, 600);
       return;
     }
   }
-  animationOpen($productDetail);
+  nameAnimation = "enter-to-right";
+  animationOpen($productDetail, nameAnimation);
   renderProductDetailContent(product);
 }
 
