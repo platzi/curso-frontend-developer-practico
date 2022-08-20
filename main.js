@@ -7,8 +7,8 @@ const menuHamburger = document.querySelector(".menu");
 const mobileMenu = document.querySelector(".mobile-menu");
 
 //SHOPPING CAR
-const menuShoppingCar = document.querySelector(".navbar-shopping-cart");
-const ShoppingCarDetails = document.querySelector(".product-detail");
+const menuShoppingCart = document.querySelector(".navbar-shopping-cart");
+const ShoppingCartDetails = document.querySelector(".shopping-cart-product");
 
 //PRODUCT LIST
 const cardsContainer = document.querySelector(".cards-container");
@@ -39,11 +39,11 @@ productList.push({
 //WORK
 function toggleDesktopMenu() {
   //contains: Comprueba si la clase indicada existe en el atributo
-  const isShoppingCarDetailsClosed =
-    ShoppingCarDetails.classList.contains("inactive");
+  const isShoppingCartDetailsClosed =
+    ShoppingCartDetails.classList.contains("inactive");
 
   //antes de abrir el desktop menu hay que preguntar si el shopping car esta abierto, si lo esta hay que cerrarlo
-  if (!isShoppingCarDetailsClosed) {
+  if (!isShoppingCartDetailsClosed) {
     //add: Añade las clases indicadas. Si estas clases existieran en el atributo del elemento serán ignoradas.
     ShoppingCarDetails.classList.add("inactive");
   }
@@ -53,11 +53,11 @@ function toggleDesktopMenu() {
 
 function toggleMobileMenu() {
   //contains: Comprueba si la clase indicada existe en el atributo
-  const isShoppingCarDetailsClosed =
-    ShoppingCarDetails.classList.contains("inactive");
+  const isShoppingCartDetailsClosed =
+    ShoppingCartDetails.classList.contains("inactive");
 
   //antes de abrir el mobile menu hay que preguntar si el mobile menu esta abierto, si lo esta hay que cerrarlo
-  if (!isShoppingCarDetailsClosed) {
+  if (!isShoppingCartDetailsClosed) {
     //add: Añade las clases indicadas. Si estas clases existieran en el atributo del elemento serán ignoradas.
     ShoppingCarDetails.classList.add("inactive");
   }
@@ -81,7 +81,7 @@ function toggleShoppingCar() {
     desktopMenu.classList.add("inactive");
   }
 
-  ShoppingCarDetails.classList.toggle("inactive");
+  ShoppingCartDetails.classList.toggle("inactive");
 }
 
 function renderProducts(productList) {
