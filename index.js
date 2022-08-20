@@ -72,6 +72,13 @@ Lista_articulos.push({
     id: "food"
 
 });
+Lista_articulos.push({
+    imagen: "/image/depositphotos_6339600-stock-photo-italian-pizza.png",
+    nombre: "Limonada",
+    precio: 20,
+    id: "drinks"
+
+});
 
 function template(arr) {
 
@@ -136,4 +143,18 @@ function template(arr) {
 }
 
 template(Lista_articulos);
+
+
+function filtrado(id) {
+    let articulos_filtrados = Lista_articulos.filter((item) => {
+        return item.id == id;
+    });
+    contenedor_template.innerHTML = "";
+    template(articulos_filtrados);
+
+    if (id == 'all') {
+        contenedor_template.innerHTML = "";
+        template(Lista_articulos);
+    }
+}
 
