@@ -150,7 +150,7 @@ nav {
     text-decoration: none;
     color: var(--black);
     font-weight: bold;
-    /* margin-bottom: 24px; */
+
 }
 
 .mobile-menu ul {
@@ -197,7 +197,7 @@ nav {
     }
 }
 
-@media (min-width: 640px) {
+@media (min-width: 641px) {
     .mobile-menu {
         display: none;
     }
