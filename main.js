@@ -355,7 +355,7 @@ function addProductToList() {
 function renderProduct(arr) {
   arr.forEach((product) => {
     const { image, name, price } = product;
-    const $productCard = document.createElement("div");
+    const $productCard = document.createElement("article");
     $productCard.classList.add("product-card");
 
     const $productImg = document.createElement("img");
