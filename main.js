@@ -99,6 +99,6 @@ function renderProducts(arr){
     
         
     }
-}
+}   
 
 renderProducts(productList);
