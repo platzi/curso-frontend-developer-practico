@@ -10,12 +10,31 @@ menuIcon.addEventListener('click', toggleMobileMenu);
 menuShoppingCartIcon.addEventListener('click', toggleShoppingCart);
 
 function toggleDesktopMenu() {
+    const isAsideClosed = shoppingCart.classList.contains('inactive');
+
+    if (!isAsideClosed) {
+        shoppingCart.classList.add('inactive');
+    }
+    
     desktopMenu.classList.toggle('inactive');
 }
 
 function toggleMobileMenu() {
+    const isAsideClosed = shoppingCart.classList.contains('inactive');
+
+    if (!isAsideClosed) {
+        shoppingCart.classList.add('inactive');
+    }
+
     mobileMenu.classList.toggle('inactive');
 }
+
 function toggleShoppingCart() {
+    const isMobileMenuClosed = mobileMenu.classList.contains('inactive');
+        
+    if (!isMobileMenuClosed) {
+        mobileMenu.classList.add('inactive')
+    }    
+
     shoppingCart.classList.toggle('inactive');
 }

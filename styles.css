@@ -124,6 +124,7 @@ nav {
 
 /* Mobile (General) */
 .mobile-menu {
+  background-color: var(--white);
   padding: 24px;
   position: absolute;
   top: 60px;
@@ -156,6 +157,7 @@ nav {
 
 /* Aside (product detail and shopping cart */
 .product-detail {
+  background-color: var(--white);
   width: 360px;
   padding: 0 24px;
   box-sizing: border-box;
