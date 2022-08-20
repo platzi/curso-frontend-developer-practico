@@ -4,7 +4,7 @@ const menuCarritoIcon = document.querySelector(".navbar-shopping-cart");
 const desktopMenu = document.querySelector(".desktop-menu");
 const mobileMenu = document.querySelector(".mobile-menu");
 const aside = document.querySelector(".product-detail");
-let bandera1;
+const cardsContainer = document.querySelector(".cards-container");
 //const mediaQuery = window.matchMedia("(max-width: 640px)");
 
 navEmail.addEventListener("click", toggleDesktopMenu);
@@ -60,3 +60,87 @@ function toggleCarritoAside(){
 //      }
     
 //  }
+
+const productList = [];
+productList.push({
+    name: "Acelerómetro ADXL345",
+    price: 11.600,
+    image: "https://moviltronics.com/wp-content/uploads/2015/10/1538-thickbox_default-Modulo-Acelerometro-3-ejes-ADXL345-600x600.jpg",
+});
+productList.push({
+    name: "Arduino Nano CH340",
+    price: 48.200,
+    image: "https://moviltronics.com/wp-content/uploads/2018/06/M10009-600x450.png",
+});
+productList.push({
+    name: "Paquete Resistencias surtidas",
+    price: 2.500,
+    image: "https://moviltronics.com/wp-content/uploads/2020/05/Resistencias-600x600.jpg",
+})
+productList.push({
+    name: "Bluetooth CC2541",
+    price: 23.000,
+    image: "https://moviltronics.com/wp-content/uploads/2018/07/2083-thickbox_default-Modulo-Bluetooth-CC2541-600x600.jpg",
+})
+productList.push({
+    name: "Potenciómetro Sencillo",
+    price: 900,
+    image: "https://moviltronics.com/wp-content/uploads/2019/10/56-1-600x585.jpg",
+})
+productList.push({
+    name: "Brazo Robotico Dobot Magician Basic",
+    price: 9.200,
+    image: "https://moviltronics.com/wp-content/uploads/2018/07/2471-thickbox_default-Brazo-Robotico-Dobot-Magician-Basic-600x600.jpg",
+})
+productList.push({
+    name: "Chasis Mini Sumo",
+    price: 199.000,
+    image: "https://moviltronics.com/wp-content/uploads/2019/07/Chasis-Mini-Sumo_0000_DSC00342-600x600.jpg",
+})
+productList.push({
+    name: "Kit Arduino Starter",
+    price: 264.600,
+    image: "https://moviltronics.com/wp-content/uploads/2018/07/Kit-Arduino-Starter-600x600.jpg",
+}) 
+
+
+function renderProducts(arr){
+    for(product of arr){
+        const productCard = document.createElement("div");
+            productCard.classList.add("product-card");
+    
+        //product = {name, price, image} -> product.image
+        const productImg = document.createElement("img");
+            productImg.setAttribute("src", product.image);
+        
+        const productInfo = document.createElement("div");
+            productInfo.classList.add("product-info");
+    
+        const productInfoDiv = document.createElement("div");
+    
+        const productInfoPrice = document.createElement("p");
+            productInfoPrice.innerText = "$" + product.price;
+    
+        const productInfoName = document.createElement("p");
+            productInfoName.innerText = product.name;
+    
+            productInfoDiv.appendChild(productInfoPrice);
+            productInfoDiv.appendChild(productInfoName);
+    
+        const productInfofigure = document.createElement("figure");
+    
+        const productImgCart = document.createElement("img");
+            productImgCart.setAttribute("src", "./icons/bt_add_to_cart.svg");
+    
+        productInfofigure.appendChild(productImgCart);
+        
+        productInfo.appendChild(productInfoDiv);
+        productInfo.appendChild(productInfofigure);
+    
+        productCard.appendChild(productImg);
+        productCard.appendChild(productInfo);
+    
+        cardsContainer.appendChild(productCard);
+    }
+}
+renderProducts(productList);
