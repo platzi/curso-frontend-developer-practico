@@ -318,6 +318,11 @@
     padding: 1rem;
     padding: 0;
     overflow: hidden;
+    /* position: sticky; */
+    
+    /* Arreglar el product detail para que se 
+    posicione en cualquier altura del scroll 
+    que se encuentre el usuario */
   }
   .product-detail-close {
     background: var(--white);

@@ -111,6 +111,73 @@ function closeProductDetailAside() {
     price: 25,
     image: "https://images.pexels.com/photos/12714890/pexels-photo-12714890.jpeg?auto=compress&cs=tinysrgb&w=1260&h=750&dpr=1",
   });
+  productList.push({
+    name: 'Smarthphone',
+    price: 80,
+    image: "https://i.pinimg.com/564x/f6/ee/ec/f6eeece1e2493e867a76ad705ea8939d.jpg",
+  });
+  productList.push({
+    name: 'PC Gamer',
+    price: 5,
+    image: "https://i.pinimg.com/564x/4d/66/ce/4d66ce27cee973c3c3b416a5d7e1eae1.jpg",
+  });
+  productList.push({
+    name: 'Headset',
+    price: 50,
+    image: "https://i.pinimg.com/236x/ca/d6/5c/cad65c0cf8c512ffcd5ec647d4359cd0.jpg",
+  });
+  productList.push({
+    name: 'Pants',
+    price: 8,
+    image: "https://i.pinimg.com/736x/e9/54/6e/e9546eebf085de7959b9a8e833a8e049.jpg",
+  });
+  productList.push({
+    name: 'Fan',
+    price: 20,
+    image: "https://i.pinimg.com/236x/09/dc/30/09dc30c97eac8602185e29b82243fe79.jpg",
+  });
+
+  productList.push({
+    name: 'Fan',
+    price: 20,
+    image: "https://i.pinimg.com/236x/09/dc/30/09dc30c97eac8602185e29b82243fe79.jpg",
+  });
+  productList.push({
+    name: 'Fan',
+    price: 20,
+    image: "https://i.pinimg.com/236x/09/dc/30/09dc30c97eac8602185e29b82243fe79.jpg",
+  });
+  productList.push({
+    name: 'Fan',
+    price: 20,
+    image: "https://i.pinimg.com/236x/09/dc/30/09dc30c97eac8602185e29b82243fe79.jpg",
+  });
+  productList.push({
+    name: 'Fan',
+    price: 20,
+    image: "https://i.pinimg.com/236x/09/dc/30/09dc30c97eac8602185e29b82243fe79.jpg",
+  });
+  productList.push({
+    name: 'Fan',
+    price: 20,
+    image: "https://i.pinimg.com/236x/09/dc/30/09dc30c97eac8602185e29b82243fe79.jpg",
+  });
+  productList.push({
+    name: 'Fan',
+    price: 20,
+    image: "https://i.pinimg.com/236x/09/dc/30/09dc30c97eac8602185e29b82243fe79.jpg",
+  });
+  productList.push({
+    name: 'Fan',
+    price: 20,
+    image: "https://i.pinimg.com/236x/09/dc/30/09dc30c97eac8602185e29b82243fe79.jpg",
+  });
+  productList.push({
+    name: 'Fan',
+    price: 20,
+    image: "https://i.pinimg.com/236x/09/dc/30/09dc30c97eac8602185e29b82243fe79.jpg",
+  });
+  
 //   <!-- <div class="product-card">
 //         <img src="https://images.pexels.com/photos/276517/            pexels-photo-276517.jpeg?auto=compress&cs=tinysrgb&dpr=2&h=650&w=940" alt="">
 //         <div class="product-info">
