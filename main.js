@@ -8,10 +8,14 @@ const mobileMenu = document.querySelector(".mobile-menu");
 
 //SHOPPING CAR
 const menuShoppingCart = document.querySelector(".navbar-shopping-cart");
-const ShoppingCartDetails = document.querySelector(".shopping-cart-product");
+const shoppingCartDetails = document.querySelector(".shopping-cart-product");
 
 //PRODUCT LIST
 const cardsContainer = document.querySelector(".cards-container");
+
+//PRODUCT DETAIL
+const productDetail = document.querySelector(".product-detail");
+const productDetailCloseIcon = document.querySelector(".product-detail-close");
 
 //CREATE AND INSERT INTO PRODUCT LIST
 const productList = [];
@@ -40,12 +44,17 @@ productList.push({
 function toggleDesktopMenu() {
   //contains: Comprueba si la clase indicada existe en el atributo
   const isShoppingCartDetailsClosed =
-    ShoppingCartDetails.classList.contains("inactive");
+    shoppingCartDetails.classList.contains("inactive");
+  const isProductDetailClosed = productDetail.classList.contains("inactive");
 
   //antes de abrir el desktop menu hay que preguntar si el shopping car esta abierto, si lo esta hay que cerrarlo
   if (!isShoppingCartDetailsClosed) {
     //add: Añade las clases indicadas. Si estas clases existieran en el atributo del elemento serán ignoradas.
-    ShoppingCarDetails.classList.add("inactive");
+    shoppingCartDetails.classList.add("inactive");
+  }
+
+  if (!isProductDetailClosed) {
+    productDetail.classList.add("inactive");
   }
   //toggle: si la clase inactive está presente la elimina, de lo contrario la añade, toggle tambien funciona si se le coloca una condicion ej: desktopMenu.classList.toggle("inactive", i<10) va a añadir/eliminar visible, dependiendo de la condición
   desktopMenu.classList.toggle("inactive");
@@ -54,20 +63,24 @@ function toggleDesktopMenu() {
 function toggleMobileMenu() {
   //contains: Comprueba si la clase indicada existe en el atributo
   const isShoppingCartDetailsClosed =
-    ShoppingCartDetails.classList.contains("inactive");
+    shoppingCartDetails.classList.contains("inactive");
 
   //antes de abrir el mobile menu hay que preguntar si el mobile menu esta abierto, si lo esta hay que cerrarlo
   if (!isShoppingCartDetailsClosed) {
     //add: Añade las clases indicadas. Si estas clases existieran en el atributo del elemento serán ignoradas.
-    ShoppingCarDetails.classList.add("inactive");
+    shoppingCartDetails.classList.add("inactive");
   }
+
+  //cerrando el product detail
+  closeProductDetail();
 
   mobileMenu.classList.toggle("inactive");
 }
-function toggleShoppingCar() {
+function toggleShoppingCart() {
   //contains: Comprueba si la clase indicada existe en el atributo
   const isMobileMenuClosed = mobileMenu.classList.contains("inactive");
   const isDesktopMenuClosed = desktopMenu.classList.contains("inactive");
+  const isProductDetailClosed = productDetail.classList.contains("inactive");
 
   //antes de abrir el shopping car hay que preguntar si el mobile menu esta abierto, si lo esta hay que cerrarlo
   if (!isMobileMenuClosed) {
@@ -81,7 +94,21 @@ function toggleShoppingCar() {
     desktopMenu.classList.add("inactive");
   }
 
-  ShoppingCartDetails.classList.toggle("inactive");
+  if (!isProductDetailClosed) {
+    productDetail.classList.add("inactive");
+  }
+
+  shoppingCartDetails.classList.toggle("inactive");
+}
+function openProductDetail() {
+  //cerrando el shopping cart y el desktop menu cuando se abre el product details para que cuando se le de click al shopping cart o al desktop menu en vez de abrir se cierre porque permanecio abierto debajo del product detail
+  shoppingCartDetails.classList.add("inactive");
+  desktopMenu.classList.add("inactive");
+
+  productDetail.classList.remove("inactive");
+}
+function closeProductDetail() {
+  productDetail.classList.add("inactive");
 }
 
 function renderProducts(productList) {
@@ -91,6 +118,7 @@ function renderProducts(productList) {
 
     const productImg = document.createElement("img");
     productImg.setAttribute("src", product.image);
+    productImg.addEventListener("click", openProductDetail);
 
     const productInfo = document.createElement("div");
     productInfo.classList.add("product-info");
@@ -121,10 +149,14 @@ function renderProducts(productList) {
   }
 }
 
+//CALL TO ACTION
 renderProducts(productList);
+
 //EVENT
 navEmail.addEventListener("click", toggleDesktopMenu);
 
 menuHamburger.addEventListener("click", toggleMobileMenu);
 
-menuShoppingCar.addEventListener("click", toggleShoppingCar);
+menuShoppingCart.addEventListener("click", toggleShoppingCart);
+
+productDetailCloseIcon.addEventListener("click", closeProductDetail);

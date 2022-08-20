@@ -273,6 +273,7 @@ nav {
 /* PRODUCT DETAILS */
 .product-detail {
   width: 360px;
+  background-color: var(--white);
   padding-bottom: 24px;
   position: absolute;
   right: 0;
