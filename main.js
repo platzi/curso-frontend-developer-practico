@@ -10,6 +10,32 @@ const mobileMenu = document.querySelector(".mobile-menu");
 const menuShoppingCar = document.querySelector(".navbar-shopping-cart");
 const ShoppingCarDetails = document.querySelector(".product-detail");
 
+//PRODUCT LIST
+const cardsContainer = document.querySelector(".cards-container");
+
+//CREATE AND INSERT INTO PRODUCT LIST
+const productList = [];
+productList.push({
+  name: "Bike",
+  price: 120,
+  image:
+    "https://images.pexels.com/photos/276517/pexels-photo-276517.jpeg?auto=compress&cs=tinysrgb&dpr=2&h=650&w=940",
+});
+
+productList.push({
+  name: "Chair",
+  price: 60,
+  image:
+    "https://images.pexels.com/photos/276517/pexels-photo-276517.jpeg?auto=compress&cs=tinysrgb&dpr=2&h=650&w=940",
+});
+
+productList.push({
+  name: "Table",
+  price: 260,
+  image:
+    "https://images.pexels.com/photos/276517/pexels-photo-276517.jpeg?auto=compress&cs=tinysrgb&dpr=2&h=650&w=940",
+});
+
 //WORK
 function toggleDesktopMenu() {
   //contains: Comprueba si la clase indicada existe en el atributo
@@ -58,6 +84,44 @@ function toggleShoppingCar() {
   ShoppingCarDetails.classList.toggle("inactive");
 }
 
+function renderProducts(productList) {
+  for (product of productList) {
+    const productCard = document.createElement("div");
+    productCard.classList.add("product-card");
+
+    const productImg = document.createElement("img");
+    productImg.setAttribute("src", product.image);
+
+    const productInfo = document.createElement("div");
+    productInfo.classList.add("product-info");
+
+    const productInfodiv = document.createElement("div");
+    const productPrice = document.createElement("p");
+    productPrice.innerText = "$" + product.price;
+
+    const producthName = document.createElement("p");
+    producthName.innerText = product.name;
+
+    const productInfoFigure = document.createElement("figure");
+
+    const imgAddCar = document.createElement("img");
+    imgAddCar.setAttribute("src", "./icons/bt_add_to_cart.svg");
+
+    //appendChild: sirve para agregar nodos o hijos (solo podemos agregar un nodo o elemento)
+    productInfoFigure.appendChild(imgAddCar);
+
+    //append:sirve para agregar nodos o hijos  (podemos agregar varios nodos y texto)
+    productInfodiv.append(producthName, productPrice);
+
+    productInfo.append(productInfodiv, productInfoFigure);
+
+    productCard.append(productImg, productInfo);
+
+    cardsContainer.appendChild(productCard);
+  }
+}
+
+renderProducts(productList);
 //EVENT
 navEmail.addEventListener("click", toggleDesktopMenu);
 
