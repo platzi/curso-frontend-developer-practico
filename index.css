@@ -259,8 +259,17 @@ nav {
     border-bottom: 1px solid var(--very-light-pink);
 }
 
+
+
 .mobile-menu ul li {
     margin-bottom: 24px;
+}
+
+.mobile-menu ul li :hover {
+    padding: 10px;
+    border: 1px solid var(--hospital-green);
+    border-radius: 3px;
+    color: var(--hospital-green);
 }
 
 .email {
@@ -291,6 +300,10 @@ nav {
     .navbar-email {
         display: none;
     }
+
+    .product-detail {
+        width: 100%;
+    }
 }
 
 
@@ -304,11 +317,7 @@ nav {
 }
 
 
-@media (max-width: 640px) {
-    .product-detail {
-        width: 100%;
-    }
-}
+
 
 
 
