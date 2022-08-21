@@ -5,7 +5,7 @@ const imgBurger = document.querySelector(".menu");
 const mobileMenu = document.querySelector(".mobile-menu");
 
 const imgShoppingCart = document.querySelector(".navbar-shopping-cart");
-const productDetail = document.querySelector(".product-detail");
+const shoppingCartConitainer = document.querySelector("#shoppingCartContainer");
 const cardsContainer = document.querySelector(".cards-container");
 
 
@@ -14,10 +14,10 @@ imgBurger.addEventListener('click', toggleMenuMobile);
 imgShoppingCart.addEventListener('click', toggleShoppingAside);
 
 function toggleMenuDesktop(){
-    const isAsideOpen = !productDetail.classList.contains('inactive');
+    const isAsideOpen = !shoppingCartContainer.classList.contains('inactive');
     console.log(isAsideOpen);
     if(isAsideOpen){
-        productDetail.classList.add('inactive');
+        shoppingCartContainer.classList.add('inactive');
     }
     desktopMenu.classList.toggle('inactive');
 }// con toggle es mas facil velo pero felicidades por completar el reto
@@ -30,10 +30,10 @@ function toggleMenuDesktop(){
 //         desktopMenu.classList.add('inactive');
 
 function toggleMenuMobile(){
-    const isAsideOpen = !productDetail.classList.contains('inactive');
+    const isAsideOpen = !shoppingCartContainer.classList.contains('inactive');
     console.log(isAsideOpen);
     if(isAsideOpen){
-        productDetail.classList.add('inactive');
+        shoppingCartContainer.classList.add('inactive');
     }
     mobileMenu.classList.toggle('inactive');
 }
@@ -47,7 +47,7 @@ function toggleShoppingAside(){
     } else if(isMenuOpen){
         desktopMenu.classList.add('inactive');
     }
-    productDetail.classList.toggle('inactive');
+    shoppingCartContainer.classList.toggle('inactive');
 }
 
 const productList = [];
