@@ -78,7 +78,7 @@ Lista_articulos.push({
     imagen: "/image/Queso.png",
     nombre: "Pizza de Queso",
     precio: 230,
-    id: "food",
+    id: "Comida",
     descripcion: "Con el queso y con el sexo nunca existe el exceso"
 
 });
@@ -86,7 +86,7 @@ Lista_articulos.push({
     imagen: "/image/Jamon.png",
     nombre: "Pizza de Jamon",
     precio: 230,
-    id: "food",
+    id: "Comida",
     descripcion: "Que rico es el Jamon  Y si Es de Cerdo Mogollon"
 
 });
@@ -94,7 +94,7 @@ Lista_articulos.push({
     imagen: "/image/Vejetales.png",
     nombre: "Pizza de Vejetales",
     precio: 200,
-    id: "food",
+    id: "Comida",
     descripcion: "Los Vejetales Son para Tontos , Si le hechas Vejetal a una Pizza, Tu Madre Trabaja en Colombia"
 
 });
@@ -102,7 +102,7 @@ Lista_articulos.push({
     imagen: "/image/Limonada.png",
     nombre: "Limonada",
     precio: 20,
-    id: "drinks",
+    id: "Bebida",
     descripcion: "La Limonada surgio cuando una hada se metio un limon por el trasero"
 
 });
@@ -183,7 +183,7 @@ function filtrado(id) {
     contenedor_template.innerHTML = "";
     template(articulos_filtrados);
 
-    if (id == 'all') {
+    if (id == 'Todos') {
         contenedor_template.innerHTML = "";
         template(Lista_articulos);
     }

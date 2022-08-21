@@ -52,6 +52,7 @@ nav {
 
 .navbar-left ul li a,
 .navbar-right ul li a {
+    cursor: pointer;
     text-decoration: none;
     color: var(--very-light-pink);
     border: 1px solid var(--white);
