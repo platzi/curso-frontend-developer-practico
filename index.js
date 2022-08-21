@@ -21,6 +21,11 @@ email.addEventListener("click", () => {
     if (!aside.classList.contains('oculta')) {
         aside.classList.add('oculta')
     }
+
+    if (!Detalles_Producto.classList.contains('oculta')) {
+        Detalles_Producto.classList.add('oculta');
+
+    }
 });
 //Evento para mostrar el menu mobile
 menu_hamb.addEventListener("click", () => {
@@ -35,6 +40,11 @@ menu_hamb.addEventListener("click", () => {
         contenedor_template.classList.remove('oculta');
     }
 
+    if (!Detalles_Producto.classList.contains('oculta')) {
+        Detalles_Producto.classList.add('oculta');
+
+    }
+
 });
 //Evento para mostrar el carrito de compras
 icono_carrito.addEventListener("click", () => {
@@ -45,6 +55,11 @@ icono_carrito.addEventListener("click", () => {
 
     if (!menu.classList.contains('oculta')) {
         menu.classList.add('oculta')
+    }
+
+    if (!Detalles_Producto.classList.contains('oculta')) {
+        Detalles_Producto.classList.add('oculta');
+
     }
 
 });
@@ -58,16 +73,17 @@ icono_carrito.addEventListener("click", () => {
 //creando un arreglo de template
 let Lista_articulos = [];
 //agregando manual algunos articulos
+
 Lista_articulos.push({
-    imagen: "/image/depositphotos_6339600-stock-photo-italian-pizza.png",
+    imagen: "/image/Queso.png",
     nombre: "Pizza de Queso",
-    precio: 180,
+    precio: 230,
     id: "food",
-    descripcion: "Que viva el Queso , Con el Queso Nunca hay Exceso"
+    descripcion: "Con el queso y con el sexo nunca existe el exceso"
 
 });
 Lista_articulos.push({
-    imagen: "/image/depositphotos_6339600-stock-photo-italian-pizza.png",
+    imagen: "/image/Jamon.png",
     nombre: "Pizza de Jamon",
     precio: 230,
     id: "food",
@@ -75,7 +91,7 @@ Lista_articulos.push({
 
 });
 Lista_articulos.push({
-    imagen: "/image/depositphotos_6339600-stock-photo-italian-pizza.png",
+    imagen: "/image/Vejetales.png",
     nombre: "Pizza de Vejetales",
     precio: 200,
     id: "food",
@@ -83,39 +99,7 @@ Lista_articulos.push({
 
 });
 Lista_articulos.push({
-    imagen: "/image/depositphotos_6339600-stock-photo-italian-pizza.png",
-    nombre: "Limonada",
-    precio: 20,
-    id: "drinks",
-    descripcion: "La Limonada surgio cuando una hada se metio un limon por el trasero"
-
-});
-Lista_articulos.push({
-    imagen: "/image/depositphotos_6339600-stock-photo-italian-pizza.png",
-    nombre: "Pizza de Queso",
-    precio: 180,
-    id: "food",
-    descripcion: "Que viva el Queso , Con el Queso Nunca hay Exceso"
-
-});
-Lista_articulos.push({
-    imagen: "/image/depositphotos_6339600-stock-photo-italian-pizza.png",
-    nombre: "Pizza de Jamon",
-    precio: 230,
-    id: "food",
-    descripcion: "Que rico es el Jamon  Y si Es de Cerdo Mogollon"
-
-});
-Lista_articulos.push({
-    imagen: "/image/depositphotos_6339600-stock-photo-italian-pizza.png",
-    nombre: "Pizza de Vejetales",
-    precio: 200,
-    id: "food",
-    descripcion: "Los Vejetales Son para Tontos , Si le hechas Vejetal a una Pizza, Tu Madre Trabaja en Colombia"
-
-});
-Lista_articulos.push({
-    imagen: "/image/depositphotos_6339600-stock-photo-italian-pizza.png",
+    imagen: "/image/Limonada.png",
     nombre: "Limonada",
     precio: 20,
     id: "drinks",
@@ -123,44 +107,14 @@ Lista_articulos.push({
 
 });
 
-Lista_articulos.push({
-    imagen: "/image/depositphotos_6339600-stock-photo-italian-pizza.png",
-    nombre: "Pizza de Queso",
-    precio: 180,
-    id: "food",
-    descripcion: "Que viva el Queso , Con el Queso Nunca hay Exceso"
-
-});
-Lista_articulos.push({
-    imagen: "/image/depositphotos_6339600-stock-photo-italian-pizza.png",
-    nombre: "Pizza de Jamon",
-    precio: 230,
-    id: "food",
-    descripcion: "Que rico es el Jamon  Y si Es de Cerdo Mogollon"
-
-});
-Lista_articulos.push({
-    imagen: "/image/depositphotos_6339600-stock-photo-italian-pizza.png",
-    nombre: "Pizza de Vejetales",
-    precio: 200,
-    id: "food",
-    descripcion: "Los Vejetales Son para Tontos , Si le hechas Vejetal a una Pizza, Tu Madre Trabaja en Colombia"
-
-});
-Lista_articulos.push({
-    imagen: "/image/depositphotos_6339600-stock-photo-italian-pizza.png",
-    nombre: "Limonada",
-    precio: 20,
-    id: "drinks",
-    descripcion: "La Limonada surgio cuando una hada se metio un limon por el trasero"
-
-});
 
 
 function template(arr) {
 
 
-    for (const iterator of arr) {
+    arr.forEach(iterator => {
+
+
         let imagen_item = iterator.imagen;
         let nombre_item = iterator.nombre;
         let precio_item = iterator.precio;
@@ -174,10 +128,11 @@ function template(arr) {
 
         let t_tarjeta = document.createElement('div')
         t_tarjeta.classList.add('product-card');
-        t_tarjeta.setAttribute('onclick', 'detalles()');
+
 
         let t_img = document.createElement('img');
         t_img.setAttribute("src", imagen_item);
+        t_img.addEventListener('click', () => { detalles(iterator) });
 
         let hr = document.createElement('hr');
 
@@ -216,22 +171,8 @@ function template(arr) {
 
 
 
-    }
-
-    function detalles() {
-        if (Detalles_Producto.classList.contains('oculta')) {
-            Detalles_Producto.classList.remove('oculta');
-
-        } else {
-            // continuaa..
-        }
-
-
-    }
-
-
+    })
 }
-
 template(Lista_articulos);
 
 
@@ -251,6 +192,36 @@ function filtrado(id) {
 
 
 
+function detalles(iterator) {
+    if (!aside.classList.contains('oculta') || !menu.classList.contains('oculta')) {
+        aside.classList.add('oculta');
+        menu.classList.add('oculta');
+
+
+    }
+
+    if (Detalles_Producto.classList.contains('oculta')) {
+        Detalles_Producto.classList.remove('oculta');
+
+        let detalles_img = document.querySelector(".Detalles_Producto_img");
+        let detalles_nombre = document.querySelector(".Detalles_Producto_nombre");
+        let detalles_precio = document.querySelector(".Detalles_Producto_precio");
+        let detalles_desc = document.querySelector(".Detalles_Producto_descripcion");
+
+
+        detalles_img.setAttribute("src", iterator.imagen);
+        detalles_nombre.innerHTML = iterator.nombre;
+        detalles_precio.innerHTML = iterator.precio;
+        detalles_desc.innerHTML = iterator.descripcion;
+
+
+
+    } else {
+        // continuaa..
+    }
+
+
+}
 
 //Evento para cerrar el aside de detalles de producto
 close_detalles.addEventListener("click", () => {
