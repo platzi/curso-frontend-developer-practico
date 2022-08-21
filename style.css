@@ -358,7 +358,8 @@ nav {
     .navbar-email {
       display: none;
     }
-    .product-detail {
+    
+    #product-detail {
       width: 100%;
     }
     .cards-container {
