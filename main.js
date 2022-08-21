@@ -1,26 +1,27 @@
 const menuEmail = document.querySelector(".navbar-email");
 const desktopMenu = document.querySelector(".desktop-menu");
-
 const imgBurger = document.querySelector(".menu");
 const mobileMenu = document.querySelector(".mobile-menu");
-
 const imgShoppingCart = document.querySelector(".navbar-shopping-cart");
+const productDetailCloseIcon =document.querySelector('.product-detail-close');
 const shoppingCartConitainer = document.querySelector("#shoppingCartContainer");
+const productDetailContainer = document.querySelector("#product-detail");
 const cardsContainer = document.querySelector(".cards-container");
 
 
 menuEmail.addEventListener('click', toggleMenuDesktop);
 imgBurger.addEventListener('click', toggleMenuMobile);
 imgShoppingCart.addEventListener('click', toggleShoppingAside);
+productDetailCloseIcon.addEventListener('click', closeProductDetailAside);
 
 function toggleMenuDesktop(){
     const isAsideOpen = !shoppingCartContainer.classList.contains('inactive');
     console.log(isAsideOpen);
     if(isAsideOpen){
         shoppingCartContainer.classList.add('inactive');
-    }
+    };
     desktopMenu.classList.toggle('inactive');
-}// con toggle es mas facil velo pero felicidades por completar el reto
+};// con toggle es mas facil velo pero felicidades por completar el reto
 // Mi forma de cumplir el reto
 // console.log('yea');
 // let clase = desktopMenu.getAttribute('class');
@@ -31,24 +32,40 @@ function toggleMenuDesktop(){
 
 function toggleMenuMobile(){
     const isAsideOpen = !shoppingCartContainer.classList.contains('inactive');
-    console.log(isAsideOpen);
     if(isAsideOpen){
         shoppingCartContainer.classList.add('inactive');
     }
     mobileMenu.classList.toggle('inactive');
-}
+    closeProductDetailAside()
+};
 
 function toggleShoppingAside(){
     const ismMobileOpen = !mobileMenu.classList.contains('inactive');
     const isMenuOpen = !desktopMenu.classList.contains('inactive');
-    console.log(ismMobileOpen);
     if(ismMobileOpen){
         mobileMenu.classList.add('inactive');
     } else if(isMenuOpen){
         desktopMenu.classList.add('inactive');
     }
     shoppingCartContainer.classList.toggle('inactive');
-}
+    const isProductDetailOpen = !productDetailContainer.classList.contains('inactive');
+    if(isProductDetailOpen){
+        productDetailContainer.classList.add('inactive');
+    };
+};
+
+function openProductDetailAside(){
+    shoppingCartConitainer.classList.add('inactive');
+    const isProductDetailOpen = !productDetailContainer.classList.contains('inactive');
+    if(isProductDetailOpen){
+        productDetailContainer.classList.add('inactive');
+    }
+    productDetailContainer.classList.remove('inactive');
+};
+
+function closeProductDetailAside(){
+    productDetailContainer.classList.add('inactive');
+};
 
 const productList = [];
 productList.push ({
@@ -85,7 +102,7 @@ productList.push ({
     name:'Bicycle seat bag',
     price: 67,
     image: 'https://m.media-amazon.com/images/I/81k2Gmal+VL._AC_SL1500_.jpg'
-}); 
+});
 productList.push({
     name: 'Bike',
     price: 117,
@@ -128,6 +145,7 @@ function renderProducts(arr){ //creamos las variables html, luego  maquetamos el
 
         const productImg = document.createElement('img');
         productImg.setAttribute('src', product.image); // Describe el atributo src
+        productImg.addEventListener('click', openProductDetailAside);
 
         const productInfo = document.createElement('div');
         productInfo.classList.add('product-info');
