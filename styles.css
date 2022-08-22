@@ -86,26 +86,37 @@ nav {
 /* Desktop menu Styles */
 
 .desktop-menu {
-    width: 100px;
-    height: auto;
-    border: 1px solid var(--very-light-pink);
-    border-radius: 6px;
-    padding: 20px 20px 0 20px;
-    position: absolute;
-    background: var(--white);
-    top: 60px;
-    right: 58px;
+  width: 100px;
+  height: auto;
+  border: 1px solid var(--very-light-pink);
+  border-radius: 0 0 6px 6px;
+  padding: 20px 20px 0 20px;
+  position: absolute;
+  background: var(--white);
+  top: 60px;
+  right: 58px;
+
+  transform: scaleY(1);
+  transition: transform 200ms ease-in-out;
+  transform-origin: top;
+  
+
 }
 
+
 .inactive {
-  display: none;
-  transition: all .8s ease-in-out;
+  transform: scaleY(0);
+  transition: transform 200ms ease-in-out;
+  transform-origin: top;
+
+
+
 }
 .desktop-menu ul {
   list-style: none;
   padding: 0;
   margin: 0;
- 
+
 }
 .desktop-menu ul li {
   text-align: end;
@@ -132,16 +143,30 @@ nav {
 /* mobile menu styles */
 
 .mobile-menu {
-    position: absolute;
-    top: 60px;
-    padding: 24px;
+  position: absolute;
+  top: 61px;
+  padding: 24px;
+  background: var(--white);
+
+  left: -200px;
+  transform: translateX(-200px);
+  transition: transform 400ms;
+
+
 }
+
+.active {
+
+  transform: translateX(200px);
+  transition: transform 400ms;
+}
+
 
 .mobile-menu a {
   text-decoration: none;
   color: var(--black);
   font-weight: bold;
-  /* margin-bottom: 24px; */
+  margin-bottom: 24px;
 }
 
 .mobile-menu ul {
@@ -177,4 +202,16 @@ nav {
   .navbar-email {
     display: none;
   }
+
+  .desktop-menu {
+    display: none;
+  }
+}
+
+@media (min-width: 641px) {
+
+  .mobile-menu{
+    display: none;
+  }
+
 }
