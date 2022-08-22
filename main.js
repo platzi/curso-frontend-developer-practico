@@ -35,6 +35,5 @@ i will
 i must
 
 vamos a llevarnos estos cambios a el original
-
-
+git merge
 llego con exito*/
