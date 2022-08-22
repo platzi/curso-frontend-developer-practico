@@ -34,4 +34,7 @@ function toggleCcarritoIcon() {
 i will
 i must
 
-vamos a llevarnos estos cambios a el original*/
+vamos a llevarnos estos cambios a el original
+
+
+llego con exito*/
