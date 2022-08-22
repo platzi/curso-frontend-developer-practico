@@ -145,8 +145,8 @@ nav {
 
 /* Aside carrito de compra */
 aside {
-    background-color: white;
-    top: 90px;
+    background-color: var(--text-input-field);
+    top: 61px;
     width: 360px;
     padding: 24px;
     box-sizing: border-box;
@@ -308,6 +308,7 @@ aside {
     width: 400px;
     padding: 0px;
     height: 100%;
+    background-color: var(--text-input-field);
 
 
 
@@ -386,6 +387,7 @@ aside {
 /* Version Movil */
 .mobile-menu {
     padding: 24px;
+    /* background-color: red; */
 }
 
 .mobile-menu a {

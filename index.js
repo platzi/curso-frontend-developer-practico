@@ -16,7 +16,6 @@ let order = document.querySelector(".orderd");
 //Eventos
 
 order.addEventListener('click', () => {
-    console.log('j');
     aside.classList.add('oculta');
 })
 
@@ -36,9 +35,7 @@ email.addEventListener("click", () => {
 //Evento para mostrar el menu mobile
 menu_hamb.addEventListener("click", () => {
     mobile_menu.classList.toggle("oculta");
-    if (!aside.classList.contains('oculta')) {
-        aside.classList.add('oculta')
-    }
+    aside.classList.add('oculta')
 
     if (!contenedor_template.classList.contains('oculta')) {
         contenedor_template.classList.add('oculta');
@@ -46,27 +43,32 @@ menu_hamb.addEventListener("click", () => {
         contenedor_template.classList.remove('oculta');
     }
 
-    if (!Detalles_Producto.classList.contains('oculta')) {
-        Detalles_Producto.classList.add('oculta');
+    Detalles_Producto.classList.add('oculta');
 
-    }
 
 });
 //Evento para mostrar el carrito de compras
 icono_carrito.addEventListener("click", () => {
     aside.classList.toggle("oculta");
-    if (!mobile_menu.classList.contains('oculta')) {
-        mobile_menu.classList.add('oculta')
+
+    mobile_menu.classList.add('oculta')
+
+
+
+    menu.classList.add('oculta')
+
+    if (!aside.classList.contains('oculta') && Detalles_Producto.classList.contains('oculta')) {
+        Detalles_Producto.classList.add('oculta')
+        aside.classList.remove('oculta')
+    }
+    Detalles_Producto.classList.add('oculta');
+
+
+
+    if (contenedor_template.classList.contains('oculta')) {
+        contenedor_template.classList.remove('oculta');
     }
 
-    if (!menu.classList.contains('oculta')) {
-        menu.classList.add('oculta')
-    }
-
-    if (!Detalles_Producto.classList.contains('oculta')) {
-        Detalles_Producto.classList.add('oculta');
-
-    }
 
 });
 
@@ -184,6 +186,16 @@ template(Lista_articulos);
 
 
 function filtrado(id) {
+
+    let chanchito = document.querySelector('.chanchito');
+    chanchito.classList.add('oculta');
+
+    if (contenedor_template.classList.contains('oculta')) {
+        contenedor_template.classList.remove('oculta');
+    }
+
+
+
     let articulos_filtrados = Lista_articulos.filter((item) => {
         return item.id == id;
     });
@@ -194,26 +206,36 @@ function filtrado(id) {
         contenedor_template.innerHTML = "";
         template(Lista_articulos);
     }
+
 }
 
+let detalles_img;
+let detalles_nombre;
+let detalles_precio;
+let detalles_desc;
 
 
 
 function detalles(iterator) {
-    if (!aside.classList.contains('oculta') || !menu.classList.contains('oculta')) {
-        aside.classList.add('oculta');
-        menu.classList.add('oculta');
-
-
-    }
 
     if (Detalles_Producto.classList.contains('oculta')) {
         Detalles_Producto.classList.remove('oculta');
 
-        let detalles_img = document.querySelector(".Detalles_Producto_img");
-        let detalles_nombre = document.querySelector(".Detalles_Producto_nombre");
-        let detalles_precio = document.querySelector(".Detalles_Producto_precio");
-        let detalles_desc = document.querySelector(".Detalles_Producto_descripcion");
+
+
+
+
+
+
+
+
+
+
+        detalles_img = document.querySelector(".Detalles_Producto_img");
+        detalles_nombre = document.querySelector(".Detalles_Producto_nombre");
+        detalles_precio = document.querySelector(".Detalles_Producto_precio");
+        detalles_desc = document.querySelector(".Detalles_Producto_descripcion");
+
 
 
         detalles_img.setAttribute("src", iterator.imagen);
@@ -221,35 +243,58 @@ function detalles(iterator) {
         detalles_precio.innerHTML = iterator.precio;
         detalles_desc.innerHTML = iterator.descripcion;
 
+        let boton_p = document.querySelector('.add-to-cart-button');
+        boton_p.addEventListener('click', l)
 
+    }
+    else {
 
-    } else {
-        // continuaa..
     }
 
+
+
+
+
+}
+
+
+
+function l() {
+    addcarrito(
+
+        {
+            imagen: detalles_img.getAttribute('src'),
+            nombre: detalles_nombre.innerHTML,
+            precio: Number(detalles_precio.innerHTML)
+
+        }
+
+    )
 
 }
 
 //Evento para cerrar el aside de detalles de producto
 close_detalles.addEventListener("click", () => {
     Detalles_Producto.classList.add('oculta');
-    // if (contenedor_template.classList.contains('oculta')) {
-    //     contenedor_template.classList.remove('oculta');
-    // }
+
 
 })
 
 
 
 
-
+let lista_compra = [];
 
 let total_dinero = 0;
 let contenedor_ordenes = document.querySelector('.my-order-content');
 
-let lista_compra = [];
+
 function addcarrito(product) {
     aside.classList.remove('oculta');
+
+    console.log(product.imagen);
+    console.log(product.nombre);
+    console.log(product.precio);
 
 
 
@@ -264,7 +309,6 @@ function addcarrito(product) {
 
     })
 
-    console.log(lista_compra);
 
 
 
@@ -309,5 +353,7 @@ function addcarrito(product) {
 
 
 };
+
+
 
 
