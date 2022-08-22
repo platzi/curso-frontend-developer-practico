@@ -32,4 +32,6 @@ function toggleCcarritoIcon() {
 
 /* i can 
 i will
-i must*/
+i must
+
+vamos a llevarnos estos cambios a el original*/
