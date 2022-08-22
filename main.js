@@ -16,7 +16,7 @@ const mobileMenu = document.querySelector('.mobile-menu');
 // boton shopping cart 
 const shoppingCart = document.querySelector('.navbar-shopping-cart');
 // muestra aside navbar shopping cart 
-const asideShoppingCart = document.querySelector('.product-detail');
+const asideShoppingCart = document.querySelector('#shopping-cart');
 
 const cardsContainer = document.querySelector('.cards-container');
 
@@ -180,8 +180,7 @@ productList.push({
 });
 
 console.log(productList)
-   
-     // renderizamos los productos
+     // renderizamos todos los productos
      renderProducts(productList);
    
 // nos da el elemento del array 
