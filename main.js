@@ -3,9 +3,12 @@
 const menuEmail = document.querySelector('.navbar-email'); //=> ----1RA-----Codificamos el navbar-email.
 const desktopMenu = document.querySelector('.desktop-menu'); //=>------1RA-----
 
+const productDetailCloseIcon = document.querySelector('.product-detail-close')
 
 const menuCarritoIcon = document.querySelector('.navbar-shopping-cart'); //=> 3RA codificando carrito de compras 
 const shoppingCartContainer = document.querySelector('#shoppingCartContainer'); // 3RA codificando carrito de compra
+
+const productDetailContainer = document.querySelector('#productDetail');
 
 const cardsCointaner = document.querySelector('.cards-container');
 
@@ -18,6 +21,9 @@ const mobileMenu = document.querySelector('.mobile-menu'); //=> --------2DA-----
 menuEmail.addEventListener('click', toggleDesktopMenu);   // =>1ra codificacion, aplicamos la propiedad.
 menuHamIcon.addEventListener('click', toggleMobileMenu); //=>  2da codificacion, aplicamos la propiedad.
 menuCarritoIcon.addEventListener('click', toggleCarritoAside); // => 3ra codificacion a carrito de compras
+productDetailContainer.addEventListener('click', closeProductDetailAside);
+
+
 
 function toggleDesktopMenu(){
 
@@ -40,9 +46,12 @@ function toggleMobileMenu(){
     const isAsideClosed = shoppingCartContainer.classList.contains('inactive');
 
     if(!isAsideClosed){
-        aside.classList.add('inactive');
+        shoppingCartContainer.classList.add('inactive');
     }
     
+closeProductDetailAside();
+
+
     mobileMenu.classList.toggle('inactive');
 }
 
@@ -56,7 +65,29 @@ if(!isMobileMenuClosed){
     mobileMenu.classList.add('inactive');
 }
 
+const isProducDetailClosed= productDetailContainer.classList.contains('inactive');
+
+//aside.classList.toggle('inactive');
+if(!isProducDetailClosed){
+    productDetailContainer.classList.add('inactive');
+}
+
+
+
+
 shoppingCartContainer.classList.toggle('inactive');
+}
+
+function openProductDetailAside() {
+   
+shoppingCartContainer.classList.add('inactive');
+productDetailContainer.classList.remove('inactive');
+
+}
+
+function closeProductDetailAside(){
+ 
+    productDetailContainer.classList.add('inactive');
 }
 
 
@@ -166,6 +197,9 @@ for(product of arr){
     //product = {name, price, image} ->product.image
     const productImg = document.createElement('img');
     productImg.setAttribute('src',product.image);
+    productImg.addEventListener('click', openProductDetailAside);
+
+
 
     const productInfo = document.createElement('div');
     productInfo.classList.add('product-info');
