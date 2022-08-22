@@ -25,9 +25,11 @@ function mostrarMenu() {
 };
 
 function toggleCcarritoIcon() {
-    aside.classList.toggle('inactive')
+    aside.classList.toggle('inative..')
 
 
 };
 
 /*on brainch be */
+
+/*ramas fusionadas */
