@@ -189,6 +189,10 @@ aside {
     font-weight: bold;
 }
 
+.orderd {
+    cursor: pointer;
+}
+
 .order p:nth-child(2) {
     text-align: end;
     font-weight: bold;
@@ -263,6 +267,7 @@ aside {
     height: 240px;
     border-radius: 20px;
     object-fit: cover;
+
 }
 
 .product-info {
@@ -279,6 +284,7 @@ aside {
 .product-info figure img {
     width: 35px;
     height: 35px;
+    cursor: pointer;
 }
 
 .product-info div p:nth-child(1) {

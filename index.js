@@ -10,9 +10,15 @@ let Detalles_Producto = document.querySelector(".Detalles_Producto");
 let icono_carrito = document.querySelector(".navbar-shopping-cart");
 let aside = document.querySelector(".product-detail");
 let contenedor_template = document.querySelector(".cards-container");
+let order = document.querySelector(".orderd");
 
 
 //Eventos
+
+order.addEventListener('click', () => {
+    console.log('j');
+    aside.classList.add('oculta');
+})
 
 //evento para mostrar el email
 email.addEventListener("click", () => {
@@ -79,7 +85,7 @@ Lista_articulos.push({
     nombre: "Pizza de Queso",
     precio: 230,
     id: "Comida",
-    descripcion: "Con el queso y con el sexo nunca existe el exceso"
+    descripcion: "Con el queso  nunca  exceso"
 
 });
 Lista_articulos.push({
@@ -87,7 +93,7 @@ Lista_articulos.push({
     nombre: "Pizza de Jamon",
     precio: 230,
     id: "Comida",
-    descripcion: "Que rico es el Jamon  Y si Es de Cerdo Mogollon"
+    descripcion: "Que rico es el Jamon  "
 
 });
 Lista_articulos.push({
@@ -103,7 +109,7 @@ Lista_articulos.push({
     nombre: "Limonada",
     precio: 20,
     id: "Bebida",
-    descripcion: "La Limonada surgio cuando una hada se metio un limon por el trasero"
+    descripcion: "La Limonada surgio cuando una hada se comio un limon "
 
 });
 
@@ -151,6 +157,7 @@ function template(arr) {
 
         let img_comprar = document.createElement('img');
         img_comprar.setAttribute("src", "./icons/bt_add_to_cart.svg");
+        img_comprar.addEventListener('click', () => { addcarrito(iterator) })
 
         figure_div.append(img_comprar);
 
@@ -231,3 +238,28 @@ close_detalles.addEventListener("click", () => {
     // }
 
 })
+
+
+
+
+
+
+
+let contenedor_ordenes = document.querySelector('.my-order-content');
+
+
+function addcarrito(product) {
+    aside.classList.remove('oculta');
+
+
+    contenedor_ordenes.innerHTML += `<div class="shopping-cart">
+<figure>
+    <img src="${product.imagen}"
+        alt="${product.nombre}">
+</figure>
+<p>${product.nombre}</p>
+<p>${product.precio}</p>
+<img src="./icons/icon_close.png" alt="close">
+</div>`
+    console.log('algo malo_');
+}
