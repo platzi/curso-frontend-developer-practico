@@ -244,7 +244,7 @@ close_detalles.addEventListener("click", () => {
 
 
 
-
+let total_dinero = 0;
 let contenedor_ordenes = document.querySelector('.my-order-content');
 
 let lista_compra = [];
@@ -282,7 +282,8 @@ function addcarrito(product) {
     let nombre_lista_compra = document.createElement('p');
     nombre_lista_compra.innerHTML = nombre_product;
     let precio_lista_compra = document.createElement('p');
-    precio_lista_compra.innerHTML = precio_product;
+    precio_lista_compra.innerHTML = "$ " + precio_product;
+    total_dinero += precio_product;
     let icon_lista_compra = document.createElement('img');
     icon_lista_compra.setAttribute('src', './icons/icon_close.png');
 
@@ -298,6 +299,12 @@ function addcarrito(product) {
 
 
 
+
+    let cantidad_productos_en_el_carrito = document.querySelector(".cantidad_productos_en_el_carrito");
+    let interfaz_dinero = document.querySelector(".interfaz_dinero");
+    cantidad_productos_en_el_carrito.innerHTML = lista_compra.length;
+
+    interfaz_dinero.innerHTML = "$ " + total_dinero;
 
 
 
