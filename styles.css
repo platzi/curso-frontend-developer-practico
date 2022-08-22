@@ -160,7 +160,7 @@ color: var(--hospital-green) !important;
 }
 
 /* Aside (product details) */
-.aside {
+aside {
 background-color: var(--white);
 width: 360px;
 padding: 0 24px;
@@ -362,7 +362,7 @@ cursor: pointer;
 .desktop-menu {
 display: none;
 }
-.aside {
+aside {
 width: 100%;
 }
 .cards-container {

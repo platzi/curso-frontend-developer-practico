@@ -67,10 +67,10 @@ function openProductDetailAside () {
 }
 
 function closeProductDetailAside () {
-    const toggleCarritoMenuClose = menuCarritoIcon.classList.contains ('inactive');
+    const toggleCarritoMenuClose = aside.classList.contains ('inactive');
 
     if (!toggleCarritoMenuClose) {
-        menuCarritoIcon.classList.add ('inactive'); 
+        aside.classList.add ('inactive'); 
     }
 
     productDetailContainer.classList.add ('inactive')
