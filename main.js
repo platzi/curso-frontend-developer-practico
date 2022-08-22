@@ -30,6 +30,16 @@ function toggleCcarritoIcon() {
 
 };
 
+<<<<<<< HEAD
 /*on brainch be */
 
 /*ramas fusionadas */
+=======
+/* i can 
+i will
+i must
+
+vamos a llevarnos estos cambios a el original
+git merge
+llego con exito*/
+>>>>>>> colaborador
