@@ -2,8 +2,11 @@ const menuEmail = document.querySelector(".navbar-email");
 const desktopMenu = document.querySelector(".desktop-menu");
 const burgerMenu = document.querySelector(".menu");
 const mobileMenu = document.querySelector(".mobile-menu");
+const itemCounter = document.querySelector("#itemCounter");
 const menuShoppingCart = document.querySelector(".navbar-shopping-cart");
 const shoppigCartContainer = document.querySelector("#shoppingCartContainer");
+const shoppigCartCloseIcon = document.querySelector(".title-container");
+const buttonAddItem = document.querySelector(".add-to-cart-button");
 const productDetailContainer = document.querySelector("#productDetail");
 const productDetailCloseIcon = document.querySelector(".product-detail-close");
 const cardsContainer = document.querySelector(".cards-container");
@@ -11,44 +14,59 @@ const cardsContainer = document.querySelector(".cards-container");
 menuEmail.addEventListener("click", toggleDesktopMenu);
 burgerMenu.addEventListener("click", toggleBurgerMenu);
 menuShoppingCart.addEventListener("click", toggleShoppingCart);
+shoppigCartCloseIcon.addEventListener("click", toggleShoppingCart);
+buttonAddItem.addEventListener("click", addItemToCart);
 productDetailCloseIcon.addEventListener("click", closeProductDetailAside);
 
+// Menus
 function toggleDesktopMenu() {
-   const isAsideOpened = !shoppigCartContainer.classList.contains("inactive");
+   shoppigCartContainer.classList.add("inactive");
 
-   if (isAsideOpened) shoppigCartContainer.classList.toggle("inactive");
    desktopMenu.classList.toggle("inactive");
 }
 function toggleBurgerMenu() {
-   const isAsideOpened = !shoppigCartContainer.classList.contains("inactive");
-
-   if (isAsideOpened) shoppigCartContainer.classList.toggle("inactive");
-
+   shoppigCartContainer.classList.add("inactive");
    closeProductDetailAside();
+
    mobileMenu.classList.toggle("inactive");
 }
-function toggleShoppingCart() {
-   const isMobileMenuOpened = !mobileMenu.classList.contains("inactive");
-   const isDesktopMenuOpened = !desktopMenu.classList.contains("inactive");
-   const isProductDetailOpened = !productDetailContainer.classList.contains("inactive");
 
-   if (isMobileMenuOpened) mobileMenu.classList.toggle("inactive");
-   if (isDesktopMenuOpened) desktopMenu.classList.toggle("inactive");
-   if (isProductDetailOpened) productDetailContainer.classList.toggle("inactive");
-
-   shoppigCartContainer.classList.toggle("inactive");
-}
+// Product detail
 function openProductDetailAside(event) {
+   desktopMenu.classList.add("inactive");
    shoppigCartContainer.classList.add("inactive");
-   const productSelected = productList.filter(item=> item.image===event.srcElement.currentSrc);
-   renderProductDetail(productSelected[0]);
+
+   productSelected = getProductSelected(event);
+
+   renderProductDetail(productSelected);
    productDetailContainer.classList.remove("inactive");
 }
 function closeProductDetailAside() {
+   productSelected = {};
    productDetailContainer.classList.add("inactive");
 }
 
-// Creating products
+// Shopping cart container
+function toggleShoppingCart() {
+   mobileMenu.classList.add("inactive");
+   desktopMenu.classList.add("inactive");
+   closeProductDetailAside();
+
+   shoppigCartContainer.classList.toggle("inactive");
+}
+function addItemToCart() {
+   cartProducts.push(productSelected);
+   updateItemCounter();
+}
+function addToCartSmall(event) {
+   cartProducts.push(getProductSelected(event));
+   updateItemCounter();
+   window.alert(getProductSelected(event).name);
+}
+
+// Creating products and load principal page
+var productSelected = {};
+const cartProducts = [];
 const productList = [];
 productList.push({
    name: "Bike",
@@ -83,6 +101,15 @@ productList.push({
 
 renderProducts(productList);
 
+// General functions
+function updateItemCounter() {
+   itemCounter.innerHTML = `${cartProducts.length}`;
+}
+function getProductSelected(event) {
+   return productList.filter(
+      (item) => item.name === event.currentTarget.productName
+   )[0];
+}
 function renderProducts(arr) {
    for (product of arr) {
       const productCard = document.createElement("div");
@@ -90,6 +117,7 @@ function renderProducts(arr) {
 
       const productImg = document.createElement("img");
       productImg.setAttribute("src", product.image);
+      productImg.productName = product.name;
       productImg.addEventListener("click", openProductDetailAside);
 
       const productInfo = document.createElement("div");
@@ -106,6 +134,8 @@ function renderProducts(arr) {
       const productInfoFig = document.createElement("figure");
       const imgCart = document.createElement("img");
       imgCart.setAttribute("src", "./icons/bt_add_to_cart.svg");
+      imgCart.addEventListener("click", addToCartSmall, false);
+      imgCart.productName = product.name;
       productInfoFig.appendChild(imgCart);
 
       productInfo.appendChild(productInfoDiv);
@@ -117,16 +147,16 @@ function renderProducts(arr) {
    }
 }
 function renderProductDetail(product) {
-      const productImg = document.querySelector("#productImg");
-      productImg.setAttribute("src", product.image);
-      productImg.setAttribute("alt", product.name);
+   const productImg = document.querySelector("#productImg");
+   productImg.setAttribute("src", product.image);
+   productImg.setAttribute("alt", product.name);
 
-      const productPrice = document.querySelector("#productPrice");
-      productPrice.innerHTML = "$ " + product.price;
+   const productPrice = document.querySelector("#productPrice");
+   productPrice.innerHTML = "$ " + product.price;
 
-      const productName = document.querySelector("#productName");
-      productName.innerHTML = product.name;
+   const productName = document.querySelector("#productName");
+   productName.innerHTML = product.name;
 
-      const productInfo = document.querySelector("#producDescription");
-      productInfo.innerHTML = product.info;
+   const productInfo = document.querySelector("#producDescription");
+   productInfo.innerHTML = product.info;
 }

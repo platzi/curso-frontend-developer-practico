@@ -66,6 +66,7 @@ nav {
 }
 .navbar-shopping-cart {
    position: relative;
+   cursor: pointer;
 }
 .navbar-shopping-cart div {
    width: 16px;
@@ -93,6 +94,7 @@ nav {
    border: 1px solid var(--very-light-pink);
    border-radius: 6px;
    padding: 20px 20px 0 20px;
+   z-index: 10;
 }
 .desktop-menu ul {
    list-style: none;
@@ -125,7 +127,7 @@ nav {
 .mobile-menu {
    background-color: var(--white);
    position: absolute;
-   width: 100%;
+   width: 90%;
    top: 61px;
    left: 0;
    padding: 24px;
@@ -170,7 +172,11 @@ aside {
    padding: 0 24px;
 }
 .title-container {
-   display: flex;
+   display: inline-flex;
+   cursor: pointer;
+}
+.title-container:hover {
+   text-decoration: underline;
 }
 .title-container img {
    transform: rotate(180deg);
@@ -235,6 +241,7 @@ aside {
    font-size: var(--md);
    font-weight: bold;
    height: 50px;
+   margin-bottom: 10px;
 }
 
 /* Product card */
