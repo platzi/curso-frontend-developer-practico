@@ -6,7 +6,7 @@ const menuHamIcon = document.querySelector(".menu");
 const mobileMenu = document.querySelector(".mobile-menu");
 // ICON CAR SHOPING ------------------------------------------------------>
 const navbarShoppingCart = document.querySelector(".navbar-shopping-cart");
-const productDetail = document.querySelector(".product-detail");
+const shoppingCartContainer = document.querySelector("#shoppingCartContainer");
 
 // CARDS CONTAINER
 const cardsContainer = document.querySelector('.cards-container');
@@ -18,17 +18,17 @@ navbarShoppingCart.addEventListener("click", toggleProductDetail);
 
 
 function toggleDesktopMenu() {
-    const isProductDetailClosed = productDetail.classList.contains("inactive");
+    const isProductDetailClosed = shoppingCartContainer.classList.contains("inactive");
 
     desktopMenu.classList.toggle("inactive");
 
     if (!isProductDetailClosed) {
-        productDetail.classList.add("inactive");
+        shoppingCartContainer.classList.add("inactive");
     }
 }
 
 function toggleMobileMenu() {
-    const isProductDetailClosed = productDetail.classList.contains("inactive");
+    const isProductDetailClosed = shoppingCartContainer.classList.contains("inactive");
 
     mobileMenu.classList.toggle("inactive");
 
@@ -40,7 +40,7 @@ function toggleMobileMenu() {
 function toggleProductDetail() {
     const isMobileMenuClosed = mobileMenu.classList.contains("inactive");
 
-    productDetail.classList.toggle("inactive");
+    shoppingCartContainer.classList.toggle("inactive");
 
     if (!isMobileMenuClosed) {
         mobileMenu.classList.add("inactive");
