@@ -10,6 +10,8 @@ const buttonAddItem = document.querySelector(".add-to-cart-button");
 const productDetailContainer = document.querySelector("#productDetail");
 const productDetailCloseIcon = document.querySelector(".product-detail-close");
 const cardsContainer = document.querySelector(".cards-container");
+const myOrderContainer = document.querySelector(".my-order-content");
+const totalCostContainer = document.querySelector(".totalCost");
 
 menuEmail.addEventListener("click", toggleDesktopMenu);
 burgerMenu.addEventListener("click", toggleBurgerMenu);
@@ -52,6 +54,10 @@ function toggleShoppingCart() {
    desktopMenu.classList.add("inactive");
    closeProductDetailAside();
 
+   const isshoppingCartClosed =
+      shoppigCartContainer.classList.contains("inactive");
+   if (isshoppingCartClosed) renderMyOrder(cartProducts);
+
    shoppigCartContainer.classList.toggle("inactive");
 }
 function addItemToCart() {
@@ -61,12 +67,17 @@ function addItemToCart() {
 function addToCartSmall(event) {
    cartProducts.push(getProductSelected(event));
    updateItemCounter();
-   window.alert(getProductSelected(event).name);
 }
-
+function removeItem(event) {
+   cartProducts = cartProducts.filter(
+      (item) => item.name != event.currentTarget.productName
+   );
+   updateItemCounter();
+   renderMyOrder(cartProducts);
+}
 // Creating products and load principal page
 var productSelected = {};
-const cartProducts = [];
+var cartProducts = [];
 const productList = [];
 productList.push({
    name: "Bike",
@@ -101,7 +112,7 @@ productList.push({
 
 renderProducts(productList);
 
-// General functions
+// General functions DOM manipulation
 function updateItemCounter() {
    itemCounter.innerHTML = `${cartProducts.length}`;
 }
@@ -134,7 +145,7 @@ function renderProducts(arr) {
       const productInfoFig = document.createElement("figure");
       const imgCart = document.createElement("img");
       imgCart.setAttribute("src", "./icons/bt_add_to_cart.svg");
-      imgCart.addEventListener("click", addToCartSmall, false);
+      imgCart.addEventListener("click", addToCartSmall);
       imgCart.productName = product.name;
       productInfoFig.appendChild(imgCart);
 
@@ -159,4 +170,39 @@ function renderProductDetail(product) {
 
    const productInfo = document.querySelector("#producDescription");
    productInfo.innerHTML = product.info;
+}
+function renderMyOrder(arr) {
+   myOrderContainer.innerHTML = "";
+   let totalCost = 0;
+   for (product of arr) {
+      const itemOrdered = document.createElement("div");
+      itemOrdered.classList.add("shopping-cart");
+
+      const figureImg = document.createElement("figure");
+      const productImg = document.createElement("img");
+      productImg.setAttribute("src", product.image);
+      productImg.setAttribute("alt", product.name);
+      figureImg.appendChild(productImg);
+      itemOrdered.appendChild(figureImg);
+
+      const productName = document.createElement("p");
+      productName.innerHTML = product.name;
+      itemOrdered.appendChild(productName);
+
+      const productPrice = document.createElement("p");
+      productPrice.innerHTML = `$ ${product.price}`;
+      totalCost += product.price;
+      itemOrdered.appendChild(productPrice);
+
+      const closeImg = document.createElement("img");
+      closeImg.setAttribute("src", "./icons/icon_close.png");
+      closeImg.setAttribute("alt", "close");
+      closeImg.productName = product.name;
+      closeImg.addEventListener("click", removeItem);
+      itemOrdered.appendChild(closeImg);
+
+      myOrderContainer.appendChild(itemOrdered);
+   }
+
+   totalCostContainer.innerHTML = `$ ${totalCost}`;
 }
