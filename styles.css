@@ -19,10 +19,15 @@ body {
 
 /* NavBar General */
 nav {
+   width: 95%;
+   position: fixed;
+   top: 0;
    display: flex;
    justify-content: space-between;
    padding: 0 24px;
    border-bottom: 1px solid var(--very-light-pink);
+   background: var(--white);
+   z-index: 10;
 }
 .menu {
    display: none;
@@ -165,10 +170,13 @@ aside {
    box-sizing: border-box;
    position: absolute;
    right: 0;
+   top: 61px;
 }
 
 /* Shopping cart */
 #shoppingCartContainer {
+   position: fixed;
+   top: 61px;
    padding: 0 24px;
 }
 .title-container {
@@ -256,7 +264,7 @@ aside {
    grid-template-columns: repeat(auto-fill, 240px);
    gap: 26px;
    place-content: center;
-   margin-top: 20px;
+   margin-top: 70px;
 }
 .product-card {
    width: 240px;
@@ -266,6 +274,7 @@ aside {
    height: 240px;
    border-radius: 20px;
    object-fit: cover;
+   cursor: pointer;
 }
 .product-card .product-info {
    display: flex;
@@ -279,6 +288,7 @@ aside {
 .product-card .product-info figure img {
    width: 35px;
    height: 35px;
+   cursor: pointer;
 }
 .product-card .product-info div p:nth-child(1) {
    font-weight: bold;

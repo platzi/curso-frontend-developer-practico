@@ -61,12 +61,12 @@ function toggleShoppingCart() {
    shoppigCartContainer.classList.toggle("inactive");
 }
 function addItemToCart() {
-   cartProducts.push(productSelected);
-   updateItemCounter();
+   addProductToMyOrder(productSelected);
 }
 function addToCartSmall(event) {
-   cartProducts.push(getProductSelected(event));
-   updateItemCounter();
+   shoppigCartContainer.classList.add("inactive");
+   const productPressed = getProductSelected(event);
+   addProductToMyOrder(productPressed);
 }
 function removeItem(event) {
    cartProducts = cartProducts.filter(
@@ -114,12 +114,34 @@ renderProducts(productList);
 
 // General functions DOM manipulation
 function updateItemCounter() {
-   itemCounter.innerHTML = `${cartProducts.length}`;
+   let totalUnits = 0;
+   for (let index = 0; index < cartProducts.length; index++) {
+      totalUnits += cartProducts[index].units;
+   }
+   itemCounter.innerHTML = `${totalUnits}`;
 }
 function getProductSelected(event) {
    return productList.filter(
       (item) => item.name === event.currentTarget.productName
    )[0];
+}
+function findIndex(needle, haystack) {
+   for (let index = 0; index < haystack.length; index++) {
+      if (haystack[index].name == needle) return index;
+   }
+   return -1;
+}
+function addProductToMyOrder(product) {
+   indexProduct = findIndex(product.name, cartProducts);
+   if(indexProduct != -1) {
+      cartProducts[indexProduct].units++;
+   }else{
+      let productToAdd = JSON.parse(JSON.stringify(product));
+      productToAdd.units = 1;
+      cartProducts.push(productToAdd);
+   }
+
+   updateItemCounter();
 }
 function renderProducts(arr) {
    for (product of arr) {
@@ -186,12 +208,12 @@ function renderMyOrder(arr) {
       itemOrdered.appendChild(figureImg);
 
       const productName = document.createElement("p");
-      productName.innerHTML = product.name;
+      productName.innerHTML = `${product.name} x${product.units}`;
       itemOrdered.appendChild(productName);
 
       const productPrice = document.createElement("p");
-      productPrice.innerHTML = `$ ${product.price}`;
-      totalCost += product.price;
+      productPrice.innerHTML = `$ ${product.price*product.units}`;
+      totalCost += product.price*product.units;
       itemOrdered.appendChild(productPrice);
 
       const closeImg = document.createElement("img");
