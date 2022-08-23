@@ -11,16 +11,17 @@ const addToCartShopping = document.querySelector('.my-order-content');
 let addedItem=0;
 let total;
 let shoppingCartList =[];
+let productClicked =[];
 
 shoppingCartCount.style.setProperty('display','none');
 
 const productDetailAside = document.querySelector('#productDetail');
-//const productDetailClose = document.querySelector('.product-detail-close');
+
 
 menuEmail.addEventListener('click',toggleDesktopMenu);
 burgerMenu.addEventListener('click',toggleMobileMenu);
 carritoMenuIcon.addEventListener('click',toggleCarritoAside);
-//productDetailClose.addEventListener('click',closeProductDetail);
+
 
 function toggleDesktopMenu(){
    
@@ -39,10 +40,8 @@ function toggleCarritoAside(){
 
 }
 
-function openProductDetail(event) {
+function openProductDetail() {
     productDetailAside.replaceChildren();
-    console.log(event);
-    console.log(this.alt);
      let productDetail ='productDetail';
      closeWindows(productDetail);
     renderProductDetail(this.alt);
@@ -101,14 +100,20 @@ function closeWindows(etiqueta){
 
 }
 
-function addToCart(event) {
+function addToCart() {
     addToCartShopping.replaceChildren();
-    console.log(event);
-    console.log(this.alt);
     shoppingCartCount.style.setProperty('display','flex');
     addedItem+=1;
     shoppingCartCount.innerText = addedItem;
-    renderAddToCartItem(this.alt,shoppingCartList);
+    let item = this.name;
+    console.log(item);
+    const itemAddedCart = productList.find(function (product) {
+      return product.name === item;
+    })
+    console.log(itemAddedCart);
+    shoppingCartList.push(itemAddedCart);
+    console.log(shoppingCartList);
+    renderAddToCartItem(shoppingCartList);
 }
 
 function deleteItemFromCart() {
@@ -120,89 +125,15 @@ function deleteItemFromCart() {
         toggleCarritoAside();    
     }
     addToCartShopping.replaceChildren();
-    shoppingCartList.pop(this.alt);
-    for (const productAddedToCart of shoppingCartList) {
-        const shoppingCart = document.createElement('div');
-            shoppingCart.classList.add('shopping-cart');
-               
-               const shoppingCartFigure =document.createElement('figure');
-                 const shoppingCartFigureImg = document.createElement('img');
-                 shoppingCartFigureImg.setAttribute('src',productAddedToCart.image);
-         
-               shoppingCartFigure.appendChild(shoppingCartFigureImg);
-         
-               const shoppingCartItemName = document.createElement('p');
-               shoppingCartItemName.innerText = productAddedToCart.name;
-               
-               const shoppingCartItemPrice = document.createElement('p');
-               shoppingCartItemPrice.innerText ='$'+productAddedToCart.price;
-         
-               const shoppingCartDeleteItem = document.createElement('img');
-               shoppingCartDeleteItem.setAttribute('src','./icons/icon_close.png');
-               shoppingCartDeleteItem.setAttribute('alt',productAddedToCart.name);
-               shoppingCartDeleteItem.addEventListener('click',deleteItemFromCart)
-         
-               shoppingCart.append(shoppingCartFigure,shoppingCartItemName,shoppingCartItemPrice,shoppingCartDeleteItem);
-         
-            
-             addToCartShopping.append(shoppingCart)
-             
-             //addToCartShopping.insertAdjacentElement("afterbegin",shoppingCart);//para insertar un elemento antes de otro ya existente podemos ocupar insertAdjacentElement(parametroDePosicion,ElementoAgregado); los paramatros de posicion pueden ser los siguientes: 
-             /* 
-             beforebegin: El elemento se inserta antes de la etiqueta HTML de apertura.
-             afterbegin: El elemento se inserta dentro de la etiqueta HTML, antes de su primer hijo.
-             beforeend: El elemento se inserta dentro de la etiqueta HTML, después de su último hijo. Es el equivalente a usar el método .appendChild().
-             afterend: El elemento se inserta después de la etiqueta HTML de cierre.
-             */
-          
-            
-        }
-        
-        const totalOrder = document.createElement('div');
-        totalOrder.classList.add('order');
-          const totalOrderP=document.createElement('p');
-            const totalOrderPSpan = document.createElement('span');
-            totalOrderPSpan.innerText='Total';
-          totalOrderP.appendChild(totalOrderPSpan);
-          const totalOrderSum= document.createElement('p');
-
-          let sumOfPricesAddedToCart=shoppingCartList.map(function (prices) {
-                return prices.price;
-          });
-          for (let i = 0; i < sumOfPricesAddedToCart.length; i++) {
-            total = total + sumOfPricesAddedToCart[i];
-          }
-
-          totalOrderSum.innerText='$'+total;
-        totalOrder.append(totalOrderP,totalOrderSum);
-        
-        const shoppingCartBtn = document.createElement('button');
-        shoppingCartBtn.classList.add('primary-button');
-        shoppingCartBtn.innerText='Checkout';
-        
-        addToCartShopping.append(totalOrder,shoppingCartBtn);
+    shoppingCartList.pop(this.name);
+    renderAddToCartItem(shoppingCartList);
+  
         
 }
 
-function renderAddToCartItem(item,arr) {
+function renderAddToCartItem(arr) {
     total=0;
-    const itemAddedCart = productList.find(function (product) {
-        return product.name === item;
-      })
-    arr.push(itemAddedCart);
-    console.log(shoppingCartList.length);
 
-
-/* 
-    <div class="shopping-cart">
-      <figure>
-        <img src="https://images.pexels.com/photos/276517/pexels-photo-276517.jpeg?auto=compress&cs=tinysrgb&dpr=2&h=650&w=940" alt="bike">
-      </figure>
-      <p>Bike</p>
-      <p>$30,00</p>
-      <img src="./icons/icon_close.png" alt="close">
-    </div>
- */
 for (const productAddedToCart of arr) {
 const shoppingCart = document.createElement('div');
     shoppingCart.classList.add('shopping-cart');
@@ -221,7 +152,7 @@ const shoppingCart = document.createElement('div');
  
        const shoppingCartDeleteItem = document.createElement('img');
        shoppingCartDeleteItem.setAttribute('src','./icons/icon_close.png');
-       shoppingCartDeleteItem.setAttribute('alt',productAddedToCart.name);
+       shoppingCartDeleteItem.setAttribute('name',productAddedToCart.name);
        shoppingCartDeleteItem.addEventListener('click',deleteItemFromCart)
  
        shoppingCart.append(shoppingCartFigure,shoppingCartItemName,shoppingCartItemPrice,shoppingCartDeleteItem);
@@ -300,7 +231,7 @@ for (const product of arr) {
     productImgCart.setAttribute('src','./icons/bt_add_to_cart.svg');
     
     productImgCart.addEventListener('click',addToCart)
-    productImgCart.setAttribute('alt',product.name);
+    productImgCart.setAttribute('name',product.name);
 
     productInfoFigure.appendChild(productImgCart);
     
@@ -315,22 +246,7 @@ for (const product of arr) {
 }
 
 function renderProductDetail(productName){
- /*    
- <div class="product-detail-close">
-    <img src="./icons/icon_close.png" alt="close">
-  </div>
-  <img src="https://images.pexels.com/photos/276517/pexels-photo-276517.jpeg?auto=compress&cs=tinysrgb&dpr=2&h=650&w=940" alt="bike">
-  <div class="product-info">
-    <p>$35,00</p>
-    <p>Bike</p>
-    <p>With its practical position, this bike also fulfills a decorative function, add your hall or workspace.</p>
-    <button class="primary-button add-to-cart-button">
-      <img src="./icons/bt_add_to_cart.svg" alt="add to cart">
-      Add to cart
-    </button>
-  </div>
- */
-  const productClicked = productList.find(function (product) {
+  productClicked = productList.find(function (product) {
     return product.name === productName;
   })
 
@@ -360,6 +276,8 @@ function renderProductDetail(productName){
     const productDetailBtn = document.createElement('button');
     productDetailBtn.classList.add('primary-button');
     productDetailBtn.classList.add('add-to-cart-button');
+    productDetailBtn.setAttribute('name',productClicked.name);
+    productDetailBtn.addEventListener('click',addToCart);
         const productDetialBtnImg = document.createElement('img');
         productDetialBtnImg.setAttribute('src','./icons/bt_add_to_cart.svg');
         productDetialBtnImg.setAttribute('alt','add to cart');
