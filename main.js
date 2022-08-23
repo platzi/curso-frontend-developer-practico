@@ -9,9 +9,11 @@ const iconCar = document.querySelector("#carIcon");
 const carContainer =document.querySelector("#carContainer");
 /*Card -container */
 const cardsContainer =document.querySelector(".cards-container");
-
+/*product datail */
+const carProductDetail = document.querySelector("#carProductDetail");
+const carProductDetailClose = document.querySelector(".product-detail-two-close");
 //Listener
-
+carProductDetailClose.addEventListener("click",closeProductDetail);
 menuEmail.addEventListener("click", toggleDesktopMenu);
 
 iconMenuMobile.addEventListener("click",toggleMenuMobile);
@@ -25,11 +27,13 @@ function toggleDesktopMenu(){
 function toggleMenuMobile(){
     menuMobile.classList.toggle("inactive");
     carContainer.classList.add("inactive");
+    carProductDetail.classList.add("inactive");
 }
 function toggleMenuCar(){
     carContainer.classList.toggle("inactive");
     menuMobile.classList.add("inactive");
     desktopMenu.classList.add("inactive");
+    carProductDetail.classList.add("inactive");
 }
 const productList = [];
 productList.push({
@@ -47,6 +51,14 @@ productList.push({
     price: 600,
     img: "https://ssl-product-images.www8-hp.com/digmedialib/prodimg/lowres/c07973337.png?auto=compress&cs=tinysrgb&dpr=2&h=650&w=940"
 });
+function openProductDetail(){
+    carProductDetail.classList.remove("inactive");
+    carContainer.classList.add("inactive");
+    menuMobile.classList.add("inactive");
+}
+function closeProductDetail(){
+    carProductDetail.classList.add("inactive");
+}
 /* <div class="product-card">
 <img src="https://images.pexels.com/photos/276517/pexels-photo-276517.jpeg?auto=compress&cs=tinysrgb&dpr=2&h=650&w=940" alt="">
 <div class="product-info">
@@ -66,6 +78,7 @@ for(product of productList){
     /*Elemento imagen*/
     const img = document.createElement("img");
     img.setAttribute("src",product.img);
+    img.addEventListener("click", openProductDetail);
     /*product-info */
     const productInfo = document.createElement("div");
     productInfo.classList.add("product-info");
