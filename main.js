@@ -1,3 +1,7 @@
+// general
+
+// const mainContainer = document.querySelector('.container');
+
 // desktop ///////////////////////////////////////////
 
 // boton para mostrar u ocultar el desktop menu
@@ -20,6 +24,11 @@ const asideShoppingCart = document.querySelector('#shopping-cart');
 
 const cardsContainer = document.querySelector('.cards-container');
 
+/// contenedor que muestra el aside product detail ///////////////////////////////////////////
+ const productDetailContainer = document.querySelector('#product-detail');
+//  boton para cerrar el product detail
+ const buttonProductDetailContainer = document.querySelector('.product-detail-close');
+
 //////////////////////////// EVENTOS //////////////////////////
 // desktop menu 
 navbarEmail.addEventListener('click',toggleDesktopMenu);
@@ -29,6 +38,9 @@ burgerIcon.addEventListener('click',toggleMobileMenu);
 
 // Aside shopping cart 
 shoppingCart.addEventListener('click',toggleAsideShoppingCart);
+
+// boton para cerrar el product detail container
+buttonProductDetailContainer.addEventListener('click',closeProductDetailContainer);
 
 /////////////////////////// FUNCIONES /////////////////////////
 
@@ -51,11 +63,15 @@ function toggleMobileMenu(){
         console.log('esta abierto');
         asideShoppingCart.classList.toggle('inactive');
     }
+
+    productDetailContainer.classList.add('inactive');
 }
 
 // aside shopping cart 
 function toggleAsideShoppingCart(){
     asideShoppingCart.classList.toggle('inactive');
+    // mainContainer.classList.add('darken');
+
 
     // si esta abierto el menu mobile, lo cierro 
     // metodo contains corrobora si ese elemento contiene la clase 
@@ -69,6 +85,10 @@ function toggleAsideShoppingCart(){
     // si estuviera activo el desktopMenu, lo oculto 
     desktopMenu.classList.add('inactive');
 
+    // si esta abierto el product detail container, lo cierro 
+    if(!productDetailContainer.classList.contains('inactive')){
+        productDetailContainer.classList.add('inactive');
+    }
 
     // pruebas con metodos classList ///////////////
     // enumera la cantidad de clases 
@@ -81,6 +101,22 @@ function toggleAsideShoppingCart(){
 
     
 }
+
+ // funcion para renderizar el product detail 
+function openProductDetailAside(){
+    // si estuviera activo el asideShoppingCart, lo oculto 
+    asideShoppingCart.classList.add('inactive');
+    
+    productDetailContainer.classList.remove('inactive');
+    
+
+}
+
+// funcion para cerrar el product detail aside 
+function closeProductDetailContainer(){
+    productDetailContainer.classList.add('inactive');
+}
+
 
     // ejemplo de elemento que recreamos desde JS
     // 1)  <div class="product-card">
@@ -110,6 +146,9 @@ function toggleAsideShoppingCart(){
             const productImg = document.createElement('img');
             // modificamos el atributo src, por medio de setAttribute 
             productImg.setAttribute('src',product.img);
+
+            // creamos un evento al clickear en la imagen para abrir el detalle
+            productImg.addEventListener('click',openProductDetailAside);
     
              // creamos el div
              const productInfo = document.createElement('div');
@@ -155,12 +194,12 @@ function toggleAsideShoppingCart(){
         }
     }
 
-
 ///////////// AGREGAMOS MANUALMENTE PRODUCTOS AL ARRAY ////////////////
+// creamos un array vacio 
 const productList = [];
 
 // caracteristicas de los elementos del array: imagen, nombre y precio. 
-
+// array de objetos 
 productList.push({
     name: 'Byke',
     price: 120,
@@ -179,17 +218,17 @@ productList.push({
     img:"https://images.pexels.com/photos/276517/pexels-photo-276517.jpeg?auto=compress&cs=tinysrgb&dpr=2&h=650&w=940"
 });
 
-console.log(productList)
-     // renderizamos todos los productos
-     renderProducts(productList);
    
 // nos da el elemento del array 
-for(product of productList){
-    console.log(product.name);
-    console.log(product.img);
-}
+// for(product of productList){
+//     console.log(product.name);
+//     console.log(product.img);
+// }
 
 // nos da el indice 
 // for(product in productList){
 //     console.log(product);
 // }
+
+////////////// RENDERIZADO DE PRODUCTOS ///////////////// 
+renderProducts(productList);
