@@ -16,16 +16,44 @@ categorias.addEventListener('click', mostrarMenu);
 carritoIcon.addEventListener('click', toggleCcarritoIcon)
 
 function mostrar() {
+    const loginn = aside.classList.contains('inactive');
+
+    if (!loginn) {
+        aside.classList.add('inactive');
+    }
+
     menu.classList.toggle('inactive')
 
 };
 
 function mostrarMenu() {
+
+    const isAsideC = aside.classList.contains('inactive');
+    if (!isAsideC) {
+        aside.classList.add('inactive');
+    }
+
     movilV.classList.toggle('inactive')
 };
 
 function toggleCcarritoIcon() {
-    aside.classList.toggle('inactive')
+    const isMobileC = movilV.classList.contains('inactive');
+    const login = menu.classList.contains('inactive')
+
+    if (!isMobileC) {
+        movilV.classList.add('inactive')
+    }
+
+    if (!login) {
+        menu.classList.add('inactive')
+    }
+
+    aside.classList.toggle('inactive');
+
+
+
+
+
 
 
 };
