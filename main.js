@@ -3,7 +3,7 @@ const menusito = document.querySelector('.desktop-menu');
 const mobile = document.querySelector('.menu');
 const menuLateral = document.querySelector('.mobile-menu');
 const carrito = document.querySelector('.navbar-shopping-cart');
-const miOrden = document.querySelector('.product-detail');
+const shoppingCartContainer = document.querySelector('#shoppingCartContainer');
 const cardsContainer = document.querySelector('.cards-container');
 
 
@@ -17,14 +17,14 @@ function toggleDesktopMenu(){
 
 function toggleDesktopMenuLateral(){
     menusito.classList.add('inactive');
-    miOrden.classList.add('inactive');
+    shoppingCartContainer.classList.add('inactive');
     menuLateral.classList.toggle('inactive');
 }
 
 function toggleDesktopMiOrden(){
     menusito.classList.add('inactive');
     menuLateral.classList.add('inactive');
-    miOrden.classList.toggle('inactive');
+    shoppingCartContainer.classList.toggle('inactive');
 }
 
 const productLista = [];
