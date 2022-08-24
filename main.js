@@ -20,26 +20,21 @@ function toggleDesktopMenu() {
     desktopMenu.classList.toggle('inactive');
 }
 
-<<<<<<< HEAD
+
 function toggleCcarritoIcon() {
     aside.classList.toggle('inative..')
+}
 =======
 function toggleMobileMenu() {
     const isAsideClosed = aside.classList.contains('inactive');
 >>>>>>> colaborador
 
-    if (!isAsideClosed) {
-        aside.classList.add('inactive');
-    }
-
-    mobileMenu.classList.toggle('inactive');
+if (!isAsideClosed) {
+    aside.classList.add('inactive');
 }
 
-<<<<<<< HEAD
-/*on brainch be */
-
-/*ramas fusionadas */
-=======
+mobileMenu.classList.toggle('inactive');
+    }
 function toggleCarritoAside() {
     const isMobileMenuClosed = mobileMenu.classList.contains('inactive');
 
