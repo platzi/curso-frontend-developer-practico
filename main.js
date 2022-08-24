@@ -220,15 +220,31 @@ productList.push({
 
    
 // nos da el elemento del array 
-// for(product of productList){
-//     console.log(product.name);
-//     console.log(product.img);
-// }
+
+// guardamos en obProduct la transformacion del objeto a un array 
+const objProduct = Object.entries(productList);
+for(let i=0; i< objProduct.length; i++){
+// objProduct.forEach(element => {
+    if(i==1){
+
+        console.log(objProduct[i]);
+        console.log(productList[i].name);
+        console.log(productList[i].price);
+        console.log(productList[i].img);
+    }
+// });
+    // console.log(product.img);
+}
 
 // nos da el indice 
 // for(product in productList){
 //     console.log(product);
 // }
 
+
+
 ////////////// RENDERIZADO DE PRODUCTOS ///////////////// 
 renderProducts(productList);
+
+
+// console.log(Object.keys(productList));
