@@ -296,11 +296,7 @@
     align-items: center;
     justify-content: center;
   }
-  @media (max-width: 640px) {
-    .product-detail {
-      width: 100%;
-    }
-  }
+
 
 
   /*Estilos de grid*/
@@ -372,6 +368,9 @@
         width: 140px;
         height: 140px;
     }
+    #productDetail {
+        width: 100%;
+      }
   }
   @media (min-width: 640px) {
     .mobile-menu{
