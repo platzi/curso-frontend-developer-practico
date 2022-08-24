@@ -4,12 +4,15 @@ const menuCartIcon = document.querySelector('.navbar-shopping-cart');
 const desktopMenu = document.querySelector('.desktop-menu');
 const mobileMenu = document.querySelector('.mobile-menu');
 const shoppingCartContainer = document.querySelector('#shoppingCartContainer');
+const productDetailsConteiner = document.querySelector('#productDetail');
+const productDetailClose = document.querySelector('.product-detail-close');
 const cardsContainer = document.querySelector('.cards-container');
 
 
 menuEmail.addEventListener('click', toggleDesktopMenu);
 menuBurger.addEventListener('click', toggleMobileMenu);
 menuCartIcon.addEventListener('click', toggleCartAside);
+productDetailClose.addEventListener('click', closeProductDetails);
 
 function toggleDesktopMenu () {
   const isAsideClosed = shoppingCartContainer.classList.contains('inactive');
@@ -39,22 +42,13 @@ function toggleCartAside () {
   shoppingCartContainer.classList.toggle('inactive');
 }
 
-const productList = [];
-productList.push({
-  name: 'Bike',
-  price: 150,
-  image: 'https://images.pexels.com/photos/276517/pexels-photo-276517.jpeg?auto=compress&cs=tinysrgb&dpr=2&h=650&w=940'
-});
-productList.push({
-  name: 'Screen',
-  price: 250,
-  image: 'https://images.pexels.com/photos/276517/pexels-photo-276517.jpeg?auto=compress&cs=tinysrgb&dpr=2&h=650&w=940'
-});
-productList.push({
-  name: 'SmartPhone',
-  price: 350,
-  image: 'https://images.pexels.com/photos/276517/pexels-photo-276517.jpeg?auto=compress&cs=tinysrgb&dpr=2&h=650&w=940'
-});
+function openProductDetails () {
+  productDetailsConteiner.classList.remove('inactive');
+}
+
+function closeProductDetails () {
+  productDetailsConteiner.classList.add('inactive');
+}
 
 function renderProducts (array) {
   for (product of array) {
@@ -63,6 +57,7 @@ function renderProducts (array) {
   
     const productImg = document.createElement('img');
     productImg.setAttribute('src', product.image);
+    productImg.addEventListener('click', openProductDetails);
   
     const productInfo = document.createElement('div');
     productInfo.classList.add('product-info');
@@ -91,4 +86,26 @@ function renderProducts (array) {
     cardsContainer.appendChild(productCard);
   }
 };
+
+const productList = [];
+productList.push({
+  name: 'Bike',
+  price: 150,
+  image: 'https://images.pexels.com/photos/276517/pexels-photo-276517.jpeg?auto=compress&cs=tinysrgb&dpr=2&h=650&w=940',
+  description: 'This is a bike'
+});
+productList.push({
+  name: 'Screen',
+  price: 250,
+  image: 'https://images.pexels.com/photos/276517/pexels-photo-276517.jpeg?auto=compress&cs=tinysrgb&dpr=2&h=650&w=940',
+  description: 'This is a smartTV'
+});
+productList.push({
+  name: 'SmartPhone',
+  price: 350,
+  image: 'https://images.pexels.com/photos/276517/pexels-photo-276517.jpeg?auto=compress&cs=tinysrgb&dpr=2&h=650&w=940',
+  description: 'This is a SmartPhone'
+});
+
+
 renderProducts(productList);
