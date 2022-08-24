@@ -24,17 +24,16 @@ function toggleDesktopMenu() {
 function toggleCcarritoIcon() {
     aside.classList.toggle('inative..')
 }
-=======
 function toggleMobileMenu() {
     const isAsideClosed = aside.classList.contains('inactive');
->>>>>>> colaborador
 
-if (!isAsideClosed) {
-    aside.classList.add('inactive');
-}
 
-mobileMenu.classList.toggle('inactive');
+    if (!isAsideClosed) {
+        aside.classList.add('inactive');
     }
+
+    mobileMenu.classList.toggle('inactive');
+}
 function toggleCarritoAside() {
     const isMobileMenuClosed = mobileMenu.classList.contains('inactive');
 
@@ -101,7 +100,7 @@ function renderProducts(arr) {
 }
 
 renderProducts(productList);
->>>>>>> colaborador
+
 /* i can 
 i will
 i must
