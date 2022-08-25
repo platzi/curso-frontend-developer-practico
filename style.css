@@ -386,7 +386,7 @@
     font-weight: bold;
     height: 50px;
   }
-  
+
   .add-to-cart-button {
     display: flex;
     align-items: center;
@@ -412,7 +412,7 @@
       display: none;
     }
 
-    .product-detail {
+    #productDetail {
       width: 100%;
     }
 

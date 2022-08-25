@@ -2,8 +2,10 @@ const navEmail = document.querySelector('.navbar-email');
 const desktopMenu = document.querySelector('.desktop-menu');
 const menuHamburgerIcon = document.querySelector('.menu');
 const menuShoppingCar = document.querySelector('.navbar-shopping-cart');
+const productDetailCloseIcon = document.querySelector('.product-detail-close');
 const mobileMenu = document.querySelector('.mobile-menu');
 const shoppingCartContainer = document.querySelector('#shoppingCartContainer');
+const productDetailContainer = document.querySelector('#productDetail');
 const carContainer = document.querySelector('.cards-container');
 
 function toggleDesktopMenu() {
@@ -25,6 +27,8 @@ function toggleMobilMenu() {
         shoppingCartContainer.classList.add('inactive');
     }
 
+    closeProductDetailASide();
+
     mobileMenu.classList.toggle('inactive');
 }
 
@@ -39,7 +43,21 @@ function toggleShoppingCar() {
         desktopMenu.classList.add('inactive');
     }
 
+    const isProductDatailClose = productDetailContainer.classList.contains('inactive');
+    if (!isProductDatailClose) {
+        productDetailContainer.classList.add('inactive');
+    }
+
     shoppingCartContainer.classList.toggle('inactive');
+}
+
+function openProductDetailAside() {
+    shoppingCartContainer.classList.add('inactive');
+    productDetailContainer.classList.remove('inactive');
+}
+
+function closeProductDetailASide() {
+    productDetailContainer.classList.add('inactive');
 }
 
 const productList = [];
@@ -68,6 +86,7 @@ function renderProduct(array) {
     
         const img = document.createElement('img');
         img.setAttribute('src', product.image);
+        img.addEventListener('click', openProductDetailAside);
     
         const productInfo = document.createElement('div');
         productInfo.classList.add('product-info');
@@ -103,3 +122,4 @@ renderProduct(productList);
 navEmail.addEventListener('click', toggleDesktopMenu);
 menuHamburgerIcon.addEventListener('click', toggleMobilMenu);
 menuShoppingCar.addEventListener('click', toggleShoppingCar);
+productDetailCloseIcon.addEventListener('click', closeProductDetailASide);
