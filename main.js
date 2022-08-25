@@ -83,7 +83,8 @@ productList.push({
 
 for (product of productList){
       // Crear elementos en HTML
-   const productCard = document.createElement('div');   
+   const productCard = document.createElement('div');
+   // Agregamos una clase    
    productCard.classList.add('product-card');
 
    const img = document.createElement('img');
@@ -92,6 +93,20 @@ for (product of productList){
 
    const productInfo = document.createElement('div');   
    productInfo.classList.add('product-info');
+
+   const productInfoDiv = document.createElement('div');
+
+   const productPrice = document.createElement('p');
+   productPrice.innerText = '$' + productPrice
+
+   const productName = document.createElement('p');    
+   productName.innerText = productName;
+
+   const productInfoFigure = document.createElement('div');
+   
+   const productImgCart = document.createElement('img');
+   productImgCart.setAttribute('src', './icons/bt_add_to_cart.svg')
+
 }
 
 /* Ahora debemos insertar todos estos elementos en nuestro html y para eso debemos recorrer nuestro array. Una atajo es utilizar "for" y seria en consola como: 
