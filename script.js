@@ -1,36 +1,18 @@
 const menuEmail = document.querySelector('.navbar-email');
-const DesktopMenu = document.querySelector('.desktop-menu');
-const menuCarritoIcon = document.querySelector('.navbar-shopping-cart');
 const menuHamIcon = document.querySelector('.menu');
+const desktopMenu = document.querySelector('.desktop-menu');
 const mobileMenu = document.querySelector('.mobile-menu');
-const aside = document.querySelector('.product-detail');
 
 menuEmail.addEventListener('click', toggleDesktopMenu);
 menuHamIcon.addEventListener('click', toggleMobileMenu);
-menuCarritoIcon.addEventListener('click', toggleCarritoAside);
+ 
+menuEmail.addEventListener('click', toggleDesktopMenu);
 
-function toggleDesktopMenu(){
-    DesktopMenu.classList.toggle('inactive');
+function toggleDesktopMenu() {
+    console.log('click');
+    desktopMenu.classList.toggle('inactive');
 }
 
-function toggleMobileMenu() {
-    const isAsideClosed = aside.classList.contains('inactive');
-    
-    if (!isAsideClosed) {
-        // si el mobileMenu is open, hay que cerrarlo
-        mobileMenu.classList.add('inactive');
-        }
-
-        mobileMenu.classList.toggle('inactive');
+function toggleMobileMenu(){
+    mobileMenu.classList.toggle('inactive')
 }
-
-function toggleCarritoAside() {
-    const isMobileMenuClosed = mobileMenu.classList.contains('inactive');
-
-/*     aside.classList.toggle('inactive');*/
-    if (!isMobileMenuClosed) {
-    // si el mobileMenu is open, hay que cerrarlo
-    mobileMenu.classList.add('inactive');
-    }
-}  
-
