@@ -16,10 +16,20 @@ body {
 .inactive {
    display: none;
 }
-
+.modal {
+   display: none; /* Hidden by default */
+   position: fixed; /* Stay in place */
+   z-index: 0; /* Sit on top */
+   left: 0;
+   top: 0;
+   width: 100%; /* Full width */
+   height: 100%; /* Full height */
+   overflow: auto; /* Enable scroll if needed */
+   background-color: rgba(0,0,0,0.4); /* Black w/ opacity */
+ }
 /* NavBar General */
 nav {
-   width: 95%;
+   width: 100vw;
    position: fixed;
    top: 0;
    display: flex;
@@ -40,6 +50,7 @@ nav {
    list-style: none;
    padding: 0 20px 0 0;
    margin: 0;
+   margin-right: 25px;
    display: flex;
    align-items: center;
    height: 60px;
@@ -67,7 +78,7 @@ nav {
    cursor: pointer;
    color: var(--very-light-pink);
    font-size: var(--sm);
-   margin-right: 12px;
+   margin-right: 15px;
 }
 .navbar-shopping-cart {
    position: relative;
@@ -133,6 +144,7 @@ nav {
    background-color: var(--white);
    position: absolute;
    width: 90%;
+   height: 100vh;
    top: 61px;
    left: 0;
    padding: 24px;
@@ -166,15 +178,18 @@ nav {
 /* Aside - Product detail */
 aside {
    background-color: var(--white);
+   height: 100vh;
    width: 360px;
+   z-index: 1;
    box-sizing: border-box;
-   position: absolute;
+   position: fixed;
    right: 0;
    top: 61px;
 }
 
 /* Shopping cart */
 #shoppingCartContainer {
+   height: 100vh;
    position: fixed;
    top: 61px;
    padding: 0 24px;
@@ -196,7 +211,7 @@ aside {
 }
 #shoppingCartContainer .my-order-content {
    width: 100%;
-   height: 300px;
+   max-height: 60vh;
    overflow-y: auto;
 }
 .order {
@@ -325,25 +340,31 @@ aside {
    border-radius: 0 0 20px 20px;
 }
 #productDetail .product-info {
-   margin: 24px 24px 0 24px;
+   margin: 10px 24px 0 24px;
+   height: 33vh;
+   display: flex;
+   flex-direction: column;
+   justify-content: space-between;
 }
-#productDetail .product-info p:nth-child(1) {
+#productDetail .product-info div p:nth-child(1) {
    font-weight: bold;
    font-size: var(--md);
    margin-top: 0;
    margin-bottom: 4px;
 }
-#productDetail .product-info p:nth-child(2) {
+#productDetail .product-info div p:nth-child(2) {
    color: var(--very-light-pink);
    font-size: var(--md);
    margin-top: 0;
-   margin-bottom: 36px;
+   margin-bottom: 20px;
 }
-#productDetail .product-info p:nth-child(3) {
+#productDetail .product-info div p:nth-child(3) {
    color: var(--very-light-pink);
    font-size: var(--sm);
    margin-top: 0;
-   margin-bottom: 36px;
+   margin-bottom: 15px;
+   overflow-y: auto;
+   max-height: 65px;
 }
 .primary-button {
    background-color: var(--hospital-green);

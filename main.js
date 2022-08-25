@@ -12,6 +12,7 @@ const productDetailCloseIcon = document.querySelector(".product-detail-close");
 const cardsContainer = document.querySelector(".cards-container");
 const myOrderContainer = document.querySelector(".my-order-content");
 const totalCostContainer = document.querySelector(".totalCost");
+const modalBox = document.getElementById("myModal");
 
 menuEmail.addEventListener("click", toggleDesktopMenu);
 burgerMenu.addEventListener("click", toggleBurgerMenu);
@@ -23,14 +24,16 @@ productDetailCloseIcon.addEventListener("click", closeProductDetailAside);
 // Menus
 function toggleDesktopMenu() {
    shoppigCartContainer.classList.add("inactive");
-
+   closeProductDetailAside();
    desktopMenu.classList.toggle("inactive");
+   modalBox.style.display = "none";
 }
 function toggleBurgerMenu() {
    shoppigCartContainer.classList.add("inactive");
    closeProductDetailAside();
 
    mobileMenu.classList.toggle("inactive");
+   modalBox.style.display = "none";
 }
 
 // Product detail
@@ -42,10 +45,12 @@ function openProductDetailAside(event) {
 
    renderProductDetail(productSelected);
    productDetailContainer.classList.remove("inactive");
+   modalBox.style.display = "block";
 }
 function closeProductDetailAside() {
    productSelected = {};
    productDetailContainer.classList.add("inactive");
+   modalBox.style.display = "none";
 }
 
 // Shopping cart container
@@ -56,7 +61,12 @@ function toggleShoppingCart() {
 
    const isshoppingCartClosed =
       shoppigCartContainer.classList.contains("inactive");
-   if (isshoppingCartClosed) renderMyOrder(cartProducts);
+   if (isshoppingCartClosed) {
+      renderMyOrder(cartProducts);
+      modalBox.style.display = "block";
+   } else {
+      modalBox.style.display = "none";
+   }
 
    shoppigCartContainer.classList.toggle("inactive");
 }
@@ -75,6 +85,24 @@ function removeItem(event) {
    updateItemCounter();
    renderMyOrder(cartProducts);
 }
+
+// Modal operations:
+window.onclick = function (event) {
+   if (event.target == modalBox) {
+      closeProductDetailAside();
+      shoppigCartContainer.classList.add("inactive");
+      modalBox.style.display = "none";
+   }
+   const isdesktopMenuOpened = !desktopMenu.classList.contains("inactive");
+   if (
+      isdesktopMenuOpened &&
+      !desktopMenu.contains(event.target) &&
+      !menuEmail.contains(event.target)
+   ) {
+      desktopMenu.classList.add("inactive");
+   }
+};
+
 // Creating products and load principal page
 var productSelected = {};
 var cartProducts = [];
@@ -133,9 +161,9 @@ function findIndex(needle, haystack) {
 }
 function addProductToMyOrder(product) {
    indexProduct = findIndex(product.name, cartProducts);
-   if(indexProduct != -1) {
+   if (indexProduct != -1) {
       cartProducts[indexProduct].units++;
-   }else{
+   } else {
       let productToAdd = JSON.parse(JSON.stringify(product));
       productToAdd.units = 1;
       cartProducts.push(productToAdd);
@@ -212,8 +240,8 @@ function renderMyOrder(arr) {
       itemOrdered.appendChild(productName);
 
       const productPrice = document.createElement("p");
-      productPrice.innerHTML = `$ ${product.price*product.units}`;
-      totalCost += product.price*product.units;
+      productPrice.innerHTML = `$ ${product.price * product.units}`;
+      totalCost += product.price * product.units;
       itemOrdered.appendChild(productPrice);
 
       const closeImg = document.createElement("img");
