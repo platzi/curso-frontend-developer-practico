@@ -129,6 +129,7 @@
     left: 0;
     position: absolute;
     top: 60px;
+    width: 100%;
   }
   .mobile-menu a {
     text-decoration: none;
@@ -243,6 +244,7 @@
     margin-top: 50px;
   }
   .product-card {
+    cursor: pointer;
     width: 240px;
   }
   .product-card img {
@@ -278,6 +280,17 @@
   }
 
   /* Product detail*/
+  .product-detail-close {
+    background: var(--white);
+    width: 14px;
+    height: 14px;
+    position: absolute;
+    top: 24px;
+    left: 24px;
+    z-index: 2;
+    padding: 12px;
+    border-radius: 50%;
+  }
 
   .product-detail-close:hover {
     cursor: pointer;

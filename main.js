@@ -5,10 +5,15 @@ const mobileMenu = document.querySelector('.mobile-menu');
 const shoppingCart = document.querySelector('.navbar-shopping-cart');
 const shoppingCartContainer = document.querySelector('#shoppingCartContainer');
 const cardsContainer = document.querySelector('.cards-container')
+const productDetailContainer = document.querySelector('#productDetail')
+const productDetailCloseIcon = document.querySelector('.product-detail-close')
 
-navEmail.addEventListener('click', toggleDesktopMenu)
-burgerMenuIcon.addEventListener('click', toggleMobileMenu)
+navEmail.addEventListener('click', toggleDesktopMenu);
+burgerMenuIcon.addEventListener('click', toggleMobileMenu);
 shoppingCart.addEventListener('click', toggleCarritoAside);
+productDetailCloseIcon.addEventListener('click', closeProductDetailAside);
+
+
 
 function toggleDesktopMenu() {
     desktopMenu.classList.toggle('inactive');
@@ -20,6 +25,9 @@ function toggleMobileMenu(){
     if(!asideClosed){
         shoppingCartContainer.classList.add('inactive')   
     }
+
+    closeProductDetailAside();
+    
     mobileMenu.classList.toggle('inactive');
 }
 
@@ -29,8 +37,26 @@ function toggleCarritoAside(){
     if(!mobileMenuClosed){
         mobileMenu.classList.add('inactive')   
     }
+    const isProductDetailClosed = productDetail.classList.contains('inactive')
+
+    if(!isProductDetailClosed){
+        productDetailContainer.classList.add('inactive')   
+    }
     shoppingCartContainer.classList.toggle('inactive');
 }
+
+function openProductDetailAside(){
+    
+    shoppingCartContainer.classList.add('inactive')
+
+    productDetailContainer.classList.remove('inactive')
+
+}
+
+function closeProductDetailAside(){
+    productDetailContainer.classList.add('inactive')
+}
+
 
 
 const productList = [];
@@ -52,6 +78,8 @@ productList.push({
     price: 800,
     image:'https://store.storeimages.cdn-apple.com/4668/as-images.apple.com/is/refurb-iphone-12-pro-graphite-2020?wid=2000&hei=1897&fmt=jpeg&qlt=95&.v=1635202842000'
 })
+
+
 /*
 <div class="product-card">
         <img src="https://images.pexels.com/photos/276517/pexels-photo-276517.jpeg?auto=compress&cs=tinysrgb&dpr=2&h=650&w=940" alt="">
@@ -71,9 +99,11 @@ function renderProducts(arr){
     {
         const productCard = document.createElement('div');
         productCard.classList.add('product-card');
+        
 
         const productImg = document.createElement('img');
         productImg.setAttribute('src', product.image);
+        productImg.addEventListener('click', openProductDetailAside)
 
         const productInfo = document.createElement('div');
         productInfo.classList.add('product-info');
@@ -104,5 +134,7 @@ function renderProducts(arr){
         cardsContainer.appendChild(productCard);
     }
 }
+
+
 
 renderProducts(productList);
