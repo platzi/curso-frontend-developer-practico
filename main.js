@@ -3,8 +3,11 @@ const burgerMenuIcon = document.querySelector("#burger-menu");
 const desktopMenu = document.querySelector(".desktop-menu");
 const mobileMenu = document.querySelector(".mobile-menu");
 const carritoIcon = document.querySelector(".navbar-shopping-cart");
-const asideCarrito = document.querySelector(".product-detail");
+const asideCarrito = document.querySelector("#shopping-cart-container");
 const productCardsContainer = document.querySelector(".cards-container");
+const productDetailContainer = document.querySelector("#product-detail");
+const productDetailCloseIcon = document.querySelector(".product-detail-close");
+const cartBackButton = document.querySelector(".title-container");
 
 function toogleMenus(e) {
   const menuType = e.target.id;
@@ -25,18 +28,47 @@ function toogleMenus(e) {
 function toggleCarritoAside() {
   if (
     !mobileMenu.classList.contains("inactive") ||
-    !desktopMenu.classList.contains("inactive")
+    !desktopMenu.classList.contains("inactive") ||
+    !productDetailContainer.classList.contains("inactive")
   ) {
     mobileMenu.classList.add("inactive");
     desktopMenu.classList.add("inactive");
+    productDetailContainer.classList.add("inactive");
   }
 
   asideCarrito.classList.toggle("inactive");
 }
 
+function closeCart() {
+  asideCarrito.classList.add("inactive");
+}
+
+function openProductDetailsAside() {
+  productDetailContainer.classList.remove("inactive");
+  asideCarrito.classList.add("inactive");
+}
+
+function productDetailClose() {
+  productDetailContainer.classList.add("inactive");
+
+  if (
+    !mobileMenu.classList.contains("inactive") ||
+    !desktopMenu.classList.contains("inactive") ||
+    !productDetailContainer.classList.contains("inactive") ||
+    !asideCarrito.classList.contains("inactive")
+  ) {
+    mobileMenu.classList.add("inactive");
+    desktopMenu.classList.add("inactive");
+    productDetailContainer.classList.add("inactive");
+    asideCarrito.classList.add("inactive");
+  }
+}
+
 menuEmail.addEventListener("click", toogleMenus);
 burgerMenuIcon.addEventListener("click", toogleMenus);
 carritoIcon.addEventListener("click", toggleCarritoAside);
+productDetailCloseIcon.addEventListener("click", productDetailClose);
+cartBackButton.addEventListener("click", closeCart);
 
 const productList = [
   {
@@ -72,6 +104,7 @@ function renderProducts(array) {
 
     const img = document.createElement("img");
     img.setAttribute("src", product.img);
+    img.addEventListener("click", openProductDetailsAside);
 
     const productInfo = document.createElement("product-info");
     productInfo.classList.add("product-info");
