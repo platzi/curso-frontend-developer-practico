@@ -1,22 +1,33 @@
 const navEmail = document.querySelector(".navbar-email");
 const menuHamIcon = document.querySelector(".menu");
 const menuCarritoIcon = document.querySelector(".navbar-shopping-cart");
+const productDetailCloseIcon = document.querySelector(".product-detail-close");
 const desktopMenu = document.querySelector(".desktop-menu");
 const mobileMenu = document.querySelector(".mobile-menu");
 const shoppingCartContainer = document.querySelector("#shoppingCartContainer");
+const productDetailContainer = document.querySelector("#productDetail");
 const cardsContainer = document.querySelector(".cards-container");
+
+
 //const mediaQuery = window.matchMedia("(max-width: 640px)");
 
 navEmail.addEventListener("click", toggleDesktopMenu);
 menuHamIcon.addEventListener("click",  toggleMobileMenu);
 menuCarritoIcon.addEventListener("click", toggleCarritoAside);
+productDetailCloseIcon.addEventListener("click", closeProductDetailAside);
 
 function toggleDesktopMenu() {
     const isAsideClose = shoppingCartContainer.classList.contains("inactive");
+    const isproductDetailContainer = productDetailContainer.classList.contains("inactive");
+
     desktopMenu.classList.toggle("inactive");
 
     if(!isAsideClose){
         shoppingCartContainer.classList.add("inactive");
+    }
+
+    if(!isproductDetailContainer){
+        productDetailContainer.classList.add("inactive");
     }
 // //     // if(!desktopMenu.classList.toggle("inactive")){
 // //     //     desktopMenu.classList.remove("inactive");
@@ -28,16 +39,19 @@ function toggleDesktopMenu() {
 
 function toggleMobileMenu() {
     const isAsideClose = shoppingCartContainer.classList.contains("inactive");
+
     mobileMenu.classList.toggle("inactive"); //Si esta lo elimina, si no esta lo activa 
     if(!isAsideClose){
         shoppingCartContainer.classList.add("inactive");
     }
+    closeProductDetailAside();
 }
 
 function toggleCarritoAside(){    
     const isMobileMenuClose =  mobileMenu.classList.contains("inactive");
     const isDesktopMenuClose = desktopMenu.classList.contains("inactive"); // El elemento contiene la clase inactive = true (cerrado)
                                                                            // El elemento no contiene la clase inactive = falso (abierto)
+    const isProductDetailClose = productDetailContainer.classList.contains("inactive");
 
     shoppingCartContainer.classList.toggle("inactive");
     if(!isMobileMenuClose){ // si esta abierto 
@@ -47,6 +61,22 @@ function toggleCarritoAside(){
     if(!isDesktopMenuClose){
         desktopMenu.classList.add("inactive")
     }   
+
+    if(!isProductDetailClose){
+        productDetailContainer.classList.add("inactive");
+    }
+}
+
+function openProductDetailAside(id){
+    shoppingCartContainer.classList.add("inactive");
+    mobileMenu.classList.add("inactive");
+    productDetailContainer.classList.remove("inactive");
+    desktopMenu.classList.add("inactive");
+
+}
+
+function closeProductDetailAside(){
+    productDetailContainer.classList.add("inactive");
 }
 
 
@@ -102,7 +132,36 @@ productList.push({
     price: 264.600,
     image: "https://moviltronics.com/wp-content/uploads/2018/07/Kit-Arduino-Starter-600x600.jpg",
 }) 
-
+productList.push({
+    name: "Kit Arduino Starter",
+    price: 264.600,
+    image: "https://moviltronics.com/wp-content/uploads/2018/07/Kit-Arduino-Starter-600x600.jpg",
+}) 
+productList.push({
+    name: "Kit Arduino Starter",
+    price: 264.600,
+    image: "https://moviltronics.com/wp-content/uploads/2018/07/Kit-Arduino-Starter-600x600.jpg",
+}) 
+productList.push({
+    name: "Kit Arduino Starter",
+    price: 264.600,
+    image: "https://moviltronics.com/wp-content/uploads/2018/07/Kit-Arduino-Starter-600x600.jpg",
+}) 
+productList.push({
+    name: "Kit Arduino Starter",
+    price: 264.600,
+    image: "https://moviltronics.com/wp-content/uploads/2018/07/Kit-Arduino-Starter-600x600.jpg",
+}) 
+productList.push({
+    name: "Kit Arduino Starter",
+    price: 264.600,
+    image: "https://moviltronics.com/wp-content/uploads/2018/07/Kit-Arduino-Starter-600x600.jpg",
+}) 
+productList.push({
+    name: "Kit Arduino Starter",
+    price: 264.600,
+    image: "https://moviltronics.com/wp-content/uploads/2018/07/Kit-Arduino-Starter-600x600.jpg",
+}) 
 
 function renderProducts(arr){
     for(product of arr){
@@ -112,7 +171,8 @@ function renderProducts(arr){
         //product = {name, price, image} -> product.image
         const productImg = document.createElement("img");
             productImg.setAttribute("src", product.image);
-        
+            productImg.addEventListener("click", openProductDetailAside);
+
         const productInfo = document.createElement("div");
             productInfo.classList.add("product-info");
     
