@@ -2,6 +2,7 @@ const menuEmail = document.querySelector('.navbar-email');
 const desktopMenu = document.querySelector('.desktop-menu');
 const menuHamIcon = document.querySelector('.menu');
 const productDetailCloseIcon = document.querySelector('.product-detail-close');
+const myOrderContent = document.querySelector('.my-order-content');
 
 const mobileMenu = document.querySelector('.mobile-menu');
 // Cuando demos click aquí (sig L.9)...
@@ -16,6 +17,7 @@ productDetailCloseIcon.addEventListener('click', closeProductDetailAside);
 menuEmail.addEventListener('click', toggleDesktopMenu);
 menuHamIcon.addEventListener('click', toggleMobileMenu);
 menuCartIcon.addEventListener('click', toggleCartAside);
+
 // cardContainer.addEventListener('click', openProductDetailAside);
 
 function toggleDesktopMenu() {
@@ -209,7 +211,7 @@ const detailOfProduct = {};
 
 function renderMyCart(arr) {
   // Borrar lo que ya esta renderizado y renderizar otra vez.
-  const myOrderContent = document.querySelector('.my-order-content');
+  let closeOrderN = 0
   myOrderContent.innerHTML = "";
   for(product of arr) {
     const div = document.createRange().createContextualFragment(
@@ -221,11 +223,12 @@ function renderMyCart(arr) {
         </figure>
         <p>${product.name}</p>
         <p>$${product.price}</p>
-        <img src="./icons/icon_close.png" alt="close">
+        <img id="${product.image}" class="shopping-cart-close" src="./icons/icon_close.png" alt="close">
       </div>
       `
     );
     myOrderContent.append(div);
+    closeOrderN++;
   }
   return;
 }
@@ -269,6 +272,11 @@ function renderProductDetail() {
   productDetailCont.append(div);
 }
 
+function removeCartItem(id) {
+  // id es el index del array a borrar...
+  console.log('FALTA IMPLEMENTAR EL BORRAR ITEM DEL CARRITO');
+}
+
 cardsContainer.addEventListener('click',(e) => {
   let orderId = parseInt(e.target.getAttribute('id'));
   if(e.target && e.target.classList.contains('addToCart')){
@@ -284,4 +292,25 @@ cardsContainer.addEventListener('click',(e) => {
     renderProductDetail();
     openProductDetailAside();
   }
+  
 });
+myOrderContent.addEventListener('click', (e) => {
+  if(e.target && e.target.classList.contains('shopping-cart-close')) {
+    // removeCartItem(idItem);
+    removeCartItem(e.target.getAttribute('id'));
+    renderMyCart(myOrderList);
+  }
+});
+
+/*
+else if(e.target && e.target.classList.contains('shopping-cart-close')) {
+    let idItem = String(e.target.getAttribute('id'));
+    // removeCartItem(idItem);
+    console.log(idItem);
+    renderMyCart(myOrderList);
+
+  }
+*/
+
+
+
