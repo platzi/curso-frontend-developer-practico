@@ -6,7 +6,7 @@ const menuHamburgesa = document.querySelector(".menu");
 const dekstopHamburgesa = document.querySelector(".mobile-menu");
 
 const menuShopingIcon = document.querySelector(".navbar-shopping-cart");
-const DekstopShoping = document.querySelector(".product-detail");
+const DekstopShoping = document.querySelector("#shoppingCartCointainer");
 
 const cardsContainer = document.querySelector(".cards-container");
 // Aplicar Funciones
