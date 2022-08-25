@@ -161,10 +161,11 @@ aside {
   box-sizing: border-box;
   position: absolute;
   right: 0;
+  box-shadow: -2px 2px 4px rgba(0,0,0,0.2);
 }
 /*Shopping cart aside*/
 #shoppingCartContainer{
-  padding: 0 24px;
+  padding: 0 24px 16px;
 }
 .title-container {
   display: flex;
@@ -245,6 +246,8 @@ aside {
   z-index: 2;
   padding: 12px;
   border-radius: 50%;
+  display: grid;
+  place-items: center;
 }
 .product-detail-close:hover {
   cursor: pointer;
@@ -309,6 +312,7 @@ aside {
   height: 240px;
   border-radius: 20px;
   object-fit: cover;
+  cursor: pointer;
 }
 .product-card .product-info {
   display: flex;

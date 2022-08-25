@@ -5,25 +5,31 @@ const mobileMenu = document.querySelector(".mobile-menu");
 const menu = document.querySelector(".menu");
 const shopCartIcon = document.querySelector(".navbar-shopping-cart");
 const shoppingCart = document.querySelector("#shoppingCartContainer");
+const productDetail = document.querySelector("#productDetail");
+const productDetailCloseBtn = document.querySelector(".product-detail-close");
 const cardsContainer = document.querySelector(".cards-container");
 const productList=[];
 productList.push(
   {
+    id:1,
     name:"Bike",
     price: 120,
     img: "https://images.pexels.com/photos/276517/pexels-photo-276517.jpeg?auto=compress&cs=tinysrgb&dpr=2&h=650&w=940"
   },
   {
+    id:2,
     name:"Monitor",
     price: 420,
     img: "https://images.pexels.com/photos/276517/pexels-photo-276517.jpeg?auto=compress&cs=tinysrgb&dpr=2&h=650&w=940"
   },
   {
+    id:3,
     name:"XConsole",
     price: 860,
     img: "https://images.pexels.com/photos/276517/pexels-photo-276517.jpeg?auto=compress&cs=tinysrgb&dpr=2&h=650&w=940"
   },
   {
+    id:4,
     name:"FunkoPoP",
     price: 75,
     img: "https://images.pexels.com/photos/276517/pexels-photo-276517.jpeg?auto=compress&cs=tinysrgb&dpr=2&h=650&w=940"
@@ -42,6 +48,9 @@ menu.addEventListener('click',()=>{
   if(!shoppingCart.classList.contains("inactive")){
     toggleInactive(shoppingCart);
   }
+  if(!productDetail.classList.contains("inactive")){
+    toggleInactive(productDetail);
+  }
 });
 shopCartIcon.addEventListener('click', ()=>{
   toggleInactive(shoppingCart);
@@ -51,9 +60,15 @@ shopCartIcon.addEventListener('click', ()=>{
   if(!desktopMenu.classList.contains("inactive")){
     toggleInactive(desktopMenu);
   }
+  if(!productDetail.classList.contains("inactive")){
+    toggleInactive(productDetail);
+  }
 });
 window.addEventListener("load",()=>{
   renderProducts();
+});
+productDetailCloseBtn.addEventListener("click",()=>{
+  toggleInactive(productDetail);
 });
 
 //Functions
@@ -61,26 +76,29 @@ function toggleInactive(element){
   element.classList.toggle("inactive");
 }
 function renderProducts(products=productList){
-  for(product of products){
-    let productCard = document.createElement("div");
+  for(element of products){
+    const productCard = document.createElement("div");
     productCard.classList.add("product-card");
     //product-card
-    let img = document.createElement("img");
-    img.setAttribute("src",product.img);
-    img.setAttribute("alt",product.name);
-    let productInfo = document.createElement("div");
+    const img = document.createElement("img");
+    img.setAttribute("src",element.img);
+    img.setAttribute("alt",element.name);
+    //-listener to open productDetail
+    img.setAttribute("onclick",`openProductDetail(${element.id})`);
+
+    const productInfo = document.createElement("div");
     productInfo.classList.add("product-info");
     //  product-info
-    let productInfoDiv = document.createElement("div");
+    const productInfoDiv = document.createElement("div");
     //    info
-    let price = document.createElement("p");
-    price.innerText = "$"+product.price;
-    let name = document.createElement("p");
-    name.innerText = product.name;
+    const price = document.createElement("p");
+    price.innerText = "$"+element.price;
+    const name = document.createElement("p");
+    name.innerText = element.name;
     //  product-info
-    let figure = document.createElement("figure");
+    const figure = document.createElement("figure");
     //    figure
-    let cartImg = document.createElement("img");
+    const cartImg = document.createElement("img");
     cartImg.setAttribute("src","./icons/bt_add_to_cart.svg");
   
     productInfoDiv.append(price,name);
@@ -91,4 +109,19 @@ function renderProducts(products=productList){
     
     cardsContainer.appendChild(productCard);
   }
+}
+function openProductDetail(id){
+  let curProduct = productList.find(prod => prod.id == id);
+  if(productDetail.classList.contains("inactive")){
+    toggleInactive(productDetail);
+  }
+  if(!shoppingCart.classList.contains("inactive")){
+    toggleInactive(shoppingCart);
+  }
+  if(!desktopMenu.classList.contains("inactive")){
+    toggleInactive(desktopMenu);
+  }
+  document.querySelector("#productDetailPrice").innerText="$"+curProduct.price;
+  document.querySelector("#productDetailName").innerText=curProduct.name;
+  
 }
