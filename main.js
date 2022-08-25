@@ -25,7 +25,7 @@ function toggleMobileMenu(){
 /*carrito compras */
 
 const menuCarritoIcon = document.querySelector('.navbar-shopping-cart');
-const aside= document.querySelector('.product-detail');
+const shoppingCartContainer= document.querySelector('#shoppingCartContainer');
 
 const cardsContainer = document.querySelector('.cards-container');
 
@@ -34,10 +34,10 @@ menuCarritoIcon.addEventListener('click', toggleCarritoAside);
 
 function toggleCarritoMenu(){
 
-    const isAsideClosed = aside.classList.contains('inactive');
+    const isAsideClosed = shoppingCartContainer.classList.contains('inactive');
 
     if (!isAsideClosed)
-    aside.classList.add('inactive');
+    shoppingCartContainer.classList.add('inactive');
 
     mobileMenu.classList.toggle('inactive');
   }
@@ -49,7 +49,7 @@ function toggleCarritoMenu(){
     if (!isMobileMenuClosed)
     mobileMenu.classList.add('inactive');
 
-    aside.classList.toggle('inactive');
+    shoppingCartContainer.classList.toggle('inactive');
   }
 
   /*lista de productos*/
