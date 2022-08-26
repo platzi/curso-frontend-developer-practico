@@ -14,25 +14,29 @@ productList.push(
     id:1,
     name:"Bike",
     price: 120,
-    img: "https://images.pexels.com/photos/276517/pexels-photo-276517.jpeg?auto=compress&cs=tinysrgb&dpr=2&h=650&w=940"
+    img: "https://images.pexels.com/photos/276517/pexels-photo-276517.jpeg?auto=compress&cs=tinysrgb&dpr=2&h=650&w=940",
+    description: "With its practical position, this bike also fulfills a decorative function, add your hall or workspace."
   },
   {
     id:2,
     name:"Monitor",
     price: 420,
-    img: "https://images.pexels.com/photos/276517/pexels-photo-276517.jpeg?auto=compress&cs=tinysrgb&dpr=2&h=650&w=940"
+    img: "https://images.pexels.com/photos/7915226/pexels-photo-7915226.jpeg?auto=compress&cs=tinysrgb&w=1260&h=750&dpr=1",
+    description: "It's a monitor with a beautiful and colorful image, it has an IPS pannel with a refresh ratio of 144Hz for the Gaming lovers."
   },
   {
     id:3,
     name:"XConsole",
     price: 860,
-    img: "https://images.pexels.com/photos/276517/pexels-photo-276517.jpeg?auto=compress&cs=tinysrgb&dpr=2&h=650&w=940"
+    img: "https://images.pexels.com/photos/1298601/pexels-photo-1298601.jpeg?auto=compress&cs=tinysrgb&w=1260&h=750&dpr=1",
+    description: "This is an old console which has a great state to collect and care or have a pretty memory playing the games when you were young"
   },
   {
     id:4,
     name:"FunkoPoP",
     price: 75,
-    img: "https://images.pexels.com/photos/276517/pexels-photo-276517.jpeg?auto=compress&cs=tinysrgb&dpr=2&h=650&w=940"
+    img: "https://images.pexels.com/photos/699739/pexels-photo-699739.jpeg?auto=compress&cs=tinysrgb&w=1260&h=750&dpr=1",
+    description: "It's a peaceful friend to decorate your setup, send as a gift or just collect"
   },
 );
 
@@ -121,7 +125,8 @@ function openProductDetail(id){
   if(!desktopMenu.classList.contains("inactive")){
     toggleInactive(desktopMenu);
   }
+  document.querySelector("#productDetailImg").setAttribute("src",curProduct.img);
   document.querySelector("#productDetailPrice").innerText="$"+curProduct.price;
   document.querySelector("#productDetailName").innerText=curProduct.name;
-  
+  document.querySelector("#productDetailDesc").innerText=curProduct.description;
 }

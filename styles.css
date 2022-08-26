@@ -236,6 +236,9 @@ aside {
 }
 
 /*productDetail*/
+#productDetail{
+  padding-bottom: 16px;
+}
 .product-detail-close {
   background: var(--white);
   width: 14px;
