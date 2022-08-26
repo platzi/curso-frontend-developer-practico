@@ -4,9 +4,9 @@ const desktopMenu = document.querySelector(".desktop-menu");
 menuEmail.addEventListener('click', toggleDesktopMenu);
 
 function toggleDesktopMenu(){
-    const isAsideClosed = aside.classList.contains('inactive');
+    const isAsideClosed = shoppingCartContainer.classList.contains('inactive');
     if(!isAsideClosed){
-        aside.classList.add("inactive");
+        shoppingCartContainer.classList.add("inactive");
     }
 
 
@@ -19,16 +19,18 @@ const mobileMenu = document.querySelector(".mobile-menu");
 menuHamIcon.addEventListener('click',toggleMobileMenu);
 
 function toggleMobileMenu(){
-    const isAsideClosed = aside.classList.contains('inactive');
+    const isAsideClosed = shoppingCartContainer.classList.contains('inactive');
     if(!isAsideClosed){
-        aside.classList.add("inactive");
+        shoppingCartContainer.classList.add("inactive");
     }
+
+    closeProductDetailAside();
 
     mobileMenu.classList.toggle("inactive");
 };
 
 const menuCarritoIcon = document.querySelector(".navbar-shopping-cart");
-const aside = document.querySelector(".product-detail");
+const shoppingCartContainer = document.querySelector("#shoppingCartContainer");
 
 menuCarritoIcon.addEventListener('click',toggleCarritoAside);
 
@@ -36,13 +38,21 @@ function toggleCarritoAside(){
     const isMobileMenuClosed = mobileMenu.classList.contains('inactive');
     
     
-
     if(!isMobileMenuClosed){
         mobileMenu.classList.add("inactive");
     }
     //si mobileMenu esta open, hay que cerr
 
-   aside.classList.toggle("inactive");
+
+    const isProductDetailClosed = productDetailContainer.classList.contains('inactive');
+       
+
+    if(!isProductDetailClosed){
+        productDetailContainer.classList.add("inactive");
+    }
+
+
+   shoppingCartContainer.classList.toggle("inactive");
 
     
 };
@@ -80,7 +90,21 @@ productList.push({
 </div>
 */
 
+const productDetailContainer = document.querySelector('#productDetail');
+const productDetailCloseIcon = document.querySelector('.product-detail-close');
 
+productDetailCloseIcon.addEventListener('click', closeProductDetailAside)
+
+function openProductDetailAside(){
+
+    shoppingCartContainer.classList.add('inactive');
+
+    productDetailContainer.classList.remove('inactive');
+}
+
+function closeProductDetailAside(){
+    productDetailContainer.classList.add('inactive');
+}
 
 
 //ahora se debe insertar los productos en el html. Para ello se debe hacer por medio de un ciclo
@@ -95,6 +119,7 @@ function renderProducts(array){
     
         const productImg = document.createElement('img');
         productImg.setAttribute('src', product.image);
+        productImg.addEventListener('click', openProductDetailAside);
     
         const productInfo = document.createElement('div');
         productInfo.classList.add('product-info');
