@@ -4,7 +4,7 @@ const desktopMenu = document.querySelector('.desktop-menu')
 const menuBurger = document.querySelector('.menu')
 const mobileMenu = document.querySelector('.mobile-menu')
 const menuCarritoIcon = document.querySelector('.navbar-shopping-cart')
-const aside = document.querySelector('.product-detail')
+const shoppingCartContainer = document.querySelector('#shoppingCartContainer')
 const cardsContainer = document.querySelector('.cards-container')
 
 /*Eventos*/ 
@@ -12,7 +12,7 @@ const cardsContainer = document.querySelector('.cards-container')
 /*Recuerda que "toggleDesktopMenu" y otros son funciones */
 menuEmail.addEventListener('click', toggleDesktopMenu);
 menuBurger.addEventListener('click', toggleMobileMenu);
-menuCarritoIcon.addEventListener('click', toggleCarritoAside);
+menuCarritoIcon.addEventListener('click', toggleCarritoshoppingCartContainer);
 
 
 /* Funciones */
@@ -21,9 +21,9 @@ menuCarritoIcon.addEventListener('click', toggleCarritoAside);
 function toggleDesktopMenu(){
       
       /*Condicional */
-      const isAsideClosed = aside.classList.contains('inactive');
-      if(!isAsideClosed){
-            aside.classList.add('inactive');
+      const isshoppingCartContainerClosed = shoppingCartContainer.classList.contains('inactive');
+      if(!isshoppingCartContainerClosed){
+            shoppingCartContainer.classList.add('inactive');
       }
       /*Condicional */
 
@@ -31,16 +31,16 @@ function toggleDesktopMenu(){
 }
 
 function toggleMobileMenu(){
-      const isAsideClosed = aside.classList.contains('inactive');
+      const isshoppingCartContainerClosed = shoppingCartContainer.classList.contains('inactive');
 
-      if(!isAsideClosed){
-            aside.classList.add('inactive');
+      if(!isshoppingCartContainerClosed){
+            shoppingCartContainer.classList.add('inactive');
       }
       mobileMenu.classList.toggle('inactive');
 
 }
 
-function toggleCarritoAside(){
+function toggleCarritoshoppingCartContainer(){
       /* isMobileMenuClose, es una pregunta */
       /*Cada vez que demos click al carrito, el mobile menu se cierra */
       const isMobileMenuClosed = mobileMenu.classList.contains('inactive');
@@ -54,7 +54,7 @@ function toggleCarritoAside(){
             desktopMenu.classList.add('inactive')
       }
 
-      aside.classList.toggle('inactive');
+      shoppingCartContainer.classList.toggle('inactive');
 }
 
 // Clase 21: Vamos a crear la lista de productos desde JS 
