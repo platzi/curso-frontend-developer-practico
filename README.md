@@ -1,3 +1,2 @@
-# frontend-developer-javascript-practico
-se usara este repositorio para agregarle mas dinamismo al igual que fucionar todo lo hecho
-en el curso practico fronted-developer.
+Se usara este repositorio para agregarle mas dinamismo con JS, al igual que fucionar todo lo hecho
+en el curso practico de frontend-developer.
