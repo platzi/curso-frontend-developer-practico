@@ -5,6 +5,7 @@ const menuBurger = document.querySelector('.menu')
 const mobileMenu = document.querySelector('.mobile-menu')
 const menuCarritoIcon = document.querySelector('.navbar-shopping-cart')
 const aside = document.querySelector('.product-detail')
+const cardsContainer = document.querySelector('.cards-container')
 
 /*Eventos*/ 
 /*'Toogle significa intercambiar.' */
@@ -81,15 +82,62 @@ productList.push({
       
 });
 
+
+//2 Recuerda que una de los usos de las funciones es reutilizar codigo, sin embargo hay otro, que es la organizacion. POr ejemplo, podriamos utilizar el "for" para:
+
+// function renderProducts(arr /*parametro */) {
+//       for (product of arr Sobre esta parametro se comienza a realizar la iteracion. Se crea un producto por cada elemento de la lista arr ){
+//             // Crear elementos en HTML
+//          const productCard = document.createElement('div');
+//          // Agregamos una clase    
+//          productCard.classList.add('product-card');
+      
+//          const productImg = document.createElement('img');
+//          //product = {name, price, image} --> product.image
+//          productImg.setAttribute('src', product.image);
+      
+//          const productInfo = document.createElement('div');   
+//          productInfo.classList.add('product-info');
+      
+//          const productInfoDiv = document.createElement('div');
+      
+//          const productPrice = document.createElement('p');
+//          productPrice.innerText = '$' + product.price
+      
+//          const productName = document.createElement('p');    
+//          productName.innerText = product.name;
+      
+//          const productInfoFigure = document.createElement('figure');
+         
+//          const productImgCart = document.createElement('img');
+//          productImgCart.setAttribute('src', './icons/bt_add_to_cart.svg')
+      
+//       //    Ingresando cada uno de estos elementos individuales dentro de sus correspondientes casillas <div>
+      
+//       productInfoFigure.appendChild(productImgCart)
+      
+//       productInfoDiv.appendChild(productPrice)
+//       productInfoDiv.appendChild(productName)
+      
+//       productInfo.appendChild(productInfoDiv)
+//       productInfo.appendChild(productInfoFigure)
+      
+//       productCard.appendChild(productImg)
+//       productCard.appendChild(productInfo)
+      
+//       cardsContainer.appendChild(productCard)
+//       }
+// }
+
 for (product of productList){
       // Crear elementos en HTML
    const productCard = document.createElement('div');
    // Agregamos una clase    
    productCard.classList.add('product-card');
 
-   const img = document.createElement('img');
+   const productImg = document.createElement('img');
    //product = {name, price, image} --> product.image
-   img.setAttribute('src', product.image);
+   productImg.setAttribute('src', product.image);
 
    const productInfo = document.createElement('div');   
    productInfo.classList.add('product-info');
@@ -97,18 +145,35 @@ for (product of productList){
    const productInfoDiv = document.createElement('div');
 
    const productPrice = document.createElement('p');
-   productPrice.innerText = '$' + productPrice
+   productPrice.innerText = '$' + product.price
 
    const productName = document.createElement('p');    
-   productName.innerText = productName;
+   productName.innerText = product.name;
 
-   const productInfoFigure = document.createElement('div');
+   const productInfoFigure = document.createElement('figure');
    
    const productImgCart = document.createElement('img');
    productImgCart.setAttribute('src', './icons/bt_add_to_cart.svg')
 
+//    Ingresando cada uno de estos elementos individuales dentro de sus correspondientes casillas <div>
+
+productInfoFigure.appendChild(productImgCart)
+
+productInfoDiv.appendChild(productPrice)
+productInfoDiv.appendChild(productName)
+
+productInfo.appendChild(productInfoDiv)
+productInfo.appendChild(productInfoFigure)
+
+productCard.appendChild(productImg)
+productCard.appendChild(productInfo)
+
+cardsContainer.appendChild(productCard)
 }
 
+
+
+//1
 /* Ahora debemos insertar todos estos elementos en nuestro html y para eso debemos recorrer nuestro array. Una atajo es utilizar "for" y seria en consola como: 
 
 "product" es el nombre que le colocariamos a cada uno de los objetos de lista en general.
