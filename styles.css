@@ -281,12 +281,7 @@ aside {
     margin-top: 0;
     margin-bottom: 36px;
 }
-#productDetail .product-info p:nth-child(3) {
-    color: var(--very-light-pink);
-    font-size: var(--sm);
-    margin-top: 0;
-    margin-bottom: 36px;
-}
+
 .primary-button {
     background-color: var(--hospital-green);
     border-radius: 8px;
