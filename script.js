@@ -5,5 +5,5 @@ const desktopMenu = document.querySelector(`.desktop-menu`);
 
  function toggleDesktopMenu(){
     console.log(`click_desktopMenu`)
-    desktopMenu.classList.toggle(`active`);
+    desktopMenu.classList.toggle(`inactive`);
  }
