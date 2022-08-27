@@ -137,6 +137,7 @@ nav {
 	background-color: var(--white);
 	padding: 24px;
 	width: calc(100% - 48px);
+	z-index: 100;
 }
 .mobile-menu a {
 	text-decoration: none;
@@ -176,6 +177,7 @@ aside {
 /* Carrito */
 .shoppingCardDetail {
 	padding: 0 24px;
+	z-index: 10;
 }
 .title-container {
 	display: flex;
