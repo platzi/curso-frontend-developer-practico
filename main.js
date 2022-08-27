@@ -8,7 +8,7 @@ const menuHamIcon = document.querySelector(".menu");
 
 // Menu carrito toggle
 const menuCarrito = document.querySelector(".navbar-shopping-cart");
-const carrito = document.querySelector(".product-detail");
+const carrito = document.querySelector(".shoppingCardDetail");
 
 
 // Event listeners
