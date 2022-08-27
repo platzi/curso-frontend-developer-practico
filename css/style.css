@@ -1,3 +1,5 @@
+/* General */
+
 :root {
   --white: #ffffff;
   --black: #000000;
@@ -8,11 +10,7 @@
   --md: 16px;
   --lg: 18px;
 }
-/* html {
-  margin: 0;
-  padding: 0;
-  font-size: 62.5%;
-} */
+
 body {
   margin: 0;
   font-family: "Quicksand", sans-serif;
@@ -20,7 +18,10 @@ body {
 
 .inactive {
   display: none;
+  opacity: 0;
 }
+
+/* Navbar (general) */
 
 nav {
   display: flex;
@@ -91,6 +92,7 @@ nav {
   align-items: center;
 }
 
+/* Menu en desktop */
 .desktop-menu {
   position: absolute;
   top: 60px;
@@ -99,7 +101,7 @@ nav {
   width: 100px;
   height: auto;
   border: 1px solid var(--very-light-pink);
-  border-radius: 6px;
+  border-radius: 0 0 6px 6px;
   padding: 20px 20px 0 20px;
 }
 .desktop-menu ul {
@@ -129,6 +131,39 @@ nav {
   display: inline-block;
 }
 
+/* Menu en mobile */
+.mobile-menu {
+  position: absolute;
+  top: 60px;
+}
+.mobile-menu a {
+  text-decoration: none;
+  color: var(--black);
+  font-weight: bold;
+  /* margin-bottom: 24px; */
+}
+.mobile-menu ul {
+  padding: 0;
+  margin: 24px 0 0;
+  list-style: none;
+}
+.mobile-menu ul:nth-child(1) {
+  border-bottom: 1px solid var(--very-light-pink);
+}
+.mobile-menu ul li {
+  margin-bottom: 24px;
+}
+.email {
+  font-size: var(--sm);
+  font-weight: 300 !important;
+}
+.sign-out {
+  font-size: var(--sm);
+  color: var(--hospital-green) !important;
+}
+
+/* */
+
 @media (max-width: 640px) {
   .menu {
     display: block;
@@ -137,6 +172,15 @@ nav {
     display: none;
   }
   .navbar-email {
+    display: none;
+  }
+  .desktop-menu {
+    display: none;
+  }
+}
+
+@media (min-width: 641px) {
+  .mobile-menu {
     display: none;
   }
 }
