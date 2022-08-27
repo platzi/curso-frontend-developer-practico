@@ -3,23 +3,23 @@ const desktopMenu = document.querySelector(".desktop-menu");
 const hamMenu = document.querySelector(".menu");
 const mobileMenu = document.querySelector(".mobile-menu");
 const carritoIcon = document.querySelector(".navbar-shopping-cart");
-const productDetail = document.querySelector(".product-detail");
+const shoppingCartContainer = document.querySelector("#shoppingCartContainer");
 const cardsContainer = document.querySelector(".cards-container");
 
 navEmail.addEventListener("click", toggleDesktopMenu);
 hamMenu.addEventListener("click", toggleMobileMenu);
-carritoIcon.addEventListener("click", toggleProductDetail);
+carritoIcon.addEventListener("click", toggleShoppingCartContainer);
 
 function toggleDesktopMenu() {
   desktopMenu.classList.toggle("inactive");
 }
 function toggleMobileMenu() {
   mobileMenu.classList.toggle("inactive");
-  productDetail.classList.add("inactive");
+  shoppingCartContainer.classList.add("inactive");
 }
 
-function toggleProductDetail() {
-  productDetail.classList.toggle("inactive");
+function toggleShoppingCartContainer() {
+  shoppingCartContainer.classList.toggle("inactive");
   mobileMenu.classList.add("inactive");
 }
 
