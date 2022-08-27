@@ -390,6 +390,9 @@ aside{
         width: 140px;
         height: 140px;
       }
+      #productDetail .product-detail {
+        display: none;
+      }
       
   }
 
@@ -398,6 +401,10 @@ aside{
   @media (min-width: 641px) {
     .mobile-menu {
         display: none;
+    }
+
+    #productDetail .product-detail {
+      display: none;
     }
     
   }
