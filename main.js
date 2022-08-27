@@ -84,6 +84,7 @@ function RenderProducts(arr) {
     productCard.classList.add('product-card')
 
     const productImg = document.createElement('img');
+    productImg.classList.add('clickImage');
     productImg.setAttribute('src', product.image);
     productImg.addEventListener('click', openProductDetailAside)
 
@@ -99,6 +100,7 @@ function RenderProducts(arr) {
 
     const productInfoFigure = document.createElement('figure');
     const imgShopping = document.createElement('img');
+    imgShopping.classList.add('clickImage');
     imgShopping.setAttribute('src', './icons/bt_add_to_cart.svg');
 
     

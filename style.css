@@ -20,6 +20,9 @@ body {
     display: none;
 }
 
+.clickImage{
+    cursor: pointer;
+}
 /** NavBarGeneral */
 
 nav {
