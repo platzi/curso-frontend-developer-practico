@@ -1,25 +1,35 @@
+/*
+Saul De la fuente - Curso preactico de JavaScript
+
+*/
 const navEmail = document.querySelector('.navbar-email');
 const desktopMenu = document.querySelector('.desktop-menu'); 
 const menuHamIcon = document.querySelector('.menu'); 
 const mobileMenu = document.querySelector('.mobile-menu'); 
 const menuCarritoIcon = document.querySelector('.navbar-shopping-cart');
 const shoppingCarContainer = document.querySelector('#shoppingCarContainer');
+const productDetailContainer = document.querySelector('#productDetail');
+const productDetailCloseIcon = document.querySelector('.product-detail-close');
 const cardsContainer = document.querySelector('.cards-container');
 
 navEmail.addEventListener('click', toggleDesktopMenu);
 menuHamIcon.addEventListener('click', toggleMobileMenu);
-menuCarritoIcon.addEventListener('click',toggleCarrito);
+menuCarritoIcon.addEventListener('click', toggleCarrito);
+productDetailCloseIcon.addEventListener('click',closeProductDetail);
 //***Funciones*********************************************************************** */
 function toggleDesktopMenu() {
     desktopMenu.classList.toggle('inactive');
     if (!desktopMenu.classList.contains('inactive')) {
         shoppingCarContainer.classList.add('inactive');
+         productDetailContainer.classList.add('inactive');
     }
 }
 function toggleMobileMenu() {
     mobileMenu.classList.toggle('inactive');
+    
     if (!mobileMenu.classList.contains('inactive')) {
         shoppingCarContainer.classList.add('inactive');
+        productDetailContainer.classList.add('inactive');
     }
     
 }
@@ -33,6 +43,10 @@ function toggleCarrito() {
          shoppingCarContainer.classList.add('inactive');
         return;
     }
+     if (!productDetailContainer.classList.contains('inactive')) {
+         productDetailContainer.classList.add('inactive');
+        
+    }
     shoppingCarContainer.classList.toggle('inactive');
     
 }
@@ -43,6 +57,7 @@ function renderProducts(array) {
     productCard.classList.add('product-card');
     const img = document.createElement('img');
     img.setAttribute('src', product.image);
+    img.addEventListener('click',openProductData);    
     
     const productInfo = document.createElement('div');
     productInfo.classList.add('product-info');
@@ -72,6 +87,13 @@ function renderProducts(array) {
     cardsContainer.appendChild(productCard);
 
 }
+}
+function openProductData() {
+    productDetailContainer.classList.remove('inactive');
+    shoppingCarContainer.classList.add('inactive');
+}
+function closeProductDetail() {
+    productDetailContainer.classList.add('inactive');
 }
 
 //Simulando la base de datos
