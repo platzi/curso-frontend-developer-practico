@@ -72,7 +72,6 @@ window.onresize = function () {
   };
   onresize();
 
-
   // Array de productos
   const productList = [
 
@@ -161,8 +160,6 @@ window.onresize = function () {
 
   ];
   
-
-
 function renderProducts(arr) {
   let count = 0;
   for(product of arr) {
@@ -204,9 +201,8 @@ function openProductDetailAside() {
 function closeProductDetailAside() {
   productDetailContainer.classList.add('inactive');
 }
-// cardsContainer.childNodes...
 
-const myOrderList = [];
+let myOrderList = [];
 const detailOfProduct = {};
 
 function renderMyCart(arr) {
@@ -273,17 +269,23 @@ function renderProductDetail() {
 }
 
 function removeCartItem(id) {
-  // id es el index del array a borrar...
-  console.log('FALTA IMPLEMENTAR EL BORRAR ITEM DEL CARRITO');
+  let newArr = [];
+  let newCont = 0;
+  for(let i = 0; i<myOrderList.length; i++) {
+    if(myOrderList[i].image !== id) {
+      newArr[newCont] = myOrderList[i];
+      newCont++;
+    }
+  }
+  myOrderList = newArr.slice();
+  newArr.length = 0;
 }
 
 cardsContainer.addEventListener('click',(e) => {
   let orderId = parseInt(e.target.getAttribute('id'));
   if(e.target && e.target.classList.contains('addToCart')){
 
-    // console.log(String(e.target.getAttribute('id')));
     addToCartList(orderId);
-    // console.log(myOrderList);
     renderMyCart(myOrderList);
 
   } else if(e.target && e.target.classList.contains('card-img')){
@@ -297,20 +299,7 @@ cardsContainer.addEventListener('click',(e) => {
 myOrderContent.addEventListener('click', (e) => {
   if(e.target && e.target.classList.contains('shopping-cart-close')) {
     // removeCartItem(idItem);
-    removeCartItem(e.target.getAttribute('id'));
+    removeCartItem(String(e.target.getAttribute('id')));
     renderMyCart(myOrderList);
   }
 });
-
-/*
-else if(e.target && e.target.classList.contains('shopping-cart-close')) {
-    let idItem = String(e.target.getAttribute('id'));
-    // removeCartItem(idItem);
-    console.log(idItem);
-    renderMyCart(myOrderList);
-
-  }
-*/
-
-
-
