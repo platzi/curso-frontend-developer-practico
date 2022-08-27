@@ -203,6 +203,10 @@ aside {
     padding: 24px;
 }
 
+.iconBackCart {
+    cursor: pointer;
+}
+
 .product-detail-close {
     background: var(--white);
     width: 14px;
@@ -227,7 +231,10 @@ aside {
 }
 
 #productDetail .product-info {
-    margin: 24px 24px 0 24px;
+    padding: 24px;
+    border-bottom-left-radius: 12px;
+    border-bottom-right-radius: 12px;
+    background: var(--white);
 }
 
 #productDetail .product-info p:nth-child(1) {

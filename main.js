@@ -5,43 +5,61 @@ const dekstopMenu = document.querySelector(".desktop-menu");
 const menuHamburgesa = document.querySelector(".menu");
 const dekstopHamburgesa = document.querySelector(".mobile-menu");
 
+const iconBackCart = document.querySelector(".iconBackCart");
 const menuShopingIcon = document.querySelector(".navbar-shopping-cart");
 const DekstopShoping = document.querySelector("#shoppingCartCointainer");
 
 const cardsContainer = document.querySelector(".cards-container");
+
+const productDetailContainer = document.querySelector("#productDetail");
+const productDetailCloseIcon = document.querySelector(".product-detail-close");
+
 // Aplicar Funciones
 navEmail.addEventListener('click', toggleDesktopMenu);
 menuHamburgesa.addEventListener('click', toggleMenuHamburgesa);
-menuShopingIcon.addEventListener('click', toggleDekstopShoping)
-
+menuShopingIcon.addEventListener('click', toggleDekstopShoping);
+productDetailCloseIcon.addEventListener('click', closeProductDetailAside);
+iconBackCart.addEventListener('click', CloseBackCart);
 
 // Funciones
 function toggleDesktopMenu() {   
-    if(!DekstopShoping.classList.contains("inactive")){
-        DekstopShoping.classList.add("inactive");
-    }
     dekstopMenu.classList.toggle("inactive");
+    // cerrar otras cosas 
+    DekstopShoping.classList.add("inactive");
+    closeProductDetailAside()  
 }
 
 function toggleMenuHamburgesa() {
-    if (!DekstopShoping.classList.contains("inactive")) {
-        DekstopShoping.classList.add("inactive");
-    }
     dekstopHamburgesa.classList.toggle("inactive");
+    // cerrar otras cosas
+    DekstopShoping.classList.add("inactive");
+    productDetailContainer.classList.add('inactive');   
 }
 
-function toggleDekstopShoping() {    
-    if(!dekstopMenu.classList.contains("inactive")){
-        dekstopMenu.classList.add("inactive");
-        dekstopHamburgesa.classList.add("inactive");
-    }
-    else if (!dekstopHamburgesa.classList.contains("inactive")) {
-        dekstopMenu.classList.add("inactive");
-        dekstopHamburgesa.classList.add("inactive");
-    }
+function toggleDekstopShoping() {   
     DekstopShoping.classList.toggle("inactive");
+    // cerrar otras cosas
+    dekstopMenu.classList.add("inactive");
+    dekstopHamburgesa.classList.add("inactive");
+    dekstopMenu.classList.add("inactive");
+    dekstopHamburgesa.classList.add("inactive");
+    closeProductDetailAside() 
 }
 
+function openProductDetailAside() {
+    productDetailContainer.classList.remove('inactive')
+    // cerrar otras cosas
+    DekstopShoping.classList.add("inactive");
+    dekstopMenu.classList.add("inactive");
+}
+
+function closeProductDetailAside() {
+    productDetailContainer.classList.add('inactive');
+}
+
+function CloseBackCart() {
+    DekstopShoping.classList.add('inactive')
+}
 
 const productList = [];
 productList.push({
@@ -59,12 +77,6 @@ productList.push({
     price: 280,
     image: 'https://andrenoob.files.wordpress.com/2021/01/setup-pc-gaming-1977277.jpg?w=1600&h=768&crop=1'
 });
-productList.push({
-    name: 'IPhone',
-    price: 300,
-    image: 'https://itechcolombia.co/wp-content/uploads/2022/05/iphone-13-pro-max-silver-select.png'
-});
-
 
 function RenderProducts(arr) {
     for (product of arr) {
@@ -73,6 +85,7 @@ function RenderProducts(arr) {
 
     const productImg = document.createElement('img');
     productImg.setAttribute('src', product.image);
+    productImg.addEventListener('click', openProductDetailAside)
 
     const productInfo = document.createElement('div');
     productInfo.classList.add('product-info')
