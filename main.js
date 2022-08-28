@@ -9,6 +9,8 @@ const productDetailContainer = document.querySelector("#productDetail");
 const cardsContainer = document.querySelector(".cards-container");
 const imagen = document.querySelector("#infoImages");
 const priceProduct = document.querySelector("#price");
+const numberProducts = document.querySelector(".shopping-cart-number");
+let contador = 0;
 
 
 //const mediaQuery = window.matchMedia("(max-width: 640px)");
@@ -76,6 +78,7 @@ function openProductDetailAside(event){
     desktopMenu.classList.add("inactive");
     imagen.setAttribute("src", event.target.src);
     priceProduct.innerText = event.target.nextElementSibling.innerText;
+    numberProducts.innerText = contador += 1;
     
 }
 
