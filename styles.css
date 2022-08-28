@@ -23,12 +23,19 @@ nav {
   justify-content: space-between;
   padding: 0 24px;
   border-bottom: 1px solid var(--very-light-pink);
+  background-color: var(--white);
+  position: fixed;
+  top: 0;
+  width: 100%;
 }
 .menu {
   display: none;
 }
 .logo {
   width: 100px;
+}
+.navbar-right {
+  margin-right: 35px;
 }
 .navbar-left ul,
 .navbar-right ul {
@@ -91,7 +98,7 @@ nav {
   border-radius: 6px;
   padding: 20px 20px 0 20px;
   position: absolute;
-  right: 30px;
+  right: 65px;
   top: 60px;
   background-color: var(--white);
 }
@@ -128,6 +135,7 @@ nav {
   top: 40px;
   left: 0;
   width: 100%;
+  height: 100vh;
   padding: 10px;
   background-color: var(--white);
 }
@@ -160,12 +168,12 @@ nav {
 /* Aside (Product detail y carrito)*/
 aside {
   width: 360px;
-
+  top: 61px;
   border-bottom-left-radius: 12px;
   border-bottom-right-radius: 12px;
   box-shadow: 0 2px 5px;
   box-sizing: border-box;
-  position: absolute;
+  position: fixed;
   right: 0;
   background-color: var(--white);
 }
@@ -308,7 +316,7 @@ aside {
 
 /*Cards*/
 .main-container {
-  margin-top: 40px;
+  margin-top: 90px;
 }
 .cards-container {
   display: grid;
@@ -351,7 +359,7 @@ aside {
   color: var(--very-light-pink);
 }
 
-@media (max-width: 640px) {
+@media (max-width: 800px) {
   .menu {
     display: block;
   }
