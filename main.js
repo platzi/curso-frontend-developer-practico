@@ -10,6 +10,7 @@ const cardsContainer = document.querySelector(".cards-container");
 const imagen = document.querySelector("#infoImages");
 const priceProduct = document.querySelector("#price");
 
+
 //const mediaQuery = window.matchMedia("(max-width: 640px)");
 
 navEmail.addEventListener("click", toggleDesktopMenu);
@@ -74,7 +75,8 @@ function openProductDetailAside(event){
     productDetailContainer.classList.remove("inactive");
     desktopMenu.classList.add("inactive");
     imagen.setAttribute("src", event.target.src);
-    priceProduct.innerText = event.target.nextElementSibling.innerText; 
+    priceProduct.innerText = event.target.nextElementSibling.innerText;
+    
 }
 
 function closeProductDetailAside(){
@@ -130,9 +132,9 @@ productList.push({
     image: "https://moviltronics.com/wp-content/uploads/2019/07/Chasis-Mini-Sumo_0000_DSC00342-600x600.jpg",
 })
 productList.push({
-    name: "Kit Arduino Starter",
-    price: 264600,
-    image: "https://moviltronics.com/wp-content/uploads/2018/07/Kit-Arduino-Starter-600x600.jpg",
+    name: "Cargador B3 Li-poly 2-3s (Bateria)",
+    price: 35000,
+    image: "https://moviltronics.com/wp-content/uploads/2015/12/723-thickbox_default-Cargador-B3-Li-poly-2-3s-600x600.jpg",
 }) 
 productList.push({
     name: "Kit Arduino Starter",
@@ -140,29 +142,54 @@ productList.push({
     image: "https://moviltronics.com/wp-content/uploads/2018/07/Kit-Arduino-Starter-600x600.jpg",
 }) 
 productList.push({
-    name: "Kit Arduino Starter",
-    price: 264600,
-    image: "https://moviltronics.com/wp-content/uploads/2018/07/Kit-Arduino-Starter-600x600.jpg",
+    name: "Brazo Robotico OWI-535",
+    price: 311000,
+    image: "https://moviltronics.com/wp-content/uploads/2018/07/Brazo-Robotico-OWI-535_0000_Capa-57-600x600.jpg",
 }) 
 productList.push({
-    name: "Kit Arduino Starter",
-    price: 264600,
-    image: "https://moviltronics.com/wp-content/uploads/2018/07/Kit-Arduino-Starter-600x600.jpg",
+    name: "Chasis de Minisumo (Pololu 1418)",
+    price: 85000,
+    image: "https://moviltronics.com/wp-content/uploads/2016/02/927-thickbox_default-Chasis-para-Mini-Sumo-Pololu-600x600.jpg",
 }) 
 productList.push({
-    name: "Kit Arduino Starter",
-    price: 264600,
-    image: "https://moviltronics.com/wp-content/uploads/2018/07/Kit-Arduino-Starter-600x600.jpg",
+    name: "Kit de llantas robótica",
+    price: 8000,
+    image: "https://moviltronics.com/wp-content/uploads/2021/05/Kit-Llantas-5x_0005_M20035-4-600x600.jpg",
 }) 
 productList.push({
-    name: "Kit Arduino Starter",
-    price: 264600,
-    image: "https://moviltronics.com/wp-content/uploads/2018/07/Kit-Arduino-Starter-600x600.jpg",
+    name: "Llantas para robot sumo profesional 65mm",
+    price: 86200,
+    image: "https://moviltronics.com/wp-content/uploads/2021/06/Llantas-Sumo-neopreno-65mm_0000_Capa-1-copia-600x600.jpg",
 }) 
 productList.push({
-    name: "Kit Arduino Starter",
-    price: 264600,
-    image: "https://moviltronics.com/wp-content/uploads/2018/07/Kit-Arduino-Starter-600x600.jpg",
+    name: "Llantas velocista aluminio",
+    price: 28800,
+    image: "https://moviltronics.com/wp-content/uploads/2019/10/Llantas-mini-velocista-20mm_0001_DSC00445-copia-600x600.jpg",
+}) 
+productList.push({
+    name: "Soporte motorreductor N20 N30 12GA con tornillos",
+    price: 2000,
+    image: "https://moviltronics.com/wp-content/uploads/2019/11/Soporte-Micromotor_0000_Capa-1-600x600.jpg",
+}) 
+productList.push({
+    name: "Rueda Omnidireccional 40mm",
+    price: 52800,
+    image: "https://moviltronics.com/wp-content/uploads/2016/02/1001-thickbox_default-Rueda-Omnidireccional-40mm-600x600.jpg",
+}) 
+productList.push({
+    name: "Acelerómetro MMA7455 3 Ejes Digital",
+    price: 22600,
+    image: "https://moviltronics.com/wp-content/uploads/2015/10/1401-thickbox_default-Modulo-Acelerometro-MMA7455-600x600.jpg",
+}) 
+productList.push({
+    name: "Fotocelda 12mm",
+    price: 1500,
+    image: "https://moviltronics.com/wp-content/uploads/2018/06/1510-thickbox_default-Fotocelda-12mm-600x600.jpg",
+}) 
+productList.push({
+    name: "Sensor de Flama KY026",
+    price: 8000,
+    image: "https://moviltronics.com/wp-content/uploads/2019/10/001-600x594.jpg",
 }) 
 
 function renderProducts(arr){
