@@ -9,11 +9,14 @@ const menuProductDetail = document.querySelector('#shoppingCartContainer');
 const productDetailContainer = document.querySelector('#productDetail');
 const productDetailCloseIcon = document.querySelector('.product-detail-close');
 
+const arrowLeftCarritoIcon = document.querySelector('.arrow-left');
+
 const cardsContainer = document.querySelector('.cards-container');
 
 menuEmail.addEventListener('click', toggleDesktopMenu);
 menuBtn.addEventListener('click', toggleMobileMenu);
 menuCarritoIcon.addEventListener('click', toggleProductDetail);
+arrowLeftCarritoIcon.addEventListener('click', toggleProductDetail);
 productDetailCloseIcon.addEventListener('click', closeProductDetailAside);
 
 function toggleDesktopMenu(){
