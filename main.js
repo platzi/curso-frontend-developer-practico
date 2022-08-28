@@ -5,7 +5,7 @@ const menuBtn = document.querySelector('.menu');
 const mobileMenu = document.querySelector('.mobile-menu');
 
 const menuCarritoIcon = document.querySelector('.navbar-shopping-cart');
-const menuProductDetail = document.querySelector('.product-detail');
+const menuProductDetail = document.querySelector('#shoppingCartContainer');
 
 const cardsContainer = document.querySelector('.cards-container');
 
@@ -84,7 +84,7 @@ function renderProduct(arr){
         productInfoDiv.appendChild(productName);
         
         const productInfoFigure = document.createElement('figure');
-        const productImgCart = document.createElement('div');
+        const productImgCart = document.createElement('img');
         productImgCart.setAttribute('src','./icons/bt_add_to_cart.svg');
 
         productInfoFigure.appendChild(productImgCart);
