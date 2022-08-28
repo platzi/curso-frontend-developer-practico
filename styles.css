@@ -66,6 +66,7 @@ nav {
 }
 .navbar-shopping-cart {
   position: relative;
+  cursor: pointer;
 }
 .navbar-shopping-cart div {
   width: 16px;
@@ -177,7 +178,8 @@ aside {
   display: flex;
 }
 .title-container img {
-  transform: rotate(180deg);
+  transform: rotate(180deg) scale(2);
+  cursor: pointer;
   margin-right: 14px;
 }
 .title {
