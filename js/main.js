@@ -138,26 +138,74 @@ window.onresize = function () {
     },
 
     {
-      name: 'Fan',
-      price: 20,
-      image: "https://i.pinimg.com/236x/09/dc/30/09dc30c97eac8602185e29b82243fe79.jpg",
+      name: 'washing machine',
+      price: 100,
+      image: "https://espacio18.com.mx/wp-content/uploads/Midea-MLTT11M2NUBW-Lavadora-1-11.jpg",
       info: "With its practical position, this bike also fulfills a decorative function, add your hall or workspace.",
     },
 
     {
-      name: 'Fan',
-      price: 20,
-      image: "https://i.pinimg.com/236x/09/dc/30/09dc30c97eac8602185e29b82243fe79.jpg",
+      name: 'scooter',
+      price: 50,
+      image: "https://img.remediosdigitales.com/51bc7b/s6/450_1000.jpeg",
       info: "With its practical position, this bike also fulfills a decorative function, add your hall or workspace.",
     },
 
     {
-      name: 'Fan',
-      price: 20,
-      image: "https://i.pinimg.com/236x/09/dc/30/09dc30c97eac8602185e29b82243fe79.jpg",
+      name: 'sport camera GoPro',
+      price: 100,
+      image: "https://www.steren.com.mx/media/catalog/product/cache/b69086f136192bea7a4d681a8eaf533d/image/2176550f8/camara-deportiva-sumergible-4k-wi-fi-con-doble-pantalla.jpg",
       info: "With its practical position, this bike also fulfills a decorative function, add your hall or workspace.",
     },
 
+    {
+      name: 'XboX',
+      price: 5,
+      image: "https://cdn.computerhoy.com/sites/navi.axelspringer.es/public/styles/1200/public/media/image/2020/11/analisis-xbox-series-s-computerhoy-2131659.jpg?itok=dZREcC-F",
+      info: "With its practical position, this bike also fulfills a decorative function, add your hall or workspace.",
+    },
+
+    {
+      name: 'Smarth Watch',
+      price: 90,
+      image: "https://encrypted-tbn1.gstatic.com/shopping?q=tbn:ANd9GcSFNS8Qeg0zmvFhmKbm190TOyV_v6nJ65ovhCnzQZTIqVARmGqt7YlldhwIZ3b8HrTlOCiyVztqJZSENLyIxjLlB8aeOmBNDXgAl3A6aKzbdwbaehaMQkk_&usqp=CAE",
+      info: "With its practical position, this bike also fulfills a decorative function, add your hall or workspace.",
+    },
+
+    { 
+      name: 'Headphones',
+      price: 12,
+      image: "https://encrypted-tbn3.gstatic.com/shopping?q=tbn:ANd9GcQ8nUpPXbuPQQLAbvZc4_aI7RI-Slg2GmSlCO_WiRKSPkHlVVAr_HmsM8pILbW2hJKzbGZRnb3uoryTCMLp4UIC7ScKU6_da9I4fnZCb_KsnQQfjjqZ_xaotw&usqp=CAE",
+      info: "With its practical position, this bike also fulfills a decorative function, add your hall or workspace.",
+    },
+
+    {
+      name: 'Desk',
+      price: 60,
+      image: "https://encrypted-tbn0.gstatic.com/shopping?q=tbn:ANd9GcQdQJgw_WpLX22XkDmwSPxbj73HvaS7JsVjObyqIaxZf2pg5qAfMpJi-4TSoewjBUN1FqRDR2lQbV85XnPwAeHYsHDtOcFfXd8gaBckvF55bg3gCnLk4SZH7A&usqp=CAE",
+      info: "With its practical position, this bike also fulfills a decorative function, add your hall or workspace.",
+    },
+
+    {
+      name: 'Drone',
+      price: 150,
+      image: "https://encrypted-tbn2.gstatic.com/shopping?q=tbn:ANd9GcQV9maieQzrGFbDDOp3pjbBz5Rrin7X7m1pv0CffXwSmri-Ao2rb2DEkc1U8WI4uA5LN62XzOkmSTIZvBRuyVQJxSjdNlhad_1jxo7TtJlSum0d2L9j3XzB&usqp=CAE",
+      info: "With its practical position, this bike also fulfills a decorative function, add your hall or workspace.",
+    },
+
+    {
+      name: 'BackPack',
+      price: 10,
+      image: "https://articulospromocionalescdmx.com/wp-content/uploads/2019/04/A2484_lrg.jpg",
+      info: "With its practical position, this bike also fulfills a decorative function, add your hall or workspace.",
+    },
+
+    {
+      name: 'Minion Funko Pop',
+      price: 15,
+      image: "https://mifunko.com/927-large_default/funko-pop-bob-en-pijama-minions-2.jpg",
+      info: "With its practical position, this bike also fulfills a decorative function, add your hall or workspace.",
+    },
   ];
   
 function renderProducts(arr) {
