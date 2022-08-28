@@ -4,6 +4,7 @@ const menuMobile = document.querySelector(".menu");
 const mobile_menu = document.querySelector(".mobile-menu");
 const shoppingCart = document.querySelector(".navbar-shopping-cart");
 const asideCart = document.querySelector(".product-detail");
+const cardsContainer = document.querySelector(".cards-container");
 
 navbar_email.addEventListener("click", toggleDesktopMenu);
 shoppingCart.addEventListener("click", toggleShoppingAside);
@@ -25,44 +26,55 @@ function toggleShoppingAside() {
   desktop_menu.classList.add("inactive");
 }
 
+/* ----------MAQUETACIÓN HTML EN JS DE LOS PRODUCTOS EN VENTA---------- */
 const productList = [];
 productList.push({
   name: "Bike",
-  precio: 120,
+  price: 120,
   image:
     "https://images.pexels.com/photos/276517/pexels-photo-276517.jpeg?auto=compress&cs=tinysrgb&dpr=2&h=650&w=940",
 });
 productList.push({
-  name: "Pantalla",
-  precio: 220,
+  name: "Plantas",
+  price: 220,
   image:
-    "https://images.pexels.com/photos/276517/pexels-photo-276517.jpeg?auto=compress&cs=tinysrgb&dpr=2&h=650&w=940",
+    "https://www.zankyou.es/images/mag-card-c/510/4925/878/623/-/br/wp-content/uploads/2017/01/z-le-Arthur-Foschini1.jpg",
 });
 productList.push({
-  name: "Computador",
+  name: "Aves",
   price: 3320,
   image:
-    "https://images.pexels.com/photos/276517/pexels-photo-276517.jpeg?auto=compress&cs=tinysrgb&dpr=2&h=650&w=940",
+    "https://sumedico.blob.core.windows.net/images/2021/01/14/curiosidadesdelosperiquitosaustralianos-focus-0-0.5-640-384.jpg",
 });
 
-for (product of productList) {
-  const productCard = document.createElement("div");
-  productCard.classList.add("product-card");
+function renderProducts(arrProductos) {
+  for (product of arrProductos) {
+    const productCard = document.createElement("div");
+    productCard.classList.add("product-card");
 
-  const img = document.createElement("img");
-  img.setAttribute("src", product.image);
+    const productImage = document.createElement("img");
+    productImage.setAttribute("src", product.image);
 
-  const productInfo = document.createElement("div");
-  productInfo.classList.add("product-info");
+    const productInfo = document.createElement("div");
+    productInfo.classList.add("product-info");
 
-  const productInfoDiv = document.createElement("div");
-  const productPrice = document.createElement("p");
-  productPrice.innerText = "$" + product.price;
+    const productInfoDiv = document.createElement("div");
 
-  const productName = document.createElement("p");
-  productName.innerText = product.name;
+    const productPrice = document.createElement("p");
+    productPrice.innerText = "$" + product.price;
+    const productName = document.createElement("p");
+    productName.innerText = product.name;
 
-  const productInfoFigure = document.createElement("figure");
-  const productImgCart = document.createElement("img");
-  productImgCart.setAttribute("src", "./icons/bt_add_to_cart.svg");
+    const productInfoFigure = document.createElement("figure");
+    const productImgCart = document.createElement("img");
+    productImgCart.setAttribute("src", "./icons/bt_add_to_cart.svg");
+
+    productInfoDiv.append(productPrice, productName);
+    productInfoFigure.appendChild(productImgCart);
+    productInfo.append(productInfoDiv, productInfoFigure);
+    productCard.append(productImage, productInfo);
+
+    cardsContainer.appendChild(productCard);
+  }
 }
+renderProducts(productList);
