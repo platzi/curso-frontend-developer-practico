@@ -351,3 +351,13 @@ myOrderContent.addEventListener('click', (e) => {
     renderMyCart(myOrderList);
   }
 });
+
+/**
+ * Iplementar un aviso tipo alert, que notifique cda vez que agregues algo al carrito.
+ * 
+ * Agregar animaciones a los menus. botones, componentes, etc...
+ * 
+ * Implementar contador sincronizado que diga cuantos productos hay en el carrito.
+ * 
+ * Hacer que cualquier menu y/o vista se cierre cuando demos click en el "body".
+ */
