@@ -289,8 +289,10 @@
     padding-bottom: 24px;
     position: absolute;
     right: 0;
+    background-color: var(--white);
   }
   .product-detail-close {
+    cursor: pointer;
     background: var(--white);
     width: 14px;
     height: 14px;
