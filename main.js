@@ -5,14 +5,17 @@ const menuHamIcon = document.querySelector ('.menu');
 const mobileMenu = document.querySelector ('.mobile-menu');
 
 const menuCarritoIcon = document.querySelector ('.navbar-shopping-cart');
-const aside = document.querySelector ('.product-detail')
+const aside = document.querySelector ('.product-detail');
 
-const cardsContainer = document.querySelector ('.cards-container')
+const cardsContainer = document.querySelector ('.cards-container');
 
+const productDetailSecondary = document.querySelector ('.product-detail-secondary');
+const buttonExitAsideSecondary = document.querySelector ('.product-detail-close-secondary');
 
 navEmail.addEventListener('click', toggleDesktopMenu);
 menuHamIcon.addEventListener('click', toggleMobileMenu);
 menuCarritoIcon.addEventListener('click', toggleCarritoAside)
+buttonExitAsideSecondary.addEventListener('click', closeAsideSecondary)
 
 function toggleDesktopMenu() {
     const isAsideClosed = aside.classList.contains('inactive');
@@ -29,6 +32,7 @@ function toggleMobileMenu() {
     if (!isAsideClosed) {
         aside.classList.add('inactive');
           }
+    closeAsideSecondary();
 
     mobileMenu.classList.toggle('inactive');
     }
@@ -36,16 +40,29 @@ function toggleMobileMenu() {
  function toggleCarritoAside() {
     const isMobileMenuClosed = mobileMenu.classList.contains('inactive');
     const isDesktopMenuClosed = desktopMenu.classList.contains ('inactive');
-
-   if (!isMobileMenuClosed || !isDesktopMenuClosed) {
-      
+    const isSecondaryAsideClosed = productDetailSecondary.classList.contains ('inactive');
+ 
+   if (!isMobileMenuClosed || !isDesktopMenuClosed || !isSecondaryAsideClosed) {
+     
     mobileMenu.classList.toggle('inactive');
      
     desktopMenu.classList.toggle('inactive');
+
+    productDetailSecondary.classList.add ('inactive');
      }
 
     aside.classList.toggle('inactive');
    }
+
+  function openProductDetailAsideSecondary () {
+    aside.classList.add ('inactive');
+    productDetailSecondary.classList.remove ('inactive')
+  }
+
+  function closeAsideSecondary () {
+    productDetailSecondary.classList.add('inactive');
+  }
+  
 
   const productList = [];
   productList.push ({
@@ -103,6 +120,7 @@ function renderProducts(arr) {
     //Product = {name, price, image} --> product.image//
      const productImg = document.createElement ('img');
      productImg.setAttribute ('src', product.imagen);
+     productImg.addEventListener ('click', openProductDetailAsideSecondary);
   
      const productInfo = document.createElement ('div');
      productInfo.classList.add ('product-info');
