@@ -3,7 +3,7 @@ const desktopMenu = document.querySelector('.desktop-menu');
 const menuHamIcon = document.querySelector('.menu');
 const menuCarritoIcon = document.querySelector('.navbar-shopping-cart');
 const mobileMenu = document.querySelector('.mobile-menu');
-const aside = document.querySelector('.product-detail');
+const shoppingCartContainer = document.querySelector('#shopping-cart-container');
 const cardsContainer = document.querySelector('.cards-container');
 
 menuEmail.addEventListener('click', toggleDesktopMenu);
@@ -11,10 +11,10 @@ menuHamIcon.addEventListener('click', toggleMobileMenu);
 menuCarritoIcon.addEventListener('click', toggleCarritoAside);
 
 function toggleDesktopMenu() {
-    const isasideClosed = aside.classList.contains('inactive');
+    const isasideClosed = shoppingCartContainer.classList.contains('inactive');
 
     if(!isasideClosed) {
-        aside.classList.add('inactive');
+        shoppingCartContainer.classList.add('inactive');
     }
 
     // .classList es para ver qué clases tiene el elemento
@@ -23,10 +23,10 @@ function toggleDesktopMenu() {
 }
 
 function toggleMobileMenu() {
-    const isasideClosed = aside.classList.contains('inactive');
+    const isasideClosed = shoppingCartContainer.classList.contains('inactive');
 
     if(!isasideClosed) {
-        aside.classList.add('inactive');
+        shoppingCartContainer.classList.add('inactive');
     }
 
     mobileMenu.classList.toggle('inactive');
@@ -41,7 +41,7 @@ function toggleCarritoAside() {
         mobileMenu.classList.add('inactive');
     }
 
-    aside.classList.toggle('inactive');
+    shoppingCartContainer.classList.toggle('inactive');
 }
 
 const productList = [];
