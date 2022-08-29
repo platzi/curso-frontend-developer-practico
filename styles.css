@@ -260,7 +260,7 @@ aside {
   border-radius: 0 0 20px 20px;
 }
 #productDetail {
-  margin: 0 24px 0 24px;
+  margin: 0;
 }
 #productDetail p:nth-child(1) {
   font-weight: bold;
@@ -340,7 +340,12 @@ aside {
   color: var(--very-light-pink);
 }
 
-
+@media (max-width: 640px) {
+  #productDetail {
+    box-sizing: border-box;
+    width: 100%;
+  }
+}
 @media (max-width: 640px) {
   .menu {
      display: block;
