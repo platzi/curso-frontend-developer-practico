@@ -136,7 +136,7 @@ nav {
     color: var(--back);
 }
 
-.product-detail {
+.productCart-detail {
     position: absolute;
     box-sizing: border-box;
     right: 0;
@@ -245,6 +245,7 @@ nav {
     border-radius: 20px;
     object-fit: cover;
   }
+
   .product-info {
     display: flex;
     justify-content: space-between;
@@ -270,6 +271,73 @@ nav {
     margin-bottom: 0;
     color: var(--very-light-pink);
   }
+ 
+  /*Aside Float detail*/
+
+  .productFloat-detail {
+    width: 360px;
+    padding-bottom: 24px;
+    position: absolute;
+    right: 0;
+    background-color: var(--white);
+  }
+  .productFloat-detail-close {
+    background: var(--white);
+    width: 14px;
+    height: 14px;
+    position: absolute;
+    top: 24px;
+    left: 24px;
+    z-index: 2;
+    padding: 12px;
+    border-radius: 50%;
+  }
+  .productFloat-detail-close:hover {
+    cursor: pointer;
+  }
+  .productFloat-detail > img:nth-child(2) {
+    width: 100%;
+    height: 360px;
+    object-fit: cover;
+    border-radius: 0 0 20px 20px;
+  }
+  .productFloat-info {
+    margin: 24px 24px 0 24px;
+  }
+  .productFloat-info p:nth-child(1) {
+    font-weight: bold;
+    font-size: var(--md);
+    margin-top: 0;
+    margin-bottom: 4px;
+  }
+  .productFloat-info p:nth-child(2) {
+    color: var(--very-light-pink);
+    font-size: var(--md);
+    margin-top: 0;
+    margin-bottom: 36px;
+  }
+  .productFloat-info p:nth-child(3) {
+    color: var(--very-light-pink);
+    font-size: var(--sm);
+    margin-top: 0;
+    margin-bottom: 36px;
+  }
+  .primaryFloat-button {
+    background-color: var(--hospital-green);
+    border-radius: 8px;
+    border: none;
+    color: var(--white);
+    width: 100%;
+    cursor: pointer;
+    font-size: var(--md);
+    font-weight: bold;
+    height: 50px;
+  }
+  .add-to-cartFloat-button {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+  }
 
 @media (max-width: 640px) {
     .menu {
@@ -285,8 +353,10 @@ nav {
 
     .mobile-menu {
         position: absolute;
-        margin-top: 61px;
-        padding: 0px;
+        top: 61px;
+        left: 0;
+        padding-left: 24px;
+        width: calc(100% - 24px);
         background-color: var(--white);
     }
 
@@ -311,7 +381,7 @@ nav {
         margin-bottom: 24px;
     }
 
-    .product-detail {
+    .productCart-detail {
         width: 100%;
     }
 
@@ -325,5 +395,8 @@ nav {
       .product-card img {
         width: 140px;
         height: 140px;
+      }
+      .productFloat-detail {
+        width: 100%;
       }
 }
