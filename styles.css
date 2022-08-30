@@ -162,7 +162,8 @@
       color: var(--hospital-green) !important;
     }
 
-/*Aside product detail y carrito*/  
+/*Aside product detail y carrito*/ 
+
   aside {
     background-color: var(--white);
     width: 360px;
@@ -268,7 +269,7 @@
     border-radius: 0 0 20px 20px;
   }
   #productDetail {
-    margin: 24px 24px 0 24px;
+    /* margin: 24px 24px 0 24px; */
   }
   #productDetail p:nth-child(1) {
     font-weight: bold;
