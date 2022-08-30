@@ -122,7 +122,9 @@
 
   /*Menu Mobile*/
   .mobile-menu {
-    padding: 24px;
+    position: absolute;
+    top: 60px;
+    padding: 5px;
   }
   .mobile-menu a {
     text-decoration: none;
