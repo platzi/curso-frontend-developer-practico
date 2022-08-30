@@ -1,25 +1,13 @@
-const menuEmail = document.querySelector('.navbar-email');
-const desktopMenu = document.querySelector('.desktop-menu');
-const menuHamIcon = document.querySelector('.menu');
-const productDetailCloseIcon = document.querySelector('.product-detail-close');
-const myOrderContent = document.querySelector('.my-order-content');
 const cartCount = document.querySelector('.cartCount');
+const body = document.querySelector('body');
+const nav = document.querySelector('nav');
 
+const desktopMenu = document.querySelector('.desktop-menu');
 const mobileMenu = document.querySelector('.mobile-menu');
-// Cuando demos click aquí (sig L.9)...
-const menuCartIcon = document.querySelector('.navbar-shopping-cart');
-// Este aparecera o desaparecera con la función en -> (sig L.25)
 const aside = document.querySelector('.myOrder');
 const productDetailContainer = document.querySelector('.product-detail');
-
 const cardsContainer = document.querySelector('.cards-container');
-
-productDetailCloseIcon.addEventListener('click', closeProductDetailAside);
-menuEmail.addEventListener('click', toggleDesktopMenu);
-menuHamIcon.addEventListener('click', toggleMobileMenu);
-menuCartIcon.addEventListener('click', toggleCartAside);
-
-// cardContainer.addEventListener('click', openProductDetailAside);
+const myOrderContent = document.querySelector('.my-order-content');
 
 function toggleDesktopMenu() {
   const isAsideClosed = aside.classList.contains('inactive'); 
@@ -46,22 +34,19 @@ function toggleMobileMenu() {
     mobileMenu.classList.toggle('inactive');
 }
 // Hace que aparezca con dar click en el carrito.
-function toggleCartAside() {
-    const isMobileMenuClosed = mobileMenu.classList.contains('inactive');
-    const isDesktopMenuClosed = desktopMenu.classList.contains('inactive');
-    const isProductDetailClosed = productDetailContainer.classList.contains('inactive');
-
-    if(!isMobileMenuClosed) { // Si menu mobile esta abierto
-        mobileMenu.classList.add('inactive');
-
-    } else if(!isDesktopMenuClosed) { // Si menu desktop tambien lo esta...
-        desktopMenu.classList.add('inactive');
-
-    } else if(!isProductDetailClosed) { // si product detail tambien...
-        productDetailContainer.classList.add('inactive');
-    }
-    aside.classList.toggle('inactive'); // brir Aside.
-}
+ function toggleCartAside() {
+     const isMobileMenuClosed = mobileMenu.classList.contains('inactive');
+     const isDesktopMenuClosed = desktopMenu.classList.contains('inactive');
+     const isProductDetailClosed = productDetailContainer.classList.contains('inactive');
+     if(!isMobileMenuClosed) { // Si menu mobile esta abierto
+         mobileMenu.classList.add('inactive');
+     } else if(!isDesktopMenuClosed) { // Si menu desktop tambien lo esta...
+         desktopMenu.classList.add('inactive');
+     } else if(!isProductDetailClosed) { // si product detail tambien...
+         productDetailContainer.classList.add('inactive');
+     }
+     aside.classList.toggle('inactive'); // brir Aside.
+ }
 // Esta funcion mantiene de principio los menus inactivos.
 window.onresize = function () {
     // Cuando la pantalla en menor o igual a 640.
@@ -71,7 +56,6 @@ window.onresize = function () {
     // Siempre lo mantendra inactive a no ser que le des click.
     document.documentElement.scrollWidth && aside.classList.add('inactive');
   };
-
 
   // Array de productos
   const productList = [
@@ -207,6 +191,13 @@ window.onresize = function () {
       image: "https://mifunko.com/927-large_default/funko-pop-bob-en-pijama-minions-2.jpg",
       info: "With its practical position, this bike also fulfills a decorative function, add your hall or workspace.",
     },
+
+    {
+      name: 'Hulk Funko Pop',
+      price: 20,
+      image: "https://i.pinimg.com/564x/89/ee/ef/89eeef5c9b0bbb2ffdd36c11716193ef.jpg",
+      info: "With its practical position, this bike also fulfills a decorative function, add your hall or workspace.",
+    },
   ];
   
 function renderProducts(arr) {
@@ -229,7 +220,6 @@ function renderProducts(arr) {
       </div>
       `
     );
-   const cardsContainer = document.querySelector('.cards-container');
    cardsContainer.append(div);
    count++;
   }
@@ -354,31 +344,51 @@ function renderProductsCount() {
 }
 
 // Add event to view product detail && add ptoduct to cart...
-cardsContainer.addEventListener('click',(e) => {
+
+body.addEventListener('click',(e) => {
   let orderId = parseInt(e.target.getAttribute('id'));
   if(e.target && e.target.classList.contains('addToCart')){ // Add ptoduct to cart
     addToCartList(orderId);
     renderMyCart(myOrderList);
     renderProductsCount()
-
   } else if(e.target && e.target.classList.contains('card-img')){ // View product detail
-
     setProductDetail(orderId);
     renderProductDetail();
     openProductDetailAside();
+  } else if(e.target && e.target.classList.contains('shopping-cart-icon')){ // View product detail
+    // console.log('le dimos al cart');
+    toggleCartAside();
+  } else if( e.target && e.target.classList.contains('menu') ) {
+    // console.log('le dimos al menu');
+    toggleMobileMenu();
+  } else if( e.target && e.target.classList.contains('navbar-email') ) {
+    // console.log('le dimos al menu');
+    toggleDesktopMenu();
   }
   
 });
 
-// Add event to remove a cart item...
-myOrderContent.addEventListener('click', (e) => {
+productDetailContainer.addEventListener('click', (e) => {
+  if( e.target && e.target.classList.contains('product-detail-close') ) {
+    closeProductDetailAside();
+  }
+});
+
+// Add event to all my order container...
+aside.addEventListener('click', (e) => {
+  // Add event to remove a cart item...
   if(e.target && e.target.classList.contains('shopping-cart-close')) {
     // removeCartItem(idItem);
     removeCartItem(String(e.target.getAttribute('id')));
     renderMyCart(myOrderList);
     renderProductsCount()
   }
+  // Add target to close cart aside from inside HTML container (myOrder)
+  else if(e.target && e.target.classList.contains('back-from-my-order')) {
+    toggleCartAside();
+  }
 });
+
 onresize();
 renderProductsCount()
 
@@ -391,7 +401,7 @@ renderProductsCount()
  * 
  * Agregar animaciones a los menus. botones, componentes, etc...
  * 
- * 
+ *  total
  * 
  * Hacer que cualquier menu y/o vista se cierre cuando demos click en el "body".
  */
