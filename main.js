@@ -122,10 +122,10 @@ function closeProductDetailContainer(){
 }
 
 
-    // ejemplo de elemento que recreamos desde JS
-    // 1)  <div class="product-card">
-    //     <img src="https://images.pexels.com/photos/276517/pexels-photo-276517.jpeg?auto=compress&cs=tinysrgb&dpr=2&h=650&w=940" alt="">
-    //     <div class="product-info">
+    // EJEMPLO DE PRODUCTO A RENDERIZAR 
+    // 1) <div class="product-card">
+    //          <img src="https://images.pexels.com/photos/276517/pexels-photo-276517.jpeg?auto=compress&cs=tinysrgb&dpr=2&h=650&w=940" alt="">
+    //       <div class="product-info">
     //       <div>
     //         <p>$120,00</p>
     //         <p>Bike</p>
@@ -134,12 +134,14 @@ function closeProductDetailContainer(){
     //         <img src="./icons/bt_add_to_cart.svg" alt="">
     //       </figure>
     //     </div>
-    //   </div> 
+    //  </div> 
 
  // encapsulamos eel codigo en una function, como buena practica - es practico para reutilizar en otros arrays tambien
     // o eventualmente podemos cargarla o deshabilitar por medio de una interfaz de boton por ejemplo 
+
     // CREACION DEL ELEMENTO CON EL DOM  y CARGA DE INTERFAZ
     function renderProducts(arr){
+        // for utilizado para recorrer el array y renderizar cada producto
         for(product of arr){
             // creamos el div
             const productCard = document.createElement('div');
@@ -159,6 +161,7 @@ function closeProductDetailContainer(){
                 // console.log(productId);
                 asideShoppingCart.classList.add('inactive');
                 productDetailContainer.classList.remove('inactive');
+                // tomamos el producto que se clickeo, pasamos por argumento su productId
                 productIdRender(productId);
             });
             
@@ -205,13 +208,9 @@ function closeProductDetailContainer(){
         }
     }
 
-// renderizamos el product detail 
-    function productIdRender(id){
-        console.log('el id del producto es',id);
-        console.log(productList[id].name);
-    }
-
 ///////////// AGREGAMOS MANUALMENTE PRODUCTOS AL ARRAY ////////////////
+
+
 // creamos un array vacio 
 const productList = [];
 
@@ -221,6 +220,7 @@ productList.push({
     id:0,
     name: 'Byke',
     price: 120,
+    description: "Bicicleta Mountain Bike Rodado 29” Cuadro Aluminio.",
     img:"https://images.pexels.com/photos/276517/pexels-photo-276517.jpeg?auto=compress&cs=tinysrgb&dpr=2&h=650&w=940"
 });
 
@@ -228,46 +228,28 @@ productList.push({
     id:1,
     name: 'PC',
     price: 1400,
-    img:"https://images.pexels.com/photos/276517/pexels-photo-276517.jpeg?auto=compress&cs=tinysrgb&dpr=2&h=650&w=940"
+    description: 'Procesador AMD 5 5600G, Memoria RAM 8GB DDR4, Disco SSD 1TB.',
+    img:"https://m.media-amazon.com/images/I/91LSF1iZUFL._AC_SY355_.jpg"
 });
 
 productList.push({
     id:2,
     name: 'Smart TV',
     price: 12000,
-    img:"https://images.pexels.com/photos/276517/pexels-photo-276517.jpeg?auto=compress&cs=tinysrgb&dpr=2&h=650&w=940"
+    description: ' Smart TV 32PHD6825 vas a acceder a las aplicaciones en las que se encuentran tus contenidos favoritos. Además, podés navegar por Internet, interactuar en redes sociales y divertirte con videojuegos.',
+    img:"https://images.fravega.com/f300/ee52763a92e4568d20237c062870c869.jpg.webp"
 });
 
    
 // nos da el elemento del array 
 
-// guardamos en obProduct la transformacion del objeto a un array 
+// guardamos en objProduct la transformacion del objeto a un array 
 const objProduct = Object.entries(productList);
-for(let i=0; i< objProduct.length; i++){
-// objProduct.forEach(element => {
-//     if(i==1){
-
-//         console.log(objProduct[i]);
-//         console.log(productList[i].name);
-//         console.log(productList[i].price);
-//         console.log(productList[i].img);
-//     }
-// // });
-    // console.log(product.img);
-}
-
-// nos da el indice 
-// for(product in productList){
-//     console.log(product);
-// }
 
 
-
-////////////// RENDERIZADO DE PRODUCTOS ///////////////// 
+////////////// RENDERIZADO DE PRODUCTOS EN EL MAIN CONTAINER DE LA PAGINA ///////////////// 
 renderProducts(productList);
 
-
-// console.log(Object.keys(productList));
 
 /////////////////// ESTO HAY QUE RECREAR ///////////////////////////
 {/*
@@ -288,15 +270,58 @@ renderProducts(productList);
 </aside> 
 */}
 
-// render del aside de product detail 
+
+// renderizamos el ASIDE Product Detail 
+function productIdRender(id){
+    console.log('el id del producto es',id)
+    console.log(productList[id].name);
+    console.log(productList[id].price);
+    console.log(productList[id].img)
+    console.log(productList[id].description);
+// CREAMOS EL ELEMENTO aside de product detail 
 const productDetailAside = document.createElement('aside');
 productDetailAside.classList.add('inactive');
 productDetailAside.setAttribute('id','product-detail');
 
+// boton close product detail 
 const productDetailClose = document.createElement('div');
 productDetailClose.classList.add('product-detail-close');
 
+// icono boton close product detail 
 const iconClose = document.createElement('img');
 iconClose.setAttribute('src','./icons/icon_close.png');
 
+// renderizamos imagen del producto
+const imgProduct = document.createElement('img');
+imgProduct.setAttribute('src',productList[id].img);
 
+
+// creamos el div que contendra PRECIO, NOMBRE, DESCRIPCION Y BOTON
+const productInfoDiv = document.createElement('div');
+// le agregamos la clase al Elemento
+productInfoDiv.classList.add('product-info');
+
+// parrafo que contendra el precio 
+const productPrice = document.createElement('p');
+productPrice.innerText = '$'+productList[id].price;
+
+// parrafo que contendra el nombre 
+const productName = document.createElement('p');
+// incertamos el nombre 
+productName.innerText = productList[id].name;
+
+// parrafo que contendra el nombre 
+const productDescription = document.createElement('p');
+// incertamos el nombre 
+productDescription.innerText = productList[id].description;
+
+// boton agregar al carrito 
+buttonAddToCart = document.createElement('button');
+buttonAddToCart.classList.add('primary-button','add-to-cart-button');
+
+const imgBtnAddToCart = document.createElement('img');
+imgBtnAddToCart.innerText('Add to cart');
+
+
+
+}

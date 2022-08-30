@@ -201,7 +201,8 @@
       transition: transform 300ms;
     }   */
 
-    /* hacemos unas reglas generales para el product detail y el carrito de compras  */
+    /*
+    regla general para mostrar el product detail y el carrito de compras  */
       aside{
         background-color: var(--white);
         width: 360px;
