@@ -19,7 +19,7 @@
     background-color: var(--white);
     position: absolute;
     top: 61px;
-    padding: 24px;
+    padding:24px;
     left: 0;
     width: 100%;
   }
@@ -170,7 +170,8 @@
 
   /*shopping cart*/
   #shoppingCartContainer{
-    padding: 0 24px;
+    padding: 0 5px 0 0;
+    /* width: 100%; */
   }
   .title-container {
     display: flex;
@@ -376,4 +377,10 @@
         .mobile-menu {
             display: none;
         }
+    }
+
+    @media (max-width: 365px) {
+      #shoppingCartContainer{
+        width: 100%; 
+      }
     }
