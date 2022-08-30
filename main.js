@@ -6,6 +6,8 @@ const mobileMenu = document.querySelector('.mobile-menu')
 const menuCarritoIcon = document.querySelector('.navbar-shopping-cart')
 const shoppingCartContainer = document.querySelector('#shoppingCartContainer')
 const cardsContainer = document.querySelector('.cards-container')
+const productDetailContainer = document.querySelector('#productDetail')
+const productDetailCloseIcon = document.querySelector('.product-detail-close')
 
 /*Eventos*/ 
 /*'Toogle significa intercambiar.' */
@@ -13,6 +15,7 @@ const cardsContainer = document.querySelector('.cards-container')
 menuEmail.addEventListener('click', toggleDesktopMenu);
 menuBurger.addEventListener('click', toggleMobileMenu);
 menuCarritoIcon.addEventListener('click', toggleCarritoAside);
+productDetailCloseIcon.addEventListener('click', closeProductDetailAside)
 
 
 /* Funciones */
@@ -38,23 +41,42 @@ function toggleMobileMenu(){
       }
       mobileMenu.classList.toggle('inactive');
 
+      closeProductDetailAside();
+
 }
 
 function toggleCarritoAside(){
       /* isMobileMenuClose, es una pregunta */
       /*Cada vez que demos click al carrito, el mobile menu se cierra */
       const isMobileMenuClosed = mobileMenu.classList.contains('inactive');
-      const isDesktopMenuClosed = desktopMenu.classList.contains('inactive');
-
       if(!isMobileMenuClosed){
             mobileMenu.classList.add('inactive')
       }
 
+      const isDesktopMenuClosed = desktopMenu.classList.contains('inactive');
       if(!isDesktopMenuClosed){
             desktopMenu.classList.add('inactive')
       }
 
+      const isProductDetailClosed = productDetailContainer.classList.contains('inactive');
+
+      if(!isProductDetailClosed){
+            productDetailContainer.classList.add('inactive')
+      }
+
       shoppingCartContainer.classList.toggle('inactive');
+}
+
+function openProductDetailAside(){
+
+      shoppingCartContainer.classList.add('inactive')
+      
+      productDetailContainer.classList.remove('inactive')
+
+}
+
+function closeProductDetailAside(){
+      productDetailContainer.classList.add('inactive')
 }
 
 // Clase 21: Vamos a crear la lista de productos desde JS 
@@ -86,48 +108,7 @@ productList.push({
 //2 Recuerda que una de los usos de las funciones es reutilizar codigo, sin embargo hay otro, que es la organizacion. POr ejemplo, podriamos utilizar el "for" para:
 
 // function renderProducts(arr /*parametro */) {
-//       for (product of arr /*Sobre esta parametro se comienza a realizar la iteracion. Se crea un producto por cada elemento de la lista arr */ ){
-//             // Crear elementos en HTML
-//          const productCard = document.createElement('div');
-//          // Agregamos una clase    
-//          productCard.classList.add('product-card');
-      
-//          const productImg = document.createElement('img');
-//          //product = {name, price, image} --> product.image
-//          productImg.setAttribute('src', product.image);
-      
-//          const productInfo = document.createElement('div');   
-//          productInfo.classList.add('product-info');
-      
-//          const productInfoDiv = document.createElement('div');
-      
-//          const productPrice = document.createElement('p');
-//          productPrice.innerText = '$' + product.price
-      
-//          const productName = document.createElement('p');    
-//          productName.innerText = product.name;
-      
-//          const productInfoFigure = document.createElement('figure');
-         
-//          const productImgCart = document.createElement('img');
-//          productImgCart.setAttribute('src', './icons/bt_add_to_cart.svg')
-      
-//       //    Ingresando cada uno de estos elementos individuales dentro de sus correspondientes casillas <div>
-      
-//       productInfoFigure.appendChild(productImgCart)
-      
-//       productInfoDiv.appendChild(productPrice)
-//       productInfoDiv.appendChild(productName)
-      
-//       productInfo.appendChild(productInfoDiv)
-//       productInfo.appendChild(productInfoFigure)
-      
-//       productCard.appendChild(productImg)
-//       productCard.appendChild(productInfo)
-      
-//       cardsContainer.appendChild(productCard)
-//       }
-// }
+//       for (product of arr /*Sobre esta parametro se comienza a realizar la iteracion. Se crea un producto por cada elemento de la lista arr */ )
 
 for (product of productList){
       // Crear elementos en HTML
@@ -138,6 +119,7 @@ for (product of productList){
    const productImg = document.createElement('img');
    //product = {name, price, image} --> product.image
    productImg.setAttribute('src', product.image);
+   productImg.addEventListener('click', openProductDetailAside)
 
    const productInfo = document.createElement('div');   
    productInfo.classList.add('product-info');
