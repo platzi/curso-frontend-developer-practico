@@ -4,7 +4,7 @@ const desktopMenu = document.querySelector('.desktop-menu')
 const menuBurger = document.querySelector('.menu')
 const mobileMenu = document.querySelector('.mobile-menu')
 const menuCarritoIcon = document.querySelector('.navbar-shopping-cart')
-const aside = document.querySelector('.product-detail')
+const shoppingCartContainer = document.querySelector('#shoppingCartContainer')
 const cardsContainer = document.querySelector('.cards-container')
 
 /*Eventos*/ 
@@ -21,9 +21,9 @@ menuCarritoIcon.addEventListener('click', toggleCarritoAside);
 function toggleDesktopMenu(){
       
       /*Condicional */
-      const isAsideClosed = aside.classList.contains('inactive');
+      const isAsideClosed = shoppingCartContainer.classList.contains('inactive');
       if(!isAsideClosed){
-            aside.classList.add('inactive');
+            shoppingCartContainer.classList.add('inactive');
       }
       /*Condicional */
 
@@ -31,10 +31,10 @@ function toggleDesktopMenu(){
 }
 
 function toggleMobileMenu(){
-      const isAsideClosed = aside.classList.contains('inactive');
+      const isAsideClosed = shoppingCartContainer.classList.contains('inactive');
 
       if(!isAsideClosed){
-            aside.classList.add('inactive');
+            shoppingCartContainer.classList.add('inactive');
       }
       mobileMenu.classList.toggle('inactive');
 
@@ -54,7 +54,7 @@ function toggleCarritoAside(){
             desktopMenu.classList.add('inactive')
       }
 
-      aside.classList.toggle('inactive');
+      shoppingCartContainer.classList.toggle('inactive');
 }
 
 // Clase 21: Vamos a crear la lista de productos desde JS 
@@ -86,7 +86,7 @@ productList.push({
 //2 Recuerda que una de los usos de las funciones es reutilizar codigo, sin embargo hay otro, que es la organizacion. POr ejemplo, podriamos utilizar el "for" para:
 
 // function renderProducts(arr /*parametro */) {
-//       for (product of arr Sobre esta parametro se comienza a realizar la iteracion. Se crea un producto por cada elemento de la lista arr ){
+//       for (product of arr /*Sobre esta parametro se comienza a realizar la iteracion. Se crea un producto por cada elemento de la lista arr */ ){
 //             // Crear elementos en HTML
 //          const productCard = document.createElement('div');
 //          // Agregamos una clase    
