@@ -49,22 +49,22 @@ productList.push({
 productList.push({
   name: `Monitor`,
   price: 300,
-  image: `./img/monito_d4.jpg`,
+  image: `https://www.lg.com/mx/images/monitores/md06126439/Gallery/D-4.jpg`,
 });
 productList.push({
   name: `Teclado`,
   price: 56,
-  image: `./img/teclado_gamer.jpg`,
+  image: `http://cdn.shopify.com/s/files/1/2272/2505/products/1_6e7aab19-2943-4a9b-8f63-52d4337c5a44.jpg?v=1621447358`,
 });
 productList.push({
   name: `Audifonos`,
   price: 110,
-  image: `./img/CP-LOGITECH-981-001023-1.jpg`,
+  image: `https://www.officedepot.com.mx/medias/100021917.jpg-1200ftw?context=bWFzdGVyfHJvb3R8NDgzNjQ3fGltYWdlL2pwZWd8aDI1L2g5ZS8xMDA1MTI3ODkyOTk1MC5qcGd8MDFhOWMzODUwNzg4ZTdkMzA0NTljODZiZGU0Y2M2MmFmNmFkN2Y3NjY1NTljYjQwMzQ5OGRhZDU2NWI0N2EwNA`,
 });
 productList.push({
   name: `Regulador`,
   price: 50,
-  image: `./img/regulador_voltaje.jpg`,
+  image: `https://digitalconnection.com.ec/wp-content/uploads/2021/02/REGULADOR-DE-VOLTAJE-FVR-1200B-FORZA-1200VA-600W-120V-8-TOMAS-2.jpg`,
 });
 
 
