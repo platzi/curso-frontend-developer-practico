@@ -3,6 +3,7 @@ const desktopMenu = document.querySelector('.desktop-menu');
 const menuHamIcon = document.querySelector('.menu');
 const productDetailCloseIcon = document.querySelector('.product-detail-close');
 const myOrderContent = document.querySelector('.my-order-content');
+const cartCount = document.querySelector('.cartCount');
 
 const mobileMenu = document.querySelector('.mobile-menu');
 // Cuando demos click aquí (sig L.9)...
@@ -70,7 +71,7 @@ window.onresize = function () {
     // Siempre lo mantendra inactive a no ser que le des click.
     document.documentElement.scrollWidth && aside.classList.add('inactive');
   };
-  onresize();
+
 
   // Array de productos
   const productList = [
@@ -255,6 +256,7 @@ const detailOfProduct = {};
 
 function renderMyCart(arr) {
   // Borrar lo que ya esta renderizado y renderizar otra vez.
+  let productCount = arr.length;
   let closeOrderN = 0
   myOrderContent.innerHTML = "";
   for(product of arr) {
@@ -329,14 +331,37 @@ function removeCartItem(id) {
   newArr.length = 0;
 }
 
+function renderProductsCount() {
+  let count = parseInt(myOrderList.length);
+  // console.log(count);
+  cartCount.innerHTML = String(count);
+  if(count == 0) {
+    //Carrito vacio
+    const div = document.createRange().createContextualFragment(
+      /* HTML */
+      `
+      <div class="empty-shopping-cart">
+        <figure>
+          <img src="https://media.istockphoto.com/vectors/empty-shopping-bag-icon-online-business-vector-icon-template-vector-id861576608?k=20&m=861576608&s=170667a&w=0&h=ndRclGoZ1MeRl1mvdK0pT7Mm_96ur7VLGnD1aIW8OqY=" alt="">
+        </figure>
+        <p>Empty cart</p>
+        
+      </div>
+      `
+    );
+    myOrderContent.append(div);
+  }
+}
+
+// Add event to view product detail && add ptoduct to cart...
 cardsContainer.addEventListener('click',(e) => {
   let orderId = parseInt(e.target.getAttribute('id'));
-  if(e.target && e.target.classList.contains('addToCart')){
-
+  if(e.target && e.target.classList.contains('addToCart')){ // Add ptoduct to cart
     addToCartList(orderId);
     renderMyCart(myOrderList);
+    renderProductsCount()
 
-  } else if(e.target && e.target.classList.contains('card-img')){
+  } else if(e.target && e.target.classList.contains('card-img')){ // View product detail
 
     setProductDetail(orderId);
     renderProductDetail();
@@ -344,20 +369,29 @@ cardsContainer.addEventListener('click',(e) => {
   }
   
 });
+
+// Add event to remove a cart item...
 myOrderContent.addEventListener('click', (e) => {
   if(e.target && e.target.classList.contains('shopping-cart-close')) {
     // removeCartItem(idItem);
     removeCartItem(String(e.target.getAttribute('id')));
     renderMyCart(myOrderList);
+    renderProductsCount()
   }
 });
+onresize();
+renderProductsCount()
+
+
+
+
 
 /**
  * Iplementar un aviso tipo alert, que notifique cda vez que agregues algo al carrito.
  * 
  * Agregar animaciones a los menus. botones, componentes, etc...
  * 
- * Implementar contador sincronizado que diga cuantos productos hay en el carrito.
+ * 
  * 
  * Hacer que cualquier menu y/o vista se cierre cuando demos click en el "body".
  */
