@@ -62,12 +62,13 @@ productList.push({
 productList.push({
     name : 'Pantalla',
     price : 250,
-    image : 'https://images.pexels.com/photos/276517/pexels-photo-276517.jpeg?auto=compress&cs=tinysrgb&dpr=2&h=650&w=940'
+    image : 'https://img.blogs.es/samsungqledtv/wp-content/uploads/2018/06/Abre_Longevidad-1080x640.jpg'
 });
 productList.push({
     name : 'Laptop',
     price : 560,
-    image : 'https://images.pexels.com/photos/276517/pexels-photo-276517.jpeg?auto=compress&cs=tinysrgb&dpr=2&h=650&w=940'
+    image : 'https://images.pexels.com/photos/246340/pexels-photo-246340.jpeg?auto=compress&cs=tinysrgb&w=1600'
+    //image : 'https://images.pexels.com/photos/2047905/pexels-photo-2047905.jpeg?auto=compress&cs=tinysrgb&w=1260&h=750&dpr=1'
 });
 
 /* <div class="product-card">
