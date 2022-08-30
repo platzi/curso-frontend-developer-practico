@@ -325,6 +325,7 @@ nav {
     position: absolute;
     right: 0;
     top: 5rem;
+    background-color: var(--white);
 }
 
 .item-details-close {
@@ -391,12 +392,6 @@ nav {
     display: flex;
     align-items: center;
     justify-content: center;
-}
-
-@media (max-width: 640px) {
-    .item-details {
-    width: 100%;
-    }
 }
 
 

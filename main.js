@@ -3,49 +3,100 @@ const menuEmail = document.querySelector('.desktop-menu');
 const iconHamburger = document.querySelector('.menuHam');
 const menuHamburger = document.querySelector('.menuCategorias');
 const iconCarrito = document.querySelector('.navbar-shopping-cart');
-const menuCarrito = document.querySelector('.product-detail');
+const menuCarrito = document.querySelector('.product-detail'); //shoppingCartContainer
 const cardsContainer =  document.querySelector('.cards-container');
+const productItemsDetails = document.querySelector('.item-details'); //productDetailContainer
+const iconItemsClose = document.querySelector('.item-details-close');
 
 email.addEventListener('click', toggleMenuEmail);
 iconHamburger.addEventListener('click', toggleMenuHamburger);
 iconCarrito.addEventListener('click', toggleMenuCarrito);
+iconItemsClose.addEventListener('click', closeItemsDetails);
 
 function toggleMenuHamburger(){
-    const menuCarritoIsClose = menuCarrito.classList.contains('inactive');
-    
-    if(!menuCarritoIsClose){
-        menuCarrito.classList.add('inactive');
-    }
-
+    menuCarrito.classList.add('inactive');
+    productItemsDetails.classList.add('inactive');
     menuHamburger.classList.toggle('inactive');
 }
 
 function toggleMenuEmail(){
-    const menuCarritoIsClose = menuCarrito.classList.contains('inactive');
-
-    if(!menuCarritoIsClose){
-        menuCarrito.classList.add('inactive');
-    }
-
+    menuCarrito.classList.add('inactive');
+    productItemsDetails.classList.add('inactive');
     menuEmail.classList.toggle('inactive');
 }
-
-function toggleMenuCarrito(){
-    const menuHamburgerIsClose = menuHamburger.classList.contains('inactive');
-    const menuEmailIsClose = menuEmail.classList.contains('inactive');
-
-    if(!menuHamburgerIsClose){
-        menuHamburger.classList.add('inactive');
-    }
     
-    if(!menuEmailIsClose){
-        menuEmail.classList.add('inactive');
-    }
-
+function toggleMenuCarrito(){
+    menuHamburger.classList.add('inactive');
+    menuEmail.classList.add('inactive');
+    productItemsDetails.classList.add('inactive');
     menuCarrito.classList.toggle('inactive');
 }
+    
+function openItemsDetails(){
+    productItemsDetails.classList.remove('inactive');
+    menuCarrito.classList.add('inactive');
+    menuEmail.classList.add('inactive');
+}
 
+function closeItemsDetails(){
+    productItemsDetails.classList.add('inactive');
+}
 
+// function toggleMenuHamburger(){
+//     const menuCarritoIsClose = menuCarrito.classList.contains('inactive');
+//     const menuItemsIsClose = productItemsDetails.classList.contains('inactive');
+    
+//     if(!menuCarritoIsClose){
+//         menuCarrito.classList.add('inactive');
+//     }
+
+//     if(!menuItemsIsClose){
+//         productItemsDetails.classList.add('inactive');
+//     }
+
+//     menuHamburger.classList.toggle('inactive');
+// }
+
+// function toggleMenuEmail(){
+//     const menuCarritoIsClose = menuCarrito.classList.contains('inactive');
+//     const menuItemsIsClose = productItemsDetails.classList.contains('inactive');
+
+//     if(!menuCarritoIsClose){
+//         menuCarrito.classList.add('inactive');
+//     }
+
+//     if(!menuItemsIsClose){
+//         productItemsDetails.classList.add('inactive');
+//     }
+
+//     menuEmail.classList.toggle('inactive');
+// }
+
+// function toggleMenuCarrito(){
+//     const menuHamburgerIsClose = menuHamburger.classList.contains('inactive');
+//     const menuEmailIsClose = menuEmail.classList.contains('inactive');
+//     const menuItemsIsClose = productItemsDetails.classList.contains('inactive');
+
+//     if(!menuHamburgerIsClose){
+//         menuHamburger.classList.add('inactive');
+//     }
+    
+//     if(!menuEmailIsClose){
+//         menuEmail.classList.add('inactive');
+//     }
+
+//     if(!menuItemsIsClose){
+//         productItemsDetails.classList.add('inactive');
+//     }
+
+//     menuCarrito.classList.toggle('inactive');
+// }
+
+// function openItemsDetails(){
+//     productItemsDetails.classList.remove('inactive');
+//     menuCarrito.classList.add('inactive');
+//     menuEmail.classList.add('inactive');
+// }
 
 /***************************
 ****** PRODUCT LIST *******
@@ -92,8 +143,9 @@ function products(producto){
         productCard.classList.add('product-card'); //Aquí le agrego su clase.
 
         const productImg = document.createElement('img');
-        productImg.setAttribute('src', product.image)
-
+        productImg.setAttribute('src', product.image);
+        productImg.addEventListener('click', openItemsDetails); //Le agregué el evento de que al dar click sobre cualquier imagen, me abra una vista con los detalles del producto. 
+        
         const productInfo = document.createElement('div');
         productInfo.classList.add('product-info');
 
@@ -115,6 +167,7 @@ function products(producto){
         productCard.append(productImg, productInfo);
         cardsContainer.append(productCard);
     }
+    
 }
 
 products(productList); //Puede ser o no una función, podría dejarlo solo como un for, pero al ser una función puedo mandar llamarlo después en cualquier parte del código. Ya sea en un texto, al apretar un botón, etc.
