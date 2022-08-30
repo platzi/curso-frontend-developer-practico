@@ -1,3 +1,4 @@
+/*General*/
 :root {
     --white: #FFFFFF;
     --black: #000000;
@@ -12,11 +13,11 @@
     margin: 0;
     font-family: 'Quicksand', sans-serif;
   }
-/*Esto es del proyecto 11*/
 .inactive{
     display: none;
 }
 
+/*Navbar General*/
   nav {
     display: flex;
     justify-content: space-between;
@@ -80,7 +81,7 @@
     justify-content: center;
     align-items: center;
   }
-
+/*Menu en desktop*/
   .desktop-menu {
     position: absolute;
     background: var(--white);
@@ -119,20 +120,7 @@
     display: inline-block;
   }
 
-
-  @media (max-width: 640px) {
-    .menu {
-      display: block;
-    }
-    .navbar-left ul {
-      display: none;
-    }
-    .navbar-email {
-      display: none;
-    }
-  }
-
-  /*Esto es del proyecto 8*/
+  /*Menu Mobile*/
   .mobile-menu {
     padding: 24px;
   }
@@ -161,3 +149,17 @@
     font-size: var(--sm);
     color: var(--hospital-green) !important;
   }
+
+  @media (max-width: 640px) {
+    .menu {
+      display: block;
+    }
+    .navbar-left ul {
+      display: none;
+    }
+    .navbar-email {
+      display: none;
+    }
+  }
+
+  
