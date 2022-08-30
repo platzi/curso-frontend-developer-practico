@@ -22,12 +22,14 @@ const shoppingCart = document.querySelector('.navbar-shopping-cart');
 // muestra aside navbar shopping cart 
 const asideShoppingCart = document.querySelector('#shopping-cart');
 
+// aca agregaremos el render de los productos 
 const cardsContainer = document.querySelector('.cards-container');
 
 /// contenedor que muestra el aside product detail ///////////////////////////////////////////
  const productDetailContainer = document.querySelector('#product-detail');
 //  boton para cerrar el product detail
  const buttonProductDetailContainer = document.querySelector('.product-detail-close');
+
 
 //////////////////////////// EVENTOS //////////////////////////
 // desktop menu 
@@ -103,14 +105,16 @@ function toggleAsideShoppingCart(){
 }
 
  // funcion para renderizar el product detail 
-function openProductDetailAside(){
-    // si estuviera activo el asideShoppingCart, lo oculto 
-    asideShoppingCart.classList.add('inactive');
+// function openProductDetailAside(){
+//     // si estuviera activo el asideShoppingCart, lo oculto 
+//     asideShoppingCart.classList.add('inactive');
     
-    productDetailContainer.classList.remove('inactive');
-    
+//     productDetailContainer.classList.remove('inactive');
 
-}
+
+//     // console.log(product.id);
+//     // console.log(product.name);
+// }
 
 // funcion para cerrar el product detail aside 
 function closeProductDetailContainer(){
@@ -147,9 +151,17 @@ function closeProductDetailContainer(){
             // modificamos el atributo src, por medio de setAttribute 
             productImg.setAttribute('src',product.img);
 
+            // guardamos localmente el id 
+            const productId = product.id;
+            
             // creamos un evento al clickear en la imagen para abrir el detalle
-            productImg.addEventListener('click',openProductDetailAside);
-    
+            productImg.addEventListener('click', function openProductDetailAside(){
+                // console.log(productId);
+                asideShoppingCart.classList.add('inactive');
+                productDetailContainer.classList.remove('inactive');
+                productIdRender(productId);
+            });
+            
              // creamos el div
              const productInfo = document.createElement('div');
              // le agregamos la clase al Elemento
@@ -160,7 +172,7 @@ function closeProductDetailContainer(){
             //  parrafo que contendra el precio 
              const productPrice = document.createElement('p');
     
-            // incertamos el precio
+            // insertamos el precio
             productPrice.innerText = '$'+product.price;
     
             // parrafo que contendra el nombre 
@@ -189,9 +201,14 @@ function closeProductDetailContainer(){
             productCard.appendChild(productInfo);
     
             // agregamos al cards Product el producto
-    
             cardsContainer.appendChild(productCard);
         }
+    }
+
+// renderizamos el product detail 
+    function productIdRender(id){
+        console.log('el id del producto es',id);
+        console.log(productList[id].name);
     }
 
 ///////////// AGREGAMOS MANUALMENTE PRODUCTOS AL ARRAY ////////////////
@@ -201,18 +218,21 @@ const productList = [];
 // caracteristicas de los elementos del array: imagen, nombre y precio. 
 // array de objetos 
 productList.push({
+    id:0,
     name: 'Byke',
     price: 120,
     img:"https://images.pexels.com/photos/276517/pexels-photo-276517.jpeg?auto=compress&cs=tinysrgb&dpr=2&h=650&w=940"
 });
 
 productList.push({
+    id:1,
     name: 'PC',
     price: 1400,
     img:"https://images.pexels.com/photos/276517/pexels-photo-276517.jpeg?auto=compress&cs=tinysrgb&dpr=2&h=650&w=940"
 });
 
 productList.push({
+    id:2,
     name: 'Smart TV',
     price: 12000,
     img:"https://images.pexels.com/photos/276517/pexels-photo-276517.jpeg?auto=compress&cs=tinysrgb&dpr=2&h=650&w=940"
@@ -225,14 +245,14 @@ productList.push({
 const objProduct = Object.entries(productList);
 for(let i=0; i< objProduct.length; i++){
 // objProduct.forEach(element => {
-    if(i==1){
+//     if(i==1){
 
-        console.log(objProduct[i]);
-        console.log(productList[i].name);
-        console.log(productList[i].price);
-        console.log(productList[i].img);
-    }
-// });
+//         console.log(objProduct[i]);
+//         console.log(productList[i].name);
+//         console.log(productList[i].price);
+//         console.log(productList[i].img);
+//     }
+// // });
     // console.log(product.img);
 }
 
@@ -250,7 +270,8 @@ renderProducts(productList);
 // console.log(Object.keys(productList));
 
 /////////////////// ESTO HAY QUE RECREAR ///////////////////////////
-{/* <aside id="product-detail" class="inactive">
+{/*
+ <aside id="product-detail" class="inactive">
 <div class="product-detail-close">
   <img src="./icons/icon_close.png" alt="close">
 </div>
@@ -264,5 +285,18 @@ renderProducts(productList);
     Add to cart
   </button>
 </div>
-</aside> */}
+</aside> 
+*/}
+
+// render del aside de product detail 
+const productDetailAside = document.createElement('aside');
+productDetailAside.classList.add('inactive');
+productDetailAside.setAttribute('id','product-detail');
+
+const productDetailClose = document.createElement('div');
+productDetailClose.classList.add('product-detail-close');
+
+const iconClose = document.createElement('img');
+iconClose.setAttribute('src','./icons/icon_close.png');
+
 
