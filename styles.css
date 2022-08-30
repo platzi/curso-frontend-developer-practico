@@ -65,6 +65,7 @@
     margin-right: 12px;
   }
   .navbar-shopping-cart {
+    cursor: pointer;
     position: relative;
   }
   .navbar-shopping-cart div {
@@ -308,6 +309,7 @@
     margin-top: 20px;
   }
   .product-card {
+    cursor: pointer;
     width: 240px;
   }
   .product-card img {
