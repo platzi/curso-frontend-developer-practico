@@ -1,3 +1,5 @@
+/* GENERAL */
+
 :root {
   --white: #ffffff;
   --black: #000000;
@@ -15,8 +17,10 @@ body {
 }
 
 .inactive {
-  display: none;
+  opacity: 0;
 }
+
+/* NAVBAR (GENERAL) */
 
 nav {
   display: flex;
@@ -92,16 +96,20 @@ nav {
   border-radius: 50%;
 }
 
+/* MENU DEL DESKTOP */
+
 .desktop-menu {
   position: absolute;
   top: 60px;
   right: 60px;
   width: 100px;
   height: auto;
+  padding: 20px 20px 0 20px;
   background-color: var(--white);
   border: 1px solid var(--very-light-pink);
-  border-radius: 6px;
-  padding: 20px 20px 0 20px;
+  border-radius: 0 0 6px 6px;
+  transition: 0.4s;
+  box-shadow: 5px 5px 10px var(--very-light-pink);
 }
 
 .desktop-menu ul {
@@ -136,14 +144,61 @@ nav {
   display: inline-block;
 }
 
+/* MENU MOBILE */
+
+.mobile-menu {
+  position: absolute;
+  top: 60px;
+  padding: 24px;
+}
+.mobile-menu a {
+  text-decoration: none;
+  color: var(--black);
+  font-weight: bold;
+  /* margin-bottom: 24px; */
+}
+.mobile-menu ul {
+  padding: 0;
+  margin: 24px 0 0;
+  list-style: none;
+}
+.mobile-menu ul:nth-child(1) {
+  border-bottom: 1px solid var(--very-light-pink);
+}
+.mobile-menu ul li {
+  margin-bottom: 24px;
+}
+.email {
+  font-size: var(--sm);
+  font-weight: 300 !important;
+}
+.sign-out {
+  font-size: var(--sm);
+  color: var(--hospital-green) !important;
+}
+
+/* RESPONSIVE DESIGN */
+
 @media (max-width: 640px) {
   .menu {
     display: block;
   }
+
   .navbar-left ul {
     display: none;
   }
+
   .navbar-email {
+    display: none;
+  }
+
+  .desktop-menu {
+    display: none;
+  }
+}
+
+@media (min-width: 641px) {
+  .mobile-menu {
     display: none;
   }
 }
