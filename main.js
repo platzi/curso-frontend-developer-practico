@@ -21,6 +21,7 @@ function toggleMenuDesktop(event) {
     shoppingCartContainer.classList.add("inactive");
   }
   desktopMenu.classList.toggle("inactive");
+  closeProductDetailAside();
 }
 
 function toggleMenuMobile(event) {
@@ -59,6 +60,7 @@ function toggleCarritoAside() {
 function openProductDetailAside() {
   shoppingCartContainer.classList.add('inactive')
   productDetailContainer.classList.remove('inactive');
+  desktopMenu.classList.add("inactive");
 }
 
 function closeProductDetailAside(){
