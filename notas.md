@@ -8,6 +8,7 @@
   - [C013 addEventListener](#c013-addeventlistener)
   - [C018 Fusión del menu en desktop](#c018-fusión-del-menu-en-desktop)
   - [C019 Fusión del menú mobile](#c019-fusión-del-menú-mobile)
+  - [C020 Carrito de compras](#c020-carrito-de-compras)
 
 ## C009 Como conectar con JS con HTML
 
@@ -19,7 +20,7 @@ Con la etiqueta `<script></script>` nos permite: introducir todo el codigo o bie
 ```
 ## C010 Leyendo HTML desde JS
 
-Por medio de `document.querySelector` le asignamos a una variable, declarada con `const`, un identificador para poder trabajar sobre un elemento del HTML. A dicha funcion se le pasa como argumento alguna identicacion de dicho elemento, que puede ser la misma etiqueta (con el nombre, por ejemplo h1), con una clase (.clase), un id (#id), como si se tratara de CSS.
+Por medio de `document.querySelector` le asignamos a una variable, declarada con `const`, un identificador o selector para poder trabajar sobre un elemento del HTML. A dicha funcion se le pasa como argumento alguna identicacion de dicho elemento, que puede ser la misma etiqueta (con el nombre, por ejemplo h1), con una clase (.clase), un id (#id), como si se tratara de CSS.
 
 ```javascript
 const h1 = document.querySelector ("h1");
@@ -277,6 +278,55 @@ Para solucionar el error de que no desaparece una vez activado tanto el desktop-
 }
 ```
 
+## C020 Carrito de compras
 
+Trabajo parecido a los dos anteriores pero ahora con el archivo clase13.html. Ahora tambien vamos a considerar cerrar el mobile-menu si está abierto al momento de abrir el carrito, y de cerrar el del carrito si es que esta abierto al momento de abrir el mobile-menu. Y asi con el desktop-menu. Para esto vamos a estar usando `classList.contains()`.
+
+```javascript
+const menuEmail = document.querySelector(".navbar-email");
+const desktopMenu = document.querySelector(".desktop-menu");
+const menuHamIcon = document.querySelector(".menu");
+const mobileMenu = document.querySelector(".mobile-menu");
+const menuCarritoIcon = document.querySelector(".navbar-shopping-cart");
+const aside = document.querySelector(".product-detail");
+
+menuEmail.addEventListener("click", toogleDesktopMenu);
+menuHamIcon.addEventListener("click", toogleMobileMenu);
+menuCarritoIcon.addEventListener("click", toogleCarritoAside);
+
+function toogleDesktopMenu(){
+  const isAsideClosed = aside.classList.contains("inactive");
+  
+  if(!isAsideClosed){
+    aside.classList.add("inactive");
+  }
+
+  desktopMenu.classList.toggle("inactive");
+}
+
+function toogleMobileMenu(){
+  const isAsideClosed = aside.classList.contains("inactive");
+
+  if(!isAsideClosed){
+    aside.classList.add("inactive");
+  }
+
+  mobileMenu.classList.toggle("inactive");
+}
+
+function toogleCarritoAside(){
+  const isMobileMenuClosed = mobileMenu.classList.contains("inactive");
+  const isDesktopMenuClosed = desktopMenu.classList.contains("inactive");
+ 
+  if(!isMobileMenuClosed){
+    mobileMenu.classList.add("inactive");
+  }
+  if(!isDesktopMenuClosed){
+    desktopMenu.classList.add("inactive");
+  }
+ 
+  aside.classList.toggle("inactive");
+}
+```
 
 
