@@ -33,31 +33,25 @@ function toggleMenuCarrito(){
     menuCarrito.classList.toggle('inactive');
 }
     
-function openItemsDetails(variable){
-    console.log(variable);
+function openItemsDetails(nombreProducto){  
 
-    const texto1 = 'esto es prueba';
-    
-    productList.forEach(function (element) {
+    productList.forEach(function(producto){
 
-        if(element.name == variable){
-            console.log(element);
-
-            const idImagen = document.getElementById("imagen");
-            idImagen.setAttribute('src', element.image);
-            const idIprecio = document.getElementById("precio");
-            idIprecio.innerText = '$' + element.price;
-            const idItexto = document.getElementById("texto");
-            idItexto.innerText = element.descri;
-            
+        if(producto.name == nombreProducto){
+            const idImagen = document.getElementById('imagen');
+            idImagen.setAttribute('src', producto.image);
+            const idPrecio = document.getElementById('price');
+            idPrecio.innerText = '$' + producto.price;
+            const idName = document.getElementById('name');
+            idName.innerText = producto.name;
+            const idInfo = document.getElementById('info');
+            idInfo.innerText = producto.desc;
         }
-      });
-      
+    });
+
     productItemsDetails.classList.remove('inactive');
     menuCarrito.classList.add('inactive');
     menuEmail.classList.add('inactive');
-
-
 }
 
 function closeItemsDetails(){
@@ -131,22 +125,25 @@ productList.push({
     name : 'Bike',
     price : 120,
     image : 'https://images.pexels.com/photos/276517/pexels-photo-276517.jpeg?auto=compress&cs=tinysrgb&dpr=2&h=650&w=940',
-    descri : 'estp es prubaaa'
+    desc : 'With its practical position, this bike also fulfills a decorative function, add your hall or workspace.'
 });
 productList.push({
     name : 'Pantalla',
-    price : 250,
-    image : 'https://img.blogs.es/samsungqledtv/wp-content/uploads/2018/06/Abre_Longevidad-1080x640.jpg'
+    price : 800,
+    image : 'https://img.blogs.es/samsungqledtv/wp-content/uploads/2018/06/Abre_Longevidad-1080x640.jpg',
+    desc : 'See every detail with deeper blacks and purer whites. Immerse yourself in a high-level sound experience'
 });
 productList.push({
     name : 'Laptop',
-    price : 560,
-    image : 'https://images.pexels.com/photos/246340/pexels-photo-246340.jpeg?auto=compress&cs=tinysrgb&w=1600'
+    price : 1060,
+    image : 'https://images.pexels.com/photos/246340/pexels-photo-246340.jpeg?auto=compress&cs=tinysrgb&w=1600',
+    desc : 'Laptop Lenovo V14 Intel Celeron 8GB RAM'
 });
 productList.push({
     name : 'Celular',
-    price : 560,
-    image : 'https://e.rpp-noticias.io/normal/2020/07/06/020102_966582.jpg'
+    price : 1760,
+    image : 'https://e.rpp-noticias.io/normal/2020/07/06/020102_966582.jpg',
+    desc :  'Be adventurous, rain or shine. You dont have to worry about the weather with the waterproof foldable smartphone.'
 });
 
 /* <div class="product-card">
@@ -166,36 +163,35 @@ productList.push({
 
 function products(producto){
 
-   
-
     for (product of producto){
-        // console.log(product)
+        
         const productCard = document.createElement('div'); //Aquí se está creando como tal la etiqueta de HTML.
         productCard.classList.add('product-card'); //Aquí le agrego su clase.
 
         const productImg = document.createElement('img');
         productImg.setAttribute('src', product.image);
         
-        if(product['name'] ==  'Bike'){
-            productImg.addEventListener("click", function() {
+        if(product['name'] == 'Bike'){ //"Bike" es el parámetro esperado en mi función openItemsDetails
+            productImg.addEventListener('click', function() {
                 openItemsDetails('Bike');
             });
-        }else if(product['name'] ==  'Pantalla'){
-            productImg.addEventListener("click", function() {
+        }
+        else if(product['name'] == "Pantalla"){
+            productImg.addEventListener('click', function(){
                 openItemsDetails('Pantalla');
             });
-        }else if(product['name'] ==  'Laptop'){
-            productImg.addEventListener("click", function() {
+        }
+        else if(product['name'] == 'Laptop'){
+            productImg.addEventListener('click', function(){
                 openItemsDetails('Laptop');
             });
-        }else if(product['name'] ==  'Celular'){
-            productImg.addEventListener("click", function() {
+        }
+        else if(product['name'] == 'Celular'){
+            productImg.addEventListener('click', function(){
                 openItemsDetails('Celular');
             });
         }
-        // productImg.addEventListener("click", function() {
-        //     openItemsDetails('prue');
-        // });
+        
         const productInfo = document.createElement('div');
         productInfo.classList.add('product-info');
 
@@ -221,18 +217,3 @@ function products(producto){
 }
 
 products(productList); //Puede ser o no una función, podría dejarlo solo como un for, pero al ser una función puedo mandar llamarlo después en cualquier parte del código. Ya sea en un texto, al apretar un botón, etc.
-
-/*  <div class="item-details-close">
-        <img src="./icons/icon_close.png" alt="close">
-    </div>
-    <img src="https://images.pexels.com/photos/276517/pexels-photo-276517.jpeg?auto=compress&cs=tinysrgb&dpr=2&h=650&w=940" alt="bike">
-    <div class="productInformation">
-        <p>$35,00</p>
-        <p>Bike</p>
-        <p>With its practical position, this bike also fulfills a decorative function, add your hall or workspace.</p>
-        <button class="primary-button add-to-cart-button">
-        <img src="./icons/bt_add_to_cart.svg" alt="add to cart">
-        Add to cart
-        </button>
-    </div> */
-
