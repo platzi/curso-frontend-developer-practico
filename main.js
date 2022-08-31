@@ -30,20 +30,28 @@ const isAsideClosed = shoppingCartContainer.classList.contains("inactive");
         shoppingCartContainer.classList.add("inactive");    
      }  
 
+     productDetailContainer.classList.add("inactive");
     mobileMenu.classList.toggle("inactive");
 }
 
 function toggleCarritoAside () {
     const isMobileMenuClosed = mobileMenu.classList.contains("inactive");
 
-if (!isMobileMenuClosed){
+    if (!isMobileMenuClosed){
     mobileMenu.classList.add("inactive");
- }  
+     }     
+
+     const isProductDetailClosed = productDetailContainer.classList.contains("inactive");
+
+    if (!isProductDetailClosed){
+    productDetailContainer.classList.add("inactive");
+     }     
 
     shoppingCartContainer.classList.toggle("inactive");
 }
 
 function openProductDetailAside(){
+    shoppingCartContainer.classList.add("inactive");
     productDetailContainer.classList.remove("inactive");
 }
 
