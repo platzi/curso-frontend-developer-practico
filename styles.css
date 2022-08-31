@@ -122,8 +122,9 @@
 
   /*Menu Mobile*/
   .mobile-menu {
+    background-color: var(--white);
     position: absolute;
-    top: 60px;
+    top: 70px;
     padding: 5px;
   }
   .mobile-menu a {
@@ -154,6 +155,7 @@
 
 /*Aside (Poduct detail y carrito )*/
 .product-detail {
+  background-color: var(--white);
   width: 360px;
   padding: 0 24px;
   box-sizing: border-box;
