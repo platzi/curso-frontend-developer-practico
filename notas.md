@@ -7,6 +7,7 @@
   - [C012 Eventos con JS, interactuando con usuarios](#c012-eventos-con-js-interactuando-con-usuarios)
   - [C013 addEventListener](#c013-addeventlistener)
   - [C018 Fusión del menu en desktop](#c018-fusión-del-menu-en-desktop)
+  - [C019 Fusión del menú mobile](#c019-fusión-del-menú-mobile)
 
 ## C009 Como conectar con JS con HTML
 
@@ -232,4 +233,50 @@ Por último se modifica el CSS para que al pasar el cursor por el email, este ca
 ```css
 cursor: pointer;
 ```
+## C019 Fusión del menú mobile
+
+Se hace un trabajo parecido al anterior, con el archivo clase8.html
+
+En la clase `.mobile-menu`agregamos:
+```css
+position: absolute;
+top: 60px;
+```
+
+En JavaScript:
+
+```javascript
+const menuHamIcon = document.querySelector(".menu");
+const mobileMenu = document.querySelector(".mobile-menu");
+
+function toogleMobileMenu(){
+  mobileMenu.classList.toggle("inactive");
+}
+```
+
+En el codigo html se agrego la clase `inactive` en el `div` del mobile-menu, para que de inicio no aparezca.
+
+```html
+<div class="mobile-menu inactive">
+```
+
+Para solucionar el error de que no desaparece una vez activado tanto el desktop-menu y el mobile-menu cuando se cambia de tamaño del navegador, modificamos los medias queries en el CSS. Con `@media (max-width: 640px) {}` se ejecuta solamente cuando va de 0px a 640px, y en este le agregamos `display:none` para el desktop-menu. Con `@media(min-width: 641px){}` se ejecuta de 641px para arriba, y hacemos lo mismo pero con el mobile-menu. Esto se podria hacer con JS tambien, pero en este curso no.
+
+```css
+@media (max-width: 640px) {
+  .desktop-menu {
+    display:none;
+  }
+
+}
+
+@media(min-width: 641px){
+  .mobile-menu{
+    display: none;
+  }
+}
+```
+
+
+
 
