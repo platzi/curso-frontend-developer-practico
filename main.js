@@ -4,13 +4,13 @@ const desktopMenu = document.querySelector('.desktop-menu')
 const iconHamMenu = document.querySelector('.menu')
 const mobileMenu = document.querySelector('.mobile-menu')
 
-const aside = document.querySelector('.navbar-shopping-cart')
-const menuCarritoIcon = document.querySelector('.product-detail')
+const aside = document.querySelector('.product-detail ')
+const menuCarritoIcon = document.querySelector('.navbar-shopping-cart')
 
 
 menuEmail.addEventListener('click', toggleDesktopMenu)
 iconHamMenu.addEventListener('click', toggleMobileMenu)
-aside.addEventListener('click', toggleCarritoAside)
+menuCarritoIcon.addEventListener('click', toggleCarritoAside)
 
 
 function toggleDesktopMenu() {
@@ -18,10 +18,23 @@ function toggleDesktopMenu() {
 }
 
 function toggleMobileMenu() {
+    const isAsideClosed = aside.classList.contains('inactive'); //si tiene la clase inactive significa que esta crrada 
+   
+    if(!isAsideClosed){    
+        aside.classList.add('inactive'); // con esoto aseguro que voy a cerra el menu  para poder abrir l aside 
+        }
+
     mobileMenu.classList.toggle('inactive')
 }
 
 function toggleCarritoAside() {
-    menuCarritoIcon.classList.toggle('inactive')
+
+    const isMobileMenuClosed = mobileMenu.classList.contains('inactive'); //si tiene la clase inactive significa que esta crrada 
+   
+    if(!isMobileMenuClosed){    
+        mobileMenu.classList.add('inactive'); // con esoto aseguro que voy a cerra el menu  para poder abrir l aside 
+        }
+
+    aside.classList.toggle('inactive');
 }
 
