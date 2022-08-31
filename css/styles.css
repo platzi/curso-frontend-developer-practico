@@ -129,8 +129,10 @@ nav {
 
 /* *************** mobile-menu *************** */
 .mobile-menu {
+  width: calc(100% - 48px);
   position: absolute;
   top: 61px;
+  left: 0;
   padding: 24px;
   background-color: var(--white);
 }
