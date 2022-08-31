@@ -120,13 +120,13 @@ function renderProducts(arr){
   productPrice.innerText = `$` + product.price;
   const productName = document.createElement(`p`);
   productName.innerText = product.name;
-//____Contenedor Secundario_____
+//____Contenedor Secundario(mandar a llamar los elementos dentro del contenedor)_____
   productInfoDiv.append(productPrice, productName);
 
   const productInfoFigure = document.createElement(`figure`);
-  const productImgCart = document.createElement(`figure`);
+  const productImgCart = document.createElement(`img`);
   productImgCart.setAttribute(`src`, `./icons/bt_add_to_cart.svg`);
-//____Contenedor Secundario_____
+//____Contenedor Secundario(mandar a llamar los elementos dentro del contenedor)_____
   productInfoFigure.appendChild(productImgCart);
   
   //esta linea se encargan de mandar lo que ya tenemos creado hacia el padre de cada elemento
