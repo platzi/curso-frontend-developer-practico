@@ -5,6 +5,9 @@ const nav = document.querySelector('nav');
 const desktopMenu = document.querySelector('.desktop-menu');
 const mobileMenu = document.querySelector('.mobile-menu');
 const aside = document.querySelector('.myOrder');
+const divTotalOrder = document.querySelector('.order'); // para inactive div
+const pTotalContainer = document.querySelector('.total'); // para inner p
+const btnCheckOut = document.querySelector('.primary-button'); //
 const productDetailContainer = document.querySelector('.product-detail');
 const cardsContainer = document.querySelector('.cards-container');
 const myOrderContent = document.querySelector('.my-order-content');
@@ -62,20 +65,20 @@ window.onresize = function () {
 
     {
       name: 'Bike',
-      price: 120,
+      price: 120.00,
       image: "https://images.pexels.com/photos/276517/pexels-photo-276517.jpeg?auto=compress&cs=tinysrgb&dpr=2&h=650&w=940",
       info: "With its practical position, this bike also fulfills a decorative function, add your hall or workspace.",
     },
 
     {
       name: 'Smath TV',
-      price: 220,
+      price: 220.50,
       image: "https://images.unsplash.com/photo-1528928441742-b4ccac1bb04c?ixlib=rb-1.2.1&ixid=MnwxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8&auto=format&fit=crop&w=1064&q=80",
       info: "With its practical position, this bike also fulfills a decorative function, add your hall or workspace.",
     },
     {
       name: 'Urban T-shirt',
-      price: 30,
+      price: 30.99,
       image: "https://images.unsplash.com/photo-1576566588028-4147f3842f27?ixlib=rb-1.2.1&ixid=MnwxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8&auto=format&fit=crop&w=764&q=80",
       info: "With its practical position, this bike also fulfills a decorative function, add your hall or workspace.",
     },
@@ -247,6 +250,7 @@ const detailOfProduct = {};
 function renderMyCart(arr) {
   // Borrar lo que ya esta renderizado y renderizar otra vez.
   let productCount = arr.length;
+  let total = 0;
   let closeOrderN = 0
   myOrderContent.innerHTML = "";
   for(product of arr) {
@@ -265,7 +269,14 @@ function renderMyCart(arr) {
     );
     myOrderContent.append(div);
     closeOrderN++;
+    total = total + parseFloat(product.price);
+    
   }
+  if(divTotalOrder.classList.contains('inactive')) {
+    divTotalOrder.classList.toggle('inactive');
+    btnCheckOut.classList.toggle('inactive');
+  }
+  pTotalContainer.innerHTML = '$'+String(total);
   return;
 }
 
@@ -335,11 +346,16 @@ function renderProductsCount() {
           <img src="https://media.istockphoto.com/vectors/empty-shopping-bag-icon-online-business-vector-icon-template-vector-id861576608?k=20&m=861576608&s=170667a&w=0&h=ndRclGoZ1MeRl1mvdK0pT7Mm_96ur7VLGnD1aIW8OqY=" alt="">
         </figure>
         <p>Empty cart</p>
-        
       </div>
       `
     );
     myOrderContent.append(div);
+    // totalContainer.innerHTML = '';
+    // totalOrder.remove();
+    if(!divTotalOrder.classList.contains('inactive')) {
+      divTotalOrder.classList.toggle('inactive');
+      btnCheckOut.classList.toggle('inactive');
+    }
   }
 }
 
@@ -350,7 +366,8 @@ body.addEventListener('click',(e) => {
   if(e.target && e.target.classList.contains('addToCart')){ // Add ptoduct to cart
     addToCartList(orderId);
     renderMyCart(myOrderList);
-    renderProductsCount()
+    renderProductsCount();
+    alert('Product, added to cart');
   } else if(e.target && e.target.classList.contains('card-img')){ // View product detail
     setProductDetail(orderId);
     renderProductDetail();
@@ -381,7 +398,8 @@ aside.addEventListener('click', (e) => {
     // removeCartItem(idItem);
     removeCartItem(String(e.target.getAttribute('id')));
     renderMyCart(myOrderList);
-    renderProductsCount()
+    renderProductsCount();
+    alert('Product, removed from cart');
   }
   // Add target to close cart aside from inside HTML container (myOrder)
   else if(e.target && e.target.classList.contains('back-from-my-order')) {
@@ -390,18 +408,16 @@ aside.addEventListener('click', (e) => {
 });
 
 onresize();
-renderProductsCount()
+renderProductsCount();
 
 
-
+// Agregar animaciones a los menus. botones, componentes, etc...
 
 
 /**
  * Iplementar un aviso tipo alert, que notifique cda vez que agregues algo al carrito.
  * 
- * Agregar animaciones a los menus. botones, componentes, etc...
  * 
- *  total
  * 
  * Hacer que cualquier menu y/o vista se cierre cuando demos click en el "body".
  */

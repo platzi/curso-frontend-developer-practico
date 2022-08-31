@@ -14,9 +14,7 @@
     font-family: 'Quicksand', sans-serif;
   }
 
-  .inactive {
-    display: none;
-  }
+
 
   /* Nav Bar (General) */
   nav {
@@ -407,6 +405,9 @@
     justify-content: center;
   }
 
+  .inactive {
+    display: none;
+  }
 
   @media (max-width: 800px) {
     .menu {
