@@ -93,13 +93,14 @@ color: var(--hospital-green);
 .desktop-menu{
     position: absolute;
     top: 76px;
-    right: 0;
-    width: 100px;
-    height: auto;
+    right: 60px;
+    /* width: 100px; */
+    /* height: auto; */
     border: 1px solid var(--very-light-pink);
     border-radius: 6px;
     padding: 20px 20px 0px 20px;
-    background-color:rgb(42, 42, 42);
+    background-color:
+    rgb(42, 42, 42);
 }
 .desktop-menu ul{
     list-style: none;
