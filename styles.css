@@ -330,7 +330,7 @@ aside {
   margin-top: 0;
   margin-bottom: 4px;
 }
-.prodcut-card .product-info div p:nth-child(2) {
+.product-card .product-info div p:nth-child(2) {
   font-size: var(--sm);
   margin-top: 0;
   margin-bottom: 0;
