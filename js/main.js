@@ -295,10 +295,11 @@ function setProductDetail(id) {
   detailOfProduct.price = String(productList[id].price);
   detailOfProduct.image = String(productList[id].image);
   detailOfProduct.info = String(productList[id].info)
+  // detailOfProduct.id = String(productList[id].id);
   return;
 }
 
-function renderProductDetail() {
+function renderProductDetail(id) {
   const productDetailCont = document.querySelector('.product-detail-content');
   productDetailCont.innerHTML = "";
   const div = document.createRange().createContextualFragment(
@@ -309,7 +310,7 @@ function renderProductDetail() {
         <p>${detailOfProduct.name}</p> 
         <p>$${detailOfProduct.price}</p> 
         <p>${detailOfProduct.info}</p>
-        <button class="primary-button add-to-cart-button">
+        <button id="${id}" class="primary-button add-to-cart-button">
           <img src="./icons/bt_add_to_cart.svg" alt="add to cart">
           Add to cart
         </button>
@@ -370,8 +371,9 @@ body.addEventListener('click',(e) => {
     alert('Product, added to cart');
   } else if(e.target && e.target.classList.contains('card-img')){ // View product detail
     setProductDetail(orderId);
-    renderProductDetail();
+    renderProductDetail(orderId);
     openProductDetailAside();
+    // console.log(orderId);
   } else if(e.target && e.target.classList.contains('shopping-cart-icon')){ // View product detail
     // console.log('le dimos al cart');
     toggleCartAside();
@@ -388,6 +390,13 @@ body.addEventListener('click',(e) => {
 productDetailContainer.addEventListener('click', (e) => {
   if( e.target && e.target.classList.contains('product-detail-close') ) {
     closeProductDetailAside();
+  } else if( e.target && e.target.classList.contains('add-to-cart-button') ) {
+    let orderId = parseInt(e.target.getAttribute('id'));
+    console.log(orderId);
+    addToCartList(orderId);
+    renderMyCart(myOrderList);
+    renderProductsCount();
+    alert('Product, added to cart');
   }
 });
 
@@ -409,20 +418,3 @@ aside.addEventListener('click', (e) => {
 
 onresize();
 renderProductsCount();
-
-
-/**
- * Agregar animaciones a los menus. botones, componentes, etc...
- * 
- *  1.- Animacion de entrada de todo menú
- *      (menú mobile, cart aside, email menu y product detail).
- * 
- *  2.- Animacion de salida de todo menú
- *      (menú mobile, cart aside, email menu y product detail).
- */
-
-/**
- * Iplementar un aviso tipo alert, que notifique cda vez que agregues algo al carrito.
- * 
- * Hacer que cualquier menu y/o vista se cierre cuando demos click en el "body".
- */
