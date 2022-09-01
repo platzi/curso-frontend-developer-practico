@@ -77,6 +77,16 @@ productList.push({
     price: 20.000,
     image: 'https://motos0km.com.ar/models/honda-xr-250-tornado-gallery-ff0000-020180507200305.jpg',
 });
+productList.push({
+    name: 'Trinita',
+    price: 100,
+    image: 'https://street47.vtexassets.com/arquivos/ids/191928-1200-auto?v=637935062925300000&width=1200&height=auto&aspect=true',
+});
+productList.push({
+    name: 'Guarra',
+    price: 232,
+    image: 'https://street47.vtexassets.com/arquivos/ids/192309-1200-auto?v=637938449723000000&width=1200&height=auto&aspect=true',
+});
 
 
 function renderProducts(arr) {
