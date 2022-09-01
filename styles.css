@@ -165,7 +165,7 @@
     }
   }
 
-  @media (max-width: 641px){
+  @media (min-width: 641px){
     .mobile-menu{
       display: none;
     }
