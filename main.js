@@ -64,12 +64,12 @@ productList.push ({
 productList.push({
   name: 'Pantalla',
   price: 220,
-  image:'https://images.pexels.com/photos/276517/pexels-photo-276517.jpeg?auto=compress&cs=tinysrgb&dpr=2&h=650&w=940',
+  image:'https://m.media-amazon.com/images/I/612Q364BlEL._AC_SX450_.jpg',
 });
 productList.push({
   name: 'Compu',
   price: 620,
-  image:'https://images.pexels.com/photos/276517/pexels-photo-276517.jpeg?auto=compress&cs=tinysrgb&dpr=2&h=650&w=940',
+  image:'https://drawfolio.s3.amazonaws.com/public/system/pictures/images/000/032/729/original/compu.jpg?1430413991',
 });
 
 
