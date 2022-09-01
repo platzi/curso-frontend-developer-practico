@@ -234,6 +234,7 @@ aside {
 	font-size: var(--md);
 	font-weight: bold;
 	height: 50px;
+	margin-bottom: 24px;
 }
 /* product list */
 .cards-container {
