@@ -48,7 +48,7 @@ function toggleMobileMenu() {
      } else if(!isProductDetailClosed) { // si product detail tambien...
          productDetailContainer.classList.add('inactive');
      }
-     aside.classList.toggle('inactive'); // brir Aside.
+     aside.classList.toggle('inactive'); // Abrir Aside.
  }
 // Esta funcion mantiene de principio los menus inactivos.
 window.onresize = function () {
@@ -411,13 +411,18 @@ onresize();
 renderProductsCount();
 
 
-// Agregar animaciones a los menus. botones, componentes, etc...
-
+/**
+ * Agregar animaciones a los menus. botones, componentes, etc...
+ * 
+ *  1.- Animacion de entrada de todo menú
+ *      (menú mobile, cart aside, email menu y product detail).
+ * 
+ *  2.- Animacion de salida de todo menú
+ *      (menú mobile, cart aside, email menu y product detail).
+ */
 
 /**
  * Iplementar un aviso tipo alert, que notifique cda vez que agregues algo al carrito.
- * 
- * 
  * 
  * Hacer que cualquier menu y/o vista se cierre cuando demos click en el "body".
  */
