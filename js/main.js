@@ -26,7 +26,6 @@ function toggleDesktopMenu() {
 }
 function toggleMobileMenu() {
     const isAsideClosed = aside.classList.contains('inactive'); // aside es cerrado
-
     // si aside esta abierto
     if(!isAsideClosed) {
         // cierra aside
@@ -270,7 +269,6 @@ function renderMyCart(arr) {
     myOrderContent.append(div);
     closeOrderN++;
     total = total + parseFloat(product.price);
-    
   }
   if(divTotalOrder.classList.contains('inactive')) {
     divTotalOrder.classList.toggle('inactive');
@@ -295,7 +293,6 @@ function setProductDetail(id) {
   detailOfProduct.price = String(productList[id].price);
   detailOfProduct.image = String(productList[id].image);
   detailOfProduct.info = String(productList[id].info)
-  // detailOfProduct.id = String(productList[id].id);
   return;
 }
 
@@ -335,7 +332,6 @@ function removeCartItem(id) {
 
 function renderProductsCount() {
   let count = parseInt(myOrderList.length);
-  // console.log(count);
   cartCount.innerHTML = String(count);
   if(count == 0) {
     //Carrito vacio
@@ -351,8 +347,6 @@ function renderProductsCount() {
       `
     );
     myOrderContent.append(div);
-    // totalContainer.innerHTML = '';
-    // totalOrder.remove();
     if(!divTotalOrder.classList.contains('inactive')) {
       divTotalOrder.classList.toggle('inactive');
       btnCheckOut.classList.toggle('inactive');
@@ -361,7 +355,6 @@ function renderProductsCount() {
 }
 
 // Add event to view product detail && add ptoduct to cart...
-
 body.addEventListener('click',(e) => {
   let orderId = parseInt(e.target.getAttribute('id'));
   if(e.target && e.target.classList.contains('addToCart')){ // Add ptoduct to cart
@@ -373,18 +366,13 @@ body.addEventListener('click',(e) => {
     setProductDetail(orderId);
     renderProductDetail(orderId);
     openProductDetailAside();
-    // console.log(orderId);
   } else if(e.target && e.target.classList.contains('shopping-cart-icon')){ // View product detail
-    // console.log('le dimos al cart');
     toggleCartAside();
   } else if( e.target && e.target.classList.contains('menu') ) {
-    // console.log('le dimos al menu');
     toggleMobileMenu();
   } else if( e.target && e.target.classList.contains('navbar-email') ) {
-    // console.log('le dimos al menu');
     toggleDesktopMenu();
   }
-  
 });
 
 productDetailContainer.addEventListener('click', (e) => {
