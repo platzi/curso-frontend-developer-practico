@@ -1,0 +1,156 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta http-equiv="X-UA-Compatible" content="IE=edge">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Quicksand:wght@300;500;700&display=swap" rel="stylesheet">
+  
+  <link rel="stylesheet" href="./css/normalize.css">
+  <link rel="stylesheet" href="./css/style.css">
+
+  <title>YardSale: tienda online de cositas chidas</title>
+
+</head>
+<body>
+  <nav class="nav-section">
+    <img src="./icons/icon_menu.svg" alt="menu" class="menu">
+
+    <div class="navbar-left">
+      <img src="./logos/logo_yard_sale.svg" alt="logo" class="logo">
+
+      <ul>
+        <li>
+          <a href="/">All</a>
+        </li>
+        <li>
+          <a href="/">Clothes</a>
+        </li>
+        <li>
+          <a href="/">Electronics</a>
+        </li>
+        <li>
+          <a href="/">Furnitures</a>
+        </li>
+        <li>
+          <a href="/">Toys</a>
+        </li>
+        <li>
+          <a href="/">Others</a>
+        </li>
+      </ul>
+    </div>
+
+    <div class="navbar-right">
+      <ul>
+        <li class="navbar-email">platzi@example.com</li>
+        <li class="navbar-shopping-cart">
+          <img class="shopping-cart-icon" src="./icons/icon_shopping_cart.svg" alt="shopping cart">
+          <div class="cartCount" ></div>
+        </li>
+      </ul>
+    </div>
+    
+    <div class="desktop-menu inactive">
+        <ul>
+          <li>
+            <a href="/" class="title">My orders</a>
+          </li>
+
+          <li>
+            <a href="/">My account</a>
+          </li>
+
+          <li>
+            <a href="/">Sign out</a>
+          </li>
+        </ul>
+    </div>
+
+    <div class="mobile-menu inactive">
+        <ul>
+          <li>
+            <a href="/">CATEGORIES</a>
+          </li>
+          <li>
+            <a href="/">All</a>
+          </li>
+          <li>
+            <a href="/">Clothes</a>
+          </li>
+          <li>
+            <a href="/">Electronics</a>
+          </li>
+          <li>
+            <a href="/">Furnitures</a>
+          </li>
+          <li>
+            <a href="/">Toys</a>
+          </li>
+          <li>
+            <a href="/">Other</a>
+          </li>
+        </ul>
+    
+        <ul>
+          <li>
+            <a href="/">My orders</a>
+          </li>
+          <li>
+            <a href="/">My account</a>
+          </li>
+        </ul>
+    
+        <ul>
+          <li>
+            <a href="/" class="email">platzi@example.com</a>
+          </li>
+          <li>
+            <a href="/" class="sign-out">Sign out</a>
+          </li>
+        </ul>
+    </div>
+  </nav>
+
+  <aside class="myOrder inactive">
+    <div class="title-container">
+      <img class="back-from-my-order" src="./icons/flechita.svg" alt="arrow">
+      <p class="title">My order</p>
+    </div>
+
+    <div class="my-order-content">
+
+    </div>
+    
+    <div class="order">
+      <p>
+        <span>Total</span>
+      </p>
+      <p class="total" ></p>
+    </div>
+
+    <button class="primary-button">
+      Checkout
+    </button>
+  </aside>
+  
+  <aside class="product-detail inactive">
+    <div class="product-detail-close">
+    </div>
+    
+    <div class="product-detail-content">
+
+    </div>
+  </aside>
+
+  <section class="main-container">
+    <div class="cards-container">
+
+    </div>
+  </section>
+
+  <script src="./js/main.js" ></script>
+</body>
+</html>
