@@ -62,7 +62,6 @@ productList.push({
 });
 
 
-
 function renderProducts(arr){
     for (product of arr){
         const productCard = document.createElement("div");
