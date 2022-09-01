@@ -265,7 +265,6 @@
     color: var(--very-light-pink);
   }
   
-
   @media (max-width: 640px) {
     .menu {
       display: block;
