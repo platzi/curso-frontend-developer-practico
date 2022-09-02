@@ -162,7 +162,6 @@
 .aside {
   background-color: var(--white);
   width: 360px;
-  padding: 0 24px;
   box-sizing: border-box;
   position: absolute;
   right: 0;
@@ -171,6 +170,10 @@
   /*Shopping Cart*/
   #shoppingCartContainer{
     padding: 0 24px;
+    width: 25vw;
+    position: absolute;
+    right: 0;
+    background-color: var(--white)
   }
 
   .title-container {
@@ -247,6 +250,13 @@
   }
 
    /*Product Detail*/
+   #productDetail{
+    background-color: var(--white);
+    width: 360px;
+    box-sizing: border-box;
+    position: absolute;
+    right: 0;
+   }
    .product-detail-close {
     background: var(--white);
     width: 14px;
@@ -267,22 +277,22 @@
     object-fit: cover;
     border-radius: 0 0 20px 20px;
   }
-  .product-info {
+  #productDetail .product-info {
     margin: 24px 24px 0 24px;
   }
-  .product-info p:nth-child(1) {
+  #productDetail .product-info p:nth-child(1) {
     font-weight: bold;
     font-size: var(--md);
     margin-top: 0;
     margin-bottom: 4px;
   }
-  .product-info p:nth-child(2) {
+  #productDetail .product-info p:nth-child(2) {
     color: var(--very-light-pink);
     font-size: var(--md);
     margin-top: 0;
     margin-bottom: 36px;
   }
-  .product-info p:nth-child(3) {
+  #productDetail .product-info p:nth-child(3) {
     color: var(--very-light-pink);
     font-size: var(--sm);
     margin-top: 0;
@@ -369,6 +379,13 @@
       .product-card img {
         width: 140px;
         height: 140px;
+      }
+      #shoppingCartContainer{
+        width: 90vw;
+      }
+      #productDetail{
+        width: 100vw;
+        position: relative;
       }
   }
   @media (min-width: 641px){
