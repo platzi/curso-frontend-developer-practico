@@ -9,6 +9,7 @@
   - [C018 Fusión del menu en desktop](#c018-fusión-del-menu-en-desktop)
   - [C019 Fusión del menú mobile](#c019-fusión-del-menú-mobile)
   - [C020 Carrito de compras](#c020-carrito-de-compras)
+  - [C021 Lista de productos, HTML a parti de arrays](#c021-lista-de-productos-html-a-parti-de-arrays)
 
 ## C009 Como conectar con JS con HTML
 
@@ -328,5 +329,75 @@ function toogleCarritoAside(){
   aside.classList.toggle("inactive");
 }
 ```
+## C021 Lista de productos, HTML a parti de arrays
+
+Como primera medida integramos el componentes de lista de productos del archivo clase6.html, como en las clases anteriores.
+
+En este caso tenemos hardcodeado cada uno de los productos en el html. Lo que vamos a hacer es borrarlo todos (dejamos uno como comentario para ver como se forma su estructura) y generalos a traves del codigo de javascript a partir de un array con los datos de los productos a mostrar. En este caso vamos a tener tambien hardcodeado el array con algunos productos, pero mas adelante estos datos deberian ser tomados a través de consultas en el backend en bases de datos.
+La lista donde vamos a contener los productos, que deberia obtenerse a partir de peticiones realizadas al backend, la vamos a estar hardcodeando de la siguiente manera:
+```javascript
+const productList = [];
+
+productList.push({
+  name: 'Bike',
+  price: 120,
+  image: 'https://images.pexels.com/photos/276517/pexels-photo-276517.jpeg?auto=compress&cs=tinysrgb&dpr=2&h=650&w=940',
+});
+productList.push({
+  name: 'Skate',
+  price: 60,
+  image: 'https://images.pexels.com/photos/165236/pexels-photo-165236.jpeg?auto=compress&cs=tinysrgb&w=1260&h=750&dpr=1',
+});
+productList.push({
+  name: 'Dron',
+  price: 300,
+  image: 'https://images.pexels.com/photos/1809576/pexels-photo-1809576.jpeg?auto=compress&cs=tinysrgb&w=1260&h=750&dpr=1',
+});
+```
+Para recorrer el array tenemos dos formas mas de recorrerlo a los ya conocido con el atributo length, y es por medio del `for (item of object)` o `for (item in object)`. Con el **of** el **item** va a ser cada uno de los objetos en si, pero con **in** el **item** va a ser el indice de cada uno de los objetos.
+Por cada recorrido del `for`vamos a ir creando cada uno de los elementos, y una vez creado todos, lo vamos a ir anexando al padre correspondiente (mediante `append` o `appendChild`) y por ultimo anexandolo al HTML.
+Y a todo este `for` lo encapsulamos en una función principalmente para un ordenamiento de codigo. Ademas me permite poder llamar a esta con algun evento en particular.
+```javascript
+function renderProducts(arr) {
+  for (product of arr) {
+    const productCard = document.createElement("div");
+    productCard.classList.add("product-card");
+  
+    const productImg = document.createElement("img");
+    productImg.setAttribute("src", product.image);
+  
+    const productInfo = document.createElement("div");
+    productInfo.classList.add("product-info");
+  
+    const productInfoDiv = document.createElement("div");
+    const productPrice = document.createElement("p");
+    productPrice.innerText = "$" + product.price;
+    const productName = document.createElement("p");
+    productName.innerText = product.name;
+  
+    productInfoDiv.appendChild(productPrice);
+    productInfoDiv.appendChild(productName);
+  
+    const productInfoFigure = document.createElement("figure");
+    const productImgCard = document.createElement("img");
+    productImgCard.setAttribute("src", "./icons/bt_add_to_cart.svg");
+  
+    productInfoFigure.appendChild(productImgCard);
+  
+    productInfo.appendChild(productInfoDiv);
+    productInfo.appendChild(productInfoFigure);
+  
+    productCard.appendChild(productImg);
+    productCard.appendChild(productInfo);
+  
+    cardsContainer.appendChild(productCard);
+  }
+}
+
+renderProducts(productList);
+```
+En la proxima clase vamos a estar agregando eventos a este codigo, ya que ahora resolvimos generar el HTML a traves de JS.
+
+
 
 
