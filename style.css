@@ -188,6 +188,7 @@ position: relative;
     padding: 0 24px;
   }
   .title-container {
+    padding-left: 1;
     display: flex;
   }
   .title-container img {
@@ -303,6 +304,7 @@ position: relative;
 
 /* Product-detail */
 
+
 .product-detail-close {
   background: var(--white);
   width: 14px;
@@ -314,6 +316,10 @@ position: relative;
   padding: 12px;
   border-radius: 50%;
 }
+.product-card img{
+  cursor: pointer;
+}
+
 .product-detail-close:hover {
   cursor: pointer;
 }

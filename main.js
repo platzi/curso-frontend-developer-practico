@@ -2,9 +2,15 @@ const menuEmail = document.querySelector(".navbar-email");
 const desktopMenu = document.querySelector(".desktop-menu");
 const menuHamIcon = document.querySelector(".menu");
 const mobileMenu = document.querySelector(".mobile-menu");
-const menuCarritoIcon=document.querySelector(".navbar-shopping-cart");
-const  aside= document.querySelector("#shoppingCartContainer");
+const menuCarritoIcon = document.querySelector(".navbar-shopping-cart");
+const productDetailCloseIcon = document.querySelector(".product-detail-close");
+
+const  shoppingCartContainer = document.querySelector("#shoppingCartContainer");
+const  productDetailContainer = document.querySelector("#productDetail");
+
+
 const cardsContainer = document.querySelector('.cards-container')
+
 
 
 
@@ -14,40 +20,70 @@ menuHamIcon.addEventListener("click", function(){toggleMenu(mobileMenu)});
 
 menuCarritoIcon.addEventListener("click",showMiOrder);
 
+productDetailCloseIcon.addEventListener("click",closeProductDetailAside)
+
+
+
 function toggleMenu(menuInactive){
 
-    if (shoppingCartContainer.classList.contains("inactive")) {
-        menuInactive.classList.toggle("inactive")
-    }else{
-        shoppingCartContainer.classList.add("inactive")
-        menuInactive.classList.toggle("inactive")
+    if (shoppingCartContainer.classList.contains("inactive") &&
+       productDetailContainer.classList.contains("inactive")) {
+        menuInactive.classList.toggle("inactive");
+    }else {
+        productDetailContainer.classList.add("inactive")
+        shoppingCartContainer.classList.add("inactive");
+        menuInactive.classList.toggle("inactive");
     }
+
+
 
 }
 
-// function toggleMobileMenu() {
-//     if (shoppingCartContainer.classList.contains("inactive")) {
-//         mobileMenu.classList.toggle("inactive")
-//     }else{
-//         shoppingCartContainer.classList.add("inactive")
-//         mobileMenu.classList.toggle("inactive")
-//     }
+function toggleMobileMenu() {
+    if (shoppingCartContainer.classList.contains("inactive") &&
+        productDetailContainer.classList.contains("inactive")) {
+        mobileMenu.classList.toggle("inactive")
+    }else{
+        shoppingCartContainer.classList.add("inactive");
+        productDetailContainer.classList.add("inactive");
+        mobileMenu.classList.toggle("inactive");
+    }
     
-// }
+}
 
 function showMiOrder() {
     if (screen.width > 640) {
         desktopMenu.classList.add("inactive");
+        productDetailContainer.classList.add("inactive");
         shoppingCartContainer.classList.toggle("inactive");
     }
     else{
         mobileMenu.classList.add("inactive");
+        productDetailContainer.classList.add("inactive");
         shoppingCartContainer.classList.toggle("inactive");
     }
 
     
 }
 
+function openProducDetailAside(){
+
+    if (shoppingCartContainer.classList.contains("inactive") &&
+    mobileMenu.classList.contains("inactive") &&
+    desktopMenu.classList.contains("inactive")) {
+    productDetailContainer.classList.remove("inactive");
+    }else {
+    mobileMenu.classList.add("inactive");
+    desktopMenu.classList.add("inactive");
+    shoppingCartContainer.classList.add("inactive");  
+    productDetailContainer.classList.toggle("inactive");
+    }
+    
+}
+
+function closeProductDetailAside(){
+    productDetailContainer.classList.add("inactive");
+}
 
 const productList = []
 
@@ -56,25 +92,21 @@ productList.push({
     price: 120,
     imagen: "https://images.pexels.com/photos/276517/pexels-photo-276517.jpeg?auto=compress&cs=tinysrgb&dpr=2&h=650&w=940" 
 })
-
 productList.push({
     name: "Pantalla",
     price: 1200,
     imagen: "https://images.pexels.com/photos/276517/pexels-photo-276517.jpeg?auto=compress&cs=tinysrgb&dpr=2&h=650&w=940" 
 })
-
 productList.push({
     name: "Computador",
     price: 13440,
     imagen: "https://images.pexels.com/photos/276517/pexels-photo-276517.jpeg?auto=compress&cs=tinysrgb&dpr=2&h=650&w=940" 
 })
-
 productList.push({
     name: "Computador",
     price: 13440,
     imagen: "https://images.pexels.com/photos/276517/pexels-photo-276517.jpeg?auto=compress&cs=tinysrgb&dpr=2&h=650&w=940" 
 })
-
 productList.push({
     name: "Computador",
     price: 13440,
@@ -89,6 +121,7 @@ function renderProducts(arr) {
     
         const productImg = document.createElement("img");
         productImg.setAttribute('src',product.imagen);
+        productImg.addEventListener('click',openProducDetailAside)    
     
         const productInfo = document.createElement('div');
         productInfo.classList.add('product-info')
@@ -114,7 +147,7 @@ function renderProducts(arr) {
         productCard.append(productImg,productInfo);
     
         cardsContainer.appendChild(productCard);
-    
+        
     
     }
 
