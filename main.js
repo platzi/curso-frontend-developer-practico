@@ -69,19 +69,19 @@ productList.push({
   name: "Plantas",
   price: 220,
   image:
-    "https://www.zankyou.es/images/mag-card-c/510/4925/878/623/-/br/wp-content/uploads/2017/01/z-le-Arthur-Foschini1.jpg",
+    "https://images.pexels.com/photos/276517/pexels-photo-276517.jpeg?auto=compress&cs=tinysrgb&dpr=2&h=650&w=940",
 });
 productList.push({
   name: "Aves",
   price: 3320,
   image:
-    "https://sumedico.blob.core.windows.net/images/2021/01/14/curiosidadesdelosperiquitosaustralianos-focus-0-0.5-640-384.jpg",
+    "https://images.pexels.com/photos/276517/pexels-photo-276517.jpeg?auto=compress&cs=tinysrgb&dpr=2&h=650&w=940",
 });
 productList.push({
   name: "Jaula",
   price: 150,
   image:
-    "https://www.acws.cl/productos/1324-large_default/jaula-aves-med-disenos-y-colores.jpg",
+    "https://images.pexels.com/photos/276517/pexels-photo-276517.jpeg?auto=compress&cs=tinysrgb&dpr=2&h=650&w=940",
 });
 
 function renderProducts(arrProductos) {
