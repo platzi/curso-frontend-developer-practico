@@ -10,6 +10,7 @@
   - [C019 Fusión del menú mobile](#c019-fusión-del-menú-mobile)
   - [C020 Carrito de compras](#c020-carrito-de-compras)
   - [C021 Lista de productos, HTML a parti de arrays](#c021-lista-de-productos-html-a-parti-de-arrays)
+  - [C022 Detalles de un producto](#c022-detalles-de-un-producto)
 
 ## C009 Como conectar con JS con HTML
 
@@ -398,6 +399,19 @@ renderProducts(productList);
 ```
 En la proxima clase vamos a estar agregando eventos a este codigo, ya que ahora resolvimos generar el HTML a traves de JS.
 
+## C022 Detalles de un producto
+
+Se va integrar el componente detalles del producto del archivo clase12.html. Vamos a ver como resolver cuando tenemos clases iguales que no son compatibles en el CSS y HTML.
+
+* Se saca las clases product-detail a ambos componentes en el HTML y les pondo un id distinto a cada uno, shoppingCardContainer y productDetail. 
+* En el CSS, a la clase .product-detail se lo pasa al elemento aside
+* En el JS, a la variable aside lo voy a llamar shoppingCardContainer y que esté relacionado al #shoppingCardContainer.
+* Los elementos del CSS que estan en el archivo que hacen referencia al product-detail no los copio porque los aplicamos con la parte de aside. Los demas si copiamos.
+* `.product-detail > img:nth-child(2)` lo modificamos por `#productDetail > img:nth-child(2)` ya que lo tomamos de un id, sino la imagen no toma los estilos.
+* Vemos tambien que en la descripcion del producto tampoco está quedando bien, ya que como se puede ver en la inspeccion del elemento está tomando estilos de varios puntos, ya que hay otra linea con el mismo nombre de clase. Entonces adentro de nuestro nuevo product detail, vamos a cambiar el `.product-info` por los que estan adentro de `#productDetail .product-info` (le estamos dando mas selectividad). Y algo parecido a los que estan adentro del product-card `.product-card .product-info` correspondiente al listado
+* Correcion del padding para que solo se aplique al shoppingCardContainer y no al productDetail.
+* Correcion del mobile-menu para que ocupe el ancho de la pantalla.
+* Correccion al scroll horizontal que se genera al poner el ancho al 100%, cambiando en `mobile-menu` al `width: 100%;`por `width: calc(100% - 48px);`.
 
 
 
