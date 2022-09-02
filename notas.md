@@ -11,6 +11,7 @@
   - [C020 Carrito de compras](#c020-carrito-de-compras)
   - [C021 Lista de productos, HTML a parti de arrays](#c021-lista-de-productos-html-a-parti-de-arrays)
   - [C022 Detalles de un producto](#c022-detalles-de-un-producto)
+  - [C023 Interacción entre todos los componentes](#c023-interacción-entre-todos-los-componentes)
 
 ## C009 Como conectar con JS con HTML
 
@@ -413,5 +414,92 @@ Se va integrar el componente detalles del producto del archivo clase12.html. Vam
 * Correcion del mobile-menu para que ocupe el ancho de la pantalla.
 * Correccion al scroll horizontal que se genera al poner el ancho al 100%, cambiando en `mobile-menu` al `width: 100%;`por `width: calc(100% - 48px);`.
 
+## C023 Interacción entre todos los componentes
 
+Para poder utilizar los elementos de la lista de producto con eventos, estos se deben agregar durante la construcción de los mismos. Por lo que la función renderProducts quedará de la siguiente manera. Tambien se ve otros cambios realizados en el archivo main.js.
+```javascript
+const productDetailContainer = document.querySelector("#productDetail");
+const productDetailCloseIcon = document.querySelector(".product-detail-close");
+
+productDetailCloseIcon.addEventListener("click", closeProductDetailAside);
+
+function toogleMobileMenu(){
+  const isShoppingCardContainerClosed = shoppingCardContainer.classList.contains("inactive");
+  
+  if(!isShoppingCardContainerClosed){
+    shoppingCardContainer.classList.add("inactive");
+  }
+
+  closeProductDetailAside();
+  
+  mobileMenu.classList.toggle("inactive");
+}
+
+function toogleCarritoShoppingCardContainer(){
+  const isMobileMenuClosed = mobileMenu.classList.contains("inactive");
+  const isDesktopMenuClosed = desktopMenu.classList.contains("inactive");
+  const isProductDetailClosed = productDetailContainer.classList.contains("inactive");
+ 
+  if(!isMobileMenuClosed){
+    mobileMenu.classList.add("inactive");
+  }
+  if(!isDesktopMenuClosed){
+    desktopMenu.classList.add("inactive");
+  }
+ if(!isProductDetailClosed){
+  productDetailContainer.classList.add("inactive");
+ }
+
+  shoppingCardContainer.classList.toggle("inactive");
+}
+
+function openProductDetailAside(){
+  shoppingCardContainer.classList.add("inactive");
+
+  productDetailContainer.classList.remove("inactive");
+}
+
+function closeProductDetailAside(){
+  productDetailContainer.classList.add("inactive");
+}
+
+
+function renderProducts(arr) {
+  for (product of arr) {
+    const productCard = document.createElement("div");
+    productCard.classList.add("product-card");
+  
+    const productImg = document.createElement("img");
+    productImg.setAttribute("src", product.image);
+    productImg.addEventListener("click", openProductDetailAside);
+  
+    const productInfo = document.createElement("div");
+    productInfo.classList.add("product-info");
+  
+    const productInfoDiv = document.createElement("div");
+    const productPrice = document.createElement("p");
+    productPrice.innerText = "$" + product.price;
+    const productName = document.createElement("p");
+    productName.innerText = product.name;
+  
+    productInfoDiv.appendChild(productPrice);
+    productInfoDiv.appendChild(productName);
+  
+    const productInfoFigure = document.createElement("figure");
+    const productImgCard = document.createElement("img");
+    productImgCard.setAttribute("src", "./icons/bt_add_to_cart.svg");
+  
+    productInfoFigure.appendChild(productImgCard);
+  
+    productInfo.appendChild(productInfoDiv);
+    productInfo.appendChild(productInfoFigure);
+  
+    productCard.appendChild(productImg);
+    productCard.appendChild(productInfo);
+  
+    cardsContainer.appendChild(productCard);
+  }
+}
+
+```
 
