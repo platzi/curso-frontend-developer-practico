@@ -1,6 +1,7 @@
 # Curso Práctico de JavaScript
 
 - [Curso Práctico de JavaScript](#curso-práctico-de-javascript)
+  - [C007 Array y Objetos](#c007-array-y-objetos)
   - [C009 Como conectar con JS con HTML](#c009-como-conectar-con-js-con-html)
   - [C010 Leyendo HTML desde JS](#c010-leyendo-html-desde-js)
   - [C011 Escribiendo HTML desde JS](#c011-escribiendo-html-desde-js)
@@ -12,6 +13,38 @@
   - [C021 Lista de productos, HTML a parti de arrays](#c021-lista-de-productos-html-a-parti-de-arrays)
   - [C022 Detalles de un producto](#c022-detalles-de-un-producto)
   - [C023 Interacción entre todos los componentes](#c023-interacción-entre-todos-los-componentes)
+
+## C007 Array y Objetos
+
+Funcion que reciba cualquier array como parámetro e imprima su primer elemento.
+
+```javascript
+function imprimirPrimerElementoArray(arr){
+  console.log(arr[0]);
+}
+```
+Funcion que reciba cualquier array como parámetro e imprima todos sus elemento uno por uno.
+```javascript
+function imprimirElementoPorElemento(arr){
+  for (let i = 0; i < arr.length; i++){
+    console.log(arr[i]);
+  }
+}
+```
+Funcion que reciba cualquier objeto como parámetro e imprima todos sus elementos uno por uno.
+```javascript
+//Convertimos objeto en array con
+//  Object.values(obj);
+
+function imprimirElementoPorElementoObjeto(obj) {
+  const arr = Object.values(obj);
+  for (let i = 0; i < arr.length; i++>){
+    console.log(arr[i]);
+  }
+}
+
+//Tambien tenemos Object.keys(object); que devuelve las claves en vez de los valores
+```
 
 ## C009 Como conectar con JS con HTML
 
