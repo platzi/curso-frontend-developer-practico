@@ -15,8 +15,8 @@ document.querySelector('.navbar-shopping-cart').addEventListener('click', functi
 document.querySelector('.product-detail-close').addEventListener('click', function(){toggleMenu(productDetail, 2)});
 renderProducts(productList)
 
-function toggleMenu(elemento, flag)
-{//flag: 0=toggle, 1=show, 2=hide
+function toggleMenu(elemento, flag) //flag: 0=toggle, 1=show, 2=hide
+{
     if (menuAnterior != null && (flag === 0 || flag === 2 || menuAnterior != productDetail)) menuAnterior.classList.add('inactive');
 
     if (elemento != null)
