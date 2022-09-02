@@ -1,5 +1,5 @@
-/*ESTILOS EN GENERAL*/
-:root { /* clase 11*/
+/* General */
+:root {
   --white: #FFFFFF;
   --black: #000000;
   --very-light-pink: #C7C7C7;
@@ -13,14 +13,13 @@ body {
   margin: 0;
   font-family: 'Quicksand', sans-serif;
 }
-
-.inactive { /*esta clse le pone disply block el elemento ue teng es clse*/
-  display: none;/*none, hara qe prec y desaparezca*/
+.inactive {
+  display: none;
 }
 
-/*ESTILOS DEL NAVBAR (general)*/
+
+/* Navbar (general) */
 nav {
-  position: relative;
   display: flex;
   justify-content: space-between;
   padding: 0 24px;
@@ -62,7 +61,7 @@ nav {
 }
 .navbar-email {
   color: var(--very-light-pink);
-  cursor:pointer; /*prece y desprece un mnit encin del elemento selecciondo*/
+  cursor: pointer;
   font-size: var(--sm);
   margin-right: 12px;
 }
@@ -84,12 +83,12 @@ nav {
   align-items: center;
 }
 
-/* MENU EN DESKTOP*/
+/* Menu en desktop */
 .desktop-menu {
-  position:absolute; /*lo posisionamos definitivamente en el menu*/
-  top: 60px; /*se mueve hacia bjo*/
-  right: 60px; /*se mueve hacia la izqquierda */
-  background: var(--white);/*coloca el color que esta en la avriable*/
+  position: absolute;
+  top: 60px;
+  right: 60px;
+  background: var(--white);
   width: 100px;
   height: auto;
   border: 1px solid var(--very-light-pink);
@@ -123,9 +122,9 @@ nav {
   display: inline-block;
 }
 
-/*MENU EN MOVILE*/
+/* Menu en mobile */
 .mobile-menu {
-  border: var(--white);
+  background-color: var(--white);
   position: absolute;
   top: 60px;
   left: 0;
@@ -158,7 +157,8 @@ nav {
   color: var(--hospital-green) !important;
 }
 
-/*ASIDE (PRODUCTO DE DETAIL Y CARRITO)*/
+
+/* Aside (product detail y carrito) */
 aside {
   background-color: var(--white);
   width: 360px;
@@ -167,7 +167,7 @@ aside {
   right: 0;
 }
 
-/* ShoppinngCart */
+/* ShoppingCart */
 #shoppingCartContainer {
   padding: 0 24px;
 }
@@ -239,7 +239,7 @@ aside {
   height: 50px;
 }
 
-/*ProductDetail*/
+/* ProductDetail */
 .product-detail-close {
   background: var(--white);
   width: 14px;
@@ -260,22 +260,22 @@ aside {
   object-fit: cover;
   border-radius: 0 0 20px 20px;
 }
-#productDetail.product-info {
+#productDetail .product-info {
   margin: 24px 24px 0 24px;
 }
-#productDetail.product-info p:nth-child(1) {
+#productDetail .product-info p:nth-child(1) {
   font-weight: bold;
   font-size: var(--md);
   margin-top: 0;
   margin-bottom: 4px;
 }
-#productDetail.product-info p:nth-child(2) {
+#productDetail .product-info p:nth-child(2) {
   color: var(--very-light-pink);
   font-size: var(--md);
   margin-top: 0;
   margin-bottom: 36px;
 }
-#productDetail.product-info p:nth-child(3) {
+#productDetail .product-info p:nth-child(3) {
   color: var(--very-light-pink);
   font-size: var(--sm);
   margin-top: 0;
@@ -298,14 +298,14 @@ aside {
   justify-content: center;
 }
 
-/*PRODUCTOS LISTA*/
 
+/* Product List */
 .cards-container {
   display: grid;
   grid-template-columns: repeat(auto-fill, 240px);
   gap: 26px;
   place-content: center;
-  margin-top: 30px;
+  margin-top: 20px;
 }
 .product-card {
   width: 240px;
@@ -316,31 +316,32 @@ aside {
   border-radius: 20px;
   object-fit: cover;
 }
-.product-card.product-info {
+.product-card .product-info {
   display: flex;
   justify-content: space-between;
   align-items: center;
   margin-top: 12px;
 }
-.product-card.product-info figure {
+.product-card .product-info figure {
   margin: 0;
 }
-.product-card.product-info figure img {
+.product-card .product-info figure img {
   width: 35px;
   height: 35px;
 }
-.product-card.product-info div p:nth-child(1) {
+.product-card .product-info div p:nth-child(1) {
   font-weight: bold;
   font-size: var(--md);
   margin-top: 0;
   margin-bottom: 4px;
 }
-.product-card.product-info div p:nth-child(2) {
+.product-card .product-info div p:nth-child(2) {
   font-size: var(--sm);
   margin-top: 0;
   margin-bottom: 0;
   color: var(--very-light-pink);
 }
+
 
 @media (max-width: 640px) {
   .menu {
@@ -352,29 +353,28 @@ aside {
   .navbar-email {
     display: none;
   }
-  .desktop-menu{ /*con este al se menor de 640 desaparece*/
+  .desktop-menu {
     display: none;
   }
 
-  .product-detail {
+  aside {
     width: 100%;
   }
-  @media (max-width: 640px) {
-    .cards-container {
-      grid-template-columns: repeat(auto-fill, 140px);
-    }
-    .product-card {
-      width: 140px;
-    }
-    .product-card img {
-      width: 140px;
-      height: 140px;
-    }
+
+  .cards-container {
+    grid-template-columns: repeat(auto-fill, 140px);
+  }
+  .product-card {
+    width: 140px;
+  }
+  .product-card img {
+    width: 140px;
+    height: 140px;
   }
 }
 
 @media (min-width: 641px) {
-.mobile-menu{ /*con este al ser mayor de 641 se desaparece */
-  display: none;
+  .mobile-menu {
+    display: none;
   }
 }
