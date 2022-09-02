@@ -3,7 +3,7 @@ const desktopMenu = document.querySelector(".desktop-menu");
 const menuHamIcon = document.querySelector(".menu");
 const mobileMenu = document.querySelector(".mobile-menu");
 const menuCarritoIcon=document.querySelector(".navbar-shopping-cart");
-const aside = document.querySelector(".product-detail");
+const  aside= document.querySelector("#shoppingCartContainer");
 const cardsContainer = document.querySelector('.cards-container')
 
 
@@ -16,20 +16,20 @@ menuCarritoIcon.addEventListener("click",showMiOrder);
 
 function toggleMenu(menuInactive){
 
-    if (aside.classList.contains("inactive")) {
+    if (shoppingCartContainer.classList.contains("inactive")) {
         menuInactive.classList.toggle("inactive")
     }else{
-        aside.classList.add("inactive")
+        shoppingCartContainer.classList.add("inactive")
         menuInactive.classList.toggle("inactive")
     }
 
 }
 
 // function toggleMobileMenu() {
-//     if (aside.classList.contains("inactive")) {
+//     if (shoppingCartContainer.classList.contains("inactive")) {
 //         mobileMenu.classList.toggle("inactive")
 //     }else{
-//         aside.classList.add("inactive")
+//         shoppingCartContainer.classList.add("inactive")
 //         mobileMenu.classList.toggle("inactive")
 //     }
     
@@ -38,11 +38,11 @@ function toggleMenu(menuInactive){
 function showMiOrder() {
     if (screen.width > 640) {
         desktopMenu.classList.add("inactive");
-        aside.classList.toggle("inactive");
+        shoppingCartContainer.classList.toggle("inactive");
     }
     else{
         mobileMenu.classList.add("inactive");
-        aside.classList.toggle("inactive");
+        shoppingCartContainer.classList.toggle("inactive");
     }
 
     
@@ -60,6 +60,18 @@ productList.push({
 productList.push({
     name: "Pantalla",
     price: 1200,
+    imagen: "https://images.pexels.com/photos/276517/pexels-photo-276517.jpeg?auto=compress&cs=tinysrgb&dpr=2&h=650&w=940" 
+})
+
+productList.push({
+    name: "Computador",
+    price: 13440,
+    imagen: "https://images.pexels.com/photos/276517/pexels-photo-276517.jpeg?auto=compress&cs=tinysrgb&dpr=2&h=650&w=940" 
+})
+
+productList.push({
+    name: "Computador",
+    price: 13440,
     imagen: "https://images.pexels.com/photos/276517/pexels-photo-276517.jpeg?auto=compress&cs=tinysrgb&dpr=2&h=650&w=940" 
 })
 
