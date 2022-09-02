@@ -94,8 +94,8 @@ ProductList.push({
 });
 ProductList.push({
     name: "sunglasses",
-    price: 712,
-    image: "https://www.sefiles.net/images/library/large/scott-sport-shield-supersonic-edition-sunglasses-384217-13.jpg"
+    price: 127877,
+    image: "https://i.ebayimg.com/thumbs/images/g/r0gAAOSwJOlisdcn/s-l300.jpg"
 });
  
 //llamando la funcion y le ingresamos como argumento el ProductList
