@@ -54,7 +54,7 @@ function toggleMobileMenu() {
     const isAsideClosed = shoppingCartContainer.classList.contains('inactive');   
     const isDetailClosed = productDetailContainer.classList.contains('inactive');
 
-    console.log(isDetailClosed);
+    //console.log(isDetailClosed);
     if(!isAsideClosed){
         shoppingCartContainer.classList.add('inactive');
     }
