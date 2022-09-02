@@ -1,46 +1,82 @@
+//---------------menu desktop-------------
 const menuEmail = document.querySelector('.navbar-email');
 const desktopMenu = document.querySelector('.desktop-menu');
+function validProductDetailContainer(){
+    if(!productDetailContainer.classList.contains('inactive')){
+        productDetailContainer.classList.add('inactive');
+    }
+}
+function validShoppingCardContainer(){
+    if(!shoppingCardContainer.classList.contains('inactive')){
+        shoppingCardContainer.classList.add('inactive');
+    }
+}
+
+//----------------mobile menu--------------
+const mobileMenu = document.querySelector('.mobile-menu');
+const iconMobileMenu = document.querySelector('.menu');
+
+//-------------------shopping cart------------------
+
+const menuCarritoIcon = document.querySelector('.navbar-shopping-cart');
+const shoppingCardContainer = document.querySelector('#shoppingCardContainer');
+function validMobileMenu(){
+    if (!mobileMenu.classList.contains('inactive')){
+        mobileMenu.classList.add('inactive');
+    }
+}
+function validDesktopMenu(){
+    if(!desktopMenu.classList.contains('inactive')){
+        desktopMenu.classList.add('inactive');
+    }
+}
+//---------------detalle del producto----------------
+
+const cardContainer = document.querySelector('.cards-container');
+const productDetailContainer = document.querySelector('#productDetail');
+const productDetailCloseIcon = document.querySelector('.product-detail-close');
+
+
+//---------------menu desktop-------------
 
 function toggleDesktopMenu() {
     desktopMenu.classList.toggle('inactive');
-    if (!shoppingCardContainer.classList.contains('inactive')){
-        shoppingCardContainer.classList.add('inactive');
-    }
+
+    validShoppingCardContainer();
+    validProductDetailContainer();
 
 }
 
 menuEmail.addEventListener('click',toggleDesktopMenu);
 
-const mobileMenu = document.querySelector('.mobile-menu');
-const iconMobileMenu = document.querySelector('.menu')
+//----------------mobile menu--------------
+
 
 function toggleMobileMenu() {
     
     mobileMenu.classList.toggle('inactive');
-    if (!shoppingCardContainer.classList.contains('inactive')){
-        shoppingCardContainer.classList.add('inactive');
-    }
+    validShoppingCardContainer();
+    validProductDetailContainer();
 }
 
 iconMobileMenu.addEventListener('click', toggleMobileMenu);
 
-const menuCarritoIcon = document.querySelector('.navbar-shopping-cart');
-const shoppingCardContainer = document.querySelector('#shoppingCardContainer');
+//-------------------shopping cart------------------
 
 function toggleProductDetailMenu() {
     
     shoppingCardContainer.classList.toggle('inactive');
-    if (!mobileMenu.classList.contains('inactive')){
-        mobileMenu.classList.add('inactive');
-    }
 
-    if (!desktopMenu.classList.contains('inactive')){
-        desktopMenu.classList.add('inactive');
-    }
+    validMobileMenu();
+    validDesktopMenu();
+    validProductDetailContainer();
     
+
 }
 
 menuCarritoIcon.addEventListener('click',toggleProductDetailMenu);
+
+//------------------products Stock-----------------
 
 const productList = [];
 productList.push({
@@ -64,22 +100,25 @@ productList.push({
 
 });
 
-/*
-<div class="product-card">
-    <img src="https://images.pexels.com/photos/276517/pexels-photo-276517.jpeg?auto=compress&cs=tinysrgb&dpr=2&h=650&w=940" alt="">
-    <div class="product-info">
-        <div>
-            <p>$120,00</p>
-            <p>Bike</p>
-        </div>
-        <figure>
-            <img src="./icons/bt_add_to_cart.svg" alt="">
-        </figure>
-    </div>
-</div>
-*/
 
-const cardContainer = document.querySelector('.cards-container');
+//---------------detalle del producto----------------
+
+function openProductDetailAside(){
+
+    validShoppingCardContainer();
+    validDesktopMenu();
+
+    productDetailContainer.classList.remove('inactive');
+}
+
+productDetailCloseIcon.addEventListener('click',closeProductDetailAside);
+
+function closeProductDetailAside(){
+    
+    productDetailContainer.classList.add('inactive');
+}
+
+//----------ingreso de productos a la lista---------
 
 function renderProduts(arr){
     
@@ -87,10 +126,11 @@ function renderProduts(arr){
 
         const productCard = document.createElement('div');
         productCard.classList.add('product-card');
-    
+
         const productImg = document.createElement('img');
         productImg.setAttribute('src',product.image);
-    
+        productImg.addEventListener('click', openProductDetailAside);
+
         const productInfo = document.createElement('div');
         productInfo.classList.add('product-info');
     
