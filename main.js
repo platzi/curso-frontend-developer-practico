@@ -7,6 +7,10 @@ const shoppingCardContainer = document.querySelector("#shoppingCardContainer");
 const cardsContainer = document.querySelector(".cards-container");
 const productDetailContainer = document.querySelector("#productDetail");
 const productDetailCloseIcon = document.querySelector(".product-detail-close");
+const productInfoDetailImage = document.querySelector(".product-info-detail-image");
+const productInfoDetailPrice = document.querySelector(".product-info-detail-price");
+const productInfoDetailTitle = document.querySelector(".product-info-detail-title");
+const productInfoDetailDescription = document.querySelector(".product-info-detail-description");
 
 menuEmail.addEventListener("click", toogleDesktopMenu);
 menuHamIcon.addEventListener("click", toogleMobileMenu);
@@ -53,8 +57,17 @@ function toogleCarritoShoppingCardContainer(){
   shoppingCardContainer.classList.toggle("inactive");
 }
 
-function openProductDetailAside(){
+function openProductDetailAside(event){
   shoppingCardContainer.classList.add("inactive");
+
+  //Obtengo el id de la imagen clickeada y lo utilizo como indice del string
+  const idCard = parseInt(event.path[1].id.substring(2));
+   
+  productInfoDetailImage.setAttribute("src", productList[idCard].image);
+  productInfoDetailPrice.innerText = "$"+ productList[idCard].price;
+  productInfoDetailTitle.innerText = productList[idCard].name;
+  productInfoDetailDescription.innerText = productList[idCard].description;
+
 
   productDetailContainer.classList.remove("inactive");
 }
@@ -69,23 +82,29 @@ productList.push({
   name: 'Bike',
   price: 120,
   image: 'https://images.pexels.com/photos/276517/pexels-photo-276517.jpeg?auto=compress&cs=tinysrgb&dpr=2&h=650&w=940',
+  description: 'With its practical position, this bike also fulfills a decorative function, add your hall or workspace.',
 });
 productList.push({
   name: 'Skate',
   price: 60,
   image: 'https://images.pexels.com/photos/165236/pexels-photo-165236.jpeg?auto=compress&cs=tinysrgb&w=1260&h=750&dpr=1',
+  description: 'Description about  this product. In the this case is a skate.',
 });
 productList.push({
   name: 'Dron',
   price: 300,
   image: 'https://images.pexels.com/photos/1809576/pexels-photo-1809576.jpeg?auto=compress&cs=tinysrgb&w=1260&h=750&dpr=1',
+  description: 'Description about  this product. In the this case is a dron.',
 });
 
 
 function renderProducts(arr) {
+  let i=0;
   for (product of arr) {
     const productCard = document.createElement("div");
     productCard.classList.add("product-card");
+    productCard.setAttribute("id", "pl"+ i);
+    i++;
   
     const productImg = document.createElement("img");
     productImg.setAttribute("src", product.image);

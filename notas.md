@@ -13,6 +13,7 @@
   - [C021 Lista de productos, HTML a parti de arrays](#c021-lista-de-productos-html-a-parti-de-arrays)
   - [C022 Detalles de un producto](#c022-detalles-de-un-producto)
   - [C023 Interacción entre todos los componentes](#c023-interacción-entre-todos-los-componentes)
+  - [Modificación extra realizada: Product detail changes depending on the selected product](#modificación-extra-realizada-product-detail-changes-depending-on-the-selected-product)
 
 ## C007 Array y Objetos
 
@@ -536,3 +537,99 @@ function renderProducts(arr) {
 
 ```
 
+## Modificación extra realizada: Product detail changes depending on the selected product
+
+Primero en el render product le agrego un id distinto a cada uno de los div, y los hago coincidir en valor numerico a la posicion del array donde esta la informacion de todos los productos, y en el array tambien le agrego la descripcion del producto.
+
+```javascript
+//En el array se ve que se agrega description
+productList.push({
+  name: 'Bike',
+  price: 120,
+  image: 'https://images.pexels.com/photos/276517/pexels-photo-276517.jpeg?auto=compress&cs=tinysrgb&dpr=2&h=650&w=940',
+  description: 'With its practical position, this bike also fulfills a decorative function, add your hall or workspace.',
+});
+
+// En la funcion render se agrega un id a cada div y que la numeracion 
+// coincida con el indice del array que lo genero
+// productCard.setAttribute("id", "pl"+ i);
+
+function renderProducts(arr) {
+  let i=0;
+  for (product of arr) {
+    const productCard = document.createElement("div");
+    productCard.classList.add("product-card");
+    productCard.setAttribute("id", "pl"+ i);
+    i++;
+  
+    const productImg = document.createElement("img");
+    productImg.setAttribute("src", product.image);
+    productImg.addEventListener("click", openProductDetailAside);
+  
+    const productInfo = document.createElement("div");
+    productInfo.classList.add("product-info");
+  
+    const productInfoDiv = document.createElement("div");
+    const productPrice = document.createElement("p");
+    productPrice.innerText = "$" + product.price;
+    const productName = document.createElement("p");
+    productName.innerText = product.name;
+  
+    productInfoDiv.appendChild(productPrice);
+    productInfoDiv.appendChild(productName);
+  
+    const productInfoFigure = document.createElement("figure");
+    const productImgCard = document.createElement("img");
+    productImgCard.setAttribute("src", "./icons/bt_add_to_cart.svg");
+  
+    productInfoFigure.appendChild(productImgCard);
+  
+    productInfo.appendChild(productInfoDiv);
+    productInfo.appendChild(productInfoFigure);
+  
+    productCard.appendChild(productImg);
+    productCard.appendChild(productInfo);
+  
+    cardsContainer.appendChild(productCard);
+  }
+}
+```
+
+En el HTML se borro los datos del product-detail tanto la url de la imagen, el precio, el nombre y la descripcion, y cada uno se le agrego una clase
+
+```html
+  <aside id="productDetail" class="inactive">
+    <div class="product-detail-close">
+      <img src="./icons/icon_close.png" alt="close">
+    </div>
+    <img src="" alt="Product image" class="product-info-detail-image">
+    <div class="product-info">
+      <p class="product-info-detail-price"></p>
+      <p class="product-info-detail-title"></p>
+      <p class="product-info-detail-description"></p>
+      <button class="primary-button add-to-cart-button">
+        <img src="./icons/bt_add_to_cart.svg" alt="add to cart">
+        Add to cart
+      </button>
+    </div>
+  </aside>
+```
+
+Y por ultimo, cuando en JS se ejecuta la funcion abrir el product-detail, que detecte el id de la imagen en la que se hizo click, lo convierta en tipo numero para utilizarlo como indice del array y a traves de este modificar el HTML.
+
+```javascript
+// Se agrego los siguientes selectores
+const productInfoDetailImage = document.querySelector(".product-info-detail-image");
+const productInfoDetailPrice = document.querySelector(".product-info-detail-price");
+const productInfoDetailTitle = document.querySelector(".product-info-detail-title");
+const productInfoDetailDescription = document.querySelector(".product-info-detail-description");
+
+// En la funcion openProductDetailAside(event) se agrego
+//Obtengo el id de la imagen clickeada y lo utilizo como indice del string
+  const idCard = parseInt(event.path[1].id.substring(2));
+   
+  productInfoDetailImage.setAttribute("src", productList[idCard].image);
+  productInfoDetailPrice.innerText = "$"+ productList[idCard].price;
+  productInfoDetailTitle.innerText = productList[idCard].name;
+  productInfoDetailDescription.innerText = productList[idCard].description;
+```
