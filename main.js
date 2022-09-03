@@ -17,3 +17,13 @@ menuHamIcon.addEventListener("click", toggleMobileMenu);
 function toggleMobileMenu() {
 	mobileMenu.classList.toggle("inactive");
 }
+
+// Toggle Aside-Carrito
+const asideCartMenu = document.querySelector(".product-detail");
+const cartIcon = document.querySelector(".navbar-shopping-cart");
+
+cartIcon.addEventListener("click", toggleCarrito);
+
+function toggleCarrito() {
+	asideCartMenu.classList.toggle("inactive");
+}
