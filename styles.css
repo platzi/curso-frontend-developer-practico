@@ -18,6 +18,7 @@
     justify-content: space-between;
     padding: 0 24px;
     border-bottom: 1px solid var(--very-light-pink);
+    background-color: var(--white);
   }
   /* .menu {
     display: none;
@@ -120,11 +121,11 @@
   }
   /* MOBILE MENU */
   .mobile-menu {
-    width: 100%;
+    width: calc(100% - 48px); /*Para que no coloque un width con scroll horizontal*/
     background-color: var(--white);
     z-index: 100;
     padding: 24px;
-    position: absolute;
+    position: fixed;
     top: 60px;
     left: 0px;
   }
@@ -155,12 +156,14 @@
   }
 
   /* ASIDE DE COMPRAS (DETALLES Y COMPRAS DEL CARRITO) */
-  .product-detail {
+  .shopping-details {
     width: 360px;
-    padding: 0 24px;
-    box-sizing: border-box;
     position: absolute;
     right: 0;
+    padding: 0 24px 24px 24px;
+    background-color: var(--white);
+    box-sizing: border-box;
+    border-radius: 5px;
   }
   .title-container {
     display: flex;

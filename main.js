@@ -7,7 +7,7 @@ let iconHamburguer = document.getElementById('hamburguer');
 let mobileMenu = document.getElementById('menu-hamburguer');
 
 let shoppingCard = document.getElementById('cart');
-let detailProduct = document.querySelector('.product-detail');
+let detailProduct = document.querySelector('.shopping-detail');
 
 
 mail.addEventListener('click', () =>{
