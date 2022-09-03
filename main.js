@@ -6,10 +6,9 @@ menuEmail.addEventListener("click", toggleDesktopMenu);
 
 function toggleDesktopMenu() {
 	const isAsideCartMenuCerrado = asideCartMenu.classList.contains("inactive");
-	if (isAsideCartMenuCerrado) {
-		desktopMenu.classList.toggle("inactive");
+	if (!isAsideCartMenuCerrado) {
+		asideCartMenu.classList.add("inactive");
 	} else {
-		asideCartMenu.classList.toggle("inactive");
 		desktopMenu.classList.toggle("inactive");
 	}
 }
@@ -22,12 +21,10 @@ menuHamIcon.addEventListener("click", toggleMobileMenu);
 
 function toggleMobileMenu() {
 	const isAsideCartMenuCerrado = asideCartMenu.classList.contains("inactive");
-	if (isAsideCartMenuCerrado) {
-		mobileMenu.classList.toggle("inactive");
-	} else {
-		asideCartMenu.classList.toggle("inactive");
-		mobileMenu.classList.toggle("inactive");
+	if (!isAsideCartMenuCerrado) {
+		asideCartMenu.classList.add("inactive");
 	}
+	mobileMenu.classList.toggle("inactive");
 }
 
 // Toggle Aside-Carrito - Mobile y desktop
@@ -40,11 +37,9 @@ function toggleCarrito() {
 	const isMobileMenuCerrado = mobileMenu.classList.contains("inactive");
 	const isDesktopMenuCerrado = desktopMenu.classList.contains("inactive");
 
-	if (isMobileMenuCerrado && isDesktopMenuCerrado) {
-		asideCartMenu.classList.toggle("inactive");
-	} else {
+	if (!isMobileMenuCerrado || !isDesktopMenuCerrado) {
 		mobileMenu.classList.add("inactive");
 		desktopMenu.classList.add("inactive");
-		asideCartMenu.classList.toggle("inactive");
 	}
+	asideCartMenu.classList.toggle("inactive");
 }
