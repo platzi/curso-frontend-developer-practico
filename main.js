@@ -8,9 +8,8 @@ function toggleDesktopMenu() {
 	const isAsideCartMenuCerrado = asideCartMenu.classList.contains("inactive");
 	if (!isAsideCartMenuCerrado) {
 		asideCartMenu.classList.add("inactive");
-	} else {
-		desktopMenu.classList.toggle("inactive");
 	}
+	desktopMenu.classList.toggle("inactive");
 }
 
 // Toggle Menu Mobile
