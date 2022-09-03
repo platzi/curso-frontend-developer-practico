@@ -1,34 +1,43 @@
-/**
- * @author Mairon Andres Florez
- * @createdAt 1 de Septiembre de 2022
- */
+//... Selectores
 const menuEmailIcon = document.querySelector('.navbar-email');
 const menuMobileIcon = document.querySelector('.menu');
 const menuCarritoIcon = document.querySelector('.navbar-shopping-cart');
 const desktopMenu = document.querySelector('.desktop-menu');
 const mobileMenu = document.querySelector('.mobile-menu');
 const asideCarrito = document.querySelector('.product-detail');
+const productDetailContainer = document.querySelector(".view-product-detail");
+const productDetailContainerClose = document.querySelector(".view-product-detail-close");
+const productDetailAddToCart = document.querySelector(".add-to-cart-button");
+
+//... Funciones helpers Genericos
+const inactivarContenedor = (elemento) => elemento.classList.add('inactive');
+const activarContenedor = (elemento) => elemento.classList.remove('inactive');
+const toogleInactivar = (elemento) => elemento.classList.toggle('inactive');
+
+//... Eventos
+productDetailContainerClose.addEventListener('click', () => inactivarContenedor(productDetailContainer));
 
 menuEmailIcon.addEventListener('click', () => {
-    if (asideCarrito.classList.contains('inactive'))
-        desktopMenu.classList.toggle('inactive');
+    if (asideCarrito.classList.contains('inactive')){
+        toogleInactivar(desktopMenu);
+        inactivarContenedor(productDetailContainer);
+    }
 });
-
 menuMobileIcon.addEventListener('click', () => {
     if (mobileMenu.classList.contains('inactive')) {
-        asideCarrito.classList.add('inactive');
+        inactivarContenedor(asideCarrito);
+        inactivarContenedor(productDetailContainer);
     }
-    mobileMenu.classList.toggle('inactive');
+    toogleInactivar(mobileMenu);
 });
-
 menuCarritoIcon.addEventListener('click', () => {
     if (asideCarrito.classList.contains('inactive')) {
-        mobileMenu.classList.add('inactive');
-        desktopMenu.classList.add('inactive');
+        inactivarContenedor(mobileMenu);
+        inactivarContenedor(desktopMenu);
+        inactivarContenedor(productDetailContainer);
     }
-    asideCarrito.classList.toggle('inactive');
+    toogleInactivar(asideCarrito);
 });
-
 
 //Load data Dummy api for https://bobs-burgers-api-ui.herokuapp.com/
 const GetLoadProducts = (fnPintar) => {
@@ -45,7 +54,10 @@ const pintarProductos = (datos) => {
         
         let imagen = document.createElement('img');
         imagen.setAttribute('src', element.image);
-    
+        imagen.addEventListener('click', () => {
+            productDetailContainer.classList.remove('inactive');
+        });
+
         let divInfo = document.createElement('div');
         divInfo.classList ='product-info';
     
