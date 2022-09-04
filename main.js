@@ -3,13 +3,17 @@ const desktopMenu = document.querySelector('.desktop-menu');
 const menuHamIcon = document.querySelector('.menu');
 const mobileMenu = document.querySelector('.mobile-menu');
 const menuCarritoIcon = document.querySelector('.navbar-shopping-cart');
+const productDetailCloseIcon = document.querySelector('.product-detail-close');
 //const aside = document.querySelector('.product-detail');
 const shoppingCartContainer = document.querySelector('#shoppingCartContainer');
 const cardsContainer = document.querySelector('.cards-container'); 
+const productDetailContainer = document.querySelector('#productDetail');
+
 
 menuEmail.addEventListener('click', toggleDesktopMenu);
 menuHamIcon.addEventListener('click', toggleMobileMenu);
 menuCarritoIcon.addEventListener('click', toggleMiCarritoAside);
+productDetailCloseIcon.addEventListener('click', closeProductDetailAside);
 
 /* Ocultar menu al dar clic en el correo PC */
 function toggleDesktopMenu() {
@@ -28,7 +32,11 @@ function toggleMobileMenu() {
     if (!isAsideClosed) {
         shoppingCartContainer.classList.add('inactive');
     }
+
+    closeProductDetailAside();
+
     mobileMenu.classList.toggle('inactive');
+
 }
 
 /* Oculatmos carrito de compras aside */
@@ -38,8 +46,26 @@ function toggleMiCarritoAside() {
     if (!isMobileMenuClosed) {
         mobileMenu.classList.add('inactive');
     }
+
+    // si esta abierto el carrito entonces cierra el productDetail
+    const isProductDetailClosed = productDetailContainer.classList.contains('inactive');
+    if (!isProductDetailClosed) {
+        productDetailContainer.classList.add('inactive');
+    }
     shoppingCartContainer.classList.toggle('inactive');
 }
+
+// quitamos la clase de inactivo al aside para que sea visible
+function openProductDetailAside(){
+    shoppingCartContainer.classList.add('inactive');
+    productDetailContainer.classList.remove('inactive');
+}
+
+// añadimos la clase inactive para que se oculte el aside
+function closeProductDetailAside(){
+    productDetailContainer.classList.add('inactive');
+}
+
 
 /* Creamos nuestra lista de productos */
 const productList = [];
@@ -82,6 +108,8 @@ function renderProducts(array) {
         // asignamos la url de la imagen del producto de productList
         const productImg = document.createElement('img');
         productImg.setAttribute('src', product.image);
+        // añadimos el evento de escucha a la imagen
+        productImg.addEventListener('click', openProductDetailAside);
 
         // creamos el div hijo/padre product-info que contendrá precio, nombre e icono/figure de carrito
         const productInfo =  document.createElement('div');
