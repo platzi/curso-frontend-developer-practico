@@ -282,6 +282,7 @@
     padding-bottom: 24px;
     position: absolute;
     right: 0;
+    background-color: var(--white);
   }
   .description-product-close {
     background: var(--white);
@@ -318,7 +319,7 @@
     margin-top: 0;
     margin-bottom: 36px;
   }
-  #description-product .product-info p:nth-child(3) {
+  .description-product .product-info p:nth-child(3) {
     color: var(--very-light-pink);
     font-size: var(--sm);
     margin-top: 0;
