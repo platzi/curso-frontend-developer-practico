@@ -93,7 +93,7 @@ carritoIcon.addEventListener('click', toggleCarritoAside);
 
 
 const productList = [];
-for (let index = 0; index < 50; index++) {
+for (let index = 0; index < 19; index++) {
     
     productList.push({
 
