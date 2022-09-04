@@ -21,7 +21,7 @@ body {
     display: none;
 }
 
-/*CSS clase 11*/
+/*Nav general*/
 
 nav {
   display: flex;
@@ -29,6 +29,9 @@ nav {
   padding: 0 24px;
   border-bottom: 1px solid var(--very-light-pink);
 }
+
+/*CSS clase 11: Menu Desktop*/
+
 .menu {
   display: none;
 }
@@ -87,7 +90,7 @@ nav {
   align-items: center;
 }
 
-/*CSS clase 7*/
+/*CSS clase 7: Menu Desktop*/
 
   .desktop-menu {
     position: absolute;
@@ -127,18 +130,61 @@ nav {
     display: inline-block;
   }
 
+/*CSS clase 8: Menú en mobile*/
 
+.mobile-menu {
+    position: absolute;
+    top: 40px;
+    left: 0px;
+    padding: 24px;
+  }
+  .mobile-menu a {
+    text-decoration: none;
+    color: var(--black);
+    font-weight: bold;
+    /* margin-bottom: 24px; */
+  }
+  .mobile-menu ul {
+    padding: 0;
+    margin: 24px 0 0;
+    list-style: none;
+  }
+  .mobile-menu ul:nth-child(1) {
+    border-bottom: 1px solid var(--very-light-pink);
+  }
+  .mobile-menu ul li {
+    margin-bottom: 24px;
+  }
+  .email {
+    font-size: var(--sm);
+    font-weight: 300 !important;
+  }
+  .sign-out {
+    font-size: var(--sm);
+    color: var(--hospital-green) !important;
+  }
 
 /*mq*/
 
 @media (max-width: 640px) {
   .menu {
+    cursor: pointer;
     display: block;
   }
   .navbar-left ul {
     display: none;
   }
   .navbar-email {
-    display: none;
+    display: none; 
   }
+  .desktop-menu {
+    display: none; 
+  }
+
+}
+
+@media (min-width: 641px) {
+    .mobile-menu{
+        display: none; 
+    }
 }
