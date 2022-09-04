@@ -23,6 +23,7 @@ nav {
 }
 .menu-icon {
 	display: none;
+	cursor: pointer;
 }
 .logo {
 	width: 100px;
@@ -131,6 +132,7 @@ nav {
 	top: 61px;
 	left: 0px;
 	background: var(--white);
+	width: 100%;
 }
 .mobile-menu a {
 	text-decoration: none;
@@ -290,8 +292,8 @@ nav {
 	width: 14px;
 	height: 14px;
 	position: absolute;
-	top: 24px;
-	left: 24px;
+	top: 10px;
+	left: 10px;
 	z-index: 2;
 	padding: 12px;
 	border-radius: 50%;
