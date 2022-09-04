@@ -1,18 +1,3 @@
-// Toggle Menu Desktop
-const menuEmail = document.querySelector(".navbar-email");
-const desktopMenu = document.querySelector(".desktop-menu");
-
-menuEmail.addEventListener("click", toggleDesktopMenu);
-
-function toggleDesktopMenu() {
-	if (desktopMenu.classList.contains("inactive")) {
-		closeMenus();
-		desktopMenu.classList.toggle("inactive");
-	} else {
-		desktopMenu.classList.toggle("inactive");
-	}
-}
-
 // Toggle Menu Mobile
 const mobileMenu = document.querySelector(".mobile-menu");
 const menuHamIcon = document.querySelector(".menu-icon");
@@ -43,6 +28,42 @@ function toggleCarrito() {
 	}
 }
 
+// Toggle aside product detail
+const fullProDet = document.querySelector(".full-product-detail");
+
+function openFullProDet() {
+	if (fullProDet.classList.contains("inactive")) {
+		closeMenus();
+		fullProDet.classList.toggle("inactive");
+	} else {
+		fullProDet.classList.toggle("inactive");
+	}
+}
+// Close aside product detail
+const fullProDetBtn = document.querySelector(".full-product-detail-close");
+
+fullProDetBtn.addEventListener("click", closeFullProDet);
+
+function closeFullProDet() {
+	fullProDet.classList.add("inactive");
+}
+
+// Toggle Menu Desktop
+const menuEmail = document.querySelector(".navbar-email");
+const desktopMenu = document.querySelector(".desktop-menu");
+
+menuEmail.addEventListener("click", toggleDesktopMenu);
+
+function toggleDesktopMenu() {
+	if (desktopMenu.classList.contains("inactive")) {
+		closeMenus();
+		desktopMenu.classList.toggle("inactive");
+	} else {
+		desktopMenu.classList.toggle("inactive");
+	}
+}
+
+// Render ProductList
 const productList = [];
 
 productList.push({
@@ -72,6 +93,8 @@ productList.push({
 	image:
 		"https://http2.mlstatic.com/D_NQ_NP_745312-MLA46504064560_062021-O.webp",
 });
+
+renderProducts(productList);
 
 function renderProducts(arr) {
 	for (product of arr) {
@@ -112,29 +135,6 @@ function renderProducts(arr) {
 		const cardsContainer = document.querySelector(".cards-container");
 		cardsContainer.appendChild(productCard);
 	}
-}
-
-renderProducts(productList);
-
-// Open aside product detail
-const fullProDet = document.querySelector(".full-product-detail");
-
-function openFullProDet() {
-	if (fullProDet.classList.contains("inactive")) {
-		closeMenus();
-		fullProDet.classList.toggle("inactive");
-	} else {
-		fullProDet.classList.toggle("inactive");
-	}
-}
-
-// Close aside product detail
-const fullProDetBtn = document.querySelector(".full-product-detail-close");
-
-fullProDetBtn.addEventListener("click", closeFullProDet);
-
-function closeFullProDet() {
-	fullProDet.classList.add("inactive");
 }
 
 //Funcion cerrar Menus
