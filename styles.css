@@ -248,6 +248,7 @@
     height: 240px;
     border-radius: 20px;
     object-fit: cover;
+    cursor: pointer;
   }
   .cards-container .product-info {
     display: flex;
@@ -280,9 +281,11 @@
   .description-product {
     width: 360px;
     padding-bottom: 24px;
-    position: absolute;
-    right: 0;
+    /* position: absolute; */
     background-color: var(--white);
+    position: fixed;
+    top: 60px;
+    right: 0;
   }
   .description-product-close {
     background: var(--white);
