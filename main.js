@@ -4,38 +4,38 @@ const desktopMenu =document.querySelector('.desktop-menu');
 const menuIcon =document.querySelector('.menu');
 const mobileMenu =document.querySelector('.mobile-menu');
 const menuCarrito =document.querySelector('.navbar-shopping-cart');
-const productDetail =document.querySelector('.product-detail');
+const shoppingCarrito =document.querySelector('#shoppingCarritoContainer');
 
 
 //Le añadimos el evento.
 menuEmail.addEventListener('click', toggleDesktopMenu);
 menuIcon.addEventListener('click', toggleMobileMenu);
-menuCarrito.addEventListener('click', toggleProductDetail);
+menuCarrito.addEventListener('click', toggleShoppingCarrito);
 
 //Por defecto está inactiva, con cada click aparece y con otro desaparece.
 
 function toggleDesktopMenu() {
     
-    const isProductDetailClosed = productDetail.classList.contains('inactive');
+    const isProductDetailClosed = shoppingCarrito.classList.contains('inactive');
     
     if (!isProductDetailClosed){ 
-        productDetail.classList.add('inactive');
+        shoppingCarrito.classList.add('inactive');
     }
     desktopMenu.classList.toggle('inactive');
 }
 
 function toggleMobileMenu(){
     
-    const isProductDetailClosed = productDetail.classList.contains('inactive');
+    const isProductDetailClosed = shoppingCarrito.classList.contains('inactive');
     
     if (!isProductDetailClosed){ //Si está abierto el carrito(en mobile), lo cerramos.
-        productDetail.classList.add('inactive');
+        shoppingCarrito.classList.add('inactive');
     }
     //una vez cerrado, activamos nuestro menú mobile.
     mobileMenu.classList.toggle('inactive');
 }
 
-function toggleProductDetail(){
+function toggleShoppingCarrito(){
     
     const isMobileMenuClosed = mobileMenu.classList.contains('inactive');
     const isDesktopMenuClosed = desktopMenu.classList.contains('inactive');
@@ -47,7 +47,7 @@ function toggleProductDetail(){
         desktopMenu.classList.add('inactive');
     }
     //una vez cerrado, activamos nuestro carrito.
-    productDetail.classList.toggle('inactive');
+    shoppingCarrito.classList.toggle('inactive');
 }
 
 //product List
