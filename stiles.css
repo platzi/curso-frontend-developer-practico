@@ -1,4 +1,7 @@
-/* copiamos todo el styles del html clase 11 y lo pasamos al css */
+/* copiamos todo el styles del html clase 11 y lo pasamos al css menos root y body */
+
+
+/* estilos generales */
 
 :root {
     --white: #FFFFFF;
@@ -20,6 +23,9 @@ body {
     /* con esta clase vamos a ocultar lo que no queremos que aparezca */
     display: none;
 }
+
+
+/* Estilos navBar */
 
 nav {
     display: flex;
@@ -98,6 +104,9 @@ nav {
 
 /* aca pego todoos los estilos de la clase 7 del desktop menu y dejo los mediaquery al final siempre */
 
+
+/* -----------   Desktop menu -----------*/
+
 .desktop-menu {
     /* es el menu que aparece y desaparece, lo vamos a configurar en JS */
     /* ponemos position para ir acomodandolo y con js... */
@@ -145,6 +154,49 @@ nav {
     display: inline-block;
 }
 
+
+/* ---------------  estilos Menu mobile  ----------  */
+
+.mobile-menu {
+    position: absolute;
+    top: 60px;
+    padding: 24px;
+}
+
+.mobile-menu a {
+    text-decoration: none;
+    color: var(--black);
+    font-weight: bold;
+    /* margin-bottom: 24px; */
+}
+
+.mobile-menu ul {
+    padding: 0;
+    margin: 24px 0 0;
+    list-style: none;
+}
+
+.mobile-menu ul:nth-child(1) {
+    border-bottom: 1px solid var(--very-light-pink);
+}
+
+.mobile-menu ul li {
+    margin-bottom: 24px;
+}
+
+.email {
+    font-size: var(--sm);
+    font-weight: 300 !important;
+}
+
+.sign-out {
+    font-size: var(--sm);
+    color: var(--hospital-green) !important;
+}
+
+
+/* * Media querys  * */
+
 @media (max-width: 640px) {
     .menu {
         display: block;
@@ -153,6 +205,15 @@ nav {
         display: none;
     }
     .navbar-email {
+        display: none;
+    }
+    .desktop-menu {
+        display: none;
+    }
+}
+
+@media (min-width: 641px) {
+    .mobile-menu {
         display: none;
     }
 }
