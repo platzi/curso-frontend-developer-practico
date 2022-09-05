@@ -7,12 +7,16 @@ const mobileMenu = document.querySelector('.mobile-menu')
 const shoppingCartContainer = document.querySelector('#shoppingCartContainer')
 const menuCarritoIcon = document.querySelector('.navbar-shopping-cart')
 
-const cardsContainer =document.querySelector('.cards-container')
+const cardsContainer = document.querySelector('.cards-container')
+
+const productDetailContainer = document.querySelector('#productDetail')
+const productDetailCloseIcon = document.querySelector('.product-detail-close')
 
 
 menuEmail.addEventListener('click', toggleDesktopMenu)
 iconHamMenu.addEventListener('click', toggleMobileMenu)
 menuCarritoIcon.addEventListener('click', toggleCarritoAside)
+productDetailCloseIcon.addEventListener('click', closeProductDetailAside)
 
 
 function toggleDesktopMenu() {
@@ -21,7 +25,7 @@ function toggleDesktopMenu() {
 
 function toggleMobileMenu() {
     const isAsideClosed = shoppingCartContainer.classList.contains('inactive'); //si tiene la clase inactive significa que esta crrada 
-   
+    closeProductDetailAside();
     if(!isAsideClosed){    
         shoppingCartContainer.classList.add('inactive'); // con esoto aseguro que voy a cerra el menu  para poder abrir l aside 
         }
@@ -36,14 +40,30 @@ function toggleCarritoAside() {
     if(!isMobileMenuClosed){    
         mobileMenu.classList.add('inactive'); // con esoto aseguro que voy a cerra el menu  para poder abrir l aside 
         }
+    
+    const isProductDetailClose = productDetailContainer.classList.contains('inactive'); //si tiene la clase inactive significa que esta crrada 
+   
+    if(!isProductDetailClose){    
+        productDetailContainer.classList.add('inactive'); // con esoto aseguro que voy a cerra el menu  para poder abrir l aside 
+        }
+    
 
         shoppingCartContainer.classList.toggle('inactive');
+}
+
+function openProductDetailAside () {
+    shoppingCartContainer.classList.add('inactive');
+    productDetailContainer.classList.remove('inactive');
+}
+
+function  closeProductDetailAside() {
+    productDetailContainer.classList.add('inactive')
 }
 
 const productList =[];
 productList.push({
     name: "bike",
-    price: 120,
+    price: 120, 
     image: "https://images.pexels.com/photos/276517/pexels-photo-276517.jpeg?auto=compress&cs=tinysrgb&dpr=2&h=650&w=940",   
 })
 
@@ -92,8 +112,9 @@ for(product of productList){
     productCard.classList.add('product-card');
 
    // product = {name, price, image} -> product.image
-    const ProductImg = document.createElement('img');
-    ProductImg.setAttribute('src', product.image)
+    const productImg = document.createElement('img');
+    productImg.setAttribute('src', product.image);
+    productImg.addEventListener('click', openProductDetailAside);
 
     const productInfo =document.createElement('div');
     productInfo.classList.add('product-info');
@@ -119,7 +140,7 @@ for(product of productList){
     productInfo.appendChild(productInfoDiv);
     productInfo.appendChild(productInfoFigure);
 
-    productCard.appendChild(ProductImg);
+    productCard.appendChild(productImg);
     productCard.appendChild(productInfo);
 
     cardsContainer.appendChild(productCard);

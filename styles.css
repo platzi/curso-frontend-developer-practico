@@ -257,6 +257,7 @@
       z-index: 2;
       padding: 12px;
       border-radius: 50%;
+      cursor: pointer;
     }
     #productDetail-close:hover {
       cursor: pointer;
