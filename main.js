@@ -71,7 +71,7 @@ function openProductDetailAside(){ //Abrimos los products-details
     
     //Cerramos cualquier panel cuando entremos a product details.
     shoppingCarrito.classList.add('inactive');
-    
+
     productDetailContainer.classList.remove('inactive');
 }
 
@@ -147,7 +147,7 @@ function renderProducts(list){
         
         const productImgCart = document.createElement('img');
         productImgCart.setAttribute('src', './icons/bt_add_to_cart.svg');
-       
+
         //Ahora metemos todos los hijos en sis etiquetas padre, de menor a mayor preferiblemente.
         productFigure.appendChild(productImgCart);
         productDiv.appendChild(productPrice);
