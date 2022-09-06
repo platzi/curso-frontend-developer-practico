@@ -3,8 +3,10 @@ const desktopMenu = document.querySelector(".desktop-menu");
 const mobileIcon = document.querySelector(".menu");
 const mobileMenu = document.querySelector(".mobile-menu");
 const cartIcon = document.querySelector(".navbar-shopping-cart");
-const cartMenu = document.querySelector(".product-detail");
+const cartMenu = document.querySelector("#cartMenu");
 const cartdsCont = document.querySelector(".cards-container");
+const productDetail = document.querySelector("#productDetail");
+const productDdetailClose = document.querySelector('.product-detail-close');
 
 //DesktopMenu
 menuEmail.addEventListener("click", toggleDesktopMenu);
@@ -12,6 +14,9 @@ menuEmail.addEventListener("click", toggleDesktopMenu);
 mobileIcon.addEventListener("click", toggleMobileMenu);
 //CartMenu
 cartIcon.addEventListener("click", toggleCartMenu);
+
+//Close detail
+productDdetailClose.addEventListener("click", closeProductoDetail);
 
 //DesktopMenu
 function toggleDesktopMenu() {
@@ -22,6 +27,8 @@ function toggleDesktopMenu() {
   }
 
   desktopMenu.classList.toggle("inactive");
+
+
 }
 
 //MobileMenu
@@ -31,6 +38,11 @@ function toggleMobileMenu() {
   if (isCartMenu) {
     cartMenu.classList.add("inactive");
   }
+
+  if(!productDetail.classList.contains('inactive')){
+    productDetail.classList.add('inactive');
+  }
+
   mobileMenu.classList.toggle("inactive");
 }
 
@@ -44,11 +56,15 @@ function toggleCartMenu() {
   }
 
   if (isMobileMenu) {
-    console.log("acitvo Mobile" + isMobileMenu);
     mobileMenu.classList.add("inactive");
   }
 
-  cartMenu.classList.toggle("inactive");
+  if(!productDetail.classList.contains('inactive')){
+    productDetail.classList.add('inactive');
+  }
+
+  cartMenu.classList.toggle("inactive");  
+  
 }
 
 //body 
@@ -105,6 +121,7 @@ function renderProduct(productosArr){
     //imagen
     const imgCart = document.createElement("img");
     imgCart.setAttribute('src', producto.img);
+    imgCart.addEventListener('click', openProductoDetail);
   
     //div info
     const divProducInf = document.createElement('div');
@@ -137,11 +154,27 @@ function renderProduct(productosArr){
     divPrice.appendChild(divParrafoName);
     divPrice.appendChild(divParrafoPrice);
     divFigure.appendChild(divImgFigure);
-    console.log(divElement);
   }
 }
 
 renderProduct(productos);
+
+function openProductoDetail(arrg){
+
+  if(!mobileMenu.classList.contains("inactive")){
+    mobileMenu.classList.add("inactive");
+  }
+
+  productDetail.classList.remove('inactive');
+}
+
+function closeProductoDetail(){
+  if(!cartMenu.classList.contains('inactive')){
+    cartMenu.classList.add('inactive');
+  }
+
+  productDetail.classList.add('inactive');
+}
 
 
 
