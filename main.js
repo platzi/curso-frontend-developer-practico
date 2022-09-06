@@ -70,12 +70,12 @@ productList.push({
 productList.push({
   name:'Tv',
   price :220,
-  img :'https://images.pexels.com/photos/276517/pexels-photo-276517.jpeg?auto=compress&cs=tinysrgb&dpr=2&h=650&w=940',
+  img :'https://images.pexels.com/photos/5490302/pexels-photo-5490302.jpeg?auto=compress&cs=tinysrgb&w=1260&h=750&dpr=1',
 });
 productList.push({
   name:'Pc',
   price :620,
-  img :'https://images.pexels.com/photos/276517/pexels-photo-276517.jpeg?auto=compress&cs=tinysrgb&dpr=2&h=650&w=940',
+  img :'https://www.altonivel.com.mx/wp-content/uploads/2020/05/amazon1.jpg',
 });
 
   for (product of productList) {
@@ -83,7 +83,7 @@ productList.push({
     productCard.classList.add('product-card');
 
     let productImg = document.createElement('img');
-    productImg.setAttribute('src','https://images.pexels.com/photos/276517/pexels-photo-276517.jpeg?auto=compress&cs=tinysrgb&dpr=2&h=650&w=940');
+    productImg.setAttribute('src', product.img);
     productImg.addEventListener('click' , openProductDetailAside )
 
     let productInfo = document.createElement('div');
