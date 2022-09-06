@@ -2,12 +2,15 @@ const navbarEmail = document.querySelector(".navbar-email");
 const desktopMenu = document.querySelector(".desktop-menu");
 const hamburgerMenu = document.querySelector(".menu");
 const mobileMenu = document.querySelector(".mobile-menu");
+const productDetailCloseIcon = document.querySelector(".product-detail-close")
 const menuCarritoIcon = document.querySelector(".navbar-shopping-cart");
 const shoppingCartContainer = document.querySelector("#shoppingCartContainer");
+const productDetailContainer = document.querySelector("#productDetail");
 const cardsContainer = document.querySelector(".cards-container");
 navbarEmail.addEventListener("click", toggleDesktopMenu);
 hamburgerMenu.addEventListener("click", toggleMobileMenu);
 menuCarritoIcon.addEventListener("click", toggleAside);
+productDetailCloseIcon.addEventListener("click", closeProductDetail )
 
 function toggleDesktopMenu() {
   const isAsideMenuOpen = !shoppingCartContainer.classList.contains("inactive");
@@ -22,6 +25,7 @@ function toggleMobileMenu() {
   if (isAsideMenuOpen) {
     shoppingCartContainer.classList.add("inactive");
   }
+  closeProductDetail()
   mobileMenu.classList.toggle("inactive");
 }
 
@@ -31,8 +35,22 @@ function toggleAside() {
   if (isMobileMenuOpen) {
     mobileMenu.classList.add("inactive");
   }
+  const isProductDetailClosed = shoppingCartContainer.classList.contains("inactive");
 
+  if(isProductDetailClosed){
+    productDetailContainer.classList.add("inactive")
+  }
   shoppingCartContainer.classList.toggle("inactive");
+}
+
+function openProductDestail() {
+
+  shoppingCartContainer.classList.add("inactive")
+  productDetailContainer.classList.remove("inactive");
+}
+
+function closeProductDetail() {
+  productDetailContainer.classList.add("inactive");
 }
 
 const productList = [];
@@ -59,6 +77,7 @@ function renderProducts(arr) {
     const img = document.createElement("img");
     img.setAttribute("src", product.img);
 
+    img.addEventListener("click", openProductDestail );
     const productInfo = document.createElement("div");
     productInfo.classList.add("product-info");
 
@@ -87,4 +106,4 @@ function renderProducts(arr) {
   }
 }
 
-renderProducts(productList)
+renderProducts(productList);
