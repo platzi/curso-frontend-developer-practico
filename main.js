@@ -42,19 +42,19 @@ function renderList(arr){
 }
 
 function exchangeDesktopMenu (){
-    const IsAsideClosed = Aside.classList.contains ("inactive");
+    const IsAsideClosed = shoppingCartContainer.classList.contains ("inactive");
 
     if (!IsAsideClosed){
-        Aside.classList.add("inactive");
+        shoppingCartContainer.classList.add("inactive");
     }
     DesktopMenu.classList.toggle("inactive");
 }
 
 function exchangeMobileMenu (){
-    const IsAsideClosed = Aside.classList.contains ("inactive");
+    const IsAsideClosed = shoppingCartContainer.classList.contains ("inactive");
 
     if (!IsAsideClosed){
-        Aside.classList.add("inactive");
+        shoppingCartContainer.classList.add("inactive");
     }
     MobileMenu.classList.toggle("inactive");
 }
@@ -65,7 +65,7 @@ function exchangeCartAside (){
     if (!IsMobileMenuClosed ){
         MobileMenu.classList.add("inactive")
     }
-    Aside.classList.toggle("inactive");
+    shoppingCartContainer.classList.toggle("inactive");
 }
 //const
 const ProductList = [];
@@ -74,7 +74,7 @@ const DesktopMenu = document.querySelector(".desktop-menu");
 const BurgerStyleMenuBar = document.querySelector(".menu");
 const MobileMenu = document.querySelector(".mobile-menu");
 const CartMenu = document.querySelector(".navbar-shopping-cart")
-const Aside = document.querySelector(".product-detail");
+const shoppingCartContainer = document.querySelector("#shoppingCartContainer");
 const CardsContainer = document.querySelector(".cards-container");
 //eventos 
 NavEmail.addEventListener("click" , exchangeDesktopMenu);
