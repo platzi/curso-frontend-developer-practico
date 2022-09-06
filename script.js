@@ -10,10 +10,12 @@ const shoppingCardContainer = document.querySelector('#shoppingCardContainer')
 
 const cardsContainer = document.querySelector('.cards-container');
 
-
+const productDetailContainer = document.querySelector('#productDetail');
+const productDetailClose = document.querySelector('.product-detail-close');
 nav_email.addEventListener('click', toggleDesktopMenu)
 menuHam.addEventListener('click', toogleMobileMenu)
 navShoping.addEventListener('click', toogleCarAside)
+productDetailClose.addEventListener('click', closeProductAside)
 
 function toggleDesktopMenu() {
     const isAsideClosed = shoppingCardContainer.classList.contains('inactive');
@@ -34,12 +36,19 @@ function toogleMobileMenu() {
     shoppingCardContainer.classList.add('inactive');
  }
 
+    closeProductAside();
     mobileMenu.classList.toggle('inactive');
 }
 
 function toogleCarAside() {
     const isMobileMenuClosed = mobileMenu.classList.contains('inactive');
     const isDesktopMenuClosed = desktopMenu.classList.contains('inactive');
+    const isProductDetailClosed = productDetailContainer.classList.contains('inactive'); 
+    
+    if (!isProductDetailClosed) {
+       closeProductAside();
+    }
+
     if (!isMobileMenuClosed) {
         mobileMenu.classList.add('inactive');
     }
@@ -73,6 +82,18 @@ productlist.push({
     image: 'https://images.pexels.com/photos/3587478/pexels-photo-3587478.jpeg?cs=srgb&dl=pexels-wallace-chuck-3587478.jpg&fm=jpg',
 });
 
+
+function openProductDetail() {
+    shoppingCardContainer.classList.add('inactive');
+    productDetailContainer.classList.remove('inactive');
+
+}
+
+function closeProductAside() {
+
+    productDetailContainer.classList.add('inactive');
+}
+
 function rederListproducts(arr) {
     
     for (product of arr) {
@@ -82,6 +103,8 @@ function rederListproducts(arr) {
         // product= {name, price, image} -> product.image
         const productImg = document.createElement('img');
         productImg.setAttribute('src', product.image);
+
+        productImg.addEventListener('click', openProductDetail)
     
         const productInfo = document.createElement('div');
         productInfo.classList.add('product-info');
