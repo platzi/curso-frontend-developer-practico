@@ -9,6 +9,10 @@ const myOrder = document.querySelector('.product-detail');
 
 const cardsContainer = document.querySelector('.cards-container');
 
+const cardDescription = document.querySelector('.product-detail-sec');
+const cardDescriptionClose = document.querySelector('.product-detail-close-sec');
+
+
 
 nvEmail.addEventListener('click', desplegarMenu);
 menuHam.addEventListener('click', toggleMenuMobile );
@@ -18,17 +22,20 @@ shoppingCart.addEventListener('click', toggleCarritoAside)
 function desplegarMenu(){
     dtMenu.classList.toggle('inactive');
     myOrder.classList.add('inactive');
+    cardDescription.classList.add('inactive');
 }
 
 function toggleMenuMobile(){
     mobileMenu.classList.toggle('inactive')
     myOrder.classList.add('inactive');
+    cardDescription.classList.add('inactive');
 }
 
 function toggleCarritoAside(){
     myOrder.classList.toggle('inactive');
     dtMenu.classList.add('inactive');
-    mobileMenu.classList.add('inactive')
+    mobileMenu.classList.add('inactive');
+    cardDescription.classList.add('inactive');
 }
 
 function renderProducts(arr){
@@ -36,6 +43,16 @@ function renderProducts(arr){
 
         const productCard = document.createElement('div');
         productCard.classList.add('product-card'); //padre
+        productCard.addEventListener('click', ()=>{
+            cardDescription.classList.toggle('inactive');
+            myOrder.classList.add('inactive');
+            dtMenu.classList.add('inactive');
+            mobileMenu.classList.add('inactive');
+        });
+        cardDescriptionClose.addEventListener('click', ()=>{
+            cardDescription.classList.add('inactive');
+        });
+
         
     
         const productCardImg = document.createElement('img');
@@ -78,6 +95,11 @@ productList.push({
 productList.push({
     name: 'pantalla',
     price: 220,
+    image: 'https://images.pexels.com/photos/276517/pexels-photo-276517.jpeg?auto=compress&cs=tinysrgb&dpr=2&h=650&w=940'
+});
+productList.push({
+    name: 'compu',
+    price: 620,
     image: 'https://images.pexels.com/photos/276517/pexels-photo-276517.jpeg?auto=compress&cs=tinysrgb&dpr=2&h=650&w=940'
 });
 productList.push({
