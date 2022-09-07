@@ -27,4 +27,5 @@ function showMobileMenu() {
 function showMyOrder() {
   mobileMenu.classList.add("inactive");
   aside.classList.toggle("inactive");
+  desktopMenu.classList.add("inactive");
 }
