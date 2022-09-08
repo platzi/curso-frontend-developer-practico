@@ -48,9 +48,10 @@ fetchData(`${API}/products`)
             // console.log(productos[i].images[1]);
             const productCard = document.createElement('DIV');
             productCard.classList.add('product-card');
+            productCard.setAttribute('id', productos[i].id);
 
             const imgCard = document.createElement('IMG');
-            imgCard.setAttribute('src', productos[i].images[1]);
+            imgCard.setAttribute('src', productos[i].images[0]);
 
             const productInfo = document.createElement('DIV');
             productInfo.classList.add('product-info');
@@ -93,8 +94,9 @@ fetchData(`${API}/products`)
 
                 // console.log(productInfo.children[0].children[0].textContent);
                 // console.log(descriptionProduct.children[2].children[0].textContent);
-                descriptionProduct.children[2].children[0].textContent = productInfo.children[0].children[0].textContent
-                descriptionProduct.children[2].children[1].textContent = productInfo.children[0].children[1].textContent
+                descriptionProduct.children[2].children[0].textContent = productInfo.children[0].children[0].textContent;
+                descriptionProduct.children[2].children[1].textContent = productInfo.children[0].children[1].textContent;
+                descriptionProduct.children[2].children[2].textContent = productos[productCard.getAttribute('id')].description;
             });
 
             figure.append(icon);
