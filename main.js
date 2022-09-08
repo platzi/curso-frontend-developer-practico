@@ -5,7 +5,7 @@ const menuHambugerIcon = document.querySelector(".menu")
 const mobileMenu = document.querySelector(".mobile-menu")
 
 const menuCartIcon = document.querySelector(".navbar-shopping-cart")
-const asideCart = document.querySelector(".product-detail")
+const shoppingCartContainer = document.querySelector("#shopping-cart-container")
 
 const productList = []
 
@@ -14,7 +14,7 @@ menuEmail.addEventListener(
     //toggle desktop menu
     ()=>{
         desktopMenu.classList.toggle("inactive")
-        asideCart.classList.add("inactive")
+        shoppingCartContainer.classList.add("inactive")
     }
 )
 
@@ -24,7 +24,7 @@ menuHambugerIcon.addEventListener(
      //toggle mobile menu
     ()=>{
         mobileMenu.classList.toggle("inactive")
-        asideCart.classList.add("inactive")
+        shoppingCartContainer.classList.add("inactive")
     }
 )
 
@@ -32,7 +32,7 @@ menuCartIcon.addEventListener(
     "click",
     //toggle aside cart
     ()=>{
-        asideCart.classList.toggle("inactive")
+        shoppingCartContainer.classList.toggle("inactive")
         desktopMenu.classList.add("inactive")
         mobileMenu.classList.add("inactive")
     }
