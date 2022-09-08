@@ -3,7 +3,7 @@ const desktopMenu = document.querySelector('.desktop-menu');
 const menuCarritoIcon = document.querySelector('.navbar-shopping-cart');
 const burguerMenuIcon = document.querySelector('.menu');
 const mobileMenu = document.querySelector('.mobile-menu');
-const aside = document.querySelector('.product-detail');
+const shoppingCart= document.querySelector('.shopping-cart-detail');
 const cardsContainer = document.querySelector('.cards-container');
 
 
@@ -13,20 +13,20 @@ menuCarritoIcon.addEventListener('click', showMyOrder);
 
 // function toggleDesktopMenu() {
 
-//     const isAsideClosed = aside.classList.contains('inactive');
+//     const isAsideClosed = shoppingCart.classList.contains('inactive');
 
 //     if (!isAsideClosed){
-//         aside.classList.add('inactive');
+//         shoppingCart.classList.add('inactive');
 //     }
 
 //     desktopMenu.classList.toggle('inactive');
 // }
 
 // function toggleMobileMenu() {
-//     const isAsideClosed = aside.classList.contains('inactive');
+//     const isAsideClosed = shoppingCart.classList.contains('inactive');
 
 //     if (!isAsideClosed){
-//         aside.classList.add('inactive');
+//         shoppingCart.classList.add('inactive');
 //     }
 
 //     mobileMenu.classList.toggle('inactive');
@@ -44,19 +44,19 @@ menuCarritoIcon.addEventListener('click', showMyOrder);
 //         mobileMenu.classList.add('inactive');
 //     }
 
-//     aside.classList.toggle('inactive');
+//     shoppingCart.classList.toggle('inactive');
 
 // }
 
 
 function showDesktopMenu() {
-    aside.classList.add('inactive');
+    shoppingCart.classList.add('inactive');
 
     desktopMenu.classList.toggle('inactive');
 }
 
 function showMobileMenu() {
-    aside.classList.add('inactive');
+    shoppingCart.classList.add('inactive');
 
     mobileMenu.classList.toggle('inactive');
 }
@@ -65,7 +65,7 @@ function showMyOrder() {
     desktopMenu.classList.add('inactive');
     mobileMenu.classList.add('inactive');
 
-    aside.classList.toggle('inactive');
+    shoppingCart.classList.toggle('inactive');
 }
 
 
