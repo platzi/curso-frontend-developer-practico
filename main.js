@@ -13,45 +13,58 @@ let descriptionProduct = document.getElementById('description-product');
 let imgProduct = document.getElementById('description-product-img');
 let closeDetailProduct = document.getElementById('close');
 
+function hamburguer(){
+    iconHamburguer.classList.toggle('is-active');
+    mobileMenu.classList.toggle('inactive');
+}
 
-mail.addEventListener('click', () => {
+function textEmail(){
     //si esta abierto el detalle de productos, mandarlo a cerrar para que no afecte la vista
     if (!detailProduct.classList.contains('inactive')) {
         detailProduct.classList.toggle('inactive');
     }
+    // Si detalle de la card esta abierto, cerrarlo y abrir menu de email
     if(!closeDetailProduct.classList.contains('inactive')){
         descriptionProduct.classList.add('inactive');
     }
 
     deskMenu.classList.toggle('inactive');
-});
+}
 
-iconHamburguer.addEventListener('click', () => {
-    iconHamburguer.classList.toggle('is-active');
-    mobileMenu.classList.toggle('inactive');
-});
-
-shoppingCard.addEventListener('click', () => {
+function cardIconShopping(){
     //si esta abierto el menu de email, mandarlo a cerrar para que no afecte la vista del aside
     if (!deskMenu.classList.contains('inactive')) {
         deskMenu.classList.toggle('inactive');
     }
+    // Si detalle del prodcuto esta activo, cerrarlo y abrir las compras realizadas
     if(!closeDetailProduct.classList.contains('inactive')){
         descriptionProduct.classList.add('inactive');
     }
+    // si icono hamburguesa esta activo, cerrarlo y abrir las compras realizadas
+    if(iconHamburguer.classList.contains('is-active')){
+        iconHamburguer.classList.remove('is-active');
+        mobileMenu.classList.toggle('inactive');
+    }
     detailProduct.classList.toggle('inactive');
-});
+}
 
-closeDetailProduct.addEventListener('click', () => {
+function btnClose(){
+    // si el menu de email esta abierto cerrarlo y abrir el detalle de la card
     if (!deskMenu.classList.contains('inactive')) {
         deskMenu.classList.toggle('inactive');
     }
+    // si las compras realizadas estan abiertas, cerrarlo y abrir detalle de la card
     if(!detailProduct.classList.contains('inactive')) {
         detailProduct.classList.toggle('inactive');
     }
 
     descriptionProduct.classList.toggle('inactive');
-});
+}
+
+mail.addEventListener('click', textEmail);
+iconHamburguer.addEventListener('click', hamburguer);
+shoppingCard.addEventListener('click', cardIconShopping);
+closeDetailProduct.addEventListener('click', btnClose);
 
 // VER PRODUCTOS DE API
 fetchData(`${API}/products`)
