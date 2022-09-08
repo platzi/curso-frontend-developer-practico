@@ -157,6 +157,7 @@ nav {
     padding: 24px;
     position: absolute;
     top: 60px;
+    background-color: var(--white);
 }
 
 .mobile-menu a {
@@ -198,6 +199,9 @@ nav {
     box-sizing: border-box;
     position: absolute;
     right: 0;
+    z-index: 1;
+    background-color: var(--white);
+    border-radius: 8px;
 }
 
 .title-container {
@@ -278,6 +282,7 @@ nav {
     font-size: var(--md);
     font-weight: bold;
     height: 50px;
+    margin-bottom: 5px;
 }
 
 /*Product List*/
