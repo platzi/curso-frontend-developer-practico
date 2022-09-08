@@ -7,7 +7,11 @@ const mobileMenu = document.querySelector(".mobile-menu")
 const menuCartIcon = document.querySelector(".navbar-shopping-cart")
 const shoppingCartContainer = document.querySelector("#shopping-cart-container")
 
+
 const productList = []
+
+const productDetailContainer = document.getElementById("product-detail")
+const productDeatailClose = document.querySelector(".product-detail-close")
 
 menuEmail.addEventListener(
     "click",
@@ -15,6 +19,7 @@ menuEmail.addEventListener(
     ()=>{
         desktopMenu.classList.toggle("inactive")
         shoppingCartContainer.classList.add("inactive")
+        productDetailContainer.classList.add("inactive")
     }
 )
 
@@ -25,6 +30,8 @@ menuHambugerIcon.addEventListener(
     ()=>{
         mobileMenu.classList.toggle("inactive")
         shoppingCartContainer.classList.add("inactive")
+        productDetailContainer.classList.add("inactive")
+
     }
 )
 
@@ -35,34 +42,48 @@ menuCartIcon.addEventListener(
         shoppingCartContainer.classList.toggle("inactive")
         desktopMenu.classList.add("inactive")
         mobileMenu.classList.add("inactive")
+        productDetailContainer.classList.add("inactive")
     }
 )
 
-for(let i = 0; i<5; i++){
-    productList.push(
-        {
-            name:'Bike',
-            price:120,
-            img: 'https://images.pexels.com/photos/276517/pexels-photo-276517.jpeg?auto=compress&cs=tinysrgb&dpr=2&h=650&w=940'
-        }
-    )
-    
-    productList.push(
-        {
-            name:'Mono Mayordomo',
-            price:50465,
-            img: 'https://img.europapress.es/fotoweb/fotonoticia_20200728125511_1200.jpg'
-        }
-    )
-    
-    productList.push(
-        {
-            name:'Screen',
-            price:5000,
-            img: 'https://i0.wp.com/allhomecinema.com/wp-content/uploads/2022/01/1642326753_What-is-a-smart-TV-and-what-can-you-do.jpg?fit=2160%2C1215&ssl=1'
-        }
-    )
+productDeatailClose.addEventListener(
+    "click",
+    ()=>{
+        productDetailContainer.classList.add("inactive")
+    }
+)
+
+//Abria que agregar un paramentro que sea el listado de objetos a repetir en vez de hacerlo como esta
+function itemTEmplates(itemsCantidad){
+    for(let i = 0; i<itemsCantidad; i++){
+        productList.push(
+            {
+                name:'Bike',
+                price:120,
+                img: 'https://images.pexels.com/photos/276517/pexels-photo-276517.jpeg?auto=compress&cs=tinysrgb&dpr=2&h=650&w=940'
+            }
+        )
+        
+        productList.push(
+            {
+                name:'Mono Mayordomo',
+                price:50465,
+                img: 'https://img.europapress.es/fotoweb/fotonoticia_20200728125511_1200.jpg'
+            }
+        )
+        
+        productList.push(
+            {
+                name:'Screen',
+                price:5000,
+                img: 'https://i0.wp.com/allhomecinema.com/wp-content/uploads/2022/01/1642326753_What-is-a-smart-TV-and-what-can-you-do.jpg?fit=2160%2C1215&ssl=1'
+            }
+        )
+    }
 }
+
+itemTEmplates(10)
+
 
 function renderProducts(productList){
     for(let item of productList){
@@ -72,6 +93,17 @@ function renderProducts(productList){
         const itemImg = document.createElement('img')
         itemImg.setAttribute("src", item.img)
         itemImg.setAttribute("alt", item.name)
+
+        itemImg.addEventListener(
+            "click",
+            //open aside
+            ()=>{
+                productDetailContainer.classList.remove("inactive")
+                mobileMenu.classList.add("inactive")
+                shoppingCartContainer.classList.add('inactive')
+                desktopMenu.classList.add('inactive')
+            }
+        )
     
         const productInfo = document.createElement("div")
         productInfo.classList.add("product-info")
@@ -90,7 +122,7 @@ function renderProducts(productList){
         cartImg.setAttribute('alt', item.name)
     
         const cardsContainer = document.querySelector(".cards-container")
-        
+
         cardsContainer.append(productCard)
         productCard.append(itemImg)
         productCard.append(productInfo)
