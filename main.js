@@ -1,4 +1,4 @@
-import {fetchData, container, API} from "./products.js";
+import { fetchData, container, API } from "./products.js";
 
 let mail = document.getElementById('email');
 let deskMenu = document.getElementById('menu-desktop');
@@ -9,14 +9,18 @@ let mobileMenu = document.getElementById('menu-hamburguer');
 let shoppingCard = document.getElementById('cart');
 let detailProduct = document.querySelector('.shopping-details');
 
-let descriptionProduct  = document.getElementById('description-product');
+let descriptionProduct = document.getElementById('description-product');
 let imgProduct = document.getElementById('description-product-img');
+let closeDetailProduct = document.getElementById('close');
 
 
-mail.addEventListener('click', () =>{
+mail.addEventListener('click', () => {
     //si esta abierto el detalle de productos, mandarlo a cerrar para que no afecte la vista
-    if(!detailProduct.classList.contains('inactive')){
+    if (!detailProduct.classList.contains('inactive')) {
         detailProduct.classList.toggle('inactive');
+    }
+    if(!closeDetailProduct.classList.contains('inactive')){
+        descriptionProduct.classList.add('inactive');
     }
 
     deskMenu.classList.toggle('inactive');
@@ -29,19 +33,31 @@ iconHamburguer.addEventListener('click', () => {
 
 shoppingCard.addEventListener('click', () => {
     //si esta abierto el menu de email, mandarlo a cerrar para que no afecte la vista del aside
-    if(!deskMenu.classList.contains('inactive')){
+    if (!deskMenu.classList.contains('inactive')) {
         deskMenu.classList.toggle('inactive');
     }
-
+    if(!closeDetailProduct.classList.contains('inactive')){
+        descriptionProduct.classList.add('inactive');
+    }
     detailProduct.classList.toggle('inactive');
 });
 
-// Funcion para ver productos de API
+closeDetailProduct.addEventListener('click', () => {
+    if (!deskMenu.classList.contains('inactive')) {
+        deskMenu.classList.toggle('inactive');
+    }
+    if(!detailProduct.classList.contains('inactive')) {
+        detailProduct.classList.toggle('inactive');
+    }
+
+    descriptionProduct.classList.toggle('inactive');
+});
+
+// VER PRODUCTOS DE API
 fetchData(`${API}/products`)
     .then(response => response.json())
     .then(productos => {
         const fragment = document.createDocumentFragment();
-        // let card = '';
         for (let i = 0; i < 70; i++) {
             // console.log(productos[i].title);
             // console.log(productos[i].price);
@@ -50,53 +66,54 @@ fetchData(`${API}/products`)
             productCard.classList.add('product-card');
             productCard.setAttribute('id', productos[i].id);
 
-            const imgCard = document.createElement('IMG');
-            imgCard.setAttribute('src', productos[i].images[0]);
+            const imgCard = document.createElement('IMG'); //CREANDO ETIQUETA IMG
+            imgCard.setAttribute('src', productos[i].images[0]); //AGREGANDO EL SOURCE
 
-            const productInfo = document.createElement('DIV');
-            productInfo.classList.add('product-info');
+            const productInfo = document.createElement('DIV'); //CREANDO ETIQUETA DIV
+            productInfo.classList.add('product-info'); //AGREGAR UNA CLASE AL DIV
 
-            productCard.append(imgCard,productInfo);
+            productCard.append(imgCard, productInfo); // INSERTANDO EN DIV PADRE LOS ELEMENTOS QUE LLEVARA DENTRO DE EL
 
             const divText = document.createElement('DIV');
             productInfo.append(divText);
 
             const precio = document.createElement('P');
-            precio.textContent = productos[i].price;
-            // precio = productInfo.children[0].childNodes[0].textContent
+            precio.textContent = productos[i].price; //AGREGANDO CONTENIDO DENTRO DE LA ETIQUETA
 
             const nombre = document.createElement('P');
-            nombre.textContent = productos[i].title;
+            nombre.textContent = productos[i].title;  //AGREGANDO CONTENIDO DENTRO DE LA ETIQUETA
 
-            divText.append(precio,nombre);
+            divText.append(precio, nombre);
 
             const figure = document.createElement('FIGURE');
             const icon = document.createElement('IMG');
             icon.setAttribute('src', './icons/bt_add_to_cart.svg');
 
+            // HACER CLICK EN UNA IMG DE CARDS
             imgCard.addEventListener('click', e => {
-                // console.log(e.target);
-                // console.log(e.target.src);
-                if(descriptionProduct.classList.contains('inactive')){
-                    descriptionProduct.classList.toggle('inactive');
-                    // console.log('colocar otra img');
-                }
 
+                if (descriptionProduct.classList.contains('inactive')) {
+                    descriptionProduct.classList.toggle('inactive');
+                }
+                // SI EL ASIDE DE INFO DEL PRODUCTO LLEGA A CIERTA ALTURA
+                // COLOCARLO EN TOP 0
                 window.addEventListener('scroll', () => {
-                    if(window.scrollY > 60){
+                    if (window.scrollY > 60) {
                         descriptionProduct.style.top = '0px';
-                    }else{
+                    } else {
                         descriptionProduct.style.top = '60px';
                     }
                 });
 
-                imgProduct.setAttribute('src',e.target.src);
+                // COPIAR IMG DE CARD EN ASIDE
+                imgProduct.setAttribute('src', e.target.src);
 
-                // console.log(productInfo.children[0].children[0].textContent);
-                // console.log(descriptionProduct.children[2].children[0].textContent);
+                // COPIAR LOS ELEMENTOS DE UN CARD AL ASIDE
                 descriptionProduct.children[2].children[0].textContent = productInfo.children[0].children[0].textContent;
                 descriptionProduct.children[2].children[1].textContent = productInfo.children[0].children[1].textContent;
                 descriptionProduct.children[2].children[2].textContent = productos[productCard.getAttribute('id')].description;
+
+                // closeDetailProduct.addEventListener('click', asideClose);
             });
 
             figure.append(icon);
@@ -104,7 +121,9 @@ fetchData(`${API}/products`)
 
             fragment.append(productCard);
         }
-        container.append(fragment);
+
+        container.append(fragment); //AGREGANDO TODOS LOS CARDS DENTRO DE UN CONTENEDOR
     })
-    .catch(error => console.error(error))
-    .finally(() => console.log('Finalizado'))
+    .catch(error => console.error(error)) // EN CASO DE ALGUN ERROR
+    .finally(() => console.log('Finalizado')) //AL FINALIZAR SIN IMPORTAR SI HAY O NO ERROR
+
