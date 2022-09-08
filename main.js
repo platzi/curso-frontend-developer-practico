@@ -7,6 +7,8 @@ const menuProductDetails = document.querySelector('#shopingCartContainer');
 
 const cardConstainer = document.querySelector('.cards-container');
 
+
+
 navEmail.addEventListener('click', toggleDestokMenu);
 menuBoton.addEventListener('click', toggleMobileMenu);
 CarIcon.addEventListener('click', toggleCarIcon)
@@ -61,9 +63,9 @@ AddProduct("Computer",'240','https://images.unsplash.com/photo-1496181133206-80c
 
 AddProduct('X-BOX X','500','https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcRamZ2i2LjfMQJk6-9S4qvEUkmaM-nfN9L58A&usqp=CAU');
 
-
-
-for (product of productList) { //si cambias el in por el of devuelv ele indice 
+let i = 0;
+function renderProducts(productList) {
+  for (product of productList) { //si cambias el in por el of devuelv ele indice 
   /*const productCard =  document.createElement('div');
   productCard.classList.add('product-card');
 
@@ -84,8 +86,9 @@ for (product of productList) { //si cambias el in por el of devuelv ele indice
   const productImage = document.createElement('img');
   productImage.setAttribute('src', './icons/bt_add_to_cart.svg');
 */
+
   const htmlCards = `<div class="product-card">
-  <img src="${product.img}" alt="">
+  <img id="${i++}" class="img" onclick="seleccionImg()" src="${product.img}" alt="">
   <div class="product-info">
     <div>
       <p>${product.price}</p>
@@ -101,3 +104,41 @@ cardConstainer.innerHTML += htmlCards;
 
   /*Con Element.append() podemos agregar varios nodos y texto mientras que con Element.appendChild() solo podemos agregar un nodo. */
 }
+}
+
+renderProducts(productList);
+
+const precio = document.getElementById('precio');
+const nombre = document.getElementById('nombre');
+const src = document.getElementById('src'); 
+
+const cards = document.querySelector('.product-card');
+const productInfo = document.querySelector('#productDetail');
+
+//cards.addEventListener('click',seleccionImg);
+
+function seleccionImg(){
+ 
+   document.querySelectorAll(".img").forEach(el => {
+
+    el.addEventListener("click", e => {
+  
+      const id = e.target.getAttribute("id");
+  
+      console.log("Se ha clickeado el id "+id);
+      
+      src.setAttribute('src', productList[id].img);
+      precio.innerText ='$' + productList[id].price;
+      nombre.innerText = productList[id].name;
+      
+    });
+    productInfo.classList.toggle('inactive');
+  });
+
+ 
+}
+
+
+
+
+
