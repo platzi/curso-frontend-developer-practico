@@ -165,11 +165,12 @@ aside {
   position: absolute;
   right: 0;
   background-color: var(--white);
+  padding: 20px;
 }
 
 /* Shopping Cart */
 #shoppingCartContainer {
-  padding: 0 2px;
+  padding: 20px;
 }
 .title-container {
   display: flex;
@@ -262,7 +263,6 @@ aside {
   border-radius: 0 0 20px 20px;
 }
 #productDetail {
-  margin: 24px 24px 0 24px;
 }
 #productDetail p:nth-child(1) {
   font-weight: bold;
