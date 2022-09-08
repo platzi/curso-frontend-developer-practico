@@ -8,6 +8,7 @@ let mobileMenu = document.getElementById('menu-hamburguer');
 
 let shoppingCard = document.getElementById('cart');
 let detailProduct = document.querySelector('.shopping-details');
+let arrowMenu = document.getElementById('arrow');
 
 let descriptionProduct = document.getElementById('description-product');
 let imgProduct = document.getElementById('description-product-img');
@@ -16,6 +17,10 @@ let closeDetailProduct = document.getElementById('close');
 function hamburguer(){
     iconHamburguer.classList.toggle('is-active');
     mobileMenu.classList.toggle('inactive');
+}
+
+function arrowClose(){
+    detailProduct.classList.toggle('inactive');
 }
 
 function textEmail(){
@@ -62,6 +67,7 @@ function btnClose(){
 }
 
 mail.addEventListener('click', textEmail);
+arrowMenu.addEventListener('click', arrowClose);
 iconHamburguer.addEventListener('click', hamburguer);
 shoppingCard.addEventListener('click', cardIconShopping);
 closeDetailProduct.addEventListener('click', btnClose);
