@@ -65,12 +65,12 @@ productList.push({
 productList.push({
   name: 'Pantalla',
   price: 220,
-  image: 'https://cloudfront-us-east-1.images.arcpublishing.com/infobae/G2AYJN5AF5DBLG5XRDIW2IZ6UU.jpg',
+  image: 'https://images.pexels.com/photos/276517/pexels-photo-276517.jpeg?auto=compress&cs=tinysrgb&dpr=2&h=650&w=940',
 });
 productList.push({
-  name: 'Compu',
+  name: 'Laptop',
   price: 620,
-  image: 'https://m.media-amazon.com/images/I/71miAQRkUpS._AC_SL1500_.jpg',
+  image: 'https://images.pexels.com/photos/276517/pexels-photo-276517.jpeg?auto=compress&cs=tinysrgb&dpr=2&h=650&w=940',
 });
 
 function renderProducts(arr) {
