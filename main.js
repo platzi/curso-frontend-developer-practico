@@ -14,6 +14,8 @@ const productDetailContainer = document.querySelector("#productDetail"); //carri
 
 const productDetailCloseIcon = document.querySelector(".product-detail-close");
 
+const myOrderClosed = document.querySelector(".title-container");
+
 /* eventos---- */
 menuEmail.addEventListener("click", toggleDesktopMenu);
 
@@ -23,6 +25,8 @@ menuCarritoIcon.addEventListener("click", toggleCarritoAside);
 
 productDetailCloseIcon.addEventListener("click", closeProductDetailAside);
 
+myOrderClosed.addEventListener("click", closetMyOrder);
+
 /* funcion---- */
 function toggleDesktopMenu() {
   const carritoClosod = shoppingCartContainer.classList.contains("inactive");
@@ -30,6 +34,8 @@ function toggleDesktopMenu() {
     shoppingCartContainer.classList.add("inactive");
   }
   desktopMenu.classList.toggle("inactive");
+
+  closeProductDetailAside();
 }
 
 function toggleMobileMenu() {
@@ -71,16 +77,24 @@ function openProductDetailAside() {
   shoppingCartContainer.classList.add("inactive");
 
   productDetailContainer.classList.remove("inactive"); //eliminar la clase inactive
+  desktopMenu.classList.add("inactive");
+
+  mobileMenu.classList.add("inactive");
 }
 
 function closeProductDetailAside() {
   productDetailContainer.classList.add("inactive"); //agregar la clase inactive
+
   /* const isCarritoProductClose =
     shoppingCartContainer.classList.contains("inactive");
 
   if (!isCarritoProductClose) {
     shoppingCartContainer.classList.add("inactive");
-  } este fue una pruva que funciona pero el profe lo simplifico*/
+  } este fue una pruva que funciona pero el profe lo simplifico */
+}
+
+function closetMyOrder() {
+  shoppingCartContainer.classList.add("inactive");
 }
 
 /* img-productos-------------- */
