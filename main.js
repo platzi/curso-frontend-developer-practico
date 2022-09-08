@@ -3,7 +3,7 @@ const destokMenu = document.querySelector('.desktop-menu');
 const menuBoton = document.querySelector('.menu');
 const mobileMenu = document.querySelector('.mobile-menu');
 const CarIcon = document.querySelector('.navbar-shopping-cart');
-const menuProductDetails = document.querySelector('.product-detail');
+const menuProductDetails = document.querySelector('#shopingCartContainer');
 
 const cardConstainer = document.querySelector('.cards-container');
 
@@ -62,18 +62,7 @@ AddProduct("Computer",'240','https://images.unsplash.com/photo-1496181133206-80c
 AddProduct('X-BOX X','500','https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcRamZ2i2LjfMQJk6-9S4qvEUkmaM-nfN9L58A&usqp=CAU');
 
 
-/*<div class="product-card">
-        <img src="https://images.pexels.com/photos/276517/pexels-photo-276517.jpeg?auto=compress&cs=tinysrgb&dpr=2&h=650&w=940" alt="">
-        <div class="product-info">
-          <div>
-            <p>$120,00</p>
-            <p>Bike</p>
-          </div>
-          <figure>
-            <img src="./icons/bt_add_to_cart.svg" alt="">
-          </figure>
-        </div>
-      </div> */
+
 for (product of productList) { //si cambias el in por el of devuelv ele indice 
   /*const productCard =  document.createElement('div');
   productCard.classList.add('product-card');
