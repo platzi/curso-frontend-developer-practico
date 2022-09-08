@@ -277,6 +277,7 @@
     width: 360px;
     position: absolute;
     right: 0;
+    background-color: white;
   }
   .product-detail-close {
     background: var(--white);

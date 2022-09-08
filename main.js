@@ -10,6 +10,10 @@ function menuOnClick() {
     if(!isShoppingCartClosed){
         aside.classList.add('inactive');
     }
+    const isAsideClosed = productDetailAside.classList.contains('inactive');
+    if (!isAsideClosed) {
+        productDetailAside.classList.add('inactive');
+    }
 
     menuAccount.classList.toggle('inactive');
 }
@@ -25,6 +29,11 @@ function mobileMenuOnClick() {
     const isShoppingCartClosed = aside.classList.contains('inactive');
     if(!isShoppingCartClosed){
         aside.classList.add('inactive');
+    }
+
+    const isAsideClosed = productDetailAside.classList.contains('inactive');
+    if (!isAsideClosed) {
+        productDetailAside.classList.add('inactive');
     }
 
     menuMobile.classList.toggle('inactive');
@@ -45,6 +54,10 @@ function abrirCarrito() {
     const isMobileMenuClosed = menuMobile.classList.contains('inactive');
     if(!isMobileMenuClosed) {
         menuMobile.classList.add('inactive');
+    }
+    const isAsideClosed = productDetailAside.classList.contains('inactive');
+    if (!isAsideClosed) {
+        productDetailAside.classList.add('inactive');
     }
 
     aside.classList.toggle('inactive');
@@ -81,23 +94,33 @@ function renderProducts(arr) {
 for (product of arr) {
     const productCard = document.createElement('div');
     productCard.classList.add('product-card');
+
     const imgCard = document.createElement('img');
     imgCard.setAttribute('src', product.image);
+    imgCard.addEventListener('click', openProductDetail);
+
     productCard.appendChild(imgCard);
+    
+
     const productInfo = document.createElement('div');
     productInfo.classList.add('product-info');
     productCard.appendChild(productInfo);
+
     const priceAndName = document.createElement('div');
     const price = document.createElement('p');
     price.innerText = "$" + product.price;
+
     const name = document.createElement('p');
     name.innerText = product.name;
+
     priceAndName.appendChild(price);
     priceAndName.appendChild(name);
     productInfo.appendChild(priceAndName);
+
     const figure = document.createElement('figure');
     const iconAddCart = document.createElement('img');
     iconAddCart.setAttribute('src', './icons/bt_add_to_cart.svg');
+
     figure.appendChild(iconAddCart);
     productInfo.appendChild(figure);
     cardsContainer.appendChild(productCard);
@@ -105,3 +128,16 @@ for (product of arr) {
 }
 
 renderProducts(productList);
+
+const productDetailAside = document.querySelector('.product-detail1');
+
+function openProductDetail() {
+    productDetailAside.classList.remove('inactive');
+}
+
+const btnCloseProductDetail = document.querySelector('.product-detail-close');
+btnCloseProductDetail.addEventListener('click', closeProductDetail);
+
+function closeProductDetail() {
+    productDetailAside.classList.add('inactive');
+}
