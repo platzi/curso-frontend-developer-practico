@@ -5,10 +5,13 @@ const desktopMenu = document.querySelector('.desktop-menu');
 const mobileMenu = document.querySelector('.mobile-menu');
 const shoppingCartContainer = document.querySelector('#shoppingCartContainer');
 const cardsContainer = document.querySelector('.cards-container');
+const productDetailCloseIcon = document.querySelector('.product-detail-close');
+const productDetailContainer = document.querySelector('#productDetail');
 
 menuEmail.addEventListener('click', toggleDesktopMenu);
 menuHamIcon.addEventListener('click', toggleMobileMenu);
 menuCarritoIcon.addEventListener('click', toggleCarritoAside);
+productDetailCloseIcon.addEventListener('click', closeProductDetailAside);
 
 function toggleDesktopMenu() {
   const isAsideClosed = shoppingCartContainer.classList.contains('inactive');
@@ -36,8 +39,21 @@ function toggleCarritoAside() {
   if (!isMobileMenuClosed) {
     mobileMenu.classList.add('inactive'); 
   }
+  const isProductDetailClosed = productDetailContainer.classList.contains('inactive');
+  
+  if (!isProductDetailClosed) {
+    productDetailContainer.classList.add('inactive'); 
+  }
   
   shoppingCartContainer.classList.toggle('inactive');
+}
+function openProductDetailAside() {
+  shoppingCartContainer.classList.add('inactive');
+  productDetailContainer.classList.remove('inactive');
+}
+
+function closeProductDetailAside() {
+  productDetailContainer.classList.add('inactive');
 }
 
 const productList = [];
@@ -49,12 +65,12 @@ productList.push({
 productList.push({
   name: 'Pantalla',
   price: 220,
-  image: 'https://images.pexels.com/photos/276517/pexels-photo-276517.jpeg?auto=compress&cs=tinysrgb&dpr=2&h=650&w=940',
+  image: 'https://cloudfront-us-east-1.images.arcpublishing.com/infobae/G2AYJN5AF5DBLG5XRDIW2IZ6UU.jpg',
 });
 productList.push({
   name: 'Compu',
   price: 620,
-  image: 'https://images.pexels.com/photos/276517/pexels-photo-276517.jpeg?auto=compress&cs=tinysrgb&dpr=2&h=650&w=940',
+  image: 'https://m.media-amazon.com/images/I/71miAQRkUpS._AC_SL1500_.jpg',
 });
 
 function renderProducts(arr) {
@@ -65,6 +81,7 @@ function renderProducts(arr) {
     // product= {name, price, image} -> product.image
     const productImg = document.createElement('img');
     productImg.setAttribute('src', product.image);
+    productImg.addEventListener('click', openProductDetailAside);
   
     const productInfo = document.createElement('div');
     productInfo.classList.add('product-info');
