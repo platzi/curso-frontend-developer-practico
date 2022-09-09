@@ -30,7 +30,20 @@ body {
   cursor: pointer;
 }
 
+.header-container {
+  position: fixed;
+  top: 0;
+  left: 0;
+  background-color: var(--white);
+  width: 100%;
+}
+
+.main-container {
+  margin-top: 61px;
+}
+
 /* Navbar */
+
 nav {
   display: flex;
   justify-content: space-between;
