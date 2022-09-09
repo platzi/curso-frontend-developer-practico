@@ -8,31 +8,49 @@ const mobileMenu = document.querySelector(".mobile-menu")
 
 //selectores para el carrito
 const  menuCarritoIcon = document.querySelector(".navbar-shopping-cart")
-const  menuCarrito = document.querySelector(".product-detail")
+const  menuCarrito = document.querySelector(".carrito")
 
+//Selector details
+const productDetails = document.querySelector('.product-detail')
+const closeDetails =document.querySelector('.product-detail-close')
 // event listeners 
 menuEmail.addEventListener("click", toggleShowMenuDesktop)
 menuHamburger.addEventListener("click",toggleShowMenuMobile)
 menuCarritoIcon.addEventListener("click",toggleShowCarritoMenu)
+closeDetails.addEventListener("click",closeProductDetails)
 
 // funciones toggle
 
 function toggleShowMenuDesktop(){
     menuCarrito.classList.add("inactive")
     menusito.classList.toggle("inactive") 
-
+    productDetails.classList.add("inactive")
  }
 
  function toggleShowMenuMobile(){
     menuCarrito.classList.add("inactive")
     mobileMenu.classList.toggle("inactive")
-
+    productDetails.classList.add("inactive")
  }
 
  function toggleShowCarritoMenu(){
     menusito.classList.add("inactive")
     mobileMenu.classList.add("inactive")
     menuCarrito.classList.toggle("inactive")
+    productDetails.classList.add("inactive")
+ }
+
+ function openProductDetails(){
+
+    menusito.classList.add("inactive")
+    mobileMenu.classList.add("inactive")
+    menuCarrito.classList.add("inactive")
+    productDetails.classList.remove("inactive")
+
+ }
+ function closeProductDetails(){
+
+    productDetails.classList.add("inactive")
 
  }
 
@@ -46,6 +64,7 @@ function toggleShowMenuDesktop(){
         const img = document.createElement('img')
         img.setAttribute('src',product.image)
         productCard.appendChild(img)
+        img.addEventListener("click",openProductDetails)
     
         const productInfo = document.createElement('div')
         productInfo.classList.add("product-info")
