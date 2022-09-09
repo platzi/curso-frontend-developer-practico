@@ -132,6 +132,9 @@ renderProducts(productList);
 const productDetailAside = document.querySelector('.product-detail1');
 
 function openProductDetail() {
+    menuAccount.classList.add('inactive');
+    menuMobile.classList.add('inactive');
+    aside.classList.add('inactive');
     productDetailAside.classList.remove('inactive');
 }
 
