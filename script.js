@@ -189,15 +189,13 @@ function addToCart(add){
     productImgCart.setAttribute(`src`, `./icons/bt_add_to_cart.svg`);
     
     
-    shoppingCart.append(figureContainerCart, nameProductCart, priceProductCard);
+    shoppingCart.append(figureContainerCart, nameProductCart, priceProductCard, productImgCart);
     
     orderContainer.append(shoppingCart);
 
     myOrderContent.appendChild(orderContainer);
 
   }
-
-  
 }
 addToCart(productList);
 
@@ -213,7 +211,7 @@ addToCart(productList);
 Checkout
 </button>
 </div>*/
-function orderCheckout(add){
+/*function orderCheckout(add){
 for(product of add){
     const containerOrderList = document.createElement(`div`);
     containerOrderList.classList.add(`order-container`);
@@ -237,7 +235,7 @@ for(product of add){
 
     shoppingCartContainer.appendChild(containerOrderList);
   }
-}
+}*/
 
 
 
