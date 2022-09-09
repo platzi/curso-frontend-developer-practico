@@ -7,6 +7,8 @@ const mobileMenu = document.querySelector(`.mobile-menu`);
 const shoppingCartContainer = document.querySelector(`#shoppingCartContainer`);
 const cardsContainer = document.querySelector(`.cards-container`);
 const productDetailContainer = document.querySelector(`#productDetail`);
+const myOrderContent = document.querySelector(`.my-order-content`);
+
 
 
 nav_email.addEventListener(`click`, toggleDesktopMenu);
@@ -24,7 +26,6 @@ function toggleDesktopMenu(){
   desktopMenu.classList.toggle(`inactive`);
 
   const isProductDetailContainer = productDetailContainer.classList.add(`inactive`);
-  //productDetailContainer.classList.add(`inactive`);
   
 }
 
@@ -97,6 +98,9 @@ productList.push({
 });
 
 
+
+
+
 /* <div class="product-card">
 <img src="https://images.pexels.com/photos/276517/pexels-photo-276517.jpeg?auto=compress&cs=tinysrgb&dpr=2&h=650&w=940" alt="">
 <div class="product-info">--productInfo---
@@ -133,6 +137,7 @@ function renderProducts(arr){
 
   const productInfoFigure = document.createElement(`figure`);
   const productImgCart = document.createElement(`img`);
+
   productImgCart.setAttribute(`src`, `./icons/bt_add_to_cart.svg`);
 //____Contenedor Secundario(mandar a llamar los elementos dentro del contenedor)_____
   productInfoFigure.appendChild(productImgCart);
@@ -148,3 +153,91 @@ function renderProducts(arr){
 }
 
 renderProducts(productList);
+
+   /*<div class="my-order-content">
+      <div class="shopping-cart">
+        <figure>
+          <img src="https://images.pexels.com/photos/100582/pexels-photo-100582.jpeg?auto=compress&cs=tinysrgb&w=600" alt="bike">
+        </figure>
+        <p>Bike</p>
+        <p>$30,00</p>
+        <img src="./icons/icon_close.png" alt="close">
+      </div>
+      */
+  
+function addToCart(add){
+  for(product of add){
+    const orderContainer = document.createElement(`div`);
+    orderContainer.classList.add(`my-order-content`);
+
+    const shoppingCart = document.createElement(`div`);
+    shoppingCart.classList.add(`shopping-cart`);
+
+    const figureContainerCart = document.createElement(`figure`);
+    const imgFigureCart = document.createElement(`img`);
+    imgFigureCart.setAttribute(`src`, product.image);
+    imgFigureCart.addEventListener(`click`, toggleCarAside);
+
+    figureContainerCart.appendChild(imgFigureCart);
+
+    const nameProductCart = document.createElement(`p`);
+    nameProductCart.innerText = product.name;
+    const priceProductCard = document.createElement(`p`);
+    priceProductCard.innerText = `$` + product.price;
+    
+    const productImgCart =  document.createElement(`img`);
+    productImgCart.setAttribute(`src`, `./icons/bt_add_to_cart.svg`);
+    
+    
+    shoppingCart.append(figureContainerCart, nameProductCart, priceProductCard);
+    
+    orderContainer.append(shoppingCart);
+
+    myOrderContent.appendChild(orderContainer);
+
+  }
+
+  
+}
+addToCart(productList);
+
+/*<div class="order-container">
+<div class="order">
+<p>
+  <span>Total</span>
+</p>
+<p>$560.00</p>
+</div>
+
+<button class="primary-button">
+Checkout
+</button>
+</div>*/
+function orderCheckout(add){
+for(product of add){
+    const containerOrderList = document.createElement(`div`);
+    containerOrderList.classList.add(`order-container`);
+    //---ORDER---
+    const cartOrder = document.createElement(`div`);
+    cartOrder.classList.add(`order`);
+
+    const containerTotal = document.createElement(`p`);
+    containerTotal.innerText = `Total`;
+    const spanTotal = document.createElement(`span`);
+    spanTotal.innerText = `$` +`550`;
+
+    //---button---
+    const primaryButton = document.createElement(`button`);
+    primaryButton.innerText = `Checkout`;
+    primaryButton.classList.add(`primary-button`);
+
+    cartOrder.append(containerTotal, spanTotal);
+
+    containerOrderList.append(cartOrder, primaryButton);
+
+    shoppingCartContainer.appendChild(containerOrderList);
+  }
+}
+
+
+
