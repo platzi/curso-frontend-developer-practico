@@ -5,7 +5,10 @@ const navbarEmail = document.querySelector('.navbar-email');
 navbarEmail.addEventListener('click', () => {
     desktopMenu.classList.toggle('active');
     if (productDetail.classList.contains('active')) {
-        productDetail.classList.remove('active')
+        productDetail.classList.remove('active');
+    }
+    if (detalleProductoLateral.classList.contains('active')) {
+        detalleProductoLateral.classList.remove('active');//
     }
 })
 
@@ -16,6 +19,7 @@ const mobileMenu = document.querySelector('.mobile-menu');
 menuMovilIco.addEventListener('click', () => {
     mobileMenu.classList.toggle('active');
     productDetail.classList.remove('active');
+    detalleProductoLateral.classList.remove('active');//
 
 })
 
@@ -27,10 +31,11 @@ menuCarritoIcon.addEventListener('click', () => {
     productDetail.classList.toggle('active');
     desktopMenu.classList.remove('active');
     mobileMenu.classList.remove('active');
-
+    detalleProductoLateral.classList.remove('active');//
 
 })
 
+/* === Agregar Productos Dinamicamente ====*/
 // < div class="product-card" >
 //     <img src="https://images.pexels.com/photos/276517/pexels-photo-276517.jpeg?auto=compress&cs=tinysrgb&dpr=2&h=650&w=940"
 //         alt="">
@@ -106,5 +111,27 @@ for (pro of obj) {
     cardContainer.append(productoCard);
     console.log(productoCard)
 }
+
+/* Mostrar Detalle de Productos Lateral*/
+const producto = document.querySelector('.cards-container');
+const detalleProductoLateral = document.querySelector('.producto-detail-lateral');
+
+//Mostrar Menu lateral al hcer click en un producto
+producto.addEventListener('click', () => {
+    detalleProductoLateral.classList.add('active');
+})
+
+const detallProductoLateralClose = document.querySelector('.producto-detail-lateral-close');
+detallProductoLateralClose.addEventListener('click', () => {
+    detalleProductoLateral.classList.toggle('active');
+    desktopMenu.classList.remove('active');
+    mobileMenu.classList.remove('active');
+    productDetail.classList.remove('active');
+
+})
+
+
+
+
 
 
