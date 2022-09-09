@@ -7,7 +7,8 @@ const menuProductDetails = document.querySelector('#shopingCartContainer');
 
 const cardConstainer = document.querySelector('.cards-container');
 
-
+const cards = document.querySelector('.product-card');
+const productInfo = document.querySelector('#productDetail');
 
 navEmail.addEventListener('click', toggleDestokMenu);
 menuBoton.addEventListener('click', toggleMobileMenu);
@@ -25,9 +26,13 @@ function toggleDestokMenu() {
 
 function toggleMobileMenu() {
  const mProductDetailOpen = !menuProductDetails.classList.contains('inactive');
+ const productDetailOpen = !productInfo.classList.contains('inactice');
 
  if (mProductDetailOpen) {
     menuProductDetails.classList.add('inactive');
+ }
+ if (productDetailOpen) {
+  productInfo.classList.add('inactive');
  }
  mobileMenu.classList.toggle('inactive');
 }
@@ -35,12 +40,15 @@ function toggleMobileMenu() {
 function toggleCarIcon(){
     const mobileMenuClose = mobileMenu.classList.contains('inactive');
     const destokMenuOpen = !destokMenu.classList.contains('inactive');
-
+    const productDetailOpen = !productInfo.classList.contains('inactice');
     if (destokMenuOpen) {
         destokMenu.classList.add('inactive');
     }
     if (!mobileMenuClose) {
          mobileMenu.classList.add('inactive');
+     }
+     if (productDetailOpen) {
+      productInfo.classList.add('inactive');
      }
 
      menuProductDetails.classList.toggle('inactive');
@@ -108,17 +116,14 @@ cardConstainer.innerHTML += htmlCards;
 
 renderProducts(productList);
 
-const precio = document.getElementById('precio');
-const nombre = document.getElementById('nombre');
-const src = document.getElementById('src'); 
+ 
 
-const cards = document.querySelector('.product-card');
-const productInfo = document.querySelector('#productDetail');
+
 
 //cards.addEventListener('click',seleccionImg);
 
 function seleccionImg(){
- 
+ const productsCarOpen = !menuProductDetails.classList.contains('inactive');
    document.querySelectorAll(".img").forEach(el => {
 
     el.addEventListener("click", e => {
@@ -127,15 +132,33 @@ function seleccionImg(){
   
       console.log("Se ha clickeado el id "+id);
       
-      src.setAttribute('src', productList[id].img);
-      precio.innerText ='$' + productList[id].price;
-      nombre.innerText = productList[id].name;
+      const HtmlProductDetail = `<div onclick="closeProduct()" class="product-detail-close">
+      <img  src="./icons/icon_close.png" alt="close">
+    </div>
+    <img id="src" src="${productList[id].img}" >
+    <div class="product-info">
+      <p id="precio">${productList[id].price}</p>
+      <p id="nombre">${productList[id].name}</p>
+      <p>With its practical position, this bike also fulfills a decorative function, add your hall or workspace.</p>
+      <button class="primary-button add-to-cart-button">
+        <img src="./icons/bt_add_to_cart.svg" alt="add to cart">
+        Add to cart
+      </button>
+    </div>`;
+    productInfo.innerHTML = HtmlProductDetail;
       
     });
-    productInfo.classList.toggle('inactive');
+    if (productsCarOpen) {
+      menuProductDetails.classList.add('inactive');
+    }
+    productInfo.classList.remove('inactive');
   });
 
  
+}
+
+function closeProduct(){
+  productInfo.classList.add('inactive');
 }
 
 
