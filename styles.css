@@ -124,6 +124,7 @@
     top: 60px;
     left: 0px;
     padding: 24px;
+    background-color: var(--white);
   }
   .mobile-menu a {
     text-decoration: none;
@@ -151,6 +152,7 @@
     color: var(--hospital-green) !important;
   }
   .product-detail {
+    background-color: var(--white);
     width: 360px;
     padding: 0 24px;
     box-sizing: border-box;
