@@ -89,6 +89,13 @@ productList.push({
         'With its practical position, this bike also fulfills a decorative function, add your hall or workspace.',
 });
 productList.push({
+    name: 'Violin',
+    price: 680,
+    image: 'https://images.unsplash.com/photo-1612225330812-01a9c6b355ec?ixlib=rb-1.2.1&ixid=MnwxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8&auto=format&fit=crop&w=870&q=80',
+    description:
+        'With its practical position, this bike also fulfills a decorative function, add your hall or workspace.',
+});
+productList.push({
     name: `Auto`,
     price: 3020,
     image: 'https://images.unsplash.com/photo-1541443131876-44b03de101c5?ixlib=rb-1.2.1&ixid=MnwxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8&auto=format&fit=crop&w=870&q=80',
@@ -99,6 +106,41 @@ productList.push({
     name: 'Bike',
     price: 220,
     image: 'https://images.unsplash.com/photo-1576435728678-68d0fbf94e91?ixlib=rb-1.2.1&ixid=MnwxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8&auto=format&fit=crop&w=1048&q=80',
+    description:
+        'With its practical position, this bike also fulfills a decorative function, add your hall or workspace.',
+});
+productList.push({
+    name: 'Piano',
+    price: 850,
+    image: 'https://images.pexels.com/photos/322719/pexels-photo-322719.jpeg?auto=compress&cs=tinysrgb&w=1260&h=750&dpr=1',
+    description:
+        'With its practical position, this bike also fulfills a decorative function, add your hall or workspace.',
+});
+productList.push({
+    name: 'Motocicleta',
+    price: 3240,
+    image: 'https://images.unsplash.com/photo-1449426468159-d96dbf08f19f?ixlib=rb-1.2.1&ixid=MnwxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8&auto=format&fit=crop&w=870&q=80',
+    description:
+        'With its practical position, this bike also fulfills a decorative function, add your hall or workspace.',
+});
+productList.push({
+    name: 'Sofa',
+    price: 400,
+    image: 'https://images.unsplash.com/photo-1558898434-af897d9ac0a4?ixlib=rb-1.2.1&ixid=MnwxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8&auto=format&fit=crop&w=870&q=80',
+    description:
+        'With its practical position, this bike also fulfills a decorative function, add your hall or workspace.',
+});
+productList.push({
+    name: 'Pesas',
+    price: 1020,
+    image: 'https://images.unsplash.com/photo-1562771242-a02d9090c90c?ixlib=rb-1.2.1&ixid=MnwxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8&auto=format&fit=crop&w=871&q=80',
+    description:
+        'With its practical position, this bike also fulfills a decorative function, add your hall or workspace.',
+});
+productList.push({
+    name: 'Zapatillas',
+    price: 135,
+    image: 'https://images.unsplash.com/photo-1460353581641-37baddab0fa2?ixlib=rb-1.2.1&ixid=MnwxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8&auto=format&fit=crop&w=871&q=80',
     description:
         'With its practical position, this bike also fulfills a decorative function, add your hall or workspace.',
 });
