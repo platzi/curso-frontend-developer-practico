@@ -3,7 +3,7 @@ const desmenu = document.querySelector(".desktop-menu")
 const burguer = document.querySelector(".menu")
 const mobileMenu = document.querySelector(".mobile-menu")
 const carrito = document.querySelector(".navbar-shopping-cart")
-const listaCarrito = document.querySelector(".product-detail")
+const listaCarrito = document.querySelector("#shoppingCartContainer")
 const cardsContainer = document.querySelector('.cards-container')
 
 
@@ -90,9 +90,7 @@ function car() {
 
 // SEGUNDA FORMA DE HACERLO 
 
-const productList = [
-
-];
+const productList = [];
 
 productList.push({
     name : 'bike',
