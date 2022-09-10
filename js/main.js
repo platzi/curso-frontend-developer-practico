@@ -103,16 +103,20 @@ productList.push({
         'With its practical position, this bike also fulfills a decorative function, add your hall or workspace.',
 });
 
+// Declaración de selectores y array para Shopping Cart
 const shoppingContainer = document.querySelector('.shopping-container');
 const totalProduct = document.querySelector('.product-count');
 const totalPrice = document.querySelector('.price-count');
 const shoppingPriceProducts = [];
+
+// Función para sunar el precio de los productos en el carrito
 const addPriceProducts = arr => {
     let total = 0;
     arr.forEach(product => (total += product));
     return total;
 };
 
+// Agregar producto en 'Shopping Cart'
 const addShopping = product => {
     const shoppingCart = document.createElement('div');
     shoppingCart.classList.add('shopping-cart');
@@ -131,6 +135,8 @@ const addShopping = product => {
     const removeIcon = document.createElement('img');
     removeIcon.setAttribute('src', './icons/icon_close.png');
     removeIcon.setAttribute('alt', 'close');
+    removeIcon.classList.add('cur-p');
+    removeIcon.addEventListener('click', removeShopping);
 
     shoppingCart.appendChild(shoppingFigure);
     shoppingCart.appendChild(productName);
@@ -144,10 +150,23 @@ const addShopping = product => {
         parseInt(totalPrice.textContent.substring(1)) + product.price;
     shoppingPriceProducts.push(product.price);
 
-    totalPrice.innerText = '$ ' + addPriceProducts(shoppingPriceProducts);
+    totalPrice.innerText = `$${addPriceProducts(shoppingPriceProducts)}`;
+
+    // Función para eliminar producto de 'Shopping Cart'
+    function removeShopping() {
+        shoppingCart.remove();
+        totalProduct.innerText = shoppingContainer.childElementCount;
+
+        const totalValue = document.querySelector('.price-count');
+        const totalCurrentValue =
+            parseInt(totalValue.textContent.substring(1)) - product.price;
+
+        totalValue.innerText = `$${totalCurrentValue}`;
+        shoppingPriceProducts.push(product.price - product.price * 2);
+    }
 };
 
-// función para agregar los productos en el main
+// Función para agregar los productos en el main
 const renderProducts = arr => {
     for (let product of arr) {
         const productCard = document.createElement('div');

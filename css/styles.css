@@ -568,7 +568,7 @@ aside.show {
 }
 
 /* Media Query */
-@media screen and (max-width: 640px) {
+@media screen and (max-width: 780px) {
 
   /* ?  Para el nav */
   .menu {
@@ -606,7 +606,7 @@ aside.show {
   }
 }
 
-@media screen and (min-width: 641px) {
+@media screen and (min-width: 781px) {
   .mobile-menu {
     display: none;
   }
