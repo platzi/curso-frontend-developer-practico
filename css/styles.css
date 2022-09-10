@@ -402,18 +402,22 @@ body::-webkit-scrollbar-track:active {
 /* ProductDetail */
 .product-detail-close {
   background: var(--white);
-  width: 14px;
-  height: 14px;
   position: absolute;
+  width: 28px;
+  height: 28px;
   top: 24px;
   left: 24px;
   z-index: 2;
-  padding: 12px;
   border-radius: 50%;
+  padding: 7px;
+  cursor: pointer;
+  display: flex;
+  justify-content: center;
+  align-items: center;
 }
 
-.product-detail-close:hover {
-  cursor: pointer;
+.product-detail-close img {
+  width: 100%;
 }
 
 #productDetail>img:nth-child(2) {
@@ -438,7 +442,7 @@ body::-webkit-scrollbar-track:active {
   color: var(--very-light-pink);
   font-size: var(--md);
   margin-top: 0;
-  margin-bottom: 36px;
+  margin-bottom: 16px;
 }
 
 .product-info p:nth-child(3) {

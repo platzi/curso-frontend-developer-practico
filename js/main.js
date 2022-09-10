@@ -166,6 +166,23 @@ const addShopping = product => {
     }
 };
 
+// Función para poner los datos del producto seleccionado en la ventana de Detalles
+const detailsProduct = product => {
+    openProductDetailAside();
+
+    const detailImage = document.querySelector('#productDetail>img');
+    const detailPrice = document.querySelector('.product-info p:nth-child(1)');
+    const detailName = document.querySelector('.product-info p:nth-child(2)');
+    const detailDescription = document.querySelector(
+        '.product-info p:nth-child(3)'
+    );
+
+    detailImage.setAttribute('src', product.image);
+    detailPrice.innerText = `$${product.price}`;
+    detailName.innerText = product.name;
+    detailDescription.innerText = product.description;
+};
+
 // Función para agregar los productos en el main
 const renderProducts = arr => {
     for (let product of arr) {
@@ -176,7 +193,9 @@ const renderProducts = arr => {
         productImg.setAttribute('src', product.image);
         productImg.setAttribute('alt', product.name);
         productImg.classList.add('cur-p');
-        productImg.addEventListener('click', openProductDetailAside);
+        productImg.addEventListener('click', function () {
+            detailsProduct(product);
+        });
 
         const productInfo = document.createElement('div');
         productInfo.classList.add('product-info');
