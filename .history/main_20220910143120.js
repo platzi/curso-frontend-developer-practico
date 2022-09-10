@@ -142,9 +142,9 @@ function renderProducts (arr) {
     productCard.appendChild(productImg)
     productCard.appendChild(productInfo)
   
-    cardsContainer.appendChild(productCard)  
+    cardsContainer.appendChild(productCard)
+  
+  
   
   }
 }
-
-renderProducts(productsList)
