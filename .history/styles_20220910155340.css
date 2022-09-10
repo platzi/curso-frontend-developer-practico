@@ -1,4 +1,8 @@
-
+*{
+  margin: 0;
+  padding: 0;
+  box-sizing: border-box;
+}
 :root {
   --white: #FFFFFF;
   --black: #000000;
@@ -131,7 +135,6 @@ nav {
   padding: 24px;
   left: 0;
   width: 100%;
-  background-color: var(--white);
 }
 .mobile-menu a {
   text-decoration: none;
@@ -144,7 +147,7 @@ nav {
   padding: 0;
   margin: 24px 0 0;
   list-style: none;
-  
+  left: 0;
 }
 .mobile-menu ul:nth-child(1) {
   border-bottom: 1px solid var(--very-light-pink);
@@ -176,11 +179,6 @@ aside {
 #shoppingCartContainer {
   padding: 0  24px;
 
-}
-
-#productDetail{
-  padding-left: 60px;
-  
 }
 .title-container {
   display: flex;

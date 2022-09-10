@@ -1,4 +1,8 @@
-
+*{
+  margin: 0;
+  padding: 0;
+  box-sizing: border-box;
+}
 :root {
   --white: #FFFFFF;
   --black: #000000;
@@ -129,9 +133,8 @@ nav {
   position: absolute;
   top: 60px;
   padding: 24px;
-  left: 0;
+  left: -20px;
   width: 100%;
-  background-color: var(--white);
 }
 .mobile-menu a {
   text-decoration: none;
@@ -176,11 +179,6 @@ aside {
 #shoppingCartContainer {
   padding: 0  24px;
 
-}
-
-#productDetail{
-  padding-left: 60px;
-  
 }
 .title-container {
   display: flex;

@@ -3,7 +3,7 @@ const desktopMenu = document.querySelector('.desktop-menu');
 const menuHamIcon = document.querySelector('.menu');
 const mobileMenu = document.querySelector('.mobile-menu');
 const menuCarritoIcon = document.querySelector('.navbar-shopping-cart');
-const shoppingCartContainer = document.querySelector('#shoppingCartContainer');
+const shoppingCardContainer = document.querySelector('#shoppingCardContainer');
 
 menuEmail.addEventListener("click", toggleDesktopMenu);
 
@@ -14,7 +14,7 @@ function toggleDesktopMenu() {
   }
   desktopMenu.classList.toggle("inactive"); */
   mobileMenu.classList.add('inactive');
-  shoppingCartContainer.classList.add('inactive');
+  shoppingCardContainer.classList.add('inactive');
 
   desktopMenu.classList.toggle('inactive');
 }
@@ -22,17 +22,17 @@ function toggleDesktopMenu() {
 menuHamIcon.addEventListener("click", toggleMobileMenu);
 
 function toggleMobileMenu () {
-  /* const isAsideClosed = aside.classList.contains('inactive')
-  if (!isAsideClosed){
-    aside.classList.add('inactive')
+  /* const isshoppingCardContainerClosed = shoppingCardContainer.classList.contains('inactive')
+  if (!isshoppingCardContainerClosed){
+    shoppingCardContainer.classList.add('inactive')
   }  
   mobileMenu.classList.toggle('inactive') */
     desktopMenu.classList.add('inactive');
-    shoppingCartContainer.classList.add('inactive');
+    shoppingCardContainer.classList.add('inactive');
     mobileMenu.classList.toggle('inactive');
 }
 
-menuCarritoIcon.addEventListener("click", toggleCarritoAside);
+menuCarritoIcon.addEventListener("click", toggleCarritoshoppingCardContainer);
 
 function toggleCarritoAside () {
   /* const isMobileMenuClosed = mobileMenu.classList.contains('inactive')
@@ -43,7 +43,7 @@ function toggleCarritoAside () {
   aside.classList.toggle('inactive') */
     desktopMenu.classList.add('inactive');
     mobileMenu.classList.add('inactive');
-    shoppingCartContainer.classList.toggle('inactive');
+    shoppingCardContainer.classList.toggle('inactive');
 }
 
 const cardsContainer = document.querySelector('.cards-container')

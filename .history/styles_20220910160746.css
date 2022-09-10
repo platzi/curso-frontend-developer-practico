@@ -130,7 +130,7 @@ nav {
   top: 60px;
   padding: 24px;
   left: 0;
-  width: 100%;
+  width: 115%;
   background-color: var(--white);
 }
 .mobile-menu a {
@@ -176,11 +176,6 @@ aside {
 #shoppingCartContainer {
   padding: 0  24px;
 
-}
-
-#productDetail{
-  padding-left: 60px;
-  
 }
 .title-container {
   display: flex;

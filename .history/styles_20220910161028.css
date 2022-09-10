@@ -174,13 +174,8 @@ aside {
 /* shoppingCart */
 
 #shoppingCartContainer {
-  padding: 0  24px;
+  padding: 0  50px;
 
-}
-
-#productDetail{
-  padding-left: 60px;
-  
 }
 .title-container {
   display: flex;

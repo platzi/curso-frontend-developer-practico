@@ -180,7 +180,7 @@ aside {
 
 #productDetail{
   padding-left: 60px;
-  
+  border-radius: 3%;
 }
 .title-container {
   display: flex;
