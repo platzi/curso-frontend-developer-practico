@@ -30,7 +30,6 @@ function toggleMobileMenu () {
     aside.classList.add('inactive')
   }  
   mobileMenu.classList.toggle('inactive') */
-    closeProductDetailAside()
     desktopMenu.classList.add('inactive');
     shoppingCartContainer.classList.add('inactive');
     mobileMenu.classList.toggle('inactive');

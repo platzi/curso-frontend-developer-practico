@@ -30,7 +30,6 @@ function toggleMobileMenu () {
     aside.classList.add('inactive')
   }  
   mobileMenu.classList.toggle('inactive') */
-    closeProductDetailAside()
     desktopMenu.classList.add('inactive');
     shoppingCartContainer.classList.add('inactive');
     mobileMenu.classList.toggle('inactive');
@@ -160,8 +159,6 @@ function renderProducts (arr) {
 }
 
 function openProductDetailAside (){
-  shoppingCartContainer.classList.add('inactive')
-
   productDetailContainer.classList.remove('inactive')
 }
 
