@@ -1,4 +1,5 @@
 import { fetchData, container, API } from "./products.js";
+let shoppingCart = {};
 
 let mail = document.getElementById('email');
 let deskMenu = document.getElementById('menu-desktop');
@@ -164,15 +165,20 @@ fetchData(`${API}/products`)
     .finally(() => console.log('Finalizado')) //AL FINALIZAR SIN IMPORTAR SI HAY O NO ERROR
 
 function addShopping(data,id){
-    // console.log(data);
-    // console.log(id);
-    // console.log(data.children[0]); //img
-    // console.log(data.children[1].children[0].children[0].textContent); //precio
-    // console.log(data.children[1].children[0].children[1].textContent); //titulo
     const buy = {
         id: id,
-        img: data.children[0],
-        precio: data.children[1].children[0].children[0].textContent,
-        titulo: data.children[1].children[0].children[1].textContent,
+        img: data.children[0].getAttribute('src'),
+        price: data.children[1].children[0].children[0].textContent,
+        title: data.children[1].children[0].children[1].textContent,
+        quantity: 1,
     };
+
+    if(shoppingCart.hasOwnProperty(buy.id)){
+        // console.log(shoppingCart[id].quantity);
+        buy.quantity = shoppingCart[buy.id].quantity + 1;
+    }
+
+    shoppingCart[buy.id] = {...buy};
+
+    console.log(shoppingCart);
 }
