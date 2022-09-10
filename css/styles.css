@@ -92,7 +92,8 @@ nav {
 }
 
 .navbar-left ul li a:hover,
-.navbar-right ul li a:hover {
+.navbar-right ul li a:hover,
+.navbar-left ul li .select {
   border: 1px solid var(--hospital-green);
   color: var(--hospital-green);
 }
@@ -125,6 +126,7 @@ nav {
   justify-content: center;
   align-items: center;
 }
+
 
 /* Menu en desktop */
 .desktop-menu {
