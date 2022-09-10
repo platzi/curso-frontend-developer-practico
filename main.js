@@ -9,6 +9,7 @@ let mobileMenu = document.getElementById('menu-hamburguer');
 let shoppingCard = document.getElementById('cart');
 let detailProduct = document.querySelector('.shopping-details');
 let arrowMenu = document.getElementById('arrow');
+let orderContainer = document.getElementById('order');
 
 let descriptionProduct = document.getElementById('description-product');
 let imgProduct = document.getElementById('description-product-img');
@@ -107,6 +108,7 @@ fetchData(`${API}/products`)
             const figure = document.createElement('FIGURE');
             const icon = document.createElement('IMG');
             icon.setAttribute('src', './icons/bt_add_to_cart.svg');
+            icon.setAttribute('value', productos[i].id);
 
             // HACER CLICK EN UNA IMG DE CARDS
             imgCard.addEventListener('click', e => {
@@ -131,18 +133,46 @@ fetchData(`${API}/products`)
                 descriptionProduct.children[2].children[0].textContent = productInfo.children[0].children[0].textContent;
                 descriptionProduct.children[2].children[1].textContent = productInfo.children[0].children[1].textContent;
                 descriptionProduct.children[2].children[2].textContent = productos[productCard.getAttribute('id')].description;
-
-                // closeDetailProduct.addEventListener('click', asideClose);
             });
 
             figure.append(icon);
             productInfo.append(figure);
 
             fragment.append(productCard);
+            icon.addEventListener('click', e => {
+                let id = e.target.getAttribute('value');
+                let setCard = e.target.parentElement.parentElement.parentElement;
+                addShopping(setCard,id);
+
+                // <div class="shopping-cart">
+                //     <figure>
+                //         <img src="https://images.pexels.com/photos/276517/pexels-photo-276517.jpeg?auto=compress&cs=tinysrgb&dpr=2&h=650&w=940"
+                //         alt="bike">
+                //     </figure>
+                //     <p>Bike</p>
+                //     <p>$30,00</p>
+                //     <img src="./icons/icon_close.png" alt="close">
+                // </div>
+                // AQUI LO DEJE TEMINARLO
+            });
         }
 
         container.append(fragment); //AGREGANDO TODOS LOS CARDS DENTRO DE UN CONTENEDOR
+
     })
     .catch(error => console.error(error)) // EN CASO DE ALGUN ERROR
     .finally(() => console.log('Finalizado')) //AL FINALIZAR SIN IMPORTAR SI HAY O NO ERROR
 
+function addShopping(data,id){
+    // console.log(data);
+    // console.log(id);
+    // console.log(data.children[0]); //img
+    // console.log(data.children[1].children[0].children[0].textContent); //precio
+    // console.log(data.children[1].children[0].children[1].textContent); //titulo
+    const buy = {
+        id: id,
+        img: data.children[0],
+        precio: data.children[1].children[0].children[0].textContent,
+        titulo: data.children[1].children[0].children[1].textContent,
+    };
+}
