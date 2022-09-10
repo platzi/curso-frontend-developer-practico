@@ -137,7 +137,6 @@ nav {
   /* margin-bottom: 24px; */
 }
 .mobile-menu ul {
-  background-color: var(--white);
   padding: 0;
   margin: 24px 0 0;
   list-style: none;
@@ -233,11 +232,6 @@ nav {
   font-size: var(--md);
   font-weight: bold;
   height: 50px;
-}
-
-.my-order-content{
-  border: 1px solid var(--text-input-field);
-  border-radius: 2%;
 }
 
    

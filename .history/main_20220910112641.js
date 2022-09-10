@@ -8,41 +8,31 @@ const aside = document.querySelector('.product-detail');
 menuEmail.addEventListener("click", toggleDesktopMenu);
 
 function toggleDesktopMenu() {
-/*   const isAsideClosed = aside.classList.contains('inactive')
+  const isAsideClosed = aside.classList.contains('inactive')
   if (!isAsideClosed) {
     aside.classList.add('inactive')    
   }
-  desktopMenu.classList.toggle("inactive"); */
-  mobileMenu.classList.add('inactive');
-  aside.classList.add('inactive');
-
-  desktopMenu.classList.toggle('inactive');
+  desktopMenu.classList.toggle("inactive");
 }
 
 menuHamIcon.addEventListener("click", toggleMobileMenu);
 
 function toggleMobileMenu () {
-  /* const isAsideClosed = aside.classList.contains('inactive')
+  const isAsideClosed = aside.classList.contains('inactive')
   if (!isAsideClosed){
     aside.classList.add('inactive')
   }  
-  mobileMenu.classList.toggle('inactive') */
-    desktopMenu.classList.add('inactive');
-    aside.classList.add('inactive');
-    mobileMenu.classList.toggle('inactive');
+  mobileMenu.classList.toggle('inactive')
 }
 
 menuCarritoIcon.addEventListener("click", toggleCarritoAside);
 
 function toggleCarritoAside () {
-  /* const isMobileMenuClosed = mobileMenu.classList.contains('inactive')
+  const isMobileMenuClosed = mobileMenu.classList.contains('inactive')
   //si mobileMenu esta open, hay que cerrarlo
   if (!isMobileMenuClosed) {
     mobileMenu.classList.add('inactive')
   }
-  aside.classList.toggle('inactive') */
-    desktopMenu.classList.add('inactive');
-    mobileMenu.classList.add('inactive');
-    aside.classList.toggle('inactive');
+  aside.classList.toggle('inactive')
 }
 

@@ -236,8 +236,7 @@ nav {
 }
 
 .my-order-content{
-  border: 1px solid var(--text-input-field);
-  border-radius: 2%;
+  border: 1px solid var(--black);
 }
 
    

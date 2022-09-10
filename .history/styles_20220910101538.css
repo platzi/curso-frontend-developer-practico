@@ -235,11 +235,6 @@ nav {
   height: 50px;
 }
 
-.my-order-content{
-  border: 1px solid var(--text-input-field);
-  border-radius: 2%;
-}
-
    
 @media (max-width: 640px) {
   .product-detail {
