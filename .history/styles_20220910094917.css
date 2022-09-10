@@ -177,9 +177,3 @@ nav {
     display: none;
   }
 }
-
-@media (min-width: 641px) {
-  .mobile-menu {
-    display: none;
-  }
-}

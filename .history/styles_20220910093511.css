@@ -82,7 +82,7 @@ nav {
   align-items: center;
 }
 
-/* menu desktop */
+//menu desktop
 
 .desktop-menu {
   position: absolute;
@@ -123,11 +123,9 @@ nav {
   display: inline-block;
 }
 
-/* menu-mobile */
+//menu-mobile
 
 .mobile-menu {
-  position: absolute;
-  top: 60px;
   padding: 24px;
 }
 .mobile-menu a {
@@ -170,16 +168,6 @@ nav {
     display: none;
   }
   .navbar-email {
-    display: none;
-  }
-
-  .desktop-menu {
-    display: none;
-  }
-}
-
-@media (min-width: 641px) {
-  .mobile-menu {
     display: none;
   }
 }

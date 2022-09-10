@@ -178,8 +178,6 @@ nav {
   }
 }
 
-@media (min-width: 641px) {
-  .mobile-menu {
-    display: none;
-  }
+@media (max-width: 640px) {
+  
 }
