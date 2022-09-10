@@ -257,11 +257,62 @@ aside {
   right: 0;
   background-color: var(--white);
   z-index: 400;
+  max-height: calc(100vh - 61px);
   overflow-x: hidden;
   transform-origin: right;
   transition-duration: .3s;
   transition-property: width, box-shadow;
+  overflow-y: scroll;
 }
+
+aside::-webkit-scrollbar {
+  width: 8px;
+}
+
+body::-webkit-scrollbar {
+  width: 14px;
+}
+
+aside::-webkit-scrollbar-thumb,
+body::-webkit-scrollbar-thumb {
+  border-radius: 4px;
+  -webkit-border-radius: 4px;
+  -moz-border-radius: 4px;
+}
+
+body::-webkit-scrollbar-thumb {
+  background: #cccccc;
+}
+
+aside::-webkit-scrollbar-thumb {
+  background: var(--hospital-green);
+}
+
+aside:-webkit-scrollbar-thumb:active,
+body:-webkit-scrollbar-thumb:active {
+  background-color: #999999;
+}
+
+aside::-webkit-scrollbar-thumb:hover,
+body::-webkit-scrollbar-thumb:hover {
+  background: var(--hospital-green);
+  box-shadow: 0 0 2px 1px rgba(0, 0, 0, 0.2);
+}
+
+/* Estilos track de scroll */
+aside::-webkit-scrollbar-track,
+body::-webkit-scrollbar-track {
+  background: #e1e1e1;
+  border-radius: 4px;
+}
+
+aside::-webkit-scrollbar-track:hover,
+body::-webkit-scrollbar-track:hover,
+aside::-webkit-scrollbar-track:active,
+body::-webkit-scrollbar-track:active {
+  background: #d4d4d4;
+}
+
 
 /* ShoppingCart */
 #shoppingCartContainer {
