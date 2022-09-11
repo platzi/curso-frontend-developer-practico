@@ -47,10 +47,11 @@ linav.addEventListener('click', desplegable)
 function desplegable() {
     
 
-    if (listaCarrito.classList.contains('inactive')) {
+    if (listaCarrito.classList.contains('inactive') && detallesProduct.classList.contains('inactive')){
         desmenu.classList.toggle('inactive')
     } else {
         listaCarrito.classList.add('inactive')
+        detallesProduct.classList.add('inactive')
         desmenu.classList.toggle('inactive')
     }
 }
@@ -62,10 +63,11 @@ burguer.addEventListener('click', hamburguesa)
 function hamburguesa() {
     
 
-    if (listaCarrito.classList.contains('inactive')) {
+    if (listaCarrito.classList.contains('inactive') && detallesProduct.classList.contains('inactive')) {
         mobileMenu.classList.toggle('inactive')
     } else {
         listaCarrito.classList.add('inactive')
+        detallesProduct.classList.add('inactive')
         mobileMenu.classList.toggle('inactive')
     }
     
@@ -79,11 +81,12 @@ function car() {
     // listaCarrito.classList.toggle('inactive')
    
 
-    if(mobileMenu.classList.contains('inactive') && desmenu.classList.contains('inactive')){
+    if(mobileMenu.classList.contains('inactive') && desmenu.classList.contains('inactive') && detallesProduct.classList.contains('inactive')){
         listaCarrito.classList.toggle('inactive')
     } else {
         mobileMenu.classList.add('inactive')
         desmenu.classList.add('inactive')
+        detallesProduct.classList.add('inactive')
         listaCarrito.classList.toggle('inactive')
     }
 }
@@ -142,60 +145,40 @@ productList.push({
         </div>
       </div> */
 
-// for (product of productList) {
-//     // CREAR DIV DE PRODUCT-CARD Y AGREGARLE LA CLASE PRODUCT-CARD
-//    const productCard =  document.createElement('div')
-//    productCard.classList.add('product-card')
 
-// //    CREAR LA ETIQUETA IMG Y AGREGARLE EL ATRIBUTO IMG Y EL ENLACE DE LA IMAGEN QUE SERIA PRODUCT.IMAGE 
-//    const productImg = document.createElement('img')
-//    productImg.setAttribute('src', product.image)
+// PARA ABRIR EL PRODUCT-DETAIL 
 
-// //    CREAR EL DIV Y PONERLE LA CLASE PRODUCT INFO 
-//    const productInfo =  document.createElement('div')
-//    productInfo.classList.add('product-info')
-
-// //    CREAR UN DIV Y CREAR 2 PARRAFOS CON SU CONTENIDO
-//    const divParrafo = document.createElement('div');
-
-//    const parrafoPrice = document.createElement('p')
-//    parrafoPrice.innerText = '$' + product.precio  
-
-//    const parrafoName = document.createElement('p')
-//    parrafoName.innerText = product.name
-
-//     // INSERTAR LOS HIJOS DENTRO DEL PADRE 
-//    divParrafo.appendChild(parrafoPrice)
-//    divParrafo.appendChild(parrafoName)
-
-// //    CREAR UN FIGURE CON SU IMG DENTRO
-//     const figure = document.createElement('figure')
-
-//     const imageFigure = document.createElement('img')
-//     imageFigure.setAttribute('src', './icons/bt_add_to_cart.svg')
-
-//     // INSERTAR LOS HIJOS DENTRO DEL PADRE 
-//     figure.appendChild(imageFigure)
-
-//     // AHORA INSERTARLE LOS HIJOS A PRODUCT-INFO 
-//     productInfo.appendChild(divParrafo)
-//     productInfo.appendChild(figure)
-
-//     // AHORA INSERTAR LOS HIJOS A PRODUCT-CARD
-//     productCard.appendChild(productImg)
-//     productCard.appendChild(productInfo)
-
-//     // AHORA INSERTAR EL PRODUCT-CARD EN CARD-CONTAINER 
-   
-//     cardsContainer.appendChild(productCard);
-// }
+const detallesProduct = document.querySelector('#product-detail')
 
 function renderList(arr) {
     for (product of arr) {
         // CREAR DIV DE PRODUCT-CARD Y AGREGARLE LA CLASE PRODUCT-CARD
        const productCard =  document.createElement('div')
        productCard.classList.add('product-card')
-    
+       productCard.addEventListener('click', abrirProductDetail) 
+
+       function abrirProductDetail() {
+            detallesProduct.classList.remove('inactive')
+
+            if (listaCarrito.classList.contains('inactive') && desmenu.classList.contains('inactive')) {
+                detallesProduct.classList.remove('inactive') 
+            } else {
+                listaCarrito.classList.add('inactive')
+                desmenu.classList.add('inactive')
+                detallesProduct.classList.remove('inactive')
+            }
+         }
+
+        //  PARA CERRAR EL PRODUCT-DETAIL CLICKEANDO EN LA X 
+
+        const x = document.querySelector('.product-detail-close')
+
+        x.addEventListener('click', cerrarProductDetail)
+        function cerrarProductDetail() {
+            detallesProduct.classList.add('inactive')
+
+             }
+
     //    CREAR LA ETIQUETA IMG Y AGREGARLE EL ATRIBUTO IMG Y EL ENLACE DE LA IMAGEN QUE SERIA PRODUCT.IMAGE 
        const productImg = document.createElement('img')
        productImg.setAttribute('src', product.image)
@@ -242,3 +225,25 @@ function renderList(arr) {
 
 renderList(productList)
 
+// PRODUCT-DETAIL 
+// QUIERO QUE AL DARLE CLICK A ALGUN PRODUCTO, SE ABRA EL PRODUCT DETAIL 
+
+// FORMA DE HACERLO 2 
+
+// const detallesProduct = document.querySelector('#product-detail')
+
+// cardsContainer.addEventListener('click', productDetail)
+
+// function productDetail() {
+//     detallesProduct.classList.remove('inactive')
+// }
+
+// // PARA CERRAR EL PRODUCT-DETAIL 
+
+// const x = document.querySelector('.product-detail-close')
+
+// x.addEventListener('click', cerrarProductDetail)
+
+// function cerrarProductDetail() {
+//     detallesProduct.classList.add('inactive')
+// }
