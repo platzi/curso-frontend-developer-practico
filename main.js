@@ -6,7 +6,7 @@ const mobileMenu = document.querySelector(".mobile-menu");
 
 const menuCarritoIcon = document.querySelector(".navbar-shopping-cart");
 const aside = document.querySelector(".product-detail");
-const carsContainer = document.querySelector(".cards-container");
+const cardsContainer = document.querySelector(".cards-container");
 
 menuEmail.addEventListener("click", toggleDesktopMenu);
 burguerIcon.addEventListener("click", showMobileMenu);
