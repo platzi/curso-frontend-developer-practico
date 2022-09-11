@@ -144,17 +144,6 @@ fetchData(`${API}/products`)
                 let id = e.target.getAttribute('value');
                 let setCard = e.target.parentElement.parentElement.parentElement;
                 addShopping(setCard,id);
-
-                // <div class="shopping-cart">
-                //     <figure>
-                //         <img src="https://images.pexels.com/photos/276517/pexels-photo-276517.jpeg?auto=compress&cs=tinysrgb&dpr=2&h=650&w=940"
-                //         alt="bike">
-                //     </figure>
-                //     <p>Bike</p>
-                //     <p>$30,00</p>
-                //     <img src="./icons/icon_close.png" alt="close">
-                // </div>
-                // AQUI LO DEJE TEMINARLO
             });
         }
 
@@ -187,7 +176,32 @@ function addShopping(data,id){
 function showShopping(){
     // console.log(shoppingCart);
     // console.log(Object.values(shoppingCart));
-    // Object.values(shoppingCart).forEach(element => {
-    //     orderContainer
-    // });
+    orderContainer.innerHTML = '';
+    const fragmentoShopping = document.createDocumentFragment();
+    Object.values(shoppingCart).forEach(producto => {
+        const compra = document.createElement('DIV');
+        compra.classList.add('shopping-cart');
+
+        const figure = document.createElement('FIGURE');
+        const imgShop = document.createElement('IMG');
+        imgShop.setAttribute('src', producto.img );
+        figure.appendChild(imgShop);
+
+        const quantity = document.createElement('P');
+        quantity.textContent = producto.quantity;
+
+        // const title = document.createElement('P');
+        // title.textContent = producto.title;
+
+        const price = document.createElement('P');
+        price.textContent = producto.price;
+
+        const close = document.createElement('IMG');
+        close.setAttribute('src', './icons/icon_close.png');
+
+        compra.append(figure,quantity,price,close);
+        fragmentoShopping.append(compra);
+
+    });
+    orderContainer.insertBefore(fragmentoShopping,orderContainer.children[0]);
 }
