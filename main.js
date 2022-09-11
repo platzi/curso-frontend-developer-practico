@@ -173,12 +173,21 @@ function addShopping(data,id){
         quantity: 1,
     };
 
+    //Si tiene el objeto un producto que ya se habia comprado, solo agregar una suma
     if(shoppingCart.hasOwnProperty(buy.id)){
         // console.log(shoppingCart[id].quantity);
         buy.quantity = shoppingCart[buy.id].quantity + 1;
     }
 
+    // Copiando objeto dentro del id (indexado) con spreed operator
     shoppingCart[buy.id] = {...buy};
+    showShopping(); //pintar compras en la orden
+}
 
-    console.log(shoppingCart);
+function showShopping(){
+    // console.log(shoppingCart);
+    // console.log(Object.values(shoppingCart));
+    // Object.values(shoppingCart).forEach(element => {
+    //     orderContainer
+    // });
 }
