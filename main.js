@@ -20,7 +20,7 @@ function toggleDesktopMenu() {
 function toggleMobileMenu() {
     const isAsideClose = shoppingCartContainer.classList.contains('inactive');
     if (!isAsideClose) {
-        aside.classList.add('inactive');
+        shoppingCartContainer.classList.add('inactive');
     }
     mobileMenu.classList.toggle('inactive');
 }
