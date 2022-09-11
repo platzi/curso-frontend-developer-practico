@@ -5,9 +5,10 @@ const desktopMenu = document.querySelector('.desktop-menu');
 const mobileMenu = document.querySelector('.mobile-menu');
 const shoppingCartContainer = document.querySelector('#shoppingCartContainer'); 
 const cardsContainer = document.querySelector('.cards-container');
+
 menuEmail.addEventListener('click', toggleDesktopMenu);
-menuHamIcon.addEventListener('click',toggleMobileMenu);
-menuCarritoIcon.addEventListener('click',toggleCarritoAside);
+menuHamIcon.addEventListener('click', toggleMobileMenu);
+menuCarritoIcon.addEventListener('click', toggleCarritoAside);
 
 function toggleDesktopMenu() {
     const isAsideClose = shoppingCartContainer.classList.contains('inactive');
