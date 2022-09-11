@@ -1,5 +1,4 @@
 /* General */
-
 :root {
     --white: #FFFFFF;
     --black: #000000;
@@ -19,7 +18,6 @@
 }
 
 /* Barra de menus */
-
   nav {
     display: flex;
     justify-content: space-between;
@@ -84,8 +82,7 @@
     align-items: center;
   }
   
-  /* Email menu */
-
+/* Menu en desktop */
   .desktop-menu {
     position: absolute;
     top: 60px;
@@ -124,10 +121,12 @@
     display: inline-block;
   }
 
-  /* Menu Hamburguesa en Mobile */
+/* Menu de las 3 rayitas en Mobile */
   .mobile-menu {
     position: absolute;
     top: 60px;
+    left: 0;
+    width: 100%;
     padding: 24px;
   }
   .mobile-menu a {
@@ -156,8 +155,7 @@
     color: var(--hospital-green) !important;
   }
 
-/* Aside (product Detail y carrito */
-
+/* Aside (Shop-cart y carrito */
 .shop-cart {
   width: 360px;
   padding: 0 24px;
@@ -234,7 +232,6 @@
 }
 
 /* Product detail */
-
 .product-detail {
   width: 360px;
   padding-bottom: 24px;
@@ -300,7 +297,6 @@
 }
 
 /* Product List */
-
 .cards-container {
   display: grid;
   grid-template-columns: repeat(auto-fill, 240px);
@@ -344,7 +340,6 @@
 }
 
 /* Los media querys */
-
 @media (max-width: 640px) {
   .menu {
     display: block;
