@@ -11,57 +11,58 @@ let shoppingCard = document.getElementById('cart');
 let detailProduct = document.querySelector('.shopping-details');
 let arrowMenu = document.getElementById('arrow');
 let orderContainer = document.getElementById('order');
+let pago = document.querySelector('.order');
 
 let descriptionProduct = document.getElementById('description-product');
 let imgProduct = document.getElementById('description-product-img');
 let closeDetailProduct = document.getElementById('close');
 
-function hamburguer(){
+function hamburguer() {
     iconHamburguer.classList.toggle('is-active');
     mobileMenu.classList.toggle('inactive');
 }
 
-function arrowClose(){
+function arrowClose() {
     detailProduct.classList.toggle('inactive');
 }
 
-function textEmail(){
+function textEmail() {
     //si esta abierto el detalle de productos, mandarlo a cerrar para que no afecte la vista
     if (!detailProduct.classList.contains('inactive')) {
         detailProduct.classList.toggle('inactive');
     }
     // Si detalle de la card esta abierto, cerrarlo y abrir menu de email
-    if(!closeDetailProduct.classList.contains('inactive')){
+    if (!closeDetailProduct.classList.contains('inactive')) {
         descriptionProduct.classList.add('inactive');
     }
 
     deskMenu.classList.toggle('inactive');
 }
 
-function cardIconShopping(){
+function cardIconShopping() {
     //si esta abierto el menu de email, mandarlo a cerrar para que no afecte la vista del aside
     if (!deskMenu.classList.contains('inactive')) {
         deskMenu.classList.toggle('inactive');
     }
     // Si detalle del prodcuto esta activo, cerrarlo y abrir las compras realizadas
-    if(!closeDetailProduct.classList.contains('inactive')){
+    if (!closeDetailProduct.classList.contains('inactive')) {
         descriptionProduct.classList.add('inactive');
     }
     // si icono hamburguesa esta activo, cerrarlo y abrir las compras realizadas
-    if(iconHamburguer.classList.contains('is-active')){
+    if (iconHamburguer.classList.contains('is-active')) {
         iconHamburguer.classList.remove('is-active');
         mobileMenu.classList.toggle('inactive');
     }
     detailProduct.classList.toggle('inactive');
 }
 
-function btnClose(){
+function btnClose() {
     // si el menu de email esta abierto cerrarlo y abrir el detalle de la card
     if (!deskMenu.classList.contains('inactive')) {
         deskMenu.classList.toggle('inactive');
     }
     // si las compras realizadas estan abiertas, cerrarlo y abrir detalle de la card
-    if(!detailProduct.classList.contains('inactive')) {
+    if (!detailProduct.classList.contains('inactive')) {
         detailProduct.classList.toggle('inactive');
     }
 
@@ -143,7 +144,7 @@ fetchData(`${API}/products`)
             icon.addEventListener('click', e => {
                 let id = e.target.getAttribute('value');
                 let setCard = e.target.parentElement.parentElement.parentElement;
-                addShopping(setCard,id);
+                addShopping(setCard, id);
             });
         }
 
@@ -153,7 +154,7 @@ fetchData(`${API}/products`)
     .catch(error => console.error(error)) // EN CASO DE ALGUN ERROR
     .finally(() => console.log('Finalizado')) //AL FINALIZAR SIN IMPORTAR SI HAY O NO ERROR
 
-function addShopping(data,id){
+function addShopping(data, id) {
     const buy = {
         id: id,
         img: data.children[0].getAttribute('src'),
@@ -163,17 +164,17 @@ function addShopping(data,id){
     };
 
     //Si tiene el objeto un producto que ya se habia comprado, solo agregar una suma
-    if(shoppingCart.hasOwnProperty(buy.id)){
+    if (shoppingCart.hasOwnProperty(buy.id)) {
         // console.log(shoppingCart[id].quantity);
         buy.quantity = shoppingCart[buy.id].quantity + 1;
     }
 
     // Copiando objeto dentro del id (indexado) con spreed operator
-    shoppingCart[buy.id] = {...buy};
+    shoppingCart[buy.id] = { ...buy };
     showShopping(); //pintar compras en la orden
 }
 
-function showShopping(){
+function showShopping() {
     // console.log(shoppingCart);
     // console.log(Object.values(shoppingCart));
     orderContainer.innerHTML = '';
@@ -185,7 +186,7 @@ function showShopping(){
 
         const figure = document.createElement('FIGURE');
         const imgShop = document.createElement('IMG');
-        imgShop.setAttribute('src', producto.img );
+        imgShop.setAttribute('src', producto.img);
         figure.appendChild(imgShop); //insertando dentro de figure
 
         const quantity = document.createElement('P');
@@ -200,30 +201,23 @@ function showShopping(){
         const close = document.createElement('IMG');
         close.setAttribute('src', './icons/icon_close.png');
 
-        compra.append(figure,title,price,close); //insertarndo dentro del contenedor padre
+        compra.append(figure, title, price, close); //insertarndo dentro del contenedor padre
         fragmentoShopping.append(compra);
 
-        totalShopping();
     });
     // Insertar los productos para comprar antes del boton y total de la compra
-    orderContainer.insertBefore(fragmentoShopping,orderContainer.children[0]);
+    totalShopping();
+    orderContainer.insertBefore(fragmentoShopping, orderContainer.children[0]);
 }
 
-function totalShopping(){
-    const divTotal = document.createElement('DIV');
-    const p = document.createElement('P');
-    const subtitle = document.createElement('SPAN');
-    subtitle.textContent = 'Total';
-    p.appendChild(subtitle);
-
-    const total = document.createElement('P');
-    divTotal.append(p,total);
-
-    // Para obtener la cantidad de elementos comprados por un solo producto
-    // const countItems = Object.values(shoppingCart).reduce((acumulador,{quantity}) => acumulador+quantity,0);
-    // console.log(countItems);
-
+function totalShopping() {
     // Para obtener el total de producos comprados
-    const payment = Object.values(shoppingCart).reduce((acumulador,{quantity,price}) => acumulador+(quantity*price),0);
+    const payment = Object.values(shoppingCart).reduce((acumulador, { quantity, price }) => acumulador + (quantity * price), 0);
     // console.log(payment);
+    orderContainer.innerHTML += `<div class="order">
+                                    <p>
+                                        <span>Total</span>
+                                    </p>
+                                    <p>$ ${payment}</p>
+                                </div>`;
 }
