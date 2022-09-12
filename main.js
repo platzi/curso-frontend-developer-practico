@@ -223,17 +223,17 @@ function deleteItem(e){
     // console.log(eliminarItem);
     removeCountShopping(eliminarItem);
 
-    // if(eliminarItem.quantity === 0){
-    //     delete shoppingCart[e.target.getAttribute('id')];
-    //     console.log('borrado');
-    // }
+    if(eliminarItem.quantity === 0){
+        delete shoppingCart[e.target.getAttribute('id')];
+        // console.log(shoppingCart);
+    }
+    showShopping();
 
     e.stopPropagation();
 }
 
 function removeCountShopping(eliminarItem){
-    console.log(eliminarItem.quantity);
-    items.textContent = eliminarItem.quantity;
+    items.textContent = eliminarItem.quantity;//actualizar numero de items comprados en el carrito (icono)
 }
 
  // MOSTRAR EL NUMERO DE ELEMENTOS COMPRADOS (SE MUESTRA EN EL ICONO DEL CARRITO DE COMPRAS)
