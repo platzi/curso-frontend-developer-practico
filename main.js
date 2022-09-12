@@ -9,27 +9,45 @@ const mobileMenu = document.querySelector(".mobile-menu");
 //MENÚ SHOPPING CAR
 const shoppingCar = document.querySelector(".navbar-shopping-cart");
 const shoppingCarContainer = document.querySelector("#shoppingCarContainer");
+//PRODUCT DETAIL CONTAINER
+const productDetailContainer = document.querySelector("#productDetail")
+const productDetailClosedIcon = document.querySelector(".product-detail-close")
 
 //ADDEVENTLISTENER
 navbarEmail.addEventListener("click", toggleDesktopMenu);
 menuHamIcon.addEventListener("click", toggleMobileMenu);
 shoppingCar.addEventListener("click", toggleCarAside);
+productDetailClosedIcon.addEventListener("click", closeProductDetailAside)
 
 //FUNCIONES ACCIONES DEL LISTENER
 function toggleDesktopMenu() {
   desktopMenu.classList.toggle("inactive");
   mobileMenu.classList.add("inactive");
   shoppingCarContainer.classList.add("inactive");
+  productDetailContainer.classList.add("inactive")
+
 }
 
 function toggleMobileMenu() {
-  shoppingCarContainer.classList.add("inactive");
   mobileMenu.classList.toggle("inactive");
+  shoppingCarContainer.classList.add("inactive");
+  productDetailContainer.classList.add("inactive")
 }
 
 function toggleCarAside() {
-  mobileMenu.classList.add("inactive");
   shoppingCarContainer.classList.toggle("inactive");
+  mobileMenu.classList.add("inactive");
+  productDetailContainer.classList.add("inactive")
+}
+
+function openProductDetailAside(){
+  productDetailContainer.classList.remove("inactive")
+  
+
+}
+
+function closeProductDetailAside(){
+  productDetailContainer.classList.add("inactive")
 }
 
 //ARRAY DE PRODUCTOS PARA MOSTRAR EN VENTANA
@@ -55,32 +73,38 @@ productList.push(
   }
 );
 
-// ITERACIÓN PARA CADA UNO DE LOS ELEMENTOS DEL ARRAY
-for (product of productList) {
-  const cardProduct = document.createElement("div");
-  cardProduct.classList.add("product-card"); //Agregar una class a la eti
-  const imgProductCard = document.createElement("img");
-  imgProductCard.setAttribute("src", product.image);
-  const infoProduct = document.createElement("div");
-  infoProduct.classList.add("product-info");
+function renderProducts(arr){
+  // ITERACIÓN PARA CADA UNO DE LOS ELEMENTOS DEL ARRAY
+  for (product of arr) {
+    const cardProduct = document.createElement("div");
+    cardProduct.classList.add("product-card"); //Agregar una class a la eti
+    const imgProductCard = document.createElement("img");
+    imgProductCard.setAttribute("src", product.image);
+    imgProductCard.addEventListener("click", openProductDetailAside)
 
-  const infoDivDetails = document.createElement("div");
-  const priceProduct = document.createElement("p");
-  const nameProduct = document.createElement("p");
-  priceProduct.innerText = "$" + product.price;
-  nameProduct.innerText = product.name;
-
-  const figureProduct = document.createElement("figure");
-  const imgProduct = document.createElement("img");
-  imgProduct.setAttribute("src", "./icons/bt_add_to_cart.svg");
-
-  //Agregamos los hijos a cada etiqueta
-  figureProduct.appendChild(imgProduct);
-  infoDivDetails.appendChild(priceProduct);
-  infoDivDetails.appendChild(nameProduct);
-  infoProduct.appendChild(infoDivDetails);
-  infoProduct.appendChild(figureProduct);
-  cardProduct.appendChild(imgProductCard);
-  cardProduct.appendChild(infoProduct);
-  cardsContainer.appendChild(cardProduct)
+    const infoProduct = document.createElement("div");
+    infoProduct.classList.add("product-info");
+  
+    const infoDivDetails = document.createElement("div");
+    const priceProduct = document.createElement("p");
+    const nameProduct = document.createElement("p");
+    priceProduct.innerText = "$" + product.price;
+    nameProduct.innerText = product.name;
+  
+    const figureProduct = document.createElement("figure");
+    const imgProduct = document.createElement("img");
+    imgProduct.setAttribute("src", "./icons/bt_add_to_cart.svg");
+  
+    //Agregamos los hijos a cada etiqueta
+    figureProduct.appendChild(imgProduct);
+    infoDivDetails.appendChild(priceProduct);
+    infoDivDetails.appendChild(nameProduct);
+    infoProduct.appendChild(infoDivDetails);
+    infoProduct.appendChild(figureProduct);
+    cardProduct.appendChild(imgProductCard);
+    cardProduct.appendChild(infoProduct);
+    cardsContainer.appendChild(cardProduct)
+  }
 }
+
+renderProducts(productList)
