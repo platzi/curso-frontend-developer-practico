@@ -8,7 +8,7 @@ const menuHamIcon = document.querySelector(".menu");
 const mobileMenu = document.querySelector(".mobile-menu");
 //MENÚ SHOPPING CAR
 const shoppingCar = document.querySelector(".navbar-shopping-cart");
-const aside = document.querySelector(".product-detail");
+const shoppingCarContainer = document.querySelector("#shoppingCarContainer");
 
 //ADDEVENTLISTENER
 navbarEmail.addEventListener("click", toggleDesktopMenu);
@@ -19,17 +19,17 @@ shoppingCar.addEventListener("click", toggleCarAside);
 function toggleDesktopMenu() {
   desktopMenu.classList.toggle("inactive");
   mobileMenu.classList.add("inactive");
-  aside.classList.add("inactive");
+  shoppingCarContainer.classList.add("inactive");
 }
 
 function toggleMobileMenu() {
-  aside.classList.add("inactive");
+  shoppingCarContainer.classList.add("inactive");
   mobileMenu.classList.toggle("inactive");
 }
 
 function toggleCarAside() {
   mobileMenu.classList.add("inactive");
-  aside.classList.toggle("inactive");
+  shoppingCarContainer.classList.toggle("inactive");
 }
 
 //ARRAY DE PRODUCTOS PARA MOSTRAR EN VENTANA
