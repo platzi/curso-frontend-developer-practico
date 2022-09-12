@@ -13,13 +13,11 @@ body {
   margin: 0;
   font-family: "Quicksand", sans-serif;
 }
-
 .inactive {
-  display: none;
+ display: none;
 }
 
 /* Menu principal */
-
 nav {
   display: flex;
   justify-content: space-between;
@@ -359,9 +357,12 @@ aside {
   .desktop-menu {
     display: none;
   }
-  .aside { 
+  #product-detail-detail { 
     width: 100%;
   }  
+  #product-detail-cart { 
+    width: 100%;
+  }    
   .cards-container {
     grid-template-columns: repeat(auto-fill, 140px);
   }
