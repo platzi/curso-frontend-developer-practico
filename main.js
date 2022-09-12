@@ -115,38 +115,15 @@ fetchData(`${API}/products`)
 
             // HACER CLICK EN UNA IMG DE CARDS
             imgCard.addEventListener('click', e => {
-
-                if (descriptionProduct.classList.contains('inactive')) {
-                    descriptionProduct.classList.toggle('inactive');
-                }
-                // SI EL ASIDE DE INFO DEL PRODUCTO LLEGA A CIERTA ALTURA
-                // COLOCARLO EN TOP 0
-                window.addEventListener('scroll', () => {
-                    if (window.scrollY > 60) {
-                        descriptionProduct.style.top = '0px';
-                    } else {
-                        descriptionProduct.style.top = '60px';
-                    }
-                });
-
-                // COPIAR IMG DE CARD EN ASIDE
-                imgProduct.setAttribute('src', e.target.src);
-
-                // COPIAR LOS ELEMENTOS DE UN CARD AL ASIDE
-                descriptionProduct.children[2].children[0].textContent = productInfo.children[0].children[0].textContent;
-                descriptionProduct.children[2].children[1].textContent = productInfo.children[0].children[1].textContent;
-                descriptionProduct.children[2].children[2].textContent = productos[productCard.getAttribute('id')].description;
+                positionDetailProduct();
+                showAsideDescription(e, productInfo, productCard, productos);
             });
 
             figure.append(icon);
             productInfo.append(figure);
 
             fragment.append(productCard);
-            icon.addEventListener('click', e => {
-                let id = e.target.getAttribute('value');
-                let setCard = e.target.parentElement.parentElement.parentElement;
-                addShopping(setCard, id);
-            });
+            icon.addEventListener('click', e => agregarCompra(e));
         }
 
         container.append(fragment); //AGREGANDO TODOS LOS CARDS DENTRO DE UN CONTENEDOR
@@ -154,6 +131,37 @@ fetchData(`${API}/products`)
     })
     .catch(error => console.error(error)) // EN CASO DE ALGUN ERROR
     .finally(() => console.log('Finalizado')) //AL FINALIZAR SIN IMPORTAR SI HAY O NO ERROR
+
+function showAsideDescription(e, productInfo, productCard, productos) {
+    if (descriptionProduct.classList.contains('inactive')) {
+        descriptionProduct.classList.toggle('inactive');
+    }
+    // COPIAR IMG DE CARD EN ASIDE
+    imgProduct.setAttribute('src', e.target.src);
+
+    // COPIAR LOS ELEMENTOS DE UN CARD AL ASIDE
+    descriptionProduct.children[2].children[0].textContent = productInfo.children[0].children[0].textContent;
+    descriptionProduct.children[2].children[1].textContent = productInfo.children[0].children[1].textContent;
+    descriptionProduct.children[2].children[2].textContent = productos[productCard.getAttribute('id')].description;
+}
+
+function positionDetailProduct(){
+    // SI EL ASIDE DE INFO DEL PRODUCTO LLEGA A CIERTA ALTURA
+    // COLOCARLO EN TOP 0
+    window.addEventListener('scroll', () => {
+        if (window.scrollY > 60) {
+            descriptionProduct.style.top = '0px';
+        } else {
+            descriptionProduct.style.top = '60px';
+        }
+    });
+}
+
+function agregarCompra(e) {
+    let id = e.target.getAttribute('value');
+    let setCard = e.target.parentElement.parentElement.parentElement;
+    addShopping(setCard, id);
+}
 
 function addShopping(data, id) {
     const buy = {
@@ -202,9 +210,9 @@ function showShopping() {
         const close = document.createElement('IMG'); //boton de eliminar una compra del carrito
         close.setAttribute('src', './icons/icon_close.png');
         close.classList.add('deleteBuy');
-        close.setAttribute('id',producto.id);//agregar id para buscarlo en el objeto(en caso de eliminar item)
+        close.setAttribute('id', producto.id);//agregar id para buscarlo en el objeto(en caso de eliminar item)
 
-        // --------------------------------------------------------- ACAAAAAAAA
+        // BORRAR ITEM DEL CARRITO (EN EL CONTADOR DEL ICONO Y DEL TOTAL)
         close.addEventListener('click', e => deleteItem(e));
 
         compra.append(figure, title, price, close); //insertarndo dentro del contenedor padre
@@ -216,14 +224,14 @@ function showShopping() {
     orderContainer.insertBefore(fragmentoShopping, orderContainer.children[0]);
 }
 
-function deleteItem(e){
+function deleteItem(e) {
     const eliminarItem = shoppingCart[e.target.getAttribute('id')];
     // console.log(shoppingCart);
     eliminarItem.quantity--; //eliminar un item
     // console.log(eliminarItem);
     removeCountShopping(eliminarItem);
 
-    if(eliminarItem.quantity === 0){
+    if (eliminarItem.quantity === 0) {
         delete shoppingCart[e.target.getAttribute('id')];
         // console.log(shoppingCart);
     }
@@ -232,12 +240,12 @@ function deleteItem(e){
     e.stopPropagation();
 }
 
-function removeCountShopping(eliminarItem){
+function removeCountShopping(eliminarItem) {
     items.textContent = eliminarItem.quantity;//actualizar numero de items comprados en el carrito (icono)
 }
 
- // MOSTRAR EL NUMERO DE ELEMENTOS COMPRADOS (SE MUESTRA EN EL ICONO DEL CARRITO DE COMPRAS)
-function addCountShopping(){
+// MOSTRAR EL NUMERO DE ELEMENTOS COMPRADOS (SE MUESTRA EN EL ICONO DEL CARRITO DE COMPRAS)
+function addCountShopping() {
     const countItems = Object.values(shoppingCart).reduce((acumulador, { quantity }) => acumulador + quantity, 1);
     // console.log(countItems);
     items.textContent = countItems;
