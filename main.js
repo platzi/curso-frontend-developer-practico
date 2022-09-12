@@ -175,13 +175,6 @@ function addShopping(data, id) {
     showShopping(); //pintar compras en la orden
 }
 
- // MOSTRAR EL NUMERO DE ELEMENTOS COMPRADOS (SE MUESTRA EN EL ICONO DEL CARRITO DE COMPRAS)
-function addCountShopping(){
-    const countItems = Object.values(shoppingCart).reduce((acumulador, { quantity }) => acumulador + quantity, 1);
-    // console.log(countItems);
-    items.textContent = countItems;
-}
-
 function showShopping() {
     // console.log(shoppingCart);
     // console.log(Object.values(shoppingCart));
@@ -206,8 +199,13 @@ function showShopping() {
         const price = document.createElement('P');
         price.textContent = producto.price * producto.quantity;
 
-        const close = document.createElement('IMG');
+        const close = document.createElement('IMG'); //boton de eliminar una compra del carrito
         close.setAttribute('src', './icons/icon_close.png');
+        close.classList.add('deleteBuy');
+        close.setAttribute('id',producto.id);//agregar id para buscarlo en el objeto(en caso de eliminar item)
+
+        // --------------------------------------------------------- ACAAAAAAAA
+        close.addEventListener('click', e => deleteItem(e));
 
         compra.append(figure, title, price, close); //insertarndo dentro del contenedor padre
         fragmentoShopping.append(compra);
@@ -216,6 +214,33 @@ function showShopping() {
     // Insertar los productos para comprar antes del boton y total de la compra
     totalShopping();
     orderContainer.insertBefore(fragmentoShopping, orderContainer.children[0]);
+}
+
+function deleteItem(e){
+    const eliminarItem = shoppingCart[e.target.getAttribute('id')];
+    // console.log(shoppingCart);
+    eliminarItem.quantity--; //eliminar un item
+    // console.log(eliminarItem);
+    removeCountShopping(eliminarItem);
+
+    // if(eliminarItem.quantity === 0){
+    //     delete shoppingCart[e.target.getAttribute('id')];
+    //     console.log('borrado');
+    // }
+
+    e.stopPropagation();
+}
+
+function removeCountShopping(eliminarItem){
+    console.log(eliminarItem.quantity);
+    items.textContent = eliminarItem.quantity;
+}
+
+ // MOSTRAR EL NUMERO DE ELEMENTOS COMPRADOS (SE MUESTRA EN EL ICONO DEL CARRITO DE COMPRAS)
+function addCountShopping(){
+    const countItems = Object.values(shoppingCart).reduce((acumulador, { quantity }) => acumulador + quantity, 1);
+    // console.log(countItems);
+    items.textContent = countItems;
 }
 
 function totalShopping() {

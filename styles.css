@@ -165,6 +165,9 @@
     box-sizing: border-box;
     border-radius: 5px;
   }
+  .deleteBuy{
+    cursor: pointer;
+  }
   .title-container {
     display: flex;
   }
