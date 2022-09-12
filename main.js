@@ -205,6 +205,7 @@ function showShopping(){
 
         totalShopping();
     });
+    // Insertar los productos para comprar antes del boton y total de la compra
     orderContainer.insertBefore(fragmentoShopping,orderContainer.children[0]);
 }
 
@@ -219,9 +220,10 @@ function totalShopping(){
     divTotal.append(p,total);
 
     // Para obtener la cantidad de elementos comprados por un solo producto
-    // const payment = Object.values(shoppingCart).reduce((acumulador,{quantity}) => acumulador+quantity,0);
+    // const countItems = Object.values(shoppingCart).reduce((acumulador,{quantity}) => acumulador+quantity,0);
+    // console.log(countItems);
 
     // Para obtener el total de producos comprados
     const payment = Object.values(shoppingCart).reduce((acumulador,{quantity,price}) => acumulador+(quantity*price),0);
-    console.log(payment);
+    // console.log(payment);
 }
