@@ -12,6 +12,7 @@ let detailProduct = document.querySelector('.shopping-details');
 let arrowMenu = document.getElementById('arrow');
 let orderContainer = document.getElementById('order');
 let pago = document.querySelector('.order');
+let items = document.getElementById('count');
 
 let descriptionProduct = document.getElementById('description-product');
 let imgProduct = document.getElementById('description-product-img');
@@ -168,10 +169,17 @@ function addShopping(data, id) {
         // console.log(shoppingCart[id].quantity);
         buy.quantity = shoppingCart[buy.id].quantity + 1;
     }
-
+    addCountShopping();
     // Copiando objeto dentro del id (indexado) con spreed operator
     shoppingCart[buy.id] = { ...buy };
     showShopping(); //pintar compras en la orden
+}
+
+ // MOSTRAR EL NUMERO DE ELEMENTOS COMPRADOS (SE MUESTRA EN EL ICONO DEL CARRITO DE COMPRAS)
+function addCountShopping(){
+    const countItems = Object.values(shoppingCart).reduce((acumulador, { quantity }) => acumulador + quantity, 1);
+    // console.log(countItems);
+    items.textContent = countItems;
 }
 
 function showShopping() {
