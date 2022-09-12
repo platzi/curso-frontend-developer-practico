@@ -63,13 +63,13 @@ productList.push(
     name: "Motorciclye",
     price: 1220,
     image:
-      "https://images.pexels.com/photos/276517/pexels-photo-276517.jpeg?auto=compress&cs=tinysrgb&dpr=2&h=650&w=940",
+      "https://i.pinimg.com/564x/af/ab/e9/afabe96448cc696818a9d30237098175.jpg",
   },
   {
     name: "Car",
     price: 120000,
     image:
-      "https://images.pexels.com/photos/276517/pexels-photo-276517.jpeg?auto=compress&cs=tinysrgb&dpr=2&h=650&w=940",
+      "https://i.pinimg.com/564x/bd/db/f1/bddbf1aeb8b4956345b419803229429e.jpg",
   }
 );
 
