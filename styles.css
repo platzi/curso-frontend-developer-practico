@@ -376,7 +376,7 @@ aside {
   .mobile-menu {
     display: none;
   }
-  aside {
+  /* aside {
     padding: 0 24px;
-  }
+  } */
 }
