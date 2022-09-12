@@ -179,29 +179,49 @@ function showShopping(){
     orderContainer.innerHTML = '';
     const fragmentoShopping = document.createDocumentFragment();
     Object.values(shoppingCart).forEach(producto => {
+
         const compra = document.createElement('DIV');
         compra.classList.add('shopping-cart');
 
         const figure = document.createElement('FIGURE');
         const imgShop = document.createElement('IMG');
         imgShop.setAttribute('src', producto.img );
-        figure.appendChild(imgShop);
+        figure.appendChild(imgShop); //insertando dentro de figure
 
         const quantity = document.createElement('P');
         quantity.textContent = producto.quantity;
 
-        // const title = document.createElement('P');
-        // title.textContent = producto.title;
+        const title = document.createElement('P');
+        title.textContent = producto.title;
 
         const price = document.createElement('P');
-        price.textContent = producto.price;
+        price.textContent = producto.price * producto.quantity;
 
         const close = document.createElement('IMG');
         close.setAttribute('src', './icons/icon_close.png');
 
-        compra.append(figure,quantity,price,close);
+        compra.append(figure,title,price,close); //insertarndo dentro del contenedor padre
         fragmentoShopping.append(compra);
 
+        totalShopping();
     });
     orderContainer.insertBefore(fragmentoShopping,orderContainer.children[0]);
+}
+
+function totalShopping(){
+    const divTotal = document.createElement('DIV');
+    const p = document.createElement('P');
+    const subtitle = document.createElement('SPAN');
+    subtitle.textContent = 'Total';
+    p.appendChild(subtitle);
+
+    const total = document.createElement('P');
+    divTotal.append(p,total);
+
+    // Para obtener la cantidad de elementos comprados por un solo producto
+    // const payment = Object.values(shoppingCart).reduce((acumulador,{quantity}) => acumulador+quantity,0);
+
+    // Para obtener el total de producos comprados
+    const payment = Object.values(shoppingCart).reduce((acumulador,{quantity,price}) => acumulador+(quantity*price),0);
+    console.log(payment);
 }
