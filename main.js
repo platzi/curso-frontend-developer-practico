@@ -5,7 +5,7 @@ const burguerIcon = document.querySelector(".menu");
 const mobileMenu = document.querySelector(".mobile-menu");
 
 const menuCarritoIcon = document.querySelector(".navbar-shopping-cart");
-const aside = document.querySelector(".product-detail");
+const shoppingCartContainer = document.querySelector("#shoppingCartContainer");
 const cardsContainer = document.querySelector(".cards-container");
 
 menuEmail.addEventListener("click", toggleDesktopMenu);
@@ -13,21 +13,22 @@ burguerIcon.addEventListener("click", showMobileMenu);
 menuCarritoIcon.addEventListener("click", showMyOrder);
 
 function toggleDesktopMenu() {
-  const isAsideClosed = aside.classList.contains("inactive");
-  if (!isAsideClosed) {
-    aside.classList.add("inactive");
+  const isshoppingCartContainerClosed =
+    shoppingCartContainer.classList.contains("inactive");
+  if (!isshoppingCartContainerClosed) {
+    shoppingCartContainer.classList.add("inactive");
   }
   desktopMenu.classList.toggle("inactive");
 }
 
 function showMobileMenu() {
-  aside.classList.add("inactive");
+  shoppingCartContainer.classList.add("inactive");
   mobileMenu.classList.toggle("inactive");
 }
 
 function showMyOrder() {
   mobileMenu.classList.add("inactive");
-  aside.classList.toggle("inactive");
+  shoppingCartContainer.classList.toggle("inactive");
   desktopMenu.classList.add("inactive");
 }
 
