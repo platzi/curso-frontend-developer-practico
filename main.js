@@ -72,7 +72,7 @@ arrowMenu.addEventListener('click', arrowClose);
 iconHamburguer.addEventListener('click', hamburguer);
 shoppingCard.addEventListener('click', cardIconShopping);
 closeDetailProduct.addEventListener('click', btnClose);
-btnAddShopping.addEventListener('click', e => getItemsAside(e)); //comprar item desde aside
+// btnAddShopping.addEventListener('click', e => getItemsAside(e)); //comprar item desde aside
 
 // VER PRODUCTOS DE API
 fetchData(`${API}/products`)
@@ -148,30 +148,30 @@ function agregarCompra(e) {//seleccionar valores
     addShopping(setCard, id);
 }
 
-function getItemsAside(e){//realiza misma accion que agregarCompra()
-    const containerAside = e.target.parentElement.parentElement;
-    let id = containerAside.children[2].children[3].getAttribute('value');
-    addShoppingAside(containerAside,id);
-}
+// function getItemsAside(e){//realiza misma accion que agregarCompra()
+//     const containerAside = e.target.parentElement.parentElement;
+//     let id = containerAside.children[2].children[3].getAttribute('value');
+//     addShoppingAside(containerAside,id);
+// }
 
-function addShoppingAside(data,id){//accion para comprar item desde aside
-    const buy = {
-        id: id,
-        img: data.children[1].getAttribute('src'),
-        price: data.children[2].children[0].textContent,
-        title: data.children[2].children[1].textContent,
-        quantity: 1,
-    };
+// function addShoppingAside(data,id){//accion para comprar item desde aside
+//     const buy = {
+//         id: id,
+//         img: data.children[1].getAttribute('src'),
+//         price: data.children[2].children[0].textContent,
+//         title: data.children[2].children[1].textContent,
+//         quantity: 1,
+//     };
 
-    if (shoppingCart.hasOwnProperty(buy.id)) {
-        // console.log(shoppingCart[id].quantity);
-        buy.quantity = shoppingCart[buy.id].quantity + 1;
-    }
-    addCountShopping();
-    // Copiando objeto dentro del id (indexado) con spreed operator
-    shoppingCart[buy.id] = { ...buy };
-    showShopping(); //pintar compras en la orden
-}
+//     if (shoppingCart.hasOwnProperty(buy.id)) {
+//         // console.log(shoppingCart[id].quantity);
+//         buy.quantity = shoppingCart[buy.id].quantity + 1;
+//     }
+//     addCountShopping();
+//     // Copiando objeto dentro del id (indexado) con spreed operator
+//     shoppingCart[buy.id] = { ...buy };
+//     showShopping(); //pintar compras en la orden
+// }
 
 function addShopping(data, id) {//Agregarlos a la compra del menu de carrito
     const buy = {
@@ -234,10 +234,10 @@ function showShopping() { //mostrar los item comprados
 
 function deleteItem(e) {
     const eliminarItem = shoppingCart[e.target.getAttribute('id')];
-    // console.log(shoppingCart);
+    // console.log(eliminarItem.quantity);
     eliminarItem.quantity--; //eliminar un item
-    // console.log(eliminarItem);
-    removeCountShopping(eliminarItem);
+    // console.log(eliminarItem.quantity);
+    removeCountShopping();
 
     if (eliminarItem.quantity === 0) {
         delete shoppingCart[e.target.getAttribute('id')];
@@ -248,8 +248,8 @@ function deleteItem(e) {
     e.stopPropagation();
 }
 
-function removeCountShopping(eliminarItem) {
-    items.textContent = eliminarItem.quantity;//actualizar numero de items comprados en el carrito (icono)
+function removeCountShopping() {
+    items.textContent = `${items.textContent - 1}`;//actualizar numero de items comprados en el carrito (icono)
 }
 
 // MOSTRAR EL NUMERO DE ELEMENTOS COMPRADOS (SE MUESTRA EN EL ICONO DEL CARRITO DE COMPRAS)
