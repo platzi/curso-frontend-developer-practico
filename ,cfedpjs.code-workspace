@@ -1,0 +1,20 @@
+{
+	"folders": [
+		{
+			"path": "."
+		}
+	],
+	"settings": {
+		"editor.wordWrap": "on", // Commonly Used
+		"editor.detectIndentation": false, // Indentation Formatting
+		"editor.insertSpaces": false, // Commonly Used
+		"editor.defaultFormatter": "esbenp.prettier-vscode", // Text Editor (Prettier requested)
+		"editor.renderWhitespace": "all", // Text Editor (Visual & optional)
+		"editor.formatOnPaste": true, // Text Editor - Formatting
+		"editor.formatOnSave": true, // Text Editor - Formatting
+		"files.trimFinalNewlines": true, // Text Editor - Files
+		"files.insertFinalNewline": true, // Text Editor - Files
+		"prettier.useTabs": true, // Text Editor - Tabs Allowed
+		"liveServer.settings.multiRootWorkspaceName": "jsdev" // none = shortProjectName
+	}
+}
