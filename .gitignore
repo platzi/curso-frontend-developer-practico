@@ -25,7 +25,6 @@
 # Icon must end with two \r
 Icon
 
-
 # Thumbnails
 ._*
 
@@ -124,10 +123,6 @@ web_modules/
 # Yarn Integrity file
 .yarn-integrity
 
-#Workspace
-.cfedjs.code-workspace
-
-
 # dotenv environment variable files
 .env
 .env.development.local
@@ -217,6 +212,7 @@ dist
 .vscode/*.code-snippets
 
 # Ignore code-workspaces
+.cfedjs
 *.code-workspace
 
 ### Windows ###
