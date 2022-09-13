@@ -1,5 +1,4 @@
 import { fetchData, container, API } from "./products.js";
-import { hamburguer, arrowClose, removerItem } from "./functions.js";
 let shoppingCart = {};
 
 let mail = document.getElementById('email');
@@ -59,6 +58,13 @@ function btnClose() {
     }
 
     descriptionProduct.classList.toggle('inactive');
+}
+function hamburguer() {
+    iconHamburguer.classList.toggle('is-active');
+    mobileMenu.classList.toggle('inactive');
+}
+function arrowClose() {
+    detailProduct.classList.toggle('inactive');
 }
 
 mail.addEventListener('click', textEmail);
