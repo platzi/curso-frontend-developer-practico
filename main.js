@@ -1,4 +1,5 @@
 import { fetchData, container, API } from "./products.js";
+import { hamburguer, arrowClose, removerItem } from "./functions.js";
 let shoppingCart = {};
 
 let mail = document.getElementById('email');
@@ -13,19 +14,11 @@ let arrowMenu = document.getElementById('arrow');
 let orderContainer = document.getElementById('order');
 let pago = document.querySelector('.order');
 let items = document.getElementById('count');
+let btnAddShopping = document.querySelector('.add-to-cart-button');
 
 let descriptionProduct = document.getElementById('description-product');
 let imgProduct = document.getElementById('description-product-img');
 let closeDetailProduct = document.getElementById('close');
-
-function hamburguer() {
-    iconHamburguer.classList.toggle('is-active');
-    mobileMenu.classList.toggle('inactive');
-}
-
-function arrowClose() {
-    detailProduct.classList.toggle('inactive');
-}
 
 function textEmail() {
     //si esta abierto el detalle de productos, mandarlo a cerrar para que no afecte la vista
@@ -39,7 +32,6 @@ function textEmail() {
 
     deskMenu.classList.toggle('inactive');
 }
-
 function cardIconShopping() {
     //si esta abierto el menu de email, mandarlo a cerrar para que no afecte la vista del aside
     if (!deskMenu.classList.contains('inactive')) {
@@ -56,7 +48,6 @@ function cardIconShopping() {
     }
     detailProduct.classList.toggle('inactive');
 }
-
 function btnClose() {
     // si el menu de email esta abierto cerrarlo y abrir el detalle de la card
     if (!deskMenu.classList.contains('inactive')) {
@@ -75,6 +66,7 @@ arrowMenu.addEventListener('click', arrowClose);
 iconHamburguer.addEventListener('click', hamburguer);
 shoppingCard.addEventListener('click', cardIconShopping);
 closeDetailProduct.addEventListener('click', btnClose);
+btnAddShopping.addEventListener('click', e => getItemsAside(e)); //comprar item desde aside
 
 // VER PRODUCTOS DE API
 fetchData(`${API}/products`)
@@ -82,9 +74,6 @@ fetchData(`${API}/products`)
     .then(productos => {
         const fragment = document.createDocumentFragment();
         for (let i = 0; i < 70; i++) {
-            // console.log(productos[i].title);
-            // console.log(productos[i].price);
-            // console.log(productos[i].images[1]);
             const productCard = document.createElement('DIV');
             productCard.classList.add('product-card');
             productCard.setAttribute('id', productos[i].id);
@@ -142,28 +131,43 @@ function showAsideDescription(e, productInfo, productCard, productos) {
     // COPIAR LOS ELEMENTOS DE UN CARD AL ASIDE
     descriptionProduct.children[2].children[0].textContent = productInfo.children[0].children[0].textContent;
     descriptionProduct.children[2].children[1].textContent = productInfo.children[0].children[1].textContent;
-    descriptionProduct.children[2].children[2].textContent = productos[productCard.getAttribute('id')].description;
+    descriptionProduct.children[2].children[2].textContent = productos[productCard.getAttribute('id')].description;//traer la descripcion del producto
+    descriptionProduct.children[2].children[3].setAttribute('value', productos[productCard.getAttribute('id')].id);//colocar id en el boton de compra del aside
 }
 
-function positionDetailProduct(){
-    // SI EL ASIDE DE INFO DEL PRODUCTO LLEGA A CIERTA ALTURA
-    // COLOCARLO EN TOP 0
-    window.addEventListener('scroll', () => {
-        if (window.scrollY > 60) {
-            descriptionProduct.style.top = '0px';
-        } else {
-            descriptionProduct.style.top = '60px';
-        }
-    });
-}
 
-function agregarCompra(e) {
+function agregarCompra(e) {//seleccionar valores
     let id = e.target.getAttribute('value');
     let setCard = e.target.parentElement.parentElement.parentElement;
     addShopping(setCard, id);
 }
 
-function addShopping(data, id) {
+function getItemsAside(e){//realiza misma accion que agregarCompra()
+    const containerAside = e.target.parentElement.parentElement;
+    let id = containerAside.children[2].children[3].getAttribute('value');
+    addShoppingAside(containerAside,id);
+}
+
+function addShoppingAside(data,id){//accion para comprar item desde aside
+    const buy = {
+        id: id,
+        img: data.children[1].getAttribute('src'),
+        price: data.children[2].children[0].textContent,
+        title: data.children[2].children[1].textContent,
+        quantity: 1,
+    };
+
+    if (shoppingCart.hasOwnProperty(buy.id)) {
+        // console.log(shoppingCart[id].quantity);
+        buy.quantity = shoppingCart[buy.id].quantity + 1;
+    }
+    addCountShopping();
+    // Copiando objeto dentro del id (indexado) con spreed operator
+    shoppingCart[buy.id] = { ...buy };
+    showShopping(); //pintar compras en la orden
+}
+
+function addShopping(data, id) {//Agregarlos a la compra del menu de carrito
     const buy = {
         id: id,
         img: data.children[0].getAttribute('src'),
@@ -183,9 +187,7 @@ function addShopping(data, id) {
     showShopping(); //pintar compras en la orden
 }
 
-function showShopping() {
-    // console.log(shoppingCart);
-    // console.log(Object.values(shoppingCart));
+function showShopping() { //mostrar los item comprados
     orderContainer.innerHTML = '';
     const fragmentoShopping = document.createDocumentFragment();
     Object.values(shoppingCart).forEach(producto => {
@@ -219,8 +221,8 @@ function showShopping() {
         fragmentoShopping.append(compra);
 
     });
-    // Insertar los productos para comprar antes del boton y total de la compra
     totalShopping();
+    // Insertar los productos para comprar antes del boton y total de la compra
     orderContainer.insertBefore(fragmentoShopping, orderContainer.children[0]);
 }
 
@@ -254,11 +256,22 @@ function addCountShopping() {
 function totalShopping() {
     // Para obtener el total de producos comprados
     const payment = Object.values(shoppingCart).reduce((acumulador, { quantity, price }) => acumulador + (quantity * price), 0);
-    // console.log(payment);
     orderContainer.innerHTML += `<div class="order">
                                     <p>
                                         <span>Total</span>
                                     </p>
                                     <p>$ ${payment}</p>
                                 </div>`;
+}
+
+function positionDetailProduct(){
+    // SI EL ASIDE DE INFO DEL PRODUCTO LLEGA A CIERTA ALTURA
+    // COLOCARLO EN TOP 0
+    window.addEventListener('scroll', () => {
+        if (window.scrollY > 60) {
+            descriptionProduct.style.top = '0px';
+        } else {
+            descriptionProduct.style.top = '60px';
+        }
+    });
 }
