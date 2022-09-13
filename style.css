@@ -77,6 +77,7 @@
   }
   .navbar-shopping-cart {
     position: relative;
+    right: 24px;
   }
   .navbar-shopping-cart div {
     width: 16px;
@@ -91,6 +92,11 @@
     display: flex;
     justify-content: center;
     align-items: center;
+  }
+  .navbar-email
+  {
+    position: relative;
+    right: 24px;
   }
 
   /* Menu en desktop */
@@ -183,6 +189,8 @@ aside {
 /* ShoppingCart */
 #shoppingCartContainer
 {
+  position: fixed;
+  top: 60px;
   padding: 0 24px;
 }
 .title-container {
