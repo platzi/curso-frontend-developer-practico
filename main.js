@@ -69,27 +69,27 @@ productList.push({
 productList.push({
    name: 'Computadora',
    price: 350,
-   image: 'https://images.pexels.com/photos/276517/pexels-photo-276517.jpeg?auto=compress&cs=tinysrgb&dpr=2&h=650&w=940',
+   image: 'https://www.tecnologia-informatica.com/wp-content/uploads/2018/07/funciones-de-la-computadora-1.jpeg',
 })
 productList.push({
    name: 'Televisor',
    price: 250,
-   image: 'https://images.pexels.com/photos/276517/pexels-photo-276517.jpeg?auto=compress&cs=tinysrgb&dpr=2&h=650&w=940',
+   image: 'https://tienda.claro.com.co/wcsstore/Claro/images/catalog/equipos/646x1000/10001674.jpg',
 })
 productList.push({
    name: 'Sonido',
    price: 250,
-   image: 'https://images.pexels.com/photos/276517/pexels-photo-276517.jpeg?auto=compress&cs=tinysrgb&dpr=2&h=650&w=940',
+   image: 'https://www.lg.com/co/images/sistemas-de-audio/md05260705/gallery/medium01.jpg',
 })
 productList.push({
    name: 'Impresora',
    price: 100,
-   image: 'https://images.pexels.com/photos/276517/pexels-photo-276517.jpeg?auto=compress&cs=tinysrgb&dpr=2&h=650&w=940',
+   image: 'https://mediaserver.goepson.com/ImConvServlet/imconv/73461fb77d7f424f37899fa294f5df16b5613880/1200Wx1200H?use=banner&assetDescr=foto-ecotank-L8180-1-690x480',
 })
 productList.push({
    name: 'Tablet',
    price: 400,
-   image: 'https://images.pexels.com/photos/276517/pexels-photo-276517.jpeg?auto=compress&cs=tinysrgb&dpr=2&h=650&w=940',
+   image: 'https://tienda.claro.com.co/wcsstore/Claro//images/catalog/equipos/646x1000/4894461886169.jpg',
 })
 
 function renderProducts(arr){
@@ -130,3 +130,4 @@ function renderProducts(arr){
    }
 }
 renderProducts(productList);
+
