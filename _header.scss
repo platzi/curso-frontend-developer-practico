@@ -1,0 +1,226 @@
+
+    $white: #FFFFFF;
+    $black: #000000;
+    $very-light-pink: #C7C7C7;
+    $text-input-field: #F7F7F7;
+    $hospital-green: #ACD9B2;
+    $sm: 14px;
+    $md: 16px;
+    $lg: 18px;
+  
+   
+header{
+    display: grid;
+    grid-template-columns: 1fr 1fr;
+    border: 2px solid $very-light-pink;
+    background: $text-input-field;
+   width:100vw;
+    
+    .mobile_menu{
+        display: none;
+    }
+   
+    
+    .navbar-left{
+        padding-left: 20px;
+        display: grid;
+        grid-template-columns: auto 1fr;
+        align-items: center;
+        text-align: center;
+       .icon_menu{
+        display: none;
+       }
+        .imgLogo{  
+            margin-left: 70px;
+            .logo{
+             width: 200px;   
+            }   
+        }
+        .menuLista{
+            display: grid;
+            grid-template-columns:repeat(6, 1fr);
+            list-style: none;
+            gap: 5px;
+         
+        
+            li{
+                border-radius: 8px;
+                padding: 5px;
+                &:hover{
+                    border: 1px solid $very-light-pink;
+                    transition: all 500ms ease;
+                }
+              
+            a{
+                text-decoration: none;
+                color: $hospital-green;
+            }
+        }
+        
+        }
+   }
+    .navbar-right{
+        padding-right: 20px;
+
+        .right{
+            display: flex;
+            list-style: none;
+            gap: 20px;
+            justify-content: flex-end;
+            align-items: center;
+            .navbar-email{
+                color: $very-light-pink;
+                cursor: pointer;
+            }
+            .navbar-shopping-cart{
+            
+            position: relative;
+              img{
+                width: 30px;
+              }
+                .contador{
+                    font-weight: bold;
+                    font-size: 15px;
+                    position: absolute;
+                    background-color: $hospital-green;
+                    border-radius: 100px;
+                    width: 20px;
+                    text-align: center;
+                   top: -25%;
+                   left:75% ;
+                }
+            }
+         }
+        
+      
+        
+          
+    }
+    .desktop-menu{
+        display: none;
+        position: absolute;
+        top: 10.5%;
+        right: 6%;   
+     
+        
+        .menuOrdenes{
+         display: grid;
+         grid-template-rows: repeat(3,1fr);
+         border: 2px solid rgba(220, 220, 220, 0.272);
+         border-top:2px solid #c7c7c75b;
+         background: $text-input-field;
+          list-style: none;
+          padding: 0;
+          margin: 0;
+          
+          
+          li{
+           
+            &:nth-child(3){
+                border-top: 2px solid rgba(0, 0, 0, 0.657);
+                margin-top: 13px;
+                padding-bottom: 10px;
+                a{
+                    color: $hospital-green;
+                    padding: 20px;
+                    &:hover{
+                        color: $white;
+                    }
+                }
+            }
+             padding: 10px 40px 0px 40px;
+             width: 100%;
+             a{
+                 text-decoration: none;
+                 color: #000000;
+                 font-weight: bold;
+         
+                 
+             }
+           
+            &:hover{
+             background: $very-light-pink;
+             transition: all 500ms ease;
+            }
+ 
+          }
+        }
+      
+     }
+     .desaparece{
+        display: block;
+     }
+
+    
+  
+
+}
+
+@media screen and (max-width:800px) {
+    header{
+      
+        grid-template-columns: 1fr auto;
+        .navbar-left{
+            justify-self:center;
+            
+            .menuLista{
+                display: none;
+            }
+        }
+        .navbar-right{
+            .right{
+                .navbar-email{
+                    display: none;
+                }
+            }
+        }
+        .desktop-menu{
+            display: none;
+        }
+        .icon_menu{
+            position: absolute;
+            top: -50px;
+            left: 40px;
+            
+        }
+        .mobile_menu{
+            display: grid;
+            width: 300px;
+            position: absolute;
+            top: 70px;
+            
+           .contenedorLista{
+                display: none;
+               .mobile_menu_items{
+                   
+                   
+                      li{
+                        list-style: none;
+                        margin-bottom: 9px;
+                      }  
+                       a{
+                           text-decoration: none;
+                           font-weight:900;
+                           color: #000000;
+                       }
+                       .email{
+                           text-decoration: overline;
+                           a{
+                               font-weight: 500;
+                           }
+                       }
+                       .signOut{
+                           a{
+   
+                               color: $hospital-green;
+                           }
+                       }
+               }
+           }
+           .appear{
+            display: block;
+        }
+           
+        }
+    }
+}

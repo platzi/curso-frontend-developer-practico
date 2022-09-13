@@ -1,0 +1,137 @@
+$white: #FFFFFF;
+$black: #000000;
+$very-light-pink: #C7C7C7;
+$text-input-field: #F7F7F7;
+$hospital-green: #ACD9B2;
+$sm: 14px;
+$md: 16px;
+$lg: 18px;
+
+
+aside{
+    width: 400px;
+    background: $white;
+    border: 2px solid rgba(128, 128, 128, 0.062);
+    margin-left:auto;
+    display: none;
+    position: absolute;
+    right: 5px;
+    padding:0 0 10px 10px;
+    border-radius: 12px;
+    .title-container{
+        display: flex;
+        
+       
+
+       img{
+        width: 10px;
+        margin: 0 20px 0 0;
+        transform: rotate(180deg);
+        
+        
+       }
+       p{
+        font-weight: bold;
+        font-size: 20px;
+    
+
+       }
+    }
+
+
+
+    .my-order-content{
+       
+        display: grid;
+        gap: 20px;
+        padding-top: 20px;
+        .shopping-cart{
+            display: grid;
+            grid-template-columns: repeat(3,1fr) 50px;
+            align-items: center;
+            figure{
+                margin: 0;
+                width: 80px;
+                height: 80px;
+                border-radius: 12px;
+               
+                img{
+                    width: 100%;
+                    height: 100%;
+                    object-fit: cover;
+                    border-radius: 12px;
+                }
+            }
+            p{
+                &:nth-child(2){
+                    color:$very-light-pink;
+                    justify-self: flex-start;
+                }
+                &:nth-child(3){
+                    font-weight: bold;
+                    justify-self: center;
+                }
+                
+            }
+            img{
+                
+                width: 15px;
+            }
+        }
+    }
+    .contentOrderCheck{
+       padding-right: 20px;
+        
+        .order{
+            display: grid;
+            grid-template-columns: 1fr 1fr;
+            background: $text-input-field;
+            align-items: center;
+            border-radius: 12px;
+            margin-bottom: 20px;
+            p{
+                
+                &:nth-child(1){
+                    font-weight: bold;
+                    padding-left: 20px;
+                }
+                &:nth-child(2){
+                    font-weight: bold;
+                    padding-left: 35%;
+                    
+                    
+                }
+            }
+        }
+        .primary-button{
+            background: $hospital-green;
+            border: none;
+            padding: 15px 0 15px 0;
+            border-radius: 12px;
+            color: $white;
+            font-weight: bold;
+            font-size: 20px;
+            width: 100%;
+        }
+    }
+}
+.toggleActive{
+    display: block;
+}
+@media screen and (max-width:800px){
+   .product-detail{
+        
+        width: 95%;
+        .contentOrderCheck{
+            .order{
+                p{
+
+                    &:nth-child(2){
+                     padding-left: 40%;   
+                    }
+                }
+            }
+        }
+       
+   }
+}
