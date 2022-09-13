@@ -12,5 +12,9 @@
     "curosbasico"
   ],
   "author": "Fabian Correa <fdcorrea12@hotmail.com>",
-  "license": "MIT"
+  "license": "MIT",
+  "type": "module",
+  "dependencies": {
+    "node-fetch": "^3.2.10"
+  }
 }
