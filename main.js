@@ -5,39 +5,59 @@ const desktopMenu = document.querySelector('.desktop-menu');
 const mobileMenu = document.querySelector('.mobile-menu');
 const shoppingCartContainer = document.querySelector('#shoppingCartContainer');
 const cardsContainer = document.querySelector('.cards-container');
+const productDetailCloseIcon = document.querySelector('.product-detail-close');
+const productDetailContainer = document.querySelector('#productDetail')
 
 menuEmail.addEventListener('click', toggleDesktopMenu);
 menuHamIcon.addEventListener('click', toggleMobileMenu);
 menuCarritoIcon.addEventListener('click', toggleCarritoAside);
+productDetailCloseIcon.addEventListener('click', closeProductDetailAside);
 
 function toggleDesktopMenu() {
-  const isAsideClosed = shoppingCartContainer.classList.contains('inactive');
+  // const isAsideClosed = shoppingCartContainer.classList.contains('inactive');
 
-  if (!isAsideClosed) {
-    shoppingCartContainer.classList.add('inactive');
-  }
+  // if (!isAsideClosed) {
+  //   shoppingCartContainer.classList.add('inactive');
+  // }
   
+  // desktopMenu.classList.toggle('inactive');
   desktopMenu.classList.toggle('inactive');
+  shoppingCartContainer.classList.add('inactive');
+  productDetailContainer.classList.add('inactive');
 }
 
 function toggleMobileMenu() {
-  const isAsideClosed = shoppingCartContainer.classList.contains('inactive');
+  // const isAsideClosed = shoppingCartContainer.classList.contains('inactive');
 
-  if (!isAsideClosed) {
-    shoppingCartContainer.classList.add('inactive'); 
-  }
+  // if (!isAsideClosed) {
+  //   shoppingCartContainer.classList.add('inactive'); 
+  // }
   
+  // mobileMenu.classList.toggle('inactive');
   mobileMenu.classList.toggle('inactive');
+  productDetailContainer.classList.add('inactive')
 }
 
 function toggleCarritoAside() {
-  const isMobileMenuClosed = mobileMenu.classList.contains('inactive');
+  // const isMobileMenuClosed = mobileMenu.classList.contains('inactive');
   
-  if (!isMobileMenuClosed) {
-    mobileMenu.classList.add('inactive'); 
-  }
+  // if (!isMobileMenuClosed) {
+  //   mobileMenu.classList.add('inactive'); 
+  // }
   
+  // shoppingCartContainer.classList.toggle('inactive');
+  desktopMenu.classList.add('inactive');
   shoppingCartContainer.classList.toggle('inactive');
+  productDetailContainer.classList.add('inactive');
+}
+function openProductDeatailAside(){
+  productDetailContainer.classList.remove('inactive');
+  desktopMenu.classList.add('inactive');
+  shoppingCartContainer.classList.add('inactive');
+  mobileMenu.classList.add('inactive');
+}
+function closeProductDetailAside(){
+  productDetailContainer.classList.add('inactive');
 }
 
 const productList = [];
@@ -47,14 +67,29 @@ productList.push({
   image: 'https://images.pexels.com/photos/276517/pexels-photo-276517.jpeg?auto=compress&cs=tinysrgb&dpr=2&h=650&w=940',
 });
 productList.push({
-  name: 'Pantalla',
-  price: 220,
-  image: 'https://images.pexels.com/photos/276517/pexels-photo-276517.jpeg?auto=compress&cs=tinysrgb&dpr=2&h=650&w=940',
+  name: 'AirPods',
+  price: 200,
+  image: 'https://images.pexels.com/photos/3825517/pexels-photo-3825517.jpeg?auto=compress&cs=tinysrgb&w=1260&h=750&dpr=1',
 });
 productList.push({
-  name: 'Compu',
+  name: 'Sneakers',
+  price: 100,
+  image: 'https://images.pexels.com/photos/2529148/pexels-photo-2529148.jpeg?auto=compress&cs=tinysrgb&w=1260&h=750&dpr=1',
+});
+productList.push({
+  name: 'Watch',
+  price: 300,
+  image: 'https://images.pexels.com/photos/125779/pexels-photo-125779.jpeg?auto=compress&cs=tinysrgb&w=1260&h=750&dpr=1',
+});
+productList.push({
+  name: 'Piano',
+  price: 720,
+  image: 'https://images.pexels.com/photos/164743/pexels-photo-164743.jpeg?auto=compress&cs=tinysrgb&w=1260&h=750&dpr=1',
+});
+productList.push({
+  name: 'Xbox Series S',
   price: 620,
-  image: 'https://images.pexels.com/photos/276517/pexels-photo-276517.jpeg?auto=compress&cs=tinysrgb&dpr=2&h=650&w=940',
+  image: 'https://images.pexels.com/photos/12718841/pexels-photo-12718841.jpeg?auto=compress&cs=tinysrgb&w=1260&h=750&dpr=1',
 });
 
 function renderProducts(arr) {
@@ -65,6 +100,7 @@ function renderProducts(arr) {
     // product= {name, price, image} -> product.image
     const productImg = document.createElement('img');
     productImg.setAttribute('src', product.image);
+    productImg.addEventListener('click', openProductDeatailAside);
   
     const productInfo = document.createElement('div');
     productInfo.classList.add('product-info');
