@@ -13,15 +13,19 @@
   body {
     margin: 0;
     font-family: 'Quicksand', sans-serif;
+    position: relative;
   }
 
   .inactive
   {
     display: none;
   }
-
   /* Navbar (general) */
   nav {
+    width: 100%;
+    background-color: var(--white);
+    z-index: 1;
+    position: fixed;
     display: flex;
     justify-content: space-between;
     padding: 0 24px;
@@ -91,6 +95,7 @@
 
   /* Menu en desktop */
   .desktop-menu {
+    z-index: 1;
     position: absolute;
     top: 60px;
     right: 60px;
@@ -130,6 +135,7 @@
   
   /* Menu en mobile */
   .mobile-menu {
+    z-index: 1;
     box-sizing: border-box;
     background-color: var(--white);
     position: absolute;
@@ -166,6 +172,7 @@
 
 /* Aside (product detail y carrito) */
 aside {
+  z-index: 1;
   background-color: var(--white);
   width: 360px;
   box-sizing: border-box;
@@ -247,6 +254,12 @@ aside {
 }
 
 /* ProductDetail */
+#productDetail
+{
+  left: calc(50vw - 180px);
+  top: 60px;
+  position: fixed;
+}
 .product-detail-close {
   background: var(--white);
   width: 14px;
@@ -306,12 +319,19 @@ aside {
 }
 
 /* Product list */
+.darken
+{
+  width: 100%;
+  height: 100%;
+  position: absolute;
+  background-color: rgba(0, 0, 0, 0.5);
+}
 .cards-container {
   display: grid;
   grid-template-columns: repeat(auto-fill, 240px);
   gap: 26px;
   place-content: center;
-  margin-top: 20px;
+  padding-top: 20px;
 }
 .product-card {
   width: 240px;
