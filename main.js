@@ -6,10 +6,11 @@ function renderList(arr){
     
         const Img = document.createElement('img');
         Img.setAttribute('src' ,product.image);
-    
+        Img.addEventListener('click',openDeteilAside);
+
         const ProductInfo = document.createElement('div');
         ProductInfo.classList.add("product-info");
-    
+     
         const ProductInfoDiv = document.createElement('div');
     
         const Price = document.createElement('p');
