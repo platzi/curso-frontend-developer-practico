@@ -11,18 +11,23 @@ menuHamIcon.addEventListener("click", toggleMobileMenu);
 menuCarritoIcon.addEventListener("click", toggleCarritoshoppingCartContainer);
 
 function toggleDesktopMenu() {
+  const isshoppingCartContainerClosed =
+    shoppingCartContainer.classList.contains("inactive");
+
+  if (!isshoppingCartContainerClosed) {
+    shoppingCartContainer.classList.add("inactive");
+  }
+
   desktopMenu.classList.toggle("inactive");
 }
 
 function toggleMobileMenu() {
   const isshoppingCartContainerClosed =
     shoppingCartContainer.classList.contains("inactive");
-  mobileMenu.classList.toggle("inactive");
 
   if (!isshoppingCartContainerClosed) {
     mobileMenu.classList.add("inactive");
   }
-
   mobileMenu.classList.toggle("inactive");
 }
 

@@ -155,6 +155,7 @@ nav {
 }
 
 .mobile-menu {
+  background-color: var(--white);
   position: absolute;
   top: 60px;
   padding: 24px;
@@ -377,7 +378,7 @@ aside {
   padding: 0 24px;
 }
 
-#productDetail-close {
+.product-detail-close {
   background: var(--white);
   width: 14px;
   height: 14px;
