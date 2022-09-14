@@ -376,6 +376,8 @@ aside {
 /* Shopping Cart */
 #shoppingCartContainer {
   padding: 0 24px;
+  background-color: var(--white);
+  width: 100%;
 }
 
 .product-detail-close {
