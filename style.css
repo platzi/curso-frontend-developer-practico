@@ -140,7 +140,7 @@
     border: 1px solid var(--very-light-pink);
     border-radius: 0px 0px 6px 6px;
   }
-  
+
   .mobile-menu a {
     text-decoration: none;
     color: var(--black);
@@ -256,7 +256,7 @@
       grid-template-columns: repeat(auto-fill, 240px);
       gap: 26px;
       place-content: center;
-      margin-top: 30px;
+      margin-top: 20px;
     }
     .product-card {
       width: 240px;
