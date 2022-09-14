@@ -6,7 +6,7 @@ function renderList(arr){
     
         const Img = document.createElement('img');
         Img.setAttribute('src' ,product.image);
-        Img.addEventListener('click',openDeteilAside);
+        Img.addEventListener('click',openProductDeteilAside);
 
         const ProductInfo = document.createElement('div');
         ProductInfo.classList.add("product-info");
@@ -57,7 +57,10 @@ function exchangeMobileMenu (){
     if (!IsAsideClosed){
         shoppingCartContainer.classList.add("inactive");
     }
+    closedProductDetailAside();
+
     MobileMenu.classList.toggle("inactive");
+
 }
 
 function exchangeCartAside (){
@@ -66,8 +69,27 @@ function exchangeCartAside (){
     if (!IsMobileMenuClosed ){
         MobileMenu.classList.add("inactive")
     }
+
+    const IsProductDetailClosed = ProductDetailContainer.classList.contains ("inactive");
+
+    if (!IsProductDetailClosed ){
+        ProductDetailContainer.classList.add("inactive")
+    }
+
+
     shoppingCartContainer.classList.toggle("inactive");
 }
+
+function openProductDeteilAside() {
+    ProductDetailContainer.classList.remove('inactive');
+    shoppingCartContainer.classList.add('inactive');
+}
+function closedProductDetailAside() {
+    ProductDetailContainer.classList.add('inactive');
+
+}
+
+
 //const
 const ProductList = [];
 const NavEmail = document.querySelector(".navbar-email");
@@ -77,10 +99,16 @@ const MobileMenu = document.querySelector(".mobile-menu");
 const CartMenu = document.querySelector(".navbar-shopping-cart")
 const shoppingCartContainer = document.querySelector("#shoppingCartContainer");
 const CardsContainer = document.querySelector(".cards-container");
+const ProductDetailContainer = document.querySelector('#productDetail');
+const ProductDetailCloseIcon = document.querySelector('.product-detail-close')
+
 //eventos 
 NavEmail.addEventListener("click" , exchangeDesktopMenu);
 BurgerStyleMenuBar.addEventListener("click" , exchangeMobileMenu);
 CartMenu.addEventListener("click" , exchangeCartAside);
+ProductDetailCloseIcon.addEventListener('click' , closedProductDetailAside)
+
+
 
 //ingreso manual de los productos 
 ProductList.push({
