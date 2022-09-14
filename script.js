@@ -31,6 +31,7 @@ function toggleMobileMenu() {
   if (!isshoppingCartContainerClosed) {
     shoppingCartContainer.classList.add("inactive");
   }
+  closeProductDetailAside();
   mobileMenu.classList.toggle("inactive");
 }
 
@@ -42,11 +43,20 @@ function toggleCarritoshoppingCartContainer() {
     mobileMenu.classList.add("inactive");
   }
 
+  const isProductDetailClosed =
+    productDetailContainer.classList.contains("inactive");
+
+  /*   shoppingCartContainer.classList.toggle("inactive"); */
+  if (!isProductDetailClosed) {
+    productDetailContainer.classList.add("inactive");
+  }
+
   shoppingCartContainer.classList.toggle("inactive");
 }
 
 function openProductDetailAside() {
   productDetailContainer.classList.remove("inactive");
+  shoppingCartContainer.classList.add("inactive");
 }
 
 function closeProductDetailAside() {
@@ -54,6 +64,42 @@ function closeProductDetailAside() {
 }
 
 const productList = [];
+productList.push({
+  name: "Bike",
+  price: 120,
+  img: "https://cdn.shopify.com/s/files/1/0255/9528/1483/products/1_7_1800x1800.jpg?v=1658888429",
+});
+
+productList.push({
+  name: "TV",
+  price: 500,
+  img: "https://exitocol.vtexassets.com/arquivos/ids/11179668/Tv-Led-126-Cms-50-Uhd-4K-Smart-LG-50-Pulgadas-Smart-Tv-50UP7500PSFAWC-3032811_c.jpg?v=637743137099270000",
+});
+
+productList.push({
+  name: "Car",
+  price: 10000,
+  img: "https://maserati.scene7.com/is/image/maserati/maserati/regional/us/models/my22/levante/22_LV_Trofeo_PS_T1_HomePage_1920x1080.jpg?$1920x2000$&fit=constrain",
+});
+
+productList.push({
+  name: "Bike",
+  price: 120,
+  img: "https://cdn.shopify.com/s/files/1/0255/9528/1483/products/1_7_1800x1800.jpg?v=1658888429",
+});
+
+productList.push({
+  name: "TV",
+  price: 500,
+  img: "https://exitocol.vtexassets.com/arquivos/ids/11179668/Tv-Led-126-Cms-50-Uhd-4K-Smart-LG-50-Pulgadas-Smart-Tv-50UP7500PSFAWC-3032811_c.jpg?v=637743137099270000",
+});
+
+productList.push({
+  name: "Car",
+  price: 10000,
+  img: "https://maserati.scene7.com/is/image/maserati/maserati/regional/us/models/my22/levante/22_LV_Trofeo_PS_T1_HomePage_1920x1080.jpg?$1920x2000$&fit=constrain",
+});
+
 productList.push({
   name: "Bike",
   price: 120,
