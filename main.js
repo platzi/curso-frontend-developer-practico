@@ -5,18 +5,27 @@ const mobileMenu = document.querySelector('.mobile-menu')
 const shoppingCart= document.querySelector('.navbar-shopping-cart')
 const productDetailAside= document.querySelector('.product-detail-aside')
 const cardsContainer = document.querySelector('.cards-container')
+const productDetailContainer = document.querySelector('.product-detail')
+const productDetailClose = document.querySelector('.product-detail-close')
+
 
 
 menuEmail.addEventListener('click', toogleDesktopMenu)
 menuHamIcon.addEventListener('click', toogleMobileMenu)
 shoppingCart.addEventListener('click', toogleCarritoAsside)
+productDetailClose.addEventListener('click', closeProductDeteilAside)
 
 
 function toogleDesktopMenu() {
     const productDetailClosed = productDetailAside.classList.contains('inactive')
+    const productDetailContainerClosed = productDetailContainer.classList.contains('inactive');
     
     if(!productDetailClosed){
         productDetailAside.classList.add('inactive')
+    }
+
+    if(!productDetailContainerClosed){
+        productDetailContainer.classList.add('inactive')
     }
 
     desktopMenu.classList.toggle('inactive')
@@ -24,9 +33,14 @@ function toogleDesktopMenu() {
 
 function toogleMobileMenu() {
     const productDetailClosed = productDetailAside.classList.contains('inactive')
-    
+    const productDetailContainerClosed = productDetailContainer.classList.contains('inactive');
+
+
     if(!productDetailClosed){
         productDetailAside.classList.add('inactive')
+    }
+    if(!productDetailContainerClosed){
+        productDetailContainer.classList.add('inactive')
     }
 
     mobileMenu.classList.toggle('inactive')
@@ -35,6 +49,8 @@ function toogleMobileMenu() {
 function toogleCarritoAsside() {
     const mobileMenuClosed = mobileMenu.classList.contains('inactive');
     const desktopMenuClosed = desktopMenu.classList.contains('inactive');
+    const productDetailContainerClosed = productDetailContainer.classList.contains('inactive');
+
 
 
     if(!mobileMenuClosed){
@@ -42,6 +58,9 @@ function toogleCarritoAsside() {
     }
     if(!desktopMenuClosed){
         desktopMenu.classList.add('inactive')
+    }
+    if(!productDetailContainerClosed){
+        productDetailContainer.classList.add('inactive')
     }
 
     productDetailAside.classList.toggle('inactive')
@@ -72,6 +91,7 @@ function renderProducts(arr){
 
         const productImg = document.createElement('img');
         productImg.setAttribute('src', product.img);
+        productImg.addEventListener('click', openProductDeteilAside)
         
         const productInfo = document.createElement('div');
         productInfo.classList.add('product-info-aside');
@@ -105,3 +125,33 @@ function renderProducts(arr){
 }
 
 renderProducts(productList);
+
+function openProductDeteilAside(){
+    const productDetailClosed = productDetailAside.classList.contains('inactive')
+    const desktopMenuClosed = desktopMenu.classList.contains('inactive');
+
+    if(!productDetailClosed){
+        productDetailAside.classList.add('inactive')
+    }
+
+    if(!desktopMenuClosed){
+        desktopMenu.classList.add('inactive')
+    }
+
+    productDetailContainer.classList.remove('inactive')
+}
+
+function closeProductDeteilAside(){
+    const productDetailClosed = productDetailAside.classList.contains('inactive')
+    const desktopMenuClosed = desktopMenu.classList.contains('inactive');
+
+    if(!productDetailClosed){
+        productDetailAside.classList.add('inactive')
+    }
+
+    if(!desktopMenuClosed){
+        desktopMenu.classList.add('inactive')
+    }
+
+    productDetailContainer.classList.add('inactive')
+}

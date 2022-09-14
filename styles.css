@@ -144,6 +144,7 @@ nav {
   list-style: none;
 }
 .mobile-menu ul:nth-child(1) {
+  width: 150px;
   border-bottom: 1px solid var(--very-light-pink);
 }
 .mobile-menu ul li {
