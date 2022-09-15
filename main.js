@@ -36,9 +36,10 @@ function toggleCarritoAside() {
     if (!isMobileMenuClosed) {
         mobileMenu.classList.add('inactive')
     }
-
+    //contains da un valor boleano, en este caso se lee si el id/class de la variable tiene SI o NO la clase 'inactive', es decir, que si la tiene activada (clase 'inactive') es porque esa seccion esta abierta,y si, si esta abierto debemos cerrar la anterior seccion desde antes, sino, esta cerrada
     const isProductDetailClosed = productDetailContainer.classList.contains('inactive');
     
+    //si no esta cerrado = si esta bierto
     if (!isProductDetailClosed) {
         productDetailContainer.classList.add('inactive')
     }
@@ -54,9 +55,9 @@ function closeProductDetailAside(){
     productDetailContainer.classList.add('inactive')
 }
 
-
-
+//array de productos vacio, el cual recibira la info con el .push
 const productList = [];
+//info que ira al array vacio de la variable productList
 productList.push({
     name: 'Bike',
     price: 120,
@@ -73,8 +74,11 @@ productList.push({
     image:'https://images.pexels.com/photos/276517/pexels-photo-276517.jpeg?auto=compress&cs=tinysrgb&dpr=2&h=650&w=940'
 })
 
+//funcion la cual maqueta y renderiza la info que viene del array 'product detail', y puede ser reciclada para rederizar otros arrays
+
 function renderProducts(arr) {
     for (product of arr) {
+
         const productCard = document.createElement('div')
         productCard.classList.add('product-card')
     
@@ -101,11 +105,11 @@ function renderProducts(arr) {
     
         productInfoFigure.appendChild(productImgCart)
     
-        productInfo.appendChild(productInfoDiv)
-        productInfo.appendChild(productInfoFigure)
+        productInfo.append(productInfoDiv,productInfoFigure)
+        // productInfo.appendChild(productInfoFigure)
     
-        productCard.appendChild(productImg)
-        productCard.appendChild(productInfo)
+        productCard.append(productImg, productInfo)
+        // productCard.appendChild(productInfo)
     
         cardsContainer.appendChild(productCard)
     }
