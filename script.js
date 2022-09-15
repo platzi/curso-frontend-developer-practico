@@ -3,15 +3,13 @@ const navbarEmail = document.querySelector('.navbar-email');
 const hamburgerIcon = document.querySelector('.menu');
 const mobileMenu = document.querySelector('.mobile-menu');
 const carritoIcon = document.querySelector('.navbar-shopping-cart');
-const aside = document.querySelector('.product-detail');
-const closeAsideIcon = document.querySelector('.product-detail-close');
+const aside = document.querySelector('#shoppingCartContainer');
 const cardsContainer = document.querySelector('.cards-container');
 
 
 navbarEmail.addEventListener('click', toggleMenu);
 hamburgerIcon.addEventListener('click', toggleMobileMenu);
 carritoIcon.addEventListener('click', toggleAside);
-closeAsideIcon.addEventListener('click', toggleAside);
 
 
 function toggleMenu() {
@@ -61,7 +59,16 @@ productList.push({
     price: 250,
     image: 'https://images.pexels.com/photos/276517/pexels-photo-276517.jpeg?auto=compress&cs=tinysrgb&dpr=2&h=650&w=940'
 });
-
+productList.push({
+    name: 'Bike',
+    price: 120,
+    image: 'https://images.pexels.com/photos/276517/pexels-photo-276517.jpeg?auto=compress&cs=tinysrgb&dpr=2&h=650&w=940'
+});
+productList.push({
+    name: 'MacBook Air',
+    price: 980,
+    image: 'https://images.pexels.com/photos/276517/pexels-photo-276517.jpeg?auto=compress&cs=tinysrgb&dpr=2&h=650&w=940'
+});
 
 // <!-- <div class="product-card">
 //         <img src="https://images.pexels.com/photos/276517/pexels-photo-276517.jpeg?auto=compress&cs=tinysrgb&dpr=2&h=650&w=940" alt="">
