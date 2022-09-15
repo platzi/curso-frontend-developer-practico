@@ -148,30 +148,30 @@ function agregarCompra(e) {//seleccionar valores
     addShopping(setCard, id);
 }
 
-// function getItemsAside(e){//realiza misma accion que agregarCompra()
-//     const containerAside = e.target.parentElement.parentElement;
-//     let id = containerAside.children[2].children[3].getAttribute('value');
-//     addShoppingAside(containerAside,id);
-// }
+function getItemsAside(e){//realiza misma accion que agregarCompra()
+    const containerAside = e.target.parentElement.parentElement;
+    let id = containerAside.children[2].children[3].getAttribute('value');
+    addShoppingAside(containerAside,id);
+}
 
-// function addShoppingAside(data,id){//accion para comprar item desde aside
-//     const buy = {
-//         id: id,
-//         img: data.children[1].getAttribute('src'),
-//         price: data.children[2].children[0].textContent,
-//         title: data.children[2].children[1].textContent,
-//         quantity: 1,
-//     };
+function addShoppingAside(data,id){//accion para comprar item desde aside
+    const buy = {
+        id: id,
+        img: data.children[1].getAttribute('src'),
+        price: data.children[2].children[0].textContent,
+        title: data.children[2].children[1].textContent,
+        quantity: 1,
+    };
 
-//     if (shoppingCart.hasOwnProperty(buy.id)) {
-//         // console.log(shoppingCart[id].quantity);
-//         buy.quantity = shoppingCart[buy.id].quantity + 1;
-//     }
-//     addCountShopping();
-//     // Copiando objeto dentro del id (indexado) con spreed operator
-//     shoppingCart[buy.id] = { ...buy };
-//     showShopping(); //pintar compras en la orden
-// }
+    if (shoppingCart.hasOwnProperty(buy.id)) {
+        // console.log(shoppingCart[id].quantity);
+        buy.quantity = shoppingCart[buy.id].quantity + 1;
+    }
+    addCountShopping();
+    // Copiando objeto dentro del id (indexado) con spreed operator
+    shoppingCart[buy.id] = { ...buy };
+    showShopping(); //pintar compras en la orden
+}
 
 function addShopping(data, id) {//Agregarlos a la compra del menu de carrito
     const buy = {
