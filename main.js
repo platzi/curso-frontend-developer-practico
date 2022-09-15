@@ -72,7 +72,7 @@ arrowMenu.addEventListener('click', arrowClose);
 iconHamburguer.addEventListener('click', hamburguer);
 shoppingCard.addEventListener('click', cardIconShopping);
 closeDetailProduct.addEventListener('click', btnClose);
-// btnAddShopping.addEventListener('click', e => getItemsAside(e)); //comprar item desde aside
+btnAddShopping.addEventListener('click', e => getItemsAside(e)); //comprar item desde aside
 
 // VER PRODUCTOS DE API
 fetchData(`${API}/products`)
