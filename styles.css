@@ -14,6 +14,15 @@ body {
   font-family: 'Quicksand', sans-serif;
 }
 
+
+/* Se utilzo display nooe plara hacer desaparecer el menú para que el usuario le de esa interaccion de hacer click para mostrarlo o quitarlo con javascript */
+.inactive {
+  display: none;
+}
+
+
+
+/* El header del archivo html 11 */
 nav {
   display: flex;
   justify-content: space-between;
@@ -66,6 +75,7 @@ nav {
   color: var(--very-light-pink);
   font-size: var(--sm);
   margin-right: 12px;
+  cursor: pointer;
 }
 
 .navbar-shopping-cart {
@@ -87,6 +97,50 @@ nav {
   align-items: center;
 }
 
+
+
+/* El menú del archivo html 7 */
+.desktop-menu {
+  position: absolute;
+  top: 60px;
+  right: 60px;
+  background: var(--white);
+  width: 100px;
+  height: auto;
+  border: 1px solid var(--very-light-pink);
+  border-radius: 6px;
+  padding: 20px 20px 0 20px;
+}
+.desktop-menu ul {
+  list-style: none;
+  padding: 0;
+  margin: 0;
+}
+.desktop-menu ul li {
+  text-align: end;
+}
+.desktop-menu ul li:nth-child(1),
+.desktop-menu ul li:nth-child(2) {
+  font-weight: bold;
+}
+.desktop-menu ul li:last-child {
+  padding-top: 20px;
+  border-top: 1px solid var(--very-light-pink);
+}
+.desktop-menu ul li:last-child a {
+  color: var(--hospital-green);
+  font-size: var(--sm);
+}
+.desktop-menu ul li a {
+  color: var(--back);
+  text-decoration: none;
+  margin-bottom: 20px;
+  display: inline-block;
+}
+
+
+
+/* El header del archivo html 11 */
 @media (max-width: 640px) {
   .menu {
     display: block;
