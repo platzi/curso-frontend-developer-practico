@@ -13,6 +13,8 @@ menuHamIcon.addEventListener('click', toggleMobileMenu)
 menuCarritoIcon.addEventListener('click', toggleCarritoAside)
 productDetailContainer.addEventListener('click', closeProductDetailAside)
 
+
+
 function toggleDesktopMenu() {
     const isshoppingCartContainerClosed = shoppingCartContainer.classList.contains('inactive')
     if (!isshoppingCartContainerClosed) {
