@@ -7,6 +7,7 @@ menuEmail.addEventListener('click', toggleDesktopMenu);
 
 function toggleDesktopMenu (){
     console.log("click");
-   desktopMenu.classList.remove('inactive');
+    //la propiedad toogle:Si es visible se elimina, de lo contrario la añade
+   desktopMenu.classList.toggle('inactive');
  
 }
