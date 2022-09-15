@@ -5,10 +5,13 @@ const mobileMenu = document.querySelector(".mobile-menu");
 const shoppingCartMenu = document.querySelector(".navbar-shopping-cart");
 const productDetailMenu = document.querySelector("#shoppingCartContainer");
 const cardsContainer = document.querySelector(".cards-container");
+const productDetailBig = document.querySelector("#productDetail");
+const productDetailCloseIcon = document.querySelector(".product-detail-close")
 
 email.addEventListener("click", toggleDesktopMenu);
 menuHamIcon.addEventListener("click", toggleMobileMenu);
-shoppingCartMenu.addEventListener("click", toggleShoppingMenu)
+shoppingCartMenu.addEventListener("click", toggleShoppingMenu);
+productDetailCloseIcon.addEventListener("click",closeProductDetailAside);
 
 function toggleDesktopMenu(){
     // la palabra toggle es algo asi como intercambiar. Se pone la parte de la palabra que se quiere adicionar
@@ -43,6 +46,8 @@ function toggleMobileMenu(){
         productDetailMenu.classList.add("inactive");
     }
 
+    closeProductDetailAside();
+
     mobileMenu.classList.toggle("inactive");
 }
 
@@ -51,6 +56,7 @@ function toggleShoppingMenu(){
     // o quitar en el nombre de la clase
     const isMobileMenuClosed = mobileMenu.classList.contains("inactive");
     const isDesktopMenuClosed = desktopMenu.classList.contains("inactive");
+    const isproductDetailClosed = productDetailBig.classList.contains("inactive");
 
     if(!isMobileMenuClosed){
         mobileMenu.classList.add("inactive");
@@ -58,6 +64,10 @@ function toggleShoppingMenu(){
 
     if(!isDesktopMenuClosed){
         desktopMenu.classList.add("inactive");
+    }
+
+    if(!isproductDetailClosed){
+        productDetailBig.classList.add("inactive");
     }
 
     productDetailMenu.classList.toggle("inactive");
@@ -106,6 +116,7 @@ function renderProducts(arrProducts){
         
         const productImg = document.createElement("img");
         productImg.setAttribute("src", product.img);
+        productImg.addEventListener("click", openProductDetailAside);
         
         const productInfo = document.createElement("div");
         productInfo.classList.add("product-info");
@@ -146,8 +157,27 @@ function renderProducts(arrProducts){
     productInfo.appendChild(productInfoDiv);
     productInfo.appendChild(productInfoFigure);
     */
-    productInfo.append(productInfoDiv, productInfoFigure);
-    }
+   productInfo.append(productInfoDiv, productInfoFigure);
+}
 }
 
 renderProducts(productList);
+
+function openProductDetailAside(){
+    const isDesktopMenuClosed = desktopMenu.classList.contains("inactive");
+    const isproductDetailMenuClosed = productDetailMenu.classList.contains("inactive");
+
+    if(!isDesktopMenuClosed){
+        desktopMenu.classList.add("inactive");
+    }
+
+    if(!isproductDetailMenuClosed){
+        productDetailMenu.classList.add("inactive");
+    }
+
+    productDetailBig.classList.remove("inactive");
+}
+
+function closeProductDetailAside(){
+    productDetailBig.classList.add("inactive");
+}
