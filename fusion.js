@@ -5,11 +5,13 @@ const mobileMenu = document.querySelector('.mobile-menu');
 const menuCarritoIcon = document.querySelector('.navbar-shopping-cart');
 const shoppingCartContainer = document.querySelector('#shoppingCartContainer');
 const cardsContainer = document.querySelector('.cards-container');
+const productDetailContainer = document.querySelector('#productDetail')
+const productDetailCloseIcon = document.querySelector('.product-detail-close');
 
 menuEmail.addEventListener('click', toggleDesktopMenu);
 menuHamIcon.addEventListener('click', toggleMobileMenu);
 menuCarritoIcon.addEventListener('click', toggleCarritoShoppingCartContainer);
-
+productDetailCloseIcon.addEventListener('click', closeProductDetailAside);
 function toggleDesktopMenu() {
     const isShoppingCartContainerClosed = shoppingCartContainer.classList.contains('inactive');
 
@@ -26,6 +28,8 @@ function toggleMobileMenu() {
     if (!isShoppingCartContainerClosed){
         shoppingCartContainer.classList.add('inactive');
     }
+
+    closeProductDetailAside();
 
     mobileMenu.classList.toggle('inactive');
 }
@@ -46,6 +50,19 @@ function toggleCarritoShoppingCartContainer() {
 
     shoppingCartContainer.classList.toggle('inactive');
 
+    const isProductDetailClosed = productDetailContainer.classList.contains('inactive');
+    if(!isProductDetailClosed) {
+        productDetailContainer.classList.add('inactive');
+    }
+   }
+
+   function openProductDetailAside() {
+        shoppingCartContainer.classList.add('inactive');
+        productDetailContainer.classList.remove('inactive');
+   }
+
+   function closeProductDetailAside() {
+    productDetailContainer.classList.add('inactive')
    }
 
 
@@ -65,13 +82,13 @@ function toggleCarritoShoppingCartContainer() {
    });
 
    productList.push ({
-    name: 'TV',
+    name: 'Televisor Oled',
     price: 450,
     image: 'https://images.unsplash.com/photo-1539786774582-0707555f1f72?ixlib=rb-1.2.1&ixid=MnwxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8&auto=format&fit=crop&w=773&q=80',
     });
 
     productList.push ({
-        name: 'TV',
+        name: 'Sound Bar',
         price: 450,
         image: 'https://images.unsplash.com/photo-1531104985437-603d6490e6d4?ixlib=rb-1.2.1&ixid=MnwxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8&auto=format&fit=crop&w=839&q=80',
         });
@@ -85,6 +102,7 @@ function toggleCarritoShoppingCartContainer() {
     const productImg = document.createElement('img');
     productImg.setAttribute('src', product.image);
     const productInfo = document.createElement('div');
+    productImg.addEventListener('click', openProductDetailAside);
     productInfo.classList.add('product-info');
 
     const productInfoDiv = document.createElement('div');
