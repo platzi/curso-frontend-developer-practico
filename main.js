@@ -49,19 +49,34 @@ const productsList = [];
 
 productsList.push(
     {
-        name: 'Bike',
-        price: 120,
-        image: 'https://images.pexels.com/photos/276517/pexels-photo-276517.jpeg?auto=compress&cs=tinysrgb&dpr=2&h=650&w=940',
+        name: 'Jeans cónicos desgarro crudo',
+        price: 477,
+        image: 'https://images.pexels.com/photos/1346187/pexels-photo-1346187.jpeg?auto=compress&cs=tinysrgb&dpr=2&h=650&w=940',
     },
     {
-        name: 'Pantalla',
-        price: 3500,
-        image: 'https://images.pexels.com/photos/276517/pexels-photo-276517.jpeg?auto=compress&cs=tinysrgb&dpr=2&h=650&w=940',
+        name: 'Jeans tipo boyfriend roto',
+        price: 676,
+        image: 'https://images.pexels.com/photos/1957154/pexels-photo-1957154.jpeg?auto=compress&cs=tinysrgb&dpr=2&h=650&w=940',
     },
     {
-        name: 'Laptop',
-        price: 5000,
-        image: 'https://images.pexels.com/photos/276517/pexels-photo-276517.jpeg?auto=compress&cs=tinysrgb&dpr=2&h=650&w=940',
+        name: 'Jeans de pierna ancha',
+        price: 642,
+        image: 'https://images.pexels.com/photos/4505458/pexels-photo-4505458.jpeg?auto=compress&cs=tinysrgb&dpr=2&h=650&w=940',
+    },
+    {
+        name: 'Jeans ajustados',
+        price: 475,
+        image: 'https://images.pexels.com/photos/1501215/pexels-photo-1501215.jpeg?auto=compress&cs=tinysrgb&dpr=2&h=650&w=940',
+    },
+    {
+        name: 'Jeans de pierna recta',
+        price: 573,
+        image: 'https://images.pexels.com/photos/2363825/pexels-photo-2363825.jpeg?auto=compress&cs=tinysrgb&dpr=2&h=650&w=940',
+    },
+    {
+        name: 'Jeans de talle alto de pierna ancha',
+        price: 607,
+        image: 'https://images.pexels.com/photos/8811244/pexels-photo-8811244.jpeg?auto=compress&cs=tinysrgb&dpr=2&h=650&w=940',
     },
 );
 
