@@ -16,6 +16,16 @@
     position: relative;
   }
 
+  .footer {
+    background: var(--black);
+    color: var(--white);
+    height: 80px;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    text-align: center;
+  }
+
   #overlay {
     position: absolute;
     width: 100%;
@@ -333,7 +343,7 @@
       grid-template-columns: repeat(auto-fill, 240px);
       gap: 26px;
       place-content: center;
-      padding-top: 20px;
+      padding: 20px 0px 100px;
     }
     .product-card {
       width: 240px;
@@ -384,6 +394,12 @@
       display: none;
     }
 
+    .footer {
+      padding: 0 30px;
+      height: 120px;
+    }
+
+
     .product-detail {
         width: 100%;
     }
@@ -400,8 +416,6 @@
         width: 140px;
         height: 140px;
     }
-
-
         
     #shoppingCartContainer {
       padding: 0 24px;
