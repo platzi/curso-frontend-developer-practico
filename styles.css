@@ -22,7 +22,7 @@ nav {
 }
 
 .inactive {
-    display: none;
+    opacity: 0;
 }
 
 .menu {
@@ -95,16 +95,18 @@ nav {
 
 .desktop-menu {
     position: absolute;
-    padding: 20px 20px 0 20px;
     top: 60px;
-    right: 50px;
-
+    right: 60px;
     width: 100px;
     height: auto;
-    background-color: var(--white);
     border: 1px solid var(--very-light-pink);
     border-radius: 6px;
-
+    border-top-left-radius: 0;
+    border-top-right-radius: 0;
+    padding: 20px 20px 0 20px;
+    background-color: var(--white);
+    transition: .4s;
+    box-shadow: 5px 5px 10px var(--very-light-pink);
 }
 
 .desktop-menu ul {
