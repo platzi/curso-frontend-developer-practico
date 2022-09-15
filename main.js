@@ -66,40 +66,44 @@ productList.push({
       </div>
 */
 
-for (product of productList) {
-  const productCard = document.createElement('div');
-  productCard.classList.add('product-card');
-
-  // product= {name, price, image} -> product.image 
-  const productImg = document.createElement('img');
-  productImg.setAttribute('src', product.image);
-
-  const productInfo = document.createElement('div');
-  productInfo.classList.add('product-info');
-
-  const productInfoDiv = document.createElement('div');
-
-  const productPrice = document.createElement('div');
-  productPrice.innerText = '$' + product.price;
-
-  const productName = document.createElement('div');
-  productName.innerText = product.name;
-
-  productInfoDiv.appendChild(productPrice);
-  productInfoDiv.appendChild(productName);
+function renderProducts(arr){
+  for (product of arr) {
+    const productCard = document.createElement('div');
+    productCard.classList.add('product-card');
   
-
-  const productInfoFigure = document.createElement('figure');
-  const productImgCart = document.createElement('img');
-  productImgCart.setAttribute('src', './icons/bt_add_to_cart.svg');
-
-  productInfoFigure.appendChild(productImgCart);
-
-  productInfo.appendChild(productInfoDiv);
-  productInfo.appendChild(productInfoFigure);
-
-  productCard.appendChild(productImg);
-  productCard.appendChild(productInfo);
+    // product= {name, price, image} -> product.image 
+    const productImg = document.createElement('img');
+    productImg.setAttribute('src', product.image);
   
-  cardsContainer.appendChild(productCard);
+    const productInfo = document.createElement('div');
+    productInfo.classList.add('product-info');
+  
+    const productInfoDiv = document.createElement('div');
+  
+    const productPrice = document.createElement('div');
+    productPrice.innerText = '$' + product.price;
+  
+    const productName = document.createElement('div');
+    productName.innerText = product.name;
+  
+    productInfoDiv.appendChild(productPrice);
+    productInfoDiv.appendChild(productName);
+    
+  
+    const productInfoFigure = document.createElement('figure');
+    const productImgCart = document.createElement('img');
+    productImgCart.setAttribute('src', './icons/bt_add_to_cart.svg');
+  
+    productInfoFigure.appendChild(productImgCart);
+  
+    productInfo.appendChild(productInfoDiv);
+    productInfo.appendChild(productInfoFigure);
+  
+    productCard.appendChild(productImg);
+    productCard.appendChild(productInfo);
+    
+    cardsContainer.appendChild(productCard);
+  }
 }
+
+renderProducts(productList);
