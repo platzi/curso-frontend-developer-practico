@@ -10,6 +10,8 @@ const menuHamIcon = document.querySelector('.menu');
 const mobileMenu = document.querySelector('.mobile-menu');
 // este es el aside d3l producto del carrito
 const aside = document.querySelector('.product-detail');
+// este es el contenedor del array de los products
+const cardsContainer = document.querySelector('.cards-container');
 
 // este es el menu para desktop
 menuEmail.addEventListener('click', toggleDesktopMenu);
@@ -62,3 +64,95 @@ function toggleCarritoAside() {
 
     // aside.classList.toggle('inactive');
 }
+
+const productoList = [];
+productoList.push({
+    name: 'Bike',
+    price: 120,
+    image: 'https://images.pexels.com/photos/276517/pexels-photo-276517.jpeg?auto=compress&cs=tinysrgb&dpr=2&h=650&w=940'
+});
+productoList.push({
+    name: 'TV',
+    price: 220,
+    image: 'https://images.pexels.com/photos/276517/pexels-photo-276517.jpeg?auto=compress&cs=tinysrgb&dpr=2&h=650&w=940'
+});
+productoList.push({
+    name: 'Computador',
+    price: 300,
+    image: 'https://images.pexels.com/photos/276517/pexels-photo-276517.jpeg?auto=compress&cs=tinysrgb&dpr=2&h=650&w=940'
+});
+productoList.push({
+    name: 'Bike',
+    price: 120,
+    image: 'https://images.pexels.com/photos/276517/pexels-photo-276517.jpeg?auto=compress&cs=tinysrgb&dpr=2&h=650&w=940'
+});
+productoList.push({
+    name: 'TV',
+    price: 220,
+    image: 'https://images.pexels.com/photos/276517/pexels-photo-276517.jpeg?auto=compress&cs=tinysrgb&dpr=2&h=650&w=940'
+});
+productoList.push({
+    name: 'Computador',
+    price: 300,
+    image: 'https://images.pexels.com/photos/276517/pexels-photo-276517.jpeg?auto=compress&cs=tinysrgb&dpr=2&h=650&w=940'
+});
+productoList.push({
+    name: 'Computador',
+    price: 300,
+    image: 'https://images.pexels.com/photos/276517/pexels-photo-276517.jpeg?auto=compress&cs=tinysrgb&dpr=2&h=650&w=940'
+});
+
+/* <div class="product-card">
+<img
+  src="https://images.pexels.com/photos/276517/pexels-photo-276517.jpeg?auto=compress&cs=tinysrgb&dpr=2&h=650&w=940"
+  alt="">
+<div class="product-info">
+  <div>
+    <p>$120,00</p>
+    <p>Bike</p>
+  </div>
+  <figure>
+    <img src="./icons/bt_add_to_cart.svg" alt="">
+  </figure>
+</div>
+</div> */
+// una iteracion por cada uno de los products del array de productList y estamos maquetando la estructura del html que debemos insertarle al nuestro ducumento html principal para que nuestros usuarios vean nuestros products.
+// Con Element.append() podemos agregar varios nodos y texto mientras que con Element.appendChild() solo podemos agregar un nodo.
+function arrayProducts(array) {
+    for (product of array) {
+        const productCard = document.createElement('div');
+        productCard.classList.add('product-card');
+
+        // product = {name, price, image} => product.image
+        const productImg = document.createElement('img');
+        productImg.setAttribute('src', product.image);
+
+        const productInfo = document.createElement('div');
+        productInfo.classList.add('product-info');
+
+        const productInfoDiv = document.createElement('div');
+        const productPrice = document.createElement('p');
+        productPrice.innerText = '$' + product.price;
+        const productName = document.createElement('p');
+        productName.innerText = product.name;
+
+        productInfoDiv.append(productPrice, productName);
+        // productInfoDiv.appendChild(productName);
+
+        const productInfoFigure = document.createElement('figure');
+        const productImgCart = document.createElement('img');
+        productImgCart.setAttribute('src', './icons/bt_add_to_cart.svg');
+
+        productInfoFigure.appendChild(productImgCart);
+
+        productInfo.appendChild(productInfoDiv);
+        productInfo.appendChild(productInfoFigure);
+
+        productCard.appendChild(productImg);
+        productCard.appendChild(productInfo);
+
+        cardsContainer.appendChild(productCard);
+    }
+}
+
+arrayProducts(productoList);
