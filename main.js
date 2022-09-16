@@ -3,7 +3,7 @@ const desktopMenu = document.querySelector('.desktop-menu');
 const menumobile= document.querySelector('.menu');
 const showmenumobile = document.querySelector('.mobile-menu');
 const navEmailMenu = document.querySelector('.email');
-const carproduct = document.querySelector('.product-detail')
+const carproduct = document.querySelector('#shoppingCarterContainer')
 const logocarproduct = document.querySelector('.navbar-shopping-cart')
 const cardscontainer = document.querySelector('.cards-container')
 // abrir opciones con el correo desde el menu
