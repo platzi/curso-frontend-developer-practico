@@ -110,7 +110,6 @@ fetchData(`${API}/products`)
 
             // HACER CLICK EN UNA IMG DE CARDS
             imgCard.addEventListener('click', e => {
-                positionDetailProduct();
                 showAsideDescription(e, productInfo, productCard, productos);
             });
 
@@ -268,16 +267,4 @@ function totalShopping() {
                                     </p>
                                     <p>$ ${payment}</p>
                                 </div>`;
-}
-
-function positionDetailProduct(){
-    // SI EL ASIDE DE INFO DEL PRODUCTO LLEGA A CIERTA ALTURA
-    // COLOCARLO EN TOP 0
-    window.addEventListener('scroll', () => {
-        if (window.scrollY > 60) {
-            descriptionProduct.style.top = '0px';
-        } else {
-            descriptionProduct.style.top = '60px';
-        }
-    });
 }
