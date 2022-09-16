@@ -25,15 +25,13 @@ function closeMenusClick() {
     const isMobileMenuClosed = mobileMenu.classList.contains('inactive');
     const isDesktopMenuClosed = desktopMenu.classList.contains('inactive')
     const isAsideMenuClosed = shoppingCartContainer.classList.contains('inactive');
-    const isProductDetailContainerClosed = productDetailContainer.classList.contains('inactive');
     
-    if (!isMobileMenuClosed || !isDesktopMenuClosed || !isAsideMenuClosed || !isProductDetailContainerClosed)  {
+    if (!isMobileMenuClosed || !isDesktopMenuClosed || !isAsideMenuClosed)  {
 
         mobileMenu.classList.add('inactive');
         desktopMenu.classList.add('inactive');   
         shoppingCartContainer.classList.add('inactive');
         overlayBackground.classList.add('inactive');
-        productDetailContainer.classList.add('inactive');
     }
 }
 
