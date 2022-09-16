@@ -12,6 +12,9 @@ const navMobile = document.querySelector(".menu");
 const carMenu = document.querySelector(".product-detail");
 const carIcon = document.querySelector(".navbar-shopping-cart");
 
+//
+const cardsContainer = document.querySelector('.cards-container');
+
 navEmail.addEventListener("click", toggleDesktopMenu);
 
 navMobile.addEventListener("click", toggleMobileMenu);
@@ -60,6 +63,78 @@ function toggleCarMenu() {
 
     carMenu.classList.toggle("inactive");
 
-
-
 }
+
+// Product list
+
+const productList = [];
+
+productList.push({
+    name: 'bike',
+    price: 520,
+    img: 'https://images.pexels.com/photos/276517/pexels-photo-276517.jpeg?auto=compress&cs=tinysrgb&dpr=2&h=650&w=940'
+});
+
+productList.push({
+    name: 'car',
+    price: 1200,
+    img: 'https://images.pexels.com/photos/170811/pexels-photo-170811.jpeg'
+});
+
+productList.push({
+    name: 'PC Gamer',
+    price: 520,
+    img: 'https://images.pexels.com/photos/7238759/pexels-photo-7238759.jpeg?auto=compress&cs=tinysrgb&w=1260&h=750&dpr=1'
+});
+
+
+function insertarProductos(arrayProductos) {
+    for (product of arrayProductos) {
+        // Container producto
+        const productCard = document.createElement('div');
+        productCard.classList.add('product-card');
+
+        // Imagen procuto
+        const image = document.createElement('img');
+        image.setAttribute('src', product.img);
+
+        // Info del producto
+        const productInfo = document.createElement('div');
+        productInfo.classList.add('product-info');
+
+        // Div del precio y nombre
+        const divProductInfo = document.createElement('div');
+
+        // Precio
+        const precio = document.createElement('p');
+        precio.innerText = "$" + product.price;
+
+        // Nombre
+        const info = document.createElement('p');
+        info.innerText = product.name;
+
+        // Agrega precio y nombre al div
+        divProductInfo.append(precio, info);
+
+        // Icono carrito
+        const figure = document.createElement('figure');
+
+        // Carrito
+        const imageIcon = document.createElement('img');
+        imageIcon.setAttribute('src', './icons/bt_add_to_cart.svg');
+
+        // Agrega imageIcon dentro de figure
+        figure.appendChild(imageIcon);
+
+        // Agrefa figure y div a product info
+        productInfo.append(divProductInfo, figure);
+
+        // Agrega img y product info a product card
+        productCard.append(image, productInfo);
+
+        // Agrega procuct card a cards-container
+        cardsContainer.appendChild(productCard);
+    }
+}
+
+insertarProductos(productList);
