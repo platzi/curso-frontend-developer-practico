@@ -2,6 +2,7 @@ const menuEmail = document.querySelector('.navbar-email');
 const menuHamIcon = document.querySelector('.menu');
 const menuCarritoIcon = document.querySelector('.navbar-shopping-cart');
 const productDetailCloseIcon = document.querySelector('.product-detail-close');
+const myOrderCloseTitle = document.querySelector('.title-container');
 const desktopMenu = document.querySelector('.desktop-menu');
 const mobileMenu = document.querySelector('.mobile-menu');
 const shoppingCartContainer = document.querySelector('#shoppingCartContainer');
@@ -17,7 +18,7 @@ menuHamIcon.addEventListener('click', toggleMobileMenu);
 menuCarritoIcon.addEventListener('click', toggleCarritoAside);
 overlayBackground.addEventListener('click', closeMenusClick);
 productDetailCloseIcon.addEventListener('click', toggleProductDetailAside);
-
+myOrderCloseTitle.addEventListener('click', closeMenusClick);
 
 
 function closeMenusClick() {
