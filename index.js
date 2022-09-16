@@ -28,10 +28,13 @@ function toggleDesktopMenu(){
 
 function toggleMobileMenu(){
     const isCartMenuClosed = shoppingCartContainer.classList.contains('inactive');
+    const isProductDetailClosed = productDetail.classList.contains('inactive');
 
     if(!isCartMenuClosed){
         shoppingCartContainer.classList.add('inactive');
     }
+
+    closeProductDetailAside();
 
     mobileMenu.classList.toggle('inactive');
 }
