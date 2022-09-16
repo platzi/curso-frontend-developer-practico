@@ -3,29 +3,34 @@ const desktopMenu = document.querySelector('.desktop-menu');
 const menumobile= document.querySelector('.menu');
 const showmenumobile = document.querySelector('.mobile-menu');
 const navEmailMenu = document.querySelector('.email');
-const carproduct = document.querySelector('#shoppingCarterContainer')
-const logocarproduct = document.querySelector('.navbar-shopping-cart')
-const cardscontainer = document.querySelector('.cards-container')
+const carproduct = document.querySelector('#shoppingCarterContainer');
+const logocarproduct = document.querySelector('.navbar-shopping-cart');
+const cardscontainer = document.querySelector('.cards-container');
+const productconatinerDetail= document.querySelector('#produtcDetail');
+const productDetailCloseIcon = document.querySelector('#produtcDetail-close')
 // abrir opciones con el correo desde el menu
 navEmailMenu.addEventListener('click', toggleDesktopMenu);
 //abrir opciones desde el correo desde afuera
 navEmail.addEventListener('click',toggleDesktopMenu);
 // abrir las opcioens del menu
 menumobile.addEventListener('click',toogleshowmenumobile);
-
+productDetailCloseIcon.addEventListener('click',CloseProducDetailAside)
 //mostrar las compras desde el icono de carrito
 logocarproduct.addEventListener('click',toogleshowcarproduct)
 function toggleDesktopMenu(){
+    productconatinerDetail.classList.add('inactive');
  desktopMenu.classList.toggle('inactive');
  carproduct.classList.add('inactive');
 }
 function toogleshowmenumobile(){
 showmenumobile.classList.toggle('inactive');
+productconatinerDetail.classList.add('inactive');
 if (carproduct.classList.contains('inactive')!=true){
 carproduct.classList.toggle('inactive');
 }
 }
 function toogleshowcarproduct(){
+productconatinerDetail.classList.add('inactive');
 carproduct.classList.toggle('inactive');
 desktopMenu.classList.add('inactive');
  if(showmenumobile.classList.contains('inactive')!=true){
@@ -76,6 +81,7 @@ function productosrender(productoslista){
        productocaro.classList.add('product-card');
        const img =document.createElement('img');
        img.setAttribute('src', producto.image)
+       img.addEventListener('click',openProductDetail)
        const productoinfo= document.createElement('div');
        productocaro.classList.add('product-info');
        const vacioparrafo  = document.createElement('div');
@@ -100,3 +106,11 @@ function productosrender(productoslista){
  }
 }
 productosrender(productoslista);
+function openProductDetail(){
+productconatinerDetail.classList.remove('inactive');
+desktopMenu.classList.add('inactive');
+carproduct.classList.add('inactive');
+}
+function CloseProducDetailAside (){
+    productconatinerDetail.classList.add('inactive');
+}
