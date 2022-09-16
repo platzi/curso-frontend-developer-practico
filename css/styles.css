@@ -173,7 +173,7 @@
 
 /*Products cart*/
 
-.product-detail {
+#cartProductDetails {
   width: 360px;
   padding: 24px;
   box-sizing: border-box;
@@ -303,7 +303,7 @@
   .navbar-email, .navbar-left ul, .desktop-menu {
     display: none;
   }
-  .product-detail {
+  #cartProductDetails {
     width: 100%;
   }
 

@@ -3,7 +3,7 @@ const desktopMenu = document.querySelector(".desktop-menu");
 const btnMenMobile = document.querySelector("#btnMenMobile");
 const mobileMenu = document.querySelector(".mobile-menu");
 const btnCartIcon = document.querySelector("#btnCartIcon");
-const productDetail = document.querySelector(".product-detail");
+const cartProductDetails = document.querySelector("#cartProductDetails");
 const cardsContainer = document.querySelector(".cards-container")
 const productList = [];
 
@@ -18,7 +18,7 @@ function toggleShow(eventElement, elementToToggle) {
 
 toggleShow(btnOpenMenu, desktopMenu);
 toggleShow(btnMenMobile, mobileMenu);
-toggleShow(btnCartIcon, productDetail);
+toggleShow(btnCartIcon, cartProductDetails);
 
 
 function addProductToList (name, price, img) {
