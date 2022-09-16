@@ -19,11 +19,34 @@ const cardsContainer = document.querySelector('.cards-container');
 const productDetail = document.querySelector(".product-detail-aside");
 const botonCerrar = document.querySelector('.product-detail-aside-close');
 
-navEmail.addEventListener("click", toggleDesktopMenu);
+// Elementos del produc detail
+const imageDetail = document.querySelector('.product-detail-aside>img:nth-child(2)');
+const price = document.querySelector('.product-info-aside p:nth-child(1)');
+const productName = document.querySelector('.product-info-aside p:nth-child(2)');
 
-navMobile.addEventListener("click", toggleMobileMenu);
 
-carIcon.addEventListener("click", toggleCarMenu);
+
+// Product list
+
+const productList = [];
+
+productList.push({
+    name: 'bike',
+    price: 520,
+    img: 'https://images.pexels.com/photos/276517/pexels-photo-276517.jpeg?auto=compress&cs=tinysrgb&dpr=2&h=650&w=940'
+});
+
+productList.push({
+    name: 'car',
+    price: 1200,
+    img: 'https://images.pexels.com/photos/210019/pexels-photo-210019.jpeg?auto=compress&cs=tinysrgb&w=1260&h=750&dpr=1'
+});
+
+productList.push({
+    name: 'PC Gamer',
+    price: 520,
+    img: 'https://images.pexels.com/photos/7238759/pexels-photo-7238759.jpeg?auto=compress&cs=tinysrgb&w=1260&h=750&dpr=1'
+});
 
 
 //Funcio de click
@@ -35,6 +58,12 @@ function toggleDesktopMenu() {
         carMenu.classList.add("inactive");
     }
 
+    const isProductDetailClose = productDetail.classList.contains('inactive');
+
+    if (!isProductDetailClose) {
+        productDetail.classList.add("inactive");
+    }
+
     menu.classList.toggle("inactive");
 
 }
@@ -44,6 +73,12 @@ function toggleMobileMenu() {
 
     if (!isCarMenuClose) {
         carMenu.classList.add("inactive");
+    }
+
+    const isProductDetailClose = productDetail.classList.contains('inactive');
+
+    if (!isProductDetailClose) {
+        productDetail.classList.add("inactive");
     }
     mobileMenu.classList.toggle("inactive");
 
@@ -66,35 +101,20 @@ function toggleCarMenu() {
         menu.classList.add("inactive");
     }
 
+    const isProductDetailClose = productDetail.classList.contains('inactive');
+
+    if (!isProductDetailClose) {
+        productDetail.classList.add("inactive");
+    }
+
     carMenu.classList.toggle("inactive");
 
 }
 
-// Product list
-
-const productList = [];
-
-productList.push({
-    name: 'bike',
-    price: 520,
-    img: 'https://images.pexels.com/photos/276517/pexels-photo-276517.jpeg?auto=compress&cs=tinysrgb&dpr=2&h=650&w=940'
-});
-
-productList.push({
-    name: 'car',
-    price: 1200,
-    img: 'https://images.pexels.com/photos/170811/pexels-photo-170811.jpeg'
-});
-
-productList.push({
-    name: 'PC Gamer',
-    price: 520,
-    img: 'https://images.pexels.com/photos/7238759/pexels-photo-7238759.jpeg?auto=compress&cs=tinysrgb&w=1260&h=750&dpr=1'
-});
-
 //Funcion de insertar productos
 function insertarProductos(arrayProductos) {
     for (product of arrayProductos) {
+
         // Container producto
         const productCard = document.createElement('div');
         productCard.classList.add('product-card');
@@ -102,6 +122,8 @@ function insertarProductos(arrayProductos) {
         // Imagen procuto
         const image = document.createElement('img');
         image.setAttribute('src', product.img);
+        // Evento para abrir el product detail
+        image.addEventListener('click', mostrarDetail);
 
         // Info del producto
         const productInfo = document.createElement('div');
@@ -137,13 +159,48 @@ function insertarProductos(arrayProductos) {
         // Agrega img y product info a product card
         productCard.append(image, productInfo);
 
-        // Agrega procuct card a cards-container
+        // Agrega product card a cards-container
         cardsContainer.appendChild(productCard);
+
     }
+
 }
+
+// for (detail of productList) {
+//     showProductDetail(detail.img, detail.price, detail.name);
+// }
+
+// Funcion de product detail
+function mostrarDetail() {
+    carMenu.classList.add("inactive");
+    // mobileMenu.classList.add("inactive");
+    menu.classList.add("inactive");
+
+    productDetail.classList.remove("inactive");
+    console.log("click");
+}
+
+function quitarDetail() {
+    productDetail.classList.add('inactive');
+}
+
+function showProductDetail(image, priceDetail, nameDetail) {
+    imageDetail.setAttribute('src', image);
+    price.innerHTML = '$' + priceDetail;
+    productName.innerHTML = nameDetail;
+}
+
+//insertar productos
 insertarProductos(productList);
 
 
-function mostrarDetail() {
 
-}
+// Llamado de funcion
+navEmail.addEventListener("click", toggleDesktopMenu);
+
+navMobile.addEventListener("click", toggleMobileMenu);
+
+carIcon.addEventListener("click", toggleCarMenu);
+
+botonCerrar.addEventListener('click', quitarDetail);
+
