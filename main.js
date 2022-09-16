@@ -6,11 +6,11 @@ const menuHamIcon = document.querySelector('.menu')
 const mobileMenu = document.querySelector('.mobile-menu')
     // vamos a crear el query del menu carrito que le undamos en el carrito y veamos tammbien el product detail
 const menuCarritoIcon = document.querySelector('.navbar-shopping-cart');
-const aside = document.querySelector('.product-detail');
+const shoppingCartContainer = document.querySelector('#shoppingCartContainer');
 const cardsContainer = document.querySelector('.cards-container');
-
-
-// cada que le demos click se hara la funcion 
+const productDetailContainer = document.querySelector('#productDetail')
+const productDetailCloseIcon = document.querySelector('.product-detail-close')
+    // cada que le demos click se hara la funcion 
 
 
 menuMail.addEventListener('click', toggleDEsktopMenu);
@@ -23,14 +23,17 @@ menuHamIcon.addEventListener('click', toggleMobileMenu);
 
 menuCarritoIcon.addEventListener('click', toogleCarritoAside);
 
+//event listener para cerrar el menu detalles producto
+productDetailCloseIcon.addEventListener('click', closeProductDetailAside);
 
 function toggleDEsktopMenu() {
+    ``
     // * lo que vamos  a hacer es colocarle o quitarle la clase inactive si ya la tiene o no
-    const isAsideClosed = aside.classList.contains('inactive');
+    const isAsideClosed = shoppingCartContainer.classList.contains('inactive');
 
     // **miramos si el menu aside esta abierto entonces lo cerramos
     if (!isAsideClosed) {
-        aside.classList.add('inactive');
+        shoppingCartContainer.classList.add('inactive');
     }
     desktopMenu.classList.toggle('inactive');
 }
@@ -38,11 +41,11 @@ function toggleDEsktopMenu() {
 
 function toggleMobileMenu() {
     // lo que vamos  a hacer es colocarle o quitarle la clase inactive si ya la tiene o no
-    const isAsideClosed = aside.classList.contains('inactive');
+    const isAsideClosed = shoppingCartContainer.classList.contains('inactive');
 
     // **miramos si el menu aside esta abierto entonces lo cerramos
     if (!isAsideClosed) {
-        aside.classList.add('inactive');
+        shoppingCartContainer.classList.add('inactive');
     }
     mobileMenu.classList.toggle('inactive');
 }
@@ -57,8 +60,31 @@ function toogleCarritoAside() {
         mobileMenu.classList.add('inactive');
     }
     //** aca simplemente hacemos que cada que le de click se  muestre o cierre */
-    aside.classList.toggle('inactive');
+
+
+    // ahora vamos a ver si el productDetail aside esta abierto para cerrarlo
+    const isproductDetailClosed = productDetailContainer.classList.contains('inactive');
+    if (!isproductDetailClosed) {
+        productDetailContainer.classList.add('inactive');
+    }
+    //** aca simplemente hacemos que cada que le de click se  muestre o cierre */
+    shoppingCartContainer.classList.toggle('inactive');
 }
+
+
+function openProductDetailAside() {
+    //con esto seleccionamos el elemento que queremos abrir y le remueve el inactivo si es que esta cerrada
+    productDetailContainer.classList.remove('inactive');
+
+}
+
+function closeProductDetailAside() {
+    //vamos a cerrar el aside de detalles de producto.
+
+    productDetailContainer.classList.add('inactive');
+
+}
+
 
 const productList = []
     // agrego elementos, un objeto 
@@ -106,6 +132,11 @@ function renderProducts(arr) {
         const productImg = document.createElement('img');
         // a la imagen no tenemos que agregarle la clase si no el src que es la propiedad image del objeto
         productImg.setAttribute('src', product.image);
+
+        // aca vamos a crear un addeventlistener para que acda que le demos en la imagen salga el aside pero que no lo cierre si le vuelvo a undir , solo abrir
+
+        productImg.addEventListener('click', openProductDetailAside);
+
         // y seguimos creando el html
         const productInfo = document.createElement('div');
         productInfo.classList.add('product-info');
@@ -115,7 +146,7 @@ function renderProducts(arr) {
         const productPrice = document.createElement('p');
         productPrice.innerText = '$' + product.price;
         const productName = document.createElement('p');
-        productName.innerText = '$' + product.name;
+        productName.innerText = product.name;
 
         productInfoDiv.appendChild(productPrice);
         productInfoDiv.appendChild(productName);
