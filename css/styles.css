@@ -296,6 +296,11 @@
   color: var(--very-light-pink);
 }
 
+#closeCart {
+  cursor: pointer;
+}
+
+
 /*product details*/
 
 #productDetail {
