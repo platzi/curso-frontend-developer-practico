@@ -192,11 +192,11 @@
   aside {
     background: var(--white);
     width: 360px;
+    height: 100vh;
     box-sizing: border-box;
     position: absolute;
     right: 0;
     top: 60px;
-    bottom: 0px;
     border-radius: 0px 0px 6px 6px;
   }
 
@@ -277,6 +277,11 @@
   }
 
   /*ProductDetail*/
+/*   
+ #productDetail {
+
+} */
+  
   .product-detail-close {
     background: var(--white);
     width: 14px;
@@ -428,3 +433,4 @@
         display: none;
     }
   }
+}
