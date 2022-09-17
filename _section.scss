@@ -1,0 +1,49 @@
+$white: #FFFFFF;
+$black: #000000;
+$very-light-pink: #C7C7C7;
+$text-input-field: #F7F7F7;
+$hospital-green: #ACD9B2;
+$sm: 14px;
+$md: 16px;
+$lg: 18px;
+
+.main-container{
+    width: 90%;
+    margin: auto;
+    .cards-container{
+        display: grid;
+        grid-template-columns: repeat(auto-fill,200px);
+        gap: 20px;
+        margin-top:30px ;
+        .product-card{
+ 
+            img{
+                width: 180px;
+                border-radius: 12px;
+            }
+            .product-info{
+                display: grid;
+                grid-template-columns: 1fr 1fr;
+                div{
+                    padding-right: 50px;
+                    p{
+                       &:nth-child(1){
+                        font-weight: bold;
+                       }
+                       &:nth-child(2){
+                        color: $very-light-pink;
+                       }
+                    }
+
+                }
+                figure{
+                    align-self: center;
+                    img{
+                    
+                     width: 30px;
+                    }
+                }
+            }
+        }
+    }
+}
