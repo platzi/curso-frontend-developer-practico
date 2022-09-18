@@ -176,6 +176,10 @@ aside {
   transform: rotate(180deg);
   margin-right: 14px;
 }
+#shoppingCartContainerFlechita{
+  cursor: pointer;
+}
+
 .title {
   font-size: var(--lg);
   font-weight: bold;
