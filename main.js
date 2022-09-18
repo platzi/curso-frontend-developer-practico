@@ -4,12 +4,12 @@ const desktopMenu = document.querySelector('.desktop-menu');
 const menuHamIcon= document.querySelector('.menu');
 const menuCarritoIcon= document.querySelector('.navbar-shopping-cart');
 const mobileMenu= document.querySelector('.mobile-menu');
-const aside= document.querySelector('.product-detail');
+const shoppingCartContainer= document.querySelector('#shoppingCartContainer');
 const cardsContainer= document.querySelector('.cards-container');
 
 menuEmail.addEventListener('click', toggleDesktopMenu);
 menuHamIcon.addEventListener('click', toggleMobileMenu);
-menuCarritoIcon.addEventListener('click', toggleCarritoAside);
+menuCarritoIcon.addEventListener('click', toggleCarritoshoppingCartContainer);
 
 function toggleDesktopMenu() {
     desktopMenu.classList.toggle('inactive');
@@ -17,14 +17,14 @@ function toggleDesktopMenu() {
 
 function toggleMobileMenu() {
     const isMobileMenuClosed = mobileMenu.classList.contains('inactive');
-    const isAsideClosed = aside.classList.contains('inactive');
+    const isshoppingCartContainerClosed = shoppingCartContainer.classList.contains('inactive');
 
     if(isMobileMenuClosed) {
 
-        if (!isAsideClosed){
+        if (!isshoppingCartContainerClosed){
             //Si el mobile menu esta open se debe cerrar
-            aside.classList.add('inactive');
-        //Abrir el aside
+            shoppingCartContainer.classList.add('inactive');
+        //Abrir el shoppingCartContainer
          
         }
         mobileMenu.classList.toggle('inactive');
@@ -35,23 +35,23 @@ function toggleMobileMenu() {
     }
 }
 
-function toggleCarritoAside() {
+function toggleCarritoshoppingCartContainer() {
     const isMobileMenuClosed = mobileMenu.classList.contains('inactive');
-    const isAsideClosed = aside.classList.contains('inactive');
+    const isshoppingCartContainerClosed = shoppingCartContainer.classList.contains('inactive');
 
-    if(isAsideClosed) {
+    if(isshoppingCartContainerClosed) {
 
         if (!isMobileMenuClosed){
             //Si el mobile menu esta open se debe cerrar
             mobileMenu.classList.add('inactive');
-        //Abrir el aside
+        //Abrir el shoppingCartContainer
          
         }
-        aside.classList.toggle('inactive');
+        shoppingCartContainer.classList.toggle('inactive');
 
     } else {
 
-        aside.classList.add('inactive');
+        shoppingCartContainer.classList.add('inactive');
     }
 
 
