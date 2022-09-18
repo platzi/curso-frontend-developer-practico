@@ -438,7 +438,11 @@
    .product-card img {
      width: 140px;
      height: 140px;
-   }   
+   }
+
+   #shoppingCart {
+    width: 100%;
+  }   
  }
 
  @media (min-width: 641px) {
