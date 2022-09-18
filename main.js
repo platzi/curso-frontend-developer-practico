@@ -8,7 +8,7 @@ btnCompra.addEventListener('click',showCarritoMenu);
 
 const desktopMenu = document.querySelector('#desktop_menu');
 const mobileMenu = document.querySelector('#mobile_menu');
-const carritoMenu = document.querySelector('#aside_product_detail');
+const carritoMenu = document.querySelector('#aside_shopping_cart');
 
 const productsCardsContainer = document.querySelector('.cards-container');
 
