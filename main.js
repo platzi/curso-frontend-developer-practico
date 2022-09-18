@@ -5,7 +5,9 @@ const productDetailCloseIcon = document.querySelector(".product-detail-close")
 const desktopMenu = document.querySelector(".desktop-menu")
 const mobileMenu = document.querySelector(".mobile-menu")
 const shoppingCartContainer = document.querySelector("#shoppingCartContainer")
-const shoppingCartContainerFlechita = document.querySelector("#shoppingCartContainerFlechita")
+const shoppingCartContainerFlechita = document.querySelector(
+  "#shoppingCartContainerFlechita"
+)
 const productDetailContainer = document.querySelector("#productDetail")
 const cardsContainer = document.querySelector(".cards-container")
 
@@ -13,7 +15,7 @@ menuEmail.addEventListener("click", toggleDesktopMenu)
 menuHamIcon.addEventListener("click", toggleMobileMenu)
 menuCarritoIcon.addEventListener("click", toggleCarritoAside)
 productDetailCloseIcon.addEventListener("click", closeProductDetailAside)
-shoppingCartContainerFlechita.addEventListener("click",toggleCarritoAside)
+shoppingCartContainerFlechita.addEventListener("click", toggleCarritoAside)
 
 function toggleDesktopMenu() {
   const isAsideClosed = shoppingCartContainer.classList.contains("inactive")
