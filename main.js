@@ -23,8 +23,7 @@ menuEmail.addEventListener('click', toggleDesktopMenu);
 menuHamIcon.addEventListener('click', toggleMobileMenu);
 //abre y cierra el menu del carrito de compras cuando se hace click
 menuCartIcon.addEventListener('click', toggleCartMenu);
-//cierra el menu de detalle especifico de producto cuando se hace click en la X
-productDetailClose.addEventListener('click', closeProductDetailAside);
+
 
 function toggleDesktopMenu(){
 //Se puede solucionar el cerrar el menu contrario cuando se abre el otro de dos maneras
@@ -74,15 +73,24 @@ function closeProductDetailAside() {
 
 const productList = [];
 productList.push({
-    name: 'Bike', price: '120', image: 'https://images.pexels.com/photos/276517/pexels-photo-276517.jpeg?auto=compress&cs=tinysrgb&dpr=2&h=650&w=940'
+    name: 'Bike', 
+    price: '120', 
+    image: 'https://images.pexels.com/photos/276517/pexels-photo-276517.jpeg?auto=compress&cs=tinysrgb&dpr=2&h=650&w=940',
+    description: 'With its practical position, this bike also fulfills a decorative function, add your hall or workspace.'
 });
 
 productList.push({
-    name: 'Pantalla', price: '220', image: 'https://images.pexels.com/photos/276517/pexels-photo-276517.jpeg?auto=compress&cs=tinysrgb&dpr=2&h=650&w=940'
+    name: 'Pantalla', 
+    price: '220', 
+    image: 'https://images.pexels.com/photos/1029757/pexels-photo-1029757.jpeg',
+    description: 'A fantastic screen for your work Set-Up'
 });
 
 productList.push({
-    name: 'Balon', price: '60', image: 'https://images.pexels.com/photos/276517/pexels-photo-276517.jpeg?auto=compress&cs=tinysrgb&dpr=2&h=650&w=940'
+    name: 'Balon', 
+    price: '60', 
+    image: 'https://images.pexels.com/photos/47354/the-ball-stadion-football-the-pitch-47354.jpeg?auto=compress&cs=tinysrgb&w=1260&h=750&dpr=1',
+    description: 'The new football ball of the world cup'
 });
 
 //Maquetacion de productos en la lista del contenedor principal de la pagina
@@ -117,4 +125,42 @@ function renderProducts(product) {
     }
 }
 
+function renderSpecification(product) {
+    for (product of productList) {
+        const iconClose = document.createElement('div');
+        iconClose.classList.add('product-specific-close');
+
+        const iconCloseImg = document.createElement('img');
+        iconCloseImg.setAttribute('src', './icons/icon_close.png');
+        iconCloseImg.addEventListener('click', closeProductDetailAside);
+
+        const productImg = document.createElement('img');
+        productImg.setAttribute('src', product.image);
+        productImg.setAttribute('alt', 'Product image');
+
+        const productInfo = document.createElement('div');
+        productInfo.classList.add('product-specific-info');
+
+        const productInfoPrice = document.createElement('p');
+        productInfoPrice.innerText = '$' + product.price;
+        const productInfoName = document.createElement('p');
+        productInfoName.innerText = product.name;
+        const productInfoDescription = document.createElement('p');
+        productInfoDescription.innerText = product.description;
+        const addButton = document.createElement('button');
+        addButton.classList.add('primary-button');
+        addButton.classList.add('add-to-cart-button');
+        addButton.innerText = 'Add to cart';
+
+        const buttonImg = document.createElement('img');
+        buttonImg.setAttribute('src', './icons/bt_add_to_cart.svg');
+        buttonImg.setAttribute('alt', 'add to cart');
+
+        productInfo.append(productInfoPrice, productInfoName, productInfoDescription, addButton);
+        iconClose.append(iconCloseImg);
+        productDetailContainer.append(iconClose, productImg, productInfo);
+    }
+}
+
 renderProducts(productList);
+renderSpecification(productList);
