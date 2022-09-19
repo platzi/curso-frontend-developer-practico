@@ -68,15 +68,15 @@ function closeProductDetailAside() {
 const productList = []
 productList.push({
   name: "Bike",
-  price: 120.01,
+  price: 120.00,
   image:
-    "https://images.pexels.com/photos/276517/pexels-photo-276517.jpeg?auto=compress&cs=tinysrgb&dpr=2&h=650&w=940",
+    "https://m.media-amazon.com/images/I/91i3WK9EqbL._AC_SX679_.jpg",
 })
 productList.push({
   name: "Car",
   price: "239,000",
   image:
-    "https://img2.freepng.es/20180202/agw/kisspng-laferrari-car-enzo-ferrari-mclaren-p1-top-view-of-ferrari-laferrari-car-5a749e5a569ee5.3704051215175921543548.jpg",
+    "https://snipstock.com/assets/cdn/png/f9754c97bb39a0ebd73ff0d8654d51c0.png",
 })
 productList.push({
   name: "Pc gamer",
