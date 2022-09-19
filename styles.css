@@ -126,9 +126,9 @@
     background-color: var(--white);
     position: absolute;
     top: 60px;
-    padding: 24px;
     left: 0;
-    width: 100%;
+    padding-left: 24px;
+    width: calc(100% - 24px);
   }
   .mobile-menu a {
     
@@ -140,7 +140,7 @@
   .mobile-menu ul {
     padding: 0;
     margin: 24px 0 0;
-    list-style: none;
+    list-style: none;s
   }
   .mobile-menu ul:nth-child(1) {
     border-bottom: 1px solid var(--very-light-pink);

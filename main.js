@@ -3,13 +3,24 @@ const menuEmail = document.querySelector('.navbar-email');
 const desktopMenu = document.querySelector('.desktop-menu');
 const menuHamIcon= document.querySelector('.menu');
 const menuCarritoIcon= document.querySelector('.navbar-shopping-cart');
+const productDetailCloseIcon = document.querySelector('.product-detail-close')
 const mobileMenu= document.querySelector('.mobile-menu');
 const shoppingCartContainer= document.querySelector('#shoppingCartContainer');
+const productDetailContainer = document.querySelector('#productDetail');
 const cardsContainer= document.querySelector('.cards-container');
 
+
+
+
 menuEmail.addEventListener('click', toggleDesktopMenu);
-menuHamIcon.addEventListener('click', toggleMobileMenu);
-menuCarritoIcon.addEventListener('click', toggleCarritoshoppingCartContainer);
+menuHamIcon.addEventListener('click', toggleMobileMenu);        
+menuCarritoIcon.addEventListener('click', toggleCarritoAside);
+productDetailCloseIcon.addEventListener('click', closeProductDetailAside);
+// menuCarritoIcon.addEventListener('click', toggleCarritoAside);
+// // productDetailCloseIcon.addEventListener('click', toggleCarritoAside);
+// shoppingCartContainer.addEventListener('click', toggleCarritoAside);
+
+
 
 function toggleDesktopMenu() {
     desktopMenu.classList.toggle('inactive');
@@ -29,33 +40,69 @@ function toggleMobileMenu() {
         }
         mobileMenu.classList.toggle('inactive');
 
+    closeProductDetailAside();  
+      
     } else {
 
         mobileMenu.classList.add('inactive');
     }
 }
 
-function toggleCarritoshoppingCartContainer() {
-    const isMobileMenuClosed = mobileMenu.classList.contains('inactive');
-    const isshoppingCartContainerClosed = shoppingCartContainer.classList.contains('inactive');
+//Esta función presento problemas en la clase 23 pra la interacción entre todos los elemnetos ¡OJO! --->
 
-    if(isshoppingCartContainerClosed) {
+// function toggleCarritoshoppingCartContainer() {
+//     const isMobileMenuClosed = mobileMenu.classList.contains('inactive');
+//     const isshoppingCartContainerClosed = shoppingCartContainer.classList.contains('inactive');
 
-        if (!isMobileMenuClosed){
-            //Si el mobile menu esta open se debe cerrar
-            mobileMenu.classList.add('inactive');
-        //Abrir el shoppingCartContainer
+//     if(isshoppingCartContainerClosed) {
+
+//         if (!isMobileMenuClosed){
+//             //Si el mobile menu esta open se debe cerrar
+//             mobileMenu.classList.add('inactive');
+//         //Abrir el shoppingCartContainer
          
-        }
-        shoppingCartContainer.classList.toggle('inactive');
+//         }
+//         shoppingCartContainer.classList.toggle('inactive');
 
-    } else {
+//     } else {
 
-        shoppingCartContainer.classList.add('inactive');
+//         shoppingCartContainer.classList.add('inactive');
+//     }
+    
+// }
+
+function toggleCarritoAside(){
+    const isMobileMenuClosed = mobileMenu.classList.contains('inactive');
+    
+    
+    if (!isMobileMenuClosed){
+        mobileMenu.classList.add('inactive');
+          
     }
+    
+    const isProductDetailClosed = productDetailContainer.classList.contains('inactive');
 
+    if (!isProductDetailClosed){
+        productDetailContainer.classList.add('inactive');
+    }
+    shoppingCartContainer.classList.toggle('inactive');
+
+    console.log('funciona el código JS') 
 
 }
+
+
+
+function openProductDetailAside(){
+    shoppingCartContainer.classList.add('inactive');
+    productDetailContainer.classList.remove('inactive');
+}
+
+function closeProductDetailAside() {
+    productDetailContainer.classList.add('inactive');
+}
+
+
 const productList = [];
 productList.push({
     name:'Bike',
@@ -100,9 +147,10 @@ function renderProducts(arr) {
         const productCard = document.createElement('div');
         productCard.classList.add('product-card');
         
-         //Product= {name, price , image}//
-         const productImg = document.createElement('img')
+         //Product= {name, price, image}//
+         const productImg = document.createElement('img');
          productImg.setAttribute('src', product.image);
+         productImg.addEventListener('click', openProductDetailAside);
          //
          const productInfo = document.createElement('div');
          productInfo.classList.add('product-info');
