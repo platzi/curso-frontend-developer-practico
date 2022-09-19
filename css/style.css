@@ -122,6 +122,7 @@ align-items: center;
     padding: 24px;
     position: absolute;
     top: 40px;
+    left: 0;
     background-color: var(--white);
 }
 .mobile-menu a {
