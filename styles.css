@@ -66,7 +66,7 @@ nav {
 .navbar-shopping-cart {
     position: relative;
 }
-.navbar-shopping-cart div {
+.navbar-shopping-cart div{
     width: 16px;
     height: 16px;
     background-color: var(--hospital-green);
@@ -75,10 +75,12 @@ nav {
     font-weight: bold;
     position: absolute;
     top: -6px;
-    right: -3px;
-    display: flex;
+    right: -3px;    
     justify-content: center;
     align-items: center;
+}
+.product-count{
+    display: flex;
 }
 /*Desktop Menu*/
 .desktop-menu {
@@ -163,7 +165,8 @@ aside {
   }
   /*ShoppingcartAside*/
   #shoppingCartContainer{
-    padding: 0 24px;
+    padding: 0 24px 24px 24px;
+    height: 100%;
   }
   .title-container {
     display: flex;
@@ -208,11 +211,14 @@ aside {
   .shopping-cart figure {
     margin: 0;
   }
-  .shopping-cart figure img {
+  .shopping-cart figure img {    
     width: 70px;
     height: 70px;
     border-radius: 20px;
     object-fit: cover;
+  }
+  .shopping-cart > img{
+    cursor: pointer;
   }
   .shopping-cart p:nth-child(2) {
     color: var(--very-light-pink);

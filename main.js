@@ -1,10 +1,16 @@
+var productosCarrito =0;
+var totalCompra=0;
 const menuEmail = document.querySelector('.navbar-email');
 const desktopMenu=   document.querySelector('.desktop-menu');
 const menuHamIcon=   document.querySelector('.menu');
 const mobileMenu=   document.querySelector('.mobile-menu');
 const menuCartIcon = document.querySelector('.navbar-shopping-cart');
 const productDetailCloseIcon = document.querySelector('.product-detail-close');
+const carritoContadorIcon=document.querySelector('.navbar-shopping-cart div');
 const shoppingCartContainer=document.querySelector('#shoppingCartContainer');
+const shoppingCartOrderContent=document.querySelector('.my-order-content');
+const shoppingCartOrder=document.querySelector('.order');
+const shoppingCartTotal=document.querySelector('.order-total')
 const productDetailContainer=document.querySelector('#productDetail');
 const cardsContainer=document.querySelector('.cards-container');
 const productItemDetail=document.querySelector('#product-item');
@@ -53,7 +59,81 @@ function openProductDetailAside(){
 function closeProductDetailAside(){   
     productDetailContainer.classList.add('inactive');    
 }
+function modifyCountIcon(){    
+    if(productosCarrito==0){         
+        carritoContadorIcon.classList.remove('product-count');       
+        carritoContadorIcon.innerText=productosCarrito;                
+    }
+    else if(productosCarrito> 0 && productosCarrito <= 9 ){
+        carritoContadorIcon.classList.add('product-count');
+        carritoContadorIcon.innerText=productosCarrito;        
+    }else{
+        carritoContadorIcon.innerText=">";
+    } 
+}
+function sumarProducto(){
+    productosCarrito +=1;
+    modifyCountIcon();
+    const productoId=event.currentTarget.getAttribute('idproducto');
+    const shoppingCart=document.createElement('div');
+    const shoppingCartFigure=document.createElement('figure');
+    const shoppingCartImg=document.createElement('img');
+    const shoppingCartName=document.createElement('p');
+    const shoppingCartPrice=document.createElement('p');
+    const shoppingCartImgClose=document.createElement('img');
+    const producto=productList[productoId];
+    
+    shoppingCart.classList.add('shopping-cart');
+    shoppingCartImg.setAttribute('src',producto.image);
+    shoppingCart.setAttribute('idOrdercarrito',productosCarrito);
+    shoppingCart.setAttribute('idproducto',producto.Id);    
+    shoppingCartName.innerText=producto.name;
+    shoppingCartPrice.innerText='S/. ' + producto.price;
+    shoppingCartImgClose.setAttribute('src',"./icons/icon_close.png");
+    shoppingCartImgClose.setAttribute('alt',"close");
+    shoppingCartImgClose.setAttribute('idOrder',productosCarrito);
+    shoppingCartImgClose.addEventListener('click',removeItemCarrito);
 
+    shoppingCartOrderContent.insertBefore(shoppingCart,shoppingCartOrder);
+    shoppingCart.appendChild(shoppingCartFigure);
+    shoppingCartFigure.appendChild(shoppingCartImg);
+    shoppingCart.appendChild(shoppingCartName);
+    shoppingCart.appendChild(shoppingCartPrice);
+    shoppingCart.appendChild(shoppingCartImgClose);
+    
+    totalCompra+=Number(producto.price);
+    shoppingCartTotal.innerText='S/. '+ totalCompra;
+}
+function removeItemCarrito(){
+    const orderId=event.currentTarget.getAttribute('idOrder');
+    const shoppingCartForRemove=document.querySelector('[idOrdercarrito="'+orderId+ '"]')   
+    removeAllChildNodes(shoppingCartForRemove);    
+    shoppingCartOrderContent.removeChild(shoppingCartForRemove);
+    recalcularTotal();
+}
+function removeAllChildNodes(parent) {
+    while (parent.firstChild) {
+        parent.removeChild(parent.firstChild);
+    }
+}
+function recalcularTotal(){
+    const shoppingCartItems=document.querySelectorAll('.shopping-cart');
+        productosCarrito=0;
+    totalCompra=0;
+    console.log(shoppingCartItems);
+    for (shoppingCartItem of shoppingCartItems){
+        let idproducto=shoppingCartItem.getAttribute('idproducto');
+        let producto=productList[idproducto];
+        productosCarrito+=1;
+        totalCompra+=producto.price;         
+        let shoppingCartImgCloseItem=shoppingCartItem.lastChild;
+        shoppingCartImgCloseItem.setAttribute('idOrder',productosCarrito);
+        shoppingCartItem.setAttribute('idOrdercarrito',productosCarrito);
+
+    }
+    modifyCountIcon();
+    shoppingCartTotal.innerText='S/. '+ totalCompra;
+}
 const productList=[];
 productList.push ({    
     Id:0,
@@ -118,9 +198,7 @@ productList.push ({
     image: 'https://m.media-amazon.com/images/I/81k2Gmal+VL._AC_SL1500_.jpg',
     descripcion:'Mochila de bicicleta para llevar cualquier cosa que necesites'
 }); 
-function ModifyDetail(productoId){
-   
-}
+
 function renderProducts(arr){
 for( product of arr){
     const productCard = document.createElement('div');    
@@ -145,7 +223,9 @@ for( product of arr){
     const productInfoFigure=document.createElement('figure');
     const productImgCart=document.createElement('img');
     productImgCart.setAttribute('src','./icons/bt_add_to_cart.svg');
-    
+    productImgCart.setAttribute('idProducto',product.Id);
+    productImgCart.addEventListener('click',sumarProducto);
+
     productCard.appendChild(productImageCard);
     productCard.appendChild(productInfo);
     productInfo.appendChild(productInfoDiv);
