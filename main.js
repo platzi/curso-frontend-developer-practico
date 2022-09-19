@@ -68,22 +68,60 @@ function closeProductDetailAside() {
 const productList = []
 productList.push({
   name: "Bike",
-  price: 120,
+  price: 120.01,
   image:
     "https://images.pexels.com/photos/276517/pexels-photo-276517.jpeg?auto=compress&cs=tinysrgb&dpr=2&h=650&w=940",
 })
 productList.push({
-  name: "Pantalla",
-  price: 220,
+  name: "Car",
+  price: "239,000",
   image:
-    "https://images.pexels.com/photos/276517/pexels-photo-276517.jpeg?auto=compress&cs=tinysrgb&dpr=2&h=650&w=940",
+    "https://img2.freepng.es/20180202/agw/kisspng-laferrari-car-enzo-ferrari-mclaren-p1-top-view-of-ferrari-laferrari-car-5a749e5a569ee5.3704051215175921543548.jpg",
 })
 productList.push({
-  name: "Compu",
-  price: 620,
+  name: "Pc gamer",
+  price: "1,299.08",
   image:
-    "https://images.pexels.com/photos/276517/pexels-photo-276517.jpeg?auto=compress&cs=tinysrgb&dpr=2&h=650&w=940",
+    "https://m.media-amazon.com/images/I/91jHNGBFflL._AC_SX679_.jpg",
 })
+productList.push({
+  name: "Mouse Logitech",
+  price: 29.99,
+  image:
+    "https://s3-sa-east-1.amazonaws.com/saasargentina/oaPmQNJPQeMZynN9AOk5/imagen",
+})
+productList.push({
+  name: "Refrigerator",
+  price: "2,000",
+  image:
+    "https://images.fravega.com/f300/ee7f6e5ad50b5328c0f702992e87267b.jpg.webp",
+})
+productList.push({
+  name: "Xbox Series X",
+  price: 499.98,
+  image:
+    "https://m.media-amazon.com/images/I/61JGKhqxHxL._SX522_.jpg",
+})
+
+productList.push({
+  name: "PlayStation 5",
+  price: 549.99,
+  image:
+    "https://m.media-amazon.com/images/I/51051FiD9UL._SL1456_.jpg",
+})
+productList.push({
+  name: "Apple iPhone 13, 128GB",
+  price: 734.99,
+  image:
+    "https://cdn.computerhoy.com/sites/navi.axelspringer.es/public/styles/main_card_image/https/bdt.computerhoy.com/sites/default/files/iphone-13-pro-max-blue-select.png?itok=0Ct_Tzqa",
+})
+productList.push({
+  name: "Samsung Galaxy S20 Ultra 5G",
+  price: 798.99,
+  image:
+    "https://handy.com.ar/wp-content/uploads/2020/12/samsung-galaxy-s20-ultra.png",
+})
+
 
 function renderProducts(arr) {
   for (product of arr) {
