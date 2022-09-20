@@ -3,12 +3,15 @@ const desktopMenu = document.querySelector('.desktop-menu');
 const menuHamIcon = document.querySelector('.menu');
 const mobileMenu = document.querySelector('.mobile-menu');
 const menuCarIcon = document.querySelector('.navbar-shopping-cart');
+const productDetailCloseIcon = document.querySelector('.product-detail-close');
 const shoppingCartContainer = document.querySelector('#shoppingCartContainer');
 const cardsContainer = document.querySelector('.cards-container')
+const productDetailContainer = document.querySelector('#productDetail');
 
 navEmail.addEventListener('click', toggleDesktopMenu);
 menuHamIcon.addEventListener('click', toggleMobileMenu);
 menuCarIcon.addEventListener('click', toggleCarMenu);
+productDetailCloseIcon.addEventListener('click', closeProductDetailAside);
 
 
 
@@ -19,6 +22,8 @@ function toggleDesktopMenu(){
     if(!isAsideClose){
         shoppingCartContainer.classList.add('inactive');
     }
+
+    closeProductDetailAside();
 
     desktopMenu.classList.toggle('inactive');
     
@@ -36,6 +41,8 @@ function toggleMobileMenu(){
         desktopMenu.classList.add('inactive');
     }
 
+    closeProductDetailAside();
+
     mobileMenu.classList.toggle('inactive');
 }
 
@@ -50,8 +57,35 @@ function toggleCarMenu(){
          desktopMenu.classList.add('inactive');
         }
 
+    const isProductDetailColse = productDetailContainer.classList.contains('inactive');
+
+    
+    if(!isProductDetailColse){
+        productDetailContainer.classList.add('inactive');
+        }
+    
+
         shoppingCartContainer.classList.toggle('inactive');
   
+}
+
+function openProductDetailAside() {
+    const isDeskMenu = desktopMenu.classList.contains('inactive');
+    if(!isDeskMenu){
+        desktopMenu.classList.add('inactive');
+    }
+
+    shoppingCartContainer.classList.add('inactive');
+    productDetailContainer.classList.remove('inactive');
+
+
+}
+
+function closeProductDetailAside() {
+    
+    
+    productDetailContainer.classList.add('inactive');
+
 }
 
 const productList = [];
@@ -64,37 +98,37 @@ productList.push({
 });
 
 productList.push({
-    name: 'Compu',
-    price: 220,
-    image: 'https://images.pexels.com/photos/276517/pexels-photo-276517.jpeg?auto=compress&cs=tinysrgb&dpr=2&h=650&w=940',
+    name: 'Clock',
+    price: 70,
+    image: 'https://images.pexels.com/photos/4107159/pexels-photo-4107159.jpeg?auto=compress&cs=tinysrgb&w=1260&h=750&dpr=1',
     
 });
 
 productList.push({
     name: 'Camera',
     price: 320,
-    image: 'https://images.pexels.com/photos/276517/pexels-photo-276517.jpeg?auto=compress&cs=tinysrgb&dpr=2&h=650&w=940',
+    image: 'https://images.pexels.com/photos/1983037/pexels-photo-1983037.jpeg?auto=compress&cs=tinysrgb&w=1260&h=750&dpr=1',
     
 });
 
 productList.push({
     name: 'Mobile',
     price: 40,
-    image: 'https://images.pexels.com/photos/276517/pexels-photo-276517.jpeg?auto=compress&cs=tinysrgb&dpr=2&h=650&w=940',
+    image: 'https://images.pexels.com/photos/3999536/pexels-photo-3999536.jpeg?auto=compress&cs=tinysrgb&w=1260&h=750&dpr=1',
     
 });
 
 productList.push({
-    name: 'YET',
+    name: 'Shoes',
     price: 20,
-    image: 'https://images.pexels.com/photos/276517/pexels-photo-276517.jpeg?auto=compress&cs=tinysrgb&dpr=2&h=650&w=940',
+    image: 'https://images.pexels.com/photos/19090/pexels-photo.jpg?auto=compress&cs=tinysrgb&w=1260&h=750&dpr=1',
     
 });
 
 productList.push({
     name: 'Graphic card',
     price: 100,
-    image: 'https://images.pexels.com/photos/276517/pexels-photo-276517.jpeg?auto=compress&cs=tinysrgb&dpr=2&h=650&w=940',
+    image: 'https://images.pexels.com/photos/4581902/pexels-photo-4581902.jpeg?auto=compress&cs=tinysrgb&w=1260&h=750&dpr=1',
     
 });
 
@@ -105,6 +139,7 @@ const renderProducts = (arr) =>{
 
     const productImg = document.createElement('img');
     productImg.setAttribute('src', product.image);
+    productImg.addEventListener('click', openProductDetailAside);
 
     const productInfo = document.createElement('div');
     productInfo.classList.add('product-info');
