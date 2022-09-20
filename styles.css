@@ -1,3 +1,4 @@
+/* Estilos Generales*/
 :root {
   --white: #ffffff;
   --black: #000000;
@@ -32,6 +33,8 @@ nav {
 .logo {
   width: 100px;
 }
+
+/*nav bar*/
 
 .navbar-left ul,
 .navbar-right ul {
@@ -99,6 +102,8 @@ nav {
   align-items: center;
 }
 
+/* Menu Desktop  */
+
 .desktop-menu {
   position: absolute;
   top: 60px;
@@ -143,16 +148,55 @@ nav {
   display: inline-block;
 }
 
+.mobile-menu {
+  padding: 24px;
+}
+
+.mobile-menu a {
+  text-decoration: none;
+  color: var(--black);
+  font-weight: bold;
+  /* margin-bottom: 24px; */
+}
+
+.mobile-menu ul {
+  padding: 0;
+  margin: 24px 0 0;
+  list-style: none;
+}
+
+.mobile-menu ul:nth-child(1) {
+  border-bottom: 1px solid var(--very-light-pink);
+}
+
+.mobile-menu ul li {
+  margin-bottom: 24px;
+}
+
+.email {
+  font-size: var(--sm);
+  font-weight: 300 !important;
+}
+
+.sign-out {
+  font-size: var(--sm);
+  color: var(--hospital-green) !important;
+}
+
 @media (max-width: 640px) {
   .menu {
     display: block;
   }
 
-  .navbar-left ul {
+  .navbar-left ul,
+  .navbar-email,
+  .desktop-menu {
     display: none;
   }
+}
 
-  .navbar-email {
+@media (min-width: 641px) {
+  .mobile-menu {
     display: none;
   }
 }
