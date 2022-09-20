@@ -4,15 +4,20 @@ const desktopMenu  = document.querySelector('.desktop-menu');
 const menuHamIcon  = document.querySelector('.menu');
 const mobileMenu  = document.querySelector('.mobile-menu');
 
+const productDetailClaseIcon = document.querySelector('.product-detail-close');
+
 const menuCarritoIcon  = document.querySelector('.navbar-shopping-cart');
+
 const shoppingCartContainer  = document.querySelector('#shoppingCartContainer');
 
+const producDetailContainer  = document.querySelector('#productDetail');
 const cardsContainer  = document.querySelector('.cards-container');
 
 
 menuEmail.addEventListener('click', toggleDesktopMenu);
 menuHamIcon.addEventListener('click', toggleMobileMenu);
 menuCarritoIcon.addEventListener('click', toggleCarritoAside);
+productDetailClaseIcon.addEventListener('click', closeProductDetailAside);
 
 
 
@@ -26,6 +31,7 @@ function toggleDesktopMenu(){
 }
 
 function toggleMobileMenu(){
+    closeProductDetailAside();
     const isAsideClose = shoppingCartContainer.classList.contains('inactive');
     
     if(!isAsideClose){
@@ -40,6 +46,11 @@ function toggleCarritoAside(){
     if(!isMobileMenuClosed){
         mobileMenu.classList.add('inactive');
     }
+    const isProductDetailClosed = producDetailContainer.classList.contains('inactive');
+    
+    if(!isProductDetailClosed){
+        producDetailContainer.classList.add('inactive');
+    }
 
     const isDesktopMenuClose = desktopMenu.classList.contains('inactive');
     
@@ -47,6 +58,16 @@ function toggleCarritoAside(){
         desktopMenu.classList.add('inactive');
     }
     shoppingCartContainer.classList.toggle('inactive');
+}
+
+function openProducDetailAside(){
+    shoppingCartContainer.classList.add('inactive');
+    producDetailContainer.classList.remove('inactive');
+    mobileMenu.classList.add('inactive');
+    
+}
+function closeProductDetailAside(){
+    producDetailContainer.classList.add('inactive');
 }
 
 const productList = [];
@@ -75,13 +96,12 @@ productList.push(Bike, Monitor, Computador, perrra, Computewe);
 const renderProducts =(arr)=>{
 
     for (let Product of arr){
-        console.log(`Productos:`+ Product.name);
-    
        const ProductCard = document.createElement('div');
        ProductCard.classList.add('product-card');
     
        const ProductImg = document.createElement('img');
-       ProductImg.setAttribute('src', Product.image)
+       ProductImg.setAttribute('src', Product.image);
+       ProductImg.addEventListener('click', openProducDetailAside);
     
        const ProductInfo = document.createElement('div');
        ProductInfo.classList.add("product-info");
