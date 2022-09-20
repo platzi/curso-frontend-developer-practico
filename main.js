@@ -3,9 +3,10 @@ const desktopMenu = document.querySelector('.desktop-menu');
 const navbarEmail = document.querySelector('.navbar-email');
 const menuBurger = document.querySelector('.menu');
 const mobileMenu = document.querySelector('.mobile-menu');
+const productDetailPreviewCloseBtn = document.querySelector('.product-detail-closebtn');
 const shoppingCart = document.querySelector('.navbar-shopping-cart');
 const aside = document.querySelector('.product-detail');// shopping cart container
-
+const productDetailPreviewContainer = document.querySelector('.product-detail_preview');// product detail preview container
 
 // cards
 const cardsContainer = document.querySelector('.cards-container');
@@ -31,6 +32,11 @@ menuBurger.addEventListener('click',() => {
         aside.classList.remove('showAside');
     }
     
+    // para que no se solape el menu con el product detail preview
+    const isProductDetailPreviewOpen = productDetailPreviewContainer.classList.contains('showProductDetailPreview');
+    if (isProductDetailPreviewOpen) {
+        productDetailPreviewContainer.classList.remove('showProductDetailPreview');
+    }
 
     //burger in x
     menuBurger.setAttribute('src', './icons/x.svg');
@@ -49,14 +55,44 @@ shoppingCart.addEventListener('click',() => {
     // para que no se solapen las ventanas
     const isMobileMenuOpen = mobileMenu.classList.contains('showMobileMenu');
     const isAsideOpen = aside.classList.contains('showAside');
+    const isPreviewOpen = productDetailPreviewContainer.classList.contains('showProductDetailPreview');
 
     //si el mobileMenu esta open
     if (isMobileMenuOpen) {
         mobileMenu.classList.toggle('showMobileMenu');
     }
 
+    // si el preview esta open
+    if (isPreviewOpen) {
+        productDetailPreviewContainer.classList.toggle('showProductDetailPreview');
+    }
+
     aside.classList.toggle('showAside');
 });
+
+// Product Detail Preview Close Button
+productDetailPreviewCloseBtn.addEventListener('click', closeProductDetailPreview);
+
+// Product Detail Preview
+function openProductDetailPreview() {
+    // si esta abierto el aside lo cierra
+    const isAsideOpen = aside.classList.contains('showAside');
+    if (isAsideOpen) {
+        aside.classList.remove('showAside');
+    }
+
+    // si esta abierto el mobileMenu lo cierra
+    const isMobileMenuOpen = mobileMenu.classList.contains('showMobileMenu');
+    if (isMobileMenuOpen) {
+        mobileMenu.classList.remove('showMobileMenu');
+    }
+
+    productDetailPreviewContainer.classList.add('showProductDetailPreview');
+}
+function closeProductDetailPreview() {
+    productDetailPreviewContainer.classList.remove('showProductDetailPreview');
+}
+
 
 // List of Products without hardcoding HTML
 const productList = [];
@@ -130,6 +166,8 @@ function renderProducts(arr) {
     
         const img = document.createElement('img');
         img.setAttribute('src', product.image);
+        // add event listeners
+        img.addEventListener('click', openProductDetailPreview);
     
         const productInfo = document.createElement('div');
         productInfo.classList.add('product-info');

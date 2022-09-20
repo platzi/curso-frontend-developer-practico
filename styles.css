@@ -291,7 +291,7 @@ nav {
   display: none;
   width: 360px;
   padding-bottom: 1em;
-  margin-inline-end: 1.2em;
+  margin-inline-end: .9em;
   position: absolute;
   right: 0;
   background-color: var(--white);
@@ -362,6 +362,10 @@ nav {
 /* JS */
 .showAside {
   display: block;
+}
+
+.showProductDetailPreview {
+  display:block;
 }
 
 /* media queries */
