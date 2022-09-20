@@ -4,7 +4,9 @@ const navbarEmail = document.querySelector('.navbar-email');
 const menuBurger = document.querySelector('.menu');
 const mobileMenu = document.querySelector('.mobile-menu');
 const shoppingCart = document.querySelector('.navbar-shopping-cart');
-const aside = document.querySelector('.product-detail');
+const aside = document.querySelector('.product-detail');// shopping cart container
+
+
 // cards
 const cardsContainer = document.querySelector('.cards-container');
 
