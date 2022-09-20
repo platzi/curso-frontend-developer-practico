@@ -3,33 +3,33 @@ const desktopMenu = document.querySelector('.desktop-menu');
 const menuHamIcon = document.querySelector('.menu');
 const menuCarritoIcon = document.querySelector('.navbar-shopping-cart');
 const mobileMenu = document.querySelector('.mobile-menu');
-const aside = document.querySelector('.product-detail');
+const shoppingCartContainer = document.querySelector('#shoppingCartContainer');
 const cardsContainer = document.querySelector('.cards-container');
 
 
 menuEmail.addEventListener('click', toggledesktopMenu);
 menuHamIcon.addEventListener('click', togglemobileMenu);
-menuCarritoIcon.addEventListener('click',togglemenuCarritoAside);
+menuCarritoIcon.addEventListener('click',togglemenuCarritoshoppingCartContainer);
 
 function toggledesktopMenu(){
-    const isAsideclosed = aside.classList.contains('inactive');
+    const isshoppingCartContainerclosed = shoppingCartContainer.classList.contains('inactive');
 
-    if(!isAsideclosed){
-        aside.classList.add('inactive');
+    if(!isshoppingCartContainerclosed){
+        shoppingCartContainer.classList.add('inactive');
     }
     desktopMenu.classList.toggle('inactive');
 }
 
 function togglemobileMenu(){
-    const isAsideclosed = aside.classList.contains('inactive');
+    const isshoppingCartContainerclosed = shoppingCartContainer.classList.contains('inactive');
 
-    if(!isAsideclosed){
-        aside.classList.add('inactive');
+    if(!isshoppingCartContainerclosed){
+        shoppingCartContainer.classList.add('inactive');
     }
     mobileMenu.classList.toggle('inactive');
 }
 
-function togglemenuCarritoAside(){
+function togglemenuCarritoshoppingCartContainer(){
     const isMobileMenuclosed = mobileMenu.classList.contains('inactive');
     const isdesktopMenu = desktopMenu.classList.contains('inactive');
 
@@ -41,7 +41,7 @@ function togglemenuCarritoAside(){
         desktopMenu.classList.add('inactive');
     }
 
-    aside.classList.toggle('inactive');
+    shoppingCartContainer.classList.toggle('inactive');
 }
 
 const productList = [];
@@ -97,11 +97,9 @@ function renderProducts(arr){
         const productName = document.createElement('p');
         productName.innerText= product.name;
         
-        productInfoDiv.appendChild(productPrice)
-        productInfoDiv.appendChild(productName)
-    
-    
-        
+        productInfoDiv.appendChild(productPrice);
+        productInfoDiv.appendChild(productName); 
+
         const productInfoFigure = document.createElement('figure');
         const productImgCart = document.createElement('img');
         productImgCart.setAttribute('src', './icons/bt_add_to_cart.svg');
