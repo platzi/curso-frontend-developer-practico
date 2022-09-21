@@ -257,7 +257,7 @@ aside {
 width: 360px;
 padding-bottom: 24px;
 position: absolute;
-right: 0;
+left: 24px;
 }
     #product-detail-close {
     background: var(--white);
