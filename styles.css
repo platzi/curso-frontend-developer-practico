@@ -74,15 +74,17 @@
     display: flex;
     justify-content: center;
     align-items: center;
+    
   }
 
   .inactive {
-    display: none;
+    transform: translatey(260px);
+    transition: 300ms;
   }
 
   .desktop-menu {
     position: absolute;
-    top: 60px;
+    top: -200px;
     right: 55px;
     width: 100px;
     height: auto;
