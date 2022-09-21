@@ -11,6 +11,7 @@
   }
   body {
     margin: 0;
+    box-sizing: border-box;
     font-family: 'Quicksand', sans-serif;
   }
   .inactive {
@@ -134,7 +135,10 @@
   background-color: var(--white);
   position: absolute;
   top: 60px;
+  left: 0;
+  width: 100%;
   padding: 24px;
+  box-sizing: border-box;
 }
 .mobile-menu a {
   text-decoration: none;
@@ -163,7 +167,7 @@
 }
 
 /* Aside (product detail y carrito) */
-.product-detail {
+.shopping-information {
   background-color: var(--white);
   width: 360px;
   padding: 0 24px;
@@ -239,6 +243,72 @@
   height: 50px;
 }
 
+/* Aside (info-product) */
+.product-detail {
+  background-color: var(--white);
+  width: 360px;
+  padding-bottom: 24px;
+  position: absolute;
+  right: 0;
+}
+.product-detail-close {
+  background: var(--white);
+  width: 14px;
+  height: 14px;
+  position: absolute;
+  top: 24px;
+  left: 24px;
+  z-index: 2;
+  padding: 12px;
+  border-radius: 50%;
+}
+.product-detail-close:hover {
+  cursor: pointer;
+}
+.product-detail > img:nth-child(2) {
+  width: 100%;
+  height: 360px;
+  object-fit: cover;
+  border-radius: 0 0 20px 20px;
+}
+.p-info {
+  margin: 24px 24px 0 24px;
+}
+.p-info p:nth-child(1) {
+  font-weight: bold;
+  font-size: var(--md);
+  margin-top: 0;
+  margin-bottom: 4px;
+}
+.p-info p:nth-child(2) {
+  color: var(--very-light-pink);
+  font-size: var(--md);
+  margin-top: 0;
+  margin-bottom: 36px;
+}
+.p-info p:nth-child(3) {
+  color: var(--very-light-pink);
+  font-size: var(--sm);
+  margin-top: 0;
+  margin-bottom: 36px;
+}
+.primary-button {
+  background-color: var(--hospital-green);
+  border-radius: 8px;
+  border: none;
+  color: var(--white);
+  width: 100%;
+  cursor: pointer;
+  font-size: var(--md);
+  font-weight: bold;
+  height: 50px;
+}
+.add-to-cart-button {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+}
+
 /* Product list */
 .cards-container {
   display: grid;
@@ -294,6 +364,9 @@
     }
     .desktop-menu {
       display: none;
+    }
+    .shopping-information {
+      width: 100%;
     }
     .product-detail {
       width: 100%;
