@@ -1,0 +1,25 @@
+{
+	"products": [
+		{
+			"id": 1,
+			"name": "Bike",
+			"price": "120",
+			"image": "https://images.pexels.com/photos/276517/pexels-photo-276517.jpeg?auto=compress&cs=tinysrgb&dpr=2&h=650&w=940",
+			"description": "With its practical position, this bike also fulfills a decorative function, add your hall or workspace."
+		},
+		{
+			"id": 2,
+			"name": "Pantalla",
+			"price": "220",
+			"image": "https://images.pexels.com/photos/1029757/pexels-photo-1029757.jpeg",
+			"description": "A fantastic screen for your work Set-Up"
+		},
+		{
+			"id": 3,
+			"name": "Balon",
+			"price": "60",
+			"image": "https://images.pexels.com/photos/47354/the-ball-stadion-football-the-pitch-47354.jpeg?auto=compress&cs=tinysrgb&w=1260&h=750&dpr=1",
+			"description": "The new football ball of the world cup"
+		}
+	]
+}
