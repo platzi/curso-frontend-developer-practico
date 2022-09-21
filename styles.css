@@ -237,6 +237,8 @@
   /*Lista de productos a la venta*/
   .cards-container {
     display: grid;
+    margin-top: 20px;
+    margin-bottom: 20px;
     grid-template-columns: repeat(auto-fill, 240px);
     gap: 26px;
     place-content: center;
