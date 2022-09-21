@@ -8,9 +8,11 @@ let cardsContanier = document.querySelector('.cards-container');
 let arrowBack = document.querySelector('.product-detail .title-container img');
 let asideDetail = document.querySelector('.product-detail-info');
 let asideDetailCloseBtn = document.querySelector('.product-detail-info .product-detail-close');
+let blackBg = document.querySelector('.black-bg');
 
 asideDetailCloseBtn.addEventListener('click', () => {
     asideDetail.classList.add('inactive');
+    blackBg.classList.add('inactive');
 })
 
 emailBtn.addEventListener('click', () => {
@@ -29,6 +31,7 @@ burgerMenu.addEventListener('click', () => {
     }
     if (!asideDetail.classList.contains('inactive')) {
         asideDetail.classList.add('inactive');
+        blackBg.classList.add('inactive');
     }
 });
 
@@ -38,6 +41,7 @@ cartBtn.addEventListener('click', () => {
     }
     if (!asideDetail.classList.contains('inactive')) {
         asideDetail.classList.add('inactive');
+        blackBg.classList.add('inactive');
     }
     productDetail.classList.toggle('inactive');
 });
@@ -106,7 +110,7 @@ productList.push({
     image: 'https://images.pexels.com/photos/276517/pexels-photo-276517.jpeg?auto=compress&cs=tinysrgb&dpr=2&h=650&w=940'    
 });
 productList.push({
-    name: 'Laptop',
+    name: 'Peluche',
     price: 520,
     image: 'https://images.pexels.com/photos/276517/pexels-photo-276517.jpeg?auto=compress&cs=tinysrgb&dpr=2&h=650&w=940'    
 });
@@ -120,6 +124,7 @@ for (product of productList) {
     img.setAttribute('src', product.image);
     img.addEventListener('click', () => {
         asideDetail.classList.remove('inactive');
+        blackBg.classList.remove('inactive');
         if(!productDetail.classList.contains('inactive')){
             productDetail.classList.add('inactive');
         }
