@@ -163,11 +163,14 @@ nav {
 
 /* Aside (product detail y carrito) */
 aside {
-  background-color: var(--white);
   width: 360px;
+  padding: 24px;
   box-sizing: border-box;
   position: absolute;
   right: 0;
+  transition: all 0.5s ease-out;
+  background: var(--white);
+  box-shadow: 0 8px 20px var(--very-light-pink);
 }
 
 /* ShoppingCart */
