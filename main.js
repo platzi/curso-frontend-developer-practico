@@ -73,25 +73,6 @@ shoppingCart.addEventListener('click',() => {
 // Product Detail Preview Close Button
 productDetailPreviewCloseBtn.addEventListener('click', closeProductDetailPreview);
 
-// Product Detail Preview
-function openProductDetailPreview() {
-    // si esta abierto el aside lo cierra
-    const isAsideOpen = aside.classList.contains('showAside');
-    if (isAsideOpen) {
-        aside.classList.remove('showAside');
-    }
-
-    // si esta abierto el mobileMenu lo cierra
-    const isMobileMenuOpen = mobileMenu.classList.contains('showMobileMenu');
-    if (isMobileMenuOpen) {
-        mobileMenu.classList.remove('showMobileMenu');
-    }
-
-    productDetailPreviewContainer.classList.add('showProductDetailPreview');
-}
-function closeProductDetailPreview() {
-    productDetailPreviewContainer.classList.remove('showProductDetailPreview');
-}
 
 
 // List of Products without hardcoding HTML
@@ -157,17 +138,24 @@ productList.push ({
 </div>
 </div> */
 
-function renderProducts(arr) {
-    for (product of arr) {
+function renderProducts(productList) {//(arr)
+    //for (product of arr) {
+    productList.forEach(product => {
         // console.log(product.name);
         // creacion de elementos
         const productCard = document.createElement('div');
         productCard.classList.add('product-card');
+
+        // add event listener del product card
+        // productCard.addEventListener('click', () => {
+        //     openProductDinamic(product);
+        // });
     
         const img = document.createElement('img');
         img.setAttribute('src', product.image);
         // add event listeners
         img.addEventListener('click', openProductDetailPreview);
+        // img.addEventListener('click',openProductDinamic(product));
     
         const productInfo = document.createElement('div');
         productInfo.classList.add('product-info');
@@ -197,7 +185,71 @@ function renderProducts(arr) {
         /* Con Element.append() podemos agregar varios nodos y texto,
         mientras que con Element.appendChild() solo podemos agregar un nodo. */
         cardsContainer.appendChild(productCard);	
-    }
+    })
 }
 // si quisiera agregar productos, pero que la info me la traiga una api, para eso tengo el arr
 renderProducts(productList);
+
+// const openProductDinamic = (product) => {
+//     // obtenemos del preview la imagen, el titulo y el precio
+//     const productDetailPreviewImg = document.querySelector('#product-detail-preview-img');
+//     const productPrice = document.querySelector('#product-price');
+//     const productName = document.querySelector('#product-name');
+//     // const productDescription = ;
+
+//     productDetailPreviewImg.setAttribute('src',product.img);
+//     productPrice.textContent= product.price;
+//     productName.textContent= product.name;
+// }
+
+
+// Product Detail Preview
+function openProductDetailPreview(event) {
+    // const product = productList.find(product => ;
+    // console.log(product);
+
+    // const showImage = `
+    // <img src="${product.image}" alt="${product.name}" title="${product.name}" id="product-detail-preview-img">
+    // <div class="product-info_preview">
+    // <p id="product-price">${product.price}</p>
+    // <p id="product-name">${product.name}</p>
+    // <p id="product-description">${product.name}</p>
+    // <button class="primary-button add-to-cart-button">
+    //   <img src="./icons/bt_add_to_cart.svg" alt="add to cart">
+    //   Add to cart
+    // </button>
+    // </div>
+    // `;
+    // productDetailPreviewContainer.innerHTML = showImage;
+
+
+    // si esta abierto el aside lo cierra
+    const isAsideOpen = aside.classList.contains('showAside');
+    if (isAsideOpen) {
+        aside.classList.remove('showAside');
+    }
+
+    // si esta abierto el mobileMenu lo cierra
+    const isMobileMenuOpen = mobileMenu.classList.contains('showMobileMenu');
+    if (isMobileMenuOpen) {
+        mobileMenu.classList.remove('showMobileMenu');
+    }
+
+    productDetailPreviewContainer.classList.add('showProductDetailPreview');
+
+    // dinamic content
+    // const productDetailPreviewImg = document.querySelector('#product-detail-preview-img');
+    // const productPrice = document.querySelector('#product-price');
+    // const productName = document.querySelector('#product-name');
+    // // const productDescription = ;
+
+    // productList.forEach(product => {
+    //     productDetailPreviewImg.setAttribute('src',product.img);
+    //     productPrice.textContent= product.price;
+    //     productName.textContent= product.name;
+    // });
+
+}
+function closeProductDetailPreview() {
+    productDetailPreviewContainer.classList.remove('showProductDetailPreview');
+}
