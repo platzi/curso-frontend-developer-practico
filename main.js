@@ -5,7 +5,10 @@ const burgerMenuIcon=document.querySelector('.menu');
 const mobileMenu=document.querySelector('.mobile-menu');
 
 const shoppingCartIcon=document.querySelector('.navbar-shopping-cart');
-const productDetails=document.querySelector('.product-detail');
+//const productDetails=document.querySelector('#productDetail');
+//const aside=document.querySelector('.product-detail');
+const shopingCartContainer=document.querySelector('#shoppingCartContainer');
+
 
 const cardsContainer=document.querySelector('.cards-container');
 
@@ -24,18 +27,18 @@ function toggleDesktopMenu(){
    }
 */
 
-const isMenuCartClosed=productDetails.classList.contains("inactive");
+const isMenuCartClosed=shopingCartContainer.classList.contains("inactive");
     if(!isMenuCartClosed){
-        productDetails.classList.add("inactive");
+      shopingCartContainer.classList.add("inactive");
     }
 
     desktopMenu.classList.toggle("inactive");//hahaha esta linea reemplaza toda mi logica anterior que igual funciona :p
 }
 
 function toggleMobileMenu() {
-    const isMenuCartClosed=productDetails.classList.contains("inactive");
+    const isMenuCartClosed=shopingCartContainer.classList.contains("inactive");
     if(!isMenuCartClosed){
-        productDetails.classList.add("inactive");
+      shopingCartContainer.classList.add("inactive");
     }
     mobileMenu.classList.toggle("inactive");
 }
@@ -45,7 +48,7 @@ function toggleShoppingCart() {
     if(!isMobileMenuClosed){
         mobileMenu.classList.add("inactive");
     }
-    productDetails.classList.toggle("inactive");
+    shopingCartContainer.classList.toggle("inactive");
 }
 
 const productList=[];
