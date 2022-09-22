@@ -5,16 +5,16 @@ const burgerMenuIcon=document.querySelector('.menu');
 const mobileMenu=document.querySelector('.mobile-menu');
 
 const shoppingCartIcon=document.querySelector('.navbar-shopping-cart');
-//const productDetails=document.querySelector('#productDetail');
-//const aside=document.querySelector('.product-detail');
+const productDetailContainer=document.querySelector('#productDetail');
 const shopingCartContainer=document.querySelector('#shoppingCartContainer');
-
+const productDetailClose=document.querySelector('.product-detail-close');
 
 const cardsContainer=document.querySelector('.cards-container');
 
 menuEmail.addEventListener('click',toggleDesktopMenu);
 burgerMenuIcon.addEventListener('click',toggleMobileMenu);
 shoppingCartIcon.addEventListener('click',toggleShoppingCart);
+productDetailClose.addEventListener('click',CloseProductDetail);
 
 function toggleDesktopMenu(){
 /*
@@ -26,32 +26,46 @@ function toggleDesktopMenu(){
     desktopMenu.classList.add("inactive");
    }
 */
-
-const isMenuCartClosed=shopingCartContainer.classList.contains("inactive");
-    if(!isMenuCartClosed){
-      shopingCartContainer.classList.add("inactive");
-    }
-
     desktopMenu.classList.toggle("inactive");//hahaha esta linea reemplaza toda mi logica anterior que igual funciona :p
+    //nos aseguramos que los demas esten cerrados
+    mobileMenu.classList.add("inactive");
+    shopingCartContainer.classList.add("inactive");
+    productDetailContainer.classList.add("inactive");
 }
 
 function toggleMobileMenu() {
-    const isMenuCartClosed=shopingCartContainer.classList.contains("inactive");
-    if(!isMenuCartClosed){
-      shopingCartContainer.classList.add("inactive");
-    }
     mobileMenu.classList.toggle("inactive");
+     //nos aseguramos que los demas esten cerrados
+     desktopMenu.classList.add("inactive");
+     shopingCartContainer.classList.add("inactive");
+     productDetailContainer.classList.add("inactive");
 }
 
 function toggleShoppingCart() {
-    const isMobileMenuClosed=mobileMenu.classList.contains("inactive");
-    if(!isMobileMenuClosed){
-        mobileMenu.classList.add("inactive");
-    }
+    
     shopingCartContainer.classList.toggle("inactive");
+    //nos aseguramos que los demas esten cerrados
+    desktopMenu.classList.add("inactive");
+    mobileMenu.classList.add("inactive");
+    productDetailContainer.classList.add("inactive");
+
+}
+
+function openProductDetail(){
+  productDetailContainer.classList.remove('inactive');
+  desktopMenu.classList.add("inactive");
+  mobileMenu.classList.add("inactive");
+  shopingCartContainer.classList.add("inactive");
+}
+
+function CloseProductDetail(){
+  productDetailContainer.classList.add("inactive");
 }
 
 const productList=[];
+
+function fillProducts(){
+
 
 productList.push({
   name: "Bike",
@@ -60,42 +74,30 @@ productList.push({
 });
 
 productList.push({
-    name: "Bike",
-    price:120,
+    name: "Bike2",
+    price:130,
     image:"https://images.pexels.com/photos/276517/pexels-photo-276517.jpeg?auto=compress&cs=tinysrgb&dpr=2&h=650&w=940"
   });
 
  productList.push({
-    name: "Bike",
+    name: "Watch",
     price:120,
     image:"https://images.pexels.com/photos/276517/pexels-photo-276517.jpeg?auto=compress&cs=tinysrgb&dpr=2&h=650&w=940"
   }); 
 
   productList.push({
-    name: "Bike",
+    name: "Slim",
     price:120,
     image:"https://images.pexels.com/photos/276517/pexels-photo-276517.jpeg?auto=compress&cs=tinysrgb&dpr=2&h=650&w=940"
   }); 
   productList.push({
-    name: "Bike",
+    name: "Sunglasses",
     price:120,
     image:"https://images.pexels.com/photos/276517/pexels-photo-276517.jpeg?auto=compress&cs=tinysrgb&dpr=2&h=650&w=940"
   }); 
 
-  /*
-  <div class="product-card">
-        <img src="https://images.pexels.com/photos/276517/pexels-photo-276517.jpeg?auto=compress&cs=tinysrgb&dpr=2&h=650&w=940" alt="">
-        <div class="product-info">
-          <div>
-            <p>$120,00</p>
-            <p>Bike</p>
-          </div>
-          <figure>
-            <img src="./icons/bt_add_to_cart.svg" alt="">
-          </figure>
-        </div>
-      </div>
-  */
+}
+
 
 //crera elemento segun el array
 function renderProducts(arr){
@@ -105,6 +107,7 @@ function renderProducts(arr){
 
         const productImage=document.createElement("img");
         productImage.setAttribute("src", element.image);
+        productImage.addEventListener("click",openProductDetail)
 
         const productInfoContainer=document.createElement("div");
         const productPrice=document.createElement("p");
@@ -131,4 +134,7 @@ function renderProducts(arr){
     }
 }
 
+
+
+fillProducts();
 renderProducts(productList);
