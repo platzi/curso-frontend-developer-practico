@@ -3,7 +3,7 @@ const DesktopMenu = document.querySelector('.desktop-menu');
 const menuHamIcon = document.querySelector('.menu');
 const menuCarritoIcon = document.querySelector('.navbar-shopping-cart');
 const mobileMenu = document.querySelector('.mobile-menu');
-const aside = document.querySelector('.product-detail');
+const shoppingCartContainer = document.querySelector('#shoppingCartContainer');
 const cardsContainer = document.querySelector('.cards-container');
 
 menuEmail.addEventListener('click', toggleDesktopMenu);
@@ -11,19 +11,19 @@ menuHamIcon.addEventListener('click', toggleMobileMenu);
 menuCarritoIcon.addEventListener('click', toggleCarritoAside);
 
 function toggleDesktopMenu(){
-    const isAsideClosed = aside.classList.contains('inactive');
+    const isAsideClosed = shoppingCartContainer.classList.contains('inactive');
     
     if (!isAsideClosed){
-        aside.classList.add('incative');
+        shoppingCartContainer.classList.add('incative');
     }
     DesktopMenu.classList.toggle('incative');
 }
 
 function toggleMobileMenu(){
-    const isAsideClosed = aside.classList.contains('inactive');
+    const isAsideClosed = shoppingCartContainer.classList.contains('inactive');
     
     if (!isAsideClosed){
-        aside.classList.add('incative');
+        shoppingCartContainer.classList.add('incative');
     }
 
     mobileMenu.classList.toggle('incative');
@@ -35,7 +35,7 @@ function toggleCarritoAside(){
     if (!isMobileMenuClosed){
             mobileMenu.classList.add('incative');
         }
-    aside.classList.toggle('incative')
+        shoppingCartContainer.classList.toggle('incative')
 }
 
 const productList = [];
@@ -55,20 +55,6 @@ productList.push({
     image: 'https://images.pexels.com/photos/276517/pexels-photo-276517.jpeg?auto=compress&cs=tinysrgb&dpr=2&h=650&w=940',
 })
 
-/*
-<div class="product-card">
-        <img src="https://images.pexels.com/photos/276517/pexels-photo-276517.jpeg?auto=compress&cs=tinysrgb&dpr=2&h=650&w=940" alt="">
-        <div class="product-info">
-          <div>
-            <p>$120,00</p>
-            <p>Bike</p>
-          </div>
-          <figure>
-            <img src="./icons/bt_add_to_cart.svg" alt="">
-          </figure>
-        </div>
-      </div>
-*/
 for (product of productList){
     const productCard = document.createElement('div');
     productCard.classList.add('product-card');
