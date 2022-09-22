@@ -13,6 +13,7 @@ menuHamIcon.addEventListener('click', toggleMobileMenu);
 menuCarritoIcon.addEventListener('click', toggleCarritoAside);
 
 function toggleDesktopMenu() {
+    //Función para cerrar el carrito cuando se abre el menú del correo
     const isAsideClosed = aside.classList.contains('inactive');
 // !isAsideClosed = si no esta cerrado
     if (!isAsideClosed) {
@@ -23,6 +24,7 @@ function toggleDesktopMenu() {
 }
 
 function toggleMobileMenu() {
+    //Función para cerrar el carrito cuando se abre el menú mobile
     const isAsideClosed = aside.classList.contains('inactive');
 // !isAsideClosed = si no esta cerrado
     if (!isAsideClosed) {
@@ -33,10 +35,18 @@ function toggleMobileMenu() {
 }
 
 function toggleCarritoAside() {
+    //Función para cerrar el menú mobile al abrir el carrito
     const isMobileMenuClosed = mobileMenu.classList.contains('inactive');
 // !isMobileMenuClosed = si no esta cerrado
     if (!isMobileMenuClosed) {
         mobileMenu.classList.add('inactive');
+    }
+
+    // Función para cerrar el menú del correo al abrir el carrito
+    const isDesktopMenuClosed = desktopMenu.classList.contains('inactive');
+// isDesktopMenuClosed = si no esta cerrado    
+    if (!isDesktopMenuClosed) {
+        desktopMenu.classList.add('inactive');
     }
 
     aside.classList.toggle('inactive');
