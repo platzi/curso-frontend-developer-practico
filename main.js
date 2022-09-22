@@ -7,7 +7,7 @@ const MobileMenu = document.querySelector('.mobile-menu');
 const MobileHambIcon = document.querySelector('.menu');
 
 //Compras Menu
-const ComprasMenu = document.querySelector('.product-detail');
+const shoppingCartContainer = document.querySelector('#shoppingCartContainer');
 const ComprasMenuIcon = document.querySelector('.navbar-shopping-cart');
 
 //Llamado al contenedor de cards
@@ -20,21 +20,21 @@ navEmail.addEventListener('click',toggleNavEmail);
 MobileHambIcon.addEventListener('click',toggleMobileMenu);
 
 // Toggle Compras Menu
-ComprasMenuIcon.addEventListener('click',toggleComprasMenu);
+ComprasMenuIcon.addEventListener('click',toggleshoppingCartContainer);
 
 
 function toggleNavEmail() {
     DesktopMenu.classList.toggle('inactive');
-    ComprasMenu.classList.add('inactive');
+    shoppingCartContainer.classList.add('inactive');
 }
 
 function toggleMobileMenu() {
     MobileMenu.classList.toggle('inactive');
-    ComprasMenu.classList.add('inactive');
+    shoppingCartContainer.classList.add('inactive');
 }
 
-function toggleComprasMenu() {
-    ComprasMenu.classList.toggle('inactive');
+function toggleshoppingCartContainer() {
+    shoppingCartContainer.classList.toggle('inactive');
     MobileMenu.classList.add('inactive');
     DesktopMenu.classList.add('inactive');
 }
