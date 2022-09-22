@@ -26,6 +26,7 @@
   }
   .menu {
     display: none;
+    cursor: pointer;
   }
   .logo {
     width: 100px;
