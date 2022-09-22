@@ -4,13 +4,17 @@ const desktopMenu = document.querySelector('.desktop-menu');
 const menuHamIcon = document.querySelector('.menu');
 const mobileMenu = document.querySelector('.mobile-menu');
 const menuCarritoIcon = document.querySelector('.navbar-shopping-cart');
+const productDetailCloseIcon = document.querySelector('.product-detail-close');
 const shoppingCartContainer = document.querySelector('#shoppingCartContainer');
+const productDetailContainer = document.querySelector('#productDetail');
 const cardsContainer = document.querySelector('.cards-container');
 
 //Eventos
 menuEmail.addEventListener('click', toggleDesktopMenu);
 menuHamIcon.addEventListener('click',toggleMobileMenu);
 menuCarritoIcon.addEventListener('click',toggleCarritoAside);
+//Vamos a crear un evento para la función de cerrar el detalle de producto
+productDetailCloseIcon.addEventListener('click',closeProductDetailAside);
 
 //Funciones
 function toggleDesktopMenu(){
@@ -30,11 +34,14 @@ function toggleMobileMenu(){
     }
 
     mobileMenu.classList.toggle('inactive');
+
+    closeProductDetailAside();
 }
 
 function toggleCarritoAside(){
     const isMobileMenuClosed = mobileMenu.classList.contains('inactive');
     const isDesktopMenuClosed = desktopMenu.classList.contains('inactive');
+    const isProductDetailClosed = productDetailContainer.classList.contains('inactive');
 
     if (!isMobileMenuClosed){
         mobileMenu.classList.add('inactive');
@@ -44,7 +51,22 @@ function toggleCarritoAside(){
         desktopMenu.classList.add('inactive');
     }
 
+    if (!isProductDetailClosed){
+        productDetailContainer.classList.add('inactive');
+    }
+
     shoppingCartContainer.classList.toggle('inactive');
+}
+
+//Funcion que solo abra el detalle del producto
+function openProductDetailAside(){
+    shoppingCartContainer.classList.add('inactive');
+    productDetailContainer.classList.remove('inactive');
+}
+
+//Funcion que solo cierre el detalle del producto
+function closeProductDetailAside() {
+    productDetailContainer.classList.add('inactive');
 }
 
 //Para traer los productos a mostrar
@@ -77,6 +99,9 @@ function renderProduct(arr){
 
         const productImg = document.createElement('img');
         productImg.setAttribute('src',product.image);
+        //Aqui vamos agregar un evento para que cuando haga click en la imagen
+        //esta muestre el detalle del producto
+        productImg.addEventListener('click', openProductDetailAside);
 
         const productInfo = document.createElement('div');
         productInfo.classList.add('product-info');
