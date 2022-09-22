@@ -13,6 +13,7 @@
     margin: 0;
     box-sizing: border-box;
     font-family: 'Quicksand', sans-serif;
+    /* position: relative; */
   }
   .inactive {
     display: none;
@@ -20,10 +21,13 @@
 
 /* Navbar (general) */
   nav {
+    position: relative;
     display: flex;
     justify-content: space-between;
     padding: 0 24px;
+    background-color: var(--white);
     border-bottom: 1px solid var(--very-light-pink);
+    z-index: 2;
   }
   .menu {
     display: none;
@@ -170,10 +174,12 @@
 .shopping-information {
   background-color: var(--white);
   width: 360px;
-  padding: 0 24px;
+  padding: 0 24px 24px;
+  border-radius: 8px;
   box-sizing: border-box;
   position: absolute;
   right: 0;
+  z-index: 2;
 }
 .title-container {
   display: flex;
@@ -181,6 +187,7 @@
 .title-container img {
   transform: rotate(180deg);
   margin-right: 14px;
+  cursor: pointer;
 }
 .title {
   font-size: var(--lg);
@@ -350,6 +357,16 @@
   margin-top: 0;
   margin-bottom: 0;
   color: var(--very-light-pink);
+}
+
+/* Dark window*/
+.dark-window {
+  width: 100vw;
+  height: calc(100%);
+  position: fixed;
+  top: 0;
+  background-color: rgba(105, 103, 103, 0.5);
+  z-index: 1;
 }
 
   @media (max-width: 640px) {
