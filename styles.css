@@ -123,6 +123,7 @@
   }
   /* MobileMenu */
   .mobile-menu {
+    background-color: var(--white);
     position:absolute;
     top: 60px;
     padding: 24px;
@@ -156,8 +157,9 @@
   /*CarMobileMenu*/
 
   .product-detail {
+    background-color: var(--white);
     width: 360px;
-    padding: 24px;
+    padding: 0 24px;
     box-sizing: border-box;
     position: absolute;
     right: 0;
@@ -241,6 +243,9 @@
     }
     .desktop-menu{
       display: none;
+    }
+    .product-detail {
+      width: 100%;
     }
   }
 
