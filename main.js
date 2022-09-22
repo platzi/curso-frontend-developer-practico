@@ -60,13 +60,13 @@ productList.push({
 productList.push({
     name: 'pantalla',
     price: 320,
-    image:'https://images.pexels.com/photos/276517/pexels-photo-276517.jpeg?auto=compress&cs=tinysrgb&dpr=2&h=650&w=940',
+    image:'https://images.pexels.com/photos/58709/pexels-photo-58709.jpeg',
 });
 
 productList.push({
     name: 'computadora',
     price: 620,
-    image:'https://images.pexels.com/photos/276517/pexels-photo-276517.jpeg?auto=compress&cs=tinysrgb&dpr=2&h=650&w=940',
+    image:'https://images.pexels.com/photos/1049764/pexels-photo-1049764.jpeg?auto=compress&cs=tinysrgb&w=1260&h=750&dpr=1',
 });
 
 //Mostrar los productos
