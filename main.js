@@ -1,3 +1,4 @@
+                // ABRIR Y CERRAR MENUS
 const menuEmail = document.querySelector('.navbar-email');
 const desktopMenu = document.querySelector('.desktop-menu');
 // Desktopmenu es el correo
@@ -6,7 +7,6 @@ const mobileMenu = document.querySelector('.mobile-menu');
 const menuCarritoIcon = document.querySelector('.navbar-shopping-cart');
 const aside = document.querySelector('.product-detail');
 // Aside es el carrito
-
 
 menuEmail.addEventListener('click', toggleDesktopMenu);
 menuHamIcon.addEventListener('click', toggleMobileMenu);
@@ -51,3 +51,5 @@ function toggleCarritoAside() {
 
     aside.classList.toggle('inactive');
 }
+
+                // Lista de productos
