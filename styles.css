@@ -268,7 +268,7 @@
   margin-top: 0;
   margin-bottom: 36px;
 }
-.#productDetail p:nth-child(3) {
+#productDetail p:nth-child(3) {
   color: var(--very-light-pink);
   font-size: var(--sm);
   margin-top: 0;
