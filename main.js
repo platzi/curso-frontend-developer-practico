@@ -46,3 +46,26 @@ function toggleCarMobileMenu(){
         aside.classList.toggle('inactive');
    
 }
+
+const productList = [];
+
+productList.push({
+    mane : 'Bike',
+    price : 1200 ,
+    image : 'https://images.pexels.com/photos/276517/pexels-photo-276517.jpeg?auto=compress&cs=tinysrgb&dpr=2&h=650&w=940',
+});
+productList.push({
+    mane : 'bike helmet',
+    price : 420 ,
+    image : 'https://images.pexels.com/photos/276517/pexels-photo-276517.jpeg?auto=compress&cs=tinysrgb&dpr=2&h=650&w=940',
+});
+productList.push({
+    mane : 'pants',
+    price : 880 ,
+    image : 'https://images.pexels.com/photos/276517/pexels-photo-276517.jpeg?auto=compress&cs=tinysrgb&dpr=2&h=650&w=940',
+});
+productList.push({
+    mane : 'tires',
+    price : 880 ,
+    image : 'https://images.pexels.com/photos/276517/pexels-photo-276517.jpeg?auto=compress&cs=tinysrgb&dpr=2&h=650&w=940',
+});
