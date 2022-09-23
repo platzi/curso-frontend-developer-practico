@@ -1,0 +1,63 @@
+"Pasos para fusionar proyectos HTML y CSS con JS"
+
+1 Analizar código de proyectos open-source
+
+Creamos: index.html, styles.css, main.js
+
+2 Fusión del menú en desktop: Ocuparse de si todas los links, fuentes, 
+colores coincidan una pantalla con la otra. CSS
+
+3 Ir colapsando codigo para poder ver donde incluir todas las partes 
+del codigo de manera coherente. Incluirlo donde no rompa codigo armado. HTML
+
+4. Arrastrar El css que haga falta  de las demas pantallas
+
+5. revisar el responsive
+
+6. describir clases en css
+
+<elemento class="nombre _inactive_" >
+
+Clase .inactive{display: none;} En CSS Para hacer desaparecer un bloque 
+de codigo HTML de la pantalla. Luego podemos hacerla a aparecer con 
+codigo JS
+
+elemento.classList.toggle("inactive") = Para hacer y desaparecer un bloque 
+de codigo HTML de la pantalla desde JS
+
+El efecto .toggle() solo te permite alternar entre 2 acciones mientras 
+que .click() hace una acción concreta por cada click
+
+{cursor: pointer} solo hace que se de cuenta del cursor   
+.elemento:hover{} hace que se de cuenta del cursor, pudiendose 
+cambiar una caracteristica mientras 
+
+Al usar el media query para el responsive entre min y max dejar al menos 1px de
+diferencia por las dudas
+
+glosario: toggle, add
+
+Apuntes nuevos: 
+
+En un e-comerce. Crear un array con producto tipo objeto para luego 
+rellenar variantes del producto const x = [];. ir agregando productos .push({});.
+
+Hacer un ciclo foreach maquetando todo el codigo html que va a crear cada parte del objeto para automatizar lo 
+que se vaya agregando 
+
+recordar tener en las mismas rutas los archivos png, jpg, etc en la misma 
+carpeta de nuestro proyecto
+
+Puedo agregar objetos a un arrays productsList.push({
+    name: "Laptop",
+    price: 120,
+    image: "https://images.pexels.com/photos/812264/pexels-photo-812264.jpeg?cs=srgb&dl=pexels-tuur-tisseghem-812264.jpg&fm=jpg"
+});
+
+Recordar que en appendChild no se pueden acceder a las variables sin antes inicializarlas
+
+-----------------------------------
+
+
+
+
