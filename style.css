@@ -23,9 +23,9 @@ nav {
   display: flex;
   justify-content: space-between;
   padding: 0 24px;
-  height: 60px;
   border-bottom: 1px solid var(--very-light-pink);
 }
+
 .menu {
   display: none;
 }
@@ -61,7 +61,7 @@ nav {
   color: var(--hospital-green);
 }
 .navbar-email {
-    cursor: pointer;
+    cursor: p;
   color: var(--very-light-pink);
   font-size: var(--sm);
   margin-right: 12px;
