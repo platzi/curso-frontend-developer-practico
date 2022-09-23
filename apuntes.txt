@@ -56,4 +56,8 @@ Puedo agregar objetos a un arrays productsList.push({
 
 Recordar que en appendChild no se pueden acceder a las variables sin antes inicializarlas
 
+-----------------------------------
+
+
+
 
