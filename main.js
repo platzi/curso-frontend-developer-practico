@@ -6,6 +6,8 @@ const carritoCompras = document.querySelector(".navbar-shopping-cart");
 const agregadoAlCarrito = document.querySelector(".product-detail");
 const cardsContainer = document.querySelector(".cards-container");
 const productsList = [];
+const productDetailOn = document.querySelector(".product-detail-on");
+
 productsList.push({
     name: "Bici",
     price: 120,
@@ -21,6 +23,7 @@ productsList.push({
     price: 120,
     image: "https://images.pexels.com/photos/788946/pexels-photo-788946.jpeg?cs=srgb&dl=pexels-jess-bailey-designs-788946.jpg&fm=jpg"
 });
+
 
 function desplegarMenu(elemento){
     elemento.classList.toggle("inactive");
@@ -41,6 +44,7 @@ function desplegarMenu(elemento){
 menuEmail.addEventListener("click", function(){desplegarMenu(desktopMenu)});
 menuHamburguesa.addEventListener("click", function(){desplegarMenu(mobileMenu)});
 carritoCompras.addEventListener("click", function(){desplegarMenu(agregadoAlCarrito)});
+
 
 for(product of productsList){
     
