@@ -48,3 +48,78 @@ function toggleShoppingCarMenu() {
     // }
 
 }
+
+const productList = [];
+
+productList.push({
+    name:'Bike',
+    price:12000,
+    image:'https://images.pexels.com/photos/276517/pexels-photo-276517.jpeg?auto=compress&cs=tinysrgb&dpr=2&h=650&w=940'
+});
+productList.push({
+    name:'TV',
+    price:750,
+    image:'https://images.pexels.com/photos/5721910/pexels-photo-5721910.jpeg?cs=srgb&dl=pexels-anete-lusina-5721910.jpg&fm=jpg'
+});
+productList.push({
+    name:'Laptop',
+    price:25000,
+    image:'https://images.pexels.com/photos/18105/pexels-photo.jpg?cs=srgb&dl=pexels-karsten-madsen-18105.jpg&fm=jpg'
+});
+productList.push({
+    name:'Bike',
+    price:12000,
+    image:'https://images.pexels.com/photos/276517/pexels-photo-276517.jpeg?auto=compress&cs=tinysrgb&dpr=2&h=650&w=940'
+});
+productList.push({
+    name:'TV',
+    price:750,
+    image:'https://images.pexels.com/photos/5721910/pexels-photo-5721910.jpeg?cs=srgb&dl=pexels-anete-lusina-5721910.jpg&fm=jpg'
+});
+productList.push({
+    name:'Laptop',
+    price:25000,
+    image:'https://images.pexels.com/photos/18105/pexels-photo.jpg?cs=srgb&dl=pexels-karsten-madsen-18105.jpg&fm=jpg'
+});
+
+function gridOfProducts(arr) {
+// Agrega los productos en la grid de productos
+const mainContainer = document.querySelector('.cards-container');
+
+arr.forEach((product) =>{
+
+const productCard = document.createElement('div');
+productCard.classList.add('product-card');
+
+const productCardImage = document.createElement('img');
+productCardImage.src = product.image;
+
+const divProductInfo = document.createElement('div');
+divProductInfo.classList.add('product-info');
+
+mainContainer.append(productCard);
+productCard.append(productCardImage,divProductInfo);
+
+const divInsideDivProductInfo = document.createElement('div');
+const figureInsideDivProductInfo = document.createElement('figure');
+
+divProductInfo.append(divInsideDivProductInfo,figureInsideDivProductInfo);
+
+
+const  priceTag = document.createElement('p');
+priceTag.innerText = "$" + product.price;
+const  productName = document.createElement('p');
+productName.innerText = product.name;
+divInsideDivProductInfo.append(priceTag, productName);
+
+const iconProduct = document.createElement('img');
+iconProduct.src = './icons/bt_add_to_cart.svg';
+
+figureInsideDivProductInfo.append(iconProduct);
+
+}
+);
+}
+
+
+gridOfProducts(productList);
