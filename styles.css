@@ -369,6 +369,22 @@
   z-index: 1;
 }
 
+/* Page 404 error */
+.page404Error{
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+}
+.page404Error img{
+  height: 320px;
+  width: 320px;
+}
+.page404Error p{
+  font-size: 1.2rem;
+  font-weight: 900;
+  color: var(--hospital-green);
+}
+
   @media (max-width: 640px) {
     .menu {
       display: block;

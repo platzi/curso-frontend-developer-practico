@@ -116,6 +116,11 @@ function closeProductDetailAside(){
 }
 
 function closeCarritoAside(){
+    if(!asideCarrito.classList.contains('inactive')){
+        darkWindow.classList.add('inactive');
+    }else{
+        darkWindow.classList.remove('inactive');
+    }
     asideCarrito.classList.add('inactive');
 }
 
