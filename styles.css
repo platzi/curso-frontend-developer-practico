@@ -374,7 +374,7 @@ nav {
     display: none;
   }
 
-  .aside {
+  #shoppingCartContainer {
     width: 100%;
   }
 
