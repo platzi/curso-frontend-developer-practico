@@ -1,4 +1,6 @@
 /* Variables */
+    /* Dark */
+const dark          = document.querySelector('.dark')
     /* Menu Desktop */
 const menuEmail     = document.querySelector('.navbar-email');
 const desktopMenu   = document.querySelector('.desktop-menu');

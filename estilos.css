@@ -320,6 +320,15 @@ aside {
     color: var(--very-light-pink);
   }
 
+  /* Dark */
+.dark {
+  width: 100%;
+  height: calc(100%);
+  position: fixed;
+  top: 0;
+  background-color: rgba(0, 0, 0, 0.5);
+}
+
 @media (min-width: 641px) {
     .mobile-menu{
         display: none;
