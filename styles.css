@@ -178,6 +178,7 @@
   .title-container img {
     transform: rotate(180deg);
     margin-right: 14px;
+    cursor: pointer;
   }
   .title {
     font-size: var(--lg);
