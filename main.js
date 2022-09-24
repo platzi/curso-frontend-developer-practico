@@ -77,6 +77,25 @@ productList.push({
     image: 'https://images.pexels.com/photos/1379374/pexels-photo-1379374.jpeg?auto=compress&cs=tinysrgb&w=1260&h=750&dpr=1',
 });
 
+productList.push ({
+    name:'Car',
+    price: 2000,
+    image: 'https://images.pexels.com/photos/949796/pexels-photo-949796.jpeg?auto=compress&cs=tinysrgb&w=1260&h=750&dpr=1'
+});
+
+productList.push ({
+    name:'Van Volkswagen',
+    price: 5000,
+    image: 'https://images.pexels.com/photos/2832251/pexels-photo-2832251.jpeg?auto=compress&cs=tinysrgb&w=1260&h=750&dpr=1'
+});
+
+productList.push ({
+    name:'Skates',
+    price: 876,
+    image: 'https://images.pexels.com/photos/2005992/pexels-photo-2005992.jpeg?auto=compress&cs=tinysrgb&w=1260&h=750&dpr=1'
+});
+
+
 function renderProducts (arr){
     for (product of arr){
         const productCard = document.createElement('div');
