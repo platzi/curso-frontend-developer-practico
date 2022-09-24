@@ -271,11 +271,12 @@ nav {
         display: none;
     }
     .mobile-menu {
-        padding: 24px;
+        padding: 0 0 0 24px;
         position: absolute;
         background: var(--white);
         top: 61px;
         left: 0;
+        width: calc(100% - 24px);
     }
     .mobile-menu a {
         text-decoration: none;
