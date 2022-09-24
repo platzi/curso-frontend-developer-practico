@@ -167,22 +167,23 @@
       background-color: var(--white);
       width: 360px;
       padding: 0 24px;
+      padding-bottom: 24px;
       box-sizing: border-box;
       position: absolute;
       right: 0;
     }
-    .title-container {
+    .product-detail .title-container {
       display: flex;
     }
-    .title-container img {
+    .product-detail .title-container img {
       transform: rotate(180deg);
       margin-right: 14px;
     }
-    .title {
+    .product-detail .title-container .title {
       font-size: var(--lg);
       font-weight: bold;
     }
-    .order {
+    .product-detail .my-order-content .order {
       display: grid;
       grid-template-columns: auto 1fr;
       gap: 16px;
@@ -192,42 +193,42 @@
       border-radius: 8px;
       padding: 0 24px;
     }
-    .order p:nth-child(1) {
+    .product-detail .my-order-content .order p:nth-child(1) {
       display: flex;
       flex-direction: column;
     }
-    .order p span:nth-child(1) {
+    .product-detail .my-order-content .order p span:nth-child(1) {
       font-size: var(--md);
       font-weight: bold;
     }
-    .order p:nth-child(2) {
+    .product-detail .my-order-content .order p:nth-child(2) {
       text-align: end;
       font-weight: bold;
     }
-    .shopping-cart {
+    .product-detail .my-order-content .shopping-cart {
       display: grid;
       grid-template-columns: auto 1fr auto auto;
       gap: 16px;
       margin-bottom: 24px;
       align-items: center;
     }
-    .shopping-cart figure {
+    .product-detail .my-order-content .shopping-cart figure {
       margin: 0;
     }
-    .shopping-cart figure img {
+    .product-detail .my-order-content .shopping-cart figure img {
       width: 70px;
       height: 70px;
       border-radius: 20px;
       object-fit: cover;
     }
-    .shopping-cart p:nth-child(2) {
+    .product-detail .my-order-content .shopping-cart p:nth-child(2) {
       color: var(--very-light-pink);
     }
-    .shopping-cart p:nth-child(3) {
+    .product-detail .my-order-content .shopping-cart p:nth-child(3) {
       font-size: var(--md);
       font-weight: bold;
     }
-    .primary-button {
+    .product-detail .my-order-content .primary-button {
       background-color: var(--hospital-green);
       border-radius: 8px;
       border: none;
