@@ -7,7 +7,7 @@ const menuLinesLeft = document.querySelector('.menu');
 const mobileMenu    = document.querySelector('.mobile-menu');
     /* shopping kart */
 const shoppingKart  = document.querySelector('.navbar-shopping-cart')
-const asideProduct  = document.querySelector('.product-detail')
+const shoppingCardContainer  = document.querySelector('#shoppingCar')
     /* Product List */
 const cardContainer = document.querySelector('.cards-container')
 const productList = [];
@@ -40,17 +40,17 @@ menuLinesLeft.addEventListener('click', toggleMobileMenu);
 /* Funtions */
     /* Menu Desktop */
 function toggleDesktopMenu(){
-    asideProduct.classList.add('inactive')
+    shoppingCardContainer.classList.add('inactive')
     desktopMenu.classList.toggle('inactive');
 }
 function toggleAsideProduct(){
     mobileMenu.classList.add('inactive');
     desktopMenu.classList.add('inactive');
-    asideProduct.classList.toggle('inactive')
+    shoppingCardContainer.classList.toggle('inactive')
 }
 /* Mobile Menu */
 function toggleMobileMenu(){
-    asideProduct.classList.add('inactive')
+    shoppingCardContainer.classList.add('inactive')
     mobileMenu.classList.toggle('inactive');
 }
 /* Product List */
