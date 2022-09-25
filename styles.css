@@ -182,7 +182,6 @@ aside {
   display: flex;
 }
 .title-container img {
-  transform: rotate(180deg);
   margin-right: 14px;
 }
 .title {
@@ -312,7 +311,6 @@ aside {
   gap: 26px;
   place-content: center;
   margin-top: 30px;
-  cursor: pointer;
 }
 .product-card {
   width: 240px;
@@ -376,6 +374,9 @@ aside {
   .product-card img {
     width: 140px;
     height: 140px;
+  }
+  #productDetail{
+    width: 100%;
   }
 }
 

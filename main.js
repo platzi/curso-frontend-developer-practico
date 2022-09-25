@@ -5,9 +5,15 @@ const mobileMenu = document.querySelector('.mobile-menu')
 const shoppingCart = document.querySelector('.navbar-shopping-cart')
 const shoppingCartContainer = document.querySelector('#shoppingCartContainer')
 const cardsContainer = document.querySelector('.cards-container')
+const productDetail = document.querySelector('#productDetail')
+const productDetailClose = document.querySelector('.product-detail-close')
 
 menuEmail.addEventListener('click', () =>{
   const isAsideClosed = shoppingCartContainer.classList.contains('inactive')
+  const isProductDetailClosed = productDetail.classList.contains('inactive')
+  if (!isProductDetailClosed){
+    productDetail.classList.add('inactive')
+  }
   if (!isAsideClosed) {
     shoppingCartContainer.classList.add('inactive')
   }
@@ -18,19 +24,31 @@ iconHam.addEventListener('click', () => {
   if (!isAsideClosed) {
     shoppingCartContainer.classList.add('inactive')
   }
+  const isProductDetailClosed = productDetail.classList.contains('inactive')
+  if (!isProductDetailClosed){
+    productDetail.classList.add('inactive')
+  }
   mobileMenu.classList.toggle('inactive')
 })
 
 shoppingCart.addEventListener('click', () => {
   const isMobileMenuClosed = mobileMenu.classList.contains('inactive')
-  const isDescktopMenulosed = menuEmail.classList.contains('inactive')
-  if (!isDescktopMenulosed){
+  const isDescktopMenuClosed = menuEmail.classList.contains('inactive')
+  const isProductDetailClosed = productDetail.classList.contains('inactive')
+  if (!isProductDetailClosed){
+    productDetail.classList.add('inactive')
+  }
+  if (!isDescktopMenuClosed){
     desktopMenu.classList.add('inactive')
   }
   if (!isMobileMenuClosed) {
     mobileMenu.classList.add('inactive')
   }
   shoppingCartContainer.classList.toggle('inactive')
+})
+
+productDetailClose.addEventListener('click', () => {
+  productDetail.classList.add('inactive')
 })
 
 const productList = []
@@ -49,7 +67,27 @@ productList.push({
   price: 600,
   img: 'https://h30467.www3.hp.com/t5/image/serverpage/image-id/69872i562BEF6696B58641/image-size/large?v=v2&px=999'
 })
+productList.push({
+  name: 'MacBook Pro (16 pulgadas)',
+  price: 1200,
+  img: 'https://ipadizate.com/hero/2021/11/nuevo-MacBook-pro.jpg?width=1200&aspect_ratio=16:9'
+})
 
+function openProductDetail(){
+  const isAsideClosed = shoppingCartContainer.classList.contains('inactive')
+  if (!isAsideClosed) {
+    shoppingCartContainer.classList.add('inactive')
+  }
+  const isDescktopMenuClosed = menuEmail.classList.contains('inactive')
+  if (!isDescktopMenuClosed){
+    desktopMenu.classList.add('inactive')
+  }
+  const isMobileMenuClosed = mobileMenu.classList.contains('inactive')
+  if (!isMobileMenuClosed) {
+    mobileMenu.classList.add('inactive')
+  }
+  productDetail.classList.remove('inactive')
+}
 
 function productRender(arr){
   for (product of arr){
@@ -58,6 +96,7 @@ function productRender(arr){
   
     const productImg = document.createElement('img')
     productImg.setAttribute('src', product.img)
+    productImg.addEventListener('click', openProductDetail)
   
     const productInfo = document.createElement('div')
     productInfo.classList.add('product-info')
