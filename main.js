@@ -7,6 +7,7 @@ const agregadoAlCarrito = document.querySelector(".product-detail");
 const cardsContainer = document.querySelector(".cards-container");
 const productsList = [];
 const productDetailOn = document.querySelector(".product-detail-on");
+const productDetailCloseIcon = document.querySelector(".product-detail-on-close");
 
 productsList.push({
     name: "Bici",
@@ -31,28 +32,47 @@ function desplegarMenu(elemento){
     if(elemento === desktopMenu){
         mobileMenu.classList.add("inactive");
         agregadoAlCarrito.classList.add("inactive");
+        productDetailOn.classList.add("inactive");
     }
     else if(elemento === mobileMenu){
         desktopMenu.classList.add("inactive");
         agregadoAlCarrito.classList.add("inactive");
+        productDetailOn.classList.add("inactive");
     }
     else if(elemento === agregadoAlCarrito){
         desktopMenu.classList.add("inactive");
         mobileMenu.classList.add("inactive");
+        productDetailOn.classList.add("inactive");
     }
 }
+
+function openProductDetailOn(){
+    productDetailOn.classList.remove('inactive');
+    desktopMenu.classList.add("inactive");
+    mobileMenu.classList.add("inactive");
+    agregadoAlCarrito.classList.add("inactive");
+}
+function closeProductDetailOn(){
+    productDetailOn.classList.add('inactive');
+}
+
 menuEmail.addEventListener("click", function(){desplegarMenu(desktopMenu)});
 menuHamburguesa.addEventListener("click", function(){desplegarMenu(mobileMenu)});
 carritoCompras.addEventListener("click", function(){desplegarMenu(agregadoAlCarrito)});
 
+productDetailCloseIcon.addEventListener("click", closeProductDetailOn);
 
 for(product of productsList){
-    
+
+
+  
     const productCard = document.createElement('div');
     productCard.classList.add('product-card');
 
     const productImg = document.createElement('img');
     productImg.setAttribute('src', product.image)
+    productImg.addEventListener("click", openProductDetailOn);
+    
 
     const productInfo = document.createElement('div');
     productInfo.classList.add('product-info');
@@ -81,4 +101,3 @@ for(product of productsList){
 
     cardsContainer.appendChild(productCard);
 }
-

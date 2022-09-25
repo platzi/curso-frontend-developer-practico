@@ -39,25 +39,14 @@ glosario: toggle, add
 
 Apuntes nuevos: 
 
-En un e-comerce. Crear un array con producto tipo objeto para luego 
-rellenar variantes del producto const x = [];. ir agregando productos .push({});.
+Hacer un ciclo foreach maquetando todo el codigo html que va a crear cada parte 
+del objeto para automatizar lo que se vaya agregando 
 
-Hacer un ciclo foreach maquetando todo el codigo html que va a crear cada parte del objeto para automatizar lo 
-que se vaya agregando 
+Al crear elementos de HTML desde agregarles addEventListener desde el mismo 
+bloque decodigo en JS 
 
-recordar tener en las mismas rutas los archivos png, jpg, etc en la misma 
-carpeta de nuestro proyecto
-
-Puedo agregar objetos a un arrays productsList.push({
-    name: "Laptop",
-    price: 120,
-    image: "https://images.pexels.com/photos/812264/pexels-photo-812264.jpeg?cs=srgb&dl=pexels-tuur-tisseghem-812264.jpg&fm=jpg"
-});
-
-Recordar que en appendChild no se pueden acceder a las variables sin antes inicializarlas
-
------------------------------------
+para mostrar un bloque de codigo inactive y que no se cierre al volver a dar
+click en el mismo lugar se coloca x.inactive.remove('');
 
 
-
-
+github pages: Es un servicio de alojamiento de sitio estático(Hace el backent por nosotros)
