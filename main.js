@@ -15,7 +15,7 @@ menuCarritoICon.addEventListener('click', toggleCarritoAside);
 /* Funciones */
 function toggleDesktopMenu() {
   const isAsideClosed = aside.classList.contains('inactive');
-
+  //Pregunta si el aside esta cerrado lo cual esta guardado en la variable isAsideClosed
   if (!isAsideClosed) {
     aside.classList.add('inactive');
   }
@@ -24,7 +24,7 @@ function toggleDesktopMenu() {
 
 function toggleMobileMenu() {
   const isAsideClosed = aside.classList.contains('inactive');
-
+  //Pregunta si el aside esta cerrado lo cual esta guardado en la variable isAsideClosed
   if (!isAsideClosed) {
     aside.classList.add('inactive');
   }
@@ -33,7 +33,7 @@ function toggleMobileMenu() {
 
 function toggleCarritoAside() {
   const isMobileMenuClosed = mobileMenu.classList.contains('inactive');
-
+  //Pregunta si el menu mobile esta cerrado lo cual esta guardado en la variable isAsideClosed
   if (!isMobileMenuClosed) {
     mobileMenu.classList.add('inactive');
   }
