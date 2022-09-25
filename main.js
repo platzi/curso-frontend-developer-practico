@@ -1,4 +1,4 @@
-const menuEmail = document.querySelector('.navbar-email');
+const menuEmail1 = document.querySelector('.navbar-email');
 const menuHamIcon = document.querySelector('.menu');
 const menuCarritoIcon = document.querySelector('.navbar-shopping-cart');
 const productDetailCloseIcon = document.querySelector('.product-detail-close');
@@ -9,7 +9,7 @@ const productDetailContainer = document.querySelector('#productDetail');
 const cardsContainer = document.querySelector('.cards-container');
 
 
-menuEmail.addEventListener('click', toggleDesktopMenu);
+menuEmail1.addEventListener('click', toggleDesktopMenu);
 menuHamIcon.addEventListener('click', toggleMobileMenu);
 menuCarritoIcon.addEventListener('click', toggleCarritoAside);
 productDetailCloseIcon.addEventListener('click',closeProductDetailAside);
