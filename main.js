@@ -3,20 +3,20 @@ const desktopMenu = document.querySelector('.desktop-menu')
 const iconHam = document.querySelector('.menu')
 const mobileMenu = document.querySelector('.mobile-menu')
 const shoppingCart = document.querySelector('.navbar-shopping-cart')
-const aside = document.querySelector('.product-detail')
+const shoppingCartContainer = document.querySelector('#shoppingCartContainer')
 const cardsContainer = document.querySelector('.cards-container')
 
 menuEmail.addEventListener('click', () =>{
-  const isAsideClosed = aside.classList.contains('inactive')
+  const isAsideClosed = shoppingCartContainer.classList.contains('inactive')
   if (!isAsideClosed) {
-    aside.classList.add('inactive')
+    shoppingCartContainer.classList.add('inactive')
   }
   desktopMenu.classList.toggle('inactive')
 })
 iconHam.addEventListener('click', () => {
-  const isAsideClosed = aside.classList.contains('inactive')
+  const isAsideClosed = shoppingCartContainer.classList.contains('inactive')
   if (!isAsideClosed) {
-    aside.classList.add('inactive')
+    shoppingCartContainer.classList.add('inactive')
   }
   mobileMenu.classList.toggle('inactive')
 })
@@ -30,7 +30,7 @@ shoppingCart.addEventListener('click', () => {
   if (!isMobileMenuClosed) {
     mobileMenu.classList.add('inactive')
   }
-  aside.classList.toggle('inactive')
+  shoppingCartContainer.classList.toggle('inactive')
 })
 
 const productList = []
@@ -42,12 +42,12 @@ productList.push({
 productList.push({
   name: 'Monitor',
   price: 350,
-  img: 'https://www.lg.com/cl/images/monitores/md05881116/gallery/dz-4.jpg'
+  img: 'https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcTDyFdMdZnGBBxASjU-35LCGRpxpWNNlUsPkg&usqp=CAU'
 })
 productList.push({
   name: 'Laptop Gamer',
   price: 600,
-  img: 'https://images.lider.cl/wmtcl?source=url[file:/productos/1339698a.jpg]&sink'
+  img: 'https://h30467.www3.hp.com/t5/image/serverpage/image-id/69872i562BEF6696B58641/image-size/large?v=v2&px=999'
 })
 
 
