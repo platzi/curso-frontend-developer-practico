@@ -12,6 +12,8 @@
 body {
   margin: 0;
   font-family: 'Quicksand', sans-serif;
+  height: 100vh;
+  background-color: #f8dff8;
 }
 .inactive {
   display: none;
@@ -24,6 +26,7 @@ nav {
   justify-content: space-between;
   padding: 0 24px;
   border-bottom: 1px solid var(--very-light-pink);
+  background-color: #7ED321;
 }
 .menu {
   display: none;
@@ -43,16 +46,36 @@ nav {
 .navbar-left {
   display: flex;
 }
+.navbar-right {
+  display: flex;
+  align-items: center;
+}
+
+a {
+  background-color: var(--text-input-field);
+  cursor: pointer;
+}
 .navbar-left ul {
   margin-left: 12px;
+  margin-top: 4px;
+  
 }
+
+.navbar-right ul img{
+  cursor: pointer;
+}
+
 .navbar-left ul li a,
 .navbar-right ul li a {
   text-decoration: none;
-  color: var(--very-light-pink);
+  color: purple;
+  font-weight: bold;
   border: 1px solid var(--white);
   padding: 8px;
   border-radius: 8px;
+  margin: 10px;
+  
+
 }
 .navbar-left ul li a:hover,
 .navbar-right ul li a:hover {
@@ -60,10 +83,16 @@ nav {
   color: var(--hospital-green);
 }
 .navbar-email {
-  color: var(--very-light-pink);
-  cursor: pointer;
-  font-size: var(--sm);
+  text-decoration: none;
+  color: purple;
+  font-weight: bold;
+  border: 1px solid var(--white);
+  background-color: var(--text-input-field);
+  padding: 8px;
+  border-radius: 8px;
   margin-right: 12px;
+  cursor: pointer;
+  
 }
 .navbar-shopping-cart {
   position: relative;
@@ -339,7 +368,7 @@ aside {
   font-size: var(--sm);
   margin-top: 0;
   margin-bottom: 0;
-  color: var(--very-light-pink);
+  color: black;
 }
 
 

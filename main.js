@@ -52,6 +52,12 @@ function toggleCarritoAside() {
     productDetailContainer.classList.add('inactive');
   }
 
+  const isDesktopMenuClosed = desktopMenu.classList.contains('inactive');
+
+  if (!isDesktopMenuClosed){
+    desktopMenu.classList.add('inactive');
+  }
+
   shoppingCartContainer.classList.toggle('inactive');
 }
 
@@ -67,19 +73,34 @@ function closeProducDetailAside(){
 
 const productList = [];
 productList.push({
-  name: 'Bike',
-  price: 120,
-  image: 'https://images.pexels.com/photos/276517/pexels-photo-276517.jpeg?auto=compress&cs=tinysrgb&dpr=2&h=650&w=940',
+  name: 'MORA',
+  price: 5000,
+  image: './Fotos jugos/Mora.jpg',
 });
 productList.push({
-  name: 'Pantalla',
-  price: 220,
-  image: 'https://images.pexels.com/photos/276517/pexels-photo-276517.jpeg?auto=compress&cs=tinysrgb&dpr=2&h=650&w=940',
+  name: 'LULO',
+  price: 5000,
+  image: './Fotos jugos/Lulo.jpg',
 });
 productList.push({
-  name: 'Compu',
-  price: 620,
-  image: 'https://images.pexels.com/photos/276517/pexels-photo-276517.jpeg?auto=compress&cs=tinysrgb&dpr=2&h=650&w=940',
+  name: 'MARACUYA',
+  price: 5000,
+  image: './Fotos jugos/Maracuya.jpg',
+});
+productList.push({
+  name: 'BOROJO',
+  price: 5000,
+  image: './Fotos jugos/borojo.jpg',
+});
+productList.push({
+  name: 'MANGO',
+  price: 5000,
+  image: './Fotos jugos/Maracuya.jpg',
+});
+productList.push({
+  name: 'GUANABANA',
+  price: 5000,
+  image: './Fotos jugos/Guanaban.jpg',
 });
 
 function renderProducts(arr) {
