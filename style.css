@@ -20,10 +20,11 @@
     justify-content: space-between;
     padding: 0 24px;
     border-bottom: 1px solid var(--very-light-pink);
+
   }
   .menu {
     display: none;
-    cursor: pointer;
+    cursor: pointer; 
   }
   .logo {
     width: 100px;
@@ -86,6 +87,7 @@
 /*CUADRO EMERGENTE - DESKTOP*/
 
   .inactive{
+    transition: .5s;
     display: none; /*esta clase la creo para que con JS desaparezca o reaparezca con click() y es una alternativa a "display:none"*/
   }
 
@@ -140,11 +142,14 @@
     position: absolute;
     top: 61px;
     left: 0;
+    width: calc(100% - 50px); /*Evitamos scroll horizontal*/
 
     background-color:var(--white);
     border: 1px solid #EEEFEF;
     border-radius: 5px;
     transition: .9s;
+
+    height: 100%;
   }
   .mobile-menu a {
     text-decoration: none;
@@ -406,6 +411,10 @@
     .product-card img {
       width: 140px;
       height: 140px;
+    }
+
+    #shoppingCartContainer{
+      height: 500px;
     }
   }
 

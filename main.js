@@ -74,6 +74,36 @@ productList.push({
     price:10,
     img:"https://images.pexels.com/photos/392018/pexels-photo-392018.jpeg?auto=compress&cs=tinysrgb&w=400"
 })
+productList.push({
+    name:"Monitor",
+    price:100,
+    img:"https://images.pexels.com/photos/1029757/pexels-photo-1029757.jpeg?auto=compress&cs=tinysrgb&w=400"
+})
+productList.push({
+    name:"Keyboard",
+    price:20,
+    img:"https://images.pexels.com/photos/220357/pexels-photo-220357.jpeg?auto=compress&cs=tinysrgb&w=400"
+})
+productList.push({
+    name:"Mouse",
+    price:10,
+    img:"https://images.pexels.com/photos/392018/pexels-photo-392018.jpeg?auto=compress&cs=tinysrgb&w=400"
+})
+productList.push({
+    name:"Monitor",
+    price:100,
+    img:"https://images.pexels.com/photos/1029757/pexels-photo-1029757.jpeg?auto=compress&cs=tinysrgb&w=400"
+})
+productList.push({
+    name:"Keyboard",
+    price:20,
+    img:"https://images.pexels.com/photos/220357/pexels-photo-220357.jpeg?auto=compress&cs=tinysrgb&w=400"
+})
+productList.push({
+    name:"Mouse",
+    price:10,
+    img:"https://images.pexels.com/photos/392018/pexels-photo-392018.jpeg?auto=compress&cs=tinysrgb&w=400"
+})
 
 /*
 MAQUETAREMOS ESTA ESTRUCTURA DE HTML CON JS!!!
