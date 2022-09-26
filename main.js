@@ -7,11 +7,23 @@ const shoppingCartContainer = document.querySelector("#shoppingCartContainer");
 const cardsContainer = document.querySelector(".cards-container");
 const productDetailContainer = document.querySelector('#productDetail');
 const productDetailCloseIcon = document.querySelector('.product-detail-close');
+const buttonAddToCart = document.querySelector('.add-to-cart-button');
+const showNumberProduct = document.querySelector('.numberProduct');
+const priceTotalProducts = document.querySelector('.price-total');
+const priceOneProduct = document.querySelector('.price-one');
+const priceTwoProduct = document.querySelector('.price-two');
+const priceThreeProduct = document.querySelector('.price-three');
+const productInfoImg = document.querySelector('.product-info-img');
+const shoppingcart1 = document.querySelector('.shopping-cart-1');
+const shoppingcart2 = document.querySelector('.shopping-cart-2');
+const shoppingcart3 = document.querySelector('.shopping-cart-3');
 
 menuEmail.addEventListener('click', toggleDesktopMenu);
 menuHamburger.addEventListener('click', toggleMobileMenu);
 menuCarritoIcon.addEventListener('click', toggleCarritoaside);
 productDetailCloseIcon.addEventListener('click', closeProductDetailAside);
+buttonAddToCart.addEventListener('click', addProduct);
+
 //click en el boton email
 function toggleDesktopMenu (){
     const isAsideClosed =   shoppingCartContainer.classList.contains('inactive');
@@ -40,7 +52,27 @@ function toggleCarritoaside() {
     const isMobileMenuClosed =   mobileMenu.classList.contains('inactive');
         desktopMenu.classList.add('inactive');
     
-    //Si esta abuierto el menu mobile
+    //Sumatoria de los productos del carrito
+    var cadenaX = priceOneProduct.textContent + priceTwoProduct.textContent + priceThreeProduct.textContent;
+    var one;
+    var two;
+    var three;
+    
+    one = cadenaX.charAt(1) + cadenaX.charAt(2);
+    two = cadenaX.charAt(4) + cadenaX.charAt(5);
+    three = cadenaX.charAt(7) + cadenaX.charAt(8);
+     var valOne = Number(one);
+     var valTwo=   Number(two);
+     var valThree = Number(three);
+    
+    
+
+    var total = valOne + valTwo + valThree ;
+    
+    priceTotalProducts.textContent = "$"+ total;
+       
+    
+    //Si esta abierto el menu mobile
      if(!isMobileMenuClosed){
         // lo cierra
         mobileMenu.classList.add('inactive');
@@ -58,32 +90,35 @@ function toggleCarritoaside() {
 //Click en una imagen del catalogo
 function openProductDetailAside (){
     productDetailContainer.classList.remove('inactive');
-
     shoppingCartContainer.classList.add('inactive');
-
+  
 }
-
 
 function closeProductDetailAside(){
     productDetailContainer.classList.add('inactive');
 }
+var x = 1;
+function addProduct(){
+    showNumberProduct.textContent = x++;
+
+}
 
 const productList = [];
 productList.push({
-    name: 'Bike',
-    price: 120,
+    name: 'Mamilaria',
+    price: 30,
     image:'https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcQXv6t_ixhu5zfazHksOga3jQh_GiGatiY9LQ&usqp=CAU',
 });
 
 productList.push({
-    name: 'Pantalla',
-    price: 220,
+    name: 'Atrophytum asterias',
+    price: 40,
     image:'https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcTwQ7amw3dhbv9ZMgvwjw83OqbN9-KMjo6Z-Q&usqp=CAU',
 });
 
 productList.push({
-    name: 'Compu',
-    price: 620,
+    name: 'Astrophytum kiko',
+    price: 50,
     image:'https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcRZHc3jbCzes2LMgyo44k_C-n1JjqbxO0OiSQ&usqp=CAU',
 });
 /*
@@ -105,7 +140,7 @@ function renderProducts(array){
     for (product of array){
         //creamos el contenedor div
         const productCard = document.createElement('div');
-
+    
         //Agregamos la case product-card a nuestro product-card
         productCard.classList.add('product-card');
        
@@ -113,7 +148,6 @@ function renderProducts(array){
         const productImg = document.createElement('img');
         //Le asignamos a productimg la imagen del product del array
         productImg.setAttribute('src', product.image);
-
         //Agregamos un evento de click que llama a una funcion para abrir la informacion de un producto
         productImg.addEventListener('click', openProductDetailAside);
         //Creamos el contenedor div y le asignamos la clase product-info
