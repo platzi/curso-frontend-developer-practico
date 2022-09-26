@@ -3,14 +3,17 @@ const menuEmail = document.querySelector('.navbar-email');
 const desktopMenu = document.querySelector('.desktop-menu');
 const menuCarritoICon = document.querySelector('.navbar-shopping-cart');
 const menuHamIcon = document.querySelector('.menu');
+const productDetailCloseIcon = document.querySelector('.product-detail-close');
 const mobileMenu = document.querySelector('.mobile-menu');
 const shoppingCartContainer = document.querySelector('#shoppingCartContainer');
+const productDetailContainer = document.querySelector('#productDetail');
 const cardContainer = document.querySelector('.cards-container');
 
 /* Escuchador de eventos */
 menuEmail.addEventListener('click', toggleDesktopMenu);
 menuHamIcon.addEventListener('click', toggleMobileMenu);
 menuCarritoICon.addEventListener('click', toggleCarritoAside);
+productDetailCloseIcon.addEventListener('click', closeProductDetailAside);
 
 
 /* Funciones */
@@ -30,6 +33,7 @@ function toggleMobileMenu() {
     shoppingCartContainer.classList.add('inactive');
   }
   mobileMenu.classList.toggle('inactive');
+  closeProductDetailAside();
 }
 
 function toggleCarritoAside() {
@@ -39,6 +43,20 @@ function toggleCarritoAside() {
     mobileMenu.classList.add('inactive');
   }
   shoppingCartContainer.classList.toggle('inactive');
+
+  const isProductDetailClosed = productDetailContainer.classList.contains('inactive');
+  if (!isProductDetailClosed) {
+    productDetailContainer.classList.add('inactive');
+  }
+}
+
+function openProductDetailAside () {
+  shoppingCartContainer.classList.add('inactive');
+  productDetailContainer.classList.remove('inactive');
+}
+
+function closeProductDetailAside () {
+  productDetailContainer.classList.add('inactive');
 }
 
 const productList = [];
@@ -78,7 +96,8 @@ productList.push({
   </div>
 </div> */
 
-function renderProducts(arr) {
+//Una manera mas facil de hacerlo pero no recomendada
+/* function renderProducts(arr) {
   cardContainer.innerHTML = '';
   arr.forEach((product) => {
     const card = document.createElement('div');
@@ -101,14 +120,15 @@ function renderProducts(arr) {
   })
 }
 
-renderProducts(productList);
+renderProducts(productList); */
 
-/* for (product of productList) {
+for (product of productList) {
   const productCard = document.createElement('div');
   productCard.classList.add('product-card');
 
   const productImg = document.createElement('img');
   productImg.setAttribute('src', product.image);
+  productImg.addEventListener('click', openProductDetailAside);
 
   const productInfo = document.createElement('div');
   productInfo.classList.add('product-info');
@@ -137,4 +157,4 @@ renderProducts(productList);
   productCard.appendChild(productInfo);
 
   cardContainer.appendChild(productCard);
-} */
+}
