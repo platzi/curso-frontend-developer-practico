@@ -4,13 +4,16 @@ const menuHamIcon = document.querySelector(".menu");
 const mobileMenu = document.querySelector(".mobile-menu");
 const menuCarritoIcon = document.querySelector(".navbar-shopping-cart");
 const aside = document.querySelector(".product-detail");
-const  cardsContainer = document.querySelector(".cards-container");
+const cardsContainer = document.querySelector(".cards-container");
+const productSpecsContainer = document.querySelector(".product-specs");
+const productSpecsCloseIcon = document.querySelector(".product-specs-close");
 
 menuEmail.addEventListener("click", toggleDesktopMenu); //agrega un eventListener al elemento email, cuando se haga click va a ocurrir algo
+productSpecsCloseIcon.addEventListener("click", closeProductSpecs);
 
 function toggleDesktopMenu() { //es lo que ocurre cuandose hace click. la funcion toggle
     const isAsideClosed = aside.classList.contains("inactive");
-
+    closeProductSpecs();
     if (!isAsideClosed) {
         aside.classList.add("inactive");
     }
@@ -27,6 +30,8 @@ function toggleMobileMenu() {
         aside.classList.add("inactive");
     }
 
+    closeProductSpecs();
+
     mobileMenu.classList.toggle("inactive"); 
 }
 
@@ -35,6 +40,7 @@ menuCarritoIcon.addEventListener("click", toggleCarritoAside);
 function toggleCarritoAside() {
     const isMobileMenuClosed = mobileMenu.classList.contains("inactive");
     const isDesktopMenuClosed = desktopMenu.classList.contains("inactive");
+    const isProductSpecsClosed = productSpecsContainer.classList.contains("inactive");
 
     if (!isMobileMenuClosed) {
         mobileMenu.classList.add("inactive");
@@ -44,8 +50,22 @@ function toggleCarritoAside() {
         desktopMenu.classList.add("inactive");
     }
     
+    if (!isProductSpecsClosed) {
+        productSpecsContainer.classList.add("inactive");
+    }
+
     aside.classList.toggle("inactive");
 }
+
+function openProductSpecs(){
+    aside.classList.add("inactive");
+    productSpecsContainer.classList.remove("inactive");
+}
+
+function closeProductSpecs(){
+    productSpecsContainer.classList.add("inactive");
+}
+
 
 //Lista de productos
 
@@ -80,7 +100,8 @@ function renderProducts(arr) { //para obedecer a la utilidad de las funciones, e
     
         const ProductImg = document.createElement("img"); //crea imagen dentro del product-card
         ProductImg.setAttribute("src", product.image); //configura el source de la imagen como el link en el atributo image dentro del elemento recorrido en el array.
-        
+        ProductImg.addEventListener("click", openProductSpecs);
+
         const productInfo = document.createElement("div"); //crea elemento div en html
         productInfo.classList.add("product-info"); //le da clase al div creado
         
@@ -112,6 +133,7 @@ function renderProducts(arr) { //para obedecer a la utilidad de las funciones, e
 }
 
 renderProducts(productList)
+
 /* <div class="product-card">
         <img src="https://images.pexels.com/photos/276517/pexels-photo-276517.jpeg?auto=compress&cs=tinysrgb&dpr=2&h=650&w=940" alt="">
         <div class="product-info">
