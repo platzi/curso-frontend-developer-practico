@@ -64,6 +64,7 @@
   }
   .navbar-shopping-cart {
     position: relative;
+    cursor: pointer;
   }
   .navbar-shopping-cart div {
     width: 16px;
@@ -84,7 +85,7 @@
 /*CUADRO EMERGENTE - DESKTOP*/
 
   .inactive{
-    opacity: 0; /*esta clase la creo para que con JS desaparezca o reaparezca con click() y es una alternativa a "display:none"*/
+    display: none; /*esta clase la creo para que con JS desaparezca o reaparezca con click() y es una alternativa a "display:none"*/
   }
 
   .desktop-menu {
@@ -223,6 +224,7 @@
     gap: 16px;
     margin-bottom: 24px;
     align-items: center;
+
   }
   .shopping-cart figure {
     margin: 0;
