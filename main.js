@@ -15,6 +15,7 @@ menuCarritoIcon.addEventListener('click', toggleCarritoAside);
 productDetailCloseIcon.addEventListener('click', closeProducDetailAside);
 
 
+
 function toggleDesktopMenu() {
   const isAsideClosed = shoppingCartContainer.classList.contains('inactive');
 
@@ -62,7 +63,8 @@ function toggleCarritoAside() {
 }
 
 function openProducDetailAside(){
-  shoppingCartContainer.classList.add('inactive')
+  shoppingCartContainer.classList.add('inactive');
+  desktopMenu.classList.add('inactive');
 
   productDetail.classList.remove('inactive');
 }
