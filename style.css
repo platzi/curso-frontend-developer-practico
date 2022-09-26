@@ -233,7 +233,7 @@ aside {
 }
 /* carts detail */
 .product-detail-close {
-    background: var(--white);
+    background: rgb(235, 235, 235);
     width: 14px;
     height: 14px;
     position: absolute;
