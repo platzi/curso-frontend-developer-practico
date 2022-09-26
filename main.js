@@ -11,7 +11,7 @@ const barMenu = document.querySelector(".menu");//bnt-menu
 const barMenuResult = document.querySelector(".mobile-menu");//bnt-menu desplegado
 
 const shopCart = document.querySelector(".navbar-shopping-cart");//btn-shopCart
-const productDetail = document.querySelector(".product-detail");//btn-shopCart deplegado
+const shoppingCartContainer = document.querySelector("#shoppingCartContainer");//btn-shopCart deplegado
 
 const cardsContainer = document.querySelector(".cards-container");// Big Daddy de las tarjetas de produto
 
@@ -19,15 +19,15 @@ const cardsContainer = document.querySelector(".cards-container");// Big Daddy d
 
 menuEmail.addEventListener("click", toggleDesktopMenu);//btn-email 
 barMenu.addEventListener("click", toggleBarMenu);//bnt-menu
-shopCart.addEventListener("click", toggleproductDetail);
+shopCart.addEventListener("click", toggleshoppingCartContainer);
 
 function toggleDesktopMenu() {
     //Si el btn-shopCart esta desplegado, entonces lo cerraremos
     //Definamos que es "cerrado"
-    const isproductDetailClosed = productDetail.classList.contains("inactive")
+    const isshoppingCartContainerClosed = shoppingCartContainer.classList.contains("inactive")
     //Si no esta cerrado pues, lo cerramos
-    if(!isproductDetailClosed){
-        productDetail.classList.add("inactive")
+    if(!isshoppingCartContainerClosed){
+        shoppingCartContainer.classList.add("inactive")
     }
     //btn-email desplegado
     menuDesktop.classList.toggle("inactive");
@@ -36,17 +36,17 @@ function toggleDesktopMenu() {
 function toggleBarMenu() {
     //Si el btn-shopCart esta desplegado, entonces lo cerraremos
     //Definamos que es "cerrado"
-    const isproductDetailClosed = productDetail.classList.contains("inactive")
+    const isshoppingCartContainerClosed = shoppingCartContainer.classList.contains("inactive")
     //Si no esta cerrado pues, lo cerramos
-    if(!isproductDetailClosed){
-        productDetail.classList.add("inactive")
+    if(!isshoppingCartContainerClosed){
+        shoppingCartContainer.classList.add("inactive")
     }
     //bnt-menu desplegado
     barMenuResult.classList.toggle("inactive");
     return false;// indica que la acción no avance hacia el servidor(evitando recargar la página cada vez que se ejecute la función)
 }
 
-function toggleproductDetail(){
+function toggleshoppingCartContainer(){
     //Si el bnt-menu esta desplegado, entonces lo cerraremos
     //Definamos que es "cerrado"
     const isbarMenuResultClosed = barMenuResult.classList.contains("inactive")
@@ -55,7 +55,7 @@ function toggleproductDetail(){
         barMenuResult.classList.add("inactive")
     }
     //btn-shopCart deplegado
-    productDetail.classList.toggle("inactive")
+    shoppingCartContainer.classList.toggle("inactive")
 }
 
 const productList = [];
