@@ -11,7 +11,10 @@
   body {
     margin: 0;
     font-family: 'Quicksand', sans-serif;
+<<<<<<< HEAD
   
+=======
+>>>>>>> 082bc0bb7f7751410e8508d7e08d5aa96b86111b
   }
 
   /*PRINPAL MENU*/
@@ -197,7 +200,10 @@
   /*ASIDE SHOPPING CART*/
   #shoppingCartContainer{
     padding: 0 24px;
+<<<<<<< HEAD
     height: 500px;
+=======
+>>>>>>> 082bc0bb7f7751410e8508d7e08d5aa96b86111b
   }
 
   .title-container {
@@ -418,10 +424,13 @@
     #shoppingCartContainer{
       height: 500px;
     }
+<<<<<<< HEAD
 
     #productDetail{
       height: 100%;
     }
+=======
+>>>>>>> 082bc0bb7f7751410e8508d7e08d5aa96b86111b
   }
 
   
