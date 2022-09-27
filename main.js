@@ -47,67 +47,6 @@ function openProducDetailAside(){
   productDetailContainer.classList.remove('inactive');
 }
 
-// function toggleDesktopMenu() {
-//   let isAsideClosed = shoppingCartContainer.classList.contains('inactive');
-//   let isProductDetailClosed = productDetailContainer.classList.contains('inactive');
-
-//   if (!isAsideClosed) {
-//     shoppingCartContainer.classList.add('inactive');
-//   }
-//   else if(!isProductDetailClosed){
-//     productDetailContainer.classList.add('inactive');
-//   }
-
-//   desktopMenu.classList.toggle('inactive');
-// }
-
-// function toggleMobileMenu() {
-//   let isAsideClosed = shoppingCartContainer.classList.contains('inactive');
-
-//   if (!isAsideClosed) {
-//     shoppingCartContainer.classList.add('inactive'); 
-//   }
-  
-//   closeProducDetailAside() 
- 
-//   mobileMenu.classList.toggle('inactive');
-// }
-
-
-
-// function toggleCarritoAside() {
-//   let isMobileMenuClosed = mobileMenu.classList.contains('inactive');
-  
-//   if (!isMobileMenuClosed) {
-//     mobileMenu.classList.add('inactive'); 
-//   }
-  
-//   let isProductDetailClosed = productDetailContainer.classList.contains('inactive');
-
-//   if (!isProductDetailClosed){
-//     productDetailContainer.classList.add('inactive');
-//   }
-
-//   let isDesktopMenuClosed = desktopMenu.classList.contains('inactive');
-
-//   if (!isDesktopMenuClosed){
-//     desktopMenu.classList.add('inactive');
-//   }
-
-//   shoppingCartContainer.classList.toggle('inactive');
-// }
-
-// function openProducDetailAside(){
-//   shoppingCartContainer.classList.add('inactive');
-//   desktopMenu.classList.add('inactive');
-
-//   productDetailContainer.classList.remove('inactive');
-// }
-
-// function closeProducDetailAside(){
-//   productDetailContainer.classList.add('inactive');
-// }
-
 let productList = [];
 productList.push({
   name: 'MORA',

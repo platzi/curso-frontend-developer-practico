@@ -13,7 +13,7 @@ body {
   margin: 0;
   font-family: 'Quicksand', sans-serif;
   height: 100vh;
-  background-color: #f8dff8;
+  background-color: #f7e9f7;
 }
 .inactive {
   display: none;
@@ -357,15 +357,19 @@ aside {
   gap: 26px;
   place-content: center;
   margin-top: 20px;
+ 
 }
 .product-card {
   width: 240px;
+  border: solid var(--very-light-pink) 2px;
+  background-color: white;
 }
 .product-card img {
   width: 240px;
   height: 240px;
-  border-radius: 20px;
+  
   object-fit: cover;
+  cursor: pointer;
 }
 .product-card .product-info {
   display: flex;
@@ -389,7 +393,7 @@ aside {
 .product-card .product-info div p:nth-child(2) {
   font-size: var(--sm);
   margin-top: 0;
-  margin-bottom: 0;
+  margin-bottom: 5px;
   color: black;
 }
 
