@@ -66,11 +66,11 @@ function openProducDetailAside(){
   shoppingCartContainer.classList.add('inactive');
   desktopMenu.classList.add('inactive');
 
-  productDetail.classList.remove('inactive');
+  productDetailContainer.classList.remove('inactive');
 }
 
 function closeProducDetailAside(){
-  productDetail.classList.add('inactive');
+  productDetailContainer.classList.add('inactive');
 }
 
 const productList = [];
