@@ -11,8 +11,7 @@ let productImageInfor = document.querySelector('.jugo');
 let labelPriceInfo = document.querySelector('.product-info p:nth-child(1)')
 let labelNameInfo = document.querySelector('.product-info p:nth-child(2)')
 let labelInforInfo = document.querySelector('.product-info p:nth-child(3)')
-let productosEnCarrito  = []
-let productoACarrito    = []
+
 
 
 
@@ -93,7 +92,7 @@ productList.push({
 });
 
 function renderProduct(arr) {
-  for (product of arr) {
+  for (const product of arr) {
     let productCard = document.createElement('div');
     productCard.classList.add('product-card');
   
@@ -130,9 +129,9 @@ function renderProduct(arr) {
   
     cardsContainer.appendChild(productCard);
 
-    productImg.addEventListener('click', function(){
-      mostrarInfoProduct(product.image, product.price, product.name, product.description)
-      openProductDetail();
+      productImg.addEventListener('click', function(){
+        mostrarInfoProduct(product.image, product.price, product.name, product.description)
+        openProductDetail();
     })
   }
 }
