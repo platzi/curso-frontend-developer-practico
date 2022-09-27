@@ -3,10 +3,10 @@ const menuHamIcon = document.querySelector('.menu');
 const menuCarritoIcon = document.querySelector('.navbar-shopping-cart');
 const desktopMenu = document.querySelector('.desktop-menu');
 const mobileMenu = document.querySelector('.mobile-menu');
-const shoppingCartContainer = document.querySelector('#shoppingCartContainer');
+const shoppingCartContainer = document.querySelector('.shoppingCartContainer');
 const cardsContainer = document.querySelector('.cards-container');
 const productDetailCloseIcon = document.querySelector('.product-detail-close');
-const productDetailContainer = document.querySelector('#productDetail');
+const productDetailContainer = document.querySelector('.productDetail');
 
 
 menuEmail.addEventListener('click', toggleDesktopMenu);

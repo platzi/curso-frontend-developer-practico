@@ -200,7 +200,14 @@ aside {
 }
 
 /* ShoppingCart */
-#shoppingCartContainer {
+/* Este es cuando damos click al carrito */
+.shoppingCartContainer {
+  background-color: var(--white);
+  width: 360px;
+  box-sizing: border-box;
+  position: absolute;
+  right: 0;
+  border-radius: 20px;
   padding: 0 24px;
 }
 .title-container {
@@ -273,6 +280,15 @@ aside {
 }
 
 /* ProductDetail */
+/* cuando damos click a la foto de un jugo */
+.productDetail{
+  background-color: var(--white);
+  width: 360px;
+  box-sizing: border-box;
+  position: absolute;
+  right: 0;
+  border-radius: 20px;
+}
 
 .product-detail-close {
   background: var(--white);
@@ -288,29 +304,29 @@ aside {
 .product-detail-close:hover {
   cursor: pointer;
 }
-#productDetail > img:nth-child(2) {
+.productDetail > img:nth-child(2) {
   width: 350px;
   height: 320px;
   object-fit: cover;
   border-radius: 20px;
   margin: 5px;
 }
-#productDetail .product-info {
+.productDetail .product-info {
   margin: 24px 24px 0 24px;
 }
-#productDetail .product-info p:nth-child(1) {
+.productDetail .product-info p:nth-child(1) {
   font-weight: bold;
   font-size: var(--md);
   margin-top: 0;
   margin-bottom: 4px;
 }
-#productDetail .product-info p:nth-child(2) {
+.productDetail .product-info p:nth-child(2) {
   color: var(--very-light-pink);
   font-size: var(--md);
   margin-top: 0;
   margin-bottom: 36px;
 }
-#productDetail .product-info p:nth-child(3) {
+.productDetail .product-info p:nth-child(3) {
   color: var(--very-light-pink);
   font-size: var(--sm);
   margin-top: 0;
