@@ -407,11 +407,6 @@ aside {
   .desktop-menu {
     display: none;
   }
-
-  aside {
-    width: 100%;
-  }
-
   .cards-container {
     grid-template-columns: repeat(auto-fill, 140px);
   }
@@ -422,13 +417,17 @@ aside {
     width: 140px;
     height: 140px;
   }
-  #productDetail {
+  .productDetail {
     text-align: center;
+    width: 100%;    
+  }
+  .product-detail-close{
+    left: 70px;
+    top: 35px;
     
   }
-
-  #productDetail  > img:nth-child(2){
-    margin-top: 15px;
+  .productDetail  > img:nth-child(2){
+    margin-top: 20px;
   }
   
 }

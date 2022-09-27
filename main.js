@@ -1,12 +1,12 @@
-const menuEmail = document.querySelector('.navbar-email');
-const menuHamIcon = document.querySelector('.menu');
-const menuCarritoIcon = document.querySelector('.navbar-shopping-cart');
-const desktopMenu = document.querySelector('.desktop-menu');
-const mobileMenu = document.querySelector('.mobile-menu');
-const shoppingCartContainer = document.querySelector('.shoppingCartContainer');
-const cardsContainer = document.querySelector('.cards-container');
-const productDetailCloseIcon = document.querySelector('.product-detail-close');
-const productDetailContainer = document.querySelector('.productDetail');
+let menuEmail = document.querySelector('.navbar-email');
+let menuHamIcon = document.querySelector('.menu');
+let menuCarritoIcon = document.querySelector('.navbar-shopping-cart');
+let desktopMenu = document.querySelector('.desktop-menu');
+let mobileMenu = document.querySelector('.mobile-menu');
+let shoppingCartContainer = document.querySelector('.shoppingCartContainer');
+let cardsContainer = document.querySelector('.cards-container');
+let productDetailCloseIcon = document.querySelector('.product-detail-close');
+let productDetailContainer = document.querySelector('.productDetail');
 
 
 menuEmail.addEventListener('click', toggleDesktopMenu);
@@ -16,124 +16,162 @@ productDetailCloseIcon.addEventListener('click', closeProducDetailAside);
 
 
 
-function toggleDesktopMenu() {
-  const isAsideClosed = shoppingCartContainer.classList.contains('inactive');
-  const isProductDetailClosed = productDetailContainer.classList.contains('inactive');
-
-  if (!isAsideClosed) {
-    shoppingCartContainer.classList.add('inactive');
-  }
-  else if(!isProductDetailClosed){
-    productDetailContainer.classList.add('inactive');
-  }
-  
-  desktopMenu.classList.toggle('inactive');
+function toggleDesktopMenu(){
+  mobileMenu.classList.add('inactive');
+  shoppingCartContainer.classList.add('inactive');
+  productDetailContainer.classList.add('inactive');
+  desktopMenu.classList.toggle('inactive')
 }
-
-function toggleMobileMenu() {
-  const isAsideClosed = shoppingCartContainer.classList.contains('inactive');
-
-  if (!isAsideClosed) {
-    shoppingCartContainer.classList.add('inactive'); 
-  }
-  
-  closeProducDetailAside() 
- 
-  mobileMenu.classList.toggle('inactive');
-}
-
-
-
-function toggleCarritoAside() {
-  const isMobileMenuClosed = mobileMenu.classList.contains('inactive');
-  
-  if (!isMobileMenuClosed) {
-    mobileMenu.classList.add('inactive'); 
-  }
-  
-  const isProductDetailClosed = productDetailContainer.classList.contains('inactive');
-
-  if (!isProductDetailClosed){
-    productDetailContainer.classList.add('inactive');
-  }
-
-  const isDesktopMenuClosed = desktopMenu.classList.contains('inactive');
-
-  if (!isDesktopMenuClosed){
-    desktopMenu.classList.add('inactive');
-  }
-
+function toggleCarritoAside(){
+  mobileMenu.classList.add('inactive');
+  desktopMenu.classList.add('inactive');
+  productDetailContainer.classList.add('inactive');
   shoppingCartContainer.classList.toggle('inactive');
 }
-
-function openProducDetailAside(){
-  shoppingCartContainer.classList.add('inactive');
+function toggleMobileMenu(){
   desktopMenu.classList.add('inactive');
-
+  productDetailContainer.classList.add('inactive');
+  shoppingCartContainer.classList.add('inactive');
+  mobileMenu.classList.toggle('inactive');
+}
+function closeProducDetailAside(){
+  mobileMenu.classList.add('inactive');
+  desktopMenu.classList.add('inactive');
+  shoppingCartContainer.classList.add('inactive');
+  productDetailContainer.classList.add('inactive');
+}
+function openProducDetailAside(){
+  mobileMenu.classList.add('inactive');
+  desktopMenu.classList.add('inactive');
+  shoppingCartContainer.classList.add('inactive');
   productDetailContainer.classList.remove('inactive');
 }
 
-function closeProducDetailAside(){
-  productDetailContainer.classList.add('inactive');
-}
+// function toggleDesktopMenu() {
+//   let isAsideClosed = shoppingCartContainer.classList.contains('inactive');
+//   let isProductDetailClosed = productDetailContainer.classList.contains('inactive');
 
-const productList = [];
+//   if (!isAsideClosed) {
+//     shoppingCartContainer.classList.add('inactive');
+//   }
+//   else if(!isProductDetailClosed){
+//     productDetailContainer.classList.add('inactive');
+//   }
+
+//   desktopMenu.classList.toggle('inactive');
+// }
+
+// function toggleMobileMenu() {
+//   let isAsideClosed = shoppingCartContainer.classList.contains('inactive');
+
+//   if (!isAsideClosed) {
+//     shoppingCartContainer.classList.add('inactive'); 
+//   }
+  
+//   closeProducDetailAside() 
+ 
+//   mobileMenu.classList.toggle('inactive');
+// }
+
+
+
+// function toggleCarritoAside() {
+//   let isMobileMenuClosed = mobileMenu.classList.contains('inactive');
+  
+//   if (!isMobileMenuClosed) {
+//     mobileMenu.classList.add('inactive'); 
+//   }
+  
+//   let isProductDetailClosed = productDetailContainer.classList.contains('inactive');
+
+//   if (!isProductDetailClosed){
+//     productDetailContainer.classList.add('inactive');
+//   }
+
+//   let isDesktopMenuClosed = desktopMenu.classList.contains('inactive');
+
+//   if (!isDesktopMenuClosed){
+//     desktopMenu.classList.add('inactive');
+//   }
+
+//   shoppingCartContainer.classList.toggle('inactive');
+// }
+
+// function openProducDetailAside(){
+//   shoppingCartContainer.classList.add('inactive');
+//   desktopMenu.classList.add('inactive');
+
+//   productDetailContainer.classList.remove('inactive');
+// }
+
+// function closeProducDetailAside(){
+//   productDetailContainer.classList.add('inactive');
+// }
+
+let productList = [];
 productList.push({
   name: 'MORA',
   price: 5000,
   image: './Fotos jugos/Mora.jpg',
+  description: "Juguito de mora delicioso",
 });
 productList.push({
   name: 'LULO',
   price: 5000,
   image: './Fotos jugos/Lulo.jpg',
+  description: "Juguito de LULO delicioso",
 });
 productList.push({
   name: 'MARACUYA',
   price: 5000,
   image: './Fotos jugos/Maracuya.jpg',
+  description: "Juguito de MARACUYA delicioso",
 });
 productList.push({
   name: 'BOROJO',
   price: 5000,
   image: './Fotos jugos/borojo.jpg',
+  description: "Juguito de BOROJO delicioso",
 });
 productList.push({
   name: 'MANGO',
   price: 5000,
   image: './Fotos jugos/Maracuya.jpg',
+  description: "Juguito de   name: 'MANGO delicioso",
 });
 productList.push({
   name: 'GUANABANA',
   price: 5000,
   image: './Fotos jugos/Guanaban.jpg',
+  description: "Juguito de GUANABANA delicioso",
 });
 
 function renderProducts(arr) {
   for (product of arr) {
-    const productCard = document.createElement('div');
+    let productCard = document.createElement('div');
     productCard.classList.add('product-card');
   
     // product= {name, price, image} -> product.image
-    const productImg = document.createElement('img');
+    let productImg = document.createElement('img');
     productImg.setAttribute('src', product.image);
     productImg.addEventListener('click', openProducDetailAside);
+   
   
-    const productInfo = document.createElement('div');
+    let productInfo = document.createElement('div');
     productInfo.classList.add('product-info');
   
-    const productInfoDiv = document.createElement('div');
+    let productInfoDiv = document.createElement('div');
   
-    const productPrice = document.createElement('p');
+    let productPrice = document.createElement('p');
     productPrice.innerText = '$' + product.price;
-    const productName = document.createElement('p');
+    let productName = document.createElement('p');
     productName.innerText = product.name;
   
     productInfoDiv.appendChild(productPrice);
     productInfoDiv.appendChild(productName);
   
-    const productInfoFigure = document.createElement('figure');
-    const productImgCart = document.createElement('img');
+    let productInfoFigure = document.createElement('figure');
+    let productImgCart = document.createElement('img');
     productImgCart.setAttribute('src', './icons/bt_add_to_cart.svg');
   
     productInfoFigure.appendChild(productImgCart);
@@ -149,3 +187,63 @@ function renderProducts(arr) {
 }
 
 renderProducts(productList);
+
+// Desde aqui empieza lo que tengo que maquetar desde Javascript
+//   <aside class="productDetail" class="inactive">
+//     <div class="product-detail-close">
+//       <img src="./icons/icon_close.png" alt="close">
+//     </div>
+//     <img src="https://images.pexels.com/photos/276517/pexels-photo-276517.jpeg?auto=compress&cs=tinysrgb&dpr=2&h=650&w=940" alt="bike">
+//     <div class="product-info">
+//       <p>$35,00</p>
+//       <p>Bike</p>
+//       <p>With its practical position, this bike also fulfills a decorative function, add your hall or workspace.</p>
+//       <button class="primary-button add-to-cart-button">
+//         <img src="./icons/bt_add_to_cart.svg" alt="add to cart">
+//         Add to cart
+//       </button>
+//     </div>
+//   </aside>
+
+// function renderProducts2(array) {
+//   for (product of array) {
+//     let divButtonX = document.createElement('div');
+//     let closeButton = document.createElement('img');
+//     closeButton.setAttribute('src','./icons/icon_close.png');
+
+
+//     let imagenProd = document.createElement('img');
+//     imagenProd.setAttribute('src', product.image);
+
+
+//     let divInfo = document.createElement('div');
+//     divInfo.classList.add('product-info');
+
+
+//     let productPrice2 = document.createElement('p');
+//     productPrice.innerText = '$' + product.price;
+//     let productName2 = document.createElement('p');
+//     productName.innerText = product.name;
+//     let productDescription = document.createElement('p');
+//     productName.innerText = product.description;
+
+//     let addButton = document.createElement('button');
+//     addButton.classList.add('primary-button add-to-cart-button');
+//     let imgButton = document.createElement('img');
+//     imgButton.setAttribute('src', './icons/bt_add_to_cart.svg');
+
+//     addButton.appendChild(imgButton);
+
+//     divInfo.appendChild(addButton);
+//     divInfo.appendChild(productDescription);
+//     divInfo.appendChild(productName2);
+//     divInfo.appendChild(productPrice2);
+
+//     divButtonX.appendChild(closeButton);
+
+//     productDetailContainer.appendChild(divButtonX);
+//     productDetailContainer.appendChild(divInfo);
+//     productDetailContainer.appendChild(imagenProd);
+  
+
+
