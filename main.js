@@ -15,20 +15,13 @@ const shoppingCartContainer = document.querySelector("#shoppingCartContainer");/
 
 const cardsContainer = document.querySelector(".cards-container");// Big Daddy de las tarjetas de produto
 
-<<<<<<< HEAD
 const productDetailClose = document.querySelector(".product-detail-close")//btn-pd-close
 const productDetail = document.querySelector("#productDetail")//btn-pd-close desplegado
-=======
-
->>>>>>> 082bc0bb7f7751410e8508d7e08d5aa96b86111b
 
 menuEmail.addEventListener("click", toggleDesktopMenu);//btn-email 
 barMenu.addEventListener("click", toggleBarMenu);//bnt-menu
 shopCart.addEventListener("click", toggleshoppingCartContainer);
-<<<<<<< HEAD
 productDetailClose.addEventListener("click", toggleProductDetail);
-=======
->>>>>>> 082bc0bb7f7751410e8508d7e08d5aa96b86111b
 
 function toggleDesktopMenu() {
     //Si el btn-shopCart esta desplegado, entonces lo cerraremos
@@ -38,16 +31,10 @@ function toggleDesktopMenu() {
     if(!isshoppingCartContainerClosed){
         shoppingCartContainer.classList.add("inactive")
     }
-<<<<<<< HEAD
     
     //btn-email desplegado
     menuDesktop.classList.toggle("inactive");
 };
-=======
-    //btn-email desplegado
-    menuDesktop.classList.toggle("inactive");
-}
->>>>>>> 082bc0bb7f7751410e8508d7e08d5aa96b86111b
 
 function toggleBarMenu() {
     //Si el btn-shopCart esta desplegado, entonces lo cerraremos
@@ -55,7 +42,6 @@ function toggleBarMenu() {
     const isshoppingCartContainerClosed = shoppingCartContainer.classList.contains("inactive")
     //Si no esta cerrado pues, lo cerramos
     if(!isshoppingCartContainerClosed){
-<<<<<<< HEAD
         shoppingCartContainer.classList.add("inactive");
     }
     //Si los detalles de producto esta abierto hay que cerrarlo
@@ -97,26 +83,6 @@ function displayProductDetail(){
 }
 
 
-=======
-        shoppingCartContainer.classList.add("inactive")
-    }
-    //bnt-menu desplegado
-    barMenuResult.classList.toggle("inactive");
-    return false;// indica que la acción no avance hacia el servidor(evitando recargar la página cada vez que se ejecute la función)
-}
-
-function toggleshoppingCartContainer(){
-    //Si el bnt-menu esta desplegado, entonces lo cerraremos
-    //Definamos que es "cerrado"
-    const isbarMenuResultClosed = barMenuResult.classList.contains("inactive")
-    //Si no esta cerrado pues, lo cerramos
-    if(!isbarMenuResultClosed){
-        barMenuResult.classList.add("inactive")
-    }
-    //btn-shopCart deplegado
-    shoppingCartContainer.classList.toggle("inactive")
-}
->>>>>>> 082bc0bb7f7751410e8508d7e08d5aa96b86111b
 
 const productList = [];
 productList.push({
@@ -165,10 +131,6 @@ productList.push({
     img:"https://images.pexels.com/photos/392018/pexels-photo-392018.jpeg?auto=compress&cs=tinysrgb&w=400"
 })
 
-<<<<<<< HEAD
-
-=======
->>>>>>> 082bc0bb7f7751410e8508d7e08d5aa96b86111b
 /*
 MAQUETAREMOS ESTA ESTRUCTURA DE HTML CON JS!!!
 
@@ -185,11 +147,8 @@ MAQUETAREMOS ESTA ESTRUCTURA DE HTML CON JS!!!
 </div>
 </div>
 */
-<<<<<<< HEAD
 
 
-=======
->>>>>>> 082bc0bb7f7751410e8508d7e08d5aa96b86111b
 function renderProducts(arr) {
     for(product of productList){
 
@@ -225,20 +184,11 @@ function renderProducts(arr) {
         productInfo.appendChild(productInfoFigure);
     
         productCard.append(productImg, productInfo);
-<<<<<<< HEAD
         productCard.addEventListener("click", displayProductDetail) // Los "addEventListener" deben colocarse DENTRO de la función constructora
     
         cardsContainer.appendChild(productCard); //Se van para Big Daddy
-=======
-    
-        cardsContainer.appendChild(productCard);
->>>>>>> 082bc0bb7f7751410e8508d7e08d5aa96b86111b
     
     }
 }
 
 renderProducts(productList);
-<<<<<<< HEAD
-
-=======
->>>>>>> 082bc0bb7f7751410e8508d7e08d5aa96b86111b
