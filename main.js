@@ -31,6 +31,7 @@ function toggleDesktopMenu() {
     if(!isshoppingCartContainerClosed){
         shoppingCartContainer.classList.add("inactive")
     }
+    
     //btn-email desplegado
     menuDesktop.classList.toggle("inactive");
 };
@@ -41,8 +42,11 @@ function toggleBarMenu() {
     const isshoppingCartContainerClosed = shoppingCartContainer.classList.contains("inactive")
     //Si no esta cerrado pues, lo cerramos
     if(!isshoppingCartContainerClosed){
-        shoppingCartContainer.classList.add("inactive")
+        shoppingCartContainer.classList.add("inactive");
     }
+    //Si los detalles de producto esta abierto hay que cerrarlo
+    productDetail.classList.add("inactive");
+
     //bnt-menu desplegado
     barMenuResult.classList.toggle("inactive");
     return false;// indica que la acción no avance hacia el servidor(evitando recargar la página cada vez que se ejecute la función)
@@ -54,24 +58,29 @@ function toggleshoppingCartContainer(){
     const isbarMenuResultClosed = barMenuResult.classList.contains("inactive");
   
     if(!isbarMenuResultClosed){
-        barMenuResult.classList.add("inactive")
+        barMenuResult.classList.add("inactive");
     }
     if(!isproductDetailClosed){
-        productDetail.classList.add("inactive")
+        productDetail.classList.add("inactive");
     }
    
-    shoppingCartContainer.classList.toggle("inactive")
+    shoppingCartContainer.classList.toggle("inactive");
 };
 
 function toggleProductDetail(){
 
     const isshoppingCartContainerClosed = shoppingCartContainer.classList.contains("inactive")
     if(!isshoppingCartContainerClosed){
-        shoppingCartContainer.classList.add("inactive")
+        shoppingCartContainer.classList.add("inactive");
     }
 
-    productDetail.classList.toggle("inactive")
+    productDetail.classList.toggle("inactive");
 };
+
+function displayProductDetail(){
+    shoppingCartContainer.classList.add("inactive");
+    productDetail.classList.remove("inactive");
+}
 
 
 
@@ -176,7 +185,7 @@ function renderProducts(arr) {
         productInfo.appendChild(productInfoFigure);
     
         productCard.append(productImg, productInfo);
-        productCard.addEventListener("click", toggleProductDetail) // Los "addEventListener" deben colocarse DENTRO de la función constructora
+        productCard.addEventListener("click", displayProductDetail) // Los "addEventListener" deben colocarse DENTRO de la función constructora
     
         cardsContainer.appendChild(productCard); //Se van para Big Daddy
     

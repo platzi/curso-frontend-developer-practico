@@ -418,6 +418,10 @@
     #shoppingCartContainer{
       height: 500px;
     }
+
+    #productDetail{
+      height: 100%;
+    }
   }
 
   
