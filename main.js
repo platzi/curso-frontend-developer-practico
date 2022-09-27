@@ -99,3 +99,4 @@ function renderproduct(arr){
     }
 }
 renderproduct(productlist);
+/* JS terminado */
