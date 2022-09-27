@@ -83,3 +83,5 @@ for (i of productList){
     cards.appendChild(productCard);
 }
 
+
+
