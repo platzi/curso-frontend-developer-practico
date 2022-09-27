@@ -7,6 +7,13 @@ let shoppingCartContainer = document.querySelector('.shoppingCartContainer');
 let cardsContainer = document.querySelector('.cards-container');
 let productDetailCloseIcon = document.querySelector('.product-detail-close');
 let productDetailContainer = document.querySelector('.productDetail');
+let productImageInfor = document.querySelector('.jugo');
+let labelPriceInfo = document.querySelector('.product-info p:nth-child(1)')
+let labelNameInfo = document.querySelector('.product-info p:nth-child(2)')
+let labelInforInfo = document.querySelector('.product-info p:nth-child(3)')
+let productosEnCarrito  = []
+let productoACarrito    = []
+
 
 
 menuEmail.addEventListener('click', toggleDesktopMenu);
@@ -40,7 +47,7 @@ function closeProducDetailAside(){
   shoppingCartContainer.classList.add('inactive');
   productDetailContainer.classList.add('inactive');
 }
-function openProducDetailAside(){
+function openProductDetail(){
   mobileMenu.classList.add('inactive');
   desktopMenu.classList.add('inactive');
   shoppingCartContainer.classList.add('inactive');
@@ -85,7 +92,7 @@ productList.push({
   description: "Juguito de GUANABANA delicioso",
 });
 
-function renderProducts(arr) {
+function renderProduct(arr) {
   for (product of arr) {
     let productCard = document.createElement('div');
     productCard.classList.add('product-card');
@@ -93,7 +100,7 @@ function renderProducts(arr) {
     // product= {name, price, image} -> product.image
     let productImg = document.createElement('img');
     productImg.setAttribute('src', product.image);
-    productImg.addEventListener('click', openProducDetailAside);
+    productImg.addEventListener('click', openProductDetail);
    
   
     let productInfo = document.createElement('div');
@@ -122,10 +129,23 @@ function renderProducts(arr) {
     productCard.appendChild(productInfo);
   
     cardsContainer.appendChild(productCard);
+
+    productImg.addEventListener('click', function(){
+      mostrarInfoProduct(product.image, product.price, product.name, product.description)
+      openProductDetail();
+    })
   }
 }
 
-renderProducts(productList);
+
+function mostrarInfoProduct(imagen, precio, nombre, descripcion){
+  productImageInfor.setAttribute('src', imagen);
+  labelPriceInfo.innerText = '$' + precio
+  labelNameInfo.innerText = nombre
+  labelInforInfo.innerText = descripcion
+}
+
+renderProduct(productList);
 
 // Desde aqui empieza lo que tengo que maquetar desde Javascript
 //   <aside class="productDetail" class="inactive">
