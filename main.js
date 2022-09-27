@@ -6,7 +6,3 @@ navbarEmail.addEventListener("click", toggleDesktopMenu);
 function toggleDesktopMenu() {
     desktopMenu.classList.toggle("inactive");
 }
-
-alert("Hola mundo")
-
-[1, 2].forEach(alert)
