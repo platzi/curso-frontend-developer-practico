@@ -1,8 +1,21 @@
+/**
+ * Variables for desktop menu
+ */
 const navEmail = document.querySelector('.navbar-email');
 const desktopMenu = document.querySelector('.desktop-menu');
 
-navEmail.addEventListener('click', toggleDesktopMenu);
+/**
+ * Variables for mobile menu
+ */
+const imgMenu = document.querySelector('.menu');
+const mobileMenu = document.querySelector('.mobile-menu');
 
-function toggleDesktopMenu() {
-    desktopMenu.classList.toggle('inactive');
+navEmail.addEventListener('click', () => toggleMenu(desktopMenu));
+
+imgMenu.addEventListener('click', () => toggleMenu(mobileMenu));
+
+
+function toggleMenu(element) {
+    element.classList.toggle('inactive');
 }
+
