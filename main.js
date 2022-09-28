@@ -58,37 +58,37 @@ let productList = [];
 productList.push({
   name: 'MORA',
   price: 5000,
-  image: './Fotos jugos/Mora.jpg',
+  image: './Fotosjugos/Mora.jpg',
   description: "Rico y delicioso jugo de Mora hecho con los ingredientes de más alta calidad.",
 });
 productList.push({
   name: 'LULO',
   price: 5000,
-  image: './Fotos jugos/Lulo.jpg',
+  image: './Fotosjugos/Lulo.jpg',
   description: "Rico y delicioso jugo de Lulo hecho con los ingredientes de más alta calidad.",
 });
 productList.push({
   name: 'MARACUYA',
   price: 5000,
-  image: './Fotos jugos/Maracuya.jpg',
+  image: './Fotosjugos/Maracuya.jpg',
   description: "Rico y delicioso jugo de Maracuya hecho con los ingredientes de más alta calidad.",
 });
 productList.push({
   name: 'BOROJO',
   price: 5000,
-  image: './Fotos jugos/Borojo1.png',
+  image: './Fotosjugos/Borojo1.png',
   description: "Rico y delicioso jugo de Borojo hecho con los ingredientes de más alta calidad, este es caracteriztico por ser considerado afrodisiaco",
 });
 productList.push({
   name: 'MANGO',
   price: 5000,
-  image: './Fotos jugos/Maracuya.jpg',
+  image: './Fotosjugos/Maracuya.jpg',
   description: "Rico y delicioso jugo de Mango hecho con los ingredientes de más alta calidad.",
 });
 productList.push({
   name: 'GUANABANA',
   price: 5000,
-  image: './Fotos jugos/Guanaban.jpg',
+  image: './Fotosjugos/Guanaban.jpg',
   description: "Rico y delicioso jugo de Guanabana hecho con los ingredientes de más alta calidad.",
 });
 
