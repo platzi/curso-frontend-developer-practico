@@ -7,9 +7,12 @@ const aside = document.querySelector('.product-detail');
 const cardsContainer = document.querySelector('.cards-container');
 const productDetail = document.querySelector('.product-detail-secondary');
 const productDetailClose = document.querySelector('.product-detail-close');
+const buttonAddToCart = document.querySelector('.add-to-cart-button');
+const bubbleIcon = document.querySelector('.bubble');
+var numberBubble = 0;
 
-
-
+//boton para agregar producto al carrito
+buttonAddToCart.addEventListener('click', increaseCart);
 
 // Menu desktop, aparece y desaparece
 menuEmail.addEventListener('click', toggleDesktopMenu);
@@ -17,19 +20,25 @@ menuEmail.addEventListener('click', toggleDesktopMenu);
 //Menu mobile, aparece y desaparece
 menuHamb.addEventListener('click', toggleMenuMobile);
 
-//Menu-Aside
-menuCarritoIcon.addEventListener('click', toggleCarritoAside);
 
 productDetailClose.addEventListener('click', closeProductDetail);
 
+//Menu-Aside
+menuCarritoIcon.addEventListener('click', toggleCarritoAside);
 
- function toggleCarritoAside() {
+function toggleCarritoAside() {
 
     mobileMenu.classList.add('inactive');
     desktopMenu.classList.add('inactive');
     aside.classList.toggle('inactive');
     closeProductDetail();
 
+}
+
+//funcion para incrementar el numero de items en la burbuja
+function increaseCart() {
+    numberBubble++;
+    bubbleIcon.innerText = numberBubble;
 }
 
 
