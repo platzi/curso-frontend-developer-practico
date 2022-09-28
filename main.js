@@ -35,6 +35,8 @@ function toggleMobileMenu() {
         shoppingCartContainer.classList.add('inative');
     }
 
+    closeProductDetailAside();
+
     mobileMenu.classList.toggle("inative");
 
 }
@@ -60,6 +62,8 @@ function toggleCarritoAside() {
 }
 
 function openProductDetailAside() {
+
+    shoppingCartContainer.classList.add('inative');
 
     productDetailContainer.classList.remove('inative');
 
