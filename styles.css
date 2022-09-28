@@ -307,6 +307,7 @@ nav {
     padding-bottom: 24px;
     position: absolute;
     right: 0;
+    background-color: var(--white);
   }
   .product-detail-section-close {
     background: var(--white);
