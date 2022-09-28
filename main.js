@@ -1,38 +1,67 @@
 /**
- * Variables for desktop menu
+ * Variables for desktop-menu
  */
 const navEmail = document.querySelector('.navbar-email');
 const desktopMenu = document.querySelector('.desktop-menu');
 
 /**
- * Variables for mobile menu
+ * Variables for mobile-menu
  */
 const imgMenu = document.querySelector('.menu');
 const mobileMenu = document.querySelector('.mobile-menu');
 
 /**
- * Varaibles for shopping cart
+ * Varaibles for shopping-cart
  */
 const iconShoppingCart = document.querySelector('.navbar-shopping-cart');
-const aside = document.querySelector('.product-detail');
+const aside = document.querySelector('.product-detail-cart');
 
 /**
- * Variable of cards container
+ * Variable of product-detail
+ */
+const productDetail = document.querySelector('.product-detail');
+
+/**
+ * Variable of product-detail-close
+ */
+const productDetailClose = document.querySelector('.product-detail-close');
+
+/**
+ * Variable of cards-container
  */
 const cardsContainer = document.querySelector('.cards-container');
+
+/**
+ * Variable of my-order-content
+ */
+const myOrderContent = document.querySelector('.my-order-content');
+
+const number = document.querySelector('.number');
 
 /**
  * Capture of events for each menu
  */
 navEmail.addEventListener('click', () => toggleInactive(aside, desktopMenu));
-imgMenu.addEventListener('click', () => toggleInactive(aside, mobileMenu));
+
+imgMenu.addEventListener('click', () => {
+    if(!productDetail.classList.contains('inactive')) {
+        toggleInactive(productDetail, mobileMenu);
+    } else {
+        toggleInactive(aside, mobileMenu)
+    }
+});
+
 iconShoppingCart.addEventListener('click', () => {
     if(!desktopMenu.classList.contains('inactive')) {
         toggleInactive(desktopMenu, aside);
+    } else if(!productDetail.classList.contains('inactive')) {
+        toggleInactive(productDetail, aside)
     } else {
-        toggleInactive(mobileMenu, aside)
+        toggleInactive(mobileMenu, aside);
     }
 });
+
+productDetailClose.addEventListener('click', closeAsideDetailProduct);
 
 /**
  * Esta función permite ir alternando la activación de los diferentes menús en la app.
@@ -47,6 +76,14 @@ function toggleInactive(elementOpened, elementClosed) {
     } 
 
     elementClosed.classList.toggle('inactive');
+}
+
+function openAsideDetailProduct() {
+    productDetail.classList.remove('inactive');
+}
+
+function closeAsideDetailProduct() {
+    productDetail.classList.add('inactive')
 }
 
 /**
@@ -94,6 +131,13 @@ function createListProducts(list) {
     
         const productImg = document.createElement('img');
         productImg.setAttribute('src', product.img);
+        productImg.addEventListener('click', () => {
+            if(!aside.classList.contains('inactive')) {
+                toggleInactive(aside, productDetail);
+            }else {
+                openAsideDetailProduct();
+            }
+        });
     
         const productInfo = document.createElement('div');
         productInfo.classList.add('product-info');
@@ -137,8 +181,41 @@ function createListProducts(list) {
 function addCart(id) {
     const item = productsList.find(product => product.id === id);
     carrito.push(item);
-    
+
+    updateCart();
+
+    number.innerText = carrito.length;
     console.log(carrito);
+}
+
+
+function updateCart() {
+    myOrderContent.innerHTML = '';
+    
+    carrito.forEach(product => {
+        const shoppingCart = document.createElement('div');
+        shoppingCart.classList.add('shopping-cart');
+
+        const shoppingCartFigure = document.createElement('figure');
+        shoppingCartFigure.classList.add(`add${product.id}`);
+
+        const shoppingCartFigureImg = document.createElement('img');
+        shoppingCartFigureImg.setAttribute('src', product.img);
+
+        const shoppingCartPrice = document.createElement('p');
+        shoppingCartPrice.innerText = '$' + product.price;
+
+        const shoppingCartName = document.createElement('p');
+        shoppingCartName.innerText = product.name;
+
+        const shoppingCartIcon = document.createElement('img');
+        shoppingCartIcon.setAttribute('src', './icons/icon_close.png');
+
+        shoppingCartFigure.appendChild(shoppingCartFigureImg);
+        shoppingCart.append(shoppingCartFigure, shoppingCartName, shoppingCartPrice, shoppingCartIcon);
+
+        myOrderContent.append(shoppingCart);
+    });
 }
 
 createListProducts(productsList);
