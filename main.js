@@ -11,8 +11,9 @@ let productImageInfor = document.querySelector('.jugo');
 let labelPriceInfo = document.querySelector('.product-info p:nth-child(1)')
 let labelNameInfo = document.querySelector('.product-info p:nth-child(2)')
 let labelInforInfo = document.querySelector('.product-info p:nth-child(3)')
-
-
+let countCarrito = document.querySelector('.navbar-shopping-cart div')
+let totalCarrito = document.querySelector('.total');
+let buttonInfo = document.querySelector('.add-to-cart-button');
 
 
 menuEmail.addEventListener('click', toggleDesktopMenu);
@@ -58,37 +59,37 @@ productList.push({
   name: 'MORA',
   price: 5000,
   image: './Fotos jugos/Mora.jpg',
-  description: "Juguito de mora delicioso",
+  description: "Rico y delicioso jugo de Mora hecho con los ingredientes de más alta calidad.",
 });
 productList.push({
   name: 'LULO',
   price: 5000,
   image: './Fotos jugos/Lulo.jpg',
-  description: "Juguito de LULO delicioso",
+  description: "Rico y delicioso jugo de Lulo hecho con los ingredientes de más alta calidad.",
 });
 productList.push({
   name: 'MARACUYA',
   price: 5000,
   image: './Fotos jugos/Maracuya.jpg',
-  description: "Juguito de MARACUYA delicioso",
+  description: "Rico y delicioso jugo de Maracuya hecho con los ingredientes de más alta calidad.",
 });
 productList.push({
   name: 'BOROJO',
   price: 5000,
   image: './Fotos jugos/borojo.jpg',
-  description: "Juguito de BOROJO delicioso",
+  description: "Rico y delicioso jugo de Borojo hecho con los ingredientes de más alta calidad, este es caracteriztico por ser considerado afrodisiaco",
 });
 productList.push({
   name: 'MANGO',
   price: 5000,
   image: './Fotos jugos/Maracuya.jpg',
-  description: "Juguito de   name: 'MANGO delicioso",
+  description: "Rico y delicioso jugo de Mango hecho con los ingredientes de más alta calidad.",
 });
 productList.push({
   name: 'GUANABANA',
   price: 5000,
   image: './Fotos jugos/Guanaban.jpg',
-  description: "Juguito de GUANABANA delicioso",
+  description: "Rico y delicioso jugo de Guanabana hecho con los ingredientes de más alta calidad.",
 });
 
 function renderProduct(arr) {
