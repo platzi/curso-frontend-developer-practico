@@ -76,7 +76,7 @@ productList.push({
 productList.push({
   name: 'BOROJO',
   price: 5000,
-  image: './Fotos jugos/borojo.jpg',
+  image: './Fotos jugos/Borojo.jpg',
   description: "Rico y delicioso jugo de Borojo hecho con los ingredientes de más alta calidad, este es caracteriztico por ser considerado afrodisiaco",
 });
 productList.push({
