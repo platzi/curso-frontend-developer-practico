@@ -12,8 +12,7 @@ let labelPriceInfo = document.querySelector('.product-info p:nth-child(1)')
 let labelNameInfo = document.querySelector('.product-info p:nth-child(2)')
 let labelInforInfo = document.querySelector('.product-info p:nth-child(3)')
 let countCarrito = document.querySelector('.navbar-shopping-cart div')
-let totalCarrito = document.querySelector('.total');
-let buttonInfo = document.querySelector('.add-to-cart-button');
+
 
 
 menuEmail.addEventListener('click', toggleDesktopMenu);
