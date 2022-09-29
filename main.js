@@ -4,11 +4,28 @@ const menuHamburger = document.querySelector(".menu"); //Sera clickeable
 const mobileMenu = document.querySelector(".mobile-menu");
 const menuCart = document.querySelector(".navbar-shopping-cart"); //Sera clickeable
 const aside = document.querySelector(".product-detail");
-const cards = document.querySelector(".cards-container")
+const cards = document.querySelector(".cards-container");
+const asideSecundary = document.querySelector(".product-detail-secundary");
+const producDetailClose = document.querySelector(".product-detail-secundary--close");
 
 menuHamburger.addEventListener("click",toggleMobileMenu);
 navEmail.addEventListener("click",  toggleDesktopMenu);
 menuCart.addEventListener("click",toggleMenuCart);
+producDetailClose.addEventListener("click",closeAsideSecundary);
+
+
+
+function openAsideSecundary(){
+    mobileMenu.classList.add('inactive');
+    desktopMenu.classList.add('inactive');
+    aside.classList.add('inactive');
+    asideSecundary.classList.remove('inactive');
+
+}
+
+function closeAsideSecundary(){
+    asideSecundary.classList.add("inactive");
+}
 
 function toggleMenuCart()  {
     const isMobileMenuClosed = mobileMenu.classList.contains('inactive');
@@ -22,6 +39,7 @@ function toggleMenuCart()  {
 
     }
     aside.classList.toggle("inactive");
+    asideSecundary.classList.add('inactive')
 
 
 }
@@ -32,6 +50,7 @@ function toggleMobileMenu()  {
         aside.classList.add("inactive");
     }
     mobileMenu.classList.toggle("inactive");
+    asideSecundary.classList.add('inactive')
 
 }
 
@@ -41,7 +60,7 @@ function toggleDesktopMenu() {
       aside.classList.add("inactive");
     }
     desktopMenu.classList.toggle("inactive");
-
+        asideSecundary.classList.add('inactive')
 
 }
 
@@ -124,7 +143,7 @@ productList.push({
 
 
 function renderProduct(arr){
-    for (product of arr){
+ for (product of arr){
     const productCard = document.createElement("div");
     //Se agrega la clase
     productCard.classList.add("product-card");
@@ -132,6 +151,8 @@ function renderProduct(arr){
     const img = document.createElement("img");
     //Se agrega el atributo
     img.setAttribute("src",product.img);
+    //Escucha el evento click del elemento creado con JS    
+    img.addEventListener('click',openAsideSecundary)
 
     const productInfo = document.createElement("div");
     productInfo.classList.add("product-info");

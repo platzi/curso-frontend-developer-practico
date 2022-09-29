@@ -326,6 +326,7 @@
        padding-bottom: 24px;
        position: absolute;
        right: 0;
+       background: var(--white);
    }
 
    .product-detail-close {
@@ -338,6 +339,7 @@
        z-index: 2;
        padding: 12px;
        border-radius: 50%;
+       
    }
 
    .product-detail-close:hover {
