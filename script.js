@@ -65,7 +65,6 @@ function openProductDetail() {
     productDetailAside.classList.remove('inactive');
 }
 
-
 // Hardcode array
 let productList = [];
 let shoppingCartList = [];
@@ -95,7 +94,6 @@ shoppingCartList.push({
     price: 200,
     image: "https://images.pexels.com/photos/276517/pexels-photo-276517.jpeg?auto=compress&cs=tinysrgb&dpr=2&h=650&w=940",
 })
-
 
 // Render of product list container build from array
 function renderProducts(arr){
@@ -135,10 +133,7 @@ for (arr of productList) {
 }
 }
 
-
-
 // render of shopping cart build from array
-
    function renderCart(arr) { 
        for (arr of shoppingCartList) {
     const myOrderContent = document.createElement('div');
@@ -162,6 +157,13 @@ for (arr of productList) {
 
     shoppingCartElement.append(shoppingCartFigure, productName, productPrice, closeIcon);
 
+    
+
+    myOrderContent.appendChild(shoppingCartElement);
+
+    shoppingCart.appendChild(myOrderContent);
+    }
+
     const total = document.createElement('div');
     total.classList.add('order');
     const totalP = document.createElement('p');
@@ -173,18 +175,12 @@ for (arr of productList) {
     totalP.appendChild(totalSpan);
     total.append(totalP, totalPrice);
 
-    myOrderContent.appendChild(shoppingCartElement,total );
-
-    shoppingCart.appendChild(myOrderContent);
-    }
-
-const checkoutButton = document.createElement('button');
+    const checkoutButton = document.createElement('button');
     checkoutButton.classList.add('primary-button');
     checkoutButton.innerText = "Checkout";
     
-    shoppingCart.appendChild(checkoutButton);
+    shoppingCart.append(total, checkoutButton);
    }
-
 
 // Render
 renderProducts(productList);
