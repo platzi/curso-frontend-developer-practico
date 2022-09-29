@@ -41,7 +41,7 @@ function toggleDesktopMenu() {
       aside.classList.add("inactive");
     }
     desktopMenu.classList.toggle("inactive");
-    
+
 
 }
 
