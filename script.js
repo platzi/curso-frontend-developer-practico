@@ -67,23 +67,34 @@ function openProductDetail() {
 
 
 // Hardcode array
-const productList = [];
+let productList = [];
+let shoppingCartList = [];
 
 productList.push({
     name: 'bike',
     price: 200,
     image: "https://images.pexels.com/photos/276517/pexels-photo-276517.jpeg?auto=compress&cs=tinysrgb&dpr=2&h=650&w=940",
-});
-productList.push({
+},
+{
     name: 'bikpce',
     price: 300,
     image: "https://images.pexels.com/photos/276517/pexels-photo-276517.jpeg?auto=compress&cs=tinysrgb&dpr=2&h=650&w=940",
-});
-productList.push({
-    name: 'morral',
+},
+{
+     name: 'morral',
     price: 40,
     image: "https://images.pexels.com/photos/276517/pexels-photo-276517.jpeg?auto=compress&cs=tinysrgb&dpr=2&h=650&w=940",
-});
+    });
+
+shoppingCartList.push({
+    name: 'bike',
+    price: 200,
+    image: "https://images.pexels.com/photos/276517/pexels-photo-276517.jpeg?auto=compress&cs=tinysrgb&dpr=2&h=650&w=940",
+},{
+    name: 'bike',
+    price: 200,
+    image: "https://images.pexels.com/photos/276517/pexels-photo-276517.jpeg?auto=compress&cs=tinysrgb&dpr=2&h=650&w=940",
+})
 
 
 // Render of product list container build from array
@@ -124,5 +135,58 @@ for (arr of productList) {
 }
 }
 
+
+
+// render of shopping cart build from array
+
+   function renderCart(arr) { 
+       for (arr of shoppingCartList) {
+    const myOrderContent = document.createElement('div');
+    myOrderContent.classList.add('my-order-content');
+
+    const shoppingCartElement = document.createElement('div');
+    shoppingCartElement.classList.add('shopping-cart');
+
+    const shoppingCartFigure = document.createElement('figure');
+    const shoppingCartFigureImg = document.createElement('img');
+    shoppingCartFigureImg.setAttribute('src', arr.image);
+    shoppingCartFigure.appendChild(shoppingCartFigureImg);
+
+    const productName = document.createElement('p');
+    productName.innerText = arr.name;
+    const productPrice = document.createElement('p');
+    productPrice.innerText = '$' + arr.price;
+
+    const closeIcon = document.createElement('img');
+    closeIcon.setAttribute('src', './icons/icon_close.png');
+
+    shoppingCartElement.append(shoppingCartFigure, productName, productPrice, closeIcon);
+
+    const total = document.createElement('div');
+    total.classList.add('order');
+    const totalP = document.createElement('p');
+    const totalSpan = document.createElement('span');
+    totalSpan.innerText = "Total";
+    const totalPrice = document.createElement('p');
+    totalPrice.innerText = 'crearFunction';
+
+    totalP.appendChild(totalSpan);
+    total.append(totalP, totalPrice);
+
+    myOrderContent.appendChild(shoppingCartElement,total );
+
+    shoppingCart.appendChild(myOrderContent);
+    }
+
+const checkoutButton = document.createElement('button');
+    checkoutButton.classList.add('primary-button');
+    checkoutButton.innerText = "Checkout";
+    
+    shoppingCart.appendChild(checkoutButton);
+   }
+
+
+// Render
 renderProducts(productList);
+renderCart(shoppingCartList);
 
