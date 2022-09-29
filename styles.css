@@ -28,6 +28,7 @@ nav {
 
 .logo {
     width: 100px;
+    cursor: pointer;
 }
 
 .inactive {
@@ -74,8 +75,13 @@ nav {
     cursor: pointer;
 }
 
+.navbar-email:hover{
+  color: var(--hospital-green);
+}
+
 .navbar-shopping-cart {
     position: relative;
+    cursor: pointer;
 }
 
 .navbar-shopping-cart div {
@@ -272,6 +278,7 @@ nav {
     height: 240px;
     border-radius: 20px;
     object-fit: cover;
+    cursor: pointer;
   }
   .product-info {
     display: flex;
