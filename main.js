@@ -2,34 +2,41 @@ const menuEmail = document.querySelector (".navbar-email")
 const desktopMenu = document.querySelector (".desktop-menu")
 const menuHamIcon = document.querySelector (".menu")
 const menuCarIcon = document.querySelector (".navbar-shopping-cart")
+const productDetailCloseIcon = document.querySelector (".product-detail-close")
 const mobileMenu = document.querySelector (".mobile-menu")
-const aside = document.querySelector (".product-detail-car")
+const shoppingCartContainer = document.querySelector (".shopping-cart-container")
+const productDetailContainer = document.querySelector(".product-detail-menu")
 const cardsContainer = document.querySelector (".cards-container")
-const asideProduct = document.querySelector(".product-detail-menu")
+
 
 
 menuEmail.addEventListener ("click", toggleDesktopMenu)
 menuHamIcon.addEventListener ("click", toggleMobileMenu)
 menuCarIcon.addEventListener ("click", toggleCarAside)
-cardsContainer.addEventListener ("click", toggleProductAside)
+productDetailCloseIcon.addEventListener ("click", closeProductDetail)
+
 
 function toggleDesktopMenu () {
-    const isCarClosed = aside.classList.contains ("inactive")
+    const isCarClosed = shoppingCartContainer.classList.contains ("inactive")
+    const isproductDetailContainerClosed = productDetailContainer.classList.contains ("inactive")
 
-    if  (!isCarClosed) {
-        aside.classList.add ("inactive")
+    if  (!isCarClosed || !isproductDetailContainerClosed) {
+        shoppingCartContainer.classList.add ("inactive")
     } 
     desktopMenu.classList.toggle("inactive")
+    productDetailContainer.classList.add ("inactive")
 }
 
 function toggleMobileMenu () {
-    const isCarClosed = aside.classList.contains ("inactive")
+    
+    const isCarClosed = shoppingCartContainer.classList.contains ("inactive")
     
 
     if  (!isCarClosed) {
-        aside.classList.add ("inactive")
+        shoppingCartContainer.classList.add ("inactive")
     } 
 
+    closeProductDetail ()
    
     mobileMenu.classList.toggle("inactive")
 }
@@ -37,23 +44,30 @@ function toggleMobileMenu () {
 function toggleCarAside () {
     const isMobileMenuClosed = mobileMenu.classList.contains ("inactive")
     const isDesktopMenuClosed = desktopMenu.classList.contains ("inactive")
+    const isproductDetailContainerClosed = productDetailContainer.classList.contains ("inactive")
     
 
-    if  (!isMobileMenuClosed || !isDesktopMenuClosed) {
+    if  (!isMobileMenuClosed || !isDesktopMenuClosed || !isproductDetailContainerClosed) {
         mobileMenu.classList.add ("inactive")
         desktopMenu.classList.add ("inactive")
+        productDetailContainer.classList.add ("inactive")
     }
     
-   
-
-    aside.classList.toggle("inactive")
-}
-
-function toggleProductAside () {
     
-    asideProduct.classList.toggle("inactive")
+    shoppingCartContainer.classList.toggle("inactive")
 }
 
+function openProductDetail () {
+    desktopMenu.classList.add ("inactive")
+    shoppingCartContainer.classList.add ("inactive")
+    mobileMenu.classList.add ("inactive")
+
+    productDetailContainer.classList.remove ("inactive") 
+}
+
+function closeProductDetail () {
+    productDetailContainer.classList.add ("inactive") 
+}
 const productList = [];
 
 productList.push ( {
@@ -111,6 +125,7 @@ function renderProducts (arr) {
     
         const productImg = document.createElement ("img")
         productImg.setAttribute("src", product.image)
+        productImg.addEventListener("click", openProductDetail)
     
         const productInfo = document.createElement ("div")
         productInfo.classList.add ("product-info")
