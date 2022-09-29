@@ -1,3 +1,4 @@
+/*-- Inicio--*/
 :root {
     --white: #FFFFFF;
     --black: #000000;
@@ -16,6 +17,10 @@
 .inactive{
     display: none;
 }
+
+
+
+/*-- menu desktop--*/
 
   nav {
     display: flex;
@@ -81,6 +86,7 @@
     align-items: center;
   }
 
+  /*-- menu desktop email--*/
   .desktop-menu {
     position: absolute;
     top: 61px;
@@ -118,6 +124,41 @@
     margin-bottom: 20px;
     display: inline-block;
   }
+   
+  /*-- menu movile email--*/
+  .mobile-menu {
+    position: absolute;
+    top: 61px;
+    left: 0;
+    padding: 24px;
+  }
+  .mobile-menu a {
+    text-decoration: none;
+    color: var(--black);
+    font-weight: bold;
+    
+  }
+  .mobile-menu ul {
+    padding: 0;
+    margin: 24px 0 0;
+    list-style: none;
+  }
+  .mobile-menu ul:nth-child(1) {
+    border-bottom: 1px solid var(--very-light-pink);
+  }
+  .mobile-menu ul li {
+    margin-bottom: 24px;
+  }
+  .email {
+    font-size: var(--sm);
+    font-weight: 300 !important;
+  }
+  .sign-out {
+    font-size: var(--sm);
+    color: var(--hospital-green) !important;
+  }
+
+
 
 
 
@@ -133,4 +174,13 @@
     .navbar-email {
       display: none;
     }
+    .desktop-menu{
+        display: none;
+    }
+  }
+  @media (min-width: 640px) {
+    .mobile-menu {
+      display: none;
+    }
+
   }
