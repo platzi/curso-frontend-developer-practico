@@ -3,12 +3,15 @@ const desktopMenu = document.querySelector (".desktop-menu")
 const menuHamIcon = document.querySelector (".menu")
 const menuCarIcon = document.querySelector (".navbar-shopping-cart")
 const mobileMenu = document.querySelector (".mobile-menu")
-const aside = document.querySelector (".product-detail")
+const aside = document.querySelector (".product-detail-car")
 const cardsContainer = document.querySelector (".cards-container")
+const asideProduct = document.querySelector(".product-detail-menu")
+
 
 menuEmail.addEventListener ("click", toggleDesktopMenu)
 menuHamIcon.addEventListener ("click", toggleMobileMenu)
 menuCarIcon.addEventListener ("click", toggleCarAside)
+cardsContainer.addEventListener ("click", toggleProductAside)
 
 function toggleDesktopMenu () {
     const isCarClosed = aside.classList.contains ("inactive")
@@ -34,6 +37,7 @@ function toggleMobileMenu () {
 function toggleCarAside () {
     const isMobileMenuClosed = mobileMenu.classList.contains ("inactive")
     const isDesktopMenuClosed = desktopMenu.classList.contains ("inactive")
+    
 
     if  (!isMobileMenuClosed || !isDesktopMenuClosed) {
         mobileMenu.classList.add ("inactive")
@@ -43,6 +47,11 @@ function toggleCarAside () {
    
 
     aside.classList.toggle("inactive")
+}
+
+function toggleProductAside () {
+    
+    asideProduct.classList.toggle("inactive")
 }
 
 const productList = [];
