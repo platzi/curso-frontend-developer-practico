@@ -9,7 +9,9 @@ const productDetail = document.querySelector('.product-detail-secondary');
 const productDetailClose = document.querySelector('.product-detail-close');
 const buttonAddToCart = document.querySelector('.add-to-cart-button');
 const bubbleIcon = document.querySelector('.bubble');
+const myOrdersContent = document.querySelector('.my-order-content');
 var numberBubble = 0;
+var cont = 0;
 
 //boton para agregar producto al carrito
 buttonAddToCart.addEventListener('click', increaseCart);
@@ -35,11 +37,6 @@ function toggleCarritoAside() {
 
 }
 
-//funcion para incrementar el numero de items en la burbuja
-function increaseCart() {
-    numberBubble++;
-    bubbleIcon.innerText = numberBubble;
-}
 
 
 function toggleDesktopMenu() {
@@ -68,9 +65,87 @@ function closeProductDetail() {
     productDetail.classList.add('inactive');
 }
 
+const productsShoppingCart = [];
+
+// productsShoppingCart.push({
+//     image: "https://images.pexels.com/photos/276517/pexels-photo-276517.jpeg?auto=compress&cs=tinysrgb&dpr=2&h=650&w=940",
+//     name: 'Bike',
+//     price: 120,
+//     imageClose: "./icons/icon_close.png",
+// }) 
+
+
+                        
+
+          
+                        
+                        
+
+//funcion para incrementar el numero de items en la burbuja
+function increaseCart() {
+    numberBubble++;
+    bubbleIcon.innerText = numberBubble;
+    addToCart();
+}
+
+//funcion para agregar al carrito de compras, aumenta el contenido HTML
+function addToCart(){
+    
+    productsShoppingCart.push({
+    image: "https://images.pexels.com/photos/276517/pexels-photo-276517.jpeg?auto=compress&cs=tinysrgb&dpr=2&h=650&w=940",
+    name: 'Bike',
+    price: 120,
+    imageClose: "./icons/icon_close.png",
+    }) 
+
+    while (cont < productsShoppingCart.length) {
+        
+        const shoppingCartCointainer = document.createElement('div');
+        shoppingCartCointainer.classList.add('shopping-cart');
+                                
+        const figureCart = document.createElement('figure');
+        const imageCart = document.createElement('img');
+        imageCart.setAttribute('src',  productsShoppingCart[cont].image);
+        
+        const name = document.createElement('p');
+        name.innerText = productsShoppingCart[cont].name;
+        const price = document.createElement('p');
+        price.innerText = '$ ' + productsShoppingCart[cont].price;
+        
+        
+        const imageIcon = document.createElement('img');
+        imageIcon.setAttribute('src', productsShoppingCart[cont].imageClose);
+        
+        
+        
+        myOrdersContent.appendChild(shoppingCartCointainer);
+        shoppingCartCointainer.appendChild(figureCart);
+        shoppingCartCointainer.appendChild(name);
+        shoppingCartCointainer.appendChild(price);
+        shoppingCartCointainer.appendChild(imageIcon);
+        figureCart.appendChild(imageCart);
+        cont++;
+    }
+}
+
+
+
+
+/* <div class="shopping-cart">
+        <figure>
+          <img src="https://images.pexels.com/photos/276517/pexels-photo-276517.jpeg?auto=compress&cs=tinysrgb&dpr=2&h=650&w=940" alt="bike">
+        </figure>
+        <p>Bike</p>
+        <p>$30,00</p>
+        <img src="./icons/icon_close.png" alt="close">
+</div>    
+
+*/
+
+
+
 const productList = []; //Array que nos devolveria JavaScript si hicieramos consultas
                         // a nuestra base de datos.
-
 
 // Cargo el array con los elementos que tiene nuestro objeto
 productList.push({
