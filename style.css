@@ -282,6 +282,7 @@ nav {
 /* < Card container clase 21*/
 .cards-container {
     display: grid;
+    margin: 2rem 0;
     grid-template-columns: repeat(auto-fill, 240px);
     gap: 26px;
     place-content: center;
@@ -342,20 +343,21 @@ nav {
         display: none;
     }
 
-    /* .navbar-left ul {
-        display: none;
-    }
-
-    .navbar-email {
-        display: none;
-    }
-
-    .desktop-menu {
-        display: none;
-    } */
-
     .product-detail {
         width: 100%;
+    }
+
+    .cards-container {
+        grid-template-columns: repeat(auto-fill, 140px);
+    }
+
+    .product-card {
+        width: 140px;
+    }
+
+    .product-card img {
+        width: 140px;
+        height: 140px;
     }
 }
 
