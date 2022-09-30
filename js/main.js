@@ -117,7 +117,7 @@ function renderProducts(productList) {
     
         const productInfoFigure = document.createElement('FIGURE');
         const productImgCard = document.createElement('IMG');
-        productImgCard.setAttribute('src', '../icons/bt_add_to_cart.svg');
+        productImgCard.setAttribute('src', './icons/bt_add_to_cart.svg');
     
         productInfoFigure.appendChild(productImgCard);
         productInfoDiv.append(productPrice, productName);
