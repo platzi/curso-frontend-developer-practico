@@ -3,10 +3,9 @@ const desktopMenu = document.querySelector(".desktop-menu")
 const hamburgerMenu = document.querySelector(".menu")
 const mobileMenu = document.querySelector(".mobile-menu");
 const shoppingCart = document.querySelector(".navbar-shopping-cart");
-const shoppingCartMenu = document.querySelector(".product-detail");
+const shoppingCartMenu = document.querySelector("#shoppingCartContainer");
 const cardsContainer = document.querySelector(".cards-container")
 const productList = []
-
 
 navEmail.addEventListener('click', toggleDesktopMenu)
 hamburgerMenu.addEventListener('click', toggleMobileMenu)
@@ -14,17 +13,17 @@ shoppingCart.addEventListener('click', toggleShoppingCartMenu)
 
 productList.push({
     name: 'Bike',
-    price: 500000,
+    price: 500_000,
     img: 'https://images.pexels.com/photos/276517/pexels-photo-276517.jpeg?auto=compress&cs=tinysrgb&dpr=2&h=650&w=940'
 })
 productList.push({
     name: 'Air Pods Pro',
-    price: 1200000,
+    price: 1_200_000,
     img: './img/air_pods.png'
 })
 productList.push({
     name: 'Iphone 13 Pro Max',
-    price: 6000000,
+    price: 6_000_000,
     img: './img/iphone_13.jpg'
 })
 
