@@ -4,12 +4,20 @@ const hamburgerMenu = document.querySelector(".menu")
 const mobileMenu = document.querySelector(".mobile-menu");
 const shoppingCart = document.querySelector(".navbar-shopping-cart");
 const shoppingCartMenu = document.querySelector("#shoppingCartContainer");
+const productDetailContainer = document.querySelector("#productDetail");
+const productDetailClosedIcon = document.querySelector(".product-detail-close")
 const cardsContainer = document.querySelector(".cards-container")
+
+const isDesktopMenuClosed = desktopMenu.classList.contains('inactive')
+const ismobileMenuClose = mobileMenu.classList.contains('inactive')
+const isProductDetailClose = productDetailContainer.classList.contains('inactive')
+const isShoppingCartMenuClose = shoppingCartMenu.classList.contains('inactive')
 const productList = []
 
 navEmail.addEventListener('click', toggleDesktopMenu)
 hamburgerMenu.addEventListener('click', toggleMobileMenu)
 shoppingCart.addEventListener('click', toggleShoppingCartMenu)
+productDetailClosedIcon.addEventListener('click', closeProductDetailAside)
 
 productList.push({
     name: 'Bike',
@@ -28,6 +36,22 @@ productList.push({
 })
 
 showProducts(productList)
+
+function openProductDetailAside(){
+    productDetailContainer.classList.remove("inactive")
+}
+
+function closeProductDetailAside(){
+    console.log(isShoppingCartMenuClose)
+    if (isShoppingCartMenuClose){
+        shoppingCartMenu.classList.add("inactive")
+        console.log("pasa")
+    }
+
+    productDetailContainer.classList.add("inactive")
+    console.log("pasa")
+}
+
 function showProducts(arr){
     for(product of arr){
         const productCard = document.createElement('div')
@@ -35,7 +59,8 @@ function showProducts(arr){
 
         const productImg = document.createElement('img')
         productImg.setAttribute('src', product.img)
-
+        productImg.addEventListener('click', openProductDetailAside)
+        
         const productInfo = document.createElement('div')
         productInfo.classList.add('product-info')
     
@@ -64,9 +89,8 @@ function showProducts(arr){
 }
 
 function toggleDesktopMenu(){
-    const isShoppingCartMenuClosed = shoppingCartMenu.classList.contains('inactive')
-
-    if(!isShoppingCartMenuClosed){
+    
+    if(isShoppingCartMenuClose){
         shoppingCartMenu.classList.add('inactive')
     }
     desktopMenu.classList.toggle('inactive')
@@ -75,21 +99,20 @@ function toggleDesktopMenu(){
 }
 
 function toggleMobileMenu(){
-    const isShoppingCartMenuClosed = shoppingCartMenu.classList.contains('inactive')
 
-    if(!isShoppingCartMenuClosed){
+    if(isShoppingCartMenuClose || isProductDetailClose){
         shoppingCartMenu.classList.add('inactive')
+        closeProductDetailAside()
     }
     mobileMenu.classList.toggle('inactive')
 }
 
 function toggleShoppingCartMenu(){
-    const isDesktopMenuClosed = desktopMenu.classList.contains('inactive')
-    const ismobileMenuClose = mobileMenu.classList.contains('inactive')
 
-    if(!isDesktopMenuClosed || !ismobileMenuClose){
+    if(isDesktopMenuClosed || ismobileMenuClose || isProductDetailClose){
         desktopMenu.classList.add('inactive')
         mobileMenu.classList.add('inactive')
+        productDetailContainer.classList.add('inactive')
     }
     shoppingCartMenu.classList.toggle('inactive')
 }
