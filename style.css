@@ -170,10 +170,11 @@ nav {
   background-color: var(--white);
   top: 61px;
   width: 360px;
-  padding: 0 24px;
+  padding: 0px 24px 24px 24px;
   box-sizing: border-box;
   position: absolute;
   right: 0;
+  border-radius: 8px
  }
 .title-container {
     display: flex;
