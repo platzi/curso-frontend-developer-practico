@@ -10,6 +10,10 @@ const menuHamIcon = document.querySelector('.menu');
 const mobileMenu = document.querySelector('.mobile-menu');
 // este es el aside d3l producto del carrito se hizo un breve cambio para que no tuviera conflicto con la misma clase de product-detail
 const shoppingCartContainer = document.querySelector('#shoppingCartContainer');
+// contenedor para el product detail
+const productDetailContainer = document.querySelector('#productDetail');
+// este es el icono close para quitar el product container detail
+const productDetailIconClose = document.querySelector('.product-detail-close');
 // este es el contenedor del array de los products
 const cardsContainer = document.querySelector('.cards-container');
 
@@ -19,6 +23,8 @@ menuEmail.addEventListener('click', toggleDesktopMenu);
 menuHamIcon.addEventListener('click', toggleMobileMenu);
 // este es el aside del producto con el icono carrito
 menuCarritoIcon.addEventListener('click', toggleCarritoAside);
+// para quitar el container del product detail
+productDetailIconClose.addEventListener('click', closeProductDetailAside);
 
 
 // El add()método de la DOMTokenListinterfaz agrega los tokens dados a la lista, omitiendo los que ya están presentes.
@@ -29,6 +35,7 @@ menuCarritoIcon.addEventListener('click', toggleCarritoAside);
 function toggleDesktopMenu() {
   desktopMenu.classList.toggle('inactive');
   shoppingCartContainer.classList.add('inactive');
+  productDetailContainer.classList.add('inactive');
   // const isAsideClosed = aside.classList.contains('inactive');  
 
   // if(!isAsideClosed) {
@@ -42,6 +49,7 @@ function toggleDesktopMenu() {
 function toggleMobileMenu() {
   mobileMenu.classList.toggle('inactive');
   shoppingCartContainer.classList.add('inactive');
+  productDetailContainer.classList.add('inactive');
   // const isAsideClosed = aside.classList.contains('inactive');  
 
   // if(!isAsideClosed) {
@@ -56,6 +64,7 @@ function toggleCarritoAside() {
   shoppingCartContainer.classList.toggle('inactive');
   mobileMenu.classList.add('inactive');
   desktopMenu.classList.add('inactive');
+  productDetailContainer.classList.add('inactive');
   // const isMobileClosed = mobileMenu.classList.contains('inactive');  
 
   // if(!isMobileClosed) {
@@ -63,6 +72,19 @@ function toggleCarritoAside() {
   // }
 
   // aside.classList.toggle('inactive');
+}
+
+// esta es la function para el product container
+function openProductDetailAside() {
+  shoppingCartContainer.classList.add('inactive');
+  desktopMenu.classList.add('inactive');
+  mobileMenu.classList.add('inactive');
+  productDetailContainer.classList.remove('inactive');
+}
+
+// function para cerrar el container del product detail
+function closeProductDetailAside() {
+  productDetailContainer.classList.add('inactive');
 }
 
 const productoList = [];
@@ -118,7 +140,7 @@ productoList.push({
 </div> */
 // una iteracion por cada uno de los products del array de productList y estamos maquetando la estructura del html que debemos insertarle al nuestro ducumento html principal para que nuestros usuarios vean nuestros products.
 // Con Element.append() podemos agregar varios nodos y texto mientras que con Element.appendChild() solo podemos agregar un nodo.
-function arrayProducts(array) {
+function renderProducts(array) {
   for (product of array) {
     const productCard = document.createElement('div');
     productCard.classList.add('product-card');
@@ -126,6 +148,8 @@ function arrayProducts(array) {
     // product = {name, price, image} => product.image
     const productImg = document.createElement('img');
     productImg.setAttribute('src', product.image);
+    // click para los details del products
+    productImg.addEventListener('click', openProductDetailAside);
 
     const productInfo = document.createElement('div');
     productInfo.classList.add('product-info');
@@ -155,4 +179,4 @@ function arrayProducts(array) {
   }
 }
 
-arrayProducts(productoList);
+renderProducts(productoList);
