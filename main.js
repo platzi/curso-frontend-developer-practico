@@ -10,6 +10,7 @@ const productDetailClose = document.querySelector('.product-detail-close');
 const buttonAddToCart = document.querySelector('.add-to-cart-button');
 const bubbleIcon = document.querySelector('.bubble');
 const myOrdersContent = document.querySelector('.my-order-content');
+const order = document.querySelector('.order');
 var numberBubble = 0;
 var cont = 0;
 
@@ -116,9 +117,9 @@ function addToCart(){
         const imageIcon = document.createElement('img');
         imageIcon.setAttribute('src', productsShoppingCart[cont].imageClose);
         
-        
-        
-        myOrdersContent.appendChild(shoppingCartCointainer);
+        //insertamos el nodo, como primer hijo del padre
+        myOrdersContent.insertBefore(shoppingCartCointainer, order)
+
         shoppingCartCointainer.appendChild(figureCart);
         shoppingCartCointainer.appendChild(name);
         shoppingCartCointainer.appendChild(price);
