@@ -7,10 +7,15 @@ const shoppingCartContainer = document.getElementById('shopping-cart-container')
 
 //Seleccion del card container clase 21
 const cardsContainer = document.querySelector(".cards-container");
+//clase 23
+const prodcutDetailContainer = document.querySelector("#product-detail");
+const prodcutDetailCloseIcon = document.querySelector(".product-detail-close");
 
 menuEmail.addEventListener('click', toggleDesktopMenu);
 menuHamIcon.addEventListener('click', toggleMobileMenu);
 menuCarritoIcon.addEventListener('click', toggleCarritoAside);
+//clase 23
+prodcutDetailCloseIcon.addEventListener('click', closeProductDetailAside);
 
 function toggleDesktopMenu() {
     const isAsideClosed = shoppingCartContainer.classList.contains('inactive');
@@ -29,6 +34,9 @@ function toggleMobileMenu() {
         shoppingCartContainer.classList.add('inactive');
     }
 
+    //clase 23
+    closeProductDetailAside();
+
     mobileMenu.classList.toggle('inactive');
 }
 
@@ -39,7 +47,25 @@ function toggleCarritoAside() {
         mobileMenu.classList.add('inactive');
     }
 
+    const isProductDetailClosed = prodcutDetailContainer.classList.contains('inactive');
+
+    if (!isProductDetailClosed) {
+        prodcutDetailContainer.classList.add('inactive');
+    }
+
     shoppingCartContainer.classList.toggle('inactive');
+}
+
+//Clase 23
+function openProductDetailAside() {
+
+    shoppingCartContainer.classList.add("inactive");
+
+    prodcutDetailContainer.classList.remove("inactive");
+}
+
+function closeProductDetailAside() {
+    prodcutDetailContainer.classList.add("inactive");
 }
 
 //Clase 21
@@ -76,6 +102,7 @@ function renderProducts(array) {
 
         const productImg = document.createElement("img");
         productImg.setAttribute("src", product.image);
+        productImg.addEventListener("click", openProductDetailAside);
 
         const productInfo = document.createElement("div");
         productInfo.classList.add("product-info");
