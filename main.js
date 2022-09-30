@@ -26,6 +26,38 @@ function toggleAsideShoppingCart() {
 	asideShoppingCart.classList.toggle('inactive');
 }
 
+function renderProducts(arr) {
+	for (product of arr) {
+		const productCard = document.createElement('div');
+		productCard.classList.add('product-card');
+
+		const productImage = document.createElement('img');
+		productImage.setAttribute('src', product.image);
+
+		const productInfo = document.createElement('div');
+		productInfo.classList.add('product-info');
+
+		const productInfoDiv = document.createElement('div');
+
+		const paraphrasePrice = document.createElement('p');
+		paraphrasePrice.innerText = product.price;
+
+		const paraphraseName = document.createElement('p');
+		paraphraseName.innerText = product.name;
+
+		const figureProduct = document.createElement('figure');
+
+		const btnAddToCartIcon = document.createElement('img');
+		btnAddToCartIcon.setAttribute('src', './icons/bt_add_to_cart.svg');
+
+		figureProduct.append(btnAddToCartIcon);
+		productInfoDiv.append(paraphrasePrice, paraphraseName);
+		productInfo.append(productInfoDiv, figureProduct);
+		productCard.append(productImage, productInfo);
+		cardsContainer.append(productCard);
+	}
+}
+
 const productList = [];
 productList.push({
 	name: 'Bike',
@@ -73,35 +105,4 @@ productList.push({
 	image: 'https://images.pexels.com/photos/3693732/pexels-photo-3693732.jpeg?auto=compress&cs=tinysrgb&w=800',
 });
 
-function renderProducts(arr) {
-	for (product of arr) {
-		const productCard = document.createElement('div');
-		productCard.classList.add('product-card');
-
-		const productImage = document.createElement('img');
-		productImage.setAttribute('src', product.image);
-
-		const productInfo = document.createElement('div');
-		productInfo.classList.add('product-info');
-
-		const productInfoDiv = document.createElement('div');
-
-		const paraphrasePrice = document.createElement('p');
-		paraphrasePrice.innerText = product.price;
-
-		const paraphraseName = document.createElement('p');
-		paraphraseName.innerText = product.name;
-
-		const figureProduct = document.createElement('figure');
-
-		const btnAddToCartIcon = document.createElement('img');
-		btnAddToCartIcon.setAttribute('src', './icons/bt_add_to_cart.svg');
-
-		figureProduct.append(btnAddToCartIcon);
-		productInfoDiv.append(paraphrasePrice, paraphraseName);
-		productInfo.append(productInfoDiv, figureProduct);
-		productCard.append(productImage, productInfo);
-		cardsContainer.append(productCard);
-	}
-}
 renderProducts(productList);
