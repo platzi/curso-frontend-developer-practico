@@ -1,5 +1,6 @@
 /* General */
 :root {
+  --navHeight: 61px ;
   --white: #FFFFFF;
   --black: #000000;
   --very-light-pink: #C7C7C7;
@@ -14,6 +15,7 @@ body {
       font-family: 'Quicksand', sans-serif;
 }
 *{
+  box-sizing: border-box;
   user-select:none;
 }
 .inactive{
@@ -95,7 +97,7 @@ nav {
   top:60px;
   right: 60px;
   background: var(--white);
-  width: 100px;
+  width: auto;
   height: auto;
   border: 1px solid var(--very-light-pink);
   border-radius: 6px;
@@ -144,6 +146,7 @@ nav {
   transition: transform 300ms;
 }
 .active{
+  width: 100%;
   transform: translateX(200px);
   transition: transform 300ms;
 }
@@ -298,11 +301,9 @@ nav {
   .cards-container {
     grid-template-columns: repeat(auto-fill, 140px);
   }
-
   .product-card {
     width: 140px;
   }
-
   .product-card img {
     width: 140px;
     height: 140px;
@@ -319,11 +320,13 @@ nav {
   .navbar-email {
     display: none;
   }
+
   .desktop-menu{
     display: none;
   }
 
   .product-detail {
+    height: calc(100vh - var(--navHeight));
     width: 100%;
   }
 }

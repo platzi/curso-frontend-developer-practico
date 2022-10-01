@@ -66,7 +66,7 @@ function toggleCartMenu() {
 const productList = []
 const cardsContainer = document.querySelector('.cards-container')
 
-function pushProducts(productList) {
+function pushProductsList(productList) {
   productList.push ({
       name:'Bike',
       price: 12700,
@@ -113,7 +113,7 @@ function pushProducts(productList) {
       image: 'https://m.media-amazon.com/images/I/81k2Gmal+VL._AC_SL1500_.jpg'
   })
 }
-pushProducts(productList)
+pushProductsList(productList)
 
 /*
   <div class="product-card">
@@ -140,6 +140,7 @@ function renderProducts (productList) {
     productCart.classList.add('product-card')
 
     const productImg = document.createElement('img')
+    productImg.setAttribute('draggable', false)
     productImg.setAttribute('src', product.image)
 
     const productInfo = document.createElement('div')
