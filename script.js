@@ -11,12 +11,13 @@ const shoppingCart = document.querySelector(".navbar-shopping-cart");
 const productsInShoppingCart = document.querySelector(".product-detail");
 /*productListContainer traigo el section del html para luego unirlo con el html que ingrese desde js*/
 const productListContainer = document.querySelector("#product-list");
-
+const productDetail = document.querySelector(".product-detail-secundary");
+const closeProductDetail = document.querySelector(".product-detail-close");
 
 email.addEventListener("click" , toggleDesktopmenu);
 burguerMenu.addEventListener("click", toggleMobileMenu);
 shoppingCart.addEventListener("click", toggleProductsInShoppingCart);
-
+closeProductDetail.addEventListener("click", closeProduct);
 
 
 /*esta es una forma de hacerla(como se me ocurrio a mi) el .matches sirve para comprobar si un elemento contiene una clase
@@ -37,6 +38,8 @@ function toggleDesktopmenu(){
         productsInShoppingCart.classList.toggle("inactive");
     }
     desktopmenu.classList.toggle("inactive");
+    productDetail.classList.add("inactive");
+
 }
 
 function toggleMobileMenu(){
@@ -47,6 +50,7 @@ function toggleMobileMenu(){
     }
 
     mobileMenu.classList.toggle("inactive");
+    productDetail.classList.add("inactive");
 }
 function toggleProductsInShoppingCart(){
     const isMobileMenuClosed = mobileMenu.classList.contains("inactive");/*devuelve un booleano si contiene o no esa clase*/
@@ -60,7 +64,20 @@ function toggleProductsInShoppingCart(){
         desktopmenu.classList.toggle("inactive")
     }
     productsInShoppingCart.classList.toggle("inactive");
+    productDetail.classList.add("inactive");
 }
+function clickInProduct(evento){
+    productsInShoppingCart.classList.add("inactive");
+    desktopmenu.classList.add("inactive");
+    mobileMenu.classList.add("inactive");
+    productDetail.classList.remove("inactive");
+    console.log(evento)
+}
+function closeProduct(){
+    productDetail.classList.add("inactive");
+}
+
+
 /*Otra forma podria ser ejemplo:
 
 function toggleProductsInShoppingCart(){
@@ -173,6 +190,8 @@ productList.push ({
          productCard.append(imgProduct, productInfo);
          cardContainer.appendChild(productCard);
          productListContainer.appendChild(cardContainer);
+
+         imgProduct.addEventListener("click", clickInProduct);
         }
       }   
 
