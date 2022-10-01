@@ -8,11 +8,15 @@ const menuCarritoIcon = document.querySelector('.navbar-shopping-cart');
 const aside = document.querySelector('.product-detail');
 const cardsContainer = document.querySelector('.cards-container');
 
+const productDetailContainer = document.querySelector('.productDetail');
+const productDetailClose = document.querySelector('.product-detail-close');
+
 
 
 navEmail.addEventListener('click', toggleDesktopMenu);
 menuHamIcon.addEventListener('click', toggleMobileMenu);
 menuCarritoIcon.addEventListener('click', toggleCarritoAside);
+productDetailClose.addEventListener('click', closeProductDetail);
 
 function toggleDesktopMenu() {
     const isAsideClosed = aside.classList.contains('inactive');
@@ -30,6 +34,8 @@ function toggleMobileMenu() {
     if (!isAsideClosed) { 
         aside.classList.add('inactive');
     }
+
+    closeProductDetail();
     
     mobileMenu.classList.toggle('inactive');
 }
@@ -40,8 +46,24 @@ function toggleCarritoAside() {
     if (!isMobileMenudClosed) {
         mobileMenu.classList.add('inactive');
     }
+
+    const isProductDetailClose = productDetailContainer.classList.contains('inactive');
+
+    if (!isProductDetailClose) {
+        productDetailContainer.classList.add('inactive');
+    }
     
     aside.classList.toggle('inactive');
+}
+
+function openProductDetailAside() {
+    aside.classList.add('inactive');
+
+    productDetailContainer.classList.remove('inactive'); //queremos quitarle la class inactive para que aparezca
+}
+
+function closeProductDetail() {
+    productDetailContainer.classList.add('inactive'); //queremos quitarle la class inactive para que aparezca
 }
 
 const productList = []; //este es el array que nos devolveria nuestro porpio cod js cuando hicieramos la consulta  al aip rest al backendd etc
@@ -107,9 +129,12 @@ function renderProducts(arr){
         const productCard = document.createElement('div');
         productCard.classList.add('product-card');
     
+        //product = {name, price, image} -->product.image
         const productImg = document.createElement('img');
         productImg.setAttribute('src', product.image);
-        //product = {name, price, image} -->product.image
+        // productImg.addEventListener('click', console.log);
+        productImg.addEventListener('click', openProductDetailAside);
+        
     
         const productInfo = document.createElement('div');
         productInfo.classList.add('product-info');
