@@ -54,7 +54,7 @@ function toggleCarritoAside() {
     aside.classList.toggle('inactive');
 }
 
-                // Lista de productos
+                // LISTA DE PRODUCTOS
 const productList = [];
 productList.push(
     {
@@ -97,7 +97,7 @@ productList.push(
         price: 49,
         image: 'https://images.pexels.com/photos/2115256/pexels-photo-2115256.jpeg?auto=compress&cs=tinysrgb&w=1600',
     },
-)
+);
 // productList.push(
 //     {
 //         name: 'Celular',
