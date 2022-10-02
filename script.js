@@ -33,9 +33,16 @@ burguerMenuIcon.addEventListener ('click', toggleMobileMenu)
 
 function toggleMobileMenu() {
   const isAsideCartOpen = !asideCart.classList.contains('inactive')
+  const body = document.getElementById('boody')
 
   if (isAsideCartOpen){
     asideCart.classList.add('inactive')
+  }
+  //prevent scroll when mobile menu is opened
+  if (mobileMenu.classList.contains('active')){
+    body.style.cssText = 'overflow-y: auto'
+  }else{
+    body.style.cssText = 'overflow-y: hidden'
   }
 
   mobileMenu.classList.toggle('active')
@@ -44,6 +51,7 @@ function toggleMobileMenu() {
 //fusion shopping cart
 const cartMenuIcon = document.querySelector('.navbar-shopping-cart')
 const asideCart = document.querySelector('.product-detail')
+const body = document.getElementById('boody')
 
 cartMenuIcon.addEventListener ('click', toggleCartMenu)
 
@@ -55,11 +63,19 @@ function toggleCartMenu() {
   }
   asideCart.classList.toggle('inactive')
 
+  //prevent scroll when aside cart open
+  if (asideCart.classList.contains('inactive')){
+    body.style.cssText = 'overflow-y: auto'
+  }else{
+    body.style.cssText = 'overflow-y: hidden'
+  }
+
   const isDesktopMenuOpen = !desktopMenu.classList.contains('inactive')
 
   if (isDesktopMenuOpen){
     desktopMenu.classList.add('inactive')
   }
+  
 }
 
 
