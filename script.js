@@ -15,12 +15,8 @@ function toggleDesktopMenu () {
 
   //THERE IS "classList.toggle('')" wich toggle the class on every click
   //SO
-  const isAsideCartOpen = !asideCart.classList.contains('inactive')
-
-  if (isAsideCartOpen){
-    asideCart.classList.add('inactive')
-  }
-
+  asideCart.classList.add('inactive')
+  productDetailContainer.classList.add('inactive')
   desktopMenu.classList.toggle('inactive')
 }
 
@@ -32,53 +28,48 @@ mobileMenu.classList.remove('active')
 burguerMenuIcon.addEventListener ('click', toggleMobileMenu)
 
 function toggleMobileMenu() {
-  const isAsideCartOpen = !asideCart.classList.contains('inactive')
+  asideCart.classList.add('inactive')
+  mobileMenu.classList.toggle('active')
+  productDetailContainer.classList.add('inactive')
+
+  //prevent scroll when mobile menu is opened
   const body = document.getElementById('boody')
 
-  if (isAsideCartOpen){
-    asideCart.classList.add('inactive')
-  }
-  //prevent scroll when mobile menu is opened
   if (mobileMenu.classList.contains('active')){
-    body.style.cssText = 'overflow-y: auto'
-  }else{
     body.style.cssText = 'overflow-y: hidden'
+  }else{
+    body.style.cssText = 'overflow-y: auto'
   }
-
-  mobileMenu.classList.toggle('active')
 }
 
 //fusion shopping cart
 const cartMenuIcon = document.querySelector('.navbar-shopping-cart')
 const asideCart = document.querySelector('.product-detail')
-const body = document.getElementById('boody')
+const imgArrow= document.querySelector('.close-order')
 
 cartMenuIcon.addEventListener ('click', toggleCartMenu)
+imgArrow.addEventListener ('click', BtnCloseOrder)
 
 function toggleCartMenu() {
-  const isMobileMenuOpen = mobileMenu.classList.contains('active')
-
-  if (isMobileMenuOpen){
-    mobileMenu.classList.remove('active')
-  }
+  mobileMenu.classList.remove('active')
   asideCart.classList.toggle('inactive')
+  productDetailContainer.classList.add('inactive')
+  desktopMenu.classList.add('inactive')
 
   //prevent scroll when aside cart open
+  const body = document.getElementById('boody')
+
   if (asideCart.classList.contains('inactive')){
     body.style.cssText = 'overflow-y: auto'
   }else{
     body.style.cssText = 'overflow-y: hidden'
   }
-
-  const isDesktopMenuOpen = !desktopMenu.classList.contains('inactive')
-
-  if (isDesktopMenuOpen){
-    desktopMenu.classList.add('inactive')
-  }
-  
+}
+function BtnCloseOrder (){
+  asideCart.classList.toggle('inactive')
 }
 
-
+//fusion Product list
 const productList = []
 const cardsContainer = document.querySelector('.cards-container')
 
@@ -158,6 +149,7 @@ function renderProducts (productList) {
     const productImg = document.createElement('img')
     productImg.setAttribute('draggable', false)
     productImg.setAttribute('src', product.image)
+    productImg.addEventListener('click', openProductDetail)
 
     const productInfo = document.createElement('div')
     productInfo.classList.add('product-info')
@@ -178,8 +170,35 @@ function renderProducts (productList) {
     productInfoDiv.append(productPrice,productName)
     productInfo.append(productInfoDiv,productInfoFigure)
     productCart.append(productImg,productInfo)
-    
     cardsContainer.appendChild(productCart)
+    
   }
 }
 renderProducts(productList)
+
+//fusion product detail
+const productDetailContainer = document.querySelector('.product-detail-secondary')
+const productDetailCloseIcon = document.querySelector('.product-detail-secondary-close')
+
+productDetailCloseIcon.addEventListener('click', closeButton)
+
+function openProductDetail () {
+    desktopMenu.classList.add ("inactive")
+    asideCart.classList.add ("inactive")
+    mobileMenu.classList.remove ("active")
+    productDetailContainer.classList.remove ("inactive")
+    
+    //prevent scroll when product detail is open
+    const body = document.getElementById('boody')
+
+    if (productDetailContainer.classList.contains('inactive')){
+    body.style.cssText = 'overflow-y: auto'
+    }else{
+    body.style.cssText = 'overflow-y: hidden'
+    }
+}
+function closeButton () {
+  const body = document.getElementById('boody')
+  productDetailContainer.classList.add('inactive')
+  body.style.cssText = 'overflow-y:auto'
+}
