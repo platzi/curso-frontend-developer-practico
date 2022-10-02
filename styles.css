@@ -9,6 +9,13 @@
   --md: 16px;
   --lg: 18px;
 }
+
+* {
+  padding: 0;
+  margin: 0;
+  box-sizing: border-box;
+}
+
 body {
   margin: 0;
   font-family: 'Quicksand', sans-serif;
@@ -79,6 +86,8 @@ body {
 /* Menu en desktop */
 .desktop-menu {
   position: absolute;
+  width: auto;
+  height: auto;
   top: 60px;
   right: 60px;
   background: var(--white);
@@ -234,10 +243,10 @@ aside {
 
 /* ProductDetail */
 .product-detail-close {
+  position: absolute;
   background: var(--white);
   width: 14px;
-  height: 14px;
-  position: absolute;
+  height: 24px;
   top: 24px;
   left: 24px;
   z-index: 2;
