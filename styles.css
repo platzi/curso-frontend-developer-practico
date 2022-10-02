@@ -287,11 +287,11 @@
 
   #product-detail .product-detail-close {
     background: var(--white);
-    width: 14px;
-    height: 14px;
+    width: 12px;
+    height: 12px;
     position: absolute;
-    top: 24px;
-    left: 24px;
+    top: 12px;
+    left: 36px;
     z-index: 2;
     padding: 12px;
     border-radius: 50%;
