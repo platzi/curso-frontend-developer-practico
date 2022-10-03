@@ -42,13 +42,13 @@ productList.push({
     'https://images.pexels.com/photos/276517/pexels-photo-276517.jpeg?auto=compress&cs=tinysrgb&dpr=2&h=650&w=940',
 });
 productList.push({
-  name: 'Bola',
-  price: 70,
+  name: 'scooter',
+  price: 2500,
   image: 'https://images.pexels.com/photos/3723233/pexels-photo-3723233.jpeg?auto=compress&cs=tinysrgb&w=600',
 });
 productList.push({
-  name: 'scooter',
-  price: 2500,
+  name: 'Bola',
+  price: 70,
   image:
     'https://images.pexels.com/photos/209841/pexels-photo-209841.jpeg?auto=compress&cs=tinysrgb&w=1260&h=750&dpr=1',
 });
