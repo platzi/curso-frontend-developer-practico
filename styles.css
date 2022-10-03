@@ -425,6 +425,8 @@ nav {
   .product-detail-secondary {
     height: calc(100vh - var(--navHeight));
     width: 100%;
+    position: fixed;
+    top: 60px;
   }
 }
 @media (min-width: 641px){
