@@ -365,6 +365,10 @@ nav {
 	object-fit: cover;
 }
 
+.product-card > img {
+	cursor: pointer;
+}
+
 .product-info {
 	display: flex;
 	justify-content: space-between;
