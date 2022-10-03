@@ -182,23 +182,50 @@ const productDetailCloseIcon = document.querySelector('.product-detail-secondary
 
 productDetailCloseIcon.addEventListener('click', closeButton)
 
-function openProductDetail () {
-    desktopMenu.classList.add ("inactive")
-    asideCart.classList.add ("inactive")
-    mobileMenu.classList.remove ("active")
-    productDetailContainer.classList.remove ("inactive")
-    
-    //prevent scroll when product detail is open
-    const body = document.getElementById('boody')
+function openProductDetail (event) {
 
-    if (productDetailContainer.classList.contains('inactive')){
-    body.style.cssText = 'overflow-y: auto'
-    }else{
-    body.style.cssText = 'overflow-y: hidden'
-    }
+  desktopMenu.classList.add ("inactive")
+  asideCart.classList.add ("inactive")
+  mobileMenu.classList.remove ("active")
+  productDetailContainer.classList.remove ("inactive")
+
+  displayInfoInProductDetail(event);
+  
+  //prevent scroll when product detail is open
+  const body = document.getElementById('boody')
+
+  if (productDetailContainer.classList.contains('inactive')){
+  body.style.cssText = 'overflow-y: auto'
+  }else{
+  body.style.cssText = 'overflow-y: hidden'
+  }
 }
 function closeButton () {
   const body = document.getElementById('boody')
   productDetailContainer.classList.add('inactive')
   body.style.cssText = 'overflow-y:auto'
+}
+
+// Display product info
+function displayInfoInProductDetail (event) {
+
+  const new_img_product_detail = event.composedPath().at(0).src
+  const product_info = event.composedPath().at(1).childNodes[1]
+
+  const price = product_info.querySelector('div p:first-child').textContent;
+  const name = product_info.querySelector('div p:nth-child(2)').textContent;
+
+  const product_detail_img = productDetailContainer.querySelector('img:nth-child(2)');
+  product_detail_img.setAttribute('src', new_img_product_detail);
+  product_detail_img.setAttribute('alt', name);
+
+
+  const newPrice = document.querySelector('.product-info-secondary p:nth-child(1)')
+  const newName = document.querySelector('.product-info-secondary p:nth-child(2)')
+
+  const product_detail_price = newPrice
+  product_detail_price.innerText = price;
+
+  const product_detail_name = newName
+  product_detail_name.innerText = name;
 }
