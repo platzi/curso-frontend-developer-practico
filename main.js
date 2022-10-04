@@ -7,35 +7,56 @@ const iconCartshopping = document.querySelector('.navbar-shopping-cart');
 const mainContainer = document.querySelector('.main__container');
 const cardsContainer = document.querySelector('.cards-container');
 const flechaAtrasShopping = document.querySelector('.flecha-atras-shopping');
+const productDetailAside = document.querySelector('.product-detail-dos');
+const productDetailClose = document.querySelector('.product-detail-close');
+const darken = document.querySelector('.darken');
 
 let productList = [];
+let asiteList = [];
 
 navBarEmail.addEventListener('click', toggleDesktopMenu);
 menuHamIcon.addEventListener('click', toggleMobileMenu);
 iconCartshopping.addEventListener('click', toggleIconCartShopping);
 mainContainer.addEventListener('click', closeMenusClick);
 flechaAtrasShopping.addEventListener('click', toggleIconCartShopping);
+productDetailClose.addEventListener('click', closeProductDetailAside);
+darken.addEventListener('clcik', openProductDetailAside)
 
 function toggleDesktopMenu() {
   orderListShopping.classList.add('inactive');
   desktopMenu.classList.toggle('inactive');
+  productDetailAside.classList.add('inactive');
 }
 
 function toggleMobileMenu() {
   orderListShopping.classList.add('inactive');
   mobileMenu.classList.toggle('inactive');
+  productDetailAside.classList.add('inactive');
 }
 
 function toggleIconCartShopping() {
     desktopMenu.classList.add('inactive');
     mobileMenu.classList.add('inactive');
     orderListShopping.classList.toggle('inactive');
+    productDetailAside.classList.add('inactive');
 }
 
 function closeMenusClick() {
-  desktopMenu.classList.add('inactive');
-  mobileMenu.classList.add('inactive');
+    desktopMenu.classList.add('inactive');
+    mobileMenu.classList.add('inactive');
 }
+
+function openProductDetailAside() {
+    productDetailAside.classList.remove('inactive');
+    orderListShopping.classList.add('inactive');
+    darken.classList.remove('inactive')
+}
+
+function closeProductDetailAside() { 
+    productDetailAside.classList.add('inactive');
+    darken.classList.add('inactive')
+}
+
 
 
 productList.push({
@@ -69,6 +90,7 @@ function renderProducts() {
     
         const productImg = document.createElement('img');
         productImg.setAttribute('src', product.image);
+        productImg.addEventListener('click', openProductDetailAside)
     
         const productInfo = document.createElement('div');
         productInfo.classList.add('product-info');
@@ -100,4 +122,3 @@ function renderProducts() {
 }
 
 renderProducts(productList);
-
