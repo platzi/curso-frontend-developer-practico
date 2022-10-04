@@ -6,6 +6,7 @@ const orderListShopping = document.querySelector('.product-detail');
 const iconCartshopping = document.querySelector('.navbar-shopping-cart');
 const mainContainer = document.querySelector('.main__container');
 const cardsContainer = document.querySelector('.cards-container');
+const flechaAtrasShopping = document.querySelector('.flecha-atras-shopping');
 
 let productList = [];
 
@@ -13,6 +14,7 @@ navBarEmail.addEventListener('click', toggleDesktopMenu);
 menuHamIcon.addEventListener('click', toggleMobileMenu);
 iconCartshopping.addEventListener('click', toggleIconCartShopping);
 mainContainer.addEventListener('click', closeMenusClick);
+flechaAtrasShopping.addEventListener('click', toggleIconCartShopping);
 
 function toggleDesktopMenu() {
   orderListShopping.classList.add('inactive');
@@ -25,13 +27,14 @@ function toggleMobileMenu() {
 }
 
 function toggleIconCartShopping() {
-  desktopMenu.classList.add('inactive');
-  mobileMenu.classList.add('inactive');
-  orderListShopping.classList.toggle('inactive');
+    desktopMenu.classList.add('inactive');
+    mobileMenu.classList.add('inactive');
+    orderListShopping.classList.toggle('inactive');
 }
 
 function closeMenusClick() {
   desktopMenu.classList.add('inactive');
+  mobileMenu.classList.add('inactive');
 }
 
 
