@@ -1,3 +1,4 @@
+/*General*/
 :root{
     --verlight-pink: #c7c7c7;
     --text-input-fiel:#F7F7F7;
@@ -15,6 +16,8 @@ body{
 .inactive{
     display: none;
 }
+
+/*Navbar (general*/
 nav{
     display: flex;
     justify-content: space-between;
@@ -79,6 +82,7 @@ nav{
   align-items: center;
 }
 
+/*Desktop menu*/
 .desktop-menu{
     position: absolute;
     top: 60px;
@@ -117,7 +121,42 @@ nav{
     display: inline-block;
     margin-bottom: 20px;
 }
+/* Mobile menu*/
 
+.mobile-menu{
+    position: absolute;
+    top: 60px;
+    padding: 24px;            
+}
+.mobile-menu a{
+    text-decoration: none;
+    color: var(--black);
+    font-weight: bold;
+}
+.mobile-menu ul{
+    padding: 0;
+    margin: 0;
+    list-style: none;
+    margin: 24px 0 0;
+}
+.mobile-menu ul:nth-child(1){
+    border-bottom: 1px solid var(--verlight-pink);
+}
+.mobile-menu li{
+    margin-bottom: 24px;
+}
+.mobile-menu ul:last-child {
+    position: absolute;
+    bottom: 0;
+}
+.email{
+    font-size: var(--sm);
+    font-weight: 300 !important;
+}
+.sign-out{
+    font-size: var(--sm);
+    color: var(--hospital-green) !important;
+}
 
 
 
@@ -131,6 +170,15 @@ nav{
         display: none;
     }
     .navbar-email{
+        display: none;
+    }
+    .desktop-menu{
+        display: none;
+    }
+}
+
+@media (min-width: 641px) {
+    .mobile-menu{
         display: none;
     }
 }
