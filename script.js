@@ -13,6 +13,7 @@ const productsInShoppingCart = document.querySelector(".product-detail");
 const productListContainer = document.querySelector("#product-list");
 const productDetail = document.querySelector(".product-detail-secundary");
 const closeProductDetail = document.querySelector(".product-detail-close");
+const sombraMenu = document.querySelector("#sombraAbrirMenu");
 
 email.addEventListener("click" , toggleDesktopmenu);
 burguerMenu.addEventListener("click", toggleMobileMenu);
@@ -33,13 +34,18 @@ function toogleDesktopmenu(){
 /*el .toggle devuelve true o false quita y agrega la clase inactive dependiendo si la ya tiene o no en ingles significa palanca es como un interruptos que alterna true y false*/
 function toggleDesktopmenu(){
     const isProductsCartClosed = productsInShoppingCart.classList.contains("inactive");
+    const isShadowOff = sombraMenu.classList.contains("inactive");
     
     if(!isProductsCartClosed){/*si el carro de productos esta abierto*/
         productsInShoppingCart.classList.toggle("inactive");
     }
     desktopmenu.classList.toggle("inactive");
     productDetail.classList.add("inactive");
-
+    if(isShadowOff)
+    sombraMenu.classList.remove("inactive");
+    else{
+        sombraMenu.classList.add("inactive")
+    }
 }
 
 function toggleMobileMenu(){
@@ -55,6 +61,7 @@ function toggleMobileMenu(){
 function toggleProductsInShoppingCart(){
     const isMobileMenuClosed = mobileMenu.classList.contains("inactive");/*devuelve un booleano si contiene o no esa clase*/
     const isDesktopMenuClosed = desktopmenu.classList.contains("inactive");
+    const isShadowOff = sombraMenu.classList.contains("inactive");
 
 
     if(!isMobileMenuClosed){/*Si el carro de compras esta abierto*/
@@ -65,6 +72,11 @@ function toggleProductsInShoppingCart(){
     }
     productsInShoppingCart.classList.toggle("inactive");
     productDetail.classList.add("inactive");
+    if(isShadowOff)
+    sombraMenu.classList.remove("inactive");
+    else if(!isShadowOff){
+        sombraMenu.classList.add("inactive");
+    }
 }
 /*Se llama la funcion con el evento del click para que ese mismo evento se agregue al llamar a la funcion displayInfoInProductDetail*/
 function clickInProduct(evento){
