@@ -83,40 +83,44 @@ productList.push({
 </div>
 */
 
-for ( product of productList ) {
+function renderProducts(arr) {
+    for ( product of arr ) {
 
-    const productCard = document.createElement('div');
-    productCard.classList.add('product-card');
+        const productCard = document.createElement('div');
+        productCard.classList.add('product-card');
 
-    const productImg = document.createElement('img');
-    productImg.setAttribute('src', 'https://images.pexels.com/photos/276517/pexels-photo-276517.jpeg?auto=compress&cs=tinysrgb&dpr=2&h=650&w=940');
+        const productImg = document.createElement('img');
+        productImg.setAttribute('src', 'https://images.pexels.com/photos/276517/pexels-photo-276517.jpeg?auto=compress&cs=tinysrgb&dpr=2&h=650&w=940');
 
 
-    const productInfo = document.createElement('div');
-    productInfo.classList.add('product-info');
+        const productInfo = document.createElement('div');
+        productInfo.classList.add('product-info');
 
-    const productInfoDiv = document.createElement('div');
+        const productInfoDiv = document.createElement('div');
 
-    const productPrice = document.createElement('p');
-    productPrice.innerText = '$' + product.price;
-    const productName = document.createElement('p');
-    productName.innerText = product.name;
+        const productPrice = document.createElement('p');
+        productPrice.innerText = '$' + product.price;
+        const productName = document.createElement('p');
+        productName.innerText = product.name;
 
-    productInfoDiv.appendChild(productPrice);
-    productInfoDiv.appendChild(productName);
+        productInfoDiv.appendChild(productPrice);
+        productInfoDiv.appendChild(productName);
 
-    const productInfoFigure = document.createElement('figure');
+        const productInfoFigure = document.createElement('figure');
 
-    const productImgCart = document.createElement('img');
-    productImg.setAttribute('src', product.image);
+        const productImgCart = document.createElement('img');
+        productImg.setAttribute('src', product.image);
 
-    productInfoFigure.appendChild(productImgCart,);
+        productInfoFigure.appendChild(productImgCart,);
 
-    productInfo.appendChild(productInfoDiv);
-    productInfo.appendChild(productInfoFigure);
+        productInfo.appendChild(productInfoDiv);
+        productInfo.appendChild(productInfoFigure);
 
-    productCard.appendChild(productImg);
-    productCard.appendChild(productInfo);
+        productCard.appendChild(productImg);
+        productCard.appendChild(productInfo);
 
-    cardsContainer.appendChild(productCard);
+        cardsContainer.appendChild(productCard);
+    }
 }
+
+renderProducts(productList);
