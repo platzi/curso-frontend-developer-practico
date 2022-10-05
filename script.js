@@ -66,17 +66,71 @@ function toggleProductsInShoppingCart(){
     productsInShoppingCart.classList.toggle("inactive");
     productDetail.classList.add("inactive");
 }
+/*Se llama la funcion con el evento del click para que ese mismo evento se agregue al llamar a la funcion displayInfoInProductDetail*/
 function clickInProduct(evento){
     productsInShoppingCart.classList.add("inactive");
     desktopmenu.classList.add("inactive");
     mobileMenu.classList.add("inactive");
     productDetail.classList.remove("inactive");
-    console.log(evento)
+
+    /*Llamo la funcion para modificar los datos de cada elemento al abrir el detalle del producto*/
+    displayInfoInProductDetail(evento);
 }
 function closeProduct(){
     productDetail.classList.add("inactive");
 }
+/*Funcion para que cada producto detallado que seleccione aparezca*/
 
+function displayInfoInProductDetail(evento){
+    /*Seleccion de imagen*/
+    const imgEventClick = evento.path[0];
+    const productImgDetailSelection = document.querySelector(".product-detail-secundary > img")
+    productImgDetailSelection.setAttribute("src", imgEventClick.src);
+    console.log(imgEventClick)
+
+    /*Seleccion de info precio y nombre*/
+    /*busco el nodo del evento donde se encuentra el precio*/
+    const priceProductSelection = evento.path[1].childNodes[1].childNodes[0].childNodes[0];
+    /*luego de encontrarlo con .textcontent saco su contenido en texto*/
+    const priceProductSelectionHTML = priceProductSelection.textContent;
+    /*Selecciono el elemento a cambiar*/
+    const priceProductDetailSelection = document.querySelector(".product-info-secundary p:first-child");
+    priceProductDetailSelection.innerText = priceProductSelectionHTML;
+
+    console.log(priceProductSelection);
+    console.log(priceProductSelectionHTML);
+
+    /*Seleccion de nombre del articulo, mismo procedimiento que en el precio*/
+    console.log(evento);
+    const nameProductSelection = evento.path[1].childNodes[1].childNodes[0].childNodes[1];
+    const nameProductSelectionHTML = nameProductSelection.textContent;
+    const nameProductDetailSelection = document.querySelector(".product-info-secundary p:nth-child(2)");
+    nameProductDetailSelection.innerText = nameProductSelectionHTML;
+
+    console.log(nameProductSelectionHTML);
+}
+/*otra forma de hacer la funcion displayInfoInProductDetail seria :
+
+function displayInfoInProductDetail(event){
+    
+    const new_img_product_detail = event.path[0].src;
+
+    const product_info = event.path[1].childNodes[1];
+
+    const price = product_info.querySelector('div p:first-child');
+    const name = product_info.querySelector('div p:nth-child(2)');
+
+    const product_detail_img = productDetailContainer.querySelector('img:nth-child(2)');
+    product_detail_img.setAttribute('src', new_img_product_detail);
+    product_detail_img.setAttribute('alt', name.textContent);
+
+    const product_detail_price = productDetailContainer.querySelector('.product-info p:nth-child(1)');
+    product_detail_price.innerText = price.textContent;
+
+    const product_detail_name = productDetailContainer.querySelector('.product-info p:nth-child(2)');
+    product_detail_name.innerText = name.textContent;
+    
+}*/
 
 /*Otra forma podria ser ejemplo:
 
