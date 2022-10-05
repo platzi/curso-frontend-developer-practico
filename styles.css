@@ -342,6 +342,18 @@ aside {
   color: var(--very-light-pink);
 }
 
+.page-404 {
+  height: 100%;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+}
+
+.page-404 img {
+  max-width: 90vw;
+  max-height: 90vh;
+}
+
 
 @media (max-width: 640px) {
   .menu {
