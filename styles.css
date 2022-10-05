@@ -132,6 +132,8 @@ nav {
   background-color: var(--white);
   position: absolute;
   top: 60px;
+  left: 0;
+  width: 100%;
   padding: 24px;
 }
 .mobile-menu a {
@@ -165,13 +167,16 @@ nav {
 aside {
   background-color: var(--white);
   width: 360px;
-  padding: 0 24px;
   box-sizing: border-box;
   position: absolute;
   right: 0;
 }
 
-  /* ShoppingCart */
+/* ShoppingCart */
+
+#shoppingCartContainer{
+  padding: 0 24px;
+}
 .title-container {
     display: flex;
 }
