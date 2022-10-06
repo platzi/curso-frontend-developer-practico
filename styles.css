@@ -13,7 +13,7 @@ body {
   margin: 0;
   font-family: 'Quicksand', sans-serif;
   height: 100vh;
-  background-color: #f7e9f7;
+  background-color:white;
 }
 .inactive {
   display: none;
@@ -26,7 +26,7 @@ nav {
   justify-content: space-between;
   padding: 0 24px;
   border-bottom: 1px solid var(--very-light-pink);
-  background-color: #7ED321;
+  background-color: white;
 }
 .menu {
   display: none;
@@ -34,13 +34,21 @@ nav {
 .logo {
   width: 100px;
 }
-.navbar-left ul,
+.navbar-left ul{
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  list-style: none;
+  font-size: 1rem;
+  margin: 0;
+}
 .navbar-right ul {
   list-style: none;
   padding: 0;
   margin: 0;
   display: flex;
   align-items: center;
+  justify-content: center;
   height: 60px;
 }
 .navbar-left {
@@ -55,11 +63,7 @@ a {
   background-color: var(--text-input-field);
   cursor: pointer;
 }
-.navbar-left ul {
-  margin-left: 12px;
-  margin-top: 4px;
-  
-}
+
 
 .navbar-right ul img{
   cursor: pointer;
@@ -193,7 +197,7 @@ aside {
   background-color: var(--white);
   width: 360px;
   box-sizing: border-box;
-  position: absolute;
+  
   right: 0;
   border-radius: 20px;
   
@@ -362,8 +366,8 @@ aside {
 }
 .product-card {
   width: 240px;
-  border: solid var(--very-light-pink) 2px;
-  background-color: white;
+  border: solid greenyellow 2px;
+  padding: 5px;
 }
 .product-card img {
   width: 240px;

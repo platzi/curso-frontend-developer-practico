@@ -8,10 +8,11 @@ let cardsContainer = document.querySelector('.cards-container');
 let productDetailCloseIcon = document.querySelector('.product-detail-close');
 let productDetailContainer = document.querySelector('.productDetail');
 let productImageInfor = document.querySelector('.jugo');
-let labelPriceInfo = document.querySelector('.product-info p:nth-child(1)')
-let labelNameInfo = document.querySelector('.product-info p:nth-child(2)')
-let labelInforInfo = document.querySelector('.product-info p:nth-child(3)')
-let countCarrito = document.querySelector('.navbar-shopping-cart div')
+let labelPriceInfo = document.querySelector('.product-info p:nth-child(1)');
+let labelNameInfo = document.querySelector('.product-info p:nth-child(2)');
+let labelInforInfo = document.querySelector('.product-info p:nth-child(3)');
+let countCarrito = document.querySelector('.navbar-shopping-cart div');
+let contador = document.querySelector('#contador');
 
 
 
@@ -19,6 +20,7 @@ menuEmail.addEventListener('click', toggleDesktopMenu);
 menuHamIcon.addEventListener('click', toggleMobileMenu);
 menuCarritoIcon.addEventListener('click', toggleCarritoAside);
 productDetailCloseIcon.addEventListener('click', closeProducDetailAside);
+
 
 
 
@@ -79,17 +81,18 @@ productList.push({
   description: "Rico y delicioso jugo de Borojo hecho con los ingredientes de más alta calidad, este es caracteriztico por ser considerado afrodisiaco",
 });
 productList.push({
+  name: 'MORA',
+  price: 5000,
+  image: './Fotosjugos/Mora.jpg',
+  description: "Rico y delicioso jugo de Mora hecho con los ingredientes de más alta calidad.",
+});
+productList.push({
   name: 'MANGO',
   price: 5000,
   image: './Fotosjugos/Maracuya.jpg',
   description: "Rico y delicioso jugo de Mango hecho con los ingredientes de más alta calidad.",
 });
-productList.push({
-  name: 'GUANABANA',
-  price: 5000,
-  image: './Fotosjugos/Guanaban.jpg',
-  description: "Rico y delicioso jugo de Guanabana hecho con los ingredientes de más alta calidad.",
-});
+
 
 function renderProduct(arr) {
   for (const product of arr) {
@@ -132,8 +135,10 @@ function renderProduct(arr) {
       productImg.addEventListener('click', function(){
         mostrarInfoProduct(product.image, product.price, product.name, product.description)
         openProductDetail();
-    })
-  }
+    });
+    
+          
+}
 }
 
 
@@ -146,62 +151,5 @@ function mostrarInfoProduct(imagen, precio, nombre, descripcion){
 
 renderProduct(productList);
 
-// Desde aqui empieza lo que tengo que maquetar desde Javascript
-//   <aside class="productDetail" class="inactive">
-//     <div class="product-detail-close">
-//       <img src="./icons/icon_close.png" alt="close">
-//     </div>
-//     <img src="https://images.pexels.com/photos/276517/pexels-photo-276517.jpeg?auto=compress&cs=tinysrgb&dpr=2&h=650&w=940" alt="bike">
-//     <div class="product-info">
-//       <p>$35,00</p>
-//       <p>Bike</p>
-//       <p>With its practical position, this bike also fulfills a decorative function, add your hall or workspace.</p>
-//       <button class="primary-button add-to-cart-button">
-//         <img src="./icons/bt_add_to_cart.svg" alt="add to cart">
-//         Add to cart
-//       </button>
-//     </div>
-//   </aside>
-
-// function renderProducts2(array) {
-//   for (product of array) {
-//     let divButtonX = document.createElement('div');
-//     let closeButton = document.createElement('img');
-//     closeButton.setAttribute('src','./icons/icon_close.png');
-
-
-//     let imagenProd = document.createElement('img');
-//     imagenProd.setAttribute('src', product.image);
-
-
-//     let divInfo = document.createElement('div');
-//     divInfo.classList.add('product-info');
-
-
-//     let productPrice2 = document.createElement('p');
-//     productPrice.innerText = '$' + product.price;
-//     let productName2 = document.createElement('p');
-//     productName.innerText = product.name;
-//     let productDescription = document.createElement('p');
-//     productName.innerText = product.description;
-
-//     let addButton = document.createElement('button');
-//     addButton.classList.add('primary-button add-to-cart-button');
-//     let imgButton = document.createElement('img');
-//     imgButton.setAttribute('src', './icons/bt_add_to_cart.svg');
-
-//     addButton.appendChild(imgButton);
-
-//     divInfo.appendChild(addButton);
-//     divInfo.appendChild(productDescription);
-//     divInfo.appendChild(productName2);
-//     divInfo.appendChild(productPrice2);
-
-//     divButtonX.appendChild(closeButton);
-
-//     productDetailContainer.appendChild(divButtonX);
-//     productDetailContainer.appendChild(divInfo);
-//     productDetailContainer.appendChild(imagenProd);
-  
 
 
