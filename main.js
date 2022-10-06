@@ -13,6 +13,7 @@ let labelNameInfo = document.querySelector('.product-info p:nth-child(2)');
 let labelInforInfo = document.querySelector('.product-info p:nth-child(3)');
 let countCarrito = document.querySelector('.navbar-shopping-cart div');
 let contador = document.querySelector('#contador');
+let numContador = 0
 
 
 
@@ -136,6 +137,15 @@ function renderProduct(arr) {
         mostrarInfoProduct(product.image, product.price, product.name, product.description)
         openProductDetail();
     });
+
+    const aumentarNumCarr = () => {
+      contador.innerHTML = ++numContador;
+    };
+
+    productImgCart.addEventListener('click', aumentarNumCarr);
+      
+      
+    
     
           
 }
