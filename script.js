@@ -4,7 +4,7 @@ const desktopMenu = document.querySelector('.desktop-menu');
 const menuIconMobile = document.querySelector('.menu');
 const mobileMenu = document.querySelector('.mobile-menu');
 const menuCarritoIcon = document.querySelector('.navbar-shopping-cart');
-const aside = document.querySelector('.product-detail');
+const shoppingCartContainer = document.querySelector('#shoppingCartContainer');
 const cardsContainer = document.querySelector('.cards-container');
 
 // Eventos
@@ -16,12 +16,12 @@ menuCarritoIcon.addEventListener('click', toggleCarritoAside);
  * Funcion que aparece/desaparece el menu de escritorio
  */
 function toggleDesktopMenu(event){
-    const isAsideClosed = aside.classList.contains('inactive');
+    const isAsideClosed = shoppingCartContainer.classList.contains('inactive');
 
     if(isAsideClosed){
         desktopMenu.classList.toggle('inactive');
     }else{
-        aside.classList.add('inactive');
+        shoppingCartContainer.classList.add('inactive');
         desktopMenu.classList.toggle('inactive');
     }
     
@@ -32,12 +32,12 @@ function toggleDesktopMenu(event){
  */
 function toggleMobileMenu(event){
     
-    const isAsideClosed = aside.classList.contains('inactive');
+    const isAsideClosed = shoppingCartContainer.classList.contains('inactive');
 
     if(isAsideClosed){
         mobileMenu.classList.toggle('inactive');
     }else{
-        aside.classList.add('inactive');
+        shoppingCartContainer.classList.add('inactive');
         mobileMenu.classList.toggle('inactive');
     }
 }
@@ -48,13 +48,13 @@ function toggleMobileMenu(event){
 function toggleCarritoAside(event){
     const isDesktopMenuClosed = desktopMenu.classList.contains('inactive');
     const isMobileMenuClosed = mobileMenu.classList.contains('inactive');
-    const isAsideClosed = aside.classList.contains('inactive');
+    const isAsideClosed = shoppingCartContainer.classList.contains('inactive');
 
     /*Si el carrito esta cerrado entonces lo abrimos pero consideramos que no se encime con los demas menu's */
     if(isAsideClosed){
         // Si ambos menu estan cerrados pues abrimos el carrito
         if(isDesktopMenuClosed && isMobileMenuClosed){
-            aside.classList.remove('inactive');
+            shoppingCartContainer.classList.remove('inactive');
         }else{ // En caso de que alguno de los dos menu este abierto
             // Si ambos estan abiertos entonces los cerramos
             if(!isDesktopMenuClosed && !isMobileMenuClosed){
@@ -66,11 +66,11 @@ function toggleCarritoAside(event){
                 mobileMenu.classList.add('inactive');
             }
             // Mostramos el carrito
-            aside.classList.remove('inactive'); 
+            shoppingCartContainer.classList.remove('inactive'); 
         }
     }else{
         /*Si el carrito esta abierto entonces lo cerramos y no nos importan los otros menu*/
-        aside.classList.add('inactive');
+        shoppingCartContainer.classList.add('inactive');
     }
 
 }
