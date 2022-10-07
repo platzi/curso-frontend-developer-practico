@@ -162,3 +162,6 @@ productList.push(p3);
 
 // Agregamos la lista de productos 
 renderProducts(productList);
+
+
+
