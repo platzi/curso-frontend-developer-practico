@@ -6,73 +6,34 @@ const mobileMenu = document.querySelector('.mobile-menu');
 const menuCarritoIcon = document.querySelector('.navbar-shopping-cart');
 const shoppingCartContainer = document.querySelector('#shoppingCartContainer');
 const cardsContainer = document.querySelector('.cards-container');
+const productDetailContainer = document.querySelector('#productDetail');
+const productDetailCloseIcon = document.querySelector('.product-detail-close');
 
 // Eventos
 menuEmail.addEventListener('click', toggleDesktopMenu);
 menuIconMobile.addEventListener('click', toggleMobileMenu);
 menuCarritoIcon.addEventListener('click', toggleCarritoAside);
+productDetailCloseIcon.addEventListener('click', closeProductDetailAside);
 
 /**
  * Funcion que aparece/desaparece el menu de escritorio
  */
 function toggleDesktopMenu(event){
-    const isAsideClosed = shoppingCartContainer.classList.contains('inactive');
-
-    if(isAsideClosed){
-        desktopMenu.classList.toggle('inactive');
-    }else{
-        shoppingCartContainer.classList.add('inactive');
-        desktopMenu.classList.toggle('inactive');
-    }
-    
+    toggleMenu(desktopMenu);
 }
 
 /** 
  * Funcion que aparece/desaparece el menu del movil
  */
 function toggleMobileMenu(event){
-    
-    const isAsideClosed = shoppingCartContainer.classList.contains('inactive');
-
-    if(isAsideClosed){
-        mobileMenu.classList.toggle('inactive');
-    }else{
-        shoppingCartContainer.classList.add('inactive');
-        mobileMenu.classList.toggle('inactive');
-    }
+    toggleMenu(mobileMenu);
 }
 
 /**
  * Funcion que aparece/desaparece el carrito
  */
 function toggleCarritoAside(event){
-    const isDesktopMenuClosed = desktopMenu.classList.contains('inactive');
-    const isMobileMenuClosed = mobileMenu.classList.contains('inactive');
-    const isAsideClosed = shoppingCartContainer.classList.contains('inactive');
-
-    /*Si el carrito esta cerrado entonces lo abrimos pero consideramos que no se encime con los demas menu's */
-    if(isAsideClosed){
-        // Si ambos menu estan cerrados pues abrimos el carrito
-        if(isDesktopMenuClosed && isMobileMenuClosed){
-            shoppingCartContainer.classList.remove('inactive');
-        }else{ // En caso de que alguno de los dos menu este abierto
-            // Si ambos estan abiertos entonces los cerramos
-            if(!isDesktopMenuClosed && !isMobileMenuClosed){
-                desktopMenu.classList.add('inactive'); // Cerramos menu uno
-                mobileMenu.classList.add('inactive'); // Cerramos menu dos
-            }else if(!isDesktopMenuClosed){ // Si el primer menu esta abierto entonces lo cerramos
-                desktopMenu.classList.add('inactive');
-            }else if (!isMobileMenuClosed){ // Si el segundo menu esta abierto entonces lo cerramos
-                mobileMenu.classList.add('inactive');
-            }
-            // Mostramos el carrito
-            shoppingCartContainer.classList.remove('inactive'); 
-        }
-    }else{
-        /*Si el carrito esta abierto entonces lo cerramos y no nos importan los otros menu*/
-        shoppingCartContainer.classList.add('inactive');
-    }
-
+    toggleMenu(shoppingCartContainer);
 }
 
 // Creacion e insercion de HTML desde js
@@ -117,6 +78,8 @@ function producto (nombre,precio,img){
 
         const productImg = document.createElement('img');
         productImg.setAttribute('src',product.img);
+        // Evento para la imagen
+        productImg.addEventListener('click',openProductDetailAside);
 
         const productInfo = document.createElement('div');
         productInfo.classList.add('product-info');
@@ -147,6 +110,56 @@ function producto (nombre,precio,img){
         cardsContainer.appendChild(productCard);
 
     }
+}
+
+/**
+ * Funcion que abre la pestania de detalles del producto
+ * @param {*} event 
+ */
+function openProductDetailAside(event){
+    shoppingCartContainer.classList.add('inactive');
+    productDetailContainer.classList.remove('inactive');
+}
+
+/**
+ * Funcion que cierra la pestania de detalles del producto
+ * @param {*} event 
+ */
+function closeProductDetailAside(event){
+    productDetailContainer.classList.add('inactive');
+}
+
+// Arreglo de menus y pestanias que se pueden encimar
+const menus = []
+menus.push(desktopMenu);
+menus.push(mobileMenu);
+menus.push(productDetailContainer);
+menus.push(shoppingCartContainer);
+
+/**
+ * Funcion que abre o cierra
+ * la pestania pasada como parametro.
+ * En caso de estar cerrada, cierra
+ * todas las demas pestanias de la aplicacion
+ * para evitar que se encimen y
+ * abre/muestra la pestania pasada como parametro.
+ * @param menu a cerrar/abrir
+ */
+function toggleMenu(menu){
+    const isMenuClosed = menu.classList.contains('inactive');
+    if(isMenuClosed){
+        // Cierra todos los menus que no sean menu
+        for(m of menus){
+            if(m != menu){
+                m.classList.add('inactive');
+            }
+        }
+        menu.classList.remove('inactive');
+    }else{
+        menu.classList.add('inactive');
+    }
+    
+    
 }
 
 // Productos ya creados
