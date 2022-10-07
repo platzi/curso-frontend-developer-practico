@@ -1,27 +1,57 @@
 
 
-const menuEmail = document.querySelector('.navbar-email');
-const menuHamIcon = document.querySelector('.menu');
-const menuCarritoIcon = document.querySelector('.navbar-shopping-cart');
-const productDetailCloseIcon = document.querySelector('.product-detail-close')
-const desktopMenu = document.querySelector('.desktop-menu');
-const mobileMenu = document.querySelector('.mobile-menu');
-const shoppingCartContainer = document.querySelector('#shoppingCartContainer');
-const productDetailContainer = document.querySelector('#productDetail');
-const cardsContainer = document.querySelector('.cards-container');
-const darken = document.querySelector('.darken');
-const shoppingCartTitle = document.querySelector('.title-container');
+let menuEmail = document.querySelector('.navbar-email');
+
+let desktopMenu = document.querySelector('.desktop-menu');
+
+let menuHamIcon = document.querySelector('.menu');
+
+let mobileMenu = document.querySelector('.mobile-menu');
+
+let iconShopping = document.querySelector('.navbar-shopping-cart');
+
+let asideShopping = document.querySelector('.shoppingCartContainer');
+
+// let productDetailContainer = document.querySelector('.productDetail');
+
+let cardsContainer = document.querySelector('.cards-container');
+
+let productDetailLeft   = document.querySelector('.product-detail-left')
+
+let productDetailClose  = document.querySelector('.product-detail-close')
+
+let myordercontentContainer = document.querySelector('.my-order-content')
+let countCarrito        = document.querySelector('.navbar-shopping-cart div')
+let totalCarrito        = document.querySelector('.total')
+let modal               = document.querySelector('.modal')
+let cerrarModal         = document.querySelector('.boton-modal')
+let productImageInfor   = document.querySelector('.product-detail-left > img:nth-child(2)')
+let labelPriceInfo      = document.querySelector('.product-info-left p:nth-child(1)')
+let labelNameInfo       = document.querySelector('.product-info-left p:nth-child(2)')
+let labelInforInfo      = document.querySelector('.product-info-left p:nth-child(3)')
+let buttonInfo          = document.querySelector('.add-to-cart-button')
+let productosEnCarrito  = []
+let productoACarrito    = []
+
+
+countCarrito.innerText = document.querySelectorAll('.shopping-cart').length
+totalCarrito.innerText = '$0.00'
 
 menuEmail.addEventListener('click', toggleDesktopMenu);
 menuHamIcon.addEventListener('click', toggleMobileMenu);
-menuCarritoIcon.addEventListener('click', toggleCarritoAside);
-productDetailCloseIcon.addEventListener('click', closeProductDetailAside);
+iconShopping.addEventListener('click', toggleAsideShopping)
+productDetailClose.addEventListener('click',closeProductDetail)
+buttonInfo.addEventListener('click', butonClick)
+cerrarModal.addEventListener('click', closeModal)
 
+function butonClick(){
+  agregarCarrito(productoACarrito)
+}
 
 function toggleDesktopMenu() {
   desktopMenu.classList.toggle("inactive");
-  shoppingCartContainer.classList.add("inactive");
-  productDetailContainer.classList.add("inactive");
+  asideShopping.classList.add("inactive");
+  productDetailClose.classList.add("inactive");
 
   // const isAsideClosed = shoppingCartContainer.classList.contains('inactive');
 
@@ -35,8 +65,8 @@ function toggleDesktopMenu() {
 
 function toggleMobileMenu() {
   mobileMenu.classList.toggle("inactive");
-  shoppingCartContainer.classList.add("inactive");
-  productDetailContainer.classList.add("inactive");
+  asideShopping.classList.add("inactive");
+  productDetailClose.classList.add("inactive");
 
   // const isAsideClosed = shoppingCartContainer.classList.contains('inactive');
 
@@ -50,38 +80,39 @@ function toggleMobileMenu() {
 
 }
 
-function toggleCarritoAside() {
-
-  shoppingCartContainer.classList.toggle("inactive");
-  mobileMenu.classList.add("inactive");
-  desktopMenu.classList.add("inactive");
-  productDetailContainer.classList.add("inactive");
-
-  // const isMobileMenuClosed = mobileMenu.classList.contains('inactive');
-  
-  // if (!isMobileMenuClosed) {
-  //   mobileMenu.classList.add('inactive');
-  // }
-
-  // const isProductDetailClosed = productDetailContainer.classList.contains('inactive');
-  
-  // if (!isProductDetailClosed) {
-  //   productDetailContainer.classList.add('inactive'); 
-  // }
-  
-  // shoppingCartContainer.classList.toggle('inactive');
+function toggleAsideShopping(){
+  productDetailLeft.classList.add('inactive')
+  mobileMenu.classList.add('inactive');
+  desktopMenu.classList.add('inactive')
+  asideShopping.classList.toggle('inactive')
 }
 
-function openProductDetailAside() {
-  shoppingCartContainer.classList.add('inactive');
-  productDetailContainer.classList.remove('inactive');
+function openProductDetail(){
+  asideShopping.classList.add('inactive');
+  mobileMenu.classList.add('inactive');
+  desktopMenu.classList.add('inactive');
+  productDetailLeft.classList.remove('inactive')
 }
 
-function closeProductDetailAside() {
-  productDetailContainer.classList.add('inactive');
+function closeProductDetail(){
+  productoACarrito = []
+  asideShopping.classList.add('inactive');
+  mobileMenu.classList.add('inactive');
+  desktopMenu.classList.add('inactive');
+  productDetailLeft.classList.add('inactive')
 }
 
-const productList = [];
+function verificarProducto(nameProduct){
+  return productosEnCarrito.some(function(articulo){
+      return articulo === nameProduct
+  })
+}
+
+function closeModal(){
+  modal.style.display = 'none'
+}
+
+let productList = [];
 productList.push({
   name: 'Bike',
   price: 120,
@@ -130,45 +161,112 @@ productList.push({
 
 
 
+function renderListProduct(productList){
+  for (const product of productList) {
+    let divproductCard = document.createElement('div')
+    let imgproductcard = document.createElement('img')
+    let divproductinfo = document.createElement('div')
+    let divdivproductinfo = document.createElement('div')
+    let pprice = document.createElement('p')
+    let pname = document.createElement('p')
+    let figureproductinfo = document.createElement('figure')
+    let imgproductinfo = document.createElement('img')
 
+    divproductCard.classList.add('product-card')
+    imgproductcard.setAttribute('src', product.image)
+    divproductinfo.classList.add('product-info')
+    pprice.innerText ='$' + product.price
+    pname.innerText = product.name
+    imgproductinfo.setAttribute('src', './icons/bt_add_to_cart.svg')
+      
+    figureproductinfo.appendChild(imgproductinfo)
+    divdivproductinfo.appendChild(pprice)
+    divdivproductinfo.appendChild(pname)
 
-function renderProducts(arr) {
-  for (product of arr) {
-    const productCard = document.createElement('div');
-    productCard.classList.add('product-card');
-  
-    // product= {name, price, image} -> product.image
-    const productImg = document.createElement('img');
-    productImg.setAttribute('src', product.image);
-    productImg.addEventListener('click', openProductDetailAside);
-  
-    const productInfo = document.createElement('div');
-    productInfo.classList.add('product-info');
-  
-    const productInfoDiv = document.createElement('div');
-  
-    const productPrice = document.createElement('p');
-    productPrice.innerText = '$' + product.price;
-    const productName = document.createElement('p');
-    productName.innerText = product.name;
-  
-    productInfoDiv.appendChild(productPrice);
-    productInfoDiv.appendChild(productName);
-  
-    const productInfoFigure = document.createElement('figure');
-    const productImgCart = document.createElement('img');
-    productImgCart.setAttribute('src', './icons/bt_add_to_cart.svg');
-  
-    productInfoFigure.appendChild(productImgCart);
-  
-    productInfo.appendChild(productInfoDiv);
-    productInfo.appendChild(productInfoFigure);
-  
-    productCard.appendChild(productImg);
-    productCard.appendChild(productInfo);
-  
-    cardsContainer.appendChild(productCard);
+    divproductinfo.appendChild(divdivproductinfo)
+    divproductinfo.appendChild(figureproductinfo)
+
+    divproductCard.appendChild(imgproductcard)
+    divproductCard.appendChild(divproductinfo)
+
+    cardsContainer.appendChild(divproductCard)
+
+    imgproductcard.addEventListener('click', function(){
+      mostrarInfoProduct(product.image, product.price, product.name, product.desc)
+      openProductDetail()
+    });
+
+    imgproductinfo.addEventListener('click', function(){
+      let productoAgregado = []
+      productoAgregado.push({
+        name: product.name,
+        price: product.price,
+        image: product.image
+      })
+      agregarCarrito(productoAgregado)
+    })
   }
 }
 
-renderProducts(productList);
+
+/* Funcion para agregar productos al carrito */
+function agregarCarrito(producto){
+  if(verificarProducto(producto[0].name)){
+      productoACarrito= []
+      return modal.style.display = 'grid'
+  }
+
+  /* Creacion de elemtentos HTML */
+  let divShoppingCart = document.createElement('div')
+  let figureShoppingCart = document.createElement('figure')
+  let imgfigureShoppingCart = document.createElement('img')
+  let pnameShoppingCart = document.createElement('p')
+  let ppriceShoppingCart = document.createElement('p')
+  let imgcloseShoppingCart = document.createElement('img')
+
+  /* Se agrega contenido a cada uno de los elementos */
+  divShoppingCart.classList.add('shopping-cart')
+  imgfigureShoppingCart.setAttribute('src', producto[0].image)
+  pnameShoppingCart.innerText = producto[0].name
+  ppriceShoppingCart.innerText ='$' + producto[0].price
+  imgcloseShoppingCart.setAttribute('src','./icons/icon_close.png')
+  imgcloseShoppingCart.classList.add('removeList')
+
+  /* Se insertan los documentos */
+  figureShoppingCart.appendChild(imgfigureShoppingCart)
+  divShoppingCart.appendChild(figureShoppingCart)
+  divShoppingCart.appendChild(pnameShoppingCart)
+  divShoppingCart.appendChild(ppriceShoppingCart)
+  divShoppingCart.appendChild(imgcloseShoppingCart)
+  myordercontentContainer.appendChild (divShoppingCart)
+
+  /* Se agregan la cantidad de productos ademas de la suma de precios */
+  countCarrito.innerText = document.querySelectorAll('.shopping-cart').length
+  totalCarrito.innerText = '$' + (Number(totalCarrito.innerText.substring(1)) + Number(producto[0].price))
+  productosEnCarrito.push(producto[0].name)
+  
+  /* Funcion para quitar productos del carrito */
+  imgcloseShoppingCart.addEventListener('click', function(){
+      divShoppingCart.remove()
+      countCarrito.innerText = document.querySelectorAll('.shopping-cart').length
+      totalCarrito.innerText = '$' + (Number(totalCarrito.innerText.substring(1)) - Number(producto[0].price))
+      productosEnCarrito.splice(productosEnCarrito.indexOf(producto[0].name),1)
+  }) 
+
+}
+
+
+function mostrarInfoProduct(imagen, precio, nombre, descripcion){
+  productImageInfor.setAttribute('src', imagen)
+  labelPriceInfo.innerText = '$' + precio
+  labelNameInfo.innerText = nombre
+  labelInforInfo.innerText = descripcion
+  productoACarrito = []
+  productoACarrito.push({
+    name: nombre,
+    price: precio,
+    image: imagen
+  })
+}
+
+renderListProduct(productList);
