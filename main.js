@@ -1,19 +1,25 @@
-let menuEmail = document.querySelector('.navbar-email');
-let menuHamIcon = document.querySelector('.menu');
-let menuCarritoIcon = document.querySelector('.navbar-shopping-cart');
-let desktopMenu = document.querySelector('.desktop-menu');
-let mobileMenu = document.querySelector('.mobile-menu');
-let shoppingCartContainer = document.querySelector('.shoppingCartContainer');
-let cardsContainer = document.querySelector('.cards-container');
-let productDetailCloseIcon = document.querySelector('.product-detail-close');
-let productDetailContainer = document.querySelector('.productDetail');
-let productImageInfor = document.querySelector('.jugo');
-let labelPriceInfo = document.querySelector('.product-info p:nth-child(1)');
-let labelNameInfo = document.querySelector('.product-info p:nth-child(2)');
-let labelInforInfo = document.querySelector('.product-info p:nth-child(3)');
-let countCarrito = document.querySelector('.navbar-shopping-cart div');
-let contador = document.querySelector('#contador');
+const menuEmail = document.querySelector('.navbar-email');
+const menuHamIcon = document.querySelector('.menu');
+const menuCarritoIcon = document.querySelector('.navbar-shopping-cart');
+const desktopMenu = document.querySelector('.desktop-menu');
+const mobileMenu = document.querySelector('.mobile-menu');
+const shoppingCartContainer = document.querySelector('.shoppingCartContainer');
+const cardsContainer = document.querySelector('.cards-container');
+const productDetailCloseIcon = document.querySelector('.product-detail-close');
+const productDetailContainer = document.querySelector('.productDetail');
+const productImageInfor = document.querySelector('.jugo');
+const labelPriceInfo = document.querySelector('.product-info p:nth-child(1)');
+const labelNameInfo = document.querySelector('.product-info p:nth-child(2)');
+const labelInforInfo = document.querySelector('.product-info p:nth-child(3)');
+const countCarrito = document.querySelector('.navbar-shopping-cart div');
+const contador = document.querySelector('#contador');
 let numContador = 0
+const itemShopingCart = document.querySelector('#shoping-cart');
+let costoProductoInShoppingCart = document.querySelector('.shopping-cart p:nth-child(3)');
+let nameProductoInShoppingCart = document.querySelector('.shopping-cart p:nth-child(2)');
+let numcostoProductoInShoppingCart = 0
+let imgProductoInShoppingCart = document.querySelector('#fotojugo');
+
 
 
 
@@ -140,17 +146,15 @@ function renderProduct(arr) {
 
     const aumentarNumCarr = () => {
       contador.innerHTML = ++numContador;
+      costoProductoInShoppingCart.innerHTML = ++numcostoProductoInShoppingCart * 5000;
+      nameProductoInShoppingCart.innerHTML = product.name;
+      imgProductoInShoppingCart.setAttribute('src', product.image); 
+
     };
 
-    productImgCart.addEventListener('click', aumentarNumCarr);
-      
-      
-    
-    
-          
+    productImgCart.addEventListener('click', aumentarNumCarr);         
 }
 }
-
 
 function mostrarInfoProduct(imagen, precio, nombre, descripcion){
   productImageInfor.setAttribute('src', imagen);

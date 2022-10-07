@@ -101,16 +101,19 @@ a {
 .navbar-shopping-cart {
   position: relative;
 }
+#contador{
+  color: white;
+}
 .navbar-shopping-cart div {
-  width: 16px;
-  height: 16px;
-  background-color: var(--hospital-green);
+  width: 20px;
+  height: 20px;
+  background-color: purple;
   border-radius: 50%;
   font-size: var(--sm);
   font-weight: bold;
   position: absolute;
-  top: -6px;
-  right: -3px;
+  top: -10px;
+  right: -10px;
   display: flex;
   justify-content: center;
   align-items: center;
@@ -264,7 +267,8 @@ aside {
   object-fit: cover;
 }
 .shopping-cart p:nth-child(2) {
-  color: var(--very-light-pink);
+  color: purple;
+  font-weight: bold;
 }
 .shopping-cart p:nth-child(3) {
   font-size: var(--md);
