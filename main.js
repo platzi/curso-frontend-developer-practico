@@ -5,7 +5,7 @@ const menuBurger = document.querySelector('.menu');
 const mobileMenu = document.querySelector('.mobile-menu');
 
 const menuShoppingCart = document.querySelector('.navbar-shopping-cart');
-const  aside = document.querySelector('.product-detail');
+const  shoppingCartContainer = document.querySelector('#shoppingCartContainer');
 
 const cardsContainer = document.querySelector('.cards-container');
 
@@ -15,20 +15,20 @@ menuShoppingCart.addEventListener('click', toggleShoppingCart);
 
 
 function toggleDesktopMenu() {
-    const isAsideClosed = aside.classList.contains('inactive');
+    const isshoppingCartContainerClosed = shoppingCartContainer.classList.contains('inactive');
 
-    if (!isAsideClosed) {
-        aside.classList.add('inactive');
+    if (!isshoppingCartContainerClosed) {
+        shoppingCartContainer.classList.add('inactive');
     }
     
     desktopMenu.classList.toggle('inactive');
 }
 
 function toggleMobileMenu() {
-    const isAsideClosed = aside.classList.contains('inactive');
+    const isshoppingCartContainerClosed = shoppingCartContainer.classList.contains('inactive');
 
-    if (!isAsideClosed) {
-        aside.classList.add('inactive');
+    if (!isshoppingCartContainerClosed) {
+        shoppingCartContainer.classList.add('inactive');
     }
 
     mobileMenu.classList.toggle('inactive');
@@ -41,7 +41,7 @@ function toggleShoppingCart() {
         mobileMenu.classList.add('inactive');
     }
 
-    aside.classList.toggle('inactive');
+    shoppingCartContainer.classList.toggle('inactive');
 }
 
 
@@ -80,9 +80,8 @@ productList.push({
 productList.push({
     name: 'Specialty Café',
     price: 18,
-    image: 'https://images.pexels.com/photos/9167545/pexels-photo-9167545.jpeg?auto=compress&cs=tinysrgb&w=800'
+    image: 'https://images.pexels.com/photos/2910874/pexels-photo-2910874.jpeg?auto=compress&cs=tinysrgb&w=800'
 });
-
 
 for (product of productList) {
     const productCard = document.createElement('div');
