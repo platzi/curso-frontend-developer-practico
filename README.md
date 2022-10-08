@@ -43,3 +43,16 @@ Ves que la línea del nav se ve interrumpida? si te fijas comenzó a pasar desde
   padding: 24px;
 }
 ```
+
+### For of & for in
+
+For of devuelve el elemento de la lista que se esté iterando
+For in devuelve el index del cada elemento (de 0 a n)
+
+
+🚀 Si usamos `innerHTML` es más directo el proceso, pero no se recomienda hacerlo así, por razones de seguridad y buenas prácticas. 💚
+
+Fuentes:
+
+- [Curso de manipulación del DOM](https://platzi.com/clases/2193-dom/34860-otras-formas-de-agregar/)
+- [developer.mozilla](https://developer.mozilla.org/en-US/docs/Web/API/Element/innerHTML#:~:text=The%20innerHTML%20property%20can%20be,the%20page%20was%20initially%20loaded.)
