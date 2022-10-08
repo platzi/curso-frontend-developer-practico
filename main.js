@@ -3,7 +3,7 @@ const desktopMenu = document.querySelector(".desktop-menu");
 const menuCarritoIcon = document.querySelector(".navbar-shopping-cart");
 const menuHamIcon = document.querySelector(".menu-ham-icon");
 const mobileMenu = document.querySelector(".mobile-menu");
-const asaid = document.querySelector(".product-detail")
+const shopingCartContainer = document.querySelector("#shopingCartContainer")
 const cardsContainer = document.querySelector('.cards-container');
 
 
@@ -13,7 +13,7 @@ menuCarritoIcon.addEventListener("click", toggleCarritoAsaide);
 
 
 function toggleDesktopMenu(){
-   const isMenuCarritoOpen = asaid.classList.contains('inactive-car');
+   const isMenuCarritoOpen = shopingCartContainer.classList.contains('inactive-car');
    if (isMenuCarritoOpen) {
       asaid.classList.remove('inactive-car');
       
@@ -24,9 +24,9 @@ function toggleDesktopMenu(){
 /* funcion para activar el menu en mobil*/
 
 function toggleMobileMenu(){
-   const isMenuCarritoOpen = asaid.classList.contains('inactive-car');
+   const isMenuCarritoOpen = shopingCartContainer.classList.contains('inactive-car');
    if (isMenuCarritoOpen) {
-      asaid.classList.toggle('inactive-car');
+      shopingCartContainer.classList.toggle('inactive-car');
       
    }
     mobileMenu.classList.toggle('inactive-ham');
@@ -42,7 +42,7 @@ function toggleMobileMenu(){
       desktopMenu.classList.remove('inactive');
       console.log('desactiva menu mobil');
    }
-   asaid.classList.toggle('inactive-car');
+   shopingCartContainer.classList.toggle('inactive-car');
  }
 
  const productList = [];
@@ -95,7 +95,7 @@ function toggleMobileMenu(){
    const productPrice = document.createElement('p');
    productPrice.innerText = '$' + product.price;
    const productName = document.createElement('p');
-   productName.innerText = productName;
+   productName.innerText = product.name;
 
    productInfoDiv.appendChild(productPrice);
    productInfoDiv.appendChild(productName);
