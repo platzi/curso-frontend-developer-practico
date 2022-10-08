@@ -49,6 +49,7 @@ nav {
 }
 .navbar-left ul li a,
 .navbar-right ul li a {
+  cursor: pointer;
   text-decoration: none;
   color: var(--very-light-pink);
   border: 1px solid var(--white);
@@ -57,6 +58,7 @@ nav {
 }
 .navbar-left ul li a:hover,
 .navbar-right ul li a:hover {
+  cursor: pointer;
   border: 1px solid var(--hospital-green);
   color: var(--hospital-green);
 }
@@ -68,6 +70,7 @@ nav {
 }
 .navbar-shopping-cart {
   position: relative;
+  cursor: pointer;
 }
 .navbar-shopping-cart div {
   width: 16px;
@@ -103,6 +106,7 @@ nav {
   margin: 0;
 }
 .desktop-menu ul li {
+  cursor: pointer;
   text-align: end;
 }
 .desktop-menu ul li:nth-child(1),
@@ -148,6 +152,7 @@ nav {
   border-bottom: 1px solid var(--very-light-pink);
 }
 .mobile-menu ul li {
+  cursor: pointer;
   margin-bottom: 24px;
 }
 .email {
@@ -314,6 +319,7 @@ aside {
   height: 240px;
   border-radius: 20px;
   object-fit: cover;
+  cursor: pointer;
 }
 .product-card .product-info {
   display: flex;
