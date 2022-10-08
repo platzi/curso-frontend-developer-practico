@@ -32,8 +32,8 @@ function toggleDesktopMenu() {
 }
 ```
 
-Un punto a mejorar:
-![Screenshot 2022-10-08 103607.jpg](https://static.platzi.com/media/user_upload/Screenshot%202022-10-08%20103607-35929556-c0a5-483e-ad37-c579790e5008.jpg)
+Un punto a mejorar: <br>
+![Screenshot 2022-10-08 103607.jpg](https://static.platzi.com/media/user_upload/Screenshot%202022-10-08%20103607-35929556-c0a5-483e-ad37-c579790e5008.jpg) <br>
 Ves que la línea del nav se ve interrumpida? si te fijas comenzó a pasar desde que le pusimos un background al menu, esto se soluciona fácilmente ajustando la posición del menú en el css:
 ```css
 .mobile-menu {
