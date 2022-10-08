@@ -129,6 +129,7 @@
   /*Mobile Menu*/
 
   .mobile-menu {
+    background-color: var(--white);
     position: absolute;
     top: 60px;
     padding: 24px;
@@ -163,8 +164,9 @@
 /*Aside-shopping Cart*/
 
 .product-detail {
+  background-color: var(--white);
   width: 360px;
-  padding: 24px;
+  padding: 0 24px;
   box-sizing: border-box;
   position: absolute;
   right: 0;
@@ -209,6 +211,9 @@
   margin-bottom: 24px;
   align-items: center;
 }
+.navbar-shopping-cart {
+  cursor: pointer;
+}
 .shopping-cart figure {
   margin: 0;
 }
@@ -236,11 +241,7 @@
   font-weight: bold;
   height: 50px;
 }
-@media (max-width: 640px) {
-  .product-detail {
-    width: 100%;
-  }
-}
+
 
 
 
@@ -257,8 +258,12 @@
     .desktop-menu {
       display: none;
     }
+    
+    .product-detail {
+      width: 100%;
+    }
   }
-
+    
   @media (min-width: 641px) {
     .mobile-menu {
       display: none;
