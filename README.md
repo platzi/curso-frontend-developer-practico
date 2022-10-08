@@ -21,4 +21,14 @@ menuEmail.addEventListener('click', toggleDesktopMenu)
 function toggleDesktopMenu() {
     desktopMenu.classList.toggle('inactive')
 }
+````
+
+🚀 [(Comentario)](https://platzi.com/comentario/4166440/) Para que la interacción con el menú hamburguesa quede mucho mejor pueden actualizar el cursor a “pointer” en la clase menu en el archivo css: 💚
+
+```css
+.menu {
+  display: none;
+  cursor: pointer;
+}
 ```
+
