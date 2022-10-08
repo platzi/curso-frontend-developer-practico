@@ -5,17 +5,21 @@ const mobileMenu = document.getElementById('mobile-menu');
 const cartDetail = document.getElementById('cart-detail');
 const cartButton = document.getElementById('cart-button');
 const cardContainer = document.getElementById('card-container');
+const productViewDetail = document.getElementById('product-view-detail');
+const productDetailClose = document.getElementById('product-detail-close');
 
 menuEmail.addEventListener('click', () => {
   desktopContextMenu.classList.toggle('inactive');
 
   cartDetail.classList.add('inactive');
+  productViewDetail.classList.add('inactive');
 });
 
 burguerButton.addEventListener('click', () => {
   mobileMenu.classList.toggle('inactive');
 
   cartDetail.classList.add('inactive');
+  productViewDetail.classList.add('inactive');
 });
 
 cartButton.addEventListener('click', () => {
@@ -24,6 +28,11 @@ cartButton.addEventListener('click', () => {
   mobileMenu.classList.add('inactive');
 
   desktopContextMenu.classList.add('inactive');
+  productViewDetail.classList.add('inactive');
+});
+
+productDetailClose.addEventListener('click', () => {
+  productViewDetail.classList.add('inactive');
 });
 
 const productList = [
@@ -39,7 +48,7 @@ const productList = [
   },
   {
     name: 'Tv',
-    image: 'https://images.philips.com/is/image/PhilipsConsumer/50PUT6513_57-IMS-es_CO?$jpglarge$&wid=960',
+    image: 'https://cdn.computerhoy.com/sites/navi.axelspringer.es/public/media/image/2019/12/samsung-qled-q90r-analisis-opinion_52.jpg',
     price: '100.00'
   },
   {
@@ -62,7 +71,7 @@ const productList = [
         </div>
       </div> */
 
-for(product of productList) {
+for (product of productList) {
   const productCard = document.createElement('div');
   productCard.classList.add('product-card');
   const image = document.createElement('img');
@@ -84,4 +93,11 @@ for(product of productList) {
   productInfo.append(figureCart);
   productCard.append(productInfo);
   cardContainer.append(productCard);
+
+  productCard.addEventListener('click', () => {
+    productViewDetail.classList.remove('inactive');
+    cartDetail.classList.add('inactive');
+    mobileMenu.classList.add('inactive');
+    desktopContextMenu.classList.add('inactive');
+  });
 }
