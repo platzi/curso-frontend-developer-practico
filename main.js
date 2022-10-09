@@ -13,14 +13,36 @@ menuMobileOption.addEventListener("click", toggleDesktopMenuMobile);
 shoopingCart.addEventListener('click',toggleContainerCart);
 
 function toggleDesktopMenu(){
-        menuDesktop.classList.toggle('inactive');
+       
+        if(!(containerCartShooping.classList.toggle('inactive'))){
+                containerCartShooping.classList.toggle('inactive');
+                menuDesktop.classList.toggle('inactive');
+        }else{
+                menuDesktop.classList.toggle('inactive');
+        }
 
 }
 
 function toggleDesktopMenuMobile(){
-        menuMobile.classList.toggle('inactive');
+        ;
+        if(!(containerCartShooping.classList.toggle('inactive'))){
+                containerCartShooping.classList.toggle('inactive');
+                menuMobile.classList.toggle('inactive')
+        }else{
+                menuMobile.classList.toggle('inactive')
+        }
 }
 
 function toggleContainerCart(){
-        containerCartShooping.classList.toggle('inactive');
+        if(!(menuDesktop.classList.contains("inactive"))){
+                menuDesktop.classList.toggle('inactive'); 
+                containerCartShooping.classList.toggle('inactive');
+        }else if(!(menuMobile.classList.toggle('inactive'))){
+                menuMobile.classList.toggle('inactive');
+                containerCartShooping.classList.toggle('inactive');
+        }
+        else{
+                containerCartShooping.classList.toggle('inactive');
+        }
+        
 }
