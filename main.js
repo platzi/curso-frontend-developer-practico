@@ -31,7 +31,16 @@ shopcarMenu.addEventListener('click', toggleAsideMenu);
 const cardsContainers = document.querySelector ('.cards-container');
 
 
+// creamos una constante que almacenara el selector de nuestro aside
+const productDetailView = document.querySelector ('.product-detail-view');
+
+
+// creamos un selector que sera el que usaremos para cerrar el asidetaail el cual sera el icono del aside de X
+
+
 // aqui creamos la funcionque se encargara de darle la accion al lo que queremos realizar
+const productDetailClose = document.querySelector ('.product-detail-close');
+
 
 function toggleDesktopMenu () {
     //si fuenciono pero no se retrae el menu
@@ -53,6 +62,9 @@ function toggleDesktopMenu () {
 function toggleMobileMenu () {
 
     const isAsideClose = aside.classList.contains('inactive');
+
+    closeProductDetailAside ();
+
 //agregamos esta funcion para que valiude que cuando el menu de aside sea activo que le agregue el inactivo y si no se cumple que no
 // que se ejecute el toggle
     if (!isAsideClose) {
@@ -87,12 +99,20 @@ function toggleAsideMenu () {
     // // asimismo validaremos que en la variable de aside cuando contenga y no el inactive
     // const isAsideClose = aside.classList.contains ('inactive');
 
+    const isProductDetailClose = productDetailView.classList.contains('inactive');
 
+   
     //nuestra condicion sera si isMobileClose es diferente a inactiva, add "agregaselo"
     if (!isMobileClose) {
         mobileMenu.classList.add('inactive');
-        console.log('hola');
-    } if (!isDesktopClose) {
+        
+    } 
+    // esta condicion lo que le dice es que si enceuntra en el classlist que este abierto el isProductDetailClose agregale inactivo
+    if (!isProductDetailClose) {
+        productDetailView.classList.add('inactive');
+    }
+    
+    if (!isDesktopClose) {
         desktopMenu.classList.add('inactive');
     }
 
@@ -189,6 +209,28 @@ productList.push({
 })
 
 
+
+
+
+//Creamos una funcion para que generar el toggle para que al dar click se abra la imagen seleccionada
+function openProductDetailAside () {
+
+    //ya que tenemos nuestra funcionalidad que no es Toggle lo que haremos que siempre que quiera abrir el menu del asideView cierre o agregue inactive a todo lo que este abierto
+    aside.classList.add('inactive');
+    
+
+    // lo que hacemos aqui es remover el inactivo del contenedor de aside detail
+    productDetailView.classList.remove('inactive');
+    
+}
+
+function closeProductDetailAside () {
+    // lo que hacemos aqui es agregar el inactivo del contenedor de aside detail
+    productDetailView.classList.add('inactive');
+}
+
+
+
 // hay formas de recorrer arrays como vimos en la clase basica con variables y sumandole 1 a la i para que vaya avanzando por el array el bucle for
 //pero, una forma facil de que se puede adquieirir un valor especifico del array es con la propiedad 'of', aplicada de la siguiente manera
 
@@ -210,6 +252,15 @@ for (product of productList) {
     //le cambiaremos el atributo al contenedor img que hara que de como resultado la imagen del objeto que esta en el array de la sigueinte forma
     //normalmente usamos src para seguido de una direccion de la imagen p0ero en este caso haremos que sea dinamica la funcion y llamara directamente la imagen del producto que queramos
     productImg.setAttribute ('src', product.image);
+
+
+    //agregamos un listener para que sea visible el detalle de cada producto de la sigueinte forma
+    productImg.addEventListener ('click', openProductDetailAside);
+
+    
+    // aqwui estamos creando el evento para que sea escuchado el click para que sea ejecutado en la imagen de X y se cierre el detail
+    productDetailClose.addEventListener ('click', closeProductDetailAside);
+
 
     // agregamos el contenedor de la info de la misma forma que el product card
     const productInfo = document.createElement ('div');
