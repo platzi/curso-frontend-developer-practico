@@ -69,44 +69,50 @@ function toggleContainerCart(){
         
 }
 
-for(product of productList){
-        const productCard = document.createElement('div');
-        productCard.classList.add('product-card');
-
-        const img = document.createElement('img');
-        img.setAttribute('src',product.image);
 
 
-        const productInfo = document.createElement('div');
-        productInfo.classList.add('product-info');
-
-        const info = document.createElement('div');
-
-        const price = document.createElement('p');
-        price.innerText ='$'+ product.price ;
-
-        const name = document.createElement('p');
-        name.innerText = product.name;
-
-        const cart = document.createElement('figure');
-
-        const cartImage = document.createElement('img');
-        cartImage.setAttribute('src',"./icons/bt_add_to_cart.svg");
-      
-
-        cart.appendChild(cartImage);
-        info.appendChild(price);
-        info.appendChild(name);
-        productInfo.appendChild(info);
-        productInfo.appendChild(cart);
-        productCard.appendChild(img);
-        productCard.appendChild(productInfo) ;
+function renderProducs(arr){
+        for(product of productList){
+                const productCard = document.createElement('div');
+                productCard.classList.add('product-card');
         
-        mainContainerCart.appendChild(productCard);
+                const img = document.createElement('img');
+                img.setAttribute('src',product.image);
         
         
+                const productInfo = document.createElement('div');
+                productInfo.classList.add('product-info');
+        
+                const info = document.createElement('div');
+        
+                const price = document.createElement('p');
+                price.innerText ='$'+ product.price ;
+        
+                const name = document.createElement('p');
+                name.innerText = product.name;
+        
+                const cart = document.createElement('figure');
+        
+                const cartImage = document.createElement('img');
+                cartImage.setAttribute('src',"./icons/bt_add_to_cart.svg");
+              
+        
+                cart.appendChild(cartImage);
+                info.appendChild(price);
+                info.appendChild(name);
+                productInfo.appendChild(info);
+                productInfo.appendChild(cart);
+                productCard.appendChild(img);
+                productCard.appendChild(productInfo) ;
+                
+                mainContainerCart.appendChild(productCard);   
+        }
+
+        mainContainer.appendChild(mainContainerCart);
 }
 
-mainContainer.appendChild(mainContainerCart);
+renderProducs(productList);
+
+
 
 
