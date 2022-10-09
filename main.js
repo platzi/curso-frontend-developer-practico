@@ -5,7 +5,7 @@ const userEmail=document.querySelector('.navbar-email');
 const burguerMenuIcon=document.querySelector('.menu');
 const mobileMenu=document.querySelector('.mobile-menu');
 const cartMenuIcon=document.querySelector('.navbar-shopping-cart');
-const cartMenu=document.querySelector('.product-detail');
+const cartMenu=document.querySelector('#cartContainer');
 const cardContainer=document.querySelector('.cards-container');
 
 
@@ -53,6 +53,7 @@ productList.push({
     price: '520',
     image:'https://images.pexels.com/photos/333984/pexels-photo-333984.jpeg?cs=srgb&dl=pexels-rene-asmussen-333984.jpg&fm=jpg'
 });
+
 //Function to render products with iteration of array 
 function renderProducts(arr){
     for (product of arr){
