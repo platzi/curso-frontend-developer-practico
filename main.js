@@ -7,6 +7,9 @@ const cartButton = document.getElementById('cart-button');
 const cardContainer = document.getElementById('card-container');
 const productViewDetail = document.getElementById('product-view-detail');
 const productDetailClose = document.getElementById('product-detail-close');
+const productDetailImage = document.getElementById('product-detail-image');
+const productDetailName = document.getElementById('product-detail-name');
+const productDetailPrice = document.getElementById('product-detail-price');
 
 menuEmail.addEventListener('click', () => {
   desktopContextMenu.classList.toggle('inactive');
@@ -72,18 +75,22 @@ const productList = [
       </div> */
 
 for (product of productList) {
+  const name = product.name;
+  const image = product.image;
+  const price = product.price;
+
   const productCard = document.createElement('div');
   productCard.classList.add('product-card');
-  const image = document.createElement('img');
-  image.setAttribute('src', product.image);
-  productCard.append(image);
+  const productImage = document.createElement('img');
+  productImage.setAttribute('src', image);
+  productCard.append(productImage);
   const productInfo = document.createElement('div');
   productInfo.classList.add('product-info');
   const productInfoDiv = document.createElement('div');
   const priceP = document.createElement('p');
-  priceP.innerText = product.price;
+  priceP.innerText = price;
   const productNameP = document.createElement('p');
-  productNameP.innerText = product.name;
+  productNameP.innerText = name;
   productInfoDiv.append(priceP, productNameP);
   productInfo.append(productInfoDiv);
   const figureCart = document.createElement('figure');
@@ -94,10 +101,14 @@ for (product of productList) {
   productCard.append(productInfo);
   cardContainer.append(productCard);
 
-  productCard.addEventListener('click', () => {
+  productImage.addEventListener('click', function () {
     productViewDetail.classList.remove('inactive');
     cartDetail.classList.add('inactive');
     mobileMenu.classList.add('inactive');
     desktopContextMenu.classList.add('inactive');
+
+    productDetailName.innerText = name;
+    productDetailImage.setAttribute('src', image);
+    productDetailPrice.innerText = price;
   });
 }
