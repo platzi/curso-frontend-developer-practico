@@ -258,6 +258,8 @@
     height: 240px;
     border-radius: 20px;
     object-fit: cover;
+    cursor: pointer;
+    
   }
   .product-card .product-info {
     display: flex;
@@ -304,7 +306,7 @@
     width: 100%;
     height: 360px;
     object-fit: cover;
-    border-radius: 0 0 20px 20px;
+    border-radius: 20px ;
   }
   #productDetail .product-info {
     margin: 24px 24px 0 24px;
@@ -372,7 +374,7 @@
       height: 140px;
     }
   }
-  @media (min-width: 641px) {
+  @media (min-width: 813px) {
       .mobile-menu{
           display: none;
       }
