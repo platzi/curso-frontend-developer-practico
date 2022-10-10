@@ -7,7 +7,7 @@ const burgerMenu = document.querySelector('.menu');
 const mobileMenu = document.querySelector('.mobile-menu');
 //clase 20
 const cartMenu = document.querySelector('.navbar-shopping-cart');
-const asideMenu = document.querySelector('.product-detail');
+const shoppingCartContainer = document.querySelector('#shoppingCartContainer');
 //clase 21
 const cardsContainer = document.querySelector('.cards-container');
 
@@ -16,20 +16,20 @@ burgerMenu.addEventListener('click', toggleMobileMenu);
 cartMenu.addEventListener('click', toggleAsideMenu);
 
 function toggleDesktopMenu(){
-    const isAsideMenuClosed = asideMenu.classList.contains('inactive');
+    const isAsideMenuClosed = shoppingCartContainer.classList.contains('inactive');
 
     if(!isAsideMenuClosed){
-        asideMenu.classList.add('inactive');
+        shoppingCartContainer.classList.add('inactive');
     }
 
     desktopMenu.classList.toggle('inactive');
 }
 
 function toggleMobileMenu(){
-    const isAsideMenuClosed = asideMenu.classList.contains('inactive');
+    const isAsideMenuClosed = shoppingCartContainer.classList.contains('inactive');
 
     if(!isAsideMenuClosed){
-        asideMenu.classList.add('inactive');
+        shoppingCartContainer.classList.add('inactive');
     }
 
     mobileMenu.classList.toggle('inactive');
@@ -47,7 +47,7 @@ function toggleAsideMenu(){
         desktopMenu.classList.add('inactive');
     }
 
-    asideMenu.classList.toggle('inactive');
+    shoppingCartContainer.classList.toggle('inactive');
 }
 
 //clase 21
