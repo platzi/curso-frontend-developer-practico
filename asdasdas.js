@@ -11,6 +11,12 @@ menuHamIcon.addEventListener("click", toggleMobileMenu);
 menuCarritoIcon.addEventListener("click", toggleCarritoAside);
 
 function toggleDesktopMenu() {
+  const isAsideClosed = aside.classList.contains("inactive");
+
+  if (!isAsideClosed) {
+    aside.classList.add("inactive");
+  }
+
   desktopMenu.classList.toggle("inactive");
 }
 
@@ -26,14 +32,9 @@ function toggleMobileMenu() {
 
 function toggleCarritoAside() {
   const isMobileMenuClosed = mobileMenu.classList.contains("inactive");
-  const isDesktopMenuClosed = desktopMenu.classList.contains("inactive");
 
   if (!isMobileMenuClosed) {
     mobileMenu.classList.add("inactive");
-  }
-
-  if (!isDesktopMenuClosed) {
-    desktopMenu.classList.add("inactive");
   }
 
   aside.classList.toggle("inactive");
@@ -41,22 +42,22 @@ function toggleCarritoAside() {
 
 const productList = [];
 productList.push({
-  name: "Sillón",
-  price: 300,
+  name: "Bike",
+  price: 120,
   image:
-    "https://images.pexels.com/photos/3965513/pexels-photo-3965513.jpeg?cs=srgb&dl=pexels-ksenia-chernaya-3965513.jpg&fm=jpg",
+    "https://images.pexels.com/photos/276517/pexels-photo-276517.jpeg?auto=compress&cs=tinysrgb&dpr=2&h=650&w=940",
 });
 productList.push({
-  name: "Mesa",
-  price: 150,
+  name: "Pantalla",
+  price: 220,
   image:
-    "https://images.pexels.com/photos/4107279/pexels-photo-4107279.jpeg?cs=srgb&dl=pexels-cottonbro-4107279.jpg&fm=jpg",
+    "https://images.pexels.com/photos/276517/pexels-photo-276517.jpeg?auto=compress&cs=tinysrgb&dpr=2&h=650&w=940",
 });
 productList.push({
-  name: "Silla",
-  price: 40,
+  name: "Compu",
+  price: 620,
   image:
-    "https://images.pexels.com/photos/2762247/pexels-photo-2762247.jpeg?cs=srgb&dl=pexels-hormel-2762247.jpg&fm=jpg",
+    "https://images.pexels.com/photos/276517/pexels-photo-276517.jpeg?auto=compress&cs=tinysrgb&dpr=2&h=650&w=940",
 });
 
 function renderProducts(arr) {
@@ -64,7 +65,7 @@ function renderProducts(arr) {
     const productCard = document.createElement("div");
     productCard.classList.add("product-card");
 
-    // product = {name, price, img} -> product.image
+    // product= {name, price, image} -> product.image
     const productImg = document.createElement("img");
     productImg.setAttribute("src", product.image);
 
