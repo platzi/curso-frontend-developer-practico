@@ -123,6 +123,8 @@ function renderProducts(arr){
 
         cardContainer.appendChild(productCard);
 
+
+        //ESTA FUNCIÒN ES UN INTENTO DE VOLVER DINAMICOS LOS VALORES DEL ASIDE DESPLEGABLE DE LOS PRODUCT DETAILS NO PUDE ??
         productImg.addEventListener('click',function(){
 
             productDetailContainer.classList.add("inactive");
