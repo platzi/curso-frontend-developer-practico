@@ -1,0 +1,257 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta http-equiv="X-UA-Compatible" content="IE=edge">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+<!-- recordemos linkear nuestra hoja de stylos con la etiqueta link -->
+
+<link rel="stylesheet" href="./style.css">
+
+
+<!-- lo que haremos aqui es linquear nuestras fuentes -->
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Quicksand:wght@300;500;700&display=swap" rel="stylesheet">
+
+
+  <!-- comenzamoscreando in index que es y sera la conexion
+de todo el codigo de html con los otros 2 archivos y asi los demas archivos\
+de html -->
+<!-- coemnzamos cambiando el nombre de nuestra pagina web -->
+  <title>YardSales Online sales of anything you want</title>
+
+
+  <!-- <style>
+   cambiamos nuestro codigo de css al archivo dew styles para un mejor manejo
+  </style> -->
+</head>
+<body>
+
+  <!-- aquie comienza la barra de navegacion -->
+  <nav>
+    <img src="./icons/icon_menu.svg" alt="menu" class="menu">
+
+    <div class="navbar-left">
+      <img src="./logos/logo_yard_sale.svg" alt="logo" class="logo">
+
+      <ul>
+        <li>
+          <a href="/">All</a>
+        </li>
+        <li>
+          <a href="/">Clothes</a>
+        </li>
+        <li>
+          <a href="/">Electronics</a>
+        </li>
+        <li>
+          <a href="/">Furnitures</a>
+        </li>
+        <li>
+          <a href="/">Toys</a>
+        </li>
+        <li>
+          <a href="/">Others</a>
+        </li>
+      </ul>
+    </div>
+
+    
+
+    <div class="navbar-right">
+      <ul>
+        <li class="navbar-email">platzi@example.com</li>
+        <li class="navbar-shopping-cart">
+          <img src="./icons/icon_shopping_cart.svg" alt="shopping cart">
+          <div>2</div>
+        </li>
+      </ul>
+    </div>
+
+    <!-- aqui comienza el menu "Hamburguesa " que tendra interraccion con el navbar
+    
+    lo colocamos andentro de nuestro contenedor del navBar par que tenga
+  un mejor entendimiento el codigo al momento de leerse-->
+
+    <div class="desktop-menu inactive"><!-- agregamos la clase inactive para que sea llamada ennuestro css y tenga un display none -->
+      <ul>
+        <li>
+          <a href="/" class="title">My orders</a>
+        </li>
+  
+        <li>
+          <a href="/">My account</a>
+        </li>
+  
+        <li>
+          <a href="/">Sign out</a>
+        </li>
+      </ul>
+    </div>
+  
+    <!-- aqui termina el menu "Hamburguesa " -->
+
+
+    <!-- aqui esta el menu del NavBar mobile version-->
+    <div class="mobile-menu inactive">    <!-- le agregamos la clase de inactive para que al recagar la pagina gracias al css no aparecera desplegado el menu-->
+      <ul>
+        <li>
+          <a href="/">CATEGORIES</a>
+        </li>
+        <li>
+          <a href="/">All</a>
+        </li>
+        <li>
+          <a href="/">Clothes</a>
+        </li>
+        <li>
+          <a href="/">Electronics</a>
+        </li>
+        <li>
+          <a href="/">Furnitures</a>
+        </li>
+        <li>
+          <a href="/">Toys</a>
+        </li>
+        <li>
+          <a href="/">Other</a>
+        </li>
+      </ul>
+  
+      <ul>
+        <li>
+          <a href="/">My orders</a>
+        </li>
+        <li>
+          <a href="/">My account</a>
+        </li>
+      </ul>
+  
+      <ul>
+        <li>
+          <a href="/" class="email">platzi@example.com</a>
+        </li>
+        <li>
+          <a href="/" class="sign-out">Sign out</a>
+        </li>
+      </ul>
+    </div>
+<!-- aqui termina el menu del navBar -->
+  </nav>
+
+  <!-- aqui termina nuestra barra de navegacion mobile version -->
+
+
+  <!-- aqui comienza el aside del carrito de compra -->
+
+  <aside class="product-detail inactive">
+    <div class="title-container">
+      <img src="./icons/flechita.svg" alt="arrow">
+      <p class="title">My order</p>
+    </div>
+
+    <div class="my-order-content">
+      <div class="shopping-cart">
+        <figure>
+          <img src="https://images.pexels.com/photos/276517/pexels-photo-276517.jpeg?auto=compress&cs=tinysrgb&dpr=2&h=650&w=940" alt="bike">
+        </figure>
+        <p>Bike</p>
+        <p>$30,00</p>
+        <img src="./icons/icon_close.png" alt="close">
+      </div>
+
+      <div class="shopping-cart">
+        <figure>
+          <img src="https://images.pexels.com/photos/276517/pexels-photo-276517.jpeg?auto=compress&cs=tinysrgb&dpr=2&h=650&w=940" alt="bike">
+        </figure>
+        <p>Bike</p>
+        <p>$30,00</p>
+        <img src="./icons/icon_close.png" alt="close">
+      </div>
+
+      <div class="shopping-cart">
+        <figure>
+          <img src="https://images.pexels.com/photos/276517/pexels-photo-276517.jpeg?auto=compress&cs=tinysrgb&dpr=2&h=650&w=940" alt="bike">
+        </figure>
+        <p>Bike</p>
+        <p>$30,00</p>
+        <img src="./icons/icon_close.png" alt="close">
+      </div>
+
+      <div class="order">
+        <p>
+          <span>Total</span>
+        </p>
+        <p>$560.00</p>
+      </div>
+
+      <button class="primary-button">
+        Checkout
+      </button>
+    </div>
+  </div>
+  </aside>
+
+<!-- aqui termina el aside del carrito de compras -->
+
+
+<!-- Aquie comienza el aside ded 'calse 12' que se cambiara ya el nombre del aside -->
+
+<aside class="product-detail-view inactive">
+  <div class="product-detail-close">
+    <img src="./icons/icon_close.png" alt="close">
+  </div>
+  <img src="https://images.pexels.com/photos/276517/pexels-photo-276517.jpeg?auto=compress&cs=tinysrgb&dpr=2&h=650&w=940" alt="bike">
+  <div class="product-info-view">
+    <p>$35,00</p>
+    <p>Bike</p>
+    <p>With its practical position, this bike also fulfills a decorative function, add your hall or workspace.</p>
+    <button class="primary-button add-to-cart-button">
+      <img src="./icons/bt_add_to_cart.svg" alt="add to cart">
+      Add to cart
+    </button>
+  </div>
+</aside>
+
+<!-- Aquie termina el aside ded 'calse 12' que se cambio ya el nombre del aside -->
+
+
+
+  <!-- esta es la seccion del MAIN -->
+
+  <section class="main-container">
+    <div class="cards-container">
+<!-- 
+
+
+  lo que hacemos aqui es comentar nuestro codigo para tener como referencia que ira ahi 
+  ya que crearemos este objeto desde 0 con la finalidad de ser llamada por JS las veces que
+  necesitemos
+      <div class="product-card">
+        <img src="https://images.pexels.com/photos/276517/pexels-photo-276517.jpeg?auto=compress&cs=tinysrgb&dpr=2&h=650&w=940" alt="">
+        <div class="product-info">
+          <div>
+            <p>$120,00</p>
+            <p>Bike</p>
+          </div>
+          <figure>
+            <img src="./icons/bt_add_to_cart.svg" alt="">
+          </figure>
+        </div>
+      </div> -->
+
+
+
+
+     
+    </div>
+  </section>
+
+<!--  AQIO ACABA LA SECCIOPNM DEL MAIN -->
+  <!-- aqui llamaremos nuestro script -->
+
+  <script src="./main.js"></script>
+
+</body>
+</html>
