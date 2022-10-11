@@ -42,3 +42,18 @@ function toggleCarritoAside(){
   }
   aside.classList.toggle('inactive');
 }
+
+const productList = [];
+productList.push({
+  name: 'Galleta',
+  price: 2000,
+  image: 'https://static8.depositphotos.com/1350793/825/i/600/depositphotos_8258452-stock-photo-dog-food-in-bowl.jpg'
+
+});
+
+productList.push({
+  name: 'muffins',
+  price: 2500,
+  image: 'https://1.bp.blogspot.com/-CtqyGd98qdc/U-Bg01S0H0I/AAAAAAAAAJo/giqRqnTjm8s/s1600/photo+5.JPG'
+
+});
