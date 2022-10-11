@@ -34,7 +34,7 @@ function toggleMenuDesplegableMobile (){
     }  
 }
 
-//Hola kawaii
+//Hola kawaii como estas
 //EVENTO DE ASIDE DESPLEGABLE -- SHOPPING CART
 
 shoppingCart.addEventListener("click", desplegarAsideShoppingCart)
