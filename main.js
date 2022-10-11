@@ -35,6 +35,7 @@ function toggleMenuDesplegableMobile (){
 }
 
 //Hola kawaii como estas
+// tengo hambre, toca sacar al perro
 //EVENTO DE ASIDE DESPLEGABLE -- SHOPPING CART
 
 shoppingCart.addEventListener("click", desplegarAsideShoppingCart)
