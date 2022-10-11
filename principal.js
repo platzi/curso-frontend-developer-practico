@@ -5,7 +5,7 @@ const burguerMenu = document.querySelector('.menu');
 const mobileMenu = document.querySelector('.mobile-menu');
 
 const  menuShoppingCar= document.querySelector('.navbar-shopping-cart');
-const shoppingCar = document.querySelector('.product-detail');
+const shoppingCar = document.querySelector('#shoppingCarContainer');
 
 const cardsContainer = document.querySelector('.cards-container')
 
