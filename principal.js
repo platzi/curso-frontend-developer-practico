@@ -7,11 +7,14 @@ const mobileMenu = document.querySelector('.mobile-menu');
 const  menuShoppingCar= document.querySelector('.navbar-shopping-cart');
 const shoppingCar = document.querySelector('#shoppingCarContainer');
 
-const cardsContainer = document.querySelector('.cards-container')
+const productDetailContainer = document.querySelector('#productDetail');
+const productDetailCloseIcon = document.querySelector('.product-detail-close');
+const cardsContainer = document.querySelector('.cards-container');
 
 emailMenu.addEventListener('click', toggleDescktopMenu);
 burguerMenu.addEventListener('click', toggleMobileMenu);
 menuShoppingCar.addEventListener('click', toggleCarAside);
+productDetailCloseIcon.addEventListener('click', closeProductDetailAside)
 
 
 function toggleDescktopMenu() {
@@ -48,9 +51,20 @@ function toggleCarAside() {
     if (shoppingMenuClosed) {
         mobileMenu.classList.add('inactive');
         descktopMenu.classList.add('inactive')
+        productDetailContainer.classList.add('inactive');
     }
 
     shoppingCar.classList.toggle('inactive')
+}
+
+function openProductDetailAside() {
+
+    shoppingCarContainer.classList.add('inactive');
+    productDetailContainer.classList.remove('inactive');
+}
+
+function closeProductDetailAside() {
+    productDetailContainer.classList.add('inactive');
 }
 
 const productList = []
@@ -110,6 +124,7 @@ function renderProducts(arr) {
     
         const productImg = document.createElement('img');
         productImg.setAttribute('src', product.image);
+        productImg.addEventListener('click', openProductDetailAside);
     
         const productInfo = document.createElement('div');
         productInfo.classList.add('product-info');
