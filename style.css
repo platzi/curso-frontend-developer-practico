@@ -141,7 +141,8 @@ nav {
   position: absolute;
   left: 0px;
   top: 60px;
-  width: min-content;
+  width: calc(100% - 24px);
+  /*width: min-content;*/
   background-color: var(--white);
   
 }
