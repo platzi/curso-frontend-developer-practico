@@ -5,21 +5,33 @@ const desktopMenu = document.querySelector('.desktop-menu');
 const menuHamIcon = document.querySelector('.menu');
 const mobileMenu = document.querySelector('.mobile-menu');
 const menuCarritoIcon = document.querySelector('.navbar-shopping-cart');
+const productDetailCloseIcon = document.querySelector('.product-detail-close');
+//Para cerrar la vista rápida del producto
 const shoppingCartContainer = document.querySelector('#shoppingCartContainer');
 // Aside es el carrito
+const productDetailContainer = document.querySelector('#productDetail');
+//Es la vista rápida de producto
 const cardsContainer = document.querySelector('.cards-container');
 
 
 menuEmail.addEventListener('click', toggleDesktopMenu);
 menuHamIcon.addEventListener('click', toggleMobileMenu);
 menuCarritoIcon.addEventListener('click', toggleCarritoAside);
+productDetailCloseIcon.addEventListener('click', closeProductDetailAside);
 
 function toggleDesktopMenu() {
     //Función para cerrar el carrito cuando se abre el menú del correo
     const isAsideClosed = shoppingCartContainer.classList.contains('inactive');
-// !isAsideClosed = si no esta cerrado
+// !isAsideClosed = si no esta cerrado entonces esta abierto y se debe de cerrar 
     if (!isAsideClosed) {
         shoppingCartContainer.classList.add('inactive');
+    }
+
+    //Función para la vista rápida del producto al abrir el menú del correo
+    const isProductDetailClosed = productDetailContainer.classList.contains('inactive');
+// !isMobileMenuClosed = si no esta cerrado entonces esta abierto y se debe de cerrar 
+    if (!isProductDetailClosed) {
+        productDetailContainer.classList.add('inactive');
     }
 
     desktopMenu.classList.toggle('inactive');
@@ -28,9 +40,16 @@ function toggleDesktopMenu() {
 function toggleMobileMenu() {
     //Función para cerrar el carrito cuando se abre el menú mobile
     const isAsideClosed = shoppingCartContainer.classList.contains('inactive');
-// !isAsideClosed = si no esta cerrado
+// !isAsideClosed = si no esta cerrado entonces esta abierto y se debe de cerrar 
     if (!isAsideClosed) {
         shoppingCartContainer.classList.add('inactive');
+    }
+
+    //Función para cerrar la vista rápida del producto al abrir el menú mobile
+    const isProductDetailClosed = productDetailContainer.classList.contains('inactive');
+// !isMobileMenuClosed = si no esta cerrado entonces esta abierto y se debe de cerrar 
+    if (!isProductDetailClosed) {
+        productDetailContainer.classList.add('inactive');
     }
 
     mobileMenu.classList.toggle('inactive');
@@ -39,19 +58,55 @@ function toggleMobileMenu() {
 function toggleCarritoAside() {
     //Función para cerrar el menú mobile al abrir el carrito
     const isMobileMenuClosed = mobileMenu.classList.contains('inactive');
-// !isMobileMenuClosed = si no esta cerrado
+// !isMobileMenuClosed = si no esta cerrado entonces esta abierto y se debe de cerrar 
     if (!isMobileMenuClosed) {
         mobileMenu.classList.add('inactive');
     }
 
-    // Función para cerrar el menú del correo al abrir el carrito
+    //Función para cerrar la vista rápida del producto al abrir el carrito
+    const isProductDetailClosed = productDetailContainer.classList.contains('inactive');
+// !isMobileMenuClosed = si no esta cerrado entonces esta abierto y se debe de cerrar 
+    if (!isProductDetailClosed) {
+        productDetailContainer.classList.add('inactive');
+    }
+
+    // Función para cerrar el menú de correo al abrir el carrito
     const isDesktopMenuClosed = desktopMenu.classList.contains('inactive');
-// isDesktopMenuClosed = si no esta cerrado    
+// isProductDetailClosed = si no esta cerrado entonces esta abierto y se debe de cerrar    
     if (!isDesktopMenuClosed) {
         desktopMenu.classList.add('inactive');
     }
 
     shoppingCartContainer.classList.toggle('inactive');
+}
+
+function openProductDetailAside() {
+    // Función para cerrar el menú de correo al abrir la vista rápida del producto
+    const isDesktopMenuClosed = desktopMenu.classList.contains('inactive');
+// isProductDetailClosed = si no esta cerrado entonces esta abierto y se debe de cerrar    
+    if (!isDesktopMenuClosed) {
+        desktopMenu.classList.add('inactive');
+    }
+
+    //Función para cerrar el carrito al abrir la vista rápida del producto
+    const isAsideClosed = shoppingCartContainer.classList.contains('inactive');
+// !isAsideClosed = si no esta cerrado entonces esta abierto y se debe de cerrar 
+    if (!isAsideClosed) {
+        shoppingCartContainer.classList.add('inactive');
+    }
+    
+    //Función para cerrar el menú mobile al abrir el carrito
+    const isMobileMenuClosed = mobileMenu.classList.contains('inactive');
+// !isMobileMenuClosed = si no esta cerrado entonces esta abierto y se debe de cerrar 
+    if (!isMobileMenuClosed) {
+        mobileMenu.classList.add('inactive');
+    }
+
+    productDetailContainer.classList.remove('inactive');
+}
+
+function closeProductDetailAside() {
+    productDetailContainer.classList.add('inactive');
 }
 
                 // LISTA DE PRODUCTOS
@@ -122,6 +177,7 @@ function renderProducts(arr) {
         // product = {name, price, image} -> product.image
         const productImg = document.createElement('img');
         productImg.setAttribute('src', product.image);
+        productImg.addEventListener('click', openProductDetailAside);
     
         const productInfo = document.createElement('div');
         productInfo.classList.add('product-info');
