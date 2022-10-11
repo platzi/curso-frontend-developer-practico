@@ -98,7 +98,7 @@
   .desktop-menu {
     position: absolute;
     background: var(--white);
-    top: 60px;
+    top: 70px;
     right: 60px;
     width: 100px;
     height: auto;
