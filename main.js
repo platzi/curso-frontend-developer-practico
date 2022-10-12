@@ -1,14 +1,17 @@
 const menuEmail = document.querySelector('.navbar-email')
 const menuHamIcon = document.querySelector('.menu')
 const menuCarIcon = document.querySelector('.navbar-shopping-cart')
+const productDetailCloseIcon = document.querySelector('.product-detail-close')
 const desktopMenu = document.querySelector('.desktop-menu')
 const mobileMenu = document.querySelector('.mobile-menu')
-const shoppingCardContainer = document.querySelector('#productDetail')
+const shoppingCardContainer = document.querySelector('#shoppingCardContainer')
 const cardsContainer = document.querySelector('.cards-container')
+const productDetailContainer = document.querySelector('#productDetail')
 
 menuEmail.addEventListener('click',toggleDesktopMenu)
 menuHamIcon.addEventListener('click',toggleMobileMenu)
 menuCarIcon.addEventListener('click',toggleAside)
+productDetailCloseIcon.addEventListener('click',closeProductDetailAside)
 
 function toggleDesktopMenu(){
     const isAsideClosed = shoppingCardContainer.classList.contains('container')
@@ -27,6 +30,8 @@ function toggleMobileMenu(){
         shoppingCardContainer.classList.add('inactive')
     }
 
+    closeProductDetailAside()
+
     mobileMenu.classList.toggle('inactive')
 }
 
@@ -40,6 +45,12 @@ function toggleAside(){
     
     if(!isDesktopMenuClosed){
         desktopMenu.classList.add('inactive')
+    }     
+    
+    const isProductDetailClosed = productDetailContainer.classList.contains('inactive')
+     
+    if(!isProductDetailClosed){
+        productDetailContainer.classList.add('inactive')
     }     
     
     shoppingCardContainer.classList.toggle('inactive')
@@ -64,6 +75,17 @@ productList.push({
     image: 'https://images.pexels.com/photos/276517/pexels-photo-276517.jpeg?auto=compress&cs=tinysrgb&dpr=2&h=650&w=940',
 })
 
+function openProductDetailAside(){
+
+    shoppingCardContainer.classList.add('inactive')
+
+    productDetailContainer.classList.remove('inactive')
+}
+
+function closeProductDetailAside(){
+    productDetailContainer.classList.add('inactive')
+}
+
 function renderProducts(arr){
 
     for(product of arr){
@@ -77,6 +99,7 @@ function renderProducts(arr){
         
         const productImg = document.createElement('img')
         productImg.setAttribute('src',product.image)
+        productImg.addEventListener('click',openProductDetailAside)
         
         const productPrice = document.createElement('p')
         productPrice.innerText = '$' + product.price
