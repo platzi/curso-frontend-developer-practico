@@ -32,20 +32,18 @@ function toogleDesktopmenu(){
 }*/
 
 /*el .toggle devuelve true o false quita y agrega la clase inactive dependiendo si la ya tiene o no en ingles significa palanca es como un interruptos que alterna true y false*/
+
 function toggleDesktopmenu(){
+    
     const isProductsCartClosed = productsInShoppingCart.classList.contains("inactive");
-    const isShadowOff = sombraMenu.classList.contains("inactive");
     
     if(!isProductsCartClosed){/*si el carro de productos esta abierto*/
         productsInShoppingCart.classList.toggle("inactive");
     }
     desktopmenu.classList.toggle("inactive");
     productDetail.classList.add("inactive");
-    if(isShadowOff)
-    sombraMenu.classList.remove("inactive");
-    else{
-        sombraMenu.classList.add("inactive")
-    }
+
+    shadowBox();
 }
 
 function toggleMobileMenu(){
@@ -57,11 +55,11 @@ function toggleMobileMenu(){
 
     mobileMenu.classList.toggle("inactive");
     productDetail.classList.add("inactive");
+    shadowBox()
 }
 function toggleProductsInShoppingCart(){
     const isMobileMenuClosed = mobileMenu.classList.contains("inactive");/*devuelve un booleano si contiene o no esa clase*/
     const isDesktopMenuClosed = desktopmenu.classList.contains("inactive");
-    const isShadowOff = sombraMenu.classList.contains("inactive");
 
 
     if(!isMobileMenuClosed){/*Si el carro de compras esta abierto*/
@@ -72,11 +70,7 @@ function toggleProductsInShoppingCart(){
     }
     productsInShoppingCart.classList.toggle("inactive");
     productDetail.classList.add("inactive");
-    if(isShadowOff)
-    sombraMenu.classList.remove("inactive");
-    else if(!isShadowOff){
-        sombraMenu.classList.add("inactive");
-    }
+    shadowBox();
 }
 /*Se llama la funcion con el evento del click para que ese mismo evento se agregue al llamar a la funcion displayInfoInProductDetail*/
 function clickInProduct(evento){
@@ -87,10 +81,14 @@ function clickInProduct(evento){
 
     /*Llamo la funcion para modificar los datos de cada elemento al abrir el detalle del producto*/
     displayInfoInProductDetail(evento);
+    shadowBox()
 }
 function closeProduct(){
     productDetail.classList.add("inactive");
+    sombraMenu.classList.add("inactive");/*Le agrego la clase inactive para que desaparezca la sombra cada vez que salga de un producto*/
 }
+
+
 /*Funcion para que cada producto detallado que seleccione aparezca*/
 
 function displayInfoInProductDetail(evento){
@@ -121,6 +119,7 @@ function displayInfoInProductDetail(evento){
 
     console.log(nameProductSelectionHTML);
 }
+
 /*otra forma de hacer la funcion displayInfoInProductDetail seria :
 
 function displayInfoInProductDetail(event){
@@ -175,6 +174,22 @@ function toggleCartAside()
  mostrar el menu que debe salir.
     */
 
+ /*Creo una funcion de efecto sombra solo cuando cualquier menu este abierto aparezca y desaparezca cuando ningun menu estee abierto y llamo esta funcion en cada evento de click que ocurre al presionar cada menu*/
+
+ function shadowBox(){
+    const isProductsCartClosed = productsInShoppingCart.classList.contains("inactive");
+    const isMobileMenuClosed = mobileMenu.classList.contains("inactive");
+    const isDesktopMenuClosed = desktopmenu.classList.contains("inactive");
+    const isProductDetailClosed = productDetail.classList.contains("inactive");
+
+    if(!isProductsCartClosed || !isDesktopMenuClosed || !isMobileMenuClosed || !isProductDetailClosed){
+        sombraMenu.classList.remove("inactive");
+    }
+    else if(isDesktopMenuClosed && isProductsCartClosed && isMobileMenuClosed && isProductDetailClosed){
+        sombraMenu.classList.add("inactive");
+    }
+
+ }
 
  /*Ingresando html desde el js (lista de productos)*/
 
