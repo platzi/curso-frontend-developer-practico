@@ -178,9 +178,9 @@
   }
 
   .inactive-car {
-    transition: 300ms;
-
-    transform:translateX(-450px);   
+    /*transition: 300ms;
+    transform:translateX(-450px);  */
+    display: none;
   }
 
    aside {
@@ -188,7 +188,7 @@
     z-index: 2;
     position: absolute;
     width: 360px;
-    right: -450px;
+    right: 10px;
     box-sizing: border-box;
     
   }
