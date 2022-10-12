@@ -19,7 +19,16 @@ email.addEventListener("click" , toggleDesktopmenu);
 burguerMenu.addEventListener("click", toggleMobileMenu);
 shoppingCart.addEventListener("click", toggleProductsInShoppingCart);
 closeProductDetail.addEventListener("click", closeProduct);
+sombraMenu.addEventListener("click", closedAllMenus);
 
+
+function closedAllMenus(){
+    productDetail.classList.add("inactive");
+    mobileMenu.classList.add("inactive");
+    sombraMenu.classList.add("inactive");
+    desktopmenu.classList.add("inactive");
+    productsInShoppingCart.classList.add("inactive");
+}
 
 /*esta es una forma de hacerla(como se me ocurrio a mi) el .matches sirve para comprobar si un elemento contiene una clase
 function toogleDesktopmenu(){
