@@ -13,6 +13,10 @@ const aside = document.querySelector('.product-detail');
 /**Variables para el contenedor de productos */
 const cardContainer = document.querySelector('.cards-container');
 
+/**Variable para contenedor de los detalles de productos */
+const productDitailContainer = document.querySelector('.product-detail-secundary');
+const productDitailCloseIcon = document.querySelector('.product-detail-secundary-close')
+
 /**Funcion para menu desktop */
 menuEmail.addEventListener('click', toggleDesktopMenu);
 function toggleDesktopMenu(){
@@ -27,10 +31,14 @@ function toggleDesktopMenu(){
 menu.addEventListener('click', toggleMobileMenu);
 function toggleMobileMenu() {
     const isAsideClosed = aside.classList.contains('inactive');
+    const isAsideSecundaryClosed = productDitailContainer.classList.contains('inactive');
     if (!isAsideClosed) {
         aside.classList.add('inactive');
-    } 
-
+    }
+    
+    if (!isAsideSecundaryClosed) {
+        productDitailContainer.classList.add('inactive');
+    }
     mobileMenu.classList.toggle('inactive');
 }
 
@@ -39,6 +47,7 @@ menuCarritoIcon.addEventListener('click', toggleCarritoAside);
 function toggleCarritoAside() {
     const isMobileMenuClosed = mobileMenu.classList.contains('inactive');
     const isDesktopMenuClosed = desktopMenu.classList.contains('inactive');
+    const isAsideSecundaryClosed = productDitailContainer.classList.contains('inactive');
 
     if (!isMobileMenuClosed) {
         mobileMenu.classList.add('inactive');
@@ -48,8 +57,27 @@ function toggleCarritoAside() {
         desktopMenu.classList.add('inactive');
     }
 
+    if (!isAsideSecundaryClosed) {
+        productDitailContainer.classList.add('inactive');
+    }
     aside.classList.toggle('inactive');
 }
+
+/**Funcion para abrir detalles de productos */
+function openProductDetailsAside() {
+    const isAsideClosed = aside.classList.contains('inactive');
+    if (!isAsideClosed) {
+        aside.classList.add('inactive');
+    } 
+    productDitailContainer.classList.remove('inactive');
+}
+
+/**Funcion para cerrar detalles de productos */
+productDitailCloseIcon.addEventListener('click', closeProductDitailsAside);
+function closeProductDitailsAside() {
+    productDitailContainer.classList.add('inactive');
+}
+
 
 /**Generar listado de productos con js */
 /**Crear objetos con las caracteristicas del producto y almacenarlo en el arreglo */
@@ -82,40 +110,48 @@ productList.push({
     
 })
 
-/**Crear el producto en la pagina mediante el DOM */
-for (product of productList) {
-    /**Crear div - product-card */
-    const productCard = document.createElement('div');
-    productCard.classList.add('product-card');
 
-    /*Crear producto con la informacion del los objetos del arreglo */
-    /**Imagen con url especifica del objeto */
-    const productImg = document.createElement('img');
-    productImg.setAttribute('src', product.image);
-
-    /**Contendor div product-info */
-    const productInfo = document.createElement('div');
-    productInfo.classList.add('product-info');
-
-    /**Contendor div */
-    const productInfoDiv = document.createElement('div');
+/**Encapsulamos el ciclo en una funcion */
+function renderProducts(arr) {
+    /**Crear el producto en la pagina mediante el DOM */
+    for (arr of productList) {
+        /**Crear div - product-card */
+        const productCard = document.createElement('div');
+        productCard.classList.add('product-card');
     
-    /**Etiqueta que tendra el precio */
-    const productPrice = document.createElement('p');
-    productPrice.innerHTML = '$' + product.price;
-
-    /**Etiqueta que tendra el nombre */
-    const productName = document.createElement('p');
-    productName.innerHTML = '$' + product.name;
-
-    const producInfoFigure = document.createElement('figure');
-    const productImgCart = document.createElement('img');
-    productImgCart.setAttribute('src', './icons/bt_add_to_cart.svg');
-
-    /**Ordenamos las constantes creadas para enviar la info al html */
-    producInfoFigure.appendChild(productImgCart);
-    productInfoDiv.append(productPrice,productName);
-    productInfo.append(productInfoDiv,producInfoFigure);
-    productCard.append(productImg,productInfo);
-    cardContainer.appendChild(productCard);
+        /*Crear producto con la informacion del los objetos del arreglo */
+        /**Imagen con url especifica del objeto */
+        const productImg = document.createElement('img');
+        productImg.setAttribute('src', arr.image);
+        productImg.addEventListener('click', openProductDetailsAside);
+    
+        /**Contendor div product-info */
+        const productInfo = document.createElement('div');
+        productInfo.classList.add('product-info');
+    
+        /**Contendor div */
+        const productInfoDiv = document.createElement('div');
+        
+        /**Etiqueta que tendra el precio */
+        const productPrice = document.createElement('p');
+        productPrice.innerHTML = '$' + arr.price;
+    
+        /**Etiqueta que tendra el nombre */
+        const productName = document.createElement('p');
+        productName.innerHTML = '$' + arr.name;
+    
+        const producInfoFigure = document.createElement('figure');
+        const productImgCart = document.createElement('img');
+        productImgCart.setAttribute('src', './icons/bt_add_to_cart.svg');
+    
+        /**Ordenamos las constantes creadas para enviar la info al html */
+        producInfoFigure.appendChild(productImgCart);
+        productInfoDiv.append(productPrice,productName);
+        productInfo.append(productInfoDiv,producInfoFigure);
+        productCard.append(productImg,productInfo);
+        cardContainer.appendChild(productCard);
+    }
 }
+
+/**Ejecutar funcion que envia como argumento el parametro 'Arreglo' */
+renderProducts(productList);
