@@ -181,17 +181,23 @@ aside {
 .title-container img {
     transform: rotate(180deg);
     margin-right: 14px;
+    margin-left: 5px;
 }
 .title {
     font-size: var(--lg);
     font-weight: bold;
+}
+.my-order-content {
+    display: flex;
+    flex-direction: column;
+    margin: 10px;
+    background: var(--text-input-field);
 }
 .order {
     display: grid;
     grid-template-columns: auto 1fr;
     gap: 16px;
     align-items: center;
-    background-color: var(--text-input-field);
     margin-bottom: 24px;
     border-radius: 8px;
     padding: 0 24px;
@@ -214,6 +220,7 @@ aside {
     gap: 16px;
     margin-bottom: 24px;
     align-items: center;
+    margin: 10px;
 }
 .shopping-cart figure {
     margin: 0;
@@ -250,8 +257,8 @@ aside {
     width: 14px;
     height: 14px;
     position: absolute;
-    top: 24px;
-    left: 24px;
+    top: 15px;
+    left: 15px;
     z-index: 2;
     padding: 12px;
     border-radius: 50%;
@@ -263,7 +270,7 @@ aside {
     width: 100%;
     height: 360px;
     object-fit: cover;
-    border-radius: 0 0 20px 20px;
+    border-radius: 20px 20px 20px 20px;
 }
 #productDetail .product-info {
     margin: 24px 24px 0 24px;
