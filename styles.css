@@ -267,6 +267,12 @@ color: var(--hospital-green);
     padding: 12px;
     border-radius: 50%;
   }
+  .product-detail-close img{
+    position: relative;
+    top: -20%;
+    
+  }
+
 
   .product-detail-close:hover {
     cursor: pointer;

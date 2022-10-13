@@ -2,34 +2,48 @@
 const menuEmail = document.querySelector(".navbar-email");
 const desktopMenu = document.querySelector(".desktop-menu");
 const burguerMenu = document.querySelector(".menu");
+// este es el menu de los telefonos
 const mobileMenu = document.querySelector(".mobile-menu");
+// este es el menu de los telefonos
 const carritoCompra = document.querySelector(".navbar-shopping-cart");
+// este es el es carrito 
 const shopppingCartContainer = document.querySelector("#shopppingCartContainer");
+// shopppingCartContainer es el que se abre cuando le das al carrito 
 const cardContainer = document.querySelector(".cards-container");
-
+const productDetail = document.querySelector("#productDetail");  
+// productDetail es el que se abre cuando le das a la imagen
+const xClose = document.querySelector("#xClose");
 
 menuEmail.addEventListener("click", toggleDesktopMenu);
 burguerMenu.addEventListener("click", togglemobileMenu);
 carritoCompra.addEventListener("click", toggleCarrito);
-
+xClose.addEventListener("click", closeCommentBox);
 
 
 function toggleDesktopMenu(){
 
 const isAsideClosed = shopppingCartContainer.classList.contains("inative");
+const isproductDetailClosed = productDetail.classList.contains("inative");
 
 if(!isAsideClosed){
     shopppingCartContainer.classList.add("inative");
 }
+
+if (!isproductDetailClosed){
+    productDetail.classList.add("inative");
+}
 desktopMenu.classList.toggle("inative");
 }
 
-
 function togglemobileMenu (){
     const isAsideClosed = shopppingCartContainer.classList.contains("inative");
+    const isproductDetailClosed = productDetail.classList.contains("inative");
 
     if(!isAsideClosed){
         shopppingCartContainer.classList.add("inative");
+    }
+    if (!isproductDetailClosed){
+        productDetail.classList.add("inative");
     }
     mobileMenu.classList.toggle("inative");
     }
@@ -37,6 +51,7 @@ function togglemobileMenu (){
 function toggleCarrito (){
     const isMobileMenuClosed = mobileMenu.classList.contains("inative");
 const isDesktopMenuClosed = desktopMenu.classList.contains("inative");
+const isproductDetailClosed = productDetail.classList.contains("inative");
 
     if(!isMobileMenuClosed){
     mobileMenu.classList.add("inative");
@@ -44,8 +59,40 @@ const isDesktopMenuClosed = desktopMenu.classList.contains("inative");
     if(!isDesktopMenuClosed){
         desktopMenu.classList.add("inative");
         }
+    if (!isproductDetailClosed){
+        productDetail.classList.add("inative");
+    }
     shopppingCartContainer.classList.toggle("inative");
     }
+
+
+
+function openCommentBox(){
+    const isAsideClosed = shopppingCartContainer.classList.contains("inative");
+    const isDesktopMenuClosed = desktopMenu.classList.contains("inative");
+    const isMobileMenuClosed = mobileMenu.classList.contains("inative");
+
+    if(!isAsideClosed){
+        shopppingCartContainer.classList.add("inative");
+    }
+
+    if(!isDesktopMenuClosed){
+        desktopMenu.classList.add("inative");
+        }
+    
+        if(!isMobileMenuClosed){
+            mobileMenu.classList.add("inative");
+            }     
+productDetail.classList.remove("inative");
+}
+
+function closeCommentBox(){
+    productDetail.classList.add("inative");
+}
+
+
+
+
 
 const productList = [];
  productList.push({
@@ -81,6 +128,7 @@ productCard.classList.add("product-card");
 
 const productImg = document.createElement("img");
 productImg.setAttribute("src", product.image);
+productImg.addEventListener("click", openCommentBox);
 
 const productInfo = document.createElement("div");
 productInfo.classList.add("product-info");
