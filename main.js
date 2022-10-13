@@ -6,7 +6,8 @@ const desktopMenu = document.querySelector('.desktop-menu');
 menuEmail.addEventListener('click', showDesktopMenu);
 
 function showDesktopMenu() {  
-  /* para que no se pueda abrir el menu + el carrito al mismo tiempo */
+  /* para que no se pueda abrir el menu + el carrito al mismo tiempo
+  que si uno esta abierto el otro se cierra y vice versa */
 
     myOrderDesktop.classList.add('inactive'); /* el add activa la clase inactive. O sea que que si esta abierto, lo cierra. */
     desktopMenu.classList.toggle('inactive'); 
@@ -20,7 +21,8 @@ const mobileMenu = document.querySelector('.mobile-menu');
 burgerMenu.addEventListener('click', showMobileMenu);
 
 function showMobileMenu() {
-  /* para que no se pueda abrir el menu + el carrito al mismo tiempo */
+  /* para que no se pueda abrir el menu + el carrito al mismo tiempo 
+  que si uno esta abierto el otro se cierra y vice versa */
 
     myOrderDesktop.classList.add('inactive'); /* el add activa la clase inactive. O sea que que si esta abierto, lo cierra. */
     mobileMenu.classList.toggle('inactive');
@@ -34,7 +36,8 @@ const myOrderDesktop = document.querySelector('.product-detail');
 shoppingCart.addEventListener('click', showMyOrder);
 
 function showMyOrder() {
-  /* para que no se pueda abrir el menu + el carrito al mismo tiempo */
+  /* para que no se pueda abrir el menu + el carrito al mismo tiempo
+  que si uno esta abierto el otro se cierra y vice versa */
 
     mobileMenu.classList.add('inactive'); /* el add activa la clase inactive. O sea que que si esta abierto, lo cierra. */
     myOrderDesktop.classList.toggle('inactive');
