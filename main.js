@@ -47,60 +47,6 @@ products.push({
   image: 'https://images.unsplash.com/photo-1593642632823-8f785ba67e45?ixlib=rb-1.2.1&ixid=MnwxMjA3fDB8MHxzZWFyY2h8Nnx8bGFwdG9wc3xlbnwwfHwwfHw%3D&w=1000&q=80',
   
 })
-products.push({
-  name: 'Bike',
-  price: 120,
-  image: 'https://images.pexels.com/photos/276517/pexels-photo-276517.jpeg?auto=compress&cs=tinysrgb&dpr=2&h=650&w=940',
-
-})
-products.push({
-  name: 'Screen',
-  price: 220,
-  image: 'https://www.sony.com/image/2a8264bd4060bb485e1deeeec1c5564a?fmt=pjpeg&resMode=bisharp&wid=354',
-  
-})
-products.push({
-  name: 'Computer',
-  price: 620,
-  image: 'https://images.unsplash.com/photo-1593642632823-8f785ba67e45?ixlib=rb-1.2.1&ixid=MnwxMjA3fDB8MHxzZWFyY2h8Nnx8bGFwdG9wc3xlbnwwfHwwfHw%3D&w=1000&q=80',
-  
-})
-products.push({
-  name: 'Bike',
-  price: 120,
-  image: 'https://images.pexels.com/photos/276517/pexels-photo-276517.jpeg?auto=compress&cs=tinysrgb&dpr=2&h=650&w=940',
-
-})
-products.push({
-  name: 'Screen',
-  price: 220,
-  image: 'https://www.sony.com/image/2a8264bd4060bb485e1deeeec1c5564a?fmt=pjpeg&resMode=bisharp&wid=354',
-  
-})
-products.push({
-  name: 'Computer',
-  price: 620,
-  image: 'https://images.unsplash.com/photo-1593642632823-8f785ba67e45?ixlib=rb-1.2.1&ixid=MnwxMjA3fDB8MHxzZWFyY2h8Nnx8bGFwdG9wc3xlbnwwfHwwfHw%3D&w=1000&q=80',
-  
-})
-products.push({
-  name: 'Bike',
-  price: 120,
-  image: 'https://images.pexels.com/photos/276517/pexels-photo-276517.jpeg?auto=compress&cs=tinysrgb&dpr=2&h=650&w=940',
-
-})
-products.push({
-  name: 'Screen',
-  price: 220,
-  image: 'https://www.sony.com/image/2a8264bd4060bb485e1deeeec1c5564a?fmt=pjpeg&resMode=bisharp&wid=354',
-  
-})
-products.push({
-  name: 'Computer',
-  price: 620,
-  image: 'https://images.unsplash.com/photo-1593642632823-8f785ba67e45?ixlib=rb-1.2.1&ixid=MnwxMjA3fDB8MHxzZWFyY2h8Nnx8bGFwdG9wc3xlbnwwfHwwfHw%3D&w=1000&q=80',
-  
-})
 
 function renderProducts(array){
   for(product of products){
