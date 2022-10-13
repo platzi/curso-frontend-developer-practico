@@ -1,21 +1,41 @@
-/* Para que el menu aparezca y desaparezca cuando se la da click */
+/* DESKTOP MENU */
 
 const menuEmail = document.querySelector('.navbar-email');
 const desktopMenu = document.querySelector('.desktop-menu');
-const menuHamIcon = document.querySelector('.menu');
+
+menuEmail.addEventListener('click', showDesktopMenu);
+
+function showDesktopMenu() {  
+  /* para que no se pueda abrir el menu + el carrito al mismo tiempo */
+
+    myOrderDesktop.classList.add('inactive'); /* el add activa la clase inactive. O sea que que si esta abierto, lo cierra. */
+    desktopMenu.classList.toggle('inactive'); 
+};
+
+/* MOBILE MENU */
+
+const burgerMenu = document.querySelector('.menu');
 const mobileMenu = document.querySelector('.mobile-menu');
 
+burgerMenu.addEventListener('click', showMobileMenu);
 
-menuEmail.addEventListener('click', toggleDesktopMenu);
-menuHamIcon.addEventListener('click', toggleMobileMenu);
+function showMobileMenu() {
+  /* para que no se pueda abrir el menu + el carrito al mismo tiempo */
 
+    myOrderDesktop.classList.add('inactive'); /* el add activa la clase inactive. O sea que que si esta abierto, lo cierra. */
+    mobileMenu.classList.toggle('inactive');
+};
 
-function toggleDesktopMenu() {
-  desktopMenu.classList.toggle('inactive'); 
-  /* cada vez que le den click a ese elemento de email en el menu,
-  se va a ejecutar esta funcion. */
-}
+/* SHOPPING KART */
 
-function toggleMobileMenu() {
-  mobileMenu.classList.toggle('inactive');
-}
+const shoppingCart = document.querySelector('.navbar-shopping-cart');
+const myOrderDesktop = document.querySelector('.product-detail');
+
+shoppingCart.addEventListener('click', showMyOrder);
+
+function showMyOrder() {
+  /* para que no se pueda abrir el menu + el carrito al mismo tiempo */
+
+    mobileMenu.classList.add('inactive'); /* el add activa la clase inactive. O sea que que si esta abierto, lo cierra. */
+    myOrderDesktop.classList.toggle('inactive');
+};
