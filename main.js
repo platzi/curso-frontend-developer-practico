@@ -238,7 +238,7 @@ function agregarCarrito(producto){
   divShoppingCart.appendChild(pnameShoppingCart)
   divShoppingCart.appendChild(ppriceShoppingCart)
   divShoppingCart.appendChild(imgcloseShoppingCart)
-  myordercontentContainer.appendChild (divShoppingCart)
+  myordercontentContainer.appendChild(divShoppingCart)
 
   /* Se agregan la cantidad de productos ademas de la suma de precios */
   countCarrito.innerText = document.querySelectorAll('.shopping-cart').length
