@@ -22,13 +22,7 @@ closeProductDetail.addEventListener("click", closeProduct);
 sombraMenu.addEventListener("click", closedAllMenus);
 
 
-function closedAllMenus(){
-    productDetail.classList.add("inactive");
-    mobileMenu.classList.add("inactive");
-    sombraMenu.classList.add("inactive");
-    desktopmenu.classList.add("inactive");
-    productsInShoppingCart.classList.add("inactive");
-}
+
 
 /*esta es una forma de hacerla(como se me ocurrio a mi) el .matches sirve para comprobar si un elemento contiene una clase
 function toogleDesktopmenu(){
@@ -97,6 +91,14 @@ function closeProduct(){
     sombraMenu.classList.add("inactive");/*Le agrego la clase inactive para que desaparezca la sombra cada vez que salga de un producto*/
 }
 
+/*Esta funcion es para cada vez que presione en la sombra se cierre cualqier menu abierto*/
+function closedAllMenus(){
+    productDetail.classList.add("inactive");
+    mobileMenu.classList.add("inactive");
+    sombraMenu.classList.add("inactive");
+    desktopmenu.classList.add("inactive");
+    productsInShoppingCart.classList.add("inactive");
+}
 
 /*Funcion para que cada producto detallado que seleccione aparezca*/
 
