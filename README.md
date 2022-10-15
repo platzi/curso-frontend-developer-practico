@@ -1,0 +1,1 @@
+### Nota: los archivos html que comienzan con clase... no cumplen ninguna funcion solo estan por no borrarlos el archico index tiene todo por separado
