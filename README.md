@@ -9,7 +9,6 @@ We added dynamism to the page using JavaScript and CSS, hiding and showing menus
  Also added small details to improve accessibility, like creating media queries and adding small contrast details.
  
  ## Final view here :
- 
- https://rubenhdz20.github.io/curso-frontend-developer-Javascript-practico/
- 
+
+https://rubenhdz20.github.io/YardSale/
  
