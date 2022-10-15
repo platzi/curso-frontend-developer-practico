@@ -200,8 +200,6 @@
   }
 
   .inactive-car {
-    /*transition: 300ms;
-    transform:translateX(-450px);  */
     display: none;
   }
 
@@ -212,8 +210,16 @@
     width: 360px;
     right: 10px;
     box-sizing: border-box;
+    animation-name: salir-derecha;
+    animation-duration: 1s;
+  }
+
+  @keyframes salir-derecha {
+    from { right: -400px;}
+    to  { right: 10px;}
     
   }
+
   .title-container {
     display: flex;
   }
