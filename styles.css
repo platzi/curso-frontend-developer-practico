@@ -83,14 +83,13 @@
   /* menu desplegable en desktop */
 
   .inactive {
-    transform: translatey(490px);
-    transition: 300ms;
+    display: none;
   }
 
   .desktop-menu {
     z-index: 1;
     position: absolute;
-    top: -430px;
+    top: 60px;
     right: 55px;
     width: 100px;
     height: auto;
@@ -98,8 +97,23 @@
     border-radius: 6px;
     padding: 20px 20px 0 20px;
     background: var(--white);
-  
+    animation-name: bajar;
+    animation-duration: 0.6s;
   }
+
+  @keyframes bajar {
+    from { top: 0px;
+          
+    }
+
+    to {top: 60px;
+      
+    }
+
+  }
+
+
+
   .desktop-menu ul {
     list-style: none;
     padding: 0;

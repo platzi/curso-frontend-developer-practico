@@ -34,20 +34,17 @@ function toggleMobileMenu(){
 /*funcion para el menu del carrito*/ 
  function toggleCarritoAsaide(){
    productDetailContainer.classList.add('inactive-productDetail');
-   const isMobileMenuOpen = mobileMenu.classList.contains('inactive-ham');
-   const isMenuDeskOpen = desktopMenu.classList.contains('inactive');
-   if (isMobileMenuOpen || isMenuDeskOpen) {
-      mobileMenu.classList.toggle('inactive-ham');
-      desktopMenu.classList.remove('inactive');
-      console.log('desactiva menu mobil');
-   }
+   mobileMenu.classList.toggle('inactive-ham');
+   desktopMenu.classList.add('inactive');
    shopingCartContainer.classList.toggle('inactive-car');
  }
 
+
  function openProducDetailAsaid(){
   productDetailContainer.classList.remove('inactive-productDetail');
-  desktopMenu.classList.remove('inactive');
+  desktopMenu.classList.add('inactive');
  }
+
 
  function closeProductDetailAsaid(){
   productDetailContainer.classList.add('inactive-productDetail');
