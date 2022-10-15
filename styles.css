@@ -145,18 +145,26 @@
   /* menu desplegable en mobil */
 
   .inactive-ham {
-    transform: translatex(430px);
-    transition: 300ms;
-    left: 0;
-    width: 100%;
+    display: none;
   }
 
   .mobile-menu {
     padding: 24px;
     position: absolute;
     top: 60px;
-    left: -400px;
+    left: 10px;
+    width: 100%;
     background: var(--white);
+    animation-name: salir-izquierda;
+    animation-duration: 1s;
+  }
+
+  @keyframes salir-izquierda {
+    from { left: -400px;
+    }
+    to { left: 10px;
+
+    }
   }
   
   .mobile-menu a {

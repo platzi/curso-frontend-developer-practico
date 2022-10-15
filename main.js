@@ -34,7 +34,7 @@ function toggleMobileMenu(){
 /*funcion para el menu del carrito*/ 
  function toggleCarritoAsaide(){
    productDetailContainer.classList.add('inactive-productDetail');
-   mobileMenu.classList.toggle('inactive-ham');
+   mobileMenu.classList.add('inactive-ham');
    desktopMenu.classList.add('inactive');
    shopingCartContainer.classList.toggle('inactive-car');
  }
