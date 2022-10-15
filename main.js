@@ -3,28 +3,31 @@ const desktopMenu = document.querySelector('.desktop-menu')
 const mobileIcon = document.querySelector('.menu')
 const mobileMenu = document.querySelector('.mobile-menu')
 const cartIcon = document.querySelector('.navbar-shopping-cart')
-const cart = document.querySelector('.product-detail')
+const cart = document.querySelector('#shopping-cart')
 const cardsCont = document.querySelector('.cards-container')
+const detailsWIndow = document.querySelector('#product-details')
+const detailsClose = document.querySelector('.product-detail-close')
+
 
 email.addEventListener('click', toggleEmail)
 mobileIcon.addEventListener('click', toggleMenu)
 cartIcon.addEventListener('click',toggleCart)
+detailsClose.addEventListener('click',closeDetails)
 
 function toggleEmail(){
-  if(!cart.classList.contains('inactive')){
-    cart.classList.toggle('inactive')
-  }
+  if(!cart.classList.contains('inactive')){cart.classList.toggle('inactive')}
+  if(!detailsWIndow.classList.contains('inactive')){detailsWIndow.classList.toggle('inactive')}
   desktopMenu.classList.toggle('inactive');
 }
 function toggleMenu(){
-  if(!cart.classList.contains('inactive')){
-    cart.classList.toggle('inactive')
-  }
+  if(!cart.classList.contains('inactive')){cart.classList.toggle('inactive')}
+  if(!detailsWIndow.classList.contains('inactive')){detailsWIndow.classList.toggle('inactive')}
   mobileMenu.classList.toggle('inactive');
 }
 function toggleCart(){
   if(!mobileMenu.classList.contains('inactive')){mobileMenu.classList.toggle('inactive')}
   if(!desktopMenu.classList.contains('inactive')){desktopMenu.classList.toggle('inactive')}
+  if(!detailsWIndow.classList.contains('inactive')){detailsWIndow.classList.toggle('inactive')}
   cart.classList.toggle('inactive');
 }
 
@@ -49,13 +52,14 @@ products.push({
 })
 
 function renderProducts(array){
-  for(product of products){
+  for(product of array){
 
     const productCard = document.createElement('div')
     productCard.classList.add('product-card')
-  
+    
     const img = document.createElement('img')
     img.setAttribute('src',product.image)
+    img.addEventListener('click', toggleDetails)
   
     productCard.appendChild(img)
   
@@ -87,10 +91,22 @@ function renderProducts(array){
   
     figure.appendChild(productCartImg)
   
-  
-  
     cardsCont.appendChild(productCard)
+
   }
 }
 
+function toggleDetails(){
+  if(!cart.classList.contains('inactive')){cart.classList.toggle('inactive')}
+  if(!desktopMenu.classList.contains('inactive')){desktopMenu.classList.toggle('inactive')}
+
+  if(!detailsWIndow.classList.contains('inactive')){
+    return console.log('refresh')
+  }
+  detailsWIndow.classList.toggle('inactive');
+}
+
+function closeDetails(){
+  detailsWIndow.classList.add('inactive')
+}
 renderProducts(products)
