@@ -17,6 +17,16 @@ body {
 .inactive{
   display: none;
 }
+.prior{
+  z-index: 200;
+}
+.darkscreen{
+  width: 100%; 
+  background: #00000086;
+  position: absolute;
+  top: 61px;
+  z-index: 1;
+}
 
 nav {
   display: flex;
