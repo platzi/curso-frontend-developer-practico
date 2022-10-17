@@ -3,7 +3,10 @@ const desktopMenu = document.querySelector(".desktop-menu");
 const menuCarIcon = document.querySelector(".navbar-shopping-cart");
 const menuHamburgerIcon = document.querySelector(".menu");
 const mobileMenu = document.querySelector(".mobile-menu");
-const shoppingCartContainer = document.querySelector("#shopping-cart-container");
+const shoppingCartContainer = document.querySelector(
+  "#shopping-cart-container"
+);
+const productDetailContainer = document.querySelector("#product-detail");
 const cardsContainer = document.querySelector(".cards-container");
 
 navEmail.addEventListener("click", () => toggleElement(desktopMenu));
@@ -11,6 +14,7 @@ menuHamburgerIcon.addEventListener("click", () => toggleElement(mobileMenu));
 menuHamburgerIcon.addEventListener("click", () => toggleMobileMenu());
 menuCarIcon.addEventListener("click", () => toggleCarritoAside());
 navEmail.addEventListener("click", () => toggleEmailMenu());
+productDetailContainer.addEventListener("click", closeProductDetailAside);
 
 function toggleElement(element) {
   element.classList.toggle("inactive");
@@ -22,6 +26,7 @@ function toggleEmailMenu() {
     shoppingCartContainer.classList.add("inactive");
     desktopMenu.classList.remove("inactive");
   }
+  productDetailContainer.classList.add("inactive");
 }
 
 function toggleMobileMenu() {
@@ -30,15 +35,32 @@ function toggleMobileMenu() {
     desktopMenu.classList.add("inactive");
     shoppingCartContainer.classList.add("inactive");
   }
+  productDetailContainer.classList.add("inactive");
 }
 
 function toggleCarritoAside() {
   const isMobileMenuClosed = mobileMenu.classList.contains("inactive");
+  const isProductDetailClosed =
+    productDetailContainer.classList.contains("inactive");
   if (!isMobileMenuClosed) {
     mobileMenu.classList.add("inactive");
   }
+  if (!isProductDetailClosed) {
+    productDetailContainer.classList.add("inactive");
+  }
   shoppingCartContainer.classList.toggle("inactive");
   desktopMenu.classList.add("inactive");
+}
+
+function openProductDetailAside() {
+  mobileMenu.classList.add("inactive");
+  desktopMenu.classList.add("inactive");
+  shoppingCartContainer.classList.add("inactive");
+  productDetailContainer.classList.remove("inactive");
+}
+
+function closeProductDetailAside() {
+  productDetailContainer.classList.add("inactive");
 }
 
 const productList = [];
@@ -67,7 +89,8 @@ productList.push({
 productList.push({
   name: "Regadero",
   price: 10,
-  image: "https://tiendareco.com/img/cms/watering-young-seedlings-in-the-garden-with-the-gr-U5E49U5%20(1).jpg",
+  image:
+    "https://tiendareco.com/img/cms/watering-young-seedlings-in-the-garden-with-the-gr-U5E49U5%20(1).jpg",
 });
 
 productList.push({
@@ -83,6 +106,7 @@ function renderProducts(productList) {
 
     const productImg = document.createElement("img");
     productImg.setAttribute("src", product.image);
+    productImg.addEventListener("click", openProductDetailAside);
 
     const productInfo = document.createElement("div");
     productInfo.classList.add("product-info");
