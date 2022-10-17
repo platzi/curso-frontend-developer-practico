@@ -42,3 +42,4 @@ function toggleCarritoAside(){
     }
     aside.classList.toggle('inactive')
 }
+
