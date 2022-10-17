@@ -3,7 +3,7 @@ const desktopMenu = document.querySelector(".desktop-menu");
 const menuCarIcon = document.querySelector(".navbar-shopping-cart");
 const menuHamburgerIcon = document.querySelector(".menu");
 const mobileMenu = document.querySelector(".mobile-menu");
-const aside = document.querySelector(".product-detail");
+const shoppingCartContainer = document.querySelector("#shopping-cart-container");
 const cardsContainer = document.querySelector(".cards-container");
 
 navEmail.addEventListener("click", () => toggleElement(desktopMenu));
@@ -17,18 +17,18 @@ function toggleElement(element) {
 }
 
 function toggleEmailMenu() {
-  const isAsideClosed = aside.classList.contains("inactive");
+  const isAsideClosed = shoppingCartContainer.classList.contains("inactive");
   if (!isAsideClosed) {
-    aside.classList.add("inactive");
+    shoppingCartContainer.classList.add("inactive");
     desktopMenu.classList.remove("inactive");
   }
 }
 
 function toggleMobileMenu() {
-  const isAsideClosed = aside.classList.contains("inactive");
+  const isAsideClosed = shoppingCartContainer.classList.contains("inactive");
   if (!isAsideClosed) {
     desktopMenu.classList.add("inactive");
-    aside.classList.add("inactive");
+    shoppingCartContainer.classList.add("inactive");
   }
 }
 
@@ -37,7 +37,7 @@ function toggleCarritoAside() {
   if (!isMobileMenuClosed) {
     mobileMenu.classList.add("inactive");
   }
-  aside.classList.toggle("inactive");
+  shoppingCartContainer.classList.toggle("inactive");
   desktopMenu.classList.add("inactive");
 }
 
@@ -65,8 +65,8 @@ productList.push({
 });
 
 productList.push({
-  name: "Pochita",
-  price: 1000,
+  name: "Regadero",
+  price: 10,
   image: "https://tiendareco.com/img/cms/watering-young-seedlings-in-the-garden-with-the-gr-U5E49U5%20(1).jpg",
 });
 
