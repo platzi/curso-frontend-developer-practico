@@ -54,14 +54,14 @@ productList.push({
     image: 'https://images.pexels.com/photos/276517/pexels-photo-276517.jpeg?auto=compress&cs=tinysrgb&dpr=2&h=650&w=940',
 })
 productList.push({ 
-    name: 'iPhone',
+    name: 'iPhones',
     price: 800,
-    image: 'https://www.citypng.com/public/uploads/preview/iphone-14-pro-and-max-deep-purple-png-11662587434zacaxkb4sd.png',
+    image: 'https://images.pexels.com/photos/9555099/pexels-photo-9555099.jpeg?auto=compress&cs=tinysrgb&w=600',
 })
 productList.push({ 
     name: 'MacBookPro',
     price: 2000,
-    image: 'https://e7.pngegg.com/pngimages/918/793/png-clipart-macbook-pro-13-inch-macbook-air-laptop-macbook-gadget-electronics.png',
+    image: 'https://images.pexels.com/photos/205421/pexels-photo-205421.jpeg?auto=compress&cs=tinysrgb&w=1260&h=750&dpr=1',
 })
 
 
@@ -81,14 +81,13 @@ function renderProducts(arry) {
       
         const productPrice = document.createElement('p')
         productPrice.innerText = "$" + product.price;
-        
         const productName = document.createElement('p')
         productName.innerText = product.name;
       
         productInfoDiv.appendChild(productPrice);
         productInfoDiv.appendChild(productName);
       
-        const productInfoFigure = document.createElement("figuere")
+        const productInfoFigure = document.createElement("figure")
         
         const productImgCard = document.createElement("img");
           productImgCard.setAttribute('src', './icons/bt_add_to_cart.svg');
