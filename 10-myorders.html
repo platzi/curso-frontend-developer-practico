@@ -1,0 +1,116 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Quicksand:wght@300;500;700&display=swap" rel="stylesheet">
+    <title>Document</title>
+    <style>
+        :root {
+            --white: #FFFFFF;
+            --black: #000000;
+            --dark: #232830;
+            --very-light-pink: #C7C7C7;
+            --text-input-field: #F7F7F7;
+            --hospital-green: #ACD9B2;
+            --sm: 14px;
+            --md: 16px;
+            --lg: 18px
+        }
+        body {
+            margin: 0;
+            font-family:'Quicksand', sans-serif;
+        }
+        .title {
+            font-size: var(--lg);
+            margin-bottom: 45px;
+        }
+        .my-order-container {
+            display: grid;
+            grid-template-rows: auto 1fr auto;
+            width: 100vw;
+            place-content: center;
+        }
+        .my-order-content {
+            width: 400px;
+            height: 80px;
+            display: flex;
+            align-items: center;
+            justify-content: space-between;
+            margin-bottom: 5px;
+        }
+        .my-order-content p:nth-child(1) {
+            width: 250px; 
+        }
+        .my-order-content p span {
+            display: flex;
+            flex-direction: column;
+        }
+        .my-order-content p span:nth-child(1) {
+            font-size: var(--md);
+            color: var(--black);
+            font-weight: bold;
+        }
+        .my-order-content p span:nth-child(2) {
+            font-size: var(--sm);
+            color: var(--very-light-pink);
+        }
+        .my-order-content p:nth-child(2) {
+            display: flex;
+            flex-direction: column;
+            font-weight: bold;
+            font-size: var(--md);
+            color: var(--black);
+        }
+        
+        @media (max-width: 640px) {
+            .my-order-content {
+                width: 350px;
+            }
+        }
+    </style>
+</head>
+<body>
+    <div class="my-order">
+        <div class="my-order-container">
+            <h1 class="title"> My orders</h1>
+            <div class="my-order-content">
+                <p>
+                    <span> 07/10/2022 </span>
+                    <span> 03 articles </span>
+                </p>
+                <p> $280 </p>
+                <img src="./icons/flechita.svg" alt="">
+            </div>
+            <div class="my-order-content">
+                <p>
+                    <span> 07/10/2022 </span>
+                    <span> 03 articles </span>
+                </p>
+                <p> $280 </p>
+                <img src="./icons/flechita.svg" alt="">
+            </div>
+            <div class="my-order-content">
+                <p>
+                    <span> 07/10/2022 </span>
+                    <span> 03 articles </span>
+                </p>
+                <p> $280 </p>
+                <img src="./icons/flechita.svg" alt="">
+            </div>
+            <div class="my-order-content">
+                <p>
+                    <span> 07/10/2022 </span>
+                    <span> 03 articles </span>
+                </p>
+                <p> $280 </p>
+                <img src="./icons/flechita.svg" alt="">
+            </div>
+        </div>
+    </div>
+    
+</body>
+</html>

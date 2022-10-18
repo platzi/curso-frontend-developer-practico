@@ -1,0 +1,113 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Quicksand:wght@300;500;700&display=swap" rel="stylesheet">
+    <title>Document</title>
+    <style>
+        :root {
+            --white: #FFFFFF;
+            --black: #000000;
+            --dark: #232830;
+            --very-light-pink: #C7C7C7;
+            --text-input-field: #F7F7F7;
+            --hospital-green: #ACD9B2;
+            --sm: 14px;
+            --md: 16px;
+            --lg: 18px
+        }
+        body {
+            margin: 0;
+            font-family:'Quicksand', sans-serif;
+        }
+        .mobile-menu {
+            width: 250px;
+            height: auto;
+            border: none;
+            font-weight: bold;
+            padding-left: 30px;
+        }
+        h2 {
+            font-size: var(--md);
+        }
+        .mobile-menu ul {
+            list-style: none;
+            margin: 0;
+
+            padding-left: 0;
+        }
+        .mobile-menu ul li {
+            padding-bottom: 35px;
+        }
+        .mobile-menu ul li a {
+            text-decoration: none;
+        }
+        .mobile-menu ul:nth-child(2) {
+            display: flex;
+            flex-direction: column;
+            justify-content: center;
+            margin-top: 15px;
+            border-top: 1px solid var(--text-input-field);
+            padding-top: 25px;
+            margin-bottom: 40px;
+        }
+        .datos {
+            font-size: var(--sm);
+        }
+        .datos p:nth-child(1) {
+            color: var(--very-light-pink);
+            margin-bottom: 2px;
+        }
+        .datos a:nth-child(2) {
+            color: var(--hospital-green);
+            text-decoration: none;
+        }
+        
+    </style>
+</head>
+<body>
+    <div class="mobile-menu">
+        <ul>
+            <li>
+                <h2>CATEGORIES</h2>
+            </li>
+            <li>
+                <a href="">All</a>
+            </li>
+            <li>
+                <a href="">Clothes</a>
+            </li>
+            <li>
+                <a href="">Electronics</a>
+            </li>
+            <li>
+                <a href="">Furnitures</a>
+            </li>
+            <li>
+                <a href="">Toys</a>
+            </li>
+            <li>
+                <a href="">Others</a>
+            </li>
+        </ul>
+        <ul>
+            <li>
+                <a href=""> My orders </a>
+            </li>
+            <li>
+                <a href=""> My account </a>
+            </li>
+        </ul>
+        <div class="datos">
+            <p>mail@example.com</p>
+            <a href="">Sing out</a>
+        </div>
+            
+    </div>
+    
+</body>
+</html>

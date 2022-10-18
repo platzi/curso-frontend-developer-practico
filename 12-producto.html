@@ -1,0 +1,121 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Quicksand:wght@300;500;700&display=swap" rel="stylesheet">
+    <title>Document</title>
+    <style>
+        :root {
+            --white: #FFFFFF;
+            --black: #000000;
+            --dark: #232830;
+            --very-light-pink: #C7C7C7;
+            --text-input-field: #F7F7F7;
+            --hospital-green: #ACD9B2;
+            --sm: 14px;
+            --md: 16px;
+            --lg: 18px
+        }
+        body {
+            margin: 0;
+            font-family:'Quicksand', sans-serif;
+        }
+        .product-details {
+            width: 300px;
+            position: absolute;
+            right: 0;
+        }
+        .product-image img:nth-child(1) {
+            width: 300px;
+            border-bottom-left-radius: 12px;
+            border-bottom-right-radius: 12px;
+        }
+        .product-image img:nth-child(2) {
+            width: 15px;
+            background-color: var(--text-input-field);
+            border-radius: 50%;
+            padding: 5px;
+            position: absolute;
+            left: 8px;
+            top: 8px;
+        }
+        .product-description {
+            display: flex;
+            flex-direction: column;
+            width: 300px;
+        }
+        .product-description p:nth-child(1) {
+            margin-top: 20px;
+            margin-bottom: 2px;
+            font-weight: bold;
+            padding-left: 22px;
+        }
+        .product-description p:nth-child(2) {
+            margin-top: 0;
+            color: var(--very-light-pink);
+            padding-left: 22px;
+        }
+        .product-description p:nth-child(3) {
+            margin-top: 15px;
+            margin-bottom: 30px;
+            justify-content: center;
+            color: var(--very-light-pink);
+            text-align: justify;
+            box-sizing: border-box;
+            padding-left: 22px;
+            padding-right: 22px;
+        }
+        .button {
+            display: flex;
+            justify-content: center;
+        }
+        .primary-button {
+            background-color:  var(--hospital-green);
+            width: 250px;
+            height: 50px;
+            border-radius: 8px;
+            border: none;
+            font-size: var(--md);
+            font-weight: bold;
+            color: var(--white);
+            cursor: pointer;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+        }
+        @media (max-width: 640px) {
+            .product-details {
+                width: 100%;
+                display: flex;
+                flex-direction: column;
+                align-items: center;
+            }
+        }
+    </style>
+</head>
+<body>
+    <aside class="product-details">
+        <div class="product-image">
+            <img src="https://images.pexels.com/photos/1334597/pexels-photo-1334597.jpeg?auto=compress&cs=tinysrgb&w=1260&h=750&dpr=1" alt="tablet">
+            <img src="./icons/icon_close.png" alt="">
+        </div>
+        <div class="product-description">
+            <p> $80 </p>
+            <p> Tablet </p>
+            <p>Enjoy your entertainment with a fast 1.3 GHz quad-core processor. Fire HD 8 offers 50% more RAM than Fire 7 for faster performance. </p>
+
+        </div>
+        <div class="button">
+            <button class="primary-button">
+                <img src="./icons/bt_add_to_cart.svg" alt="add to cart">
+                Add to cart
+            </button>
+        </div>
+        
+    </aside>
+</body>
+</html>
