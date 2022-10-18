@@ -128,6 +128,8 @@
         padding: 24px;
         position: absolute;
         top: 60px;
+        left: 0;
+        width: 100%;
       }
       .mobile-menu a {
         text-decoration: none;
@@ -282,7 +284,8 @@
 
     .each-product-detail {
       width: 360px;
-      padding-bottom: 24px;
+      padding-bottom: 10px;
+      padding-right : 10px;
       position: absolute;
       right: 0;
     }
