@@ -4,7 +4,7 @@ const desktopMenu= document.querySelector('.desktop-menu');
 const menuHamIcon= document.querySelector('.menu');
 const mobileMenu= document.querySelector('.mobile-menu');
 const menuCarritoIcon= document.querySelector('.navbar-shopping-cart');
-const aside= document.querySelector('.product-detail');
+const ShoppingCartContainer= document.querySelector('#ShoppingCartContainer');
 const cardsContainer= document.querySelector('.cards-container');
 
 /* event listeners*/
@@ -16,19 +16,19 @@ menuCarritoIcon.addEventListener('click', toggleCarritoAside);
 /* funciones */
 
 function toggleDesktopMenu(){
-    const isAsideClosed= aside.classList.contains('inactive');
+    const isAsideClosed= ShoppingCartContainer.classList.contains('inactive');
 
    if(!isAsideClosed){
-    aside.classList.toggle('inactive');
+    ShoppingCartContainer.classList.toggle('inactive');
    }
    desktopMenu.classList.toggle('inactive');
 }
 
 function toggleMovileMenu(){
-    const isAsideClosed= aside.classList.contains('inactive');
+    const isAsideClosed= ShoppingCartContainer.classList.contains('inactive');
 
    if(!isAsideClosed){
-    aside.classList.toggle('inactive');
+    ShoppingCartContainer.classList.toggle('inactive');
    }
    mobileMenu.classList.toggle('inactive');
 }
@@ -42,13 +42,30 @@ function toggleCarritoAside(){
    }if (!isDesktopmenuClosed) {
     desktopMenu.classList.toggle('inactive');
    } else {
-    aside.classList.toggle('inactive');
+    ShoppingCartContainer.classList.toggle('inactive');
    }
    
 }
 
-
 const productList=[];
+productList.push({
+    name:'bike',
+    price:'120',
+    image:'https://images.pexels.com/photos/276517/pexels-photo-276517.jpeg?auto=compress&cs=tinysrgb&dpr=2&h=650&w=940',
+
+});
+productList.push({
+    name:'car',
+    price:'1000',
+    image:'https://images.pexels.com/photos/276517/pexels-photo-276517.jpeg?auto=compress&cs=tinysrgb&dpr=2&h=650&w=940',
+
+});
+productList.push({
+    name:'toy',
+    price:'10',
+    image:'https://images.pexels.com/photos/276517/pexels-photo-276517.jpeg?auto=compress&cs=tinysrgb&dpr=2&h=650&w=940',
+
+});
 productList.push({
     name:'bike',
     price:'120',
@@ -106,4 +123,4 @@ function renderProducts(arr){
     }
 }
 
-//renderProducts(productList);
+renderProducts(productList);
