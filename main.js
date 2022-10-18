@@ -43,6 +43,7 @@ function toggleMobileMenu(){
  function openProducDetailAsaid(){
   productDetailContainer.classList.remove('inactive-productDetail');
   desktopMenu.classList.add('inactive');
+  shopingCartContainer.classList.add('inactive-car');
  }
 
 
