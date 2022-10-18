@@ -7,7 +7,7 @@ const mobileMenu = document.querySelector(".mobile-menu");
 const isMobileMenuClosed = mobileMenu.classList.contains("inactive");
 
 const carMenu = document.querySelector(".navbar-shopping-cart");
-const productMenu = document.querySelector(".product-detail");
+const productMenu = document.querySelector("#shoppingCartContainer");
 const isProductMenuClosed = productMenu.classList.contains("inactive");
 
 menuEmail.addEventListener("click", toggleDesktopMenu);
@@ -77,6 +77,11 @@ productCard.push({
 	image:
 		"https://images.pexels.com/photos/563067/pexels-photo-563067.jpeg?auto=compress&cs=tinysrgb&w=1600",
 });
+productCard.push({
+	name: "Toycar",
+	price: 400,
+	image:"https://images.pexels.com/photos/381228/pexels-photo-381228.jpeg?auto=compress&cs=tinysrgb&w=1260&h=750&dpr=1",
+})
 
 /*<div class="product-card">
 				<img src="https://images.pexels.com/photos/276517/pexels-photo-276517.jpeg?auto=compress&cs=tinysrgb&dpr=2&h=650&w=940" alt="">
@@ -96,37 +101,30 @@ function setCards(arr) {
 		const ficha = document.createElement("div");
 		ficha.classList.add("product-card");
 
-		
 		const productImg = document.createElement("img");
 		productImg.setAttribute("src", product.image);
-		
+
 		const productInfo = document.createElement("div");
 		productInfo.classList.add("product-info");
 
-		
 		const productDiv = document.createElement("div");
-		
+
 		const productPrice = document.createElement("p");
 		productPrice.innerText = "$" + product.price;
 		const productName = document.createElement("p");
 		productName.innerText = product.name;
-		
-		
+
 		const productFigure = document.createElement("figure");
 		const productIcon = document.createElement("img");
 		productIcon.setAttribute("src", "./icons/bt_add_to_cart.svg");
 
-
-		
 		productDiv.append(productPrice, productName);
 		productFigure.append(productIcon);
 		productInfo.append(productDiv, productFigure);
-		
+
 		const cardsContainer = document.querySelector(".cards-container");
 		ficha.append(productImg, productInfo);
 		cardsContainer.append(ficha);
-		
-
 	}
 }
 
