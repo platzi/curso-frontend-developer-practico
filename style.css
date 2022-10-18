@@ -15,6 +15,9 @@
   .inactive{
     display: none;
   }
+  .cursorPointer{
+    cursor: pointer;
+  }
   /* Navbar (general)-------------------------------*/
   nav {
     display: flex;
@@ -60,7 +63,6 @@
     color: var(--very-light-pink);
     font-size: var(--sm);
     margin-right: 12px;
-    cursor: pointer;
   }
   .navbar-shopping-cart {
     position: relative;
@@ -247,6 +249,7 @@
     height: 40px;
   }
 .cards-container {
+  margin-top: 20px;
   display: grid;
   grid-template-columns: repeat(auto-fill, 240px);
   gap: 26px;
@@ -254,18 +257,24 @@
 }
 .product-card {
   width: 240px;
+  border: solid var(--hospital-green) 2px;
+  border-top-left-radius: 10%;
 }
 .product-card img {
-  width: 240px;
+  display: block;
+  margin: 0 auto;
+  width: 200px;
   height: 240px;
   border-radius: 20px;
-  object-fit: cover;
+  object-fit: contain;
 }
-.product-info {
+.product-info{
   display: flex;
   justify-content: space-between;
   align-items: center;
-  margin-top: 12px;
+  padding: 12px;
+  border-top: var(--hospital-green) solid 2px;
+  background-color: var(--text-input-field);
 }
 .product-info figure {
   margin: 0;
@@ -273,6 +282,9 @@
 .product-info figure img {
   width: 35px;
   height: 35px;
+}
+.product-info figure img:hover{
+  transform: scale(0.9);
 }
 .product-info div p:nth-child(1) {
   font-weight: bold;
@@ -380,22 +392,22 @@ label{
   object-fit: cover;
   border-radius: 0 0 20px 20px;
 }
-.product-info {
+.product-info-container{
   margin: 24px 24px 0 24px;
 }
-.product-info p:nth-child(1) {
+.product-info-container  p:nth-child(1) {
   font-weight: bold;
   font-size: var(--md);
   margin-top: 0;
   margin-bottom: 4px;
 }
-.product-info p:nth-child(2) {
+.product-info-container  p:nth-child(2) {
   color: var(--very-light-pink);
   font-size: var(--md);
   margin-top: 0;
   margin-bottom: 36px;
 }
-.product-info p:nth-child(3) {
+.product-info-container  p:nth-child(3) {
   color: var(--very-light-pink);
   font-size: var(--sm);
   margin-top: 0;
