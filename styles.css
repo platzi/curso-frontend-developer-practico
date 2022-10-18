@@ -15,6 +15,9 @@
   .inactive {
     display: none;
   }
+
+  /*Navbar*/
+
   nav {
     display: flex;
     justify-content: space-between;
@@ -150,7 +153,7 @@
     color: var(--hospital-green) !important;
   }
   /*Aside (product detaily carrito)*/
-  .aside {
+  aside {
     background-color: var(--white);
     width: 360px;
     box-sizing: border-box;
@@ -230,12 +233,6 @@
   }
 
   /*productDetail*/
-  #productDetail {
-    width: 360px;
-    padding-bottom: 24px;
-    position: absolute;
-    right: 0;
-  }
   .product-detail-close {
     background: var(--white);
     width: 14px;
@@ -341,13 +338,14 @@
     .menu {
       display: block;
     }
-    #productDetail {
-        width: 100%;
-    }
     .navbar-email,
     .desktop-menu,
     .navbar-left ul {
       display: none;
+    }
+
+    .aside {
+      width: 100%;
     }
     .cards-container {
       grid-template-columns: repeat(auto-fill, 140px);
