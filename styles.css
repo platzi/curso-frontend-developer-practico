@@ -1,3 +1,4 @@
+/* Estilos generales */
 :root {
     --white: #FFFFFF;
     --black: #000000;
@@ -12,6 +13,7 @@
     margin: 0;
     font-family: 'Quicksand', sans-serif;
   }
+  /* Navbar (general) */
   nav {
     display: flex;
     justify-content: space-between;
@@ -78,6 +80,7 @@
   .inactive {
     display: none;
   }
+  /* Menu en desktop */
   .desktop-menu {
     position: absolute; /* Para hacer que el menu desplegable no intefiera dañando los estilos css del navbar  */
     background: var(--white); /* Para darle fondo de color blanco al fondo del menu */
@@ -116,6 +119,38 @@
     display: inline-block;
   }
 
+  /* Menu en mobile */
+  .mobile-menu {
+    position: absolute;
+    top: 60px;
+    padding: 24px;
+  }
+  .mobile-menu a {
+    text-decoration: none;
+    color: var(--black);
+    font-weight: bold;
+    /* margin-bottom: 24px; */
+  }
+  .mobile-menu ul {
+    padding: 0;
+    margin: 24px 0 0;
+    list-style: none;
+  }
+  .mobile-menu ul:nth-child(1) {
+    border-bottom: 1px solid var(--very-light-pink);
+  }
+  .mobile-menu ul li {
+    margin-bottom: 24px;
+  }
+  .email {
+    font-size: var(--sm);
+    font-weight: 300 !important;
+  }
+  .sign-out {
+    font-size: var(--sm);
+    color: var(--hospital-green) !important;
+  }
+/* Esta mediaQuery sirve para mostrar los elementos en pantalla de cel */
   @media (max-width: 640px) {
     .menu {
       display: block;
@@ -125,5 +160,15 @@
     }
     .navbar-email {
       display: none;
+    }
+    .desktop-menu {
+        display: none; 
+        /* La funcion "display: none" sirve para olcutart los elementos */
+    }
+  }
+  /* Esta mediaQuery sirve para ocultar el navbar mobile en pantalla pc */
+  @media (min-width: 641px) {
+    .mobile-menu {
+        display: none;
     }
   }
