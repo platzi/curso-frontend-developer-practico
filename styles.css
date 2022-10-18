@@ -283,11 +283,12 @@
     /*each product detail*/
 
     .each-product-detail {
+      background: var(--white);
       width: 360px;
       padding-bottom: 10px;
-      padding-right : 10px;
       position: absolute;
-      right: 0;
+      right:0;
+      top: 60px;
     }
 
     .each-product-detail-close {
@@ -350,8 +351,11 @@
       align-items: center;
       justify-content: center;
     }
+    
+    /* MEDIA QUERYS */
+    
     @media (max-width: 640px) {
-      .product-detail {
+      .each-product-detail {
         width: 100%;
       }
     }
