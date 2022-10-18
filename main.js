@@ -6,11 +6,11 @@ navEmail.addEventListener("click", toggleDesktopMenu);//agregar evento click al 
 
 function toggleDesktopMenu()//funcion aparecer menu del email.
 {
-    const isAsideClosed = aside.classList.contains("inactive")//Almacena el estado del aside, que si esta cerrado o abierto.
+    const isAsideClosed = ShoppingCardContainer.classList.contains("inactive")//Almacena el estado del aside, que si esta cerrado o abierto.
     
     if(!isAsideClosed)//si esta abierto
     {
-        aside.classList.add("inactive");//le agrega la clase incative para que se cierre.
+        ShoppingCardContainer.classList.add("inactive");//le agrega la clase incative para que se cierre.
     }
 
     desktopMenu.classList.toggle('inactive');//Agrega o le quita la clase incative para que se cierre o se abra.
@@ -24,11 +24,11 @@ menuHamIcon.addEventListener("click", toggleMobileMenu);
 
 function toggleMobileMenu()
 {
-    const isAsideClosed = aside.classList.contains("inactive");//Almacena el estado del menu lateral mobile, que si esta cerrado o abierto.
+    const isAsideClosed = ShoppingCardContainer.classList.contains("inactive");//Almacena el estado del menu lateral mobile, que si esta cerrado o abierto.
     
     if(!isAsideClosed)//Si esta abierto
     {
-        aside.classList.add("inactive");//le agrega la clase incative para que se cierre.
+        ShoppingCardContainer.classList.add("inactive");//le agrega la clase incative para que se cierre.
     }
 
     mobileMenu.classList.toggle("inactive");//Agrega o le quita la clase incative para que se cierre o se abra.
@@ -36,7 +36,7 @@ function toggleMobileMenu()
 
 //Aparecer menu de compras (icon)
 const menuCarritoIcon = document.querySelector(".navbar-shopping-cart");
-const aside = document.querySelector(".product-detail");
+const ShoppingCardContainer = document.querySelector("#ShoppingCardContainer");
 
 menuCarritoIcon.addEventListener("click", toggleCarritoAside)
 
@@ -56,7 +56,7 @@ function toggleCarritoAside()
         desktopMenu.classList.add("inactive");//le agrega para la clase inactive para que se cierre.
     }
     
-    aside.classList.toggle("inactive");//Agrega o le quita la clase incative para que se cierre o se abra.
+    ShoppingCardContainer.classList.toggle("inactive");//Agrega o le quita la clase incative para que se cierre o se abra.
 }
 
 // 
@@ -73,19 +73,25 @@ productList.push({
 productList.push({
     name: "Motocycle",
     price: 500,
-    image: "https://images.pexels.com/photos/276517/pexels-photo-276517.jpeg?auto=compress&cs=tinysrgb&dpr=2&h=650&w=940",
+    image: "https://images.pexels.com/photos/104842/bmw-vehicle-ride-bike-104842.jpeg?cs=srgb&dl=pexels-pixabay-104842.jpg&fm=jpg&_gl=1*svyayc*_ga*MTg1NjkyOTEwOS4xNjY2MDY3MTg3*_ga_8JE65Q40S6*MTY2NjA2NzE4Ny4xLjEuMTY2NjA2NzIwOS4wLjAuMA..",
 }); 
 
 productList.push({
     name: "Patines",
     price: 70 ,
-    image: "https://images.pexels.com/photos/276517/pexels-photo-276517.jpeg?auto=compress&cs=tinysrgb&dpr=2&h=650&w=940",
+    image: "https://images.pexels.com/photos/4127346/pexels-photo-4127346.jpeg?cs=srgb&dl=pexels-gustavo-fring-4127346.jpg&fm=jpg&_gl=1*1bftjt*_ga*MTg1NjkyOTEwOS4xNjY2MDY3MTg3*_ga_8JE65Q40S6*MTY2NjA2NzE4Ny4xLjEuMTY2NjA2NzMzMi4wLjAuMA..",
 }); 
 
 productList.push({
     name: "Casco",
     price: 20,
-    image: "https://images.pexels.com/photos/276517/pexels-photo-276517.jpeg?auto=compress&cs=tinysrgb&dpr=2&h=650&w=940",
+    image: "https://images.pexels.com/photos/1323201/pexels-photo-1323201.jpeg?auto=compress&cs=tinysrgb&w=1260&h=750&dpr=2",
+}); 
+
+productList.push({
+    name: "Patineta",
+    price: 40,
+    image: "https://images.pexels.com/photos/1018484/pexels-photo-1018484.jpeg?cs=srgb&dl=pexels-messala-ciulla-1018484.jpg&fm=jpg&_gl=1*uxtgab*_ga*MTg1NjkyOTEwOS4xNjY2MDY3MTg3*_ga_8JE65Q40S6*MTY2NjA2NzE4Ny4xLjEuMTY2NjA2NzQ3OC4wLjAuMA..",
 }); 
 
 {/* <div class="product-card">
