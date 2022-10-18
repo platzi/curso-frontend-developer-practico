@@ -17,12 +17,26 @@ body {
   display: none;
 }
 
+.fixed-top{
+  position: fixed;
+  top: 0;
+  background-color: var(--white);
+}
+
+.relative{
+  position: relative;
+}
+
+
 /* Navbar (general) */
+
+
 nav {
   display: flex;
   justify-content: space-between;
   padding: 0 24px;
   border-bottom: 1px solid var(--very-light-pink);
+  position: relative;
 }
 .menu {
   display: none;
@@ -53,8 +67,10 @@ nav {
   padding: 8px;
   border-radius: 8px;
 }
+
 .navbar-left ul li a:hover,
-.navbar-right ul li a:hover {
+.navbar-right ul li a:hover,
+.navbar-right ul li:nth-child(1):hover {
   border: 1px solid var(--hospital-green);
   color: var(--hospital-green);
 }
@@ -65,6 +81,7 @@ nav {
   margin-right: 12px;
 }
 .navbar-shopping-cart {
+  padding-left: 0px;
   position: relative;
   cursor: pointer;
 }
@@ -161,10 +178,12 @@ nav {
 /* Aside (product detail y carrito) */
 aside {
   background-color: var(--white);
-  width: 360px;
+  width: 358px;
+  height: 490px;
   box-sizing: border-box;
   position: absolute;
   right: 0;
+  border-radius: 8%;
 }
 
 /* ShoppingCart */

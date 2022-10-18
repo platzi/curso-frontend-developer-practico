@@ -10,12 +10,41 @@ const shoppingCartContainerFlechita = document.querySelector(
 )
 const productDetailContainer = document.querySelector("#productDetail")
 const cardsContainer = document.querySelector(".cards-container")
+const productCart = document.querySelector("my-order-content")
+
+const nav = document.querySelector("nav")
+const aside = document.querySelector("aside")
+
 
 menuEmail.addEventListener("click", toggleDesktopMenu)
 menuHamIcon.addEventListener("click", toggleMobileMenu)
 menuCarritoIcon.addEventListener("click", toggleCarritoAside)
 productDetailCloseIcon.addEventListener("click", closeProductDetailAside)
 shoppingCartContainerFlechita.addEventListener("click", toggleCarritoAside)
+
+// window.addEventListener('scroll', () => {
+
+//   if (window.scrollY === 0) {
+//     nav.classList.remove("fixed-top")
+//     return;
+//   }
+//   if (window.scrollY >= 1) {
+//     nav.classList.add("fixed-top")
+//     return;
+//   }
+// })
+
+
+
+// if (!isAsideClosed && window.scrollY >0) {
+//   shoppingCartContainer.classList.add("fixed-top")
+//   return;
+// }
+// if(!isAsideClosed && window.scrollY === 0){
+//   shoppingCartContainer.classList.remove("fixed-top")
+// }
+
+
 
 function toggleDesktopMenu() {
   const isAsideClosed = shoppingCartContainer.classList.contains("inactive")
@@ -65,74 +94,19 @@ function closeProductDetailAside() {
   productDetailContainer.classList.add("inactive")
 }
 
+const email = document.querySelector(".navbar-email")
 
 
 fetch('https://fakestoreapi.com/products')
   .then((response) => response.json())
-  .then((data) => renderProducts(data))
+  .then((json) => renderProducts(json))
 
 // fetch("https://api.escuelajs.co/api/v1/products")
 //   .then((response) => response.json())
 //   .then((data) => renderProducts(data))
 
 
-//antigua lista de productos, manualmente. Ahora se hace con el fetch y la api.
-// const productList = []
-// productList.push({
-//   name: "Bike",
-//   price: 120.00,
-//   image:
-//     "https://m.media-amazon.com/images/I/91i3WK9EqbL._AC_SX679_.jpg",
-// })
-// productList.push({
-//   name: "Car",
-//   price: "239,000",
-//   image:
-//     "https://snipstock.com/assets/cdn/png/f9754c97bb39a0ebd73ff0d8654d51c0.png",
-// })
-// productList.push({
-//   name: "Pc gamer",
-//   price: "1,299.08",
-//   image:
-//     "https://m.media-amazon.com/images/I/91jHNGBFflL._AC_SX679_.jpg",
-// })
-// productList.push({
-//   name: "Mouse Logitech",
-//   price: 29.99,
-//   image:
-//     "https://s3-sa-east-1.amazonaws.com/saasargentina/oaPmQNJPQeMZynN9AOk5/imagen",
-// })
-// productList.push({
-//   name: "Refrigerator",
-//   price: "2,000",
-//   image:
-//     "https://images.fravega.com/f300/ee7f6e5ad50b5328c0f702992e87267b.jpg.webp",
-// })
-// productList.push({
-//   name: "Xbox Series X",
-//   price: 499.98,
-//   image:
-//     "https://m.media-amazon.com/images/I/61JGKhqxHxL._SX522_.jpg",
-// })
 
-// productList.push({
-//   name: "PlayStation 5",
-//   price: 549.99,
-//   image:
-//     "https://m.media-amazon.com/images/I/51051FiD9UL._SL1456_.jpg",
-// })
-// productList.push({
-//   name: "Apple iPhone 13, 128GB",
-//   price: 734.99,
-//   image:
-//     "https://cdn.computerhoy.com/sites/navi.axelspringer.es/public/styles/main_card_image/https/bdt.computerhoy.com/sites/default/files/iphone-13-pro-max-blue-select.png?itok=0Ct_Tzqa",
-// })
-// productList.push({
-//   name: "Samsung Galaxy S20 Ultra 5G",
-//   price: 798.99,
-//   image:
-//     "https://handy.com.ar/wp-content/uploads/2020/12/samsung-galaxy-s20-ultra.png",
-// })
 
 
 function renderProducts(arr) {
