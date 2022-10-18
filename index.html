@@ -1,0 +1,156 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Quicksand:wght@300;500;700&display=swap" rel="stylesheet">
+    
+    <link rel="stylesheet" href="styles.css">
+
+    <title>Tienda Virtual</title>
+</head>
+<body>
+    <nav>
+        <img src="./icons/icon_menu.svg" alt="menu" class="menu">
+
+
+        <div class="nav-left">
+            <img src="./logos/logo_yard_sale.svg" alt="logo" class="logo">
+            <ul>
+                <li> <a href=""> All </a></li>
+                <li> <a href=""> Clothes </a></li>
+                <li> <a href=""> Electronics </a></li>
+                <li> <a href=""> Furniture </a></li>
+                <li> <a href=""> Toys </a></li>
+                <li> <a href=""> Others </a></li>
+            </ul>
+        </div>
+
+        <div class="nav-right">
+            <ul>
+                <li class="navbar-email"> correo@example.com <img src="./icons/flechita.svg" alt="">   
+                </li>
+                <li class="nav-shopping-cart">
+                    <img src="./icons/icon_shopping_cart_notification.svg" alt="" class="nav-shopping-cart">
+                </li>
+            </ul>
+        </div>
+
+        <div class="desktop-menu inactive">
+            <ul>
+                <li> 
+                    <a href="" class="title"> My orders</a>
+                </li>
+
+                <li> 
+                    <a href="" class="title"> My account</a>
+                </li>
+
+                <li> 
+                    <a href="" class=""> Sing out</a>
+                </li>
+            </ul>
+        </div>
+
+        <div class="mobile-menu inactive">
+            <ul>
+                <li>
+                    <h2>CATEGORIES</h2>
+                </li>
+                <li>
+                    <a href="">All</a>
+                </li>
+                <li>
+                    <a href="">Clothes</a>
+                </li>
+                <li>
+                    <a href="">Electronics</a>
+                </li>
+                <li>
+                    <a href="">Furnitures</a>
+                </li>
+                <li>
+                    <a href="">Toys</a>
+                </li>
+                <li>
+                    <a href="">Others</a>
+                </li>
+            </ul>
+            <ul>
+                <li>
+                    <a href=""> My orders </a>
+                </li>
+                <li>
+                    <a href=""> My account </a>
+                </li>
+            </ul>
+            <div class="datos">
+                <p>mail@example.com</p>
+                <a href="">Sing out</a>
+            </div>  
+        </div>
+
+        <aside class="shopping inactive"> <!-- carrito de compras -->
+            <h1 class="title"> Shopping cart </h1>
+            <div class="shopping-cart">
+                <figure>
+                    <img src="https://images.pexels.com/photos/1334597/pexels-photo-1334597.jpeg?auto=compress&cs=tinysrgb&w=1260&h=750&dpr=1" alt="tablet">
+                </figure>
+                <p> Tablet </p>
+                <p> $80 </p>
+            </div>
+            <div class="shopping-cart">
+                <figure>
+                    <img src="https://images.pexels.com/photos/2861929/pexels-photo-2861929.jpeg?cs=srgb&dl=pexels-vishven-solanki-2861929.jpg&fm=jpg" alt="smartwatch">
+                </figure>
+                <p> Smartwatch </p>
+                <p> $50 </p>
+            </div>
+            <div class="shopping-cart">
+                <figure>
+                    <img src="https://images.pexels.com/photos/249597/pexels-photo-249597.jpeg?auto=compress&cs=tinysrgb&w=1260&h=750&dpr=1" alt="camera">
+                </figure>
+                <p> Camera </p>
+                <p> $150</p>
+            </div>
+            <div class="my-shopping-cart-content">
+                <p>
+                    <span> Total </span>
+                </p>
+                <p> $280 </p> 
+            </div>
+            <div class="">
+                <input type="submit" value="Checkout" class="checkout-button">
+            </div>
+              
+        </aside>
+    </nav>
+    <aside class="product-details inactive"> <!-- DESCRIPCION DEL PRODUCTO SELECCIONADO DE LA LISTA-->
+        <div class="product-image">
+            <img src="https://images.pexels.com/photos/1334597/pexels-photo-1334597.jpeg?auto=compress&cs=tinysrgb&w=1260&h=750&dpr=1" alt="tablet">
+            <img src="./icons/icon_close.png" alt="icono cerrar" class="close-icon">
+        </div>
+        <div class="product-description">
+            <p> $80 </p>
+            <p> Tablet </p>
+            <p>Enjoy your entertainment with a fast 1.3 GHz quad-core processor. Fire HD 8 offers 50% more RAM than Fire 7 for faster performance. </p>
+
+        </div>
+        <div class="button">
+            <button class="primary-button">
+                <img src="./icons/bt_add_to_cart.svg" alt="add to cart">
+                Add to cart
+            </button>
+        </div>  
+    </aside>
+    <section class="main-container">
+        <div class="cards-container">
+        </div>
+    </section>
+    <script src="./main.js"></script>
+</body>
+</html>
