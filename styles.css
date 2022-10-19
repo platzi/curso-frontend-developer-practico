@@ -14,7 +14,7 @@ body {
 }
 
 .inactive{
-    display: none;
+    display: none !important;
 }
 
 nav {
@@ -65,6 +65,7 @@ nav {
   border: 1px solid var(--hospital-green);
   color: var(--hospital-green);
 }
+
 .navbar-email {
   color: var(--very-light-pink);
   font-size: var(--sm);
@@ -183,6 +184,9 @@ nav {
   aside {
     background-color: var(--white);
     width: 360px;
+    max-height: 100%;
+    overflow: auto;
+    overflow-x: hidden;
     padding-bottom: 20px;
     box-sizing: border-box;
     position: absolute;
@@ -192,9 +196,9 @@ nav {
   }
 /* shopping card */
 
-#shoppingCartContainer{
-    padding: 0px 24px 24px 24px;
-}
+  #shoppingCartContainer{
+      padding: 0px 24px 24px 24px;
+  }
   .title-container {
     display: flex;
   }
@@ -244,6 +248,9 @@ nav {
     border-radius: 20px;
     object-fit: cover;
   }
+  .rmToCart{
+    cursor: pointer;
+  }
   .shopping-cart p:nth-child(2) {
     color: var(--very-light-pink);
   }
@@ -277,6 +284,7 @@ nav {
     width: 240px;
   }
   .product-card img {
+    cursor: pointer;
     width: 240px;
     height: 240px;
     border-radius: 20px;
@@ -315,8 +323,8 @@ nav {
     width: 14px;
     height: 14px;
     position: absolute;
-    top: 24px;
-    left: 24px;
+    top: 8px;
+    left: 8px;
     z-index: 2;
     padding: 12px;
     border-radius: 50%;
