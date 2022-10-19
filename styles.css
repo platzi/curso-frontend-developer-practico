@@ -1,3 +1,4 @@
+/*Estilos generales*/
 :root {
   --white: #FFFFFF;
   --black: #000000;
@@ -17,7 +18,7 @@ body {
     display: none; /*Sirve para ocultar el elemento. Con JS se hace funcionar para que aparezca y desaparezca*/
 }
 
-/*Menu*/
+/*Menu general*/
 nav {
   display: flex;
   justify-content: space-between;
@@ -81,7 +82,7 @@ nav {
   align-items: center;
 }
 
-/*Menu Desplegable del correo*/
+/*Menu en desktop*/
 .desktop-menu {
     position: absolute;
     top: 60px;
@@ -92,33 +93,65 @@ nav {
     border: 1px solid var(--very-light-pink);
     border-radius: 6px;
     padding: 20px 20px 0 20px;
-  }
-  .desktop-menu ul {
+}
+.desktop-menu ul {
     list-style: none;
     padding: 0;
     margin: 0;
-  }
-  .desktop-menu ul li {
+}
+.desktop-menu ul li {
     text-align: end;
-  }
-  .desktop-menu ul li:nth-child(1),
-  .desktop-menu ul li:nth-child(2) {
+}
+.desktop-menu ul li:nth-child(1),
+.desktop-menu ul li:nth-child(2) {
     font-weight: bold;
-  }
-  .desktop-menu ul li:last-child {
+}
+.desktop-menu ul li:last-child {
     padding-top: 20px;
     border-top: 1px solid var(--very-light-pink);
-  }
-  .desktop-menu ul li:last-child a {
+}
+.desktop-menu ul li:last-child a {
     color: var(--hospital-green);
     font-size: var(--sm);
-  }
-  .desktop-menu ul li a {
+}
+.desktop-menu ul li a {
     color: var(--back);
     text-decoration: none;
     margin-bottom: 20px;
     display: inline-block;
-  }
+}
+
+/*Menu en Moviles*/
+.mobile-menu {
+  position: absolute;
+  top: 60px;
+  padding: 24px;
+}
+.mobile-menu a {
+  text-decoration: none;
+  color: var(--black);
+  font-weight: bold;
+  /* margin-bottom: 24px; */
+}
+.mobile-menu ul {
+  padding: 0;
+  margin: 24px 0 0;
+  list-style: none;
+}
+.mobile-menu ul:nth-child(1) {
+  border-bottom: 1px solid var(--very-light-pink);
+}
+.mobile-menu ul li {
+  margin-bottom: 24px;
+}
+.email {
+  font-size: var(--sm);
+  font-weight: 300 !important;
+}
+.sign-out {
+  font-size: var(--sm);
+  color: var(--hospital-green) !important;
+}
 
 
 @media (max-width: 640px) {
@@ -129,6 +162,14 @@ nav {
     display: none;
   }
   .navbar-email {
+    display: none;
+  }
+  .desktop-menu{
+    display: none;
+  }
+}
+@media (min-width: 641px) {
+  .mobile-menu {
     display: none;
   }
 }
