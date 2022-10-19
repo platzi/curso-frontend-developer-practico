@@ -7,10 +7,12 @@ const mobileMenu = document.querySelector('.mobile-menu');
 const shoppingCart = document.querySelector('.ShopCart');
 const productDetail = document.querySelector('.product-detail');
 const cartsContainer = document.querySelector('.cards-container');
+const productCard = document.querySelector('.product-card');
 
 var isMobileMenuClosed;
 var isProductDetailClosed;
 var isDesktopMenuClosed;
+var isProductDetail1Closed;
 
 menuMail.addEventListener('click', toggledesktopMenu);
 iconMenu.addEventListener('click', toggleMobileMenu);
@@ -42,6 +44,18 @@ function toggleProductDetail (){
     }
     productDetail.classList.toggle('inactive');
 }
+function toggleAsideProduct(){
+    isMobileMenuClosed = mobileMenu.classList.contains('inactive');
+    isDesktopMenuClosed = desktopMenu.classList.contains('inactive');
+    if(!isMobileMenuClosed){
+        mobileMenu.classList.add('inactive');
+    }
+    if(!isDesktopMenuClosed){
+        desktopMenu.classList.add('inactive');
+    }
+    productDetail.classList.toggle('inactive');
+}
+
 const productList = [];
 productList.push({
     name: 'Bike',
