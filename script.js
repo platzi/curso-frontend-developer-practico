@@ -14,10 +14,13 @@ const openBlockAdd = document.querySelector('.control-add-itens')
 const newItenName = document.querySelector('.name-of-iten')
 const newItenPrice = document.querySelector('.price-of-iten')
 const newItenUrl = document.querySelector('.url-of-img-iten')
+const newItendescription = document.querySelector('.description-of-img-iten')
 const priceProductDetail = document.querySelector('.price-product-detail')
 const nameProductDetail = document.querySelector('.name-product-detail')
 const descriptionProductDetail = document.querySelector('.description-product-detail')
 const imageProductDetail = document.querySelector('.image-product-detail')
+const contentOrder = document.querySelector('.my-order-content')
+const moveIdCart = document.querySelector('.add-to-cart-button')
 
 form.addEventListener('submit', collectElements)
 addCardsList.addEventListener('click', openAddBlockCardsList)
@@ -26,6 +29,7 @@ menuEmail.addEventListener('click', toggleDesktopMenu)
 burguerMenu.addEventListener('click', toggleMobileMenu)
 menuCarritoIcon.addEventListener('click', toggleCarritoAside)
 productDetailCloseIcon.addEventListener('click', closeProductDetailAside)
+moveIdCart.addEventListener('click', sentProductDate)
 
 function openAddBlockCardsList(){
     openBlockAdd.classList.toggle('inactive')
@@ -58,24 +62,91 @@ function toggleCarritoAside(){
     }
     shoppingCartConatiner.classList.toggle('inactive')
 }
-function openProductDetailAside(){ 
-    const selectIten = document.querySelectorAll('.product-card')
-    selectIten.forEach((element)=> {
-        element.addEventListener('click', selectItens=>{ const idItentClicked = element.id;lookDetailProduct(idItentClicked)})})
-}
-function lookDetailProduct(productSelect){
-    for (let itens of productList){
-        if (itens.id == productSelect){
-            priceProductDetail.innerText = '$' + itens.price
-            nameProductDetail.innerText = itens.name
-            descriptionProductDetail.innerText
-            imageProductDetail.setAttribute('src', itens.image)
+function sentProductDate(){
+    blockEventCart = false
+    for(iten of productList){
+        if (iten.id == moveIdCart.id){
+            addProductItenCart(moveIdCart)
         }
     }
-    shoppingCartConatiner.classList.add('inactive')
-    productDetailContainer.classList.remove('inactive')  
-}
 
+}
+let blockEventCart
+function addProductToCart(){
+    blockEventCart = false
+    const selectIten = document.querySelectorAll('.product-card')
+    selectIten.forEach((element)=> {
+        element.addEventListener('click', ()=>{addProductItenCart(element)})
+    })
+}
+function addProductItenCart(element){
+    if (blockEventCart == false){
+        for (let itens of productList){
+            if (itens.id == element.id){
+                const shoppingCart = document.createElement('div')
+                shoppingCart.classList.add('shopping-cart')
+                const figureCart = document.createElement('figure')
+                const imageCart = document.createElement('img')
+                imageCart.setAttribute('src', itens.image)
+                const pNameCart = document.createElement('p')
+                pNameCart.innerText = itens.name
+                const pPriceCart = document.createElement('p')
+                pPriceCart.innerText = '$' + itens.price
+                const iconCloseCart = document.createElement('img')
+                iconCloseCart.setAttribute('src','./icons/icon_close.png')
+                iconCloseCart.classList.add('icon-remove-product')
+            
+                shoppingCart.append(figureCart,pNameCart,pPriceCart,iconCloseCart)
+                figureCart.appendChild(imageCart)
+                contentOrder.appendChild(shoppingCart)
+                counterProduct()
+                counterPriceTotal(itens.price)
+            }
+        }
+        blockEventCart = true
+    }
+}
+let priceProductTotal = []
+function counterProduct(){
+    const counter = document.querySelectorAll('.shopping-cart')
+    const changeCounter = document.querySelector('.counter-product')
+    changeCounter.innerText = counter.length
+}
+function counterPriceTotal(price){
+    const totalcost = document.querySelector('.total-product-cost')
+    priceProductTotal.push(price)
+    let a = 0
+    for(cost of priceProductTotal){
+        let costTotal = cost + a
+        a = costTotal
+    }
+    totalcost.innerText = '$' + a
+}
+let blockEvent 
+function openProductDetailAside(){ 
+    blockEvent = false
+    const selectIten = document.querySelectorAll('.product-card')
+    selectIten.forEach((element)=> {
+        element.addEventListener('click', ()=>{lookDetailProduct(element.id)})
+    })
+}
+function lookDetailProduct(productSelect){
+    if (blockEvent == false){
+        for (let itens of productList){
+            if (itens.id == productSelect){
+                priceProductDetail.innerText = '$' + itens.price
+                nameProductDetail.innerText = itens.name
+                descriptionProductDetail.innerText
+                imageProductDetail.setAttribute('src', itens.image)
+                moveIdCart.setAttribute('id', itens.id)
+                descriptionProductDetail.innerText = itens.description
+            }
+        }
+        shoppingCartConatiner.classList.add('inactive')
+        productDetailContainer.classList.remove('inactive')    
+    }
+    blockEvent = true
+}
 function closeProductDetailAside(){
     productDetailContainer.classList.add('inactive')   
 }
@@ -87,20 +158,21 @@ function collectElements(event){
         id: productIdNew,
         name: newItenName.value,
         price: newItenPrice.value,
-        image: newItenUrl.value
+        image: newItenUrl.value,
+        description: newItendescription.value
     })
     let product = productList[(productList.length) - 1]
-    activeFun = false
+    activeLoopItens = false
     createNewIten(product)
     newItenName.value = newItenUrl.value = newItenPrice.value = ""
 }
 function idcreate(){
-    productIdNew  = 1000 + (productList.length + 1)
+    productIdNew = 1000 + (productList.length + 1)
 }
 function createNewIten(product){
     const productCard = document.createElement('div')
     productCard.classList.add('product-card')
-    if (activeFun == false){
+    if (activeLoopItens == false){
         productCard.setAttribute('id', productIdNew)
     }
     else{
@@ -122,6 +194,7 @@ function createNewIten(product){
     const productInfoFigure = document.createElement('figure')
     const productImgCart = document.createElement('img')
     productImgCart.setAttribute('src', './icons/bt_add_to_cart.svg')
+    productImgCart.classList.add('add-product-shopping-cart')
     productImgCart.classList.add('cursorPointer')
 
     productCard.append(productImg, productInfo)
@@ -131,37 +204,35 @@ function createNewIten(product){
     cardsContainer.appendChild(productCard)
 
     productImg.addEventListener('click', openProductDetailAside)
-
-    /*for(i = 0; i < selectIten.length ; i++){
-        numero = selectIten.length
-        lado = selectIten[1]
-        lado.addEventListener('click', as)
-    }*/
+    productImgCart.addEventListener('click', addProductToCart)
 }
 let productIdNew
-let activeFun
+let activeLoopItens
 const productList = []
 productList.push({
     id: 1001,
     name: 'bike',
     price: 120,
+    description: 'bicicleta de montaña ideal para paseos largos con grandes esperiencias a realisar',
     image: 'https://falabella.scene7.com/is/image/FalabellaPE/882097973_1?wid=800&hei=800&qlt=70'
 })
 productList.push({
     id: 1002,
     name: 'Monitor',
     price: 150,
+    description: 'Monitor con buena calidad de imagen ideal para juegos y ver peliculas',
     image: 'https://images.officeworks.com.au/api/2/img/https://s3-ap-southeast-2.amazonaws.com/wc-prod-pim/JPEG_1000x1000/IN4794710_.jpg/resize?size=600&auth=MjA5OTcwODkwMg__'
 })
 productList.push({
     id: 1003,
     name: 'Conputadora',
     price: 590,
+    description: 'Computadora con buenas prestacionas para cualquiers uso que le quieras dar',
     image: 'https://www.tecnologia-informatica.com/wp-content/uploads/2018/08/caracteristicas-de-las-computadoras-1.jpeg'
 })
 
 for (let product of productList){
-    activeFun = true
+    activeLoopItens = true
     productId = product.id
     createNewIten(product)
 }

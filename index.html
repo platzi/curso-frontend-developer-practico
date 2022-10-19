@@ -41,7 +41,7 @@
         <li class="navbar-email cursorPointer">My MarketPlace</li>
         <li class="navbar-shopping-cart cursorPointer">
           <img src="./icons/icon_shopping_cart.svg" alt="shopping cart">
-          <div>2</div>
+          <div class="counter-product">0</div>
         </li>
       </ul>
     </div>
@@ -109,45 +109,24 @@
         <img src="./icons/flechita.svg" alt="arrow">
         <p class="title">My order</p>
       </div>
-  
-      <div class="my-order-content">
-        <div class="shopping-cart">
-          <figure>
-            <img src="https://images.pexels.com/photos/276517/pexels-photo-276517.jpeg?auto=compress&cs=tinysrgb&dpr=2&h=650&w=940" alt="bike">
-          </figure>
-          <p>Bike</p>
-          <p>$30,00</p>
-          <img src="./icons/icon_close.png" alt="close">
-        </div>
-  
-        <div class="shopping-cart">
-          <figure>
-            <img src="https://images.pexels.com/photos/276517/pexels-photo-276517.jpeg?auto=compress&cs=tinysrgb&dpr=2&h=650&w=940" alt="bike">
-          </figure>
-          <p>Bike</p>
-          <p>$30,00</p>
-          <img src="./icons/icon_close.png" alt="close">
-        </div>
-  
-        <div class="shopping-cart">
-          <figure>
-            <img src="https://images.pexels.com/photos/276517/pexels-photo-276517.jpeg?auto=compress&cs=tinysrgb&dpr=2&h=650&w=940" alt="bike">
-          </figure>
-          <p>Bike</p>
-          <p>$30,00</p>
-          <img src="./icons/icon_close.png" alt="close">
-        </div>
-  
-        <div class="order">
-          <p>
-            <span>Total</span>
-          </p>
-          <p>$560.00</p>
-        </div>
-  
-        <button class="primary-button">
-          Checkout
-        </button>
+      <div>
+          <section class="my-order-content">
+              <!--<div class="shopping-cart">
+              <figure>
+                <img src="https://images.pexels.com/photos/276517/pexels-photo-276517.jpeg?auto=compress&cs=tinysrgb&dpr=2&h=650&w=940" alt="bike">
+              </figure>
+              <p>Bike</p>
+              <p>$30,00</p>
+              <img class='icon-remove-product' src="./icons/icon_close.png" alt="close">
+            </div>-->
+          </section>
+          <div class="order">
+            <p>
+              <span>Total</span>
+            </p>
+            <p class="total-product-cost">$</p>
+          </div>
+          <button class="primary-button">Checkout</button>
       </div>
     </div>
   </aside>
@@ -161,10 +140,10 @@
       <p class="price-product-detail">$35,00</p>
       <p class="name-product-detail">Bike</p>
       <p class="description-product-detail">With its practical position, this bike also fulfills a decorative function, add your hall or workspace.</p>
-      <button class="primary-button add-to-cart-button">
+      <div class="primary-button add-to-cart-button">
         <img src="./icons/bt_add_to_cart.svg" alt="add to cart">
         Add to cart
-      </button>
+      </div>
     </div>
   </aside>
   <section class="main-container">
@@ -183,6 +162,8 @@
             <input class="price-of-iten" type="text" placeholder=" price-of-iten" required>
             <label for="url-of-img-iten">Direccion de la imagen del producto:</label>
             <input class="url-of-img-iten" type="text" placeholder=" url-of-img-iten" required>
+            <label for="description-product-detail">Descripcion del producto:</label>
+            <input class="description-product-detail" type="text" placeholder=" detail-product" required>
             <input class="submit-botton" type="submit">
           </form>
         </div>
@@ -198,7 +179,7 @@
               <p>Bike</p>
             </div>
             <figure>
-              <img src="./icons/bt_add_to_cart.svg" alt="">
+              <img clase="add-product-shopping-cart" src="./icons/bt_add_to_cart.svg" alt="">
             </figure>
           </div>
         </div> -->
