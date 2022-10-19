@@ -5,34 +5,31 @@ const menuBurgerIcon = document.querySelector('.menu')
 const mobileBurger = document.querySelector('.mobile-menu')
 
 const menuCarritoIcon = document.querySelector('.navbar-shopping-cart')
-const aside = document.querySelector('.product-detail')
+const shoppingCartContainer = document.querySelector('#shoppingCartContainer')
 
 const cardsContainer = document.querySelector('.cards-container')
 
-
 menuEmail.addEventListener('click', toggleDesktopMenu)
-
 menuBurgerIcon.addEventListener('click', toggleMobileMenu)
-
-menuCarritoIcon.addEventListener('click', toggleCarritoAside)
+menuCarritoIcon.addEventListener('click', toggleCarritoShopping)
 
 function toggleDesktopMenu(){
-    const isAsideClosed = aside.classList.contains('inactive');
-    if(!isAsideClosed){
-        aside.classList.add('inactive');
+    const isShoppingCartContainerClosed = shoppingCartContainer.classList.contains('inactive');
+    if(!isShoppingCartContainerClosed){
+        shoppingCartContainer.classList.add('inactive');
     }
     desktopEmail.classList.toggle('inactive');
 }
 
 function toggleMobileMenu(){
-    const isAsideClosed = aside.classList.contains('inactive');
-    if(!isAsideClosed){
-        aside.classList.add('inactive');
+    const isShoppingCartContainerClosed = shoppingCartContainer.classList.contains('inactive');
+    if(!isShoppingCartContainerClosed){
+        shoppingCartContainer.classList.add('inactive');
     }
     mobileBurger.classList.toggle('inactive')
 }
 
-function toggleCarritoAside(){
+function toggleCarritoShopping(){
     const isMobileBurgerClosed = mobileBurger.classList.contains('inactive');
     if (!isMobileBurgerClosed) {
       mobileBurger.classList.add('inactive'); 
@@ -42,9 +39,10 @@ function toggleCarritoAside(){
     if(!isDesktopMenuClosed){
         desktopEmail.classList.add('inactive')
     }
-    aside.classList.toggle('inactive')
+    shoppingCartContainer.classList.toggle('inactive')
 }
 
+// Lista de productos 
 const productList = [];
 productList.push({
     name: "Bike",
