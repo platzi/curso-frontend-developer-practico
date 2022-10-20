@@ -160,7 +160,7 @@
     color: var(--hospital-green) !important;
   }
 /* Aside (product detail)*/
-  .product-detail {
+  aside {
     background-color: var(--white);
     width: 360px;
     padding: 0 24px;
