@@ -3,26 +3,29 @@ const desktopMenu=document.querySelector('.desktop-menu');
 const menuHamIcon=document.querySelector('.menu');
 const mobileMenu=document.querySelector('.mobile-menu');
 const asideCar =document.querySelector('.navbar-shopping-cart');
-const aside =document.querySelector('.product-detail');
+const shoppingCart =document.querySelector('#shoppingCartContainer')
 const cardContain= document.querySelector('.cards-container');
+
 
 navEmail.addEventListener('click',toggleDestopMenu);
 menuHamIcon.addEventListener('click',toggleMobileMenu);
 asideCar.addEventListener('click',toggleCarAside);
 
+
 function toggleDestopMenu(){
-    aside.classList.add('inactive');
+    shoppingCart.classList.add('inactive');
     desktopMenu.classList.toggle('inactive');
 }
 function toggleMobileMenu(){
-    aside.classList.add('inactive');
+    shoppingCart.classList.add('inactive');
     mobileMenu.classList.toggle('inactive');
 }
 function toggleCarAside(){
     mobileMenu.classList.add('inactive');
     desktopMenu.classList.add('inactive');
-    aside.classList.toggle('inactive');
+    shoppingCart.classList.toggle('inactive');
 }
+
 
 const productList =[];
 productList.push({
@@ -40,21 +43,7 @@ productList.push({
     price:120,
     img:'https://images.pexels.com/photos/276517/pexels-photo-276517.jpeg?auto=compress&cs=tinysrgb&dpr=2&h=650&w=940'
 });
-productList.push({
-    name:'Bike',
-    price:120,
-    img:'https://images.pexels.com/photos/276517/pexels-photo-276517.jpeg?auto=compress&cs=tinysrgb&dpr=2&h=650&w=940'
-});
-productList.push({
-    name:'Bike',
-    price:120,
-    img:'https://images.pexels.com/photos/276517/pexels-photo-276517.jpeg?auto=compress&cs=tinysrgb&dpr=2&h=650&w=940'
-});
-productList.push({
-    name:'Bike',
-    price:120,
-    img:'https://images.pexels.com/photos/276517/pexels-photo-276517.jpeg?auto=compress&cs=tinysrgb&dpr=2&h=650&w=940'
-});
+
 
 for (product of productList){
     const porductCard = document.createElement('div')
