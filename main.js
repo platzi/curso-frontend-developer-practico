@@ -5,7 +5,7 @@ const menuHamImg = document.querySelector('.menu');
 const desktopMenu = document.querySelector('.desktop-menu');
 const mobileMenu = document.querySelector('.mobile-menu');
 const aside = document.querySelector('.product-detail');
-const cart_container = document.querySelector('cards-container');
+const cartcontainer = document.querySelector('.cards-container');
 
 // Escuchador de eventos "clicks"
 menuEmail.addEventListener('click', toggleDesktopMenu);
@@ -70,44 +70,49 @@ productList.push({
     </div>
 </div> 
 */
-
-for (product of productList){
-    const productCard = document.createElement('div');
-    productCard.classList.add('product-card');
-
-    // product = {name, price, image} --> product.image
-    const Productimg = document.createElement('img');
-    Productimg.setAttribute('src', product.image);
+// Este for se hizo para maquetar la estructuracion del codigo desde aqui en JS,
+function maquetacion(arr) {
+    for (product of arr){
+        const productCard = document.createElement('div'); // Se crea variable y se declara el creador del elemento 
+        productCard.classList.add('product-card'); // Con la clase "classList" y la funcion "add" se añade al html con la clase del elemento creado anteriormente
     
-    const productoInfo = document.createElement('div');
-    productoInfo.classList.add('product-info');
-
-    const productoInfodiv = document.createElement('div');
-
-    const productPrice = document.createElement('p');
-    productPrice.innerText = '$' + productPrice;
-    const productName = document.createElement('p');
-    productName.innerText = product.name;
+        // product = {name, price, image} --> product.image
+        const Productimg = document.createElement('img');
+        Productimg.setAttribute('src', product.image);
+        
+        const productoInfo = document.createElement('div');
+        productoInfo.classList.add('product-info');
     
-    const productoInFigure = document.createElement('figure');
-    const productImgCart = document.createElement('img');
-    productImgCart.setAttribute('src', './icons/bt_add_to_cart.svg');
-
-    // productoInFigure.append(productImgCart);
-    // productoInfodiv.append(productName,productPrice);
-    // productoInfo.append(productoInfodiv,productoInFigure);
-    // productCard.append(Productimg,productoInfo);
-    // cart_container.append(productCard);
-    productoInFigure.appendChild(productImgCart);
-    productoInfodiv.appendChild(productPrice);
-    productoInfodiv.appendChild(productName);
-
-    // productInfo.appendChild(productInfoDiv);
-    // productInfo.appendChild(productInfoFigure);
-  
-    // productCard.appendChild(productImg);
-    // productCard.appendChild(productInfo);
-  
-    // cardsContainer.appendChild(productCard);
-
+        const productoInfodiv = document.createElement('div');
+    
+        const productPrice = document.createElement('p');
+        productPrice.innerText = '$' + product.price;
+        const productName = document.createElement('p');
+        productName.innerText = product.name;
+        
+        const productoInFigure = document.createElement('figure');
+        const productImgCart = document.createElement('img');
+        productImgCart.setAttribute('src', './icons/bt_add_to_cart.svg');
+    
+        productoInFigure.append(productImgCart); // Se utiliza la funcion "append" para agregar una clase dentro de otra, en este caso se agrega la etiqueta img o se grega la imagen a la clase figure (NOTA: se hace mediante el nombre de las variables). 
+        productoInfodiv.append(productName,productPrice);
+        productoInfo.append(productoInfodiv,productoInFigure);
+        productCard.append(Productimg,productoInfo);
+        cartcontainer.append(productCard);
+        // productoInFigure.appendChild(productImgCart);
+        // productoInfodiv.appendChild(productPrice);
+        // productoInfodiv.appendChild(productName);
+    
+        // productoInfo.appendChild(productoInfodiv);
+        // productoInfo.appendChild(productoInFigure);
+      
+        // productCard.appendChild(Productimg);
+        // productCard.appendChild(productoInfo);
+      
+        // cartcontainer.appendChild(productCard);
+    
+    }
 }
+
+maquetacion(productList);
+
