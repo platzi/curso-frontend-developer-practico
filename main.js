@@ -2,22 +2,25 @@
 const menuEmail = document.querySelector('.navbar-email');
 const burgerMenu = document.querySelector('.menu');
 const shoppingCart = document.querySelector('.navbar-shopping-cart');
+const productDetailCloseIcon = document.querySelector('.product-detail-close');
 const desktopMenu = document.querySelector('.desktop-menu');
 const mobileMenu = document.querySelector('.mobile-menu');
-const myOrderDesktop = document.querySelector('.product-detail');
+const shoppingCartContainer = document.querySelector('#shoppingCartContainer');
 const cardsContainer = document.querySelector('.cards-container');
+const productDetailContainer = document.querySelector('#productDetail');
 
 
 menuEmail.addEventListener('click', showDesktopMenu);
 burgerMenu.addEventListener('click', showMobileMenu);
 shoppingCart.addEventListener('click', showMyOrder);
+productDetailCloseIcon.addEventListener('click', closeProductDetailAside);
 
 
 function showDesktopMenu() {  
   /* para que no se pueda abrir el menu + el carrito al mismo tiempo
   que si uno esta abierto el otro se cierra y vice versa */
 
-    myOrderDesktop.classList.add('inactive'); /* el add activa la clase inactive. O sea que que si esta abierto, lo cierra. */
+    shoppingCartContainer.classList.add('inactive'); /* el add activa la clase inactive. O sea que que si esta abierto, lo cierra. */
     desktopMenu.classList.toggle('inactive'); 
 };
 
@@ -25,8 +28,9 @@ function showMobileMenu() {
   /* para que no se pueda abrir el menu + el carrito al mismo tiempo 
   que si uno esta abierto el otro se cierra y vice versa */
 
-    myOrderDesktop.classList.add('inactive'); /* el add activa la clase inactive. O sea que que si esta abierto, lo cierra. */
+    shoppingCartContainer.classList.add('inactive'); /* el add activa la clase inactive. O sea que que si esta abierto, lo cierra. */
     mobileMenu.classList.toggle('inactive');
+    productDetailContainer.classList.add('inactive');
 };
 
 function showMyOrder() {
@@ -34,9 +38,18 @@ function showMyOrder() {
   que si uno esta abierto el otro se cierra y vice versa */
 
     mobileMenu.classList.add('inactive'); /* el add activa la clase inactive. O sea que que si esta abierto, lo cierra. */
-    myOrderDesktop.classList.toggle('inactive');
+    shoppingCartContainer.classList.toggle('inactive');
+    productDetailContainer.classList.add('inactive'); 
 };
 
+function openProductDetailAside() {
+  productDetailContainer.classList.remove('inactive') /* quitar la clase inactive para que solo se abra*/
+  shoppingCartContainer.classList.add('inactive');
+}
+
+function closeProductDetailAside() {
+  productDetailContainer.classList.add('inactive');
+}
 
 const productList = [];
 productList.push({
@@ -57,7 +70,6 @@ productList.push({
 
 
 /* HTML a JAVASCRIPT */
-
 
 /* 
 <div class="product-card">
@@ -82,6 +94,7 @@ function renderProducts(arr) {
     // product = {name, price, image} --> product.image
     const productImg = document.createElement('img');
     productImg.setAttribute('src', product.image);
+    productImg.addEventListener('click', openProductDetailAside); /* cuando los usuarios le den click a una imagen, se opere la funcion que hace que se abran los detalles de la imagen */
   
     const productInfo = document.createElement('div');
     productInfo.classList.add('product-info');
