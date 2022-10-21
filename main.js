@@ -4,7 +4,7 @@ const menuCarroIcon = document.querySelector('.navbar-shopping-cart');
 const menuHamImg = document.querySelector('.menu');
 const desktopMenu = document.querySelector('.desktop-menu');
 const mobileMenu = document.querySelector('.mobile-menu');
-const aside = document.querySelector('.product-detail');
+const shoppingCartContainer = document.querySelector('#shoppingCartContainer');
 const cartcontainer = document.querySelector('.cards-container');
 
 // Escuchador de eventos "clicks"
@@ -14,21 +14,21 @@ menuCarroIcon.addEventListener('click', toggleAside);
 
 // Funciones para manejar eventos en el html
 function toggleDesktopMenu() {
-    const veriaside = aside.classList.contains('inactive');
+    const veriaside = shoppingCartContainer.classList.contains('inactive');
     if (!veriaside) {
-        aside.classList.add('inactive');
+        shoppingCartContainer.classList.add('inactive');
     }
     desktopMenu.classList.toggle('inactive');
 }
 function toggleMobileMenu() {
-    const veriaside = aside.classList.contains('inactive');
+    const veriaside = shoppingCartContainer.classList.contains('inactive');
     if (!veriaside) {
-        aside.classList.add('inactive');
+        shoppingCartContainer.classList.add('inactive');
     }
     mobileMenu.classList.toggle('inactive');
 }
 function toggleAside() {
-    // aside.classList.toggle('inactive'); se comenta porque se necesita un condicional para verificar sino hay otro elemento abierto.
+    // shoppingCartContainer.classList.toggle('inactive'); se comenta porque se necesita un condicional para verificar sino hay otro elemento abierto.
     const verimobileMenu = mobileMenu.classList.contains('inactive'); // se declara esta variable para capturar si el menumobile esta abierto
     const veridesktopMenu = desktopMenu.classList.contains('inactive');
     // Este condicional niega el estado en el que se encuentre el elemento para proceder a cerrar los elementos si estan abiertos. 
@@ -36,7 +36,7 @@ function toggleAside() {
         mobileMenu.classList.add('inactive');
         desktopMenu.classList.add('inactive');
     }
-    aside.classList.toggle('inactive'); // con este codigo mandamos a activar o desactivar la clase "inactive" en el html.
+    shoppingCartContainer.classList.toggle('inactive'); // con este codigo mandamos a activar o desactivar la clase "inactive" en el html.
 }
 
 const productList = []; // Array para devolver codigo JS
