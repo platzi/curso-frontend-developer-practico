@@ -31,6 +31,8 @@ function toggleMobileMenu()
         ShoppingCardContainer.classList.add("inactive");//le agrega la clase incative para que se cierre.
     }
 
+    closeProductDetailAside();
+
     mobileMenu.classList.toggle("inactive");//Agrega o le quita la clase incative para que se cierre o se abra.
 }
 
@@ -49,17 +51,38 @@ function toggleCarritoAside()
         mobileMenu.classList.add("inactive");//Le agrega la clase inactive para se cierre. 
     }
 
-    const isDestopMenuClosed = desktopMenu.classList.contains("inactive")//Almacena el estado del menu del email, que si esta abierto o cerrado.
+    const isProductDetailClose = productDetailContainer.classList.contains("inactive")//Almacena el estado del menu del email, que si esta abierto o cerrado.
     
-    if(!isDestopMenuClosed)//si esta abierto
+    if(!isProductDetailClose)//si esta abierto
     {
-        desktopMenu.classList.add("inactive");//le agrega para la clase inactive para que se cierre.
+        productDetailContainer.classList.add("inactive");//le agrega para la clase inactive para que se cierre.
     }
     
     ShoppingCardContainer.classList.toggle("inactive");//Agrega o le quita la clase incative para que se cierre o se abra.
 }
 
-// 
+// Abrir los detalles del producto y cerrar.
+const productDetailContainer = document.querySelector("#productDetail");
+const productDetailCloseIcon = document.querySelector(".product-detail-close");
+
+productDetailContainer.addEventListener("click", closeProductDetailAside);
+
+function closeProductDetailAside()
+{
+    productDetailContainer.classList.add("inactive");
+}
+
+function openProductDetailAside(){
+    ShoppingCardContainer.classList.add("inactive");
+
+    productDetailContainer.classList.remove("inactive");
+
+    
+}
+
+
+
+
 
 const productList = [];//Array vacio que almacenara todo los productos.
 
@@ -116,6 +139,7 @@ for (product of productList)//Ciclo for para mostrar todos los elementos del arr
 
     const productImg = document.createElement("img");//se crea el elemento img
     productImg.setAttribute("src", product.image);//se le modifica la propiedad 'src' la cual agregara la del array.
+    productImg.addEventListener("click", openProductDetailAside);
 
     const productInfo = document.createElement("div");//se crea el div donde se almacena el nombre y precio.
     productInfo.classList.add("product-info");//Se la agrega la clase product-info.
