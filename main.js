@@ -57,9 +57,8 @@ function openProductDetailAside() {
     }
     function mostrar(recibido) {
         for (gone of recibido){
-            const Productimg = document.createElement('img');
-            Productimg.setAttribute('src', gone.image); 
-            imgProduct.append(Productimg);
+            // Productimg.setAttribute('src', gone.image);
+            // imgProduct.append(Productimg);
         }
     }
     mostrar(productList);
@@ -112,6 +111,7 @@ function maquetacion(arr) {
         const Productimg = document.createElement('img');
         Productimg.setAttribute('src', product.image);
         Productimg.addEventListener('click',openProductDetailAside);
+        
         
     
         const productoInfo = document.createElement('div');
