@@ -52,6 +52,7 @@ function toggleMobileMenu(){
 }
 
 function toggleCarritoAside(){
+    listSaleCartDetail()
     const isMobilMenuClosed = mobileMenu.classList.contains('inactive')
     if (!isMobilMenuClosed){
         mobileMenu.classList.add('inactive')
@@ -79,7 +80,25 @@ function addProductToCart(){
         element.addEventListener('click', ()=>{addProductItenCart(element)})
     })
 }
+let activeRest
+function listSaleCartDetail(){
+    const delateProductList = document.querySelectorAll('.icon-remove-product')
+    delateProductList.forEach((element)=>{element.addEventListener('click', removeItenclose)})
+}
+function removeItenclose(){
+    activeRest = true
+    const counter = document.querySelectorAll('.shopping-cart')
+    counter.forEach((elementIten)=>{elementIten.addEventListener('click', ()=>{
+        elementIten.remove('.shopping-cart')
+        const price = elementIten.querySelector('.price-requered')
+        if(activeRest == true){
+            counterPriceTotalRest(Number(price.innerHTML))
+        }
+        counterProduct()
+    })})
+}
 function addProductItenCart(element){
+    shoppingCartConatiner.classList.add('inactive')
     if (blockEventCart == false){
         for (let itens of productList){
             if (itens.id == element.id){
@@ -91,16 +110,21 @@ function addProductItenCart(element){
                 const pNameCart = document.createElement('p')
                 pNameCart.innerText = itens.name
                 const pPriceCart = document.createElement('p')
-                pPriceCart.innerText = '$' + itens.price
+                pPriceCart.innerText = '$'
+                const spanPriceCart = document.createElement('span')
+                spanPriceCart.classList.add('price-requered')
+                spanPriceCart.innerText = itens.price 
                 const iconCloseCart = document.createElement('img')
                 iconCloseCart.setAttribute('src','./icons/icon_close.png')
                 iconCloseCart.classList.add('icon-remove-product')
-            
+    
                 shoppingCart.append(figureCart,pNameCart,pPriceCart,iconCloseCart)
+                pPriceCart.appendChild(spanPriceCart)
                 figureCart.appendChild(imageCart)
                 contentOrder.appendChild(shoppingCart)
+                resta = false
                 counterProduct()
-                counterPriceTotal(itens.price)
+                counterPriceTotalAdd(itens.price)
             }
         }
         blockEventCart = true
@@ -112,15 +136,26 @@ function counterProduct(){
     const changeCounter = document.querySelector('.counter-product')
     changeCounter.innerText = counter.length
 }
-function counterPriceTotal(price){
-    const totalcost = document.querySelector('.total-product-cost')
+function counterPriceTotalAdd(price){
     priceProductTotal.push(price)
+    totalPrice()
+}
+function totalPrice(){
+    const totalcost = document.querySelector('.total-product-cost')
     let a = 0
     for(cost of priceProductTotal){
         let costTotal = cost + a
         a = costTotal
     }
     totalcost.innerText = '$' + a
+}
+function counterPriceTotalRest(price){
+    console.log(priceProductTotal)
+    let a = priceProductTotal.indexOf(price)
+    priceProductTotal.splice(a, 1)
+    console.log(priceProductTotal)
+    totalPrice()
+    activeRest = false
 }
 let blockEvent 
 function openProductDetailAside(){ 
