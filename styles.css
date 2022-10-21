@@ -1,3 +1,8 @@
+
+section {
+  display: block;
+}
+
 :root {
     --white: #FFFFFF;
     --black: #000000;
@@ -323,6 +328,7 @@ aside {
   height: 240px;
   border-radius: 20px;
   object-fit: cover;
+  cursor: pointer
 }
 .product-card .product-info {
   display: flex;
@@ -368,23 +374,28 @@ aside {
     display: none;
 }
 
+
+aside {
+  width: 100%;
+}
+
+
+
+.cards-container {
+  grid-template-columns: repeat(auto-fill, 140px);
+}
+
+.product-card {
+  width: 140px;
+}
+.product-card img {
+  width: 140px;
+  height: 140px;
+}
+
   }
 
-  .product-detail {
-    width: 100%;
-  }
-
-
-  .cards-container {
-    grid-template-columns: repeat(auto-fill, 140px);
-  }
-  .product-card {
-    width: 140px;
-  }
-  .product-card img {
-    width: 140px;
-    height: 140px;
-  }
+ 
 
 
   @media (min-width: 639px) {
