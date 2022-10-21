@@ -1,7 +1,7 @@
 :root {
     --white: #FFFFFF;
     --black: #000000;
-    --very-light-pink: #C7C7C7;
+    --very-light-pink: #9c9c9c;
     --text-input-field: #F7F7F7;
     --hospital-green: #ACD9B2;
     --sm: 14px;
@@ -70,6 +70,9 @@
   }
   .navbar-shopping-cart {
     position: relative;
+  }
+  .navbar-shopping-cart:hover{
+    transform: scale(0.9);
   }
   .navbar-shopping-cart div {
     width: 16px;
@@ -158,6 +161,7 @@
   }
   /*detalles de productos agregados -----------------------------*/
   .shopping-cart-conatiner {
+    border: var(--hospital-green) solid 2px;
     width: 360px;
     padding: 0 24px;
     box-sizing: border-box;
@@ -181,7 +185,7 @@
     grid-template-columns: auto 1fr;
     gap: 16px;
     align-items: center;
-    background-color: var(--text-input-field);
+    background-color: rgb(212, 242, 252);
     margin-bottom: 24px;
     border-radius: 8px;
     padding: 0 24px;
@@ -204,6 +208,14 @@
     gap: 16px;
     margin-bottom: 24px;
     align-items: center;
+  }
+  .icon-remove-product{
+    height: 20px;
+    border: var(--hospital-green) solid 1px;
+    border-radius: 50%;
+  }
+  .icon-remove-product:hover{
+    transform: scale(1.2);
   }
   .my-order-content .shopping-cart figure {
     margin: 0;
@@ -233,16 +245,16 @@
     height: 50px;
   }
   .add-cards{
-    position: absolute;
+    position: fixed;
     width: 50px;
     height: 50px;
-    border: solid #b7e866 5px;
+    border: solid var(--hospital-green) 3px;
     border-radius: 50%;
     display: flex;
     justify-content: center;
     align-items: center;
     bottom: 30px;
-    right: 30px;
+    left: 30px;
     cursor: pointer;
   }
   .add-cards:hover{
@@ -272,13 +284,16 @@
   border-radius: 20px;
   object-fit: contain;
 }
+.product-card img:hover{
+  transform: scale(1.05);
+}
 .product-info{
   display: flex;
   justify-content: space-between;
   align-items: center;
   padding: 12px;
   border-top: var(--hospital-green) solid 2px;
-  background-color: var(--text-input-field);
+  background-color: rgb(212, 242, 252);
 }
 .product-info figure {
   margin: 0;
@@ -321,19 +336,19 @@
   text-align: center;
 }
 .icon-close-form{
+  background-color: var(--white);
   position: absolute;
   top: 10px;
   right: 10px;
   height: 25px;
   width: 25px;
   border-radius: 50%;
-  border: solid 2px black;
 }
 .block-add-new-itens{
   height: 600px;
   width: 300px;
   position: absolute;
-  background-color: var(--text-input-field);
+  background-color: rgb(212, 242, 252);
   border-radius: 20px;
   display: flex;
   justify-content: center;
@@ -345,6 +360,7 @@ form{
   background-color: var(--hospital-green);
   padding: 0 10px;
   margin-bottom: 30px;
+  border-radius: 10px;
 }
 input{
   padding: 0;
@@ -353,6 +369,7 @@ input{
   height: 30px;
   border: none;
   font-size: 15px;
+  border-radius: 10px; 
 }
 label{
   font-size: 18px;
@@ -363,7 +380,7 @@ label{
   display: block;
   position: relative;
   bottom: -60px;
-  background-color: var(--very-light-pink);
+  background-color: rgb(199, 199, 199);
   font-weight: bold;
 }
 .submit-botton:hover{
@@ -371,15 +388,19 @@ label{
 }
 /* detalle de un producto ------------------*/
 .product-detail {
-  width: 360px;
+  border: var(--hospital-green) solid 2px;
+  background-color: rgb(212, 242, 252);
+  width: 500px;
   padding-bottom: 24px;
   position: absolute;
   right: 0;
+  border-bottom-left-radius: 5%;
 }
 .product-detail-close {
+  outline: var(--hospital-green) solid 2px;
   background: var(--white);
-  width: 14px;
-  height: 14px;
+  width: 20px;
+  height: 20px;
   position: absolute;
   top: 24px;
   left: 24px;
@@ -387,13 +408,20 @@ label{
   padding: 12px;
   border-radius: 50%;
 }
-.product-detail-close:hover {
+.product-detail-close img{
+  height: 20px;
+}
+.product-detail-close:hover{
+  transform: scale(0.9);
   cursor: pointer;
 }
+
 .product-detail > img:nth-child(2) {
-  width: 100%;
+  display: block;
+  width: 80%;
+  margin: 0 auto;
   height: 360px;
-  object-fit: cover;
+  object-fit: contain;
   border-radius: 0 0 20px 20px;
 }
 .product-info-container{
@@ -418,6 +446,7 @@ label{
   margin-bottom: 36px;
 }
 .primary-button {
+  margin-bottom: 20px;
   background-color: var(--hospital-green);
   border-radius: 8px;
   border: none;
@@ -433,6 +462,10 @@ label{
   align-items: center;
   justify-content: center;
 }
+.add-to-cart-button:hover{
+  transform: scale(1.03);
+  color: #000000;
+} 
   @media (max-width: 640px) {
     .burguerMenu {
       display: block;

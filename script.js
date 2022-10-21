@@ -21,6 +21,8 @@ const descriptionProductDetail = document.querySelector('.description-product-de
 const imageProductDetail = document.querySelector('.image-product-detail')
 const contentOrder = document.querySelector('.my-order-content')
 const moveIdCart = document.querySelector('.add-to-cart-button')
+const sudmitbutton = document.querySelector('.primary-button')
+const totalcost = document.querySelector('.total-product-cost')
 
 form.addEventListener('submit', collectElements)
 addCardsList.addEventListener('click', openAddBlockCardsList)
@@ -30,6 +32,24 @@ burguerMenu.addEventListener('click', toggleMobileMenu)
 menuCarritoIcon.addEventListener('click', toggleCarritoAside)
 productDetailCloseIcon.addEventListener('click', closeProductDetailAside)
 moveIdCart.addEventListener('click', sentProductDate)
+sudmitbutton.addEventListener('click', productSudmit)
+function productSudmit(){
+    alert('comfirme su seleccion')
+    shoppingCartConatiner.classList.add('inactive')
+    console.log(priceProductTotal)
+    let cuenta = priceProductTotal.length
+    for(i = 0; i < cuenta ; i++){
+        priceProductTotal.shift()
+    }
+    const countItens = document.querySelectorAll('.shopping-cart')
+    for(i = 0; i < countItens.length; i++){
+        const onlyiten = document.querySelector('.shopping-cart')
+        onlyiten.remove('.shopping-cart') 
+    }
+    totalPrice()
+    counterProduct()
+
+}
 
 function openAddBlockCardsList(){
     openBlockAdd.classList.toggle('inactive')
@@ -70,7 +90,6 @@ function sentProductDate(){
             addProductItenCart(moveIdCart)
         }
     }
-
 }
 let blockEventCart
 function addProductToCart(){
@@ -141,7 +160,6 @@ function counterPriceTotalAdd(price){
     totalPrice()
 }
 function totalPrice(){
-    const totalcost = document.querySelector('.total-product-cost')
     let a = 0
     for(cost of priceProductTotal){
         let costTotal = cost + a
@@ -150,10 +168,8 @@ function totalPrice(){
     totalcost.innerText = '$' + a
 }
 function counterPriceTotalRest(price){
-    console.log(priceProductTotal)
     let a = priceProductTotal.indexOf(price)
     priceProductTotal.splice(a, 1)
-    console.log(priceProductTotal)
     totalPrice()
     activeRest = false
 }
@@ -192,14 +208,14 @@ function collectElements(event){
     productList.push({
         id: productIdNew,
         name: newItenName.value,
-        price: newItenPrice.value,
+        price: Number(newItenPrice.value),
         image: newItenUrl.value,
         description: newItendescription.value
     })
     let product = productList[(productList.length) - 1]
     activeLoopItens = false
     createNewIten(product)
-    newItenName.value = newItenUrl.value = newItenPrice.value = ""
+    newItenName.value = newItenUrl.value = newItenPrice.value = newItendescription.value = ""
 }
 function idcreate(){
     productIdNew = 1000 + (productList.length + 1)
