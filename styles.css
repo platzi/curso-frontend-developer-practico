@@ -128,7 +128,7 @@
 
   .mobile-menu {
     background-color: var(--white);
-    padding: 24px;
+    /*padding: 24px;*/
     top: 60px;
     position: absolute;
     left: 0px;
@@ -141,7 +141,7 @@
     /* margin-bottom: 24px; */
   }
   .mobile-menu ul {
-    padding: 0;
+    padding: 24px;
     margin: 24px 0 0;
     list-style: none;
   }
@@ -165,6 +165,7 @@
   aside {
     background-color: var(--white);
     width: 360px;
+    padding: 0 24px;
     box-sizing: border-box;
     position: absolute;
     right: 0;
