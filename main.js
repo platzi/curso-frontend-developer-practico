@@ -3,7 +3,7 @@ const menuHamIcon = document.querySelector('.menu');
 const menuCarritoIcon = document.querySelector('.navbar-shopping-cart');
 const desktopMenu = document.querySelector('.desktop-menu');
 const mobileMenu = document.querySelector('.mobile-menu');
-const aside = document.querySelector('.product-detail');
+const shoppingCartContainer = document.querySelector('#shoppingCartContainer');
 const cardsContainer = document.querySelector('.cards-container');
 
 
@@ -12,16 +12,16 @@ menuHamIcon.addEventListener('click', toggleMobileMenu);
 menuCarritoIcon.addEventListener('click', toggleCarritoAside);
 
 function toggleDesktopMenu(){
-    const isAsideClosed = aside.classList.contains('inactive');
+    const isAsideClosed = shoppingCartContainer.classList.contains('inactive');
     if(!isAsideClosed){ 
-        aside.classList.add('inactive');
+        shoppingCartContainer.classList.add('inactive');
     }
     desktopMenu.classList.toggle('inactive');
 }
 function toggleMobileMenu(){
-    const isAsideClosed = aside.classList.contains('inactive');
+    const isAsideClosed = shoppingCartContainer.classList.contains('inactive');
     if(!isAsideClosed){ 
-        aside.classList.add('inactive');
+        shoppingCartContainer.classList.add('inactive');
     }
     mobileMenu.classList.toggle('inactive');
 }
@@ -31,7 +31,7 @@ function toggleCarritoAside(){
     if(!isMobileMenuClosed){ 
         mobileMenu.classList.add('inactive');
     }
-    aside.classList.toggle('inactive');      
+    shoppingCartContainer.classList.toggle('inactive');      
 }
 
 const productList = [];
@@ -76,25 +76,26 @@ function renderProducts(arr) {
         const productPrice = document.createElement('p');
         productPrice.innerText = '$' + product.price;
         const productName = document.createElement('p');
-        productName.innerText = '$' + product.name;
+        productName.innerText = product.name;
 
-        productInfoDiv.appendChild(productPrice, productName);
+        productInfoDiv.appendChild(productPrice, );
+        productInfoDiv.appendChild(productName, );
         
-
-
+        //Creamos la etiqueta figure dentro del div=> "product-info"
         const productInfoFigure = document.createElement('figure');
+        //Creamos la etiqueta img y modificamos su atributo src
         const productImgCart = document.createElement('img');
         productImgCart.setAttribute('src', './icons/bt_add_to_cart.svg');
-
+        //Añadimos la etiqueta img dentro de figure
         productInfoFigure.appendChild(productImgCart);
 
-        
+        //añadimos las etiqueas div y figure a el div =>"product-info"
         productInfo.appendChild(productInfoDiv);
         productInfo.appendChild(productInfoFigure);
-
+        //Añadimos la etiqueta img y div => "product-card"
         productCard.appendChild(productImg);
         productCard.appendChild(productInfo);
-
+        // agregamos el div=> "product-card" a el div =>"cards-container"
         cardsContainer.appendChild(productCard);
     }
 }
