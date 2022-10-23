@@ -123,6 +123,7 @@ nav {
 /*Menu en mobile*/
 
 .mobile-menu {
+  background-color: var(--white);
   position: absolute;
   top: 60px;
   padding: 24px;
@@ -156,6 +157,7 @@ nav {
 /* estilos del aside carrito compras*/
 
 .product-detail {
+  background-color:  var(--white);
   width: 360px;
   padding: 24px;
   box-sizing: border-box;

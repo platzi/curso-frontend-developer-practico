@@ -20,6 +20,18 @@ function toggleMobileMenu() {
 }
 
 function toggleCarritoAside() {
-  console.log("ya me dio ");
-  aside.classList.toggle("inactive");
+ const isMobileMenuClosed = mobileMenu.classList.contains("inactive");
+
+ 
+
+  
+  
+   
+ if(!isMobileMenuClosed){
+  mobileMenu.classList.add("inactive")
+ }
+ else{ aside.classList.toggle("inactive");
+}
+
+   
 }
