@@ -2,21 +2,25 @@
 const menuEmail = document.querySelector(".navbar-email");
 const desktopMenu = document.querySelector(".desktop-menu");
 const menuIcon = document.querySelector(".menu");
+const productDetailIcon=document.querySelector('.product-detail-close')
 const mobileMenu = document.querySelector(".mobile-menu");
 const menuCarrito = document.querySelector(".navbar-shopping-cart");
 const cardsContainer = document.querySelector(".cards-container");
 const shopingCartContainer = document.querySelector("#shopingCartContainer");
 
+const productDetailContainer = document.querySelector('#productDetail')
 menuEmail.addEventListener("click", toggleDesktopMenu);
 function toggleDesktopMenu() {
   shopingCartContainer.classList.add("inactive");
   desktopMenu.classList.toggle("inactive");
+  productDetailContainer.classList.add('inactive');
 }
 
 menuIcon.addEventListener("click", toggleMobileMenu);
 function toggleMobileMenu() {
   shopingCartContainer.classList.add("inactive");
   mobileMenu.classList.toggle("inactive");
+  productDetailContainer.classList.add('inactive');
 }
 
 menuCarrito.addEventListener("click", toggleCarritoAside);
@@ -24,8 +28,18 @@ function toggleCarritoAside() {
   desktopMenu.classList.add("inactive");
   mobileMenu.classList.add("inactive");
   shopingCartContainer.classList.toggle("inactive");
+  productDetailContainer.classList.add('inactive');
 }
-
+function openProductDetailAside(){
+  productDetailContainer.classList.remove('inactive');
+  desktopMenu.classList.add("inactive");
+  shopingCartContainer.classList.add("inactive");
+}
+productDetailIcon.addEventListener('click', closeProductDetailAside);
+function closeProductDetailAside(){
+  productDetailContainer.classList.add('inactive');
+ 
+}
 const productList = [];
 productList.push({
   name: "Bike",
@@ -51,6 +65,7 @@ function renderProducts(arr) {
     productCard.classList.add("product-card");
     const productImg = document.createElement("img");
     productImg.setAttribute("src", product.image);
+    productImg.addEventListener('click', openProductDetailAside)
     const productInfo = document.createElement("div");
     productInfo.classList.add("product-info");
     const productInfoDiv = document.createElement("div");
@@ -58,7 +73,7 @@ function renderProducts(arr) {
     productPrice.innerText = "$" + product.price;
     const productName = document.createElement("p");
     productName.innerText = product.name;
-     productInfoDiv.append(productPrice, productName)
+    productInfoDiv.append(productPrice, productName);
     // productInfoDiv.appendChild(productPrice);
     // productInfoDiv.appendChild(productName);
     const productInfoFigure = document.createElement("figure");
