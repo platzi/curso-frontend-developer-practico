@@ -10,28 +10,32 @@ menuHamIcon.addEventListener("click", toggleMobileMenu);
 menuCarritoIcon.addEventListener("click", toggleCarritoAside);
 
 function toggleDesktopMenu() {
-  console.log("hola diste click");
+  //console.log("hola diste click");
+  const isAsideClosed = aside.classList.contains("inactive");
+
+  if (!isAsideClosed) {
+    aside.classList.add("inactive");
+  }
   desktopMenu.classList.toggle("inactive");
 }
 
 function toggleMobileMenu() {
-  console.log("hola diste click");
+  const isAsideClosed = aside.classList.contains("inactive");
+
+  /*console.log("hola diste click");
+   */
+  if (!isAsideClosed) {
+    aside.classList.add("inactive");
+  }
+
   mobileMenu.classList.toggle("inactive");
 }
 
 function toggleCarritoAside() {
- const isMobileMenuClosed = mobileMenu.classList.contains("inactive");
+  const isMobileMenuClosed = mobileMenu.classList.contains("inactive");
 
- 
-
-  
-  
-   
- if(!isMobileMenuClosed){
-  mobileMenu.classList.add("inactive")
- }
- else{ aside.classList.toggle("inactive");
-}
-
-   
+  if (!isMobileMenuClosed) {
+    mobileMenu.classList.add("inactive");
+  }
+  aside.classList.toggle("inactive");
 }
