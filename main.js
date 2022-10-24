@@ -3,9 +3,8 @@ const menuHamIcon = document.querySelector('.menu');
 const menuCarritoIcon = document.querySelector('.navbar-shopping-cart');
 const desktopMenu = document.querySelector('.desktop-menu');
 const mobileMenu = document.querySelector('.mobile-menu');
-const aside = document.querySelector('.product-detail');
+const shoppingCartContainer = document.querySelector('#shoppingCartContainer');
 const cardsContainer = document.querySelector('.cards-container')
-
 // toggle: nombre intercambiar
 
 menuEmail.addEventListener('click', toggleDesktopMenu);//cuando le demos click, queremos que muestres
@@ -13,19 +12,19 @@ menuHamIcon.addEventListener('click', toggleMobileMenu);
 menuCarritoIcon.addEventListener('click', toggleCarritoAside);
 
 function toggleDesktopMenu() {
-    const isAsideClosed = aside.classList.contains('inactive');//aside EstaCerrado si tiene la clase inactive
+    const isAsideClosed = shoppingCartContainer.classList.contains('inactive');//aside EstaCerrado si tiene la clase inactive
   
     if (!isAsideClosed) {
-      aside.classList.add('inactive');
+        shoppingCartContainer.classList.add('inactive');
     }
     desktopMenu.classList.toggle('inactive');
   }
   
 function toggleMobileMenu() {
-    const isAsideClosed = aside.classList.contains('inactive');//aside Esta cerrado
+    const isAsideClosed = shoppingCartContainer.classList.contains('inactive');//aside Esta cerrado
   
     if (!isAsideClosed) {//si no esta cerrado
-      aside.classList.add('inactive'); //cierralo
+        shoppingCartContainer.classList.add('inactive'); //cierralo
     }
     mobileMenu.classList.toggle('inactive');//sino cambialo a inactive
   }
@@ -36,7 +35,7 @@ function toggleCarritoAside() {
     if (!isMobileMenuClosed) {
       mobileMenu.classList.add('inactive'); 
     }
-    aside.classList.toggle('inactive');
+    shoppingCartContainer.classList.toggle('inactive');
   }
 
 const productList = [];
