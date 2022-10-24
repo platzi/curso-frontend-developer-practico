@@ -8,7 +8,7 @@ const burguerMobileMenu = document.querySelector('.mobile-menu');
 
 
 const shoppingCartIcon = document.querySelector('.navbar-shopping-cart');//Icono del carrito
-const menuShoppingCart = document.querySelector('.product-detail');//Menu desplegable del carrito
+const shoppingCartContainer = document.querySelector('#shoppingCartContainer');//Menu desplegable del carrito
 
 const cardsContainer = document.querySelector('.cards-container');
 
@@ -21,16 +21,16 @@ shoppingCartIcon.addEventListener('click', showShoppingMenu);
 
 function showDesktopMenu(){
     emailDesktopMenu.classList.toggle('inactive');
-    menuShoppingCart.classList.add('inactive');
+    shoppingCartContainer.classList.add('inactive');
 }
 
 function showMobileMenu(){
     burguerMobileMenu.classList.toggle('inactive');
-    menuShoppingCart.classList.add('inactive');
+    shoppingCartContainer.classList.add('inactive');
 }
 
 function showShoppingMenu(){
-    menuShoppingCart.classList.toggle('inactive');
+    shoppingCartContainer.classList.toggle('inactive');
     emailDesktopMenu.classList.add('inactive');
     burguerMobileMenu.classList.add('inactive');
 }
@@ -49,28 +49,14 @@ productList.push({
 productList.push({
     name: 'Pantalla',
     price: 220,
-    image: 'https://media.gcflearnfree.org/content/5ce56bebc0220e22c08b9f74_05_22_2019/monitor-01_xl.png',
+    image: 'https://images.pexels.com/photos/276517/pexels-photo-276517.jpeg?auto=compress&cs=tinysrgb&dpr=2&h=650&w=940',
 });
 productList.push({
     name: 'Computadora',
     price: 620,
-    image: 'https://thumbs.dreamstime.com/z/peque%C3%B1a-computadora-port%C3%A1til-moderna-23055738.jpg',
+    image: 'https://images.pexels.com/photos/276517/pexels-photo-276517.jpeg?auto=compress&cs=tinysrgb&dpr=2&h=650&w=940',
 });
-productList.push({
-  name: 'Bike',
-  price: 120,
-  image: 'https://images.pexels.com/photos/276517/pexels-photo-276517.jpeg?auto=compress&cs=tinysrgb&dpr=2&h=650&w=940',
-});
-productList.push({
-  name: 'Pantalla',
-  price: 220,
-  image: 'https://media.gcflearnfree.org/content/5ce56bebc0220e22c08b9f74_05_22_2019/monitor-01_xl.png',
-});
-productList.push({
-  name: 'Computadora',
-  price: 620,
-  image: 'https://thumbs.dreamstime.com/z/peque%C3%B1a-computadora-port%C3%A1til-moderna-23055738.jpg',
-});
+
 
 //Las funciones sirven para poder repetir una accion muchas veces sin necesidad de repetir el codigo, pero tambien
 //sirven para organizar el codigo. En esta funcion 'renderProducts' lo que hare sera encapsular todo el ciclo 
