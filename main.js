@@ -55,13 +55,6 @@ function openProductDetailAside() {
         shoppingCartContainer.classList.add('inactive');
         desktopMenu.classList.add('inactive');
     }
-    function mostrar(recibido) {
-        for (gone of recibido){
-            // Productimg.setAttribute('src', gone.image);
-            // imgProduct.append(Productimg);
-        }
-    }
-    mostrar(productList);
     productDetailContainer.classList.remove('inactive');
 }
 function closeProductoDetailAside() {
