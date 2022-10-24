@@ -1,7 +1,7 @@
 const menuEmail = document.querySelector('.navbar-email');
 const menuHamIcon = document.querySelector('.menu');
 const menuCarritoIcon = document.querySelector('.navbar-shopping-cart');
-const productDetailCloseIcon = document.querySelector('.product-detail-close')
+const productDetailCloseIcon = document.querySelector('.product-detail-close');
 const desktopMenu = document.querySelector('.desktop-menu');
 const mobileMenu = document.querySelector('.mobile-menu');
 const shoppingCartContainer = document.querySelector('#shoppingCartContainer');
@@ -60,120 +60,120 @@ function closeProductDetailAside() {
   productDetailContainer.classList.add('inactive');
 }
 
-// const productList = [];
+const productList = [];
+productList.push({
+  name: 'Bike',
+  price: 120,
+  image: 'https://images.pexels.com/photos/276517/pexels-photo-276517.jpeg?auto=compress&cs=tinysrgb&dpr=2&h=650&w=940',
+});
+productList.push({
+  name: 'Pantalla',
+  price: 220,
+  image: 'https://images.pexels.com/photos/276517/pexels-photo-276517.jpeg?auto=compress&cs=tinysrgb&dpr=2&h=650&w=940',
+});
+productList.push({
+  name: 'Compu',
+  price: 620,
+  image: 'https://images.pexels.com/photos/276517/pexels-photo-276517.jpeg?auto=compress&cs=tinysrgb&dpr=2&h=650&w=940',
+ });
+
+// let productList = [];
 // productList.push({
-//   name: 'Bike',
-//   price: 120,
-//   image: 'https://images.pexels.com/photos/276517/pexels-photo-276517.jpeg?auto=compress&cs=tinysrgb&dpr=2&h=650&w=940',
+//     name: 'Bike',
+//     price: 120,
+//     image: "https://images.pexels.com/photos/276517/pexels-photo-276517.jpeg?auto=compress&cs=tinysrgb&dpr=2&h=650&w=940",
+
 // });
 // productList.push({
-//   name: 'Pantalla',
-//   price: 220,
-//   image: 'https://images.pexels.com/photos/276517/pexels-photo-276517.jpeg?auto=compress&cs=tinysrgb&dpr=2&h=650&w=940',
+//     name: 'Casque',
+//     price: 220,
+//     image: "https://images.pexels.com/photos/266517/pexels-photo-266517.jpeg?auto=compress&cs=tinysrgb&dpr=2&h=650&w=940",
 // });
 // productList.push({
-//   name: 'Compu',
-//   price: 620,
-//   image: 'https://images.pexels.com/photos/276517/pexels-photo-276517.jpeg?auto=compress&cs=tinysrgb&dpr=2&h=650&w=940',
+//     name: 'Mi Logo DE',
+//     price: 620,
+//     image: "https://images.pexels.com/photos/261572/pexels-photo-261572.jpeg?auto=compress&cs=tinysrgb&dpr=2&h=650&w=940",
 // });
+// productList.push({
+//     name: 'Bike',
+//     price: 120,
+//     image: "https://images.pexels.com/photos/276517/pexels-photo-276517.jpeg?auto=compress&cs=tinysrgb&dpr=2&h=650&w=940",
 
-let productList = [];
-productList.push({
-    name: 'Bike',
-    price: 120,
-    image: "https://images.pexels.com/photos/276517/pexels-photo-276517.jpeg?auto=compress&cs=tinysrgb&dpr=2&h=650&w=940",
+// });
+// productList.push({
+//     name: 'Casque',
+//     price: 220,
+//     image: "https://images.pexels.com/photos/266517/pexels-photo-266517.jpeg?auto=compress&cs=tinysrgb&dpr=2&h=650&w=940",
+// });
+// productList.push({
+//     name: 'Mi Logo DE',
+//     price: 620,
+//     image: "https://images.pexels.com/photos/261572/pexels-photo-261572.jpeg?auto=compress&cs=tinysrgb&dpr=2&h=650&w=940",
+// });
+// productList.push({
+//     name: 'Bike',
+//     price: 120,
+//     image: "https://images.pexels.com/photos/276517/pexels-photo-276517.jpeg?auto=compress&cs=tinysrgb&dpr=2&h=650&w=940",
 
-});
-productList.push({
-    name: 'Casque',
-    price: 220,
-    image: "https://images.pexels.com/photos/266517/pexels-photo-266517.jpeg?auto=compress&cs=tinysrgb&dpr=2&h=650&w=940",
-});
-productList.push({
-    name: 'Mi Logo DE',
-    price: 620,
-    image: "https://images.pexels.com/photos/261572/pexels-photo-261572.jpeg?auto=compress&cs=tinysrgb&dpr=2&h=650&w=940",
-});
-productList.push({
-    name: 'Bike',
-    price: 120,
-    image: "https://images.pexels.com/photos/276517/pexels-photo-276517.jpeg?auto=compress&cs=tinysrgb&dpr=2&h=650&w=940",
+// });
+// productList.push({
+//     name: 'Casque',
+//     price: 220,
+//     image: "https://images.pexels.com/photos/266517/pexels-photo-266517.jpeg?auto=compress&cs=tinysrgb&dpr=2&h=650&w=940",
+// });
+// productList.push({
+//     name: 'Mi Logo DE',
+//     price: 620,
+//     image: "https://images.pexels.com/photos/261572/pexels-photo-261572.jpeg?auto=compress&cs=tinysrgb&dpr=2&h=650&w=940",
+// });
+// productList.push({
+//     name: 'Bike',
+//     price: 120,
+//     image: "https://images.pexels.com/photos/276517/pexels-photo-276517.jpeg?auto=compress&cs=tinysrgb&dpr=2&h=650&w=940",
 
-});
-productList.push({
-    name: 'Casque',
-    price: 220,
-    image: "https://images.pexels.com/photos/266517/pexels-photo-266517.jpeg?auto=compress&cs=tinysrgb&dpr=2&h=650&w=940",
-});
-productList.push({
-    name: 'Mi Logo DE',
-    price: 620,
-    image: "https://images.pexels.com/photos/261572/pexels-photo-261572.jpeg?auto=compress&cs=tinysrgb&dpr=2&h=650&w=940",
-});
-productList.push({
-    name: 'Bike',
-    price: 120,
-    image: "https://images.pexels.com/photos/276517/pexels-photo-276517.jpeg?auto=compress&cs=tinysrgb&dpr=2&h=650&w=940",
+// });
+// productList.push({
+//     name: 'Casque',
+//     price: 220,
+//     image: "https://images.pexels.com/photos/266517/pexels-photo-266517.jpeg?auto=compress&cs=tinysrgb&dpr=2&h=650&w=940",
+// });
+// productList.push({
+//     name: 'Mi Logo DE',
+//     price: 620,
+//     image: "https://images.pexels.com/photos/261572/pexels-photo-261572.jpeg?auto=compress&cs=tinysrgb&dpr=2&h=650&w=940",
+// });
+// productList.push({
+//     name: 'Bike',
+//     price: 120,
+//     image: "https://images.pexels.com/photos/276517/pexels-photo-276517.jpeg?auto=compress&cs=tinysrgb&dpr=2&h=650&w=940",
 
-});
-productList.push({
-    name: 'Casque',
-    price: 220,
-    image: "https://images.pexels.com/photos/266517/pexels-photo-266517.jpeg?auto=compress&cs=tinysrgb&dpr=2&h=650&w=940",
-});
-productList.push({
-    name: 'Mi Logo DE',
-    price: 620,
-    image: "https://images.pexels.com/photos/261572/pexels-photo-261572.jpeg?auto=compress&cs=tinysrgb&dpr=2&h=650&w=940",
-});
-productList.push({
-    name: 'Bike',
-    price: 120,
-    image: "https://images.pexels.com/photos/276517/pexels-photo-276517.jpeg?auto=compress&cs=tinysrgb&dpr=2&h=650&w=940",
+// });
+// productList.push({
+//     name: 'Casque',
+//     price: 220,
+//     image: "https://images.pexels.com/photos/266517/pexels-photo-266517.jpeg?auto=compress&cs=tinysrgb&dpr=2&h=650&w=940",
+// });
+// productList.push({
+//     name: 'Mi Logo DE',
+//     price: 620,
+//     image: "https://images.pexels.com/photos/261572/pexels-photo-261572.jpeg?auto=compress&cs=tinysrgb&dpr=2&h=650&w=940",
+// });
+// productList.push({
+//     name: 'Bike',
+//     price: 120,
+//     image: "https://images.pexels.com/photos/276517/pexels-photo-276517.jpeg?auto=compress&cs=tinysrgb&dpr=2&h=650&w=940",
 
-});
-productList.push({
-    name: 'Casque',
-    price: 220,
-    image: "https://images.pexels.com/photos/266517/pexels-photo-266517.jpeg?auto=compress&cs=tinysrgb&dpr=2&h=650&w=940",
-});
-productList.push({
-    name: 'Mi Logo DE',
-    price: 620,
-    image: "https://images.pexels.com/photos/261572/pexels-photo-261572.jpeg?auto=compress&cs=tinysrgb&dpr=2&h=650&w=940",
-});
-productList.push({
-    name: 'Bike',
-    price: 120,
-    image: "https://images.pexels.com/photos/276517/pexels-photo-276517.jpeg?auto=compress&cs=tinysrgb&dpr=2&h=650&w=940",
-
-});
-productList.push({
-    name: 'Casque',
-    price: 220,
-    image: "https://images.pexels.com/photos/266517/pexels-photo-266517.jpeg?auto=compress&cs=tinysrgb&dpr=2&h=650&w=940",
-});
-productList.push({
-    name: 'Mi Logo DE',
-    price: 620,
-    image: "https://images.pexels.com/photos/261572/pexels-photo-261572.jpeg?auto=compress&cs=tinysrgb&dpr=2&h=650&w=940",
-});
-productList.push({
-    name: 'Bike',
-    price: 120,
-    image: "https://images.pexels.com/photos/276517/pexels-photo-276517.jpeg?auto=compress&cs=tinysrgb&dpr=2&h=650&w=940",
-
-});
-productList.push({
-    name: 'Casque',
-    price: 220,
-    image: "https://images.pexels.com/photos/266517/pexels-photo-266517.jpeg?auto=compress&cs=tinysrgb&dpr=2&h=650&w=940",
-});
-productList.push({
-    name: 'Mi Logo DE',
-    price: 620,
-    image: "https://images.pexels.com/photos/261572/pexels-photo-261572.jpeg?auto=compress&cs=tinysrgb&dpr=2&h=650&w=940",
-});
+// });
+// productList.push({
+//     name: 'Casque',
+//     price: 220,
+//     image: "https://images.pexels.com/photos/266517/pexels-photo-266517.jpeg?auto=compress&cs=tinysrgb&dpr=2&h=650&w=940",
+// });
+// productList.push({
+//     name: 'Mi Logo DE',
+//     price: 620,
+//     image: "https://images.pexels.com/photos/261572/pexels-photo-261572.jpeg?auto=compress&cs=tinysrgb&dpr=2&h=650&w=940",
+// });
 
 
 function renderProducts(arr) {
