@@ -45,11 +45,11 @@ function showMyOrder() {
 function openProductDetailAside() {
   productDetailContainer.classList.remove('inactive') /* quitar la clase inactive para que solo se abra*/
   shoppingCartContainer.classList.add('inactive');
-}
+};
 
 function closeProductDetailAside() {
   productDetailContainer.classList.add('inactive');
-}
+};
 
 const productList = [];
 productList.push({
