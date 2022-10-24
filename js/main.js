@@ -138,7 +138,7 @@ function renderProduct(arr)
     const productInfoFigure = document.createElement('figure');
 
     const productImgCart = document.createElement('img');
-    productImgCart.setAttribute('src', '../icons/icon_shopping_cart.svg');
+    productImgCart.setAttribute('src', './icons/icon_shopping_cart.svg');
 
     productInfoFigure.appendChild(productImgCart);
 
