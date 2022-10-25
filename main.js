@@ -1,15 +1,12 @@
 const menuEmail = document.querySelector('.navbar-email');
 const menuHamIcon = document.querySelector('.menu');
 const menuCarritoIcon = document.querySelector('.navbar-shopping-cart');
-const aumentarCartIcon = document.querySelector('.btn-add-cart');
 const productDetailCloseIcon = document.querySelector('.product-detail-close')
 const desktopMenu = document.querySelector('.desktop-menu');
 const mobileMenu = document.querySelector('.mobile-menu');
 const shoppingCartContainer = document.querySelector('#shoppingCartContainer');
 const productDetailContainer = document.querySelector('#productDetail');
 const cardsContainer = document.querySelector('.cards-container');
-const addToCart = document.querySelector('.add-to-cart-button');
-
 
 menuEmail.addEventListener('click', toggleDesktopMenu);
 menuHamIcon.addEventListener('click', toggleMobileMenu);
@@ -55,9 +52,6 @@ function toggleCarritoAside() {
   shoppingCartContainer.classList.toggle('inactive');
 }
 
-function addToCartBtn() {
-
-}
 
 function openProductDetailAside() {
   shoppingCartContainer.classList.add('inactive');
@@ -75,18 +69,24 @@ productList.push ({
   image: 'https://images.pexels.com/photos/100582/pexels-photo-100582.jpeg?auto=compress&cs=tinysrgb&w=1260&h=750&dpr=1'
 });
 productList.push ({
-  name:'Bicycle helmet',
-  price: 1200,
-  image: 'https://assets.specialized.com/i/specialized/60821-104_HLMT_ALIGN-II-HLMT-MIPS-CE-BLK-BLKREFL-S-M_HERO?bg=rgb(241,241,241)&w=1600&h=900&fmt=auto'
+  name:'Bike',
+  price: 12700,
+  image: 'https://images.pexels.com/photos/100582/pexels-photo-100582.jpeg?auto=compress&cs=tinysrgb&w=1260&h=750&dpr=1'
 });
 productList.push ({
-  name:'HeadPhones',
-  price: 300,
-  image: 'https://static2.4gsm.com/eng_pl_WK-Design-Wireless-Bluetooth-Headphones-black-M8-black-79905_1.jpg'
+  name:'Bike',
+  price: 12700,
+  image: 'https://images.pexels.com/photos/100582/pexels-photo-100582.jpeg?auto=compress&cs=tinysrgb&w=1260&h=750&dpr=1'
 });
+productList.push ({
+  name:'Bike',
+  price: 12700,
+  image: 'https://images.pexels.com/photos/100582/pexels-photo-100582.jpeg?auto=compress&cs=tinysrgb&w=1260&h=750&dpr=1'
+});
+
  
 function renderProducts(arr) {
-  for(product of arr){
+  for(product of productList){
     const productCard=document.createElement('div');
     productCard.classList.add('product-card');
   
@@ -106,15 +106,13 @@ function renderProducts(arr) {
     productName.innerText=product.name;
   
     productInfoDiv.appendChild(productPrice);
-    productInfoDiv.appendChild(productName)
+    productInfoDiv.appendChild(productName);
   
     const productInfoFigure=document.createElement('figure');
     const productImgCart=document.createElement('img');
     productImgCart.setAttribute('src','./icons/bt_add_to_cart.svg');
     productImgCart.classList.add('btn-add-cart')
     
-
-  
     productInfoFigure.appendChild(productImgCart);
   
     productInfo.appendChild(productInfoDiv);
@@ -127,4 +125,30 @@ function renderProducts(arr) {
   }
 }
 
-renderProducts(productList);
+renderProducts();
+
+function getProductsDetail(){
+  const productCardActive = document.querySelector('#activeCard');
+
+  const productCardActiveImg = productCardActive.firstElementChild;
+  const productCardActiveImgUrl = productCardActiveImg.getAttribute('src');
+  const oldImgCard = document.getElementById('product-detail-img');
+  oldImgCard.setAttribute('src', productCardActiveImgUrl);
+
+  const nextSiblingElement = productCardActiveImg.nextElementSibling;
+  const productInfo = nextSiblingElement.querySelector('div');
+  const nameProduct = productInfo.querySelector('#name').textContent;
+  const priceProduct = productInfo.querySelector('#price').textContent;
+
+  getDataList.unshift(priceProduct);
+  getDataList.unshift(nameProduct);
+  getDataList.unshift(productCardActiveImgUrl);
+
+  const getPrice = document.getElementById('product-price');
+  const getName = document.getElementById('product-name');
+
+  getPrice.innerText = priceProduct;
+  getName.innerText = nameProduct;    
+}
+
+getProductsDetail();
