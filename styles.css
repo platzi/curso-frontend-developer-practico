@@ -162,17 +162,22 @@
 
   /* Aside (product detail y carrito */
   aside {
+    margin-bottom: 10px;
     background-color: var(--white);
     width: 360px;
-    
     box-sizing: border-box;
     position: absolute;
     right: 0;
   }
 
+  
   /* shoppingCartContainer */
   #shoppingCartContainer {
     padding: 0 24px;
+    height: 500px;
+    border-bottom: 1px solid var(--very-light-pink);
+    border-left: 1px solid var(--very-light-pink);
+    
   }
 
   .title-container {
