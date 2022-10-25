@@ -3,21 +3,21 @@ const desktopMenu = document.querySelector('.desktop-menu')
 const menuIcon = document.querySelector('.menu')
 const mobileMenu = document.querySelector('.mobile-menu')
 const btnCarrito = document.querySelector('.navbar-shopping-cart')
-const aside = document.querySelector('.product-detail')
+const shoppingCardContainer = document.querySelector('#shoppingCardContainer')
 const cardsContainer = document.querySelector('.cards-container')
 
 let toggleMobileMenu = () =>{
-    const isAsideClosed = aside.classList.contains('inactive')
+    const isAsideClosed = shoppingCardContainer.classList.contains('inactive')
     if(!isAsideClosed){
-        aside.classList.add('inactive')
+        shoppingCardContainer.classList.add('inactive')
     }
     mobileMenu.classList.toggle('inactive');
 }
 
 let toggleDesktopMenu = () =>{
-    const isAsideClosed = aside.classList.contains('inactive')
+    const isAsideClosed = shoppingCardContainer.classList.contains('inactive')
     if(!isAsideClosed){
-        aside.classList.add('inactive')
+        shoppingCardContainer.classList.add('inactive')
     }
     desktopMenu.classList.toggle('inactive');
 }
@@ -33,7 +33,7 @@ const isMenuEmailClosed = menuEmail.classList.contains('inactive');
     if(!isMenuEmailClosed){
         desktopMenu.classList.add('inactive');
     }
-    aside.classList.toggle('inactive');
+    shoppingCardContainer.classList.toggle('inactive');
 
 }
 menuEmail.addEventListener('click', toggleDesktopMenu)
