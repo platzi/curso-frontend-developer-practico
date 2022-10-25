@@ -124,31 +124,5 @@ function renderProducts(arr) {
     cardsContainer.appendChild(productCard);
   }
 }
-
 renderProducts();
 
-function getProductsDetail(){
-  const productCardActive = document.querySelector('#activeCard');
-
-  const productCardActiveImg = productCardActive.firstElementChild;
-  const productCardActiveImgUrl = productCardActiveImg.getAttribute('src');
-  const oldImgCard = document.getElementById('product-detail-img');
-  oldImgCard.setAttribute('src', productCardActiveImgUrl);
-
-  const nextSiblingElement = productCardActiveImg.nextElementSibling;
-  const productInfo = nextSiblingElement.querySelector('div');
-  const nameProduct = productInfo.querySelector('#name').textContent;
-  const priceProduct = productInfo.querySelector('#price').textContent;
-
-  getDataList.unshift(priceProduct);
-  getDataList.unshift(nameProduct);
-  getDataList.unshift(productCardActiveImgUrl);
-
-  const getPrice = document.getElementById('product-price');
-  const getName = document.getElementById('product-name');
-
-  getPrice.innerText = priceProduct;
-  getName.innerText = nameProduct;    
-}
-
-getProductsDetail();
