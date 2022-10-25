@@ -3,7 +3,7 @@ const desktopMenu = document.querySelector('.desktop-menu');
 const menuBurgerIcon = document.querySelector('.menu');
 const mobileMenu = document.querySelector(".mobile-menu");
 const menuCarrito = document.querySelector('.navbar-shopping-cart')
-const aside = document.querySelector('.product-detail');
+const aside = document.querySelector('.product-detail-em');
 const productCart = document.querySelector('.cards-container')
 
 navEmail.addEventListener('click', toggleDesktopMenu);
@@ -86,7 +86,7 @@ for(product of productList){
     img.setAttribute('src', product.image)
 
     const productInfo = document.createElement('div');
-    productInfo.classList.add('product-info');
+    productInfo.classList.add('product-info-em');
 
     const productInfoDiv = document.createElement('div');
     const productPrice = document.createElement('p');
