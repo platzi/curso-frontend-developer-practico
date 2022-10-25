@@ -14,14 +14,23 @@ menuHamIcon.addEventListener('click', toggleMobileMenu)
 menuCarritoIcon.addEventListener('click', toggleCarritoAside)
 productDetailCloseIcon.addEventListener('click', closeProductDetailAside)
 
-function toggleDesktopMenu () {
+function toggleDesktopMenu () { 
     const isAsideClosed = shoppingCartContainer.classList.contains('inactive')
   
   if (!isAsideClosed) {
      shoppingCartContainer.classList.add('inactive');
   }
+
+  const isProductDetailClosed = productDetailContainer.classList.contains('inactive')
+
+  if (!isProductDetailClosed) {
+    productDetailContainer.classList.add('inactive');
+  }
+
   desktopMenu.classList.toggle('inactive');
 }
+
+
 
 function toggleMobileMenu () {
   
@@ -40,12 +49,16 @@ function toggleMobileMenu () {
 
 function toggleCarritoAside () {
   const isMobileMenuClosed = mobileMenu.classList.contains('inactive')
+  const isDesktopMenuClosed = desktopMenu.classList.contains('inactive')
   const isAsideClosed = mobileMenu.classList.contains('inactive')
 
   if (!isMobileMenuClosed) {
      mobileMenu.classList.add('inactive');
   }
-
+ 
+  if (!isDesktopMenuClosed) {
+    desktopMenu.classList.add('inactive')
+  }
 
   const isProductDetailClosed = productDetailContainer.classList.contains('inactive')
 
@@ -53,12 +66,14 @@ function toggleCarritoAside () {
     productDetailContainer.classList.add('inactive');
   }
 
+  
   shoppingCartContainer.classList.toggle('inactive')
 
 }
 
 function openProductDetailAside () {
   shoppingCartContainer.classList.add('inactive')
+  desktopMenu.classList.add('inactive')
   productDetailContainer.classList.remove('inactive')
 }
 
@@ -98,7 +113,66 @@ productList.push({
   price: '1200',
   image: 'https://images.pexels.com/photos/276517/pexels-photo-276517.jpeg?auto=compress&cs=tinysrgb&dpr=2&h=650&w=940',
 })
-
+productList.push({
+  name: 'Computador',
+  price: '1200',
+  image: 'https://images.pexels.com/photos/276517/pexels-photo-276517.jpeg?auto=compress&cs=tinysrgb&dpr=2&h=650&w=940',
+})
+productList.push({
+  name: 'Computador',
+  price: '1200',
+  image: 'https://images.pexels.com/photos/276517/pexels-photo-276517.jpeg?auto=compress&cs=tinysrgb&dpr=2&h=650&w=940',
+})
+productList.push({
+  name: 'Computador',
+  price: '1200',
+  image: 'https://images.pexels.com/photos/276517/pexels-photo-276517.jpeg?auto=compress&cs=tinysrgb&dpr=2&h=650&w=940',
+})
+productList.push({
+  name: 'Computador',
+  price: '1200',
+  image: 'https://images.pexels.com/photos/276517/pexels-photo-276517.jpeg?auto=compress&cs=tinysrgb&dpr=2&h=650&w=940',
+})
+productList.push({
+  name: 'Computador',
+  price: '1200',
+  image: 'https://images.pexels.com/photos/276517/pexels-photo-276517.jpeg?auto=compress&cs=tinysrgb&dpr=2&h=650&w=940',
+})
+productList.push({
+  name: 'Computador',
+  price: '1200',
+  image: 'https://images.pexels.com/photos/276517/pexels-photo-276517.jpeg?auto=compress&cs=tinysrgb&dpr=2&h=650&w=940',
+})
+productList.push({
+  name: 'Computador',
+  price: '1200',
+  image: 'https://images.pexels.com/photos/276517/pexels-photo-276517.jpeg?auto=compress&cs=tinysrgb&dpr=2&h=650&w=940',
+})
+productList.push({
+  name: 'Computador',
+  price: '1200',
+  image: 'https://images.pexels.com/photos/276517/pexels-photo-276517.jpeg?auto=compress&cs=tinysrgb&dpr=2&h=650&w=940',
+})
+productList.push({
+  name: 'Computador',
+  price: '1200',
+  image: 'https://images.pexels.com/photos/276517/pexels-photo-276517.jpeg?auto=compress&cs=tinysrgb&dpr=2&h=650&w=940',
+})
+productList.push({
+  name: 'Computador',
+  price: '1200',
+  image: 'https://images.pexels.com/photos/276517/pexels-photo-276517.jpeg?auto=compress&cs=tinysrgb&dpr=2&h=650&w=940',
+})
+productList.push({
+  name: 'Computador',
+  price: '1200',
+  image: 'https://images.pexels.com/photos/276517/pexels-photo-276517.jpeg?auto=compress&cs=tinysrgb&dpr=2&h=650&w=940',
+})
+productList.push({
+  name: 'Computador',
+  price: '1200',
+  image: 'https://images.pexels.com/photos/276517/pexels-photo-276517.jpeg?auto=compress&cs=tinysrgb&dpr=2&h=650&w=940',
+})
 function renderProducts(arr) {
   for (product of productList) {
     const productCard = document.createElement('div');
