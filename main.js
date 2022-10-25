@@ -10,11 +10,16 @@ const burguerMobileMenu = document.querySelector('.mobile-menu');
 const shoppingCartIcon = document.querySelector('.navbar-shopping-cart');//Icono del carrito
 const shoppingCartContainer = document.querySelector('#shoppingCartContainer');//Menu desplegable del carrito
 
-const cardsContainer = document.querySelector('.cards-container');
+const cardsContainer = document.querySelector('.cards-container');//Selector de los productos
+
+const productDetailContainer = document.querySelector('#productDetail');//Selector del Aside de los detalles
+const productDetailCloseIcon = document.querySelector('.product-detail-close');
+//Selector del boton de cerrar el aside de los detalles
 
 emailMenuIcon.addEventListener('click', showDesktopMenu);
 burguerMenuIcon.addEventListener('click', showMobileMenu);
 shoppingCartIcon.addEventListener('click', showShoppingMenu);
+productDetailCloseIcon.addEventListener('click', closeProductDetailAside);
 
 //Cuando se le añade un addEventListener a alguna variable, se pone lo que disparara la funcion... En este caso 'click' 
 //y luego la funcion que se disparara cuando se cumpla ese evento
@@ -22,18 +27,31 @@ shoppingCartIcon.addEventListener('click', showShoppingMenu);
 function showDesktopMenu(){
     emailDesktopMenu.classList.toggle('inactive');
     shoppingCartContainer.classList.add('inactive');
+    productDetailContainer.classList.add('inactive');
 }
 
 function showMobileMenu(){
     burguerMobileMenu.classList.toggle('inactive');
     shoppingCartContainer.classList.add('inactive');
+    productDetailContainer.classList.add('inactive');
 }
 
 function showShoppingMenu(){
     shoppingCartContainer.classList.toggle('inactive');
     emailDesktopMenu.classList.add('inactive');
     burguerMobileMenu.classList.add('inactive');
+    productDetailContainer.classList.add('inactive');
 }
+
+function openProductDetailAside(){
+    productDetailContainer.classList.remove('inactive');
+    emailDesktopMenu.classList.add('inactive');
+    shoppingCartContainer.classList.add('inactive');
+}
+function closeProductDetailAside(){
+    productDetailContainer.classList.add('inactive');
+}
+
 //el metodo classList se usa para activar o desactivar, añadir o borrar la propiedad 'inactive' en este caso
 //Cuando se pone toggle, se activa o desactiva con el click del addEventListener.
 //Cuando se pone add, se añade la funcion 'inactive' por defecto.
@@ -94,6 +112,8 @@ for (product of arr){
   productImg.setAttribute('src', product.image);
   //Aqui lo que se esta haciendo es creando el atributo 'src', y se le pasa como argumento de ese atributo
   //la información que esta en el 'product.image', que es el iterador que paso para que recorra el productList
+  productImg.addEventListener('click', openProductDetailAside);
+
 
   const productInfo = document.createElement('div');
   productInfo.classList.add('product-info');
