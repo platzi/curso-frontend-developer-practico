@@ -310,8 +310,8 @@
     }
     .product-card {
       width: 240px;
-      box-shadow: 0px 0px 12px 2px var(--very-light-pink);
-      border-radius: 12px;
+      border: 1px solid var(--very-light-pink);
+      border-radius: 20px;
     }
     .product-card img {
       width: 240px;
@@ -362,7 +362,7 @@
     .desktop-menu {
       display: none;
     }
-    .product-detail {
+    #productDetail   {
       width: 100%;
     }
     .cards-container {
