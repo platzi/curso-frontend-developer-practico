@@ -9,7 +9,7 @@ menuEmail.addEventListener("click", showDesktopMenu);
 icon.addEventListener("click", showMobileMenu);
 
 function showDesktopMenu() {
-    desktopMenu.classList.toggle("inactive");
+    desktopMenu.classList.toggle("activar");
 }
 
 function showMobileMenu(){
