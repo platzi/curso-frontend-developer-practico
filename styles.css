@@ -87,6 +87,10 @@ nav {
     align-items: center;
 }
 .desktop-menu {
+    position: absolute;
+    top: 5em;
+    right: 2em;
+    background-color: var(--white);
     width: 100px;
     height: auto;
     border: 1px solid var(--very-light-pink);
