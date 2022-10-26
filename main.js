@@ -67,13 +67,25 @@ productList.push({
   name: "Pantalla",
   price: 150,
   image:
-    "https://images.pexels.com/photos/276517/pexels-photo-276517.jpeg?auto=compress&cs=tinysrgb&dpr=2&h=650&w=940",
+    "https://img.freepik.com/foto-gratis/computadora_1205-717.jpg?1&w=900&t=st=1666798477~exp=1666799077~hmac=62c06a4cff45eaaf4cdcda1f7be09a94321853e623f40ca8155730bbe0075b75",
 });
 productList.push({
   name: "Computador",
   price: 1200,
   image:
-    "https://images.pexels.com/photos/276517/pexels-photo-276517.jpeg?auto=compress&cs=tinysrgb&dpr=2&h=650&w=940",
+    "https://img.freepik.com/foto-gratis/laptop-mesa-madera_53876-20635.jpg?w=900&t=st=1666799754~exp=1666800354~hmac=035e4432ee8c73a783288dac0fa5347bae014ce36ca17273759a1aee9110c49e",
+});
+productList.push({
+  name: "Old TV",
+  price: 50,
+  image:
+    "https://img.freepik.com/fotos-premium/tv-retro-3d_58466-6934.jpg?w=996",
+});
+productList.push({
+  name: "Console",
+  price: 30,
+  image:
+    "https://arc-anglerfish-arc2-prod-copesa.s3.amazonaws.com/public/4H5WDB4IONB5LPGX2CC5JZKPIQ.jpg",
 });
 
 /*
