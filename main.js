@@ -17,7 +17,7 @@ menuCarritoIcon.addEventListener('click', toggleCarritoAside)
 burgerMenu.addEventListener('click', toggleMobileMenu)
 
 productDetailClose.addEventListener('click', closeProductDetailAside);
-
+/* 
 function toggleDesktopMenu ()
 {
     const isAsideClosed = shoppingCartContainer.classList.contains('inactive')
@@ -49,18 +49,45 @@ function toggleCarritoAside ()
         desktopMenu.classList.add('inactive')
         productDetailContainer.classList.add('inactive')
     }
-    
+
     shoppingCartContainer.classList.toggle('inactive')
+}
+ */
+
+function toggleDesktopMenu ()
+{
+    desktopMenu.classList.toggle('inactive');
+    shoppingCartContainer.classList.add('inactive');
+    closeProductDetailAside();
+}
+
+function toggleMobileMenu ()
+{
+    mobileMenu.classList.toggle('inactive');
+    shoppingCartContainer.classList.add('inactive');
+    closeProductDetailAside();
+}
+
+function toggleCarritoAside ()
+{
+    shoppingCartContainer.classList.toggle('inactive');
+    desktopMenu.classList.add('inactive');
+    mobileMenu.classList.add('inactive');
+    closeProductDetailAside();
 }
 
 function openProductDetailAside ()
 {
-    productDetailContainer.classList.remove('inactive')
+    productDetailContainer.classList.remove('inactive');
+    shoppingCartContainer.classList.add('inactive')
+    mobileMenu.classList.add('inactive')
+    desktopMenu.classList.add('inactive')
+    
 }
 
 function closeProductDetailAside ()
 {
-    productDetailContainer.classList.add('inactive')
+    productDetailContainer.classList.add('inactive');
 }
 
 const productList = [];
