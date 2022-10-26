@@ -12,10 +12,7 @@ icon.addEventListener("click", showMobileMenu);
 iconCar.addEventListener("click", showAside)
 
 function showAside() {
-    const isMobileMenuClosed = mobileMenu.classList.contains("activo")
-    const isAsideMenu= mobileMenu.classList.contains("inactive")
-
-    
+    const isMobileMenuClosed = mobileMenu.classList.contains("activo")    
     if(isMobileMenuClosed){
         mobileMenu.classList.remove("activo")
         aside.classList.toggle("inactive");
@@ -31,5 +28,12 @@ function showDesktopMenu() {
 }
 
 function showMobileMenu(){
-    mobileMenu.classList.toggle("activo");
+    const isAsideClosed = aside.classList.contains("inactive")    
+    
+    if(isAsideClosed){
+        mobileMenu.classList.toggle("activo");
+    }else{
+        aside.classList.add("inactive");
+        mobileMenu.classList.toggle("activo");
+    }
 }
