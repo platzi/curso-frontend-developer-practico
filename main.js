@@ -68,6 +68,10 @@ function toggleAsideCart() {
 }
 
 function openProductDetailAside(){
+    /*Variable validar si venta mobileMenu esta cerrada*/
+    const ismobileMenuClosed = mobileMenu.classList.contains("inactive");
+
+
     productDetailContainer.classList.remove('inactive');
 }
 
