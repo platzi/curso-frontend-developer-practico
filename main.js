@@ -23,7 +23,15 @@ function showAside() {
 }
 
 function showDesktopMenu() {
-    desktopMenu.classList.toggle("activar");
+    const isAsideClosed = aside.classList.contains("inactive")    
+    const isDesktopMenuOpen = desktopMenu.classList.contains("activar")
+    
+    if(isAsideClosed){
+        desktopMenu.classList.toggle("activar");
+    }else{
+        aside.classList.add("inactive");
+        desktopMenu.classList.toggle("activar");
+    }
     
 }
 
