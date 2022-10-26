@@ -91,7 +91,7 @@ nav {
 }
 .desktop-menu {
     position: absolute;
-    top: 5em;
+    top: 4em;
     right: 2em;
     background-color: var(--white);
     width: 100px;
