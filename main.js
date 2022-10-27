@@ -17,42 +17,7 @@ menuCarritoIcon.addEventListener('click', toggleCarritoAside)
 burgerMenu.addEventListener('click', toggleMobileMenu)
 
 productDetailClose.addEventListener('click', closeProductDetailAside);
-/* 
-function toggleDesktopMenu ()
-{
-    const isAsideClosed = shoppingCartContainer.classList.contains('inactive')
 
-    if (!isAsideClosed){
-        shoppingCartContainer.classList.add('inactive')
-    }
-    desktopMenu.classList.toggle('inactive')
-}
-function toggleMobileMenu ()
-{
-    const isAsideClosed = shoppingCartContainer.classList.contains('inactive')
-
-    if (!isAsideClosed){
-        shoppingCartContainer.classList.add('inactive')
-    }
-    closeProductDetailAside()
-    mobileMenu.classList.toggle('inactive')
-}
-function toggleCarritoAside ()
-{
-
-    const isMobileMenuClosed = mobileMenu.classList.contains('inactive');
-    const isDesktopMenuClosed = desktopMenu.classList.contains('inactive');
-    const isProductDetailClosed = productDetailContainer.classList.contains('inactive')
-    
-    if (!isMobileMenuClosed || !isDesktopMenuClosed || !isProductDetailClosed){
-        mobileMenu.classList.add('inactive')
-        desktopMenu.classList.add('inactive')
-        productDetailContainer.classList.add('inactive')
-    }
-
-    shoppingCartContainer.classList.toggle('inactive')
-}
- */
 
 function toggleDesktopMenu ()
 {
@@ -82,7 +47,7 @@ function openProductDetailAside ()
     shoppingCartContainer.classList.add('inactive')
     mobileMenu.classList.add('inactive')
     desktopMenu.classList.add('inactive')
-    
+
 }
 
 function closeProductDetailAside ()
@@ -116,6 +81,36 @@ productList.push({
     name: 'Audífonos Inalámbricos Noise cancelling Sony - WH-1000XM4 - Negro',
     price: 300,
     image: 'https://i.linio.com/p/fdb81cbb90f94dad3d07821dbf29807f-product.webp',
+})
+productList.push({
+    name: 'Bombillo Led Wi-fi (inteligente) Compatib Con Google Y Alexa',
+    price: 10,
+    image: 'https://http2.mlstatic.com/D_NQ_NP_804874-MCO45121218882_032021-O.webp',
+})
+productList.push({
+    name: 'Display Desktop',
+    price: 200,
+    image: 'https://http2.mlstatic.com/D_NQ_NP_853049-MCO49462008710_032022-O.webp',
+})
+productList.push({
+    name: 'Logitech Keyboard',
+    price: 100,
+    image: 'https://http2.mlstatic.com/D_NQ_NP_882522-MLA46542882211_062021-O.webp',
+})
+productList.push({
+    name: 'Aerosol Negro',
+    price: 10,
+    image: 'https://http2.mlstatic.com/D_NQ_NP_2X_936396-MCO51446043263_092022-F.webp',
+})
+productList.push({
+    name: 'Audífonos Inalámbricos Noise cancelling Sony - WH-1000XM4 - Negro',
+    price: 300,
+    image: 'https://i.linio.com/p/fdb81cbb90f94dad3d07821dbf29807f-product.webp',
+})
+productList.push({
+    name: 'Bike',
+    price: 120,
+    image: 'https://images.pexels.com/photos/276517/pexels-photo-276517.jpeg?auto=compress&cs=tinysrgb&dpr=2&h=650&w=940',
 })
 
 function renderProducts (array)
