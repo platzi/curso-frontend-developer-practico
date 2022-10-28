@@ -12,6 +12,9 @@ body{
     font-family: 'Quicksand', sans-serif;
     margin: 0;
 }
+
+/* navbar */
+
 nav{
    display: flex;
    justify-content: space-between;
@@ -78,6 +81,9 @@ nav{
 .inactive{
     display: none;
 }
+
+/* desktop menu  */
+
 .desktop-menu{
     position: absolute;
     background-color: var(--white);
@@ -116,6 +122,55 @@ nav{
     color: var(--hospital-green);
     font-size: var(--sm);
 }
+
+/* Menu mobile */
+
+.mobile-menu{
+    position: absolute;
+    top: 36px;
+    left: 0;
+   
+    flex-direction: column;
+    padding: 24px;
+    height: 90vh;
+}
+
+.mobile-menu div:nth-child(2){
+    margin-bottom: 10px;
+}
+
+.mobile-menu a{
+    text-decoration: none;
+    color: var(--black);
+    font-weight: bold;
+}
+.mobile-menu ul{
+    padding: 0;
+    margin: 24px 0 0;
+    list-style: none;
+}
+.top-ul{
+    border-bottom: 1px solid var(--very-light-pink);    
+}
+.mobile-menu ul:nth-child(2){
+    margin: 48px 0 0;
+    display: inline-block;
+}
+.mobile-menu ul li{
+    margin-bottom: 24px;
+}
+.mobile-menu .email{
+    font-size: var(--sm);
+    font-weight: 300 ;
+}
+.mobile-menu .sign-out{
+    font-size: var(--sm);
+    color: var(--hospital-green);
+}
+
+/* media responsive */
+
+
 @media (max-width: 640px){
    .menu{
        display: block;
@@ -125,5 +180,14 @@ nav{
    }
    .navbar-email{
        display: none
-   };
+   }
+   .desktop-menu{
+    display: none;
+   }
 }
+@media (min-width: 641px){
+    .mobile-menu{
+        display: none;
+    }
+}
+
