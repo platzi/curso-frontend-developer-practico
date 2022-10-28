@@ -3,7 +3,7 @@ const bugerMenu = document.querySelector(".menu")
 const desktopMenu = document.getElementById("desktop-menu")
 const mobileMenu = document.querySelector(".mobile-menu")
 const menuCartIcon = document.querySelector(".navbar-shopping-cart")
-const aside = document.querySelector(".product-detail")
+const shoppingCartContainer = document.querySelector("#shoppingCartContainer")
 
 menuEmail.addEventListener("click", toggleDesktopMenu)
 bugerMenu.addEventListener("click", toggleMobileMenu)
@@ -18,7 +18,7 @@ function toggleMobileMenu() {
 }
 
 function toggleCart() {
-  aside.classList.toggle("inactive")
+  shoppingCartContainer.classList.toggle("inactive")
 }
 
 const cardsContainer = document.getElementById("cards-container")
