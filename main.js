@@ -4,7 +4,7 @@ const menuCarritoIcon = document.querySelector('.navbar-shopping-cart');
 const desktopMenu = document.querySelector('.desktop-menu');
 const mobileMenu = document.querySelector('.mobile-menu');
 const aside = document.querySelector('.product-detail');
-
+const cardsContainer = document.querySelector('.cards-container');
 
 menuEmail.addEventListener('click', toggleDesktopMenu);
 menuHabIcon.addEventListener('click', togglemobileHabMenu);
@@ -41,3 +41,60 @@ function toggleCarritoAside() {
     aside.classList.toggle('inactive');
 }
 
+const productList = [];
+productList.push({
+	name: 'Bike',
+	price: 120,
+	image: 'https://images.pexels.com/photos/276517/pexels-photo-276517.jpeg?auto=compress&cs=tinysrgb&dpr=2&h=650&w=940',
+})
+productList.push({
+	name: 'iPhone 13',
+	price: 890,
+	image: 'https://images.pexels.com/photos/276517/pexels-photo-276517.jpeg?auto=compress&cs=tinysrgb&dpr=2&h=650&w=940',
+})
+productList.push({
+	name: 'Computer',
+	price: 430,
+	image: 'https://images.pexels.com/photos/276517/pexels-photo-276517.jpeg?auto=compress&cs=tinysrgb&dpr=2&h=650&w=940',
+})
+
+/* Esta función muestra los productos que ofrecemos en la tienda */
+function renderProducts(arr) {
+  /* Ahora vamos a crear elemento por elemento de html desde javascript */
+  for (product of arr) {
+    const productCard = document.createElement('div');
+    productCard.classList.add('product-card');
+  
+    const productImg = document.createElement('img'); /* creamos el elemento img */
+    productImg.setAttribute('src', product.image); /* Agregamos el atributo src a la imagen */
+  
+    const productInfo = document.createElement('div');
+    productInfo.classList.add('product-info'); 
+  
+    const productInfoDiv = document.createElement('div');
+  
+    const productPrice = document.createElement('p');
+    productPrice.innerText = '$ ' + product.price;
+    const productName = document.createElement('p');
+    productName.innerText = product.name;
+  
+    const productInfoFigure = document.createElement('figure');
+    const productImgCart = document.createElement('img');
+    productImgCart.setAttribute('src', "./icons/bt_add_to_cart.svg");
+    
+    productInfoFigure.appendChild(productImgCart);
+  
+    productInfoDiv.appendChild(productPrice);
+    productInfoDiv.appendChild(productName); 
+  
+    productInfo.appendChild(productInfoDiv);
+    productInfo.appendChild(productInfoFigure);
+  
+    productCard.appendChild(productImg);
+    productCard.appendChild(productInfo);
+  
+    cardsContainer.appendChild(productCard);
+  }
+}
+/* Llamamos a la función renderProducts con cuyo argumento es el array  que contiene la lista de productos, pero que mañana más tarde nuestros productos pueden venir desde una base de datos externa*/
+renderProducts(productList);
