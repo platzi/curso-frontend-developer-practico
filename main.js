@@ -4,11 +4,15 @@ const menuHamIcon = document.querySelector('.menu')
 const mobileMenu = document.querySelector('.mobile-menu')
 const menuCarritoIcon = document.querySelector('.navbar-shopping-cart')
 const shoppingCartContainer = document.querySelector('#shoppingCartContainer')
+const productDetailContainer = document.querySelector('#productDetail')
+const productDetailCloseIcon = document.querySelector('.product-detail-close')
+
 const cardsContainer = document.querySelector('.cards-container')
 
 menuEmail.addEventListener('click', toggleDesktopMenu)
 menuHamIcon.addEventListener('click', toggleMenuHamIcon)
 menuCarritoIcon.addEventListener('click', toggleMenuCarrito)
+productDetailCloseIcon.addEventListener('click', closeProductDetailAside )
 
 function toggleDesktopMenu(){
     const isAsideClosed = shoppingCartContainer.classList.contains('inactive')
@@ -24,12 +28,19 @@ function toggleMenuHamIcon(){
         shoppingCartContainer.classList.add('inactive')
     }
     mobileMenu.classList.toggle('inactive')
+    closeProductDetailAside()
 }
 
 function toggleMenuCarrito(){
     const isMobileMenuClosed = mobileMenu.classList.contains('inactive');
     if (!isMobileMenuClosed){
         mobileMenu.classList.add('inactive')
+    }
+    
+
+    const isProductDetailClosed = productDetailContainer.classList.contains('inactive');
+    if (!isProductDetailClosed){
+        productDetailContainer.classList.add('inactive')
     }
     shoppingCartContainer.classList.toggle('inactive')
 }
@@ -66,6 +77,13 @@ productList.push({
           </figure>
         </div>
       </div> */}
+function openProductDetailAside(){
+    shoppingCartContainer.classList.add('inactive')
+    productDetailContainer.classList.remove('inactive')
+}
+function closeProductDetailAside(){
+    productDetailContainer.classList.add('inactive')
+}
 
 function renderPro(arr){
     for (product of arr) {
@@ -74,7 +92,8 @@ function renderPro(arr){
     
         const img = document.createElement('img');
         img.setAttribute('src', product.image);
-    
+        img.addEventListener('click',openProductDetailAside);
+
         const productInfo = document.createElement('div');
         productInfo.classList.add('product-info');
      
