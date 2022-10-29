@@ -1,4 +1,5 @@
 
+
 :root{
     --white: #ffffff;
     --black: #000000;
@@ -75,6 +76,7 @@ nav{
 }
 
 .navbar-email {
+    display: flex;
     color: var(--black);
     font-size: var(--sm);
     margin: 0 12px;
@@ -154,6 +156,203 @@ nav{
    text-decoration: none;
    margin: 0 0 20px;
 }
+/*****************************************************login*********************************************/
+
+.login{
+    width: 100%;
+    height: 90vh;
+    display: grid;
+    place-items: center;
+}
+.form-container{
+    display: grid;
+    grid-template-rows: auto 1fr auto;
+    width: 350px;
+}
+
+.login-logo{
+    width: 200px;
+    margin: 0 0 48px;
+    justify-self: center;
+    display: none;
+}
+
+.form{
+    display: flex;
+    flex-direction: column;
+    margin: 40px 0 0 0;
+}
+.label{
+    font-size: var(--sm);
+    font-weight: bold;
+    margin: 0 0 4px;
+}
+
+.input{
+    background-color: var(--text-input-field);
+    border-radius: 8px;
+    height: 40px;
+    border: 1px transparent;
+    font-size: var(--sm);
+    padding: 6px;
+    margin: 0 0 24px;
+}
+
+.primary-button-login{
+background-color: var(--hospital-green);
+height: 60px;
+width: 100%;
+border: none;
+font-size: var(--lg);
+color: white;
+border-radius: 8px;
+cursor: pointer;
+margin: 24px 0 0 0;
+}
+.form a{
+text-align: center;
+color: var(--hospital-green);
+font-size: var(--sm);
+text-decoration: none;
+margin: 16px 0 0 0;
+}
+
+.secundary-button-login{
+background-color: transparent;
+height: 60px;
+width: 100%;
+border: 1px solid var(--hospital-green);
+border-radius:8px;
+font-size: var(--lg);
+color: var(--hospital-green);
+margin: 40px 0 0 0;
+cursor: pointer;
+}
+
+.input-wrong{
+    border: rgb(211, 1, 1) solid 1px;
+}
+
+.label-wrong{
+  color:rgb(211, 1, 1);
+}
+
+.error-id-password{
+    text-align: center;
+}
+
+
+/**************************************password recovery***********************************/
+
+.login-recovery{
+    width: 100%;
+    height: 90vh;
+    display: grid;
+    place-items: center;
+}
+
+
+.info-password p{
+    text-align: center;
+    margin: 0px;
+    }
+    .info-password p:nth-child(1){
+        font-size: var(--lg);
+        font-weight: bolder;
+        color: var(--black);
+        margin: 0 0 12px 0;
+    }
+
+    .info-password p:nth-child(2),
+    .info-password p:nth-child(3){
+        font-size: var(--lg);
+        color: var(--very-light-pink);
+    }
+
+    .retrieve{
+        text-align: center;
+        color: var(--hospital-green);
+        font-size: var(--sm);
+        text-decoration: none;
+        margin: 16px 0 0 0;
+        cursor: pointer;
+       }
+
+
+/*************************************email has been sent**********************************************/
+
+#login-email-sent .form-container{
+    display: grid;
+    grid-template-rows: auto 1fr auto;
+    width: 350px;
+    justify-items: center;
+}
+
+
+
+.login-email-sent{
+    width: 100%;
+    height: 90vh;
+    display: grid;
+    place-items: center;
+}
+
+
+#login-email-sent .form-container .logo {
+    width: 150px;
+    margin: 0px 0px 48px;
+    justify-self: center;
+    display: none;
+ 
+ }
+
+ #login-email-sent .form-container .title{
+     font-size: var(--lg);
+     margin:0px 0px 8px;
+     text-align: center;
+ }
+
+ .subtitle{
+     color: var(--very-light-pink);
+     font-size: var(--md);
+     font-weight: 300;
+     text-align: center;
+     margin: 0;
+ }
+
+ .email-image{
+   height: 140px;
+   width: 140px;
+   border-radius: 50%;
+   background-color: var(--text-input-field);
+   display: flex;
+   justify-content: center;
+   align-items: center;
+   margin: 36px 0 ;
+ }
+
+ .email-image img{
+    width: 80px;
+    height: 80px;
+ }
+
+
+ .resend{
+    font-size: var(--sm);
+  }
+
+  .resend span{
+      color: var(--very-light-pink);
+  }
+
+  .resend a{
+      color: var(--hospital-green);
+      text-decoration: none;
+  }
+
+
+
+
 /*menu de movile*/
 .mobile-menu{
     position: absolute;
@@ -197,7 +396,7 @@ nav{
   bottom: 0%;
 }
 
-/*shopping-cart (Aside)  carrito*/
+/*************************************shopping-cart (Aside)  carrito**************************/
 
 .content-container{
     position: absolute;
@@ -300,7 +499,6 @@ nav{
     font-weight: bold;
     height: 70px;
     margin: 20px 0;
-
   }
 
 
@@ -477,10 +675,7 @@ nav{
     color: var(--black);
     font-weight: bold;
 }
-  .navbar-email {
-    display: none;
-  }
-
+  
   .desktop-menu{
     display: none;
   }
@@ -499,6 +694,19 @@ nav{
 .product-detail{
     width: 100%;
    }
+
+/**login**/
+.login-logo{
+    display: block;
+ }
+
+.secundary-button-login{
+    width: inherit;
+    position: absolute;
+    bottom: 0;
+    margin: 0 0 20px;
+}
+
 }
 
 

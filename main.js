@@ -1,21 +1,99 @@
-const menuEmail = document.querySelector(".navbar-email");
+const menuEmail = document.querySelector(".navbar-email-id");
+const emailResultP = document.querySelector(".email-result");
 const desktopMenu = document.querySelector(".desktop-menu");
 const navMenu = document.querySelector(".menu");
 const mobileMenu = document.querySelector(".mobile-menu");
 const carrito = document.querySelector(".navbar-carrito");
 const shoppingCart = document.querySelector(".content-container");
-const cardsContainer = document.querySelector(".cards-container");
+const cardsContainer = document.querySelector(".cards-container-id");
 const mainContainer = document.querySelector(".main-container");
 const productDetail = document.querySelector(".product-detail");
 const productDetailCloseIcon = document.querySelector(".product-detail-close");
+const logInForm = document.querySelector(".login .form .login-button");
+const logIn = document.querySelector(".login");
+const emailLogIn = document.querySelector("#email");
+const passwordLogin = document.querySelector("#password");
+const labelEmailLogIn = document.querySelector("#label-email");
+const label2EmailLogIn = document.querySelector("#label-email-2");
+const errorPId = document.querySelector(".error-id-password");
+const forgotPassword = document.querySelector("#forgot-password") 
+const loginRecovery = document.querySelector("#login-recovery");
+const loginRecoveryBack = document.querySelector(".retrieve-login");
+const submitEmail = document.querySelector(".submit-button-recovery");
+const loginEmailSent = document.querySelector("#login-email-sent");
+const buttonEmailSent = document.querySelector(".button-email-sent");
 
 
 menuEmail.addEventListener("click", toggleDesktopMenu);
 navMenu.addEventListener("click", toggleMobileMenu);
 carrito.addEventListener("click", toggleCarrito);
 productDetailCloseIcon.addEventListener("click", closeProduct);
+logInForm.addEventListener("click", logInF);
+forgotPassword.addEventListener("click", forgotPass);
+loginRecoveryBack.addEventListener("click", backLogin);
+submitEmail.addEventListener("click", submitEmailF);
+buttonEmailSent.addEventListener("click", backLogin);
 
 
+function logInF(event){
+      event.preventDefault();
+
+         if(!passwordLogin.value && !emailLogIn.value || passwordLogin.value && !emailLogIn.value){
+            emailLogIn.classList.add("input-wrong");
+            passwordLogin.classList.add("input-wrong");
+            labelEmailLogIn.classList.add("label-wrong"); 
+            label2EmailLogIn.classList.add("label-wrong"); 
+
+            errorPId.innerText = "Invalid user ID and password combination";
+           
+         }
+         else if(!passwordLogin.value && emailLogIn.value){
+            label2EmailLogIn.classList.add("label-wrong");
+            passwordLogin.classList.add("input-wrong"); 
+
+            errorPId.innerHTML = "Invalid password combination"
+         }  
+         else{
+           logIn.classList.remove("login");
+           logIn.classList.add("inactive");
+           cardsContainer.classList.add("cards-container"); 
+           cardsContainer.classList.remove("inactive");
+
+           emailResultP.innerText = emailLogIn.value;
+ 
+
+         }
+}
+
+function forgotPass(){
+      logIn.classList.remove("login");
+      logIn.classList.add("inactive");
+
+      loginRecovery.classList.remove("inactive");
+      loginRecovery.classList.add("login-recovery");
+
+}
+
+function backLogin(){
+      logIn.classList.add("login");
+      logIn.classList.remove("inactive");
+
+      loginRecovery.classList.add("inactive");
+      loginRecovery.classList.remove("login-recovery");
+
+      loginEmailSent.classList.remove("login-email-sent");
+      loginEmailSent.classList.add("inactive");
+}
+
+function submitEmailF(event){
+   event.preventDefault();
+
+  loginEmailSent.classList.add("login-email-sent");
+  loginEmailSent.classList.remove("inactive");
+
+  loginRecovery.classList.add("inactive");
+  loginRecovery.classList.remove("login-recovery");
+}
 
 function toggleDesktopMenu(){
       if(shoppingCart != shoppingCart.classList.contains("inactive")){

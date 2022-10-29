@@ -16,7 +16,7 @@
     <img src="./icons/icon_menu.svg" alt="menu" class="menu">
 
       <div class="navbar-left">
-        <a href="/"><img src="./logos&icons/logo_yard_sale.svg" alt="logo" class="logo"></a>
+        <a href="./indexx.html"><img src="./logos&icons/logo_yard_sale.svg" alt="logo" class="logo"></a>
         <ul>
             <li>
                 <a href="/">All</a>
@@ -44,10 +44,11 @@
 
      <div class="navbar-right">
          <ul>
-            <li class="navbar-email">
-              santiago@gmail.com
+            <li class="navbar-email navbar-email-id">
+               <p class="email-result">Sign in</p>
               <img src="./icons/flechita.svg" alt="flecha">
             </li>
+            
             <li class="navbar-carrito">
                 <img src="./icons/icon_shopping_cart.svg" alt="carrito">
             <div>2</div>
@@ -115,6 +116,75 @@
     </div>
 
     </nav>
+
+    <div class="login">
+        <div class="form-container inactive">
+            <img src="logos&icons/logo_yard_sale.svg" alt="logo-login" class="login-logo">
+
+
+            <form class="form">
+              
+                    <label for="email" class="label" id="label-email">Email address</label>
+                    <input type="text" id="email" placeholder="Email" class="input input-password">
+                          
+                    <label for="password" class="label" id="label-email-2"> Password</label>
+                    <input type="password" id="password" placeholder="********" class="input input-password">
+                 
+                    <button class="primary-button-login  login-button">Log in</button>       
+                 
+                        <p class="error-id-password label-wrong"></p>
+                    
+                    
+
+            </form>
+
+            <p class="retrieve" id="forgot-password">
+                Forgot my password
+            </p>
+            <input type="submit" value="Sign up" class="secundary-button-login sign-up">
+        </div>
+    </div>
+
+    <div class="inactive" id="login-recovery">
+        <div class="form-container">
+            <div class="info-password">
+                <p>password recovery</p>
+                <p>Inform the email addres used</p>
+                <p>to create your account</p>
+            </div>
+            
+            <form class="form">
+                <label for="email" class="label">Email address</label>
+                <input type="text" id="email" placeholder="Email" class="input input-password">
+           
+                <button class="primary-button-login submit-button-recovery">Submit</button>  
+               
+            </form>
+
+            <p class="retrieve retrieve-login">
+                Back to log in
+            </p>
+        </div>
+    </div> 
+    
+    
+    <div class="inactive" id="login-email-sent">
+        <div class="form-container">
+            <img src="logos&icons/logo_yard_sale.svg" alt="logo" class="logo">
+            <h1 class="title">Email has been sent!</h1>
+            <p class="subtitle">Please check your inbox for instructions on how
+                to reset the password
+            </p>
+            <div class="email-image">
+                <img src="icons/email.svg" alt="email">
+            </div>
+            <button class="primary-button login-button  button-email-sent">Login</button>
+            <p class="resend">
+                <span>Didn't receive the email?</span>
+                <a href="/">Resend</a>
+            </p>
+        </div>
+    </div>
 
     <aside class="inactive content-container">
         <div class="title-container">
@@ -197,11 +267,12 @@
 </div>
 </aside>
 
-  <section class="main-container">
-    <div class="cards-container">    
+  <section class="main-container ">
+    <div class= "inactive cards-container-id">    
     </div>
 </section>
     
-    <script src="./main.js"></script>
+    <script src="./main.js">          
+    </script>
 </body>
 </html>
