@@ -1,4 +1,4 @@
-let menu = document.querySelector(".on-off-dektop_menu");
+let menu = document.querySelector(".desktop-menu");
 let email = document.querySelector(".navbar-email");
 
 email.addEventListener("click", ShowMenu);
