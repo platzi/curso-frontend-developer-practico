@@ -82,40 +82,35 @@ productList.push({
 
 
 for (const product of productList) {
+    //Creamos nuestro div product-card
     const productCard = document.createElement("div");
     productCard.classList.add("product-card");
+    const productcardImg = document.createElement("img");
+    productcardImg.setAttribute("src", product.image);
 
-    //Ahora le creamos la etiqueta de imagen para que ella se encuenetre dentro de nuestro div
-    const img = document.createElement("img");
-    img.setAttribute("src",product.image);
-
-
-    //Creamos el siguiente div product-info
+    //Creamos nuestro segundo div junto a su div anonimo
     const productInfo = document.createElement("div");
-    productInfo.classList.add("product-Info");
-    
+    productInfo.classList.add("product-info");
+    const infoDiv = document.createElement("div");
 
-    //div vacio con el cotenido de nuestros productos
-    const productInfoDiv = document.createElement("div");
-    const productPrice = document.createElement("p");
-    productPrice.innerText = "$"+ product.price;
-    const productname = document.createElement("p");
-    productPrice.innerText = product.name;
-    
-    
-    //Cramos nuestro figure
+    //Creamos los parrafos 
+    const productPrice = document.createElement("p")
+    productPrice.innerText = product.price;
+    const productName = document.createElement("p")
+    productName.innerText = product.name;
+
+    //Creamos nuestro figure
     const figure = document.createElement("figure");
     const figureImg = document.createElement("img");
     figureImg.setAttribute("src", "./icons/bt_add_to_cart.svg");
-    
-    //Terminamos el maquetado insertando en donde correspondan cada etiqueta
-    /*figure.appendChild(figureImg);
-    productInfoDiv.append(productPrice, productname);
-    productInfoDiv.appendChild(figure)
-    productInfo.append(productInfoDiv, figure);
-    productCard.append(img,productInfo);
-    cardsContainer.appendChild(productCard);*/
-    productInfoDiv.appendChild(figureImg);
-    
+
+    //Aca insertamos de la manera correspondiente los datos
+    figure.appendChild(figureImg);
+    infoDiv.append(productPrice, productName);
+    productInfo.append(infoDiv, figure);
+    productCard.append(productcardImg, productInfo);
+
+    cardsContainer.appendChild(productCard);
+
 
 }
