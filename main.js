@@ -2,7 +2,7 @@ const menuEmail =document.querySelector(".navbar-email")
 const desktopMenu = document.querySelector(".desktop-menu")
 
 const menuCarritoIcon =document.querySelector(".navbar-shopping-cart")
-const aside = document.querySelector(".product-detail")
+const shopingCartContainer = document.querySelector("#shopingCartContainer")
 
 const menuHamIcon = document.querySelector(".menu")
 const mobileMenu = document.querySelector(".mobile-menu")
@@ -14,9 +14,9 @@ menuHamIcon.addEventListener("click",toggleMobileMenu)
 menuCarritoIcon.addEventListener("click",toggleCarritoAside)
 
 function toggleDesktopMenu(){
-  const isAsideOpen = !aside.classList.contains("inactive")
+  const isAsideOpen = !shopingCartContainer.classList.contains("inactive")
   if (isAsideOpen){
-    aside.classList.add("inactive")
+    shopingCartContainer.classList.add("inactive")
   }
     desktopMenu.classList.toggle("inactive")
 }    
@@ -25,9 +25,9 @@ function toggleDesktopMenu(){
 
 
 function toggleMobileMenu (){
-  const isAsideOpen = !aside.classList.contains("inactive")
+  const isAsideOpen = !shopingCartContainer.classList.contains("inactive")
   if (isAsideOpen){
-    aside.classList.add("inactive")
+    shopingCartContainer.classList.add("inactive")
   }
   mobileMenu.classList.toggle("inactive")
 }
@@ -41,7 +41,7 @@ function toggleCarritoAside(){
   else if(isDesktopMenuOpen){
     desktopMenu.classList.add("inactive")
   }
-  aside.classList.toggle("inactive")
+  shopingCartContainer.classList.toggle("inactive")
 
   
 }
@@ -62,6 +62,12 @@ productList.push({
 productList.push({
   name:"celular",
   price:40000,
+  image: "https://images.pexels.com/photos/276517/pexels-photo-276517.jpeg?auto=compress&cs=tinysrgb&dpr=2&h=650&w=940",
+
+})
+productList.push({
+  name:"CACA",
+  price:120,
   image: "https://images.pexels.com/photos/276517/pexels-photo-276517.jpeg?auto=compress&cs=tinysrgb&dpr=2&h=650&w=940",
 
 })
@@ -126,3 +132,4 @@ cardsContainer.appendChild(productCard);                    //Aca se manda a lla
 renderProducts(productList)
 
 
+//Con Element.append() podemos agregar varios nodos y texto mientras que con Element.appendChild() solo podemos agregar un nodo.
