@@ -9,19 +9,22 @@ const mobileMenu = document.querySelector(".mobile-menu")
 
 const cardsContainer=document.querySelector(".cards-container")
 
+const productDetailContainer=document.querySelector("#productDetail")
+const productDetailCloseIcon=document.querySelector(".product-detail-close")
+
 menuEmail.addEventListener("click", toggleDesktopMenu)
 menuHamIcon.addEventListener("click",toggleMobileMenu)
 menuCarritoIcon.addEventListener("click",toggleCarritoAside)
+productDetailCloseIcon.addEventListener("click",closeProductDetailAside)
 
 function toggleDesktopMenu(){
   const isAsideOpen = !shopingCartContainer.classList.contains("inactive")
   if (isAsideOpen){
     shopingCartContainer.classList.add("inactive")
   }
+  closeProductDetailAside();
     desktopMenu.classList.toggle("inactive")
-}    
-
-                                                    // toggle. Añade o quita la clase que indiques (en este caso la clase inactive) dependiendo de si tu elemento ya la tenía o no. Si la tenía, la quita. SI no, tons la pone.
+}                                                        // toggle. Añade o quita la clase que indiques (en este caso la clase inactive) dependiendo de si tu elemento ya la tenía o no. Si la tenía, la quita. SI no, tons la pone.
 
 
 function toggleMobileMenu (){
@@ -29,22 +32,43 @@ function toggleMobileMenu (){
   if (isAsideOpen){
     shopingCartContainer.classList.add("inactive")
   }
+  closeProductDetailAside();
   mobileMenu.classList.toggle("inactive")
 }
    
 function toggleCarritoAside(){
   const isMobileMenuOpen = !mobileMenu.classList.contains("inactive")
   const isDesktopMenuOpen= !desktopMenu.classList.contains("inactive")
+  const isProductDetailOpen = !productDetailContainer.classList.contains("inactive")
+
   if (isMobileMenuOpen){
     mobileMenu.classList.add("inactive");
   }
+   else if(isProductDetailOpen){
+    productDetailContainer.classList.add("inactive")
+  } 
   else if(isDesktopMenuOpen){
     desktopMenu.classList.add("inactive")
   }
+
   shopingCartContainer.classList.toggle("inactive")
 
   
 }
+
+function openProductDetailAside(){
+  desktopMenu.classList.add("inactive")
+  mobileMenu.classList.add("inactive")
+  shopingCartContainer.classList.add("inactive")
+  productDetailContainer.classList.remove("inactive")
+}
+function closeProductDetailAside(){
+  productDetailContainer.classList.add("inactive")
+}
+
+
+//objeto y creacion de ejemplos.
+
 const productList = [
 ];
 productList.push({
@@ -72,7 +96,7 @@ productList.push({
 
 })
 
-
+//Funcion para crear HTML para agregar cualquier producto que desee el usuario.
 
 /* lo que pasa aca es que tengo que crear este html con js para que lo cree con valores no hardcodeados. 
 <div class="product-card">
@@ -98,7 +122,7 @@ for(product of arr){                                           //este ciclo resu
 //product ={name,price, image}--> product.image
  const img =document.createElement("img");
  img.setAttribute("src", product.image);                  //se le añade el atributo con la imagen variable
-
+ img.addEventListener("click",openProductDetailAside);
 
 const productInfo=document.createElement("div");
 productInfo.classList.add("product-info");
