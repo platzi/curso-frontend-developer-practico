@@ -18,11 +18,11 @@ const productList=[]
 menuEmail.addEventListener('click', toggleDesktopMenu)
 menuHamb.addEventListener('click', toggleHambMenu)
 shoppingCartImg.addEventListener('click', toggleOrderList)
+productDetailClose.addEventListener('click', closeProductDetail)
 
-
-productDetailClose.addEventListener('click', function(e){
-    e.target.parentElement.parentElement.classList.add('inactive')
-})
+function closeProductDetail(){
+    productDetail.classList.add('inactive')
+}
 function toggleOrderList(){
     orderList.classList.toggle('inactive')
     desktopMenu.classList.add('inactive')
@@ -34,6 +34,7 @@ function toggleOrderList(){
 function toggleDesktopMenu(){
     desktopMenu.classList.toggle('inactive')
     orderList.classList.add('inactive')
+    productDetail.classList.add('inactive')
     
 }
 function toggleHambMenu(){
@@ -65,7 +66,7 @@ function fillCardContainer(arr){
         productImg.setAttribute('src', `${product.image}`)
         productImg.setAttribute('id', 'product-image')
         productImg.addEventListener('click', function(e){
-            toggleProductDetail(e.target)
+            openProductDetail(e.target)
         })
         const shoppingcartInfo=document.createElement('div')
         shoppingcartInfo.setAttribute('class',"shoppingcart-info")
@@ -89,7 +90,7 @@ function fillCardContainer(arr){
 }
 fillCardContainer(productList)
 
-function toggleProductDetail(arg){
+function openProductDetail(arg){
     let findDetails= productList.find(function(product){
         return product.image===arg.src
     })
@@ -100,7 +101,7 @@ function toggleProductDetail(arg){
     desktopMenu.classList.add('inactive')
     orderList.classList.add('inactive')
     mobileMenu.classList.add('inactive')
-    productDetail.classList.toggle('inactive')
+    productDetail.classList.remove('inactive')
 }
 
 
