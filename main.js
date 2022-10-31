@@ -23,6 +23,9 @@ productDetailClose.addEventListener('click', closeProductDetail)
 function closeProductDetail(){
     productDetail.classList.add('inactive')
 }
+
+//todos los toggle sin condicional, hacen toggel del elemnto deseado y agrega la clase inactive a las demas
+//si el elemento no tiene la clase, se la agrega, y si ya la tiene no pasa nada
 function toggleOrderList(){
     orderList.classList.toggle('inactive')
     desktopMenu.classList.add('inactive')
@@ -65,8 +68,8 @@ function fillCardContainer(arr){
         const productImg=document.createElement('img')
         productImg.setAttribute('src', `${product.image}`)
         productImg.setAttribute('id', 'product-image')
-        productImg.addEventListener('click', function(e){
-            openProductDetail(e.target)
+        productImg.addEventListener('click', function(e){   
+            openProductDetail(e.target) //el listener de la imagen envia el target como argumento a la funcion openProductDetail
         })
         const shoppingcartInfo=document.createElement('div')
         shoppingcartInfo.setAttribute('class',"shoppingcart-info")
@@ -91,7 +94,8 @@ function fillCardContainer(arr){
 fillCardContainer(productList)
 
 function openProductDetail(arg){
-    let findDetails= productList.find(function(product){
+    // se utiliza find para crear un nuevo array donde coincida el url obtenido del target
+    let findDetails= productList.find(function(product){ 
         return product.image===arg.src
     })
     productImageDetail.setAttribute('src', findDetails.image)
