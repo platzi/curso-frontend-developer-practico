@@ -5,6 +5,8 @@ const menu = document.querySelector(".menu")
 const shoppingCart = document.querySelector("#carrito")
 const asideOrders = document.querySelector(".product-detail")
 const cardsContainer = document.querySelector(".cards-container")
+
+const aside2 = document.querySelector("product-detail-2")
 menuEmail.addEventListener("click", toggleDesktopMenu)
 
 function toggleDesktopMenu(){
