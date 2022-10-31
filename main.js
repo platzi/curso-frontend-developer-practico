@@ -3,7 +3,7 @@ const desktopMenu = document.querySelector(".desktop-menu");
 const icon = document.querySelector(".icon");
 const mobileMenu = document.querySelector(".mobile-menu");
 const iconCar = document.querySelector(".navbar-shopping-cart");
-const aside = document.querySelector(".product-detail");
+const shoppingCartContainer = document.getElementById("shoppingCartContainer");
 const cardsContainer = document.querySelector(".cards-container");
 
 
@@ -16,33 +16,33 @@ function showAside() {
     const isMobileMenuClosed = mobileMenu.classList.contains("activo")    
     if(isMobileMenuClosed){
         mobileMenu.classList.remove("activo")
-        aside.classList.toggle("inactive");
+        shoppingCartContainer.classList.toggle("inactive");
     }else{
         //Abrir el Aside
-        aside.classList.toggle("inactive");
+        shoppingCartContainer.classList.toggle("inactive");
     }
 }
 
 function showDesktopMenu() {
-    const isAsideClosed = aside.classList.contains("inactive")    
+    const isAsideClosed = shoppingCartContainer.classList.contains("inactive")    
     const isDesktopMenuOpen = desktopMenu.classList.contains("activar")
     
     if(isAsideClosed){
         desktopMenu.classList.toggle("activar");
     }else{
-        aside.classList.add("inactive");
+        shoppingCartContainer.classList.add("inactive");
         desktopMenu.classList.toggle("activar");
     }
     
 }
 
 function showMobileMenu(){
-    const isAsideClosed = aside.classList.contains("inactive")    
+    const isAsideClosed = shoppingCartContainer.classList.contains("inactive")    
     
     if(isAsideClosed){
         mobileMenu.classList.toggle("activo");
     }else{
-        aside.classList.add("inactive");
+        shoppingCartContainer.classList.add("inactive");
         mobileMenu.classList.toggle("activo");
     }
 }
@@ -95,7 +95,7 @@ for (const product of productList) {
 
     //Creamos los parrafos 
     const productPrice = document.createElement("p")
-    productPrice.innerText = product.price;
+    productPrice.innerText = "$"+product.price;
     const productName = document.createElement("p")
     productName.innerText = product.name;
 
@@ -111,6 +111,4 @@ for (const product of productList) {
     productCard.append(productcardImg, productInfo);
 
     cardsContainer.appendChild(productCard);
-
-
 }
