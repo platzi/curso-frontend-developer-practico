@@ -2,9 +2,10 @@ const menuEmail = document.querySelector('.navbar-email')
 const desktopMenu= document.querySelector('.desktop-menu')
 const mobileMenu= document.querySelector('.mobile-menu')
 const menuHamb = document.querySelector('.menu')
-const orderList = document.querySelector('.product-detail')
+const orderList = document.querySelector('.shoppingcart-detail')
 const shoppingCartImg = document.querySelector('.shopping-cart-img')
 const cardContainer=document.querySelector('.cards-container')
+const productDetail=document.querySelector('.product-detail')
 const productList=[]
 
 menuEmail.addEventListener('click', toggleDesktopMenu)
@@ -46,8 +47,10 @@ function fillCardContainer(arr){
         productCard.setAttribute('class',"product-card")
         const productImg=document.createElement('img')
         productImg.setAttribute('src', `${product.image}`)
-        const productInfo=document.createElement('div')
-        productInfo.setAttribute('class',"product-info")
+        productImg.setAttribute('id', 'product-image')
+        productImg.addEventListener('click', toggleProductDetail)
+        const shoppingcartInfo=document.createElement('div')
+        shoppingcartInfo.setAttribute('class',"shoppingcart-info")
         const div1=document.createElement('div')
         const p1=document.createElement('p')
         const p2=document.createElement('p')
@@ -58,12 +61,18 @@ function fillCardContainer(arr){
         img1.setAttribute('src', "./icons/bt_add_to_cart.svg")
 
         figure.appendChild(img1)
-        productInfo.append(div1,figure)
+        shoppingcartInfo.append(div1,figure)
         div1.append(p1,p2)
-        productCard.append(productImg,productInfo)
-        
+        productCard.append(productImg,shoppingcartInfo)
         cardContainer.appendChild(productCard)
+       
     }
 }
-
 fillCardContainer(productList)
+
+function toggleProductDetail(){
+    desktopMenu.classList.add('inactive')
+    mobileMenu.classList.add('inactive')
+    productDetail.classList.toggle('inactive')
+
+}
