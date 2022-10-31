@@ -129,10 +129,3 @@ renderProducts(productList)
 // </div>
 
 
-const pipiripi = ["oli", "perros", "hptas"]
-
-function papito (arr){
-  for(product of arr){
-    console.log(arr[0])
-  }
-}
