@@ -3,7 +3,7 @@ const desktopMenu = document.querySelector('.desktop-menu');
 const menuHamIcon = document.querySelector('.menu');
 const mobileMenu = document.querySelector('.mobile-menu');
 const menuCarritoIcon = document.querySelector('.navbar-shopping-cart');
-const aside = document.querySelector('.product-detail');
+const shoppingCarContainer = document.querySelector('#shoppingCarContainer');
 const cardsContainer = document.querySelector('.cards-container');
 
 
@@ -16,11 +16,11 @@ menuCarritoIcon.addEventListener('click', toggleCarritoAside);
 
 //Funciones que permiten ocultar los menús dependiendo del caso necesario
 function toggleDesktopMenu(){
-    const isAsideClosed = aside.classList.contains('inactive');
+    const isAsideClosed = shoppingCarContainer.classList.contains('inactive');
     
 
     if (!isAsideClosed){
-        aside.classList.add('inactive');
+        shoppingCarContainer.classList.add('inactive');
     }
 
     desktopMenu.classList.toggle('inactive')
@@ -28,17 +28,17 @@ function toggleDesktopMenu(){
 }
 
 function toggleMobileMenu(){
-    const isAsideClosed = aside.classList.contains('inactive');
+    const isAsideClosed = shoppingCarContainer.classList.contains('inactive');
     mobileMenu.classList.toggle('inactive')
 
     if (!isAsideClosed){
-        aside.classList.add('inactive');
+        shoppingCarContainer.classList.add('inactive');
     }
 }
 
 function toggleCarritoAside(){
     const isMobileMenuClosed= mobileMenu.classList.contains('inactive');
-    const isAsideClosed = aside.classList.contains('inactive');
+    const isAsideClosed = shoppingCarContainer.classList.contains('inactive');
 
 
 
@@ -51,7 +51,7 @@ function toggleCarritoAside(){
     }
 
 
-    aside.classList.toggle('inactive');
+    shoppingCarContainer.classList.toggle('inactive');
 
 }
 
