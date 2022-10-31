@@ -46,17 +46,17 @@ function toggleHambMenu(){
 productList.push({
     name: 'Bike', price:120 ,
     image:"https://images.pexels.com/photos/2130611/pexels-photo-2130611.jpeg?cs=srgb&dl=pexels-timea-kadar-2130611.jpg&fm=jpg&_gl=1*w4hmwp*_ga*MTYzMDc5MzAzNy4xNjY2NjI4MDIy*_ga_8JE65Q40S6*MTY2NjYyODAyNC4xLjEuMTY2NjYyODA1Ni4wLjAuMA..",
-    info: "In friendship diminution instrument so. Son sure paid door with say them. Two among sir sorry men court. Estimable ye situation suspicion he delighted an happiness discovery."
+    info: "Hermosa bicicleta azul turqueza tipo playera con su cesta en buen estado, frenos y cambios ajustados recientemente, cauchos nuevos, tiene timbre tipo campana"
 })
 productList.push({
     name: 'Laptop', price:400 ,
     image:"https://images.pexels.com/photos/669228/pexels-photo-669228.jpeg?auto=compress&cs=tinysrgb&w=1260&h=750&dpr=1",
-    info: "In friendship diminution instrument so. Son sure paid door with say them. Two among sir sorry men court. Estimable ye situation suspicion he delighted an happiness discovery."
+    info: `Laptop Dell Inspiron 3505 gris 15.6", AMD Ryzen 5 3450U 16GB de RAM 1TB HDD 256GB SSD, AMD Radeon RX Vega 8 (Ryzen 2000/3000) 60 Hz 1366x768px Windows 10 Home`
 })
 productList.push({
-    name: 'Monitor', price:150 ,
+    name: 'Monitor', price:220 ,
     image:"https://images.pexels.com/photos/1029757/pexels-photo-1029757.jpeg?auto=compress&cs=tinysrgb&w=1260&h=750&dpr=1",
-    info: "In friendship diminution instrument so. Son sure paid door with say them. Two among sir sorry men court. Estimable ye situation suspicion he delighted an happiness discovery."
+    info: "Apple Thunderbolt Display 27 Pulgadas - A1407"
 })
 function fillCardContainer(arr){
     for(product of arr){
