@@ -222,6 +222,16 @@ aside {
   border-radius: 20px;
   object-fit: cover;
 }
+.shopping-cart > img {
+  cursor: pointer;
+  background-color: var(--white);
+  border-radius: 50%;
+  padding: 3px;
+  border: 1px solid var(--very-light-pink);
+}
+.shopping-cart > img:hover {
+  background-color: var(--text-input-field);
+}
 .shopping-cart p:nth-child(2) {
   color: var(--very-light-pink);
 }
