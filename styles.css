@@ -172,6 +172,7 @@
     width: 240px;
   }
   .product-card img {
+    cursor: pointer;
     width: 240px;
     height: 240px;
     border-radius: 20px;
@@ -294,14 +295,15 @@
     width: 14px;
     height: 14px;
     position: absolute;
-    top: 24px;
-    left: 24px;
+    top: 12px;
+    left: 12px;
     z-index: 2;
     padding: 12px;
     border-radius: 50%;
   }
   .product-detail-close:hover {
     cursor: pointer;
+    background-color: rgb(201, 62, 62);
   }
   .product-detail-2 > img:nth-child(2) {
     width: 100%;
