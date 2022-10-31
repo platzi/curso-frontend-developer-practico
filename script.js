@@ -3,7 +3,7 @@ const desktopMenu = document.querySelector('.desktop-menu');
 const burgerMenu = document.querySelector('.menu');
 const mobileMenu = document.querySelector('.mobile-menu');
 const shoppingCartIcon = document.querySelector('.navbar-shopping-cart');
-const aside = document.querySelector('.product-detail');
+const shoppingCartContainer = document.querySelector('#shoppingCartContainer');
 const cardsContainer = document.querySelector('.cards-container');
 
 
@@ -13,37 +13,37 @@ burgerMenu.addEventListener('click', toggleMobileMenu);
 shoppingCartIcon.addEventListener('click', toggleCartAside)
 
 /**
- * "If the aside is not closed, close it, then toggle the desktop menu."
+ * "If the shoppingCartContainer is not closed, close it, then toggle the desktop menu."
  */
 function toggleDesktopMenu(){
-    const isAsideClosed = aside.classList.contains('inactive');
+    const isAsideClosed = shoppingCartContainer.classList.contains('inactive');
 
     if (!isAsideClosed){
-        aside.classList.add('inactive');
+        shoppingCartContainer.classList.add('inactive');
     }
 
     desktopMenu.classList.toggle('inactive');
 }
 
-//Here below, inside the functions, we have the conditionals that allow for the mobileMenu and the aside to exchange states. For example if mobileMenu is open, and we try to open aside, mobileMenu will close and aside will open.
+//Here below, inside the functions, we have the conditionals that allow for the mobileMenu and the shoppingCartContainer to exchange states. For example if mobileMenu is open, and we try to open shoppingCartContainer, mobileMenu will close and shoppingCartContainer will open.
 
 
 /**
- * If the aside is not closed, add the inactive class to it. Then toggle the inactive class on the
+ * If the shoppingCartContainer is not closed, add the inactive class to it. Then toggle the inactive class on the
  * mobile menu
  */
 function toggleMobileMenu(){
-    const isAsideClosed = aside.classList.contains('inactive');
+    const isAsideClosed = shoppingCartContainer.classList.contains('inactive');
 
     if (!isAsideClosed){
-        aside.classList.add('inactive');
+        shoppingCartContainer.classList.add('inactive');
     }
 
     mobileMenu.classList.toggle('inactive'); 
 }
 
 /**
- * If the mobile menu is open, close it, then toggle the cart aside
+ * If the mobile menu is open, close it, then toggle the cart shoppingCartContainer
  */
 function toggleCartAside (){
     const isMobileMenuClosed = mobileMenu.classList.contains('inactive');
@@ -57,7 +57,7 @@ function toggleCartAside (){
         mobileMenu.classList.add('inactive');
     }
     
-    aside.classList.toggle('inactive'); 
+    shoppingCartContainer.classList.toggle('inactive'); 
 }
 
 // Here below we have the code to create one card and add products to them with arrays
