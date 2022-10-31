@@ -135,6 +135,7 @@ nav{
     flex-direction: column;
     padding: 0 24px;
     height: 90vh;
+    width: 100%;
 }
 .menu{
     cursor: pointer;
@@ -255,7 +256,7 @@ nav{
             box-sizing: border-box;
             position: absolute;
             right: 0;
-            top: 60px;
+            top: 61px;
             background-color: var(--white);
             
         }

@@ -3,7 +3,7 @@ const desktopMenu= document.querySelector('.desktop-menu')
 const mobileMenu= document.querySelector('.mobile-menu')
 const menuHamb = document.querySelector('.menu')
 const orderList = document.querySelector('.shoppingcart-detail')
-const shoppingCartImg = document.querySelector('.shopping-cart-img')
+const shoppingCartImg = document.querySelector('.navbar-shopping-cart')
 const cardContainer=document.querySelector('.cards-container')
 const productDetail=document.querySelector('.product-detail')
 const productList=[]
@@ -16,6 +16,7 @@ function toggleOrderList(){
     orderList.classList.toggle('inactive')
     desktopMenu.classList.add('inactive')
     mobileMenu.classList.add('inactive')
+    productDetail.classList.add('inactive')
    
 }
 
@@ -27,6 +28,7 @@ function toggleDesktopMenu(){
 function toggleHambMenu(){
     mobileMenu.classList.toggle('inactive')
     orderList.classList.add('inactive')
+    productDetail.classList.add('inactive')
 }
 
 productList.push({
@@ -72,6 +74,7 @@ fillCardContainer(productList)
 
 function toggleProductDetail(){
     desktopMenu.classList.add('inactive')
+    orderList.classList.add('inactive')
     mobileMenu.classList.add('inactive')
     productDetail.classList.toggle('inactive')
 
