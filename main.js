@@ -1,7 +1,7 @@
 // General elements
 const desktopMenu = document.querySelector('.desktop-menu');
 const mobileMenu = document.querySelector('.mobile-menu');
-const productDetail = document.querySelector('.product-detail');
+const productDetail = document.querySelector('aside');
 const cardsContainer = document.querySelector('.cards-container');
 
 // Show / Hide Desktop Menu
