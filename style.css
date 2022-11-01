@@ -357,7 +357,7 @@ aside {
   .desktop-menu {
     display: none;
   }
-  .product-detail {
+  #productDetail {
     width: 100%;
   }
   .cards-container {
