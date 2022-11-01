@@ -149,6 +149,8 @@ function renderProducts(array) {
 
     const productImg = document.createElement("img");
     productImg.setAttribute("src", product.image);
+    /* When the productImg element is clicked, the
+    openProductDetailAside function will be called. */
     productImg.addEventListener("click", openProductDetailAside);
     //Line below adds css to html tags created with js
     productImg.style.cursor = "pointer";
