@@ -11,3 +11,8 @@ clase8.html (menu mobile)
 clase11.html (carrito de compras)
 clase12.html (lista de productos)
 clase13.html (detalles de producto)
+
+
+### demo desktop: ![](https://i.postimg.cc/bJ2KTZPQ/yard-Sale-Desktop.gif)
+### demo mobile: ![](https://i.postimg.cc/fyn1gMW1/yard-Sale-mobile.gif)
+### github Pages: https://gabygramajo.github.io/curso-frontend-developer-practico/
