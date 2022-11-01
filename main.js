@@ -19,6 +19,7 @@ function toggleDesktopMenu(){
     if(!isAsideClosed){
         shoppingCartContainer.classList.add('inactive');
     }
+    closeProductDetailAside();
     desktopMenu.classList.toggle('inactive');
 }
 
@@ -29,7 +30,7 @@ const isAsideClosed = shoppingCartContainer.classList.contains('inactive');
         shoppingCartContainer.classList.add('inactive');
     }
     closeProductDetailAside();
-    
+
     mobileMenu.classList.toggle('inactive');
 
 }
