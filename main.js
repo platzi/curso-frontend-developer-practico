@@ -77,15 +77,78 @@ productList.push({
 });
 productList.push({
 
-    name: 'Pantalla',
+    name: 'Monitor',
     price: '220',
-    image: 'https://images.pexels.com/photos/276517/pexels-photo-276517.jpeg?auto=compress&cs=tinysrgb&dpr=2&h=650&w=940'
+    image: 'https://images.pexels.com/photos/1029757/pexels-photo-1029757.jpeg?auto=compress&cs=tinysrgb&w=1260&h=750&dpr=1'
 
 });
 productList.push({
 
-    name: 'Compu',
+    name: 'Cell Phone',
     price: '620',
+    image: 'https://images.pexels.com/photos/699122/pexels-photo-699122.jpeg?auto=compress&cs=tinysrgb&w=1260&h=750&dpr=1'
+
+});
+productList.push({
+
+    name: 'Table',
+    price: '300',
+    image: 'https://images.pexels.com/photos/2451264/pexels-photo-2451264.jpeg?auto=compress&cs=tinysrgb&w=1260&h=750&dpr=1'
+
+});
+productList.push({
+
+    name: 'TV',
+    price: '300',
+    image: 'https://images.pexels.com/photos/9069364/pexels-photo-9069364.jpeg?auto=compress&cs=tinysrgb&w=1260&h=750&dpr=1'
+
+});
+productList.push({
+
+    name: 'Box',
+    price: '300',
+    image: 'https://images.pexels.com/photos/5486844/pexels-photo-5486844.jpeg?auto=compress&cs=tinysrgb&w=1260&h=750&dpr=1'
+
+});
+productList.push({
+
+    name: 'Sofa',
+    price: '300',
+    image: 'https://images.pexels.com/photos/3757055/pexels-photo-3757055.jpeg?auto=compress&cs=tinysrgb&w=1260&h=750&dpr=1'
+
+});
+productList.push({
+
+    name: 'Mouse',
+    price: '300',
+    image: 'https://images.pexels.com/photos/2115256/pexels-photo-2115256.jpeg?auto=compress&cs=tinysrgb&w=1260&h=750&dpr=1'
+
+});
+productList.push({
+
+    name: 'Keyboard',
+    price: '300',
+    image: 'https://images.pexels.com/photos/841228/pexels-photo-841228.jpeg?auto=compress&cs=tinysrgb&w=1260&h=750&dpr=1'
+
+});
+productList.push({
+
+    name: 'Cam',
+    price: '300',
+    image: 'https://images.pexels.com/photos/14130194/pexels-photo-14130194.jpeg?auto=compress&cs=tinysrgb&w=1260&h=750&dpr=1'
+
+});
+productList.push({
+
+    name: 'Mueble',
+    price: '300',
+    image: 'https://images.pexels.com/photos/276517/pexels-photo-276517.jpeg?auto=compress&cs=tinysrgb&dpr=2&h=650&w=940'
+
+});
+productList.push({
+
+    name: 'Mueble',
+    price: '300',
     image: 'https://images.pexels.com/photos/276517/pexels-photo-276517.jpeg?auto=compress&cs=tinysrgb&dpr=2&h=650&w=940'
 
 });
@@ -103,7 +166,20 @@ productList.push({
     image: 'https://images.pexels.com/photos/276517/pexels-photo-276517.jpeg?auto=compress&cs=tinysrgb&dpr=2&h=650&w=940'
 
 });
+productList.push({
 
+    name: 'Mueble',
+    price: '300',
+    image: 'https://images.pexels.com/photos/276517/pexels-photo-276517.jpeg?auto=compress&cs=tinysrgb&dpr=2&h=650&w=940'
+
+});
+productList.push({
+
+    name: 'Mueble',
+    price: '300',
+    image: 'https://images.pexels.com/photos/276517/pexels-photo-276517.jpeg?auto=compress&cs=tinysrgb&dpr=2&h=650&w=940'
+
+});
 
 function renderProducts(arr) {
     for (product of arr) {
