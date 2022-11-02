@@ -89,6 +89,31 @@ productList.push({
   price: 1500,
   image: 'https://images.pexels.com/photos/4887161/pexels-photo-4887161.jpeg?auto=compress&cs=tinysrgb&w=1260&h=750&dpr=2',
 });
+productList.push({
+  name: 'Patineta hecha a mano',
+  price: 2500,
+  image: 'https://images.pexels.com/photos/1018484/pexels-photo-1018484.jpeg',
+});
+productList.push({
+  name: 'Mando para consola de videojuegos',
+  price: 1350,
+  image: 'https://images.pexels.com/photos/3945657/pexels-photo-3945657.jpeg?auto=compress&cs=tinysrgb&w=1260&h=750&dpr=2',
+});
+productList.push({
+  name: 'Guitarra eléctrica',
+  price: 12500,
+  image: 'https://images.pexels.com/photos/2156327/pexels-photo-2156327.jpeg?auto=compress&cs=tinysrgb&w=1260&h=750&dpr=2',
+});
+productList.push({
+  name: 'Batería',
+  price: 7500,
+  image: 'https://images.pexels.com/photos/9644665/pexels-photo-9644665.jpeg?auto=compress&cs=tinysrgb&w=1260&h=750&dpr=2',
+});
+productList.push({
+  name: 'Pantalla LCD',
+  price: 9500,
+  image: 'https://images.pexels.com/photos/5202925/pexels-photo-5202925.jpeg?auto=compress&cs=tinysrgb&w=1260&h=750&dpr=2',
+});
 
 function renderProducts(arr){
   for (product of arr){
