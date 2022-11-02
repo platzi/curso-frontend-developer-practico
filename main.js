@@ -3,39 +3,101 @@ const desktopMenu = document.querySelector(".desktop-menu");
 const menuHamIcon = document.querySelector(".menu");
 const mobileMenu = document.querySelector(".mobile-menu");
 const menuCarritoIcon = document.querySelector(".navbar-shopping-cart");
+const productDetailCloseIcon = document.querySelector(".product-detail-close");
 const shoppingCartContainer = document.querySelector("#shoppingCartContainer");
+const productDetailContainer = document.querySelector("#productDetail");
 const cardsContainer = document.querySelector(".cards-container");
 
 menuEmail.addEventListener("click", toggleDesktopMenu);
 menuHamIcon.addEventListener("click", toggleMobileMenu);
 menuCarritoIcon.addEventListener("click", toggleCarritoAside);
+productDetailCloseIcon.addEventListener("click", closeProductDetailAside);
 
 function toggleDesktopMenu() {
-  const isAsideClosed = shoppingCartContainer.classList.contains("inactive");
+  // const isAsideClosed = shoppingCartContainer.classList.contains("inactive");
 
-  if (!isAsideClosed) {
-    shoppingCartContainer.classList.add("inactive");
-  }
+  // if (!isAsideClosed) {
+  //   shoppingCartContainer.classList.add("inactive");
+  // }
 
+  // closeProductDetailAside();
+
+  // desktopMenu.classList.toggle("inactive");
+
+  /* Esta es otra solucion */
   desktopMenu.classList.toggle("inactive");
+  shoppingCartContainer.classList.add("inactive");
+  productDetailContainer.classList.add("inactive");
 }
 
 function toggleMobileMenu() {
-  const isAsideClosed = shoppingCartContainer.classList.contains("inactive");
+  // const isAsideClosed = shoppingCartContainer.classList.contains("inactive");
 
-  if (!isAsideClosed) {
-    shoppingCartContainer.classList.add("inactive");
-  }
+  // if (!isAsideClosed) {
+  //   shoppingCartContainer.classList.add("inactive");
+  // }
+
+  // closeProductDetailAside();
+
+  // mobileMenu.classList.toggle("inactive");
+
+  /* Esta es otra solucion */
   mobileMenu.classList.toggle("inactive");
+  desktopMenu.classList.add("inactive");
+  shoppingCartContainer.classList.add("inactive");
+  productDetailContainer.classList.add("inactive");
 }
 
 function toggleCarritoAside() {
-  const isMobileMenuClosed = mobileMenu.classList.contains("inactive");
+  // const isMobileMenuClosed = mobileMenu.classList.contains("inactive");
 
-  if (!isMobileMenuClosed) {
-    mobileMenu.classList.add("inactive");
-  }
+  // if (!isMobileMenuClosed) {
+  //   mobileMenu.classList.add("inactive");
+  // }
+
+  // const isProductDetailContainerClosed =
+  //   productDetailContainer.classList.contains("inactive");
+
+  // if (!isProductDetailContainerClosed) {
+  //   productDetailContainer.classList.add("inactive");
+  // }
+
+  // const desktopMenuClosed = desktopMenu.classList.contains("inactive");
+
+  // if (!desktopMenuClosed) {
+  //   desktopMenu.classList.add("inactive");
+  // }
+
+  // shoppingCartContainer.classList.toggle("inactive");
+
+  /* Esta es otra solucion */
   shoppingCartContainer.classList.toggle("inactive");
+  mobileMenu.classList.add("inactive");
+  desktopMenu.classList.add("inactive");
+  productDetailContainer.classList.add("inactive");
+}
+
+function openProductDetailAside() {
+  // shoppingCartContainer.classList.add("inactive");
+  // desktopMenu.classList.add("inactive");
+
+  // productDetailContainer.classList.remove("inactive");
+
+  /* Esta es otra solucion */
+  productDetailContainer.classList.remove("inactive");
+  shoppingCartContainer.classList.add("inactive");
+  mobileMenu.classList.add("inactive");
+  desktopMenu.classList.add("inactive");
+}
+
+function closeProductDetailAside() {
+  // productDetailContainer.classList.add("inactive");
+
+  /* Esta es otra solucion */
+  productDetailContainer.classList.add("inactive");
+  // shoppingCartContainer.classList.add("inactive");
+  // mobileMenu.classList.add("inactive");
+  // desktopMenu.classList.add("inactive");
 }
 
 const productList = [];
@@ -66,6 +128,7 @@ function renderProducts(arr) {
     //product = {name,price,image}-> product.image
     const productImg = document.createElement("img");
     productImg.setAttribute("src", product.image);
+    productImg.addEventListener("click", openProductDetailAside);
 
     const productInfo = document.createElement("div");
     productInfo.classList.add("product-info");
