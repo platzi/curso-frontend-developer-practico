@@ -3,8 +3,10 @@ const desktopMenu = document.querySelector(".desktop-menu");
 const iconMenuToggler = document.querySelector(".menu");
 const mobileMenu = document.querySelector(".mobile-menu");
 const cartIcon = document.querySelector(".navbar-shopping-cart");
+const productDetailCloseIcon = document.querySelector(".product-detail-close");
 const shoppingCartContainer = document.querySelector("#shoppingCartContainer");
 const cardsContainer = document.querySelector(".cards-container");
+const productDetailsContainer = document.querySelector("#product-detail");
 
 function toggleDesktopMenu() {
   const isShoppingCartMenuOn =
@@ -20,14 +22,28 @@ function toggleMobileMenu() {
   if (isShoppingCartMenuOn) {
     shoppingCartContainer.classList.add("inactive");
   }
+  closeProductDetailAside();
   mobileMenu.classList.toggle("inactive");
 }
 function toggleShoppingCartMenu() {
   const isMobileMenuOn = !mobileMenu.classList.contains("inactive");
+  const isProductDetailOn =
+    !productDetailsContainer.classList.contains("inactive");
   if (isMobileMenuOn) {
     mobileMenu.classList.add("inactive");
   }
+
+  if (isProductDetailOn) {
+    productDetailsContainer.classList.add("inactive");
+  }
   shoppingCartContainer.classList.toggle("inactive");
+}
+function openProductDetailAside() {
+  shoppingCartContainer.classList.add("inactive");
+  productDetailsContainer.classList.remove("inactive");
+}
+function closeProductDetailAside() {
+  productDetailsContainer.classList.add("inactive");
 }
 function renderProducts(arr) {
   for (product of arr) {
@@ -36,6 +52,7 @@ function renderProducts(arr) {
 
     const productImg = document.createElement("img");
     productImg.setAttribute("src", product.image);
+    productImg.addEventListener("click", openProductDetailAside);
 
     const productInfo = document.createElement("div");
     productInfo.classList.add("product-info");
@@ -92,3 +109,4 @@ renderProducts(productList);
 menuEmail.addEventListener("click", toggleDesktopMenu);
 iconMenuToggler.addEventListener("click", toggleMobileMenu);
 cartIcon.addEventListener("click", toggleShoppingCartMenu);
+productDetailCloseIcon.addEventListener("click", closeProductDetailAside);
