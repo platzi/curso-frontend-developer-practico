@@ -44,6 +44,8 @@ const showProductDetail = (product) => {
   productDetail.querySelector('#productDetail .product-info-price').innerText = '$' + product.price;
   productDetail.querySelector('#productDetail .product-info-name').innerText = product.name;
   productDetail.querySelector('#productDetail .product-info-description').innerText = product.description;
+  const productImageCart = productDetail.querySelector('#productDetail .add-to-cart-button')
+  productImageCart.addEventListener('click', addProductCart.bind(this, product), false);
 
   desktopMenu.classList.add('inactive');
   mobileMenu.classList.add('inactive');
@@ -52,7 +54,7 @@ const showProductDetail = (product) => {
 }
 
 // Close Product Detail
-document.querySelector('.product-detail-close img').addEventListener('click', () => {
+document.querySelector('.product-detail-close').addEventListener('click', () => {
   productDetail.classList.add('inactive');
 });
 
