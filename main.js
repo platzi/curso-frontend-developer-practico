@@ -16,21 +16,33 @@ iconCar.addEventListener("click", showAside)
 
 function showAside() {
     const isMobileMenuClosed = mobileMenu.classList.contains("activo")    
-    if(isMobileMenuClosed){
+    const isProductDetailClosed = productDetailContainer.classList.contains("inactive")    
+    const isAsideClosed = desktopMenu.classList.contains("activar")
+    
+    if(!isProductDetailClosed){
+        productDetailContainer.classList.add("inactive")
+        shoppingCartContainer.classList.toggle("inactive")
+    }else if(isMobileMenuClosed){
         mobileMenu.classList.remove("activo")
+        shoppingCartContainer.classList.toggle("inactive")
+    }else if(isAsideClosed){
+        desktopMenu.classList.remove("activar")
+        shoppingCartContainer.classList.toggle("inactive")
+    }else{
+        shoppingCartContainer.classList.toggle("inactive")
     }
-    shoppingCartContainer.classList.toggle("inactive");
+
 }
 
-//El Menu Mobile ya funciona (Email)
+//El Menu Desktop ya funciona (Email)
 function showDesktopMenu() {
     const isAsideClosed = productDetailContainer.classList.contains("inactive")
-    const isAside = shoppingCartContainer.classList.contains("inactive")
+    const isProductDetailClosed = shoppingCartContainer.classList.contains("inactive")
     
     if(!isAsideClosed){
         productDetailContainer.classList.add("inactive");
         desktopMenu.classList.toggle("activar");
-    }else if(!isAside){
+    }else if(!isProductDetailClosed){
         shoppingCartContainer.classList.add("inactive");
         desktopMenu.classList.toggle("activar")
     }else{
@@ -38,15 +50,19 @@ function showDesktopMenu() {
     }
 
 }
-
+//El Menu Mobile ya funciona
 function showMobileMenu(){
     const isAsideClosed = shoppingCartContainer.classList.contains("inactive")    
-    
-    if(isAsideClosed){
-        mobileMenu.classList.toggle("activo");
+    const isProductDetailClosed = productDetailContainer.classList.contains("inactive")    
+        
+    if(!isProductDetailClosed){
+        productDetailContainer.classList.add("inactive")
+        mobileMenu.classList.add("activo")
+    }else if(!isAsideClosed){
+        shoppingCartContainer.classList.add("inactive")
+        mobileMenu.classList.add("activo")
     }else{
-        shoppingCartContainer.classList.add("inactive");
-        mobileMenu.classList.toggle("activo");
+        mobileMenu.classList.toggle("activo")
     }
 }
 
