@@ -92,6 +92,11 @@ productList.push({
     image: "/img/portatil.jpg",
 })
 
+productList.push({
+    name:"NFT-Son Goku Super Sayajin",
+    price:"500",
+    image: "/img/Son.Goku.(DRAGON.BALL).full.1576118.jpg",
+})
 /*
 <div class="product-card">
         <img src="https://images.pexels.com/photos/276517/pexels-photo-276517.jpeg?auto=compress&cs=tinysrgb&dpr=2&h=650&w=940" alt="">
