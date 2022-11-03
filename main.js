@@ -5,35 +5,38 @@ const mobileMenu = document.querySelector(".mobile-menu");
 const iconCar = document.querySelector(".navbar-shopping-cart");
 const shoppingCartContainer = document.getElementById("shoppingCartContainer");
 const cardsContainer = document.querySelector(".cards-container");
-
+const productDetailContainer = document.querySelector("#productDetail");
+const productDetailClose = document.querySelector(".product-detail-close");
 
 
 menuEmail.addEventListener("click", showDesktopMenu);
 icon.addEventListener("click", showMobileMenu);
 iconCar.addEventListener("click", showAside)
 
+
 function showAside() {
     const isMobileMenuClosed = mobileMenu.classList.contains("activo")    
     if(isMobileMenuClosed){
         mobileMenu.classList.remove("activo")
-        shoppingCartContainer.classList.toggle("inactive");
-    }else{
-        //Abrir el Aside
-        shoppingCartContainer.classList.toggle("inactive");
     }
+    shoppingCartContainer.classList.toggle("inactive");
 }
 
+//El Menu Mobile ya funciona (Email)
 function showDesktopMenu() {
-    const isAsideClosed = shoppingCartContainer.classList.contains("inactive")    
-    const isDesktopMenuOpen = desktopMenu.classList.contains("activar")
+    const isAsideClosed = productDetailContainer.classList.contains("inactive")
+    const isAside = shoppingCartContainer.classList.contains("inactive")
     
-    if(isAsideClosed){
+    if(!isAsideClosed){
+        productDetailContainer.classList.add("inactive");
         desktopMenu.classList.toggle("activar");
-    }else{
+    }else if(!isAside){
         shoppingCartContainer.classList.add("inactive");
-        desktopMenu.classList.toggle("activar");
+        desktopMenu.classList.toggle("activar")
+    }else{
+        desktopMenu.classList.toggle("activar")
     }
-    
+
 }
 
 function showMobileMenu(){
@@ -46,6 +49,14 @@ function showMobileMenu(){
         mobileMenu.classList.toggle("activo");
     }
 }
+
+function openProductDetailAside(){
+    productDetailContainer.classList.remove("inactive");
+}
+function closeProductDetailAside(){
+    productDetailContainer.classList.add("inactive");
+}
+productDetailClose.addEventListener("click", closeProductDetailAside); 
 
 const productList = [];
 productList.push({
@@ -87,6 +98,7 @@ for (const product of productList) {
     productCard.classList.add("product-card");
     const productcardImg = document.createElement("img");
     productcardImg.setAttribute("src", product.image);
+    productcardImg.addEventListener("click", openProductDetailAside);
 
     //Creamos nuestro segundo div junto a su div anonimo
     const productInfo = document.createElement("div");

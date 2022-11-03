@@ -331,21 +331,20 @@
   /*
   CSS Mobile Menu*/
   .mobile-menu {
-    left: 0px;
-    width: 100%;
     background: var(--white);
     position: absolute;
     top: 60px;
-    padding: 24px;
+    width: calc(100% - 24px);
+    padding-left: 24px;
   }
   .oculto{
-    left: -200px;
-    transform: translateX(-200px);
+    left: -400px;
+    transform: translateX(-400px);
     transition: 300ms;
   }
   .activo{
-    transform: translateX(200px);
-    transition: 300ms;
+    transform: translateX(400px);
+    transition: 500ms;
   }
 
   
