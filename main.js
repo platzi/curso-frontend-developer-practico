@@ -1,15 +1,18 @@
 let navEmail = document.querySelector('.navbar-email');
 let burgerButton = document.querySelector('.menu');
 let basketButton = document.querySelector('.navbar-shopping-cart');
+let detailButton = document.querySelector('.product-detail-close');
 
 let desktopMenu = document.querySelector('.desktop-menu');
 let mobileMenu = document.querySelector('.mobile-menu');
-let basketList = document.querySelector('.product-detail');
+let basketList = document.querySelector('#shoppingCardContainer');
 let cardsContainer = document.querySelector('.cards-container');
+let productDetailContainer = document.querySelector('#productDetailContainer');
 
 navEmail.addEventListener('click', toggleDesktopMenu);
 burgerButton.addEventListener('click', toggleBurgerMenu);
 basketButton.addEventListener('click', toggleBasketList);
+detailButton.addEventListener('click', closeProductDetail);
 
 function toggleDesktopMenu() {
     let isBasketListClose = basketList.classList.contains('inactive');
@@ -28,17 +31,33 @@ function toggleBurgerMenu() {
         basketList.classList.add('inactive');
     }
 
+    let isProductDetailClose = productDetailContainer.classList.contains('inactive');
+
+    if (!isProductDetailClose) {
+        productDetailContainer.classList.add('inactive');
+    }
+
     mobileMenu.classList.toggle('inactive');
 }
 
 function toggleBasketList() {
     let isMobileMenuClose = mobileMenu.classList.contains('inactive');
-    
+
     if (!isMobileMenuClose) {
         mobileMenu.classList.add('inactive');
     }
 
+    let isProductDetailClose = productDetailContainer.classList.contains('inactive');
+
+    if (!isProductDetailClose) {
+        productDetailContainer.classList.add('inactive');
+    }
+
     basketList.classList.toggle('inactive');
+}
+
+function closeProductDetail() {
+    productDetailContainer.classList.add('inactive');
 }
 
 let productList = [];
@@ -72,6 +91,7 @@ function renderItems(arr) {
         let imgCard = document.createElement('img');
         imgCard.setAttribute('src', product.img);
         imgCard.setAttribute('alt', product.name);
+        imgCard.addEventListener('click', openProductDetailAside);
 
         let productInfo = document.createElement('div');
         productInfo.classList.add('product-info');
@@ -100,3 +120,8 @@ function renderItems(arr) {
 }
 
 renderItems(productList);
+
+function openProductDetailAside() {
+    productDetailContainer.classList.remove('inactive');
+    basketList.classList.add('inactive');
+}
