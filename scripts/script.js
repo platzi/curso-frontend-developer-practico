@@ -7,7 +7,7 @@ window.addEventListener('load',()=>{
     const desktop_menu = document.querySelector('.desktop-menu'); 
     const IconBurguer = document.querySelector('.menu'); 
     const mobile_menu = document.querySelector('.mobile-menu');  
-    const aside = document.querySelector('.product-detail'); 
+    const shoppingCartContainer = document.querySelector('#shoppingCartContainer'); 
     const car = document.querySelector('.navbar-shopping-cart');
     const cards = document.querySelector('.cards-container'); 
 
@@ -17,7 +17,7 @@ window.addEventListener('load',()=>{
         desktop_menu.classList.toggle('inactive'); 
 
         // Condición con operador ternario; 
-        !aside.classList.contains('inactive') ? aside.classList.add('inactive') : 0;
+        !shoppingCartContainer.classList.contains('inactive') ? shoppingCartContainer.classList.add('inactive') : 0;
         !mobile_menu.classList.contains('inactive') ? mobile_menu.classList.add('inactive') : 0; 
     })
     
@@ -26,12 +26,12 @@ window.addEventListener('load',()=>{
         mobile_menu.classList.toggle('inactive'); 
 
         // Condición con operador ternario; 
-        !aside.classList.contains('inactive') ? aside.classList.add('inactive') : 0;
+        !shoppingCartContainer.classList.contains('inactive') ? shoppingCartContainer.classList.add('inactive') : 0;
         !desktop_menu.classList.contains('inactive') ? desktop_menu.classList.add('inactive') : 0; 
     }); 
 
     car.addEventListener('click',()=>{
-        aside.classList.toggle('inactive');
+        shoppingCartContainer.classList.toggle('inactive');
 
         // Condición con operador ternario; 
         !desktop_menu.classList.contains('inactive') ? desktop_menu.classList.add('inactive') : 0; 
