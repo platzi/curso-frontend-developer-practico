@@ -8,7 +8,8 @@ const shoppingCartContainer= document.querySelector("#shoppingCartContainer")
 const productDetailContainer= document.querySelector("#productDetail")
 const cardsContainer= document.querySelector(".cards-container")
 const shoppingCounter= document.querySelector("#shopping-counter")
-let counter=0
+let counter=1
+let codeId
 
 
 menuEmail.addEventListener("pointerdown", toggleDesktopMenu)
@@ -64,21 +65,24 @@ function closeProductDetail(){
 
 const productList = []
 productList.push({
+    id:1,
     name: "Bike",
     price: 120,
     image: "https://images.pexels.com/photos/276517/pexels-photo-276517.jpeg?auto=compress&cs=tinysrgb&dpr=2&h=650&w=940"
 })
 
 productList.push({
+    id:2,
     name: "Screen",
     price: 220,
     image: "https://images.pexels.com/photos/276517/pexels-photo-276517.jpeg?auto=compress&cs=tinysrgb&dpr=2&h=650&w=940"
 })
 
 productList.push({
+    id:3,
     name: "Laptop",
     price: 420,
-    image: "https://images.pexels.com/photos/276517/pexels-photo-276517.jpeg?auto=compress&cs=tinysrgb&dpr=2&h=650&w=940"
+    image: "https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcSQXmFprTdqvnUj82ll4yuBU2JFBeWLqCI07A&usqp=CAU"
 })
 
 function renderProducts(arr){
@@ -104,6 +108,7 @@ function renderProducts(arr){
         productInfoDiv.append(productPrice, productName)
 
         const productInfoFigure= document.createElement("figure")
+         productInfoFigure.classList.add(`${product.id}`)
 
         const productInfoCart= document.createElement("img")
         productInfoCart.setAttribute("src", "./icons/bt_add_to_cart.svg")
@@ -114,13 +119,22 @@ function renderProducts(arr){
         productCard.append(productImg, productInfo)
         cardsContainer.appendChild(productCard)
 
-        productInfoFigure.addEventListener("pointerdown", addingProducts)
+        productInfoFigure.addEventListener("pointerdown", ()=>{
+             let codeProduct=productInfoFigure.classList.item(productList.id)
+                codeId=codeProduct
+                addingProduct(codeId)
+                addingCounter()
+        })
     }
 }
 
-function addingProducts(event){
+function addingProduct(id){
+    console.log(id)
+}
+
+
+function addingCounter(){
         shoppingCounter.innerText= counter++
-        console.log(counter)
 }
 
 renderProducts(productList)
