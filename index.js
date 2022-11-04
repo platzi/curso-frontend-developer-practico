@@ -8,10 +8,10 @@ const shoppingCartContainer= document.querySelector("#shoppingCartContainer")
 const productDetailContainer= document.querySelector("#productDetail")
 const cardsContainer= document.querySelector(".cards-container")
 
-menuEmail.addEventListener("click", toggleDesktopMenu)
-HamMenuIcon.addEventListener("pointerenter", toggleMobileMenu)
-carMenuIcon.addEventListener("pointerenter", toggleAside)
-productDetailCloseIcon.addEventListener("pointerenter", closeProductDetail)
+menuEmail.addEventListener("pointerdown", toggleDesktopMenu)
+HamMenuIcon.addEventListener("pointerdown", toggleMobileMenu)
+carMenuIcon.addEventListener("pointerdown", toggleAside)
+productDetailCloseIcon.addEventListener("pointerdown", closeProductDetail)
 
 function toggleDesktopMenu(){
     const isAsideClosed= shoppingCartContainer.classList.contains("inactive")  
@@ -85,7 +85,7 @@ function renderProducts(arr){
 
         const productImg = document.createElement("img")
         productImg.setAttribute("src", product.image)
-        productImg.addEventListener("pointerenter", openProductDetailAside)
+        productImg.addEventListener("pointerdown", openProductDetailAside)
 
         const productInfo= document.createElement("div")
         productInfo.classList.add("product-info")
