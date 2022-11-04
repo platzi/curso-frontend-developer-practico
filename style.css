@@ -267,6 +267,10 @@ aside {
     font-weight: bold;
 }
 
+.shopping-cart .cancel-button:hover{
+    cursor:pointer;
+}
+
 .primary-button {
     background-color: var(--hospital-green);
     border-radius: 8px;
