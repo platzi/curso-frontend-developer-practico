@@ -12,7 +12,9 @@ const mobileMenu = document.querySelector('.mobile-menu');
 /* Seleciono elementos del Shopping Car */
 
 const menuCarIcon = document.querySelector('.navbar-shopping-cart');
-const asideCar = document.querySelector('.product-detail');
+// Cambio product-detail por l ide shopingCartContainer
+// const asideCar = document.querySelector('.product-detail');
+const shopingCartContainer = document.querySelector('#shopingCartContainer');
 const cardsContainer = document.querySelector('.cards-container');
 
 
@@ -23,7 +25,7 @@ menuCarIcon.addEventListener('click',toggleAsideMenu);
 
 
 function toggleAsideMenu(){
-    asideCar.classList.toggle('inactive');
+    shopingCartContainer.classList.toggle('inactive');
     mobileMenu.classList.add('inactive')  
     desktopMenu.classList.add('inactive');  
 }
@@ -33,7 +35,7 @@ function toggleAsideMenu(){
 //Le puse el cursor en mobile pero me parece que no va.
 function toggleMobileMenu(){    
     mobileMenu.classList.toggle('inactive');        
-    asideCar.classList.add('inactive');
+    shopingCartContainer.classList.add('inactive');
 }
 
 // El ejercicio lo realicé antes de terminr la clase por eso salio sin el metodo contain del atributo class
@@ -45,17 +47,17 @@ function toggleMobileMenu(){
 */ 
 function toggleDesktopMenu(){
     //Asi lo realizó el teacher.
-    //desktopMenu.classList.toggle('inactive');
-    let toggleClass = desktopMenu.getAttribute('class')
+    desktopMenu.classList.toggle('inactive');
+    //let toggleClass = desktopMenu.getAttribute('class')
     //console.log(toggleClass)
-    if (toggleClass === 'desktop-menu inactive') {
-        desktopMenu.classList.remove('inactive');
-        asideCar.classList.add('inactive');
-    }
+    // if (toggleClass === 'desktop-menu inactive') {
+    //desktopMenu.classList.remove('inactive');
+    shopingCartContainer.classList.add('inactive');
+    // }
 
-    if (toggleClass === 'desktop-menu') {
-        desktopMenu.classList.add('inactive');
-    }
+    // if (toggleClass === 'desktop-menu') {
+    mobileMenu.classList.add('inactive');
+    // }
 
     
 }
