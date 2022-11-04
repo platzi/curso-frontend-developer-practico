@@ -258,11 +258,11 @@ aside {
     object-fit: cover;
 }
 
-.shopping-cart p:nth-child(2) {
+.shopping-cart .name-tag {
     color: var(--very-light-pink);
 }
 
-.shopping-cart p:nth-child(3) {
+.shopping-cart .price-tag {
     font-size: var(--md);
     font-weight: bold;
 }
