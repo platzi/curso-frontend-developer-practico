@@ -9,10 +9,15 @@ const productDetailContainer= document.querySelector("#productDetail")
 const cardsContainer= document.querySelector(".cards-container")
 const shoppingCounter= document.querySelector("#shopping-counter")
 const MyOrderList= document.querySelector(".shopping-cart")
+const totalOrder= document.querySelector("#total-order")
 
 let counter=1
 let codeId
 let productAdded
+let resWithInitial
+let sumWithInitial
+const order= []
+const canceledOrder=[]
 
 
 menuEmail.addEventListener("pointerdown", toggleDesktopMenu)
@@ -135,9 +140,7 @@ function renderProducts(arr){
 
 function addingProduct(id,arr){
     productAdded= arr.filter(product => product.id == id)
-    console.log(id)
-    console.log(productAdded[0].name, productAdded[0].price)
-
+    
     const figureInShoppingCart= document.createElement("figure")
 
     const imgInShoppingCart= document.createElement("img")
@@ -152,15 +155,49 @@ function addingProduct(id,arr){
     productPrice.innerText= `$${productAdded[0].price}`
 
     const removeProductInCart= document.createElement("img")
-    removeProductInCart.setAttribute("src", "./icons/icon_close.png")
+    removeProductInCart.setAttribute("src", "./icons/close-small.png")
     removeProductInCart.setAttribute("alt", "close")
+    removeProductInCart.classList.add("cancel-button")
+    removeProductInCart.addEventListener("pointerdown",()=>{
+            MyOrderList.removeChild(figureInShoppingCart)
+            MyOrderList.removeChild(productName)
+            MyOrderList.removeChild(productPrice)
+            MyOrderList.removeChild(removeProductInCart)
+            removeFromTotalOrder(-productAdded[0].price)
+
+        })
 
     figureInShoppingCart.appendChild(imgInShoppingCart)
     MyOrderList.append(figureInShoppingCart, productName, productPrice, removeProductInCart)
+
+    sumTotalOrder(productAdded[0].price)
 }
  
 function addingCounter(){
         shoppingCounter.innerText= counter++
 }
+
+function sumTotalOrder(productPrice){
+    order.push( productPrice)
+
+    const initialValue = 0;
+    let sumWithInitial = order.reduce(
+    (previousValue, currentValue) => previousValue + currentValue, initialValue);
+
+    console.log(order)
+    console.log(sumWithInitial)
+}
+
+function removeFromTotalOrder(productPrice){
+    canceledOrder.push( productPrice)
+
+    let initialValue=0;
+    resWithInitial = canceledOrder.reduce(
+    (previousValue, currentValue) => previousValue + currentValue, initialValue);
+
+    console.log(`Total precios eliminados ${canceledOrder}`)
+    console.log(resWithInitial)
+}
+
 
 renderProducts(productList)
