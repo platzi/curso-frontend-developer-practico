@@ -129,9 +129,10 @@ nav {
 .mobile-menu {
     position: absolute;
     top: 60px;
+    width: 100%;
+    left: 0;
     height: auto;
     border-radius:0 0 6px 6px;
-    padding: 20px 20px 0 20px;
     background-color: var(--white);
     transition: 4s;
     box-shadow: 5px 5px 10px var(--very-light-pink);
@@ -144,7 +145,7 @@ nav {
 }
 .mobile-menu ul {
     padding: 0;
-    margin: 24px 0 0;
+    margin: 24px 0 0 24px;
     list-style: none;
 }
 .mobile-menu ul:nth-child(1) {
@@ -295,6 +296,7 @@ nav {
     padding-bottom: 24px;
     position: absolute;
     right: 0;
+    background-color: var(--white);
 }
 .product-detail-secondary-close {
     background: var(--white);
@@ -367,9 +369,6 @@ nav {
     .desktop-menu {
       display: none;
     }
-    .product-detail {
-        width: 100%;
-    }
     .cards-container {
         grid-template-columns: repeat(auto-fill, 140px);
     }
@@ -389,4 +388,10 @@ nav {
       display: none;
     }
     
+}
+
+@media (max-width: 375px) {
+    .product-detail {
+        width: 300px;
+    }
 }

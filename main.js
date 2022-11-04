@@ -5,6 +5,8 @@ const aside = document.querySelector('.product-detail');
 const menuHamIcon = document.querySelector('.menu');
 const mobileMenu = document.querySelector('.mobile-menu');
 const cardsContainer = document.querySelector('.cards-container');
+const productDescription = document.querySelector('.product-detail-secondary');
+const a = document.querySelector('.fdfdf');
 
 
 menuEmail.addEventListener('click', toggleDesktopMenu);
