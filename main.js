@@ -15,19 +15,26 @@ const menuCarIcon = document.querySelector('.navbar-shopping-cart');
 // Cambio product-detail por l ide shopingCartContainer
 // const asideCar = document.querySelector('.product-detail');
 const shopingCartContainer = document.querySelector('#shopingCartContainer');
+const productDetailContainer= document.querySelector('#product-detail')
+
 const cardsContainer = document.querySelector('.cards-container');
 
+const closeProductDetail = document.querySelector('.product-detail-close')
 
 
 menuEmail.addEventListener('click', toggleDesktopMenu);
 menuHamburguer.addEventListener('click',toggleMobileMenu);
 menuCarIcon.addEventListener('click',toggleAsideMenu);
+closeProductDetail.addEventListener('click',closeProductDetailAside)
 
 
 function toggleAsideMenu(){
     shopingCartContainer.classList.toggle('inactive');
-    mobileMenu.classList.add('inactive')  
-    desktopMenu.classList.add('inactive');  
+    productDetailContainer.classList.add('inactive');
+    mobileMenu.classList.add('inactive');
+    desktopMenu.classList.add('inactive'); 
+    productList.classList.add('inactive'); 
+    
 }
 
 
@@ -36,6 +43,8 @@ function toggleAsideMenu(){
 function toggleMobileMenu(){    
     mobileMenu.classList.toggle('inactive');        
     shopingCartContainer.classList.add('inactive');
+    productDetailContainer.classList.add('inactive');
+    desktopMenu.classList.add('inactive');
 }
 
 // El ejercicio lo realicé antes de terminr la clase por eso salio sin el metodo contain del atributo class
@@ -53,13 +62,28 @@ function toggleDesktopMenu(){
     // if (toggleClass === 'desktop-menu inactive') {
     //desktopMenu.classList.remove('inactive');
     shopingCartContainer.classList.add('inactive');
+    productDetailContainer.classList.add('inactive');
     // }
-
     // if (toggleClass === 'desktop-menu') {
     mobileMenu.classList.add('inactive');
     // }
 
     
+}
+function closeProductDetailAside() {
+    //console.log('test')
+    productDetailContainer.classList.add('inactive');
+    mobileMenu.classList.add('inactive')  
+    desktopMenu.classList.add('inactive');
+    shopingCartContainer.classList.add('inactive')
+}
+
+function operProductDetailAside() {
+    //console.log('test')
+    productDetailContainer.classList.remove('inactive');
+    mobileMenu.classList.add('inactive')  
+    desktopMenu.classList.add('inactive'); 
+    shopingCartContainer.classList.add('inactive')
 }
 
 const productList = [];
@@ -108,6 +132,10 @@ function renderProducts (arrays){
     
         const img = document.createElement('img')
         img.setAttribute('src',item.image)
+
+        // Genero el event del click
+
+        img.addEventListener('click',operProductDetailAside)
     
         const productInfo = document.createElement('div')
         productInfo.classList.add('product-info');
