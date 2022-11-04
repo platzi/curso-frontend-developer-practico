@@ -8,8 +8,11 @@ const shoppingCartContainer= document.querySelector("#shoppingCartContainer")
 const productDetailContainer= document.querySelector("#productDetail")
 const cardsContainer= document.querySelector(".cards-container")
 const shoppingCounter= document.querySelector("#shopping-counter")
+const MyOrderList= document.querySelector(".shopping-cart")
+
 let counter=1
 let codeId
+let productAdded
 
 
 menuEmail.addEventListener("pointerdown", toggleDesktopMenu)
@@ -108,7 +111,7 @@ function renderProducts(arr){
         productInfoDiv.append(productPrice, productName)
 
         const productInfoFigure= document.createElement("figure")
-         productInfoFigure.classList.add(`${product.id}`)
+        productInfoFigure.classList.add(`${product.id}`)
 
         const productInfoCart= document.createElement("img")
         productInfoCart.setAttribute("src", "./icons/bt_add_to_cart.svg")
@@ -121,18 +124,41 @@ function renderProducts(arr){
 
         productInfoFigure.addEventListener("pointerdown", ()=>{
              let codeProduct=productInfoFigure.classList.item(productList.id)
-                codeId=codeProduct
-                addingProduct(codeId)
-                addingCounter()
+            codeId=codeProduct
+
+            addingProduct(codeId, productList)
+            addingCounter()
         })
     }
 }
 
-function addingProduct(id){
+
+function addingProduct(id,arr){
+    productAdded= arr.filter(product => product.id == id)
     console.log(id)
+    console.log(productAdded[0].name, productAdded[0].price)
+
+    const figureInShoppingCart= document.createElement("figure")
+
+    const imgInShoppingCart= document.createElement("img")
+    imgInShoppingCart.setAttribute("src", productAdded[0].image)
+
+    const productName= document.createElement("p")
+    productName.classList.add("name-tag")
+    productName.innerText= productAdded[0].name
+
+    const productPrice= document.createElement("p")
+    productPrice.classList.add("price-tag")
+    productPrice.innerText= `$${productAdded[0].price}`
+
+    const removeProductInCart= document.createElement("img")
+    removeProductInCart.setAttribute("src", "./icons/icon_close.png")
+    removeProductInCart.setAttribute("alt", "close")
+
+    figureInShoppingCart.appendChild(imgInShoppingCart)
+    MyOrderList.append(figureInShoppingCart, productName, productPrice, removeProductInCart)
 }
-
-
+ 
 function addingCounter(){
         shoppingCounter.innerText= counter++
 }
