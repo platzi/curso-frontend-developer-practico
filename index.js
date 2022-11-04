@@ -7,6 +7,9 @@ const mobileMenu= document.querySelector(".mobile-menu")
 const shoppingCartContainer= document.querySelector("#shoppingCartContainer")
 const productDetailContainer= document.querySelector("#productDetail")
 const cardsContainer= document.querySelector(".cards-container")
+const shoppingCounter= document.querySelector("#shopping-counter")
+let counter=0
+
 
 menuEmail.addEventListener("pointerdown", toggleDesktopMenu)
 HamMenuIcon.addEventListener("pointerdown", toggleMobileMenu)
@@ -110,7 +113,14 @@ function renderProducts(arr){
 
         productCard.append(productImg, productInfo)
         cardsContainer.appendChild(productCard)
+
+        productInfoFigure.addEventListener("pointerdown", addingProducts)
     }
+}
+
+function addingProducts(event){
+        shoppingCounter.innerText= counter++
+        console.log(counter)
 }
 
 renderProducts(productList)
