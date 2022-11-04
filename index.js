@@ -11,11 +11,13 @@ const shoppingCounter= document.querySelector("#shopping-counter")
 const MyOrderList= document.querySelector(".shopping-cart")
 const totalOrder= document.querySelector("#total-order")
 
-let counter=1
+let counter=0
 let codeId
 let productAdded
 let resWithInitial
 let sumWithInitial
+let purchase
+let cancel
 const order= []
 const canceledOrder=[]
 
@@ -174,7 +176,8 @@ function addingProduct(id,arr){
 }
  
 function addingCounter(){
-        shoppingCounter.innerText= counter++
+        shoppingCounter.innerText= ++counter
+        console.log(counter)
 }
 
 function sumTotalOrder(productPrice){
@@ -183,21 +186,20 @@ function sumTotalOrder(productPrice){
     const initialValue = 0;
     let sumWithInitial = order.reduce(
     (previousValue, currentValue) => previousValue + currentValue, initialValue);
-
-    console.log(order)
     console.log(sumWithInitial)
 }
 
 function removeFromTotalOrder(productPrice){
     canceledOrder.push( productPrice)
-
+    shoppingCounter.innerText= --counter
     let initialValue=0;
     resWithInitial = canceledOrder.reduce(
     (previousValue, currentValue) => previousValue + currentValue, initialValue);
-
-    console.log(`Total precios eliminados ${canceledOrder}`)
-    console.log(resWithInitial)
+    
+    
 }
+
+
 
 
 renderProducts(productList)
