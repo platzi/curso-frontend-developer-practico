@@ -14,13 +14,7 @@ const totalOrder= document.querySelector("#total-order")
 let counter=0
 let codeId
 let productAdded
-let resWithInitial
-let sumWithInitial
-let purchase
-let cancel
 const order= []
-const canceledOrder=[]
-
 
 menuEmail.addEventListener("pointerdown", toggleDesktopMenu)
 HamMenuIcon.addEventListener("pointerdown", toggleMobileMenu)
@@ -177,7 +171,6 @@ function addingProduct(id,arr){
  
 function addingCounter(){
         shoppingCounter.innerText= ++counter
-        console.log(counter)
 }
 
 function sumTotalOrder(productPrice){
@@ -187,19 +180,21 @@ function sumTotalOrder(productPrice){
     let sumWithInitial = order.reduce(
     (previousValue, currentValue) => previousValue + currentValue, initialValue);
     console.log(sumWithInitial)
+    totalPurchase(sumWithInitial)
 }
 
 function removeFromTotalOrder(productPrice){
-    canceledOrder.push( productPrice)
+    order.push( productPrice)
     shoppingCounter.innerText= --counter
     let initialValue=0;
-    resWithInitial = canceledOrder.reduce(
+
+    let resWithInitial = order.reduce(
     (previousValue, currentValue) => previousValue + currentValue, initialValue);
-    
-    
+    totalPurchase(resWithInitial)
 }
 
-
-
+function totalPurchase(value){
+    totalOrder.innerText=value
+}
 
 renderProducts(productList)
