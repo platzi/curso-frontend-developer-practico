@@ -144,11 +144,6 @@ function renderProducts(arr){
             const detailInfo= document.querySelector("#detail-info")
             detailInfo.innerText= productInfoDetail
 
-            // <button class="primary-button add-to-cart-button">
-            // <img src="./icons/bt_add_to_cart.svg" alt="add to cart">
-            // Add to cart
-            // </button>
-
             const addCartButton=document.createElement("button")
             addCartButton.classList.add("primary-button")
             addCartButton.classList.add("add-to-cart-button")
