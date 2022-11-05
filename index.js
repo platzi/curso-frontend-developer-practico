@@ -14,7 +14,6 @@ const totalOrder= document.querySelector("#total-order")
 let counter=0
 let codeId
 let productAdded
-let newPurchase
 const order= []
 
 menuEmail.addEventListener("pointerdown", toggleDesktopMenu)
@@ -131,6 +130,8 @@ function renderProducts(arr){
             shoppingCartContainer.classList.add("inactive")
             productDetailContainer.classList.remove("inactive")
 
+            const stateContainer= document.querySelector(".product-state")
+
             const detailImg= document.querySelector("#detail-image")
             detailImg.src= productImg.src
 
@@ -148,12 +149,22 @@ function renderProducts(arr){
             // Add to cart
             // </button>
 
-            const addCartButton=document.querySelector(".add-to-cart-button")
+            const addCartButton=document.createElement("button")
+            addCartButton.classList.add("primary-button")
+            addCartButton.classList.add("add-to-cart-button")
+            addCartButton.innerText="Add to cart"
+            const cartIcon= document.createElement("img")
+            cartIcon.setAttribute("src", "./icons/bt_add_to_cart.svg")
+            cartIcon.setAttribute("alt", "add to cart")
+
+            addCartButton.appendChild(cartIcon)
+            stateContainer.appendChild(addCartButton)
+
+
             addCartButton.addEventListener("pointerdown", ()=>{
-                newPurchase =productInfoFigure.classList
                 console.log(productInfoFigure.classList)
                 addingProduct(productInfoFigure.classList, productList)
-                newPurchase =newPurchase - productInfoFigure.classList 
+                addCartButton.remove()
             })
         })
 
