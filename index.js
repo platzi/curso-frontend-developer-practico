@@ -76,10 +76,10 @@ productList.push({
 
 productList.push({
     id:2,
-    name: "Screen",
+    name: "Computer screen",
     price: 220,
     image: "https://m.media-amazon.com/images/I/71nlwoCfzkL._AC_SX466_.jpg",
-    detail:"With its practical position, this bike also fulfills a decorative function, add your hall or workspace."
+    detail:"Two HDMI and One VGA port provide up to 75HZ refresh rate, refining picture clarity in all action-packed gaming sequences and graphic design projects. Audio In and a Headphone Jack provide diverse audio options."
 })
 
 productList.push({
@@ -87,7 +87,7 @@ productList.push({
     name: "Laptop",
     price: 420,
     image: "https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcSQXmFprTdqvnUj82ll4yuBU2JFBeWLqCI07A&usqp=CAU",
-    detail:"With its practical position, this bike also fulfills a decorative function, add your hall or workspace."
+    detail:'2022 Newest Lenovo Ideapad 3 Laptop, 15.6" HD Touchscreen, 11th Gen Intel Core i3-1115G4 Processor, 8GB DDR4 RAM, 256GB PCIe NVMe SSD, HDMI, Webcam, Wi-Fi 5, Bluetooth, Windows 11 Home, Almond'
 })
 
 productList.push({
@@ -95,19 +95,28 @@ productList.push({
     name: "Toy Trucks",
     price: 70,
     image:"https://cf.shopee.com.co/file/6ac43d4287536cb09b980e8b40d1a717",
-    detail:"With its practical position, this bike also fulfills a decorative function, add your hall or workspace." 
+    detail:"Cat Construction Tough Machines Toy Dump Truck with Lights & Sounds, Yellow" 
 })
 
 productList.push({
     id:5,
-    name: "Plushies",
+    name: "Plushies Paw Patrol",
     price: 100,
     image:"https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcTKTO1ywopxJLkW0bLgD03VsytWyqhcDn8OVA&usqp=CAU",
-    detail:"With its practical position, this bike also fulfills a decorative function, add your hall or workspace."
+    detail:"Toy Rover Paw Patrol 9 Inch Skye Marshall Chase and Rubble Stuffed Plush Toy Set, Multicolor"
+})
+
+productList.push({
+    id:6,
+    name: "Nintendo switch",
+    price: 298.98,
+    image:"https://m.media-amazon.com/images/I/61-PblYntsL._AC_SX425_.jpg",
+    detail:"Nintendo Switch with Neon Blue and Neon Red Joy‑Con - HAC-001(-01)"
 })
 
 function renderProducts(arr){
     for (product of arr){
+        const productInfoDetail= product.detail
         const productCard= document.createElement("div")
         productCard.classList.add("product-card")
 
@@ -115,9 +124,20 @@ function renderProducts(arr){
         productImg.setAttribute("src", product.image)
         productImg.addEventListener("pointerdown", ()=>{
             shoppingCartContainer.classList.add("inactive")
-
             productDetailContainer.classList.remove("inactive")
-            console.log(productImg)
+
+            const detailImg= document.querySelector("#detail-image")
+            detailImg.src= productImg.src
+
+            const detailPrice= document.querySelector("#detail-price")
+            detailPrice.innerText= productPrice.innerText
+
+            const detailName= document.querySelector("#detail-name")
+            detailName.innerText= productName.innerText
+            
+            const detailInfo= document.querySelector("#detail-info")
+            detailInfo.innerText= productInfoDetail
+
         })
 
         const productInfo= document.createElement("div")
@@ -138,6 +158,9 @@ function renderProducts(arr){
 
         const productInfoCart= document.createElement("img")
         productInfoCart.setAttribute("src", "./icons/bt_add_to_cart.svg")
+
+        
+        
 
         productInfoFigure.appendChild(productInfoCart)
         productInfo.append(productInfoDiv, productInfoFigure)
@@ -210,7 +233,7 @@ function totalPurchase(){
     let initialValue=0;
 
     let totalProducts= order.reduce((previousValue, currentValue) => previousValue + currentValue, initialValue);
-    totalOrder.innerText= totalProducts
+    totalOrder.innerText= `$${totalProducts}`
 }
 
 renderProducts(productList)
