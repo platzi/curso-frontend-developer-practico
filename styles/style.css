@@ -122,9 +122,13 @@
 
   /* Mobile Menu */
   .mobile-menu {
+    background-color: var(--white); 
     position:absolute; 
     top: 60px; 
     padding: 24px;
+    left: 0; 
+    width: 100%; 
+    height: 100%;
   }
   .mobile-menu a {
     text-decoration: none;
@@ -211,7 +215,7 @@
   justify-content: center;
 }
  
-#shopingCartContainer{
+#shoppingCartContainer{
   padding: 0 24px; 
 }
 
