@@ -252,11 +252,8 @@ function totalPurchase(){
     let totalProducts= order.reduce((previousValue, currentValue) => previousValue + currentValue, initialValue);
     let totalProductNet= totalProducts.toFixed(2)
     
-    if(totalProductNet<=0.00){
-        totalOrder.innerText= `$0`
-    }else{
-        totalOrder.innerText= `$${totalProductNet}`
-    }
+    totalOrder.innerText= `$${totalProductNet}`
+
 }
 
 renderProducts(productList)
