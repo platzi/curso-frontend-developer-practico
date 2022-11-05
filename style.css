@@ -150,10 +150,12 @@ display: inline-block;
 /** Menu mobile */
 
 .mobile-menu {
-    background-color: var(--white);
     position: absolute;
-    top: 60px;
-    padding: 24px;
+    background-color: var(--white);
+    top: 61px;
+    left: 0;
+    width: calc(100% - 24px);
+    padding-left: 24px;
 }
 
 .mobile-menu a {
@@ -192,13 +194,16 @@ display: inline-block;
 aside {
     background-color: var(--white);
     width: 360px;
-    padding: 24px;
     box-sizing: border-box;
     position: absolute;
     right: 0;
 }
 
 /* *Carrito de compras */
+
+#shoppingCartConteiner{
+    padding: 0 24px;
+}
 
 .product-detail-close {
     background: var(--white);
