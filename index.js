@@ -155,7 +155,6 @@ function renderProducts(arr){
             addCartButton.appendChild(cartIcon)
             stateContainer.appendChild(addCartButton)
 
-
             addCartButton.addEventListener("pointerdown", ()=>{
                 console.log(productInfoFigure.classList)
                 addingProduct(productInfoFigure.classList, productList)
@@ -191,7 +190,6 @@ function renderProducts(arr){
         productInfoFigure.addEventListener("pointerdown", ()=>{
             let codeProduct=productInfoFigure.classList.item(productList.id)
             codeId=codeProduct
-            console.log(codeProduct)
             addingProduct(codeId, productList)
         })
     }
@@ -251,9 +249,14 @@ function removeFromTotalOrder(productPrice){
 
 function totalPurchase(){
     let initialValue=0;
-
     let totalProducts= order.reduce((previousValue, currentValue) => previousValue + currentValue, initialValue);
-    totalOrder.innerText= `$${totalProducts}`
+    let totalProductNet= totalProducts.toFixed(2)
+    
+    if(totalProductNet<=0.00){
+        totalOrder.innerText= `$0`
+    }else{
+        totalOrder.innerText= `$${totalProductNet}`
+    }
 }
 
 renderProducts(productList)
