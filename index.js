@@ -124,7 +124,7 @@ function renderProducts(arr){
         cardsContainer.appendChild(productCard)
 
         productInfoFigure.addEventListener("pointerdown", ()=>{
-             let codeProduct=productInfoFigure.classList.item(productList.id)
+            let codeProduct=productInfoFigure.classList.item(productList.id)
             codeId=codeProduct
 
             addingProduct(codeId, productList)
@@ -148,7 +148,7 @@ function addingProduct(id,arr){
 
     const productPrice= document.createElement("p")
     productPrice.classList.add("price-tag")
-    productPrice.innerText= `$${productAdded[0].price}`
+    productPrice.innerText= `${productAdded[0].price}`
 
     const removeProductInCart= document.createElement("img")
     removeProductInCart.setAttribute("src", "./icons/close-small.png")
@@ -159,8 +159,9 @@ function addingProduct(id,arr){
             MyOrderList.removeChild(productName)
             MyOrderList.removeChild(productPrice)
             MyOrderList.removeChild(removeProductInCart)
-            removeFromTotalOrder(-productAdded[0].price)
-
+            removeFromTotalOrder(-productPrice.innerText)
+            console.log(-productAdded[0].price)
+            console.log(productPrice.innerText)
         })
 
     figureInShoppingCart.appendChild(imgInShoppingCart)
@@ -176,25 +177,24 @@ function addingCounter(){
 function sumTotalOrder(productPrice){
     order.push( productPrice)
 
-    const initialValue = 0;
-    let sumWithInitial = order.reduce(
-    (previousValue, currentValue) => previousValue + currentValue, initialValue);
-    console.log(sumWithInitial)
-    totalPurchase(sumWithInitial)
+    totalPurchase()
 }
 
 function removeFromTotalOrder(productPrice){
-    order.push( productPrice)
+    order.push(productPrice)
     shoppingCounter.innerText= --counter
-    let initialValue=0;
-
-    let resWithInitial = order.reduce(
-    (previousValue, currentValue) => previousValue + currentValue, initialValue);
-    totalPurchase(resWithInitial)
+   console.log(productPrice)
+    totalPurchase()
 }
 
-function totalPurchase(value){
-    totalOrder.innerText=value
+function totalPurchase(){
+    let initialValue=0;
+
+    let totalProducts= order.reduce((previousValue, currentValue) => previousValue + currentValue, initialValue);
+    console.log(`valor del array order ${order}`)
+    console.log(totalProducts)
+    console.log(`largo del array ${order.length}`)
+    totalOrder.innerText= totalProducts
 }
 
 renderProducts(productList)
