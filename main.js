@@ -15,19 +15,8 @@ function toggleDesktopMenu() {
         aside.classList.add('inactive');
        }
     desktopMenu.classList.toggle('inactive');
+    
 }
-
-// // ------------PRUEBA-----------------
-function toggleCarritoDesktopAside() {
-    const isMenuEmailClosed = menuEmail.classList.contains('inactive');
-
-    if (!isMenuEmailClosed) {
-        menuEmail.classList.add('inactive');
-       }
-    aside.classList.toggle('inactive');
-}
-
-// // ------------PRUEBA-----------------
 
 function toggleMobileMenu() {
     const isAsideClosed = aside.classList.contains('inactive');
@@ -41,12 +30,17 @@ function toggleMobileMenu() {
 
 function toggleCarritoAside() {
     const isMobileMenuClosed = mobileMenu.classList.contains('inactive');
+    const isDesktopMenuClosed = desktopMenu.classList.contains('inactive');
    
 
    if (!isMobileMenuClosed) {
     mobileMenu.classList.add('inactive');
    }
    aside.classList.toggle('inactive');
+
+   if (!isDesktopMenuClosed) {
+    desktopMenu.classList.add('inactive');
+   }
    
 
 }
