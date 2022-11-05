@@ -285,6 +285,11 @@ aside {
 }
 
 /* Product list */
+.main-container{
+    margin-bottom: 60px;
+}
+
+
  .cards-container {
     margin-top: 20px;
      display: grid;
