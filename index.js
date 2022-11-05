@@ -14,6 +14,7 @@ const totalOrder= document.querySelector("#total-order")
 let counter=0
 let codeId
 let productAdded
+let newPurchase
 const order= []
 
 menuEmail.addEventListener("pointerdown", toggleDesktopMenu)
@@ -56,10 +57,6 @@ function toggleAside(){
 
     shoppingCartContainer.classList.toggle("inactive")
 }
-
-// function openProductDetailAside(){
-  
-// }
 
 function closeProductDetail(){
     productDetailContainer.classList.add("inactive")
@@ -114,6 +111,14 @@ productList.push({
     detail:"Nintendo Switch with Neon Blue and Neon Red Joy‑Con - HAC-001(-01)"
 })
 
+productList.push({
+    id:7,
+    name: "Patio chairs set",
+    price: 408.98,
+    image:"https://m.media-amazon.com/images/I/A1q-x9uk5dL._AC_SX522_.jpg",
+    detail:"Quality Outdoor Living 65-YZ03HM Hermosa 3 Piece Chat Set, Aluminum Frame + Tan Wicker + Linen Cushions"
+})
+
 function renderProducts(arr){
     for (product of arr){
         const productInfoDetail= product.detail
@@ -138,6 +143,18 @@ function renderProducts(arr){
             const detailInfo= document.querySelector("#detail-info")
             detailInfo.innerText= productInfoDetail
 
+            // <button class="primary-button add-to-cart-button">
+            // <img src="./icons/bt_add_to_cart.svg" alt="add to cart">
+            // Add to cart
+            // </button>
+
+            const addCartButton=document.querySelector(".add-to-cart-button")
+            addCartButton.addEventListener("pointerdown", ()=>{
+                newPurchase =productInfoFigure.classList
+                console.log(productInfoFigure.classList)
+                addingProduct(productInfoFigure.classList, productList)
+                newPurchase =newPurchase - productInfoFigure.classList 
+            })
         })
 
         const productInfo= document.createElement("div")
@@ -159,9 +176,6 @@ function renderProducts(arr){
         const productInfoCart= document.createElement("img")
         productInfoCart.setAttribute("src", "./icons/bt_add_to_cart.svg")
 
-        
-        
-
         productInfoFigure.appendChild(productInfoCart)
         productInfo.append(productInfoDiv, productInfoFigure)
 
@@ -171,9 +185,8 @@ function renderProducts(arr){
         productInfoFigure.addEventListener("pointerdown", ()=>{
             let codeProduct=productInfoFigure.classList.item(productList.id)
             codeId=codeProduct
-
+            console.log(codeProduct)
             addingProduct(codeId, productList)
-            addingCounter()
         })
     }
 }
@@ -204,13 +217,14 @@ function addingProduct(id,arr){
             MyOrderList.removeChild(productName)
             MyOrderList.removeChild(productPrice)
             MyOrderList.removeChild(removeProductInCart)
-            removeFromTotalOrder(-productPrice.innerText)
+            removeFromTotalOrder(productPrice.innerText)
         })
 
     figureInShoppingCart.appendChild(imgInShoppingCart)
     MyOrderList.append(figureInShoppingCart, productName, productPrice, removeProductInCart)
 
     addTotalOrder(productAdded[0].price)
+    addingCounter()
 }
  
 function addingCounter(){
@@ -224,7 +238,7 @@ function addTotalOrder(productPrice){
 }
 
 function removeFromTotalOrder(productPrice){
-    order.push(productPrice)
+    order.push(-productPrice)
     shoppingCounter.innerText= --counter
     totalPurchase()
 }
