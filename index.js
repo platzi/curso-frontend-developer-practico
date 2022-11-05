@@ -79,7 +79,7 @@ productList.push({
     id:2,
     name: "Screen",
     price: 220,
-    image: "https://images.pexels.com/photos/276517/pexels-photo-276517.jpeg?auto=compress&cs=tinysrgb&dpr=2&h=650&w=940"
+    image: "https://m.media-amazon.com/images/I/71nlwoCfzkL._AC_SX466_.jpg"
 })
 
 productList.push({
@@ -87,6 +87,20 @@ productList.push({
     name: "Laptop",
     price: 420,
     image: "https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcSQXmFprTdqvnUj82ll4yuBU2JFBeWLqCI07A&usqp=CAU"
+})
+
+productList.push({
+    id:4,
+    name: "Toy Trucks",
+    price: 70,
+    image:"https://cf.shopee.com.co/file/6ac43d4287536cb09b980e8b40d1a717" 
+})
+
+productList.push({
+    id:5,
+    name: "Plushies",
+    price: 100,
+    image:"https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcTKTO1ywopxJLkW0bLgD03VsytWyqhcDn8OVA&usqp=CAU"
 })
 
 function renderProducts(arr){
@@ -160,21 +174,19 @@ function addingProduct(id,arr){
             MyOrderList.removeChild(productPrice)
             MyOrderList.removeChild(removeProductInCart)
             removeFromTotalOrder(-productPrice.innerText)
-            console.log(-productAdded[0].price)
-            console.log(productPrice.innerText)
         })
 
     figureInShoppingCart.appendChild(imgInShoppingCart)
     MyOrderList.append(figureInShoppingCart, productName, productPrice, removeProductInCart)
 
-    sumTotalOrder(productAdded[0].price)
+    addTotalOrder(productAdded[0].price)
 }
  
 function addingCounter(){
         shoppingCounter.innerText= ++counter
 }
 
-function sumTotalOrder(productPrice){
+function addTotalOrder(productPrice){
     order.push( productPrice)
 
     totalPurchase()
@@ -183,7 +195,6 @@ function sumTotalOrder(productPrice){
 function removeFromTotalOrder(productPrice){
     order.push(productPrice)
     shoppingCounter.innerText= --counter
-   console.log(productPrice)
     totalPurchase()
 }
 
@@ -191,9 +202,6 @@ function totalPurchase(){
     let initialValue=0;
 
     let totalProducts= order.reduce((previousValue, currentValue) => previousValue + currentValue, initialValue);
-    console.log(`valor del array order ${order}`)
-    console.log(totalProducts)
-    console.log(`largo del array ${order.length}`)
     totalOrder.innerText= totalProducts
 }
 
