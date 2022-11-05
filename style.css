@@ -189,7 +189,7 @@ display: inline-block;
 
 /* *Aside (product detail y carrito) */
 
-.product-detail {
+aside {
     background-color: var(--white);
     width: 360px;
     padding: 24px;
@@ -345,7 +345,7 @@ display: inline-block;
         display: none;
     }
 
-    .product-detail {
+    aside {
         width: 100%;
     }
 
