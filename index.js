@@ -57,11 +57,9 @@ function toggleAside(){
     shoppingCartContainer.classList.toggle("inactive")
 }
 
-function openProductDetailAside(){
-    shoppingCartContainer.classList.add("inactive")
-
-    productDetailContainer.classList.remove("inactive")
-}
+// function openProductDetailAside(){
+  
+// }
 
 function closeProductDetail(){
     productDetailContainer.classList.add("inactive")
@@ -72,35 +70,40 @@ productList.push({
     id:1,
     name: "Bike",
     price: 120,
-    image: "https://images.pexels.com/photos/276517/pexels-photo-276517.jpeg?auto=compress&cs=tinysrgb&dpr=2&h=650&w=940"
+    image: "https://images.pexels.com/photos/276517/pexels-photo-276517.jpeg?auto=compress&cs=tinysrgb&dpr=2&h=650&w=940",
+    detail:"With its practical position, this bike also fulfills a decorative function, add your hall or workspace."
 })
 
 productList.push({
     id:2,
     name: "Screen",
     price: 220,
-    image: "https://m.media-amazon.com/images/I/71nlwoCfzkL._AC_SX466_.jpg"
+    image: "https://m.media-amazon.com/images/I/71nlwoCfzkL._AC_SX466_.jpg",
+    detail:"With its practical position, this bike also fulfills a decorative function, add your hall or workspace."
 })
 
 productList.push({
     id:3,
     name: "Laptop",
     price: 420,
-    image: "https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcSQXmFprTdqvnUj82ll4yuBU2JFBeWLqCI07A&usqp=CAU"
+    image: "https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcSQXmFprTdqvnUj82ll4yuBU2JFBeWLqCI07A&usqp=CAU",
+    detail:"With its practical position, this bike also fulfills a decorative function, add your hall or workspace."
 })
 
 productList.push({
     id:4,
     name: "Toy Trucks",
     price: 70,
-    image:"https://cf.shopee.com.co/file/6ac43d4287536cb09b980e8b40d1a717" 
+    image:"https://cf.shopee.com.co/file/6ac43d4287536cb09b980e8b40d1a717",
+    detail:"With its practical position, this bike also fulfills a decorative function, add your hall or workspace." 
 })
 
 productList.push({
     id:5,
     name: "Plushies",
     price: 100,
-    image:"https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcTKTO1ywopxJLkW0bLgD03VsytWyqhcDn8OVA&usqp=CAU"
+    image:"https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcTKTO1ywopxJLkW0bLgD03VsytWyqhcDn8OVA&usqp=CAU",
+    detail:"With its practical position, this bike also fulfills a decorative function, add your hall or workspace."
 })
 
 function renderProducts(arr){
@@ -110,7 +113,12 @@ function renderProducts(arr){
 
         const productImg = document.createElement("img")
         productImg.setAttribute("src", product.image)
-        productImg.addEventListener("pointerdown", openProductDetailAside)
+        productImg.addEventListener("pointerdown", ()=>{
+            shoppingCartContainer.classList.add("inactive")
+
+            productDetailContainer.classList.remove("inactive")
+            console.log(productImg)
+        })
 
         const productInfo= document.createElement("div")
         productInfo.classList.add("product-info")
