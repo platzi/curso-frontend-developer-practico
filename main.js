@@ -43,6 +43,10 @@ function toggleCarritoAside() {
     aside.classList.toggle('inactive');
 }
 
+function openProductDetailAside() {
+
+}
+
 const productList = [];
 productList.push({
     name: 'Bike',
@@ -53,13 +57,13 @@ productList.push({
 productList.push({
     name: 'smartTV',
     price: 320,
-    image: 'https://images.pexels.com/photos/6976094/pexels-photo-6976094.jpeg?cs=srgb&dl=pexels-koolshooters-6976094.jpg&fm=jpg'
+    image: 'https://images.pexels.com/photos/275484/pexels-photo-275484.jpeg?cs=srgb&dl=pexels-pixabay-275484.jpg&fm=jpg&_gl=1*19tp35l*_ga*MTU4MzczNTQxLjE2NjcwMDY3MjY.*_ga_8JE65Q40S6*MTY2NzYwNzQ2NS4zLjEuMTY2NzYwNzY4My4wLjAuMA..'
 })
 
 productList.push({
     name: 'PC',
     price: 620,
-    image: 'https://images.pexels.com/photos/792199/pexels-photo-792199.jpeg?cs=srgb&dl=pexels-nao-triponez-792199.jpg&fm=jpg&_gl=1*1k4hk73*_ga*MTU4MzczNTQxLjE2NjcwMDY3MjY.*_ga_8JE65Q40S6*MTY2NzAwNjczMC4xLjEuMTY2NzAwNjkyNi4wLjAuMA..'
+    image: 'https://images.pexels.com/photos/333984/pexels-photo-333984.jpeg'
 })
 
 for (product of productList) {
@@ -68,6 +72,7 @@ for (product of productList) {
 
     const productImg = document.createElement('img');
     productImg.setAttribute('src', product.image);
+    productImg.addEventListener('click', openProductDetailAside);
 
     const productInfo = document.createElement('div');
     productInfo.classList.add('product-info');
