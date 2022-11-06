@@ -9,25 +9,51 @@ const cardsContainer = document.querySelector('.cards-container');
 const detailProduct = document.querySelector('#product-detail');
 const iconProductDetailClosed = document.querySelector('.product-detail-close')
 
+class interactionElement{
+    constructor({
+        principalSelector,
+        selectores = []
+    }) {
+        this.principalSelector = principalSelector;
+        this.selectores = selectores;
+    }
 
-menuEmail.addEventListener('click', toggleDesktopMenu);
+    toogleSelectores(){
+        for (element of this.selectores){
+            let isClosed = element.classList.contains('inactive');
+
+            if (!isClosed){
+                element.classList.add('inactive')
+            };   
+        };
+        console.log("funciona")
+        this.principalSelector.classList.toggle('inactive')
+    };
+};
+
+const interactiveDesktopMenu2 = new interactionElement({
+    principalSelector : desktopMenu,
+    selectores : ["orderCarrito","detailProduct"]
+})
+
+menuEmail.addEventListener('click', interactiveDesktopMenu2);
 iconMenuMobile.addEventListener('click', toggleMobileMenu);
 iconCarrito.addEventListener('click', toggleIconCarrito);
 iconProductDetailClosed.addEventListener('click', closedDetailProduct);
 
 
 
-function toggleDesktopMenu(){
-    const isordercarritoClosed = orderCarrito.classList.contains('inactive');
-    const isProductDetailClosed= detailProduct.classList.contains('inactive');
-    if (!isordercarritoClosed){
-        orderCarrito.classList.add('inactive')
-    };   
-    if (!isProductDetailClosed){
-        detailProduct.classList.add("inactive")
-    };
-    desktopMenu.classList.toggle('inactive')
-};
+// function toggleDesktopMenu(){
+//     const isordercarritoClosed = orderCarrito.classList.contains('inactive');
+//     const isProductDetailClosed= detailProduct.classList.contains('inactive');
+//     if (!isordercarritoClosed){
+//         orderCarrito.classList.add('inactive')
+//     };   
+//     if (!isProductDetailClosed){
+//         detailProduct.classList.add("inactive")
+//     };
+//     desktopMenu.classList.toggle('inactive')
+// };
 
 function toggleMobileMenu(){
     const isordercarritoClosed = orderCarrito.classList.contains('inactive');
