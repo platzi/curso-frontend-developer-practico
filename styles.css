@@ -304,6 +304,12 @@
   .product-card {
     width: 240px;
   }
+
+  .product-card:hover img{
+    width: 250px;
+    height: 250px;
+    cursor:pointer;
+  }
   .product-card img {
     width: 240px;
     height: 240px;
@@ -318,6 +324,10 @@
   }
   .product-card .product-info figure {
     margin: 0;
+  }
+  .product-card .product-info figure img:hover {
+    width: 45px;
+    height: 45px;
   }
   .product-card .product-info figure img {
     width: 35px;

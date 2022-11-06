@@ -79,17 +79,22 @@ productList.push({
 productList.push({
     name: 'Burger',
     price: 20,
-    img: 'https://images.pexels.com/photos/276517/pexels-photo-276517.jpeg?auto=compress&cs=tinysrgb&dpr=2&h=650&w=940'
+    img: 'https://storage.contextoganadero.com/s3fs-public/styles/noticias_one/public/cronica_de_la_semana/field_image/2022-03/cronica-origen-hamburguesas.jpg?itok=-_epTg53'
 })
 productList.push({
     name: 'Motorcycle',
     price: 300,
-    img: 'https://images.pexels.com/photos/276517/pexels-photo-276517.jpeg?auto=compress&cs=tinysrgb&dpr=2&h=650&w=940'
+    img: 'https://media.autecomobility.com/recursos/marcas/benellibike/BICICLETA-CONVENCIONAL-BENELLI-M22-1-0-ADV-CARB-27-5/benellibikes-M22-1-0-ADV-CARB-27-5-imagen-ppal.png'
 })
 productList.push({
     name: 'Computer',
     price: 200,
-    img: 'https://images.pexels.com/photos/276517/pexels-photo-276517.jpeg?auto=compress&cs=tinysrgb&dpr=2&h=650&w=940'
+    img: 'https://www.sincable.mx/wp-content/uploads/2020/01/patrick-ward-z_dLXnQg0JY-unsplash-1024x664.jpg'
+})
+productList.push({
+    name: 'Iphone 12 pro Max',
+    price: 600,
+    img: 'https://i.blogs.es/35ef0d/iphone-12-pro-max-00-01/1366_2000.jpg'
 })
 
 function renderProducts(arr) {
