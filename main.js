@@ -2,27 +2,27 @@ const menuEmail = document.querySelector('.navbar-email');
 const menuHamIcon = document.querySelector('.menu');
 const menuCarritoIcon = document.querySelector('.navbar-shopping-cart');
 const desktopMenu = document.querySelector('.desktop-menu');
-const mobileMenu = document.querySelector('.desktop-menu');
-const aside = document.querySelector('.product-detail');
+const mobileMenu = document.querySelector('.mobile-menu');
+const shoppingCartContainer = document.querySelector('#shoppingCartContainer');
 const cardsContainer = document.querySelector('.cards-container');
 
 menuEmail.addEventListener('click', toggleDesktopMenu);
-menuHamIcon.addEventListener('click', togglemobileMenu);
+menuHamIcon.addEventListener('click', toggleMobileMenu);
 menuCarritoIcon.addEventListener('click', toggleCarritoAside);
 
 function toggleDesktopMenu() {
   desktopMenu.classList.toggle('inactive');
 }
 
-function togglemobileMenu() {
-  const isAsideClose = aside.classList.contains('inactive');
+function toggleMobileMenu() {
+  const isAsideClose = shoppingCartContainer.classList.contains('inactive');
   mobileMenu.classList.toggle('inactive');
-  if(!isAsideClose) { aside.classList.add('inactive') }
+  if(!isAsideClose) { shoppingCartContainer.classList.add('inactive') }
 }
 
 function toggleCarritoAside() {
   const isMobileMenuClose = mobileMenu.classList.contains('inactive');
-  aside.classList.toggle('inactive');
+  shoppingCartContainer.classList.toggle('inactive');
   if(!isMobileMenuClose) { mobileMenu.classList.add('inactive') }
 }
 
@@ -77,24 +77,18 @@ function renderProducts(arr) {
     const productPrice = document.createElement('p');
     productPrice.innerText = `$${product.price}`
     const productName = document.createElement('p');
-    productName.innerText = `${product.name}`
-  
-    productInfoDiv.append(productPrice, productName);
+    productName.innerText = `${product.name}`;
     
+    productInfoDiv.append(productPrice, productName);
     
     // item 3
     const productInfoFigure = document.createElement('figure');
     const productImgCart = document.createElement('img');
     productImgCart.setAttribute('src', './icons/bt_add_to_cart.svg');
     productInfoFigure.appendChild(productImgCart);
-  
     productInfo.append(productInfoDiv, productInfoFigure);
-  
     productCard.append(img, productInfo);
-  
     cardsContainer.appendChild(productCard);
-  
-  
   }
 }
 
