@@ -1,3 +1,4 @@
+// Menu desktop
 const menuEmail = document.querySelector('.navbar-email');
 const desktopMenu = document.querySelector('.desktop-menu');
 
@@ -8,4 +9,14 @@ function toggleDesktopMenu() {
     desktopMenu.classList.toggle('inactive');
 }
 
-console.log('JS funcionando');
+// Menu mobile
+const menuHamIcon = document.querySelector('.menu');
+const mobileMenu = document.querySelector('.mobile-menu');
+
+menuHamIcon.addEventListener('click', toggleMobileMenu);
+
+function toggleMobileMenu() {
+    
+    mobileMenu.classList.toggle('inactive');
+}
+
