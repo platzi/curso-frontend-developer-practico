@@ -4,18 +4,24 @@ const desktopMenu = document.querySelector(".desktop-menu");
 const menuHamburguer = document.querySelector('.menu');
 const mobileMenu = document.querySelector('.mobile-menu');
 const menuCarritoIcon = document.querySelector('.navbar-shopping-cart')
-const aside = document.querySelector('.product-detail')
+const closeIcon = document.querySelector('.product-detail-close')
+const shoppingCartContainer = document.querySelector('#shoppingCartContainer')
 const cardsContainer = document.querySelector('.cards-container');
+const productDetailContainer = document.querySelector('#product-detail')
 //Eventos
 navEmail.addEventListener('click', toggleDesktopMenu);
 menuHamburguer.addEventListener('click',toggleMobileMenu )
 menuCarritoIcon.addEventListener('click',toggleCarritoAside)
+closeIcon.addEventListener('click',closeToggleDetailAside)
 //funciones
 function toggleDesktopMenu() {
-    const isAsideClosed = aside.classList.contains('inactive')
-    
+    const isAsideClosed = shoppingCartContainer.classList.contains('inactive')
+    const isProductDetailClosed = productDetailContainer.classList.contains('inactive')
     if (!isAsideClosed){
-        aside.classList.add('inactive')
+        shoppingCartContainer.classList.add('inactive')
+    }
+    if (!isProductDetailClosed){
+        productDetailContainer.classList.add('inactive')
     }
     if (desktopMenu.classList.contains('inactive')){
         desktopMenu.classList.remove('inactive')
@@ -25,10 +31,13 @@ function toggleDesktopMenu() {
 }
 
 function toggleMobileMenu() {
-    const isAsideClosed = aside.classList.contains('inactive')
-    
+    const isAsideClosed = shoppingCartContainer.classList.contains('inactive')
+    const isProductDetailClosed = productDetailContainer.classList.contains('inactive')
     if (!isAsideClosed){
-        aside.classList.add('inactive')
+        shoppingCartContainer.classList.add('inactive')
+    }
+    if(!isProductDetailClosed){
+        productDetailContainer.classList.add('inactive')
     }
 
     mobileMenu.classList.toggle('inactive')
@@ -37,17 +46,30 @@ function toggleMobileMenu() {
 function toggleCarritoAside() {
     const isMobileMenuClosed = mobileMenu.classList.contains('inactive')
     const isDesktopMenuClosed = desktopMenu.classList.contains('inactive')
+    const isProductDetailClosed = productDetailContainer.classList.contains('inactive')
     
     if (!isMobileMenuClosed){
         mobileMenu.classList.add('inactive')
     }
+
     if (!isDesktopMenuClosed){
         desktopMenu.classList.add('inactive')
     }
-    aside.classList.toggle('inactive')
+    if (!isProductDetailClosed){
+        productDetailContainer.classList.add('inactive')
+    }
+    shoppingCartContainer.classList.toggle('inactive')
+
+
+}
+function closeToggleDetailAside(){
+    productDetailContainer.classList.add('inactive')
 }
 
-
+function openProductDetailAside(){
+    shoppingCartContainer.classList.add('inactive');
+    productDetailContainer.classList.remove('inactive');
+}
 const productList = [];
 productList.push({
     name: 'Bike',
@@ -69,19 +91,7 @@ productList.push({
     price: 200,
     img: 'https://images.pexels.com/photos/276517/pexels-photo-276517.jpeg?auto=compress&cs=tinysrgb&dpr=2&h=650&w=940'
 })
-/*<div class="product-card">
-        <img src="https://images.pexels.com/photos/276517/pexels-photo-276517.jpeg?auto=compress&cs=tinysrgb&dpr=2&h=650&w=940" alt="">
-        <div class="product-info">
-          <div>
-            <p>$120,00</p>
-            <p>Bike</p>
-          </div>
-          <figure>
-            <img src="./icons/bt_add_to_cart.svg" alt="">
-          </figure>
-        </div>
-      </div
-*/ 
+
 function renderProducts(arr) {
     for (product of arr){
         /**creacion y asignacion */
@@ -90,7 +100,7 @@ function renderProducts(arr) {
     
         const imag = document.createElement('img');
         imag.setAttribute('src', product.img);
-        
+        imag.addEventListener('click', openProductDetailAside)
         const productInfo = document.createElement('div')
         productInfo.classList.add('product-info')
     
@@ -119,5 +129,4 @@ function renderProducts(arr) {
     
     }
 }
-
 renderProducts(productList)
