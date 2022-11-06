@@ -65,15 +65,15 @@ function closeProducDetailAside () {
 
 const productList = [];
 productList.push({
-    name: 'Bike',
-    price: 120,
-    Image: 'https://images.pexels.com/photos/276517/pexels-photo-276517.jpeg?auto=compress&cs=tinysrgb&dpr=2&h=650&w=940',
+    name: 'Car',
+    price: 35000,
+    Image: 'https://images.pexels.com/photos/120049/pexels-photo-120049.jpeg?auto=compress&cs=tinysrgb&w=1260&h=750&dpr=2',
 
 });
 productList.push({
-    name: 'Pantalla',
-    price: 220,
-    Image: 'https://images.pexels.com/photos/276517/pexels-photo-276517.jpeg?auto=compress&cs=tinysrgb&dpr=2&h=650&w=940',
+    name: 'BMW',
+    price: 22000,
+    Image: 'https://images.pexels.com/photos/170811/pexels-photo-170811.jpeg',
 
 });
 productList.push({
