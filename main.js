@@ -7,7 +7,7 @@ menuEmail.addEventListener('click', toggleDesktopMenu);
 function toggleDesktopMenu(){
 
    desktopMenu.classList.toggle('inactive');
-   aside.classList.add('inactive');
+   shoppingCartContainer.classList.add('inactive');
 }
 /* Event action listener en menu mobile, lista de opciones*/ 
 const menuBurger = document.querySelector('.menu');
@@ -18,17 +18,17 @@ menuBurger.addEventListener('click', toggleMobileMenu);
 function toggleMobileMenu(){
 
     mobileMenu.classList.toggle('inactive');
-    aside.classList.add('inactive');
+    shoppingCartContainer.classList.add('inactive');
 }
 /* Event action listener en el carrito para ver los elemenos de compra */
 const menuCarrito = document.querySelector('.navbar-shopping-cart');
-const aside = document.querySelector('.product-detail');
+const shoppingCartContainer = document.querySelector('#shoppingCartContainer');
 
 menuCarrito.addEventListener('click', toggleCarritoAside);
 
 function toggleCarritoAside(){
 
-    aside.classList.toggle('inactive');
+    shoppingCartContainer.classList.toggle('inactive');
     mobileMenu.classList.add('inactive');
     desktopMenu.classList.add('inactive');
 }
