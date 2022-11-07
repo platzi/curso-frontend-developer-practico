@@ -3,7 +3,7 @@ const desktopmenu = document.querySelector('.desktop-menu');
 const menuhamicon = document.querySelector('.menu');
 const mobilemenu = document.querySelector('.mobile-menu');
 const menucarritoicon = document.querySelector('.navbar-shopping-cart');
-const aside = document.querySelector('.product-detail');
+const shoppingCartContainer = document.querySelector('#shoppingCartContainer');
 const cardscontainer = document.querySelector('.cards-container');
 
 
@@ -13,18 +13,18 @@ menucarritoicon.addEventListener('click', togglecarritoaside);
 
 
 function toggledesktopmenu() {
-    const asideinactivo = aside.classList.contains('inactive');
+    const asideinactivo = shoppingCartContainer.classList.contains('inactive');
     if (!asideinactivo) {
-        aside.classList.add('inactive');
+        shoppingCartContainer.classList.add('inactive');
     }
     desktopmenu.classList.toggle('inactive');
 }
 
 
 function togglemobilemenu() {
-    const asideinactivo = aside.classList.contains('inactive');
+    const asideinactivo = shoppingCartContainer.classList.contains('inactive');
     if (!asideinactivo) {
-        aside.classList.add('inactive');
+        shoppingCartContainer.classList.add('inactive');
     }
 
     mobilemenu.classList.toggle('inactive');
@@ -44,7 +44,7 @@ function togglecarritoaside() {
         desktopmenu.classList.add('inactive');
     }
 
-    aside.classList.toggle('inactive');
+    shoppingCartContainer.classList.toggle('inactive');
 }
 
 
@@ -90,9 +90,6 @@ productlist.push({
     price: 60,
     image: 'https://osterco.vteximg.com.br/arquivos/ids/160926-500-500/GCSTBS6001-1.jpg?v=637516998006800000'
 });
-
-
-
 
 
 
