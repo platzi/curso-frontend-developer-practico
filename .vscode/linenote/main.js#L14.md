@@ -4,17 +4,20 @@ Si el usuario da clic para abrir alguno de los elementos(menu-desktop, mobile-me
 
 // CODIGO REDUNDANTE
 
-// menuEmail.addEventListener("click", ()=>{
-//     desktopMenu.classList.toggle("inactive")
-//     aside.classList.add("inactive")
-// })
+```js
+menuEmail.addEventListener("click", ()=>{
+     desktopMenu.classList.toggle("inactive")
+     aside.classList.add("inactive")
+})
 
-// burguerMenu.addEventListener("click", ()=>{
-//     mobile_menu.classList.toggle("inactive")
-//     aside.classList.add("inactive")
-// })
+burguerMenu.addEventListener("click", ()=>{
+     mobile_menu.classList.toggle("inactive")
+     aside.classList.add("inactive")
+})
 
-// ShoppingCart.addEventListener("click", ()=>{
-//     aside.classList.toggle("inactive")
-//     mobile_menu.classList("inactive")
-// })
+ShoppingCart.addEventListener("click", ()=>{
+     aside.classList.toggle("inactive")
+     mobile_menu.classList("inactive")
+})
+
+```

@@ -5,24 +5,40 @@ const mobile_menu = document.querySelector(".mobile-menu");
 const ShoppingCart = document.querySelector(".navbar-shopping-cart")
 const aside = document.querySelector(".product-detail")
 const cards_container = document.querySelector(".cards-container")
-menuEmail.addEventListener("click",toggleInactive.bind(this,desktopMenu))
-burguerMenu.addEventListener("click", toggleInactive.bind(this, mobile_menu))
-ShoppingCart.addEventListener("click",toggleCart)
+const productDetailOrder = document.querySelector(".product-detail__order")
+const productDetailProduct = document.querySelector(".product_detail__product")
+const productDetailClose = document.querySelector(".product-detail-close")
+let productCard
 
 
 // COMENTARIO DE MEJOR CODIGO -- NOTAS EN EXTENCION LINENOTE
+menuEmail.addEventListener("click",toggleInactive.bind(this,desktopMenu))
+burguerMenu.addEventListener("click", toggleInactive.bind(this, mobile_menu))
+productDetailClose.addEventListener("click",toggleInactive.bind(this,productDetailClose))
+ShoppingCart.addEventListener("click",toggleCart)
+
+
 function toggleInactive(e){
     aside.classList.add("inactive")
-    e.classList.toggle("inactive")
+    e.classList.toggle("inactive")  
 }
 
 function toggleCart(){
     aside.classList.toggle("inactive")
+    productDetailOrder.classList.remove("inactive")
     mobile_menu.classList.add("inactive")
     desktopMenu.classList.add("inactive")
+    productDetailProduct.classList.add("inactive")
+
 }
 
+function openProductDetail(){
+    aside.classList.remove("inactive")
+    productDetailProduct.classList.remove("inactive")
+    productDetailOrder.classList.add("inactive")
+    productDetailClose.classList.remove("inactive")
 
+}
 const productList = [];
 // NOTA - EN EXTENSION LINENOTE
 
@@ -77,11 +93,12 @@ productList.push ({
 
 function renderProduct(arr){
     arr.forEach((product)=>{
-        const productCard = document.createElement("div");
+        productCard = document.createElement("div");
         productCard.classList.add("product-card")
     
         const productImg = document.createElement("img")
         productImg.setAttribute("src", product.image)
+        productImg.addEventListener("click",openProductDetail)
     
         const productInfo = document.createElement("div");
         productInfo.classList.add("product-info")
@@ -105,4 +122,7 @@ function renderProduct(arr){
 }
 
 
+
 renderProduct(productList)
+
+
