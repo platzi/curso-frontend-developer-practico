@@ -13,6 +13,8 @@ const shopCartIcon = document.querySelector('.navbar-shopping-cart');
 
 const cardsContainer = document.querySelector('.cards-container');
 
+const asideItemList = document.querySelector('.product-detail-item-list');
+
 const productList = [];
 
 productList.push({
@@ -60,6 +62,7 @@ const toggleCarritoAside = function() {
     aside.classList.toggle('inactive');
     mobileMenu.classList.add('inactive');
     deskMenu.classList.add('inactive');
+    asideItemList.classList.add('inactive');
 
 }
 
@@ -103,6 +106,10 @@ const renderProducts = function(arr){
     }
 }
 
+const itemListAside = function() {
+    asideItemList.classList.toggle('inactive');
+}
+
 renderProducts(productList);
 
 shopCartIcon.addEventListener('click', toggleCarritoAside);
@@ -110,3 +117,5 @@ shopCartIcon.addEventListener('click', toggleCarritoAside);
 navEmail.addEventListener('click', toggleDeskMenu);
 
 menuBurguer.addEventListener('click', toggleMobileMenu);
+
+// productCard.addEventListener('click', itemListAside);
