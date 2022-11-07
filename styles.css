@@ -149,8 +149,8 @@ nav {
     top: 60px;
     left: 0;
     background: var(--white);
-    padding: 24px;
-    width: 100%;
+    width: calc(100% - 24px);
+    padding-left: 24px;
   }
 .mobile-menu a {
     text-decoration: none;
