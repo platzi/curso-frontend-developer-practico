@@ -3,13 +3,19 @@ const desktopMenu = document.querySelector('.desktop-menu');
 const menuBurguer = document.querySelector('.menu-burguer');
 const mobileMenu = document.querySelector('.mobile-menu');
 const shoppingCar = document.querySelector('.navbar-shopping-cart');
+const cartDetails = document.querySelector('.cart-details');
+
 const productDetail = document.querySelector('.product-detail');
+const productDetailClose = document.querySelector('.product-detail-close');
 
 menuEmail.addEventListener('click', toggleDesktopMenu);
 menuBurguer.addEventListener('click', toggleBurguerMenu);
 shoppingCar.addEventListener('click', toggleShoppingCar);
 
 function toggleDesktopMenu() {
+  if (cartDetails.classList.contains('active')) {
+    cartDetails.classList.remove('active');
+  }
   if (productDetail.classList.contains('active')) {
     productDetail.classList.remove('active');
   }
@@ -17,6 +23,9 @@ function toggleDesktopMenu() {
 }
 
 function toggleBurguerMenu() {
+  if (cartDetails.classList.contains('active')) {
+    cartDetails.classList.remove('active');
+  }
   if (productDetail.classList.contains('active')) {
     productDetail.classList.remove('active');
   }
@@ -30,7 +39,27 @@ function toggleShoppingCar() {
   if (desktopMenu.classList.contains('active')) {
     desktopMenu.classList.remove('active');
   }
-  productDetail.classList.toggle('active');
+  if (productDetail.classList.contains('active')) {
+    productDetail.classList.remove('active');
+  }
+  cartDetails.classList.toggle('active');
+}
+
+function openProductDetail() {
+  if (cartDetails.classList.contains('active')) {
+    cartDetails.classList.remove('active');
+  }
+  if (desktopMenu.classList.contains('active')) {
+    desktopMenu.classList.remove('active');
+  }
+  if (mobileMenu.classList.contains('active')) {
+    mobileMenu.classList.remove('active');
+  }
+  productDetail.classList.add('active');
+}
+productDetailClose.addEventListener('click', closeProductDetail);
+function closeProductDetail() {
+  productDetail.classList.remove('active');
 }
 
 const cardsContainer = document.querySelector('.cards-container');
@@ -51,6 +80,7 @@ function renderProducts(where, array) {
 
     const imgProduct = document.createElement('img');
     imgProduct.setAttribute('src', product.img);
+    imgProduct.addEventListener('click', openProductDetail);
 
     const productInfo = document.createElement('div');
     productInfo.classList.add('product-info');
