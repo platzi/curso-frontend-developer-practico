@@ -323,12 +323,13 @@
     align-items: center;
     margin-top: 12px;
   }
-  .product-card .product-info figure {
+  .product-card .product-info figure {/*figura carrito*/
     margin: 0;
   }
-  .product-card .product-info figure img {
+  .product-card .product-info figure img {/*figura carrito*/
     width: 35px;
     height: 35px;
+    cursor: pointer;
   }
   .product-card .product-info div p:nth-child(1) {
     font-weight: bold;
