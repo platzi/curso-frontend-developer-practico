@@ -1,7 +1,12 @@
-/* Event action listener en correo de ejemplo para Login*/ 
 const menuEmail = document.querySelector('.navbar-email');
 const desktopMenu = document.querySelector('.desktop-menu');
+const menuBurger = document.querySelector('.menu');
+const mobileMenu = document.querySelector('.mobile-menu');
+const menuCarrito = document.querySelector('.navbar-shopping-cart');
+const shoppingCartContainer = document.querySelector('#shoppingCartContainer');
+const productDetail = document.querySelector('#productDetail');
 
+/* Event action listener en correo de ejemplo para Login*/ 
 menuEmail.addEventListener('click', toggleDesktopMenu);
 
 function toggleDesktopMenu(){
@@ -10,20 +15,15 @@ function toggleDesktopMenu(){
    shoppingCartContainer.classList.add('inactive');
 }
 /* Event action listener en menu mobile, lista de opciones*/ 
-const menuBurger = document.querySelector('.menu');
-const mobileMenu = document.querySelector('.mobile-menu');
-
 menuBurger.addEventListener('click', toggleMobileMenu);
 
 function toggleMobileMenu(){
 
     mobileMenu.classList.toggle('inactive');
     shoppingCartContainer.classList.add('inactive');
+
 }
 /* Event action listener en el carrito para ver los elemenos de compra */
-const menuCarrito = document.querySelector('.navbar-shopping-cart');
-const shoppingCartContainer = document.querySelector('#shoppingCartContainer');
-
 menuCarrito.addEventListener('click', toggleCarritoAside);
 
 function toggleCarritoAside(){
@@ -31,6 +31,17 @@ function toggleCarritoAside(){
     shoppingCartContainer.classList.toggle('inactive');
     mobileMenu.classList.add('inactive');
     desktopMenu.classList.add('inactive');
+    productDetail.classList.add('inactive');
+}
+/* Event action listener en el detalle de compras */
+productDetail.addEventListener('click', toggleProductDetail);
+
+function toggleProductDetail(){
+
+    productDetail.classList.toggle('inactive');
+    desktopMenu.classList.add('inactive');
+   shoppingCartContainer.classList.add('inactive');
+    menuBurger.classList.add('inactive');
 }
 
 const productsList = [];
@@ -61,6 +72,7 @@ function renderProducts(arr){
     
         const productImg = document.createElement('img');
         productImg.setAttribute('src', product.image);
+        productImg.addEventListener('click', toggleProductDetail);
     
         const productInfo = document.createElement('div');
         productInfo.classList.add('product-info');
