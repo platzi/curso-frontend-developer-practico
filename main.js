@@ -8,12 +8,16 @@ const closeIcon = document.querySelector('.product-detail-close')
 const shoppingCartContainer = document.querySelector('#shoppingCartContainer')
 const cardsContainer = document.querySelector('.cards-container');
 const productDetailContainer = document.querySelector('#product-detail')
+const nuevaVista = document.querySelector('.product-card')
+
+//nuevaVista.addEventListener('click', crearVista);
 //Eventos
 navEmail.addEventListener('click', toggleDesktopMenu);
 menuHamburguer.addEventListener('click',toggleMobileMenu )
 menuCarritoIcon.addEventListener('click',toggleCarritoAside)
 closeIcon.addEventListener('click',closeToggleDetailAside)
 //funciones
+
 function toggleDesktopMenu() {
     const isAsideClosed = shoppingCartContainer.classList.contains('inactive')
     const isProductDetailClosed = productDetailContainer.classList.contains('inactive')
@@ -131,7 +135,18 @@ function renderProducts(arr) {
         info.appendChild(precio);
         info.appendChild(name);
         figure1.appendChild(icon);
-    
+        
     }
+
 }
 renderProducts(productList)
+
+window.addEventListener('load',(function () {
+const nuevaVista = document.querySelector('.product-card')
+nuevaVista.addEventListener('click', crearVista);
+
+function crearVista(){
+    console.log('Iniciar')
+}})
+)
+
