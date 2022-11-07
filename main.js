@@ -6,16 +6,25 @@ const menuCarrito = document.querySelector('.navbar-shopping-cart');
 const shoppingCartContainer = document.querySelector('#shoppingCartContainer');
 const productDetail = document.querySelector('#productDetail');
 
+const darken = document.querySelector('.darken');
+
 /* Event action listener en correo de ejemplo para Login*/ 
 menuEmail.addEventListener('click', toggleDesktopMenu);
+/* Event action listener en menu mobile, lista de opciones*/ 
+menuBurger.addEventListener('click', toggleMobileMenu);
+/* Event action listener en el carrito para ver los elemenos de compra */
+menuCarrito.addEventListener('click', toggleCarritoAside);
+/* Event action listener en el detalle de compras */
+productDetail.addEventListener('click', toggleProductDetail);
+
+darken.addEventListener('click', hideAll);
+
 
 function toggleDesktopMenu(){
 
    desktopMenu.classList.toggle('inactive');
    shoppingCartContainer.classList.add('inactive');
 }
-/* Event action listener en menu mobile, lista de opciones*/ 
-menuBurger.addEventListener('click', toggleMobileMenu);
 
 function toggleMobileMenu(){
 
@@ -23,8 +32,6 @@ function toggleMobileMenu(){
     shoppingCartContainer.classList.add('inactive');
 
 }
-/* Event action listener en el carrito para ver los elemenos de compra */
-menuCarrito.addEventListener('click', toggleCarritoAside);
 
 function toggleCarritoAside(){
 
@@ -32,9 +39,8 @@ function toggleCarritoAside(){
     mobileMenu.classList.add('inactive');
     desktopMenu.classList.add('inactive');
     productDetail.classList.add('inactive');
+    darken.classList.add('inactive');
 }
-/* Event action listener en el detalle de compras */
-productDetail.addEventListener('click', toggleProductDetail);
 
 function toggleProductDetail(){
 
@@ -44,23 +50,27 @@ function toggleProductDetail(){
     menuBurger.classList.add('inactive');
 }
 
+function hideAll(){
+    darken.classList.remove('inactive')
+}
+
 const productsList = [];
 productsList.push({
-    name: 'Bike',
+    name: 'Sombra',
     price: 120,
-    image: 'https://images.pexels.com/photos/276517/pexels-photo-276517.jpeg?auto=compress&cs=tinysrgb&dpr=2&h=650&w=940'
+    image: 'file:///D:/ProyectoValuvanity/item1.jpeg'
 });
 
 productsList.push({
-    name: 'Pantalla',
+    name: 'Sombra',
     price: 220,
-    image: 'https://images.pexels.com/photos/276517/pexels-photo-276517.jpeg?auto=compress&cs=tinysrgb&dpr=2&h=650&w=940'
+    image: 'file:///D:/ProyectoValuvanity/item2.jpeg'
 });
 
 productsList.push({
-    name: 'Compu',
+    name: 'Sombra',
     price: 620,
-    image: 'https://images.pexels.com/photos/276517/pexels-photo-276517.jpeg?auto=compress&cs=tinysrgb&dpr=2&h=650&w=940'
+    image: 'file:///D:/ProyectoValuvanity/item3.jpeg'
 });
 
 const cardsContainer = document.querySelector('.cards-container');
