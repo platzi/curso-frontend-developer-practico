@@ -15,6 +15,8 @@ const cardsContainer = document.querySelector('.cards-container');
 
 const asideItemList = document.querySelector('.product-detail-item-list');
 
+const productDetailCloseIcon = document.querySelector('.product-detail-close');
+
 const productList = [];
 
 productList.push({
@@ -35,19 +37,8 @@ productList.push({
     name: 'TV'
 });
 
-productList.push({
-    img: 'https://images.pexels.com/photos/165236/pexels-photo-165236.jpeg?auto=compress&cs=tinysrgb&w=1260&h=750&dpr=1',
-    price: 200,
-    name: 'Skate'
-});
-
-productList.push({
-    img: 'https://images.pexels.com/photos/1420707/pexels-photo-1420707.jpeg?auto=compress&cs=tinysrgb&w=1260&h=750&dpr=1',
-    price: 700,
-    name: 'Cartera'
-});
-
 const toggleMobileMenu = function() {
+    asideItemList.classList.add('inactive');
     mobileMenu.classList.toggle('inactive');
     aside.classList.add('inactive');
 
@@ -56,6 +47,7 @@ const toggleMobileMenu = function() {
 const toggleDeskMenu = function() {
     deskMenu.classList.toggle('inactive');
     aside.classList.add('inactive');
+    asideItemList.classList.add('inactive');
 }
 
 const toggleCarritoAside = function() {
@@ -66,6 +58,16 @@ const toggleCarritoAside = function() {
 
 }
 
+const openItemListAside = function() {
+    asideItemList.classList.remove('inactive');
+    aside.classList.add('inactive');
+    deskMenu.classList.add('inactive');
+}
+
+const closeProductDetailAside = function() {
+    asideItemList.classList.add('inactive');
+}
+
 const renderProducts = function(arr){
     for(product of arr){
         const productCard = document.createElement('div');
@@ -73,6 +75,8 @@ const renderProducts = function(arr){
     
         const img = document.createElement('img');
         img.setAttribute('src', product.img);
+
+        img.addEventListener('click', openItemListAside);
     
         const productInfo = document.createElement('div');
         productInfo.classList.add('product-info');
@@ -101,13 +105,7 @@ const renderProducts = function(arr){
     
         productInfo.append(productInfoFigure);
         productInfoFigure.append(productImgCart);
-    
-    
     }
-}
-
-const itemListAside = function() {
-    asideItemList.classList.toggle('inactive');
 }
 
 renderProducts(productList);
@@ -118,4 +116,4 @@ navEmail.addEventListener('click', toggleDeskMenu);
 
 menuBurguer.addEventListener('click', toggleMobileMenu);
 
-// productCard.addEventListener('click', itemListAside);
+productDetailCloseIcon.addEventListener('click', closeProductDetailAside);

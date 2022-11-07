@@ -11,8 +11,6 @@
 
   * {
     box-sizing: border-box;
-    padding: 0;
-    margin: 0;
   }
   html {
     font-size: 62.5%;
@@ -106,6 +104,7 @@
     border: 1px solid var(--very-light-pink);
     border-radius: 6px;
     padding: 20px 20px 0 20px;
+    box-sizing: content-box;
   }
   .desktop-menu ul {
     list-style: none;
@@ -311,6 +310,7 @@
     z-index: 2;
     padding: 12px;
     border-radius: 50%;
+    box-sizing:content-box;
   }
   .product-detail-close:hover {
     cursor: pointer;
