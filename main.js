@@ -10,204 +10,142 @@ const detailProduct = document.querySelector('#product-detail');
 const iconProductDetailClosed = document.querySelector('.product-detail-close');
 
 
-class Animal {
-    constructor(nombre) {
-      this.nombre = nombre;
-    }
-  
-    hablar() {
-      console.log(this.nombre + ' hace un ruido.');
-    }
-  }
-
-const perro = new Animal("daniel")
-
-console.log(perro.hablar())
-
-// class Interactive {
-//     constructor(
-//         principalSelector,
-//         selectores = []
-//     ) {
-//         this.principalSelector = principalSelector;
-//         this.selectores = selectores;
-//     };
+class Interactive {
+    constructor({
+        principalSelector,
+        selectores = []
+    }) {
+        this.principalSelector = principalSelector;
+        this.selectores = selectores;
+    };
        
-//     print(){
-//         console.log("esta variable esta " + this.principalSelector)
-//     }
+    print(){
+        console.log("esta variable esta " + this.selectores)
+    }
 
-    // closeSelectores(){
-    //     for (element of this.selectores){
-    //         let isClosed = element.classList.contains('inactive');
-    //         if (!isClosed){
-    //             element.classList.add('inactive')
-    //         }; 
-    //     };
+    closeSelectores(){
+        for (let element of this.selectores){
+            let isClosed = element.classList.contains('inactive');
+            if (!isClosed){
+                element.classList.add('inactive')
+            }; 
+        };
+    }
 
-    // }
-
-    // toggleSelectores (){
-
-    //     this.principalSelector.classList.toggle('inactive')
-    //     console.log("done2");   
-    // };   
-// };
-// };
-
-// const interactiveDesktopMenu2 = new Interactive({
-//     principalSelector : desktopMenu,
-//     selectores : [orderCarrito,detailProduct]
-//     });
-
-// const interactiveDesktopMenu2 = new Interactive(
-//     desktopMenu,
-//     [orderCarrito,detailProduct]
-//     );
-
-// const toggleMobileMenu = new toogleSelectores({
-//     principalSelector : mobileMenu,
-//     selectores : [orderCarrito,detailProduct]
-//     });
-
-// const toggleIconCarrito = new toogleSelectores({
-//     principalSelector : orderCarrito,
-//     selectores : [mobileMenu,desktopMenu,detailProduct]
-//     });
+    toggleSelectores (){
+        this.closeSelectores()
+        this.principalSelector.classList.toggle('inactive')   
+    };   
+};
 
 
-// const showDetailProduct = new toogleSelectores({
-//     principalSelector : detailProduct,
-//     selectores : [mobileMenu,desktopMenu]
-//     });
+const interactiveDesktopMenu2 = new Interactive({
+    principalSelector : desktopMenu,
+    selectores : [orderCarrito,detailProduct]
+    });
+
+const toggleMobileMenu = new Interactive({
+    principalSelector : mobileMenu,
+    selectores : [orderCarrito,detailProduct]
+    });
+
+const toggleIconCarrito = new Interactive({
+    principalSelector : orderCarrito,
+    selectores : [mobileMenu,desktopMenu,detailProduct]
+    });
 
 
-// iconMenuMobile.addEventListener('click', toggleMobileMenu);
-// iconCarrito.addEventListener('click', toggleIconCarrito);
-// iconProductDetailClosed.addEventListener('click', closedDetailProduct);
-
-// menuEmail.addEventListener('click', toggleDesktopMenu);
-
-// function toggleDesktopMenu(){
-//     const isordercarritoClosed = orderCarrito.classList.contains('inactive');
-//     const isProductDetailClosed= detailProduct.classList.contains('inactive');
-//     if (!isordercarritoClosed){
-//         orderCarrito.classList.add('inactive')
-//     };   
-//     if (!isProductDetailClosed){
-//         detailProduct.classList.add("inactive")
-//     };
-//     desktopMenu.classList.toggle('inactive')
-// };
-
-// function toggleMobileMenu(){
-//     const isordercarritoClosed = orderCarrito.classList.contains('inactive');
-//     const isdetailProduct = detailProduct.classList.contains('inactive')
-//     if (!isordercarritoClosed){
-//         orderCarrito.classList.add('inactive')
-//     };
-//     if (!isdetailProduct){
-//         detailProduct.classList.add('inactive')
-//     }
-//     mobileMenu.classList.toggle('inactive')
-// };
-
-// function toggleIconCarrito(){
-//     const isMobileMenuClosed = mobileMenu.classList.contains('inactive');
-//     const isDesktopMenuclosed = desktopMenu.classList.contains('inactive');
-//     const isProductDetailClosed= detailProduct.classList.contains('inactive');
-//     if (!isMobileMenuClosed){
-//         mobileMenu.classList.add('inactive')
-//     };
-//     if (!isDesktopMenuclosed){
-//         desktopMenu.classList.add('inactive')
-//     };
-//     if (!isProductDetailClosed){
-//         detailProduct.classList.add("inactive")
-//     };
-    
-//     orderCarrito.classList.toggle('inactive')
-
-// };
-
-// function showDetailProduct(){
-//     const isDesktopMenuclosed = desktopMenu.classList.contains('inactive');
-//     if (!isDesktopMenuclosed){
-//         desktopMenu.classList.add('inactive')
-//     };
-    
-//     detailProduct.classList.toggle("inactive")
-// };
-
-// function closedDetailProduct(){
-//     const isProductDetailClosed= detailProduct.classList.contains('inactive');
-
-//     if (!isProductDetailClosed){
-//         detailProduct.classList.add("inactive")
-//     };
+const showDetailProduct = new Interactive({
+    principalSelector : detailProduct,
+    selectores : [mobileMenu,desktopMenu]
+    });
 
 
 
-// }
+menuEmail.addEventListener('click', function(){
+  interactiveDesktopMenu2.toggleSelectores()})
+
+iconMenuMobile.addEventListener('click', function(){
+  toggleMobileMenu.toggleSelectores()})
+
+iconCarrito.addEventListener('click', function(){
+  toggleIconCarrito.toggleSelectores()})
+
+iconProductDetailClosed.addEventListener('click', function(){
+  showDetailProduct.toggleSelectores()})
 
 
-// let listProducts = [];
-// let product1 = {
-//     'name': "Bike",
-//     "value": 120,
-//     "img" : "https://st.depositphotos.com/1032174/1281/v/950/depositphotos_12813937-stock-illustration-full-suspension-mountain-bike.jpg" 
-// };
-
-// let product2 = {
-//     'name': "Bike2",
-//     "value": 420,
-//     "img" : "https://st.depositphotos.com/1032174/1281/v/950/depositphotos_12813937-stock-illustration-full-suspension-mountain-bike.jpg" 
-// };
-
-// let product3 = {
-//     'name': "Bike3",
-//     "value": 320,
-//     "img" : "https://st.depositphotos.com/1032174/1281/v/950/depositphotos_12813937-stock-illustration-full-suspension-mountain-bike.jpg" 
-// }
-
-// listProducts.push(product1,product2,product3)
 
 
-// function renderProducts(arr){
-//     for (element of arr){
-//         const productCard = document.createElement("div");
-//         productCard.classList.add("product-card");
+function closedDetailProduct(){
+    const isProductDetailClosed= detailProduct.classList.contains('inactive');
 
-//         const images = document.createElement("img");
-//         images.setAttribute("src", element.img);
-//         images.addEventListener("click", showDetailProduct)
-
-//         const productInfo = document.createElement("div");
-//         productInfo.classList.add("product-info");
+    if (!isProductDetailClosed){
+        detailProduct.classList.add("inactive")
+    };
 
 
-//         const productInfoDiv = document.createElement("div");
-//         const producPrice = document.createElement("p");
-//         producPrice.innerText = "$ " + element.value;
-//         const producName = document.createElement("p");
-//         producName.innerText = element.name;
-//         productInfoDiv.appendChild(producPrice);
-//         productInfoDiv.appendChild(producName);
 
-//         const productInfofigure = document.createElement("figure");
-//         const imgIconCarrito = document.createElement("img");
-//         imgIconCarrito.setAttribute("src", "./icons/bt_add_to_cart.svg");
-//         productInfofigure.appendChild(imgIconCarrito);
+}
 
-//         productInfo.appendChild(productInfoDiv),
-//         productInfo.appendChild(productInfofigure);
 
-//         productCard.appendChild(images);
-//         productCard.appendChild(productInfo);
+let listProducts = [];
+let product1 = {
+    'name': "Bike",
+    "value": 120,
+    "img" : "https://st.depositphotos.com/1032174/1281/v/950/depositphotos_12813937-stock-illustration-full-suspension-mountain-bike.jpg" 
+};
 
-//         cardsContainer.appendChild(productCard);
+let product2 = {
+    'name': "Bike2",
+    "value": 420,
+    "img" : "https://st.depositphotos.com/1032174/1281/v/950/depositphotos_12813937-stock-illustration-full-suspension-mountain-bike.jpg" 
+};
 
-//     };
-// }
+let product3 = {
+    'name': "Bike3",
+    "value": 320,
+    "img" : "https://st.depositphotos.com/1032174/1281/v/950/depositphotos_12813937-stock-illustration-full-suspension-mountain-bike.jpg" 
+}
 
-// renderProducts(listProducts)
+listProducts.push(product1,product2,product3)
+
+
+function renderProducts(arr){
+    for (element of arr){
+        const productCard = document.createElement("div");
+        productCard.classList.add("product-card");
+
+        const images = document.createElement("img");
+        images.setAttribute("src", element.img);
+        images.addEventListener("click", showDetailProduct)
+
+        const productInfo = document.createElement("div");
+        productInfo.classList.add("product-info");
+
+
+        const productInfoDiv = document.createElement("div");
+        const producPrice = document.createElement("p");
+        producPrice.innerText = "$ " + element.value;
+        const producName = document.createElement("p");
+        producName.innerText = element.name;
+        productInfoDiv.appendChild(producPrice);
+        productInfoDiv.appendChild(producName);
+
+        const productInfofigure = document.createElement("figure");
+        const imgIconCarrito = document.createElement("img");
+        imgIconCarrito.setAttribute("src", "./icons/bt_add_to_cart.svg");
+        productInfofigure.appendChild(imgIconCarrito);
+
+        productInfo.appendChild(productInfoDiv),
+        productInfo.appendChild(productInfofigure);
+
+        productCard.appendChild(images);
+        productCard.appendChild(productInfo);
+
+        cardsContainer.appendChild(productCard);
+
+    };
+}
+
+renderProducts(listProducts)
