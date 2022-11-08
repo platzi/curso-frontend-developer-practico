@@ -4,13 +4,18 @@ const burggerMenu =  document.querySelector('.menu');
 const mobileMenu = document.querySelector('.mobile-menu');
 const menuCarritoIcon = document.querySelector('.navbar-shopping-cart')
 const aside = document.querySelector('.order-detail-car');
+const productDetailContainer =document.querySelector('.product-detail')
+const closeProductDetail = document.querySelector('.product-detail-close');
 
 
 menuEmail.addEventListener("click", toggleDesktopMenu);
 burggerMenu.addEventListener("click", toggleMobileMenu);
 menuCarritoIcon.addEventListener("click", toggleCarritosAside);
+closeProductDetail.addEventListener("click", closeDetail);
+
 
 function toggleDesktopMenu(){
+  productDetailContainer.classList.add('inactive')
   const isAsideClosed = aside.classList.contains('inactive')
 
   if(!isAsideClosed){
@@ -21,6 +26,7 @@ function toggleDesktopMenu(){
 }
 
 function toggleMobileMenu(){
+  productDetailContainer.classList.add('inactive')
   const isAsideClosed = aside.classList.contains('inactive')
   
   if(!isAsideClosed){
@@ -31,13 +37,32 @@ function toggleMobileMenu(){
 }
 
 function toggleCarritosAside(){
+  desktopMenu.classList.add('inactive')
     //pregunatamos si la const mobilemenu tien la clase inactive
     const isMobileMenuClosed = mobileMenu.classList.contains('inactive');
     //preguntamos si la clase ismobilemenu no esta cerrado le agregue la clase inactive
     if(!isMobileMenuClosed){
       mobileMenu.classList.add('inactive');
     }
+
+    const isProductClosed = productDetailContainer.classList.contains('inactive');
+    //preguntamos si la clase ismobilemenu no esta cerrado le agregue la clase inactive
+    if(!isProductClosed){
+      productDetailContainer.classList.add('inactive');
+    }
   aside.classList.toggle('inactive');
+}
+
+function openProductDetail(){
+  aside.classList.add('inactive');
+  mobileMenu.classList.add('inactive');
+  desktopMenu.classList.add('inactive');
+
+  productDetailContainer.classList.remove('inactive');
+}
+
+function closeDetail(){
+  productDetailContainer.classList.add('inactive');
 }
 
 //creamos un array que almacenara unos objetos y apartir de esos objetos creamos los productos
@@ -72,6 +97,7 @@ function renderProducts(arr) {
   
     const productImg = document.createElement('img');
     productImg.setAttribute('src', product.image);
+    productImg.addEventListener('click', openProductDetail);
   
     const productInfo = document.createElement('div');
     productInfo.classList.add('product-info');
@@ -105,3 +131,5 @@ function renderProducts(arr) {
 }
 
 renderProducts(productList);
+
+//product detail aside
