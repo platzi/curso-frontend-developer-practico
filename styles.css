@@ -155,15 +155,11 @@ nav {
     background: var(--white);
     top: 61px;
     padding: 24px;
-    left: -1000px;
+    left: 0px;
     transition: 400ms;
     width: 100%;
     box-sizing: border-box;
     border: 1px solid var(--very-light-pink);
-}
-
-.slide-right {
-    left: 0;
 }
 
 .mobile-menu a {
@@ -297,6 +293,7 @@ nav {
     height: 240px;
     border-radius: 20px;
     object-fit: cover;
+    cursor: pointer;
 }
 .cards-container .product-info {
     display: flex;
@@ -331,6 +328,8 @@ nav {
     padding-bottom: 24px;
     position: absolute;
     right: 0;
+    background: var(--white);
+    border: 1px solid var(--very-light-pink);
 }
 
 .product-detail-close {
