@@ -7,41 +7,86 @@ const iconCarrito = document.querySelector('.navbar-shopping-cart');
 const orderCarrito = document.querySelector('#shopping-cart-container');
 const cardsContainer = document.querySelector('.cards-container');
 const detailProduct = document.querySelector('#product-detail');
-const iconProductDetailClosed = document.querySelector('.product-detail-close')
+const iconProductDetailClosed = document.querySelector('.product-detail-close');
 
-class interactionElement{
-    constructor({
-        principalSelector,
-        selectores = []
-    }) {
-        this.principalSelector = principalSelector;
-        this.selectores = selectores;
+
+class Animal {
+    constructor(nombre) {
+      this.nombre = nombre;
     }
+  
+    hablar() {
+      console.log(this.nombre + ' hace un ruido.');
+    }
+  }
 
-    toogleSelectores(){
-        for (element of this.selectores){
-            let isClosed = element.classList.contains('inactive');
+const perro = new Animal("daniel")
 
-            if (!isClosed){
-                element.classList.add('inactive')
-            };   
-        };
-        console.log("funciona")
-        this.principalSelector.classList.toggle('inactive')
-    };
-};
+console.log(perro.hablar())
 
-const interactiveDesktopMenu2 = new interactionElement({
-    principalSelector : desktopMenu,
-    selectores : ["orderCarrito","detailProduct"]
-})
+// class Interactive {
+//     constructor(
+//         principalSelector,
+//         selectores = []
+//     ) {
+//         this.principalSelector = principalSelector;
+//         this.selectores = selectores;
+//     };
+       
+//     print(){
+//         console.log("esta variable esta " + this.principalSelector)
+//     }
 
-menuEmail.addEventListener('click', interactiveDesktopMenu2);
-iconMenuMobile.addEventListener('click', toggleMobileMenu);
-iconCarrito.addEventListener('click', toggleIconCarrito);
-iconProductDetailClosed.addEventListener('click', closedDetailProduct);
+    // closeSelectores(){
+    //     for (element of this.selectores){
+    //         let isClosed = element.classList.contains('inactive');
+    //         if (!isClosed){
+    //             element.classList.add('inactive')
+    //         }; 
+    //     };
+
+    // }
+
+    // toggleSelectores (){
+
+    //     this.principalSelector.classList.toggle('inactive')
+    //     console.log("done2");   
+    // };   
+// };
+// };
+
+// const interactiveDesktopMenu2 = new Interactive({
+//     principalSelector : desktopMenu,
+//     selectores : [orderCarrito,detailProduct]
+//     });
+
+// const interactiveDesktopMenu2 = new Interactive(
+//     desktopMenu,
+//     [orderCarrito,detailProduct]
+//     );
+
+// const toggleMobileMenu = new toogleSelectores({
+//     principalSelector : mobileMenu,
+//     selectores : [orderCarrito,detailProduct]
+//     });
+
+// const toggleIconCarrito = new toogleSelectores({
+//     principalSelector : orderCarrito,
+//     selectores : [mobileMenu,desktopMenu,detailProduct]
+//     });
 
 
+// const showDetailProduct = new toogleSelectores({
+//     principalSelector : detailProduct,
+//     selectores : [mobileMenu,desktopMenu]
+//     });
+
+
+// iconMenuMobile.addEventListener('click', toggleMobileMenu);
+// iconCarrito.addEventListener('click', toggleIconCarrito);
+// iconProductDetailClosed.addEventListener('click', closedDetailProduct);
+
+// menuEmail.addEventListener('click', toggleDesktopMenu);
 
 // function toggleDesktopMenu(){
 //     const isordercarritoClosed = orderCarrito.classList.contains('inactive');
@@ -55,114 +100,114 @@ iconProductDetailClosed.addEventListener('click', closedDetailProduct);
 //     desktopMenu.classList.toggle('inactive')
 // };
 
-function toggleMobileMenu(){
-    const isordercarritoClosed = orderCarrito.classList.contains('inactive');
-    const isdetailProduct = detailProduct.classList.contains('inactive')
-    if (!isordercarritoClosed){
-        orderCarrito.classList.add('inactive')
-    };
-    if (!isdetailProduct){
-        detailProduct.classList.add('inactive')
-    }
-    mobileMenu.classList.toggle('inactive')
-};
+// function toggleMobileMenu(){
+//     const isordercarritoClosed = orderCarrito.classList.contains('inactive');
+//     const isdetailProduct = detailProduct.classList.contains('inactive')
+//     if (!isordercarritoClosed){
+//         orderCarrito.classList.add('inactive')
+//     };
+//     if (!isdetailProduct){
+//         detailProduct.classList.add('inactive')
+//     }
+//     mobileMenu.classList.toggle('inactive')
+// };
 
-function toggleIconCarrito(){
-    const isMobileMenuClosed = mobileMenu.classList.contains('inactive');
-    const isDesktopMenuclosed = desktopMenu.classList.contains('inactive');
-    const isProductDetailClosed= detailProduct.classList.contains('inactive');
-    if (!isMobileMenuClosed){
-        mobileMenu.classList.add('inactive')
-    };
-    if (!isDesktopMenuclosed){
-        desktopMenu.classList.add('inactive')
-    };
-    if (!isProductDetailClosed){
-        detailProduct.classList.add("inactive")
-    };
+// function toggleIconCarrito(){
+//     const isMobileMenuClosed = mobileMenu.classList.contains('inactive');
+//     const isDesktopMenuclosed = desktopMenu.classList.contains('inactive');
+//     const isProductDetailClosed= detailProduct.classList.contains('inactive');
+//     if (!isMobileMenuClosed){
+//         mobileMenu.classList.add('inactive')
+//     };
+//     if (!isDesktopMenuclosed){
+//         desktopMenu.classList.add('inactive')
+//     };
+//     if (!isProductDetailClosed){
+//         detailProduct.classList.add("inactive")
+//     };
     
-    orderCarrito.classList.toggle('inactive')
+//     orderCarrito.classList.toggle('inactive')
 
-};
+// };
 
-function showDetailProduct(){
-    const isDesktopMenuclosed = desktopMenu.classList.contains('inactive');
-    if (!isDesktopMenuclosed){
-        desktopMenu.classList.add('inactive')
-    };
+// function showDetailProduct(){
+//     const isDesktopMenuclosed = desktopMenu.classList.contains('inactive');
+//     if (!isDesktopMenuclosed){
+//         desktopMenu.classList.add('inactive')
+//     };
     
-    detailProduct.classList.toggle("inactive")
-};
+//     detailProduct.classList.toggle("inactive")
+// };
 
-function closedDetailProduct(){
-    const isProductDetailClosed= detailProduct.classList.contains('inactive');
+// function closedDetailProduct(){
+//     const isProductDetailClosed= detailProduct.classList.contains('inactive');
 
-    if (!isProductDetailClosed){
-        detailProduct.classList.add("inactive")
-    };
-
-
-
-}
+//     if (!isProductDetailClosed){
+//         detailProduct.classList.add("inactive")
+//     };
 
 
-let listProducts = [];
-let product1 = {
-    'name': "Bike",
-    "value": 120,
-    "img" : "https://st.depositphotos.com/1032174/1281/v/950/depositphotos_12813937-stock-illustration-full-suspension-mountain-bike.jpg" 
-};
 
-let product2 = {
-    'name': "Bike2",
-    "value": 420,
-    "img" : "https://st.depositphotos.com/1032174/1281/v/950/depositphotos_12813937-stock-illustration-full-suspension-mountain-bike.jpg" 
-};
-
-let product3 = {
-    'name': "Bike3",
-    "value": 320,
-    "img" : "https://st.depositphotos.com/1032174/1281/v/950/depositphotos_12813937-stock-illustration-full-suspension-mountain-bike.jpg" 
-}
-
-listProducts.push(product1,product2,product3)
+// }
 
 
-function renderProducts(arr){
-    for (element of arr){
-        const productCard = document.createElement("div");
-        productCard.classList.add("product-card");
+// let listProducts = [];
+// let product1 = {
+//     'name': "Bike",
+//     "value": 120,
+//     "img" : "https://st.depositphotos.com/1032174/1281/v/950/depositphotos_12813937-stock-illustration-full-suspension-mountain-bike.jpg" 
+// };
 
-        const images = document.createElement("img");
-        images.setAttribute("src", element.img);
-        images.addEventListener("click", showDetailProduct)
+// let product2 = {
+//     'name': "Bike2",
+//     "value": 420,
+//     "img" : "https://st.depositphotos.com/1032174/1281/v/950/depositphotos_12813937-stock-illustration-full-suspension-mountain-bike.jpg" 
+// };
 
-        const productInfo = document.createElement("div");
-        productInfo.classList.add("product-info");
+// let product3 = {
+//     'name': "Bike3",
+//     "value": 320,
+//     "img" : "https://st.depositphotos.com/1032174/1281/v/950/depositphotos_12813937-stock-illustration-full-suspension-mountain-bike.jpg" 
+// }
+
+// listProducts.push(product1,product2,product3)
 
 
-        const productInfoDiv = document.createElement("div");
-        const producPrice = document.createElement("p");
-        producPrice.innerText = "$ " + element.value;
-        const producName = document.createElement("p");
-        producName.innerText = element.name;
-        productInfoDiv.appendChild(producPrice);
-        productInfoDiv.appendChild(producName);
+// function renderProducts(arr){
+//     for (element of arr){
+//         const productCard = document.createElement("div");
+//         productCard.classList.add("product-card");
 
-        const productInfofigure = document.createElement("figure");
-        const imgIconCarrito = document.createElement("img");
-        imgIconCarrito.setAttribute("src", "./icons/bt_add_to_cart.svg");
-        productInfofigure.appendChild(imgIconCarrito);
+//         const images = document.createElement("img");
+//         images.setAttribute("src", element.img);
+//         images.addEventListener("click", showDetailProduct)
 
-        productInfo.appendChild(productInfoDiv),
-        productInfo.appendChild(productInfofigure);
+//         const productInfo = document.createElement("div");
+//         productInfo.classList.add("product-info");
 
-        productCard.appendChild(images);
-        productCard.appendChild(productInfo);
 
-        cardsContainer.appendChild(productCard);
+//         const productInfoDiv = document.createElement("div");
+//         const producPrice = document.createElement("p");
+//         producPrice.innerText = "$ " + element.value;
+//         const producName = document.createElement("p");
+//         producName.innerText = element.name;
+//         productInfoDiv.appendChild(producPrice);
+//         productInfoDiv.appendChild(producName);
 
-    };
-}
+//         const productInfofigure = document.createElement("figure");
+//         const imgIconCarrito = document.createElement("img");
+//         imgIconCarrito.setAttribute("src", "./icons/bt_add_to_cart.svg");
+//         productInfofigure.appendChild(imgIconCarrito);
 
-renderProducts(listProducts)
+//         productInfo.appendChild(productInfoDiv),
+//         productInfo.appendChild(productInfofigure);
+
+//         productCard.appendChild(images);
+//         productCard.appendChild(productInfo);
+
+//         cardsContainer.appendChild(productCard);
+
+//     };
+// }
+
+// renderProducts(listProducts)
