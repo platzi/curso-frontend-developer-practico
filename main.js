@@ -12,14 +12,33 @@ menuCart.addEventListener("click", toggleCartAside);
 
 
 function toggleDesktopMenu() {
-    desktopMenu.classList.toggle('inactive')    
+    const isAsideClosed = aside.classList.contains('inactive');
+
+    if (!isAsideClosed) {
+    aside.classList.add('inactive');
+    }
+
+    desktopMenu.classList.toggle('inactive');
 }
 
 function toggleMobileMenu(){
-    mobileMenu.classList.toggle('inactive')
+  const isAsideClosed = aside.classList.contains('inactive');
+
+  if (!isAsideClosed) {
+    aside.classList.add('inactive'); 
+  }
+  
+  mobileMenu.classList.toggle('inactive');
 }
 
 function toggleCartAside() {
+    const isMobileMenuClosed = mobileMenu.classList.contains('inactive');
+
+    if (!isMobileMenuClosed) {
+        mobileMenu.classList.add('inactive')
+    }
+    
     aside.classList.toggle("inactive");
+
 
 }
