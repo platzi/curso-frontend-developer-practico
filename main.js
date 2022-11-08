@@ -3,21 +3,12 @@ const desktopMenu = document.querySelector('.desktop-menu');
 const burggerMenu =  document.querySelector('.menu');
 const mobileMenu = document.querySelector('.mobile-menu');
 const menuCarritoIcon = document.querySelector('.navbar-shopping-cart')
-const aside = document.querySelector('.product-detail');
+const aside = document.querySelector('.order-detail-car');
 
 
 menuEmail.addEventListener("click", toggleDesktopMenu);
 burggerMenu.addEventListener("click", toggleMobileMenu);
 menuCarritoIcon.addEventListener("click", toggleCarritosAside);
-
-function toggleMobileMenu(){
-  const isAsideClosed = aside.classList.contains('inactive')
-
-  if(!isAsideClosed){
-    aside.classList.add('inactive')
-  }
-  mobileMenu.classList.toggle('inactive')
-}
 
 function toggleDesktopMenu(){
   const isAsideClosed = aside.classList.contains('inactive')
@@ -27,6 +18,16 @@ function toggleDesktopMenu(){
   }
 
   desktopMenu.classList.toggle('inactive')
+}
+
+function toggleMobileMenu(){
+  const isAsideClosed = aside.classList.contains('inactive')
+  
+  if(!isAsideClosed){
+    aside.classList.add('inactive')
+  }
+
+  mobileMenu.classList.toggle('inactive')
 }
 
 function toggleCarritosAside(){
@@ -39,6 +40,7 @@ function toggleCarritosAside(){
   aside.classList.toggle('inactive');
 }
 
+//creamos un array que almacenara unos objetos y apartir de esos objetos creamos los productos
 const productList = [];
 productList.push({
   name: 'bike',
@@ -58,12 +60,11 @@ productList.push({
   image: "https://images.pexels.com/photos/276517/pexels-photo-276517.jpeg?auto=compress&cs=tinysrgb&dpr=2&h=650&w=940"
 })
 
-//recorrer el array productList
 
 const cartContainer = document.querySelector('.cards-container');
 
+//recorrer el array productList
 function renderProducts(arr) {
-
   for (const product of arr) {
     //crear los elementos
     const productCart = document.createElement('div');
@@ -104,4 +105,3 @@ function renderProducts(arr) {
 }
 
 renderProducts(productList);
-
