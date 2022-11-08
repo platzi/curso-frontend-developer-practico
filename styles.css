@@ -1,3 +1,4 @@
+/* Estilos Generales */
 :root {
     --white: #FFFFFF;
     --black: #000000;
@@ -14,10 +15,11 @@ body {
     font-family: 'Quicksand', sans-serif;
 }
 
-.inactive{
+.inactive {
     display: none;
 }
 
+/* Navbar General */
 nav {
     display: flex;
     justify-content: space-between;
@@ -73,16 +75,17 @@ nav {
     font-size: var(--sm);
     margin-right: 12px;
     cursor: pointer;
+    user-select: none;
 }
 
-.navbar-email:hover{
+.navbar-email:hover {
     color: var(--hospital-green);
     font-weight: bold;
 }
 
 .navbar-shopping-cart {
     position: relative;
-    cursor: pointer;    
+    cursor: pointer;
 }
 
 .navbar-shopping-cart div {
@@ -100,6 +103,7 @@ nav {
     align-items: center;
 }
 
+/* Menu desplegable desktop */
 .desktop-menu {
     position: absolute;
     top: 60px;
@@ -109,7 +113,11 @@ nav {
     height: auto;
     border: 1px solid var(--very-light-pink);
     border-radius: 6px;
+    border-top-left-radius: 0;
+    border-top-right-radius: 0;
     padding: 20px 20px 0 20px;
+    transform: .4s;
+    box-shadow: 2px 2px 5px var(--very-light-pink);
 }
 
 .desktop-menu ul {
@@ -144,16 +152,56 @@ nav {
     display: inline-block;
 }
 
-@media (max-width: 640px) {
+/* Menu desplegable mobile */
+.mobile-menu {
+    position: absolute;
+    top: 60px;
+    padding: 24px;
+}
+.mobile-menu a {
+    text-decoration: none;
+    color: var(--black);
+    font-weight: bold;
+    /* margin-bottom: 24px; */
+}
+.mobile-menu ul {
+    padding: 0;
+    margin: 24px 0 0;
+    list-style: none;
+}
+.mobile-menu ul:nth-child(1) {
+    border-bottom: 1px solid var(--very-light-pink);
+}
+.mobile-menu ul li {
+    margin-bottom: 24px;
+}
+.email {
+    font-size: var(--sm);
+    font-weight: 300 !important;
+}
+.sign-out {
+    font-size: var(--sm);
+    color: var(--hospital-green) !important;
+}
+
+@media (max-width: 840px) {
     .menu {
         display: block;
+        cursor: pointer;
     }
-
     .navbar-left ul {
         display: none;
     }
-
     .navbar-email {
+        display: none;
+    }
+    .desktop-menu{
+        display: none;
+    }
+}
+
+@media (min-width: 841px){
+    .mobile-menu{
         display: none;
     }
 }
