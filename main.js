@@ -56,21 +56,21 @@ function hideAll(){
 
 const productsList = [];
 productsList.push({
-    name: 'Sombra',
+    name: 'Bike',
     price: 120,
-    image: 'file:///D:/ProyectoValuvanity/item1.jpeg'
+    image: 'https://cyclingtips.com/wp-content/uploads/2022/04/Best-bike-for-Paris-Roubaix-with-suspension-forks-22.jpg'
 });
 
 productsList.push({
-    name: 'Sombra',
+    name: 'Tesla',
     price: 220,
-    image: 'file:///D:/ProyectoValuvanity/item2.jpeg'
+    image: 'https://i.insider.com/60f860760729770012b91c62?width=1000&format=jpeg&auto=webp'
 });
 
 productsList.push({
-    name: 'Sombra',
+    name: 'Motorcycle',
     price: 620,
-    image: 'file:///D:/ProyectoValuvanity/item3.jpeg'
+    image: 'https://http2.mlstatic.com/D_NQ_NP_828920-MCO51966348182_102022-UC.webp'
 });
 
 const cardsContainer = document.querySelector('.cards-container');
