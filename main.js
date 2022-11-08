@@ -7,6 +7,9 @@ const aside = document.querySelector('.product-detail');
 
 menuEmail.addEventListener('click', toggleDesktopMenu)
 menuHamIcon.addEventListener('click', toggleMobileMenu)
+menuCart.addEventListener("click", toggleCartAside);
+
+
 
 function toggleDesktopMenu() {
     desktopMenu.classList.toggle('inactive')    
@@ -14,4 +17,9 @@ function toggleDesktopMenu() {
 
 function toggleMobileMenu(){
     mobileMenu.classList.toggle('inactive')
+}
+
+function toggleCartAside() {
+    aside.classList.toggle("inactive");
+
 }
