@@ -71,6 +71,7 @@ iconMenuMobile.addEventListener('click', function(){
 iconCarrito.addEventListener('click', function(){
   toggleIconCarrito.toggleSelectores()})
 
+
 iconProductDetailClosed.addEventListener('click', function(){
   showDetailProduct.toggleSelectores()})
 
@@ -118,7 +119,8 @@ function renderProducts(arr){
 
         const images = document.createElement("img");
         images.setAttribute("src", element.img);
-        images.addEventListener("click", showDetailProduct)
+        images.addEventListener("click", function(){
+          showDetailProduct.toggleSelectores()})
 
         const productInfo = document.createElement("div");
         productInfo.classList.add("product-info");
