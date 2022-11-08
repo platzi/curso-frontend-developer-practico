@@ -6,12 +6,13 @@ const menuHamIcon = document.querySelector('.menu');
 const mobileMenu = document.querySelector('.mobile-menu');
 const cardsContainer = document.querySelector('.cards-container');
 const productDescription = document.querySelector('.product-detail-secondary');
-const a = document.querySelector('.fdfdf');
+const detailMenu = document.querySelector('.product-detail-secondary-close');
 
 
 menuEmail.addEventListener('click', toggleDesktopMenu);
 menuHamIcon.addEventListener('click', toggleMobileMenu);
 menuCarritoIcon.addEventListener('click', toggleCarritoAside);
+productDescription.addEventListener('click', opendetailMenu);
 
 function toggleDesktopMenu() {
     const isAsideClosed = aside.classList.contains('inactive');
@@ -43,8 +44,14 @@ function toggleCarritoAside() {
     aside.classList.toggle('inactive');
 }
 
-function openProductDetailAside() {
+function opendetailMenu() {
+    const  = .classList.contains('inactive');
 
+    if (!is) {
+        .classList.add('inactive')
+    }
+
+    .classList.close('inactive');
 }
 
 const productList = [];
