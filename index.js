@@ -16,6 +16,10 @@ shoppingCart.addEventListener('click', toggleShoppingCart);
 
 //create functions.
 function toggleMenu() {
+    let isAsideMenuClose = asideMen.classList.contains('inactive')
+    if (!isAsideMenuClose) {
+        asideMen.classList.toggle('inactive');
+    }
     AccountMenu.classList.toggle('inactive');
 }
 
@@ -29,7 +33,12 @@ function toggleMobile() {
 }
 
 function toggleShoppingCart() {
-    let isMobileMenuClose = mobileMenu.classList.contains('inactive')
+    let isMobileMenuClose = mobileMenu.classList.contains('inactive');
+    let isDesktopMenuClose = AccountMenu.classList.contains('inactive');
+
+    if (!isDesktopMenuClose) {
+        AccountMenu.classList.toggle('inactive');
+    }
 
     if (!isMobileMenuClose) {
         mobileMenu.classList.toggle('inactive');

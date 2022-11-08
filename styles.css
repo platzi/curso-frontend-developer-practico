@@ -1,4 +1,5 @@
 /* global style */
+
 :root {
     --white: #ffffff;
     --black: #000000;
@@ -28,6 +29,7 @@ nav {
 }
 
 /* nav-bar style */
+
 .navbar-left ul,
 .navbar-right ul {
     list-style: none;
@@ -85,8 +87,10 @@ nav {
 }
 
 /* Desktop-menu style */
+
 .desktop-menu {
     position: absolute;
+    background-color: var(--white);
     top: 60px;
     right: 55px;
     width: 100px;
@@ -127,6 +131,7 @@ nav {
 .mobile-menu {
     padding: 22px;
     position: absolute;
+    background-color: var(--white);
     top: 60px;
 }
 .mobile-menu a {
@@ -155,10 +160,11 @@ nav {
     color: var(--hospital-green) !important;
 }
 
-/* aside style */
+/* car aside style */
 
-.product-detail {
+#carAside {
     position: absolute;
+    background-color: var(--white);
     width: 360px;
     padding: 24px;
     box-sizing: border-box;
@@ -238,8 +244,10 @@ nav {
     }
 }
 /* cards containers */
+
 .cards-container {
     display: grid;
+    padding: 12px;
     grid-template-columns: repeat(auto-fill, 240px);
     gap: 26px;
     place-content: center;
@@ -288,6 +296,77 @@ nav {
     .product-card img {
         width: 140px;
         height: 140px;
+    }
+}
+
+/* product detail aside */
+
+#detailAside {
+    width: 360px;
+    padding-bottom: 24px;
+    position: absolute;
+    right: 0;
+}
+#detailAside-close {
+    background: var(--white);
+    width: 14px;
+    height: 14px;
+    position: absolute;
+    top: 24px;
+    left: 24px;
+    z-index: 2;
+    padding: 12px;
+    border-radius: 50%;
+}
+#detailAside-close:hover {
+    cursor: pointer;
+}
+#detailAside > img:nth-child(2) {
+    width: 100%;
+    height: 360px;
+    object-fit: cover;
+    border-radius: 0 0 20px 20px;
+}
+#asideInfo {
+    margin: 24px 24px 0 24px;
+}
+#asideInfo p:nth-child(1) {
+    font-weight: bold;
+    font-size: var(--md);
+    margin-top: 0;
+    margin-bottom: 4px;
+}
+#asideInfo p:nth-child(2) {
+    color: var(--very-light-pink);
+    font-size: var(--md);
+    margin-top: 0;
+    margin-bottom: 36px;
+}
+#asideInfo p:nth-child(3) {
+    color: var(--very-light-pink);
+    font-size: var(--sm);
+    margin-top: 0;
+    margin-bottom: 36px;
+}
+.primary-button {
+    background-color: var(--hospital-green);
+    border-radius: 8px;
+    border: none;
+    color: var(--white);
+    width: 100%;
+    cursor: pointer;
+    font-size: var(--md);
+    font-weight: bold;
+    height: 50px;
+}
+.add-to-cart-button {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+}
+@media (max-width: 640px) {
+    #detailAside {
+        width: 100%;
     }
 }
 
