@@ -23,13 +23,13 @@
       margin: 0;
       font-family: 'Quicksand', sans-serif;
     }
-    .product-detail {
+    .product-detail-secondary {
       width: 360px;
       padding-bottom: 24px;
       position: absolute;
       right: 0;
     }
-    .product-detail-close {
+    .product-detail-secondary-close {
       background: var(--white);
       width: 14px;
       height: 14px;
@@ -40,10 +40,10 @@
       padding: 12px;
       border-radius: 50%;
     }
-    .product-detail-close:hover {
+    .product-detail-secondary-close:hover {
       cursor: pointer;
     }
-    .product-detail > img:nth-child(2) {
+    .product-detail-secondary > img:nth-child(2) {
       width: 100%;
       height: 360px;
       object-fit: cover;
@@ -87,15 +87,15 @@
       justify-content: center;
     }
     @media (max-width: 640px) {
-      .product-detail {
+      .product-detail-secondary {
         width: 100%;
       }
     }
   </style>
 </head>
 <body>
-  <aside class="product-detail">
-    <div class="product-detail-close">
+  <aside class="product-detail-secondary">
+    <div class="product-detail-secondary-close">
       <img src="./icons/icon_close.png" alt="close">
     </div>
     <img src="https://images.pexels.com/photos/276517/pexels-photo-276517.jpeg?auto=compress&cs=tinysrgb&dpr=2&h=650&w=940" alt="bike">
