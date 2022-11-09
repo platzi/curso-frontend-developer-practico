@@ -1,3 +1,4 @@
+import productList from "./products.js";
 const menuEmail = document.querySelector(".navbar-email");
 const desktopMenu = document.querySelector(".desktop-menu")
 const burguerMenu = document.querySelector(".burguerMenu");
@@ -7,20 +8,50 @@ const aside = document.querySelector(".product-detail")
 const cards_container = document.querySelector(".cards-container")
 const productDetailOrder = document.querySelector(".product-detail__order")
 const productDetailProduct = document.querySelector(".product_detail__product")
-const productDetailClose = document.querySelector(".product-detail-close")
-let productCard
+const productOrderContent = document.querySelector(".my-order-content")
+const mainContainer = document.querySelector(".main-container")
 
+let cart = []
+let totalCuenta = []
+let contador = 0
+let numProduct = document.querySelector("#numProduct")
+numProduct.textContent = contador
+let productPriceTotal = document.querySelector("#productPriceTotal")
+productPriceTotal.textContent = "$0"
+let productCard
+let closeProduct
+let imgClose 
+let imgProduct 
+let productInfo 
+let productName 
+let productPrice 
+let buttonAddCart 
+let imgaddcart
+let cardOrder 
+let figureOrder
+let imgOrder 
+let removeProduct
+let total 
 
 // COMENTARIO DE MEJOR CODIGO -- NOTAS EN EXTENCION LINENOTE
 menuEmail.addEventListener("click",toggleInactive.bind(this,desktopMenu))
 burguerMenu.addEventListener("click", toggleInactive.bind(this, mobile_menu))
-productDetailClose.addEventListener("click",toggleInactive.bind(this,productDetailClose))
 ShoppingCart.addEventListener("click",toggleCart)
 
 
+
+// TOGGLE INACTIVE
 function toggleInactive(e){
     aside.classList.add("inactive")
-    e.classList.toggle("inactive")  
+    e.classList.toggle("inactive")
+    
+    if(aside.classList.contains("inactive")){
+        mainContainer.style.zIndex = "0"
+        productDetailProduct.removeChild(imgProduct)
+        productDetailProduct.removeChild(productInfo)
+        
+    }
+      
 }
 
 function toggleCart(){
@@ -29,68 +60,20 @@ function toggleCart(){
     mobile_menu.classList.add("inactive")
     desktopMenu.classList.add("inactive")
     productDetailProduct.classList.add("inactive")
+    
+    if(aside.classList.contains("inactive")){
+        mainContainer.style.zIndex = "0"
+        productDetailProduct.removeChild(imgProduct)
+        productDetailProduct.removeChild(productInfo)
+        
+    }else{
+        mainContainer.style.zIndex = "-1"
+
+    }
 
 }
 
-function openProductDetail(){
-    aside.classList.remove("inactive")
-    productDetailProduct.classList.remove("inactive")
-    productDetailOrder.classList.add("inactive")
-    productDetailClose.classList.remove("inactive")
-
-}
-const productList = [];
-// NOTA - EN EXTENSION LINENOTE
-
-productList.push ({
-    name:'Bike',
-    price: 12700,
-    image: 'https://images.pexels.com/photos/276517/pexels-photo-276517.jpeg?auto=compress&cs=tinysrgb&dpr=2&h=650&w=940'
-});
-productList.push ({
-    name:'Bicycle helmet',
-    price: 1200,
-    image: 'https://assets.specialized.com/i/specialized/60821-104_HLMT_ALIGN-II-HLMT-MIPS-CE-BLK-BLKREFL-S-M_HERO?bg=rgb(241,241,241)&w=1600&h=900&fmt=auto'
-});
-productList.push ({
-    name:'Bicycle helmet',
-    price: 1600,
-    image: 'https://m.media-amazon.com/images/I/61eExL-rIAL._AC_SL1001_.jpg'
-});
-productList.push ({
-    name:'Bicycle helmet',
-    price: 1500,
-    image: 'https://assets.specialized.com/i/specialized/60822-140_HLMT_CHAMONIX-HLMT-MIPS-CE-MRN-M-L_HERO?bg=rgb(241,241,241)&w=1600&h=900&fmt=auto'
-});
-productList.push ({
-    name:'Seat',
-    price: 300,
-    image: 'https://m.media-amazon.com/images/I/61e+sZ9rgNL._AC_SL1500_.jpg'
-});
-productList.push ({
-    name:'Tennis Montain Bike',
-    price: 2200,
-    image: 'https://assets.adidas.com/images/h_840,f_auto,q_auto,fl_lossy,c_fill,g_auto/8ea578f6c07847fca2d0ac85011d7f1f_9366/Tenis_para_Mountain_Bike_Five_Ten_Freerider_Negro_FW2835_01_standard.jpg'
-});
-productList.push ({
-    name:'Sunglasses',
-    price: 800,
-    image: 'https://cdn.siroko.com/s/files/1/1220/6874/products/gafas-siroko-tech-k3s-london-lateral/1200x/crop_center.jpg?v=1635209602'
-});
-productList.push ({
-    name:'Sunglasses',
-    price: 600,
-    image: 'https://cdn.siroko.com/s/files/1/1220/6874/products/siroko-tech-k3s-clearfog-lente-antiniebla-frontal/1200x/crop_center.jpg?v=1635209603'
-});
-productList.push ({
-    name:'Bicycle seat bag',
-    price: 876,
-    image: 'https://m.media-amazon.com/images/I/81k2Gmal+VL._AC_SL1500_.jpg'
-});
-
-
-
-
+// MAIN CONTENTE PRODUCT
 function renderProduct(arr){
     arr.forEach((product)=>{
         productCard = document.createElement("div");
@@ -98,6 +81,7 @@ function renderProduct(arr){
     
         const productImg = document.createElement("img")
         productImg.setAttribute("src", product.image)
+        productImg.setAttribute("id",product.id)
         productImg.addEventListener("click",openProductDetail)
     
         const productInfo = document.createElement("div");
@@ -105,7 +89,8 @@ function renderProduct(arr){
     
         const productInfoDiv = document.createElement("div");
         const productPrice = document.createElement("p");
-        productPrice.innerText = `$${product.price}`
+        total = product.price.toLocaleString("en")
+        productPrice.innerText = `$${total}`
         const productName = document.createElement("p");
         productName.innerText = product.name;
         const productInfoFigure = document.createElement("figure");
@@ -121,7 +106,115 @@ function renderProduct(arr){
     
 }
 
+// CLICK IN PRODUCT
+function openProductDetail(e){
+    aside.classList.remove("inactive")
+    productDetailProduct.classList.remove("inactive")
+    productDetailOrder.classList.add("inactive")
+    productList.forEach((product)=>{
+        if(product.id === parseInt(e.target.id)){
+            renderProductDetail(product)
+        } 
+    })
+}
 
+
+// ASIDE DETAIL PRODUCT
+function renderProductDetail(product){
+    closeProduct = document.createElement("div")
+    closeProduct.classList.add("product-detail-close")
+    closeProduct.addEventListener("click",toggleInactive.bind(this,closeProduct))
+    imgClose = document.createElement("img")
+    imgClose.setAttribute("src","./icons/icon_close.png")
+    closeProduct.appendChild(imgClose)
+    imgProduct = document.createElement("img")
+    imgProduct.setAttribute("src" , product.image)
+    imgProduct.classList.add("imgProduct")
+    productInfo = document.createElement("div")
+    productInfo.classList.add("product-info")
+    productName = document.createElement("p")
+    productPrice = document.createElement("p")
+    total = product.price.toLocaleString("en")
+    productPrice.innerText = `$${total}`
+    productName.textContent = product.name
+    buttonAddCart = document.createElement("button")
+    buttonAddCart.textContent = "Add to cart"
+    buttonAddCart.classList.add("primary-button" ,"add-to-cart-button")
+    imgaddcart = document.createElement("img")
+    imgaddcart.setAttribute("src","./icons/bt_add_to_cart.svg" )
+    buttonAddCart.appendChild(imgaddcart)
+    buttonAddCart.addEventListener("click",addCart.bind(this,product),false)
+    productInfo.append(productPrice,productName,buttonAddCart)
+    productDetailProduct.append(closeProduct,imgProduct,productInfo)
+    mainContainer.style.zIndex = "-1"
+    
+}
+
+// ASIDE DETAIL ORDER CART INFORMATION MAPPING
+function addCart(product){
+    productPriceTotal.textContent = 0
+    contador += 1
+    numProduct.textContent = contador
+    cart.push(product)
+    totalCuenta.push(product.price)
+    renderOrder()
+}
+
+// RENDER ASIDE DETAIL ORDER CART
+function renderOrder(){
+    varciarCarrito()
+    cart.forEach((product)=>{
+        cardOrder = document.createElement("div")
+        cardOrder.classList.add("shopping-cart",`${product.id}`)
+        figureOrder = document.createElement("figure")
+        imgOrder = document.createElement("img")
+        imgOrder.setAttribute("src",product.image)
+        figureOrder.appendChild(imgOrder)
+        productName = document.createElement("p")
+        productName.textContent = product.name
+        productPrice = document.createElement("p")
+        total = product.price.toLocaleString("en")
+        productPrice.innerText = `$${total}`
+        removeProduct = document.createElement("img")
+        removeProduct.classList.add("remove")
+        removeProduct.setAttribute("src","./icons/icon_close.png")
+        removeProduct.addEventListener("click", removeProductList.bind(this,product),false)
+        cardOrder.append(figureOrder,productName,productPrice,removeProduct)
+        
+        
+        
+        total = totalCuenta.reduce((a,b)=> a + b).toLocaleString("en")
+        productPriceTotal.textContent = `$${total}`
+
+        productOrderContent.appendChild(cardOrder)
+    })
+}
+
+// DELETE FIRST CHILD CART
+function varciarCarrito(){
+    while(productOrderContent.firstChild){
+        productOrderContent.removeChild(productOrderContent.firstChild)
+    }
+}
+
+
+// DELETE ITEM CART
+function removeProductList(product){
+    contador -= 1
+    numProduct.textContent = contador
+    cart = cart.filter(p => p.id != product.id)
+    renderOrder()
+    try{
+        totalCuenta = totalCuenta.filter(p => p != product.price)
+        total = totalCuenta.reduce((a,b)=> a + b).toLocaleString("en")
+        productPriceTotal.textContent = `$${total}`
+        
+        
+    }catch{
+        productPriceTotal.textContent = `$0`
+    }
+    
+}
 
 renderProduct(productList)
 
