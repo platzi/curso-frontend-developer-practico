@@ -82,12 +82,13 @@ productList.push({
 });
 
 function renderProducts(arr) {
-  for (product of arr) {
+  for (let i = 0; i < arr.length; i++) {
+    const element = arr[i];
     const productCard = document.createElement("div");
     productCard.classList.add("product-card");
     const productImg = document.createElement("img");
-    productImg.setAttribute("src", product.image);
-    productImg.addEventListener('click', openProductDetailAside);
+    productImg.setAttribute("src", element.image);
+    productImg.addEventListener('click', () => openProductDetailAside([i]));
 
     const productInfo = document.createElement("div");
     productInfo.classList.add("product-info");
@@ -95,9 +96,9 @@ function renderProducts(arr) {
     const productInfoDiv = document.createElement("div");
 
     const productPrice = document.createElement("div");
-    productPrice.innerText = "$ " + product.price;
+    productPrice.innerText = "$ " + element.price;
     const productName = document.createElement("div");
-    productName.innerText = product.name;
+    productName.innerText = element.name;
     productInfoDiv.appendChild(productPrice);
     productInfoDiv.appendChild(productName);
 
