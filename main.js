@@ -3,7 +3,7 @@ const desktopMenu = document.querySelector('.desktop-menu');
 const navbarMobile = document.querySelector('.menu'); // Imagen en el navbar que despliega el menu en version mobile
 const mobileMenu = document.querySelector('.mobile-menu');
 const navbarShoppingCart = document.querySelector('.navbar-shopping-cart'); // Imagen en el navbar que despliega el carrito de compras.
-const shoppingCart = document.querySelector('.product-detail');
+const shoppingCart = document.querySelector('#shopping-cart');
 const cardsContainer = document.querySelector('.cards-container'); //Para desplegar y setear las tarjetas con informacion de productos dentro de este contenedor
 // Lista de productos, las propiedades de cada uno de ellos son > {name, price, src}
 const products = [
