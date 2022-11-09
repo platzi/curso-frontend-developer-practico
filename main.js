@@ -1,19 +1,25 @@
 //declara y asigna las variables y su valor desde html (clases)
-const menuEmail = document.querySelector('.navbar-email');
-const desktopMenu = document.querySelector('.desktop-menu');
+//iconos
+const menuEmailIcon = document.querySelector('.navbar-email');
 const BurguerIcon = document.querySelector('.menu');
-const mobileMenu = document.querySelector('.mobile-menu');
-const shoppingCar = document.querySelector('.navbar-shopping-cart');
-const shoppingCartContainer = document.querySelector('#shoppingCartContainer');
+const shoppingCarIcon = document.querySelector('.navbar-shopping-cart');
+const productDetailCloseIcon = document.querySelector('.product-detail-close');
 
-//crear las variaables para el html del productlis
+//componentes
+const desktopMenu = document.querySelector('.desktop-menu');
+const mobileMenu = document.querySelector('.mobile-menu');
+const shoppingCartContainer = document.querySelector('#shoppingCartContainer');
+//para recibir el selector del producto
+const productDetailContainer = document.querySelector('#productDetail');
+
+//crear las variaables para el html del productlist
 const cardsContainer = document.querySelector('.cards-container');
 
 //Escucha el evento "click" y ejecuta la funcion como 2do parametro
-
-menuEmail.addEventListener('click', toggleDesktopMenu);
+menuEmailIcon.addEventListener('click', toggleDesktopMenu);
 BurguerIcon.addEventListener('click', toggleMobileMenu);
-shoppingCar.addEventListener('click', toggleAsideCart);
+shoppingCarIcon.addEventListener('click', toggleAsideCart);
+productDetailCloseIcon.addEventListener('click', closedProductDetailAside); //funcion para cerrar el aside con el icon "X"
 
 //crea las funciones para mostrar en el DOM
 function toggleDesktopMenu() {
@@ -21,7 +27,8 @@ function toggleDesktopMenu() {
     const asideCartClose = shoppingCartContainer.classList.contains('inactive');
     if(!asideCartClose){
         shoppingCartContainer.classList.add('inactive');
-    }    
+    }
+
     desktopMenu.classList.toggle('inactive');
 }
 
@@ -31,7 +38,9 @@ function toggleMobileMenu(){
         shoppingCartContainer.classList.add('inactive');
     }    
 
-    mobileMenu.classList.toggle('inactive')
+    mobileMenu.classList.toggle('inactive');
+
+    closedProductDetailAside(); //siempre que abra el menu mobile, cerrara el productDetail
 }
 
 function toggleAsideCart(){
@@ -43,8 +52,25 @@ function toggleAsideCart(){
     } else if(!isdesktopMenuClose) {
         desktopMenu.classList.add('inactive')
     }
+    
+    const isProductDetailClosed = productDetailContainer.classList.contains('inactive');
+    
+    if(!isProductDetailClosed){
+        productDetailContainer.classList.add('inactive')
+    }
+
     shoppingCartContainer.classList.toggle('inactive')
     
+}
+
+function openProductDetailAside() {
+    shoppingCartContainer.classList.add('inactive')
+    
+    productDetailContainer.classList.remove('inactive')
+}
+
+function closedProductDetailAside(){
+    productDetailContainer.classList.add('inactive')
 }
 
 //agregamos la lista de productos a un array vacio llamado productList
@@ -87,8 +113,11 @@ function renderProducts(array) {
         const productCard = document.createElement('div');
         productCard.classList.add("product-card");
 
+        //product = {name, price, img} 
         const productImg = document.createElement('img');
         productImg.setAttribute('src', product.img);
+        //abrir el Aside del product Detail con el evento click 
+        productImg.addEventListener('click', openProductDetailAside);
 
         const productInfo = document.createElement('div');
         productInfo.classList.add("product-info");
