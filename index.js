@@ -1,22 +1,29 @@
-console.log('connected');
-
 // get elements of the html.
 const mailButton = document.getElementById('email');
 const AccountMenu = document.getElementById('accountmenu');
 const hamMenu = document.getElementById('hamMenu');
 const mobileMenu = document.getElementById('mobileMenu');
-const shoppingCart = document.getElementById('shoppingCart')
+const shoppingCart = document.getElementById('shoppingCart');
 const asideMen = document.getElementById('carAside');
 const cardsContainer = document.getElementById('Container-cards');
+const detailsAside = document.getElementById('detailAside');
+const detailClose = document.getElementById('detailAside-close')
 
 //create events listeners
 mailButton.addEventListener('click', toggleMenu);
 hamMenu.addEventListener('click', toggleMobile);
 shoppingCart.addEventListener('click', toggleShoppingCart);
+detailClose.addEventListener('click', closeDescription);
 
 //create functions.
 function toggleMenu() {
     let isAsideMenuClose = asideMen.classList.contains('inactive')
+    let isDetailAsideClose = detailsAside.classList.contains('inactive');
+
+    if (!isDetailAsideClose) {
+        closeDescription();
+    }
+    
     if (!isAsideMenuClose) {
         asideMen.classList.toggle('inactive');
     }
@@ -35,6 +42,11 @@ function toggleMobile() {
 function toggleShoppingCart() {
     let isMobileMenuClose = mobileMenu.classList.contains('inactive');
     let isDesktopMenuClose = AccountMenu.classList.contains('inactive');
+    let isDetailAsideClose = detailsAside.classList.contains('inactive');
+
+    if (!isDetailAsideClose) {
+        closeDescription();
+    }
 
     if (!isDesktopMenuClose) {
         AccountMenu.classList.toggle('inactive');
@@ -45,6 +57,24 @@ function toggleShoppingCart() {
     }
     asideMen.classList.toggle('inactive');
 }
+
+function deployDescription() {
+    let isDesktopMenuClose = AccountMenu.classList.contains('inactive');
+    let isShoppingCarClose = asideMen.classList.contains('inactive');
+    if (!isDesktopMenuClose) {
+        AccountMenu.classList.toggle('inactive');
+    }
+
+    if (!isShoppingCarClose) {
+        asideMen.classList.toggle('inactive');
+    }
+    detailsAside.classList.remove('inactive');
+}
+
+function closeDescription() {
+    detailsAside.classList.add('inactive')
+}
+
 
 productsApi = [];
 
@@ -76,6 +106,8 @@ for (product of productsApi) {
 
     let imageContent = document.createElement('img');
     imageContent.setAttribute('src', product.image);
+    imageContent.addEventListener('click', deployDescription);
+    imageContent.classList.add('productImage')
     productCar.appendChild(imageContent);
 
     let ProductInfo = document.createElement('div');

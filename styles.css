@@ -252,6 +252,9 @@ nav {
     gap: 26px;
     place-content: center;
 }
+.productImage {
+    cursor: pointer;
+}
 .product-card {
     width: 240px;
 }
@@ -318,6 +321,8 @@ nav {
     padding: 12px;
     border-radius: 50%;
 }
+
+
 #detailAside-close:hover {
     cursor: pointer;
 }
