@@ -129,6 +129,7 @@
     left: 0; 
     width: 100%; 
     height: 100%;
+    
   }
   .mobile-menu a {
     text-decoration: none;
@@ -171,6 +172,9 @@
 .product-detail-close:hover {
   cursor: pointer;
 }
+#productDetail{
+  background: #ffff; 
+}
 #productDetail > img:nth-child(2) {
   width: 100%;
   height: 360px;
@@ -185,6 +189,7 @@
   font-size: var(--md);
   margin-top: 0;
   margin-bottom: 4px;
+  padding-left: 10px;
 }
 .product-card .product-info p:nth-child(2) {
   color: var(--very-light-pink);
@@ -216,7 +221,9 @@
 }
  
 #shoppingCartContainer{
-  padding: 0 24px; 
+  padding: 5px 24px; 
+  background: #ffff;
+  border-radius: 10px; 
 }
 
 /* Carrito de compras */

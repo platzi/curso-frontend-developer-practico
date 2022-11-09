@@ -10,38 +10,12 @@ window.addEventListener('load',()=>{
     const shoppingCartContainer = document.querySelector('#shoppingCartContainer'); 
     const car = document.querySelector('.navbar-shopping-cart');
     const cards = document.querySelector('.cards-container'); 
-
-    // Instrucciones;
-    menu.addEventListener('click',()=>{
-        // Cada vez que se le da click, agrega o quita la clase inactive; 
-        desktop_menu.classList.toggle('inactive'); 
-
-        // Condición con operador ternario; 
-        !shoppingCartContainer.classList.contains('inactive') ? shoppingCartContainer.classList.add('inactive') : 0;
-        !mobile_menu.classList.contains('inactive') ? mobile_menu.classList.add('inactive') : 0; 
-    })
-    
-
-    IconBurguer.addEventListener('click',()=>{
-        mobile_menu.classList.toggle('inactive'); 
-
-        // Condición con operador ternario; 
-        !shoppingCartContainer.classList.contains('inactive') ? shoppingCartContainer.classList.add('inactive') : 0;
-        !desktop_menu.classList.contains('inactive') ? desktop_menu.classList.add('inactive') : 0; 
-    }); 
-
-    car.addEventListener('click',()=>{
-        shoppingCartContainer.classList.toggle('inactive');
-
-        // Condición con operador ternario; 
-        !desktop_menu.classList.contains('inactive') ? desktop_menu.classList.add('inactive') : 0; 
-        !mobile_menu.classList.contains('inactive') ? mobile_menu.classList.add('inactive') : 0; 
-    });
-
-
-    // Para la lista de productos; 
+    const productDetail = document.querySelector('#productDetail'); 
+    const productDetailClose = document.querySelector('.product-detail-close');
+    const imageDetail = document.querySelector('#imageDetail'); 
     const productList = []; 
 
+    // Objetos; 
     productList.push({
         name:'Bike',
         price: 12700,
@@ -88,10 +62,41 @@ window.addEventListener('load',()=>{
         image: 'https://m.media-amazon.com/images/I/81k2Gmal+VL._AC_SL1500_.jpg'
     }); 
 
-    // Tengo como tarea, reducir cada uno de los objetos anteriores a uno solo; 
+
+    // Instrucciones;
+    // Añadir clase inactive; 
+    menu.addEventListener('click',()=>{
+        // Cada vez que se le da click, agrega o quita la clase inactive; 
+        desktop_menu.classList.toggle('inactive'); 
+
+        // Condición con operador ternario; 
+        !shoppingCartContainer.classList.contains('inactive') ? shoppingCartContainer.classList.add('inactive') : 0;
+        !mobile_menu.classList.contains('inactive') ? mobile_menu.classList.add('inactive') : 0; 
+    })
+    
+
+    IconBurguer.addEventListener('click',()=>{
+        mobile_menu.classList.toggle('inactive'); 
+
+        // Condición con operador ternario; 
+        !shoppingCartContainer.classList.contains('inactive') ? shoppingCartContainer.classList.add('inactive') : 0;
+        !desktop_menu.classList.contains('inactive') ? desktop_menu.classList.add('inactive') : 0; 
+        !productDetail.classList.contains('inactive') ? productDetail.classList.add('inactive') : 0; 
+    }); 
+
+    car.addEventListener('click',()=>{
+        shoppingCartContainer.classList.toggle('inactive');
+
+        // Condición con operador ternario; 
+        !desktop_menu.classList.contains('inactive') ? desktop_menu.classList.add('inactive') : 0; 
+        !mobile_menu.classList.contains('inactive') ? mobile_menu.classList.add('inactive') : 0; 
+        !productDetail.classList.contains('inactive') ? productDetail.classList.add('inactive') : 0; 
+    });
+
 
     let ProductListCard = (ListaProductos)=>{
         for(let product of ListaProductos){
+
             // Delcaración e inicialización de variables; 
             let productCard = document.createElement('div'); 
             let image = document.createElement('img'); 
@@ -109,7 +114,14 @@ window.addEventListener('load',()=>{
             price.innerText = product.price; 
             name.innerText = product.name;
             littleCar.setAttribute('src', './icons/bt_add_to_cart.svg'); 
+            productDetail.classList.add('inactive'); 
     
+            // Eventos
+            image.addEventListener('click',()=>{
+                imageDetail.setAttribute('src',product.image)
+                Opendetails();  
+            }); 
+
             // Inserciones; 
             figure.append(littleCar); 
             card.append(information,figure); // Terciario; 
@@ -117,11 +129,37 @@ window.addEventListener('load',()=>{
             productCard.append(image,card); // Secundario; 
     
             cards.append(productCard); // Primario
+
+            image.addEventListener('click',()=>{
+                Opendetails();  
+            }); 
         }
     }
 
     ProductListCard(productList); 
      
+    // Para abrir los detalles del producto; 
+    let Opendetails = ()=>{
+        // Abrir el contenedor de los detalles de cada producto; 
+        productDetail.classList.remove('inactive');
 
+        // Cerrar el carrito de compras; 
+        shoppingCartContainer.classList.add('inactive');
+
+        //Cerrar el menú mobile; 
+        mobile_menu.classList.add('inactive');
+    }
+    
+    let cerrar = ()=>{
+    //Para cerrar los detalles del producto; 
+        productDetail.classList.add('inactive'); 
+    };
+
+    productDetailClose.addEventListener('click',()=>{
+        cerrar(); 
+    }); 
+
+
+ 
 }); 
 
