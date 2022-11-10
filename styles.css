@@ -9,14 +9,11 @@
     --md: 16px;
     --lg: 18px;
   }
-  * {
-    margin: 0;
-    padding: 0;
-    box-sizing: border-box;
-  }
+  
   body {
     margin: 0;
     font-family: 'Quicksand', sans-serif;
+    box-sizing: border-box;
   }
 
   .inactive {
@@ -262,6 +259,7 @@
   z-index: 2;
   padding: 12px;
   border-radius: 50%;
+  box-sizing: content-box;
 }
 .product-detail-close:hover {
   cursor: pointer;
@@ -366,8 +364,8 @@
     }
     .mobile-menu,
     .product-detail {
-      width: 100%;
-      height: 100%;
+      width: -webkit-fill-available;
+      height: -webkit-fill-available;
       background-color: var(--white);
     }
     .cards-container {
