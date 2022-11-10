@@ -1,6 +1,11 @@
-const user_btn = document.querySelector('.navbar-email')
-const user_options = document.querySelector('.desktop-menu')
+const menuEmailBtn = document.querySelector('.navbar-email')
+const menuEmailBox = document.querySelector('.desktop-menu')
+const menuMobileBtn = document.querySelector('.menu')
+const menuMobileBox = document.querySelector('.mobile-menu')
 
-user_btn.addEventListener('click', ()=>{
-    user_options.classList.toggle('inactive')
+menuEmailBtn.addEventListener('click', ()=>{
+    menuEmailBox.classList.toggle('inactive')
+})
+menuMobileBtn.addEventListener('click', ()=>{
+    menuMobileBox.classList.toggle('inactive')
 })
