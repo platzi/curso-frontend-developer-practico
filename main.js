@@ -5,7 +5,7 @@ const hamb_menu = document.querySelector(".menu");
 const mobileMenu = document.querySelector(".mobile-menu")
 
 const icon_carrito = document.querySelector(".navbar-shopping-cart");
-const aside = document.querySelector(".product-detail")
+const shoppingCartContainer = document.querySelector('#shoppingCartContainer')
 
 const cardsContainer = document.querySelector('.cards-container');
 
@@ -19,10 +19,10 @@ function toogleDesktopMenu(){
 
 function toogleMobileMenu(){
 
-    const isAsideClose = aside.classList.contains('inactive')
+    const isshoppingCartContainerClose = shoppingCartContainer.classList.contains('inactive')
 
-    if (!isAsideClose){
-        aside.classList.add('inactive')
+    if (!isshoppingCartContainerClose){
+        shoppingCartContainer.classList.add('inactive')
     }
 
     
@@ -39,7 +39,7 @@ function toogleCarrito(){
         mobileMenu.classList.add('inactive')
     }
 
-    aside.classList.toggle("inactive");
+    shoppingCartContainer.classList.toggle("inactive");
     
     
 }
