@@ -77,13 +77,13 @@ productList.push({
 productList.push({
     name: 'Laptop',
     price: 750,
-    image: 'https://images.pexels.com/photos/276517/pexels-photo-276517.jpeg?auto=compress&cs=tinysrgb&dpr=2&h=650&w=940',
+    image: 'https://images.pexels.com/photos/246340/pexels-photo-246340.jpeg?auto=compress&cs=tinysrgb&w=1260&h=750&dpr=1',
 });
 
 productList.push({
-    name: 'Xbox one',
+    name: 'Xbox one series S',
     price: 350,
-    image: 'https://images.pexels.com/photos/276517/pexels-photo-276517.jpeg?auto=compress&cs=tinysrgb&dpr=2&h=650&w=940',
+    image: 'https://images.pexels.com/photos/12410982/pexels-photo-12410982.jpeg?auto=compress&cs=tinysrgb&w=1260&h=750&dpr=1',
 });
 
 productList.push({
@@ -93,9 +93,9 @@ productList.push({
 });
 
 productList.push({
-    name: 'Control Xbox',
+    name: 'Control Xbox one',
     price: 100,
-    image: 'https://images.pexels.com/photos/276517/pexels-photo-276517.jpeg?auto=compress&cs=tinysrgb&dpr=2&h=650&w=940',
+    image: 'https://images.pexels.com/photos/2106216/pexels-photo-2106216.jpeg?auto=compress&cs=tinysrgb&w=1260&h=750&dpr=1',
 });
 
 
