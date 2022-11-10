@@ -3,12 +3,15 @@ const desktopMenu = document.querySelector(".desktop-menu");
 const menuHamIcon = document.querySelector(".menu");
 const mobileMenu = document.querySelector(".mobile-menu");
 const menuCarritoIcon = document.querySelector(".navbar-shopping-cart");
+const productDetailCloseIcon = document.querySelector('.product-detail-close');
 const shoppingCardContainer = document.querySelector("#shoppingCardContainer");
+const productDetailContainer = document.querySelector("#productDetail");
 const cardsContainer = document.querySelector('.cards-container')
 
 menuEmail.addEventListener("click", toggleDesktopMenu);
 menuHamIcon.addEventListener("click", toggleMobileMenu);
 menuCarritoIcon.addEventListener("click", toggleCarritoAside);
+productDetailCloseIcon.addEventListener('click', closeProductDetailAside);
 
 function toggleDesktopMenu(){
     const isAsideClose = shoppingCardContainer.classList.contains('inactive');
@@ -26,6 +29,9 @@ function toggleMobileMenu(){
     if(!isAsideClose){
         shoppingCardContainer.classList.add("inactive");
     }
+
+    closeProductDetailAside();
+
     mobileMenu.classList.toggle("inactive");
 }
 
@@ -36,12 +42,28 @@ function toggleCarritoAside(){
         mobileMenu.classList.add("inactive");
     }
 
+    const isProductDetailClose = productDetailContainer.classList.contains('inactive');
+
+    if(!isProductDetailClose){
+        productDetailContainer.classList.add("inactive");
+    }
+
     shoppingCardContainer.classList.toggle("inactive");
+
 
 }
 
-const productList = [];
+function openProductDetailAside(){
+    shoppingCardContainer.classList.add('inactive');
+    productDetailContainer.classList.remove('inactive');
+}
 
+function closeProductDetailAside(){
+    productDetailContainer.classList.add('inactive');
+}
+
+
+const productList = [];
 productList.push({
     name: 'Muscletech Gold Whey',
     price: 580.00,
@@ -79,7 +101,8 @@ function renderProducts(arr){
         productCard.classList.add('product-card');
     
         const productImg = document.createElement('img');
-        productImg.setAttribute('src', product.image)
+        productImg.setAttribute('src', product.image);
+        productImg.addEventListener('click', openProductDetailAside);
     
         const productInfo = document.createElement('div');
         productInfo.classList.add('product-info');
