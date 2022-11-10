@@ -46,7 +46,80 @@ function closeProductDetailAsai() {
 
 
 
-const productList = [];
+const productList = [
+        {
+            name: "Gafas de marco negro",
+            price: 25,
+            image: "https://images.pexels.com/photos/131018/pexels-photo-131018.jpeg?auto=compress&cs=tinysrgb&w=1260&h=750&dpr=1"
+
+        },
+        {
+            name: "Gafas de marco marrón",
+            price: 30,
+            image: "https://images.pexels.com/photos/39716/pexels-photo-39716.jpeg?auto=compress&cs=tinysrgb&w=1260&h=750&dpr=1"
+
+        },
+        {
+            name: "Diferentes tipos de gafas",
+            price: 20,
+            image: "https://images.pexels.com/photos/4226880/pexels-photo-4226880.jpeg?auto=compress&cs=tinysrgb&w=1260&h=750&dpr=1"
+
+        },
+        {
+            name: "Zapatos elegantes",
+            price: 120,
+            image: "https://images.pexels.com/photos/267320/pexels-photo-267320.jpeg?auto=compress&cs=tinysrgb&w=1260&h=750&dpr=1"
+
+        },
+        {
+            name: "Zapatos converse",
+            price: 200,
+            image: "https://images.pexels.com/photos/267202/pexels-photo-267202.jpeg?auto=compress&cs=tinysrgb&w=1260&h=750&dpr=1"
+
+        },
+        {
+            name: "Tacones",
+            price: 150,
+            image: "https://images.pexels.com/photos/134064/pexels-photo-134064.jpeg?auto=compress&cs=tinysrgb&w=1260&h=750&dpr=1"
+
+        },
+        {
+            name: "Cámara canon con tripode",
+            price:400,
+            image: "https://images.pexels.com/photos/1787235/pexels-photo-1787235.jpeg?auto=compress&cs=tinysrgb&w=1260&h=750&dpr=1"
+
+        },
+        {
+            name: "Accesorios para cámara",
+            price: 200,
+            image: "https://images.pexels.com/photos/821749/pexels-photo-821749.jpeg?auto=compress&cs=tinysrgb&w=1260&h=750&dpr=1"
+
+        },
+        {
+            name: "Cámara canon",
+            price: 300,
+            image: "https://images.pexels.com/photos/274973/pexels-photo-274973.jpeg?auto=compress&cs=tinysrgb&w=1260&h=750&dpr=1"
+
+        },
+        {
+            name: "Accesorios para viaje",
+            price: 500,
+            image: "https://images.pexels.com/photos/821750/pexels-photo-821750.jpeg?auto=compress&cs=tinysrgb&w=1260&h=750&dpr=1"
+
+        },
+        {
+            name: "Accesorios para video",
+            price: 1700,
+            image: "https://images.pexels.com/photos/306763/pexels-photo-306763.jpeg?auto=compress&cs=tinysrgb&w=1260&h=750&dpr=1"
+
+        },
+        {
+            name: "lentes de cámara",
+            price: 300,
+            image: "https://images.pexels.com/photos/326316/pexels-photo-326316.jpeg?auto=compress&cs=tinysrgb&w=1260&h=750&dpr=1"
+
+        }
+];
 productList.push({
     name: "bike",
     price: 120,
@@ -55,12 +128,12 @@ productList.push({
 productList.push({
     name: "pantalla",
     price: 220,
-    image: "https://images.pexels.com/photos/276517/pexels-photo-276517.jpeg?auto=compress&cs=tinysrgb&dpr=2&h=650&w=940"
+    image: "https://images.pexels.com/photos/1029757/pexels-photo-1029757.jpeg?auto=compress&cs=tinysrgb&w=600"
 })
 productList.push({
     name: "laptop",
     price: 820,
-    image: "https://images.pexels.com/photos/276517/pexels-photo-276517.jpeg?auto=compress&cs=tinysrgb&dpr=2&h=650&w=940"
+    image: "https://images.pexels.com/photos/1229861/pexels-photo-1229861.jpeg?auto=compress&cs=tinysrgb&w=600"
 });
 
 
