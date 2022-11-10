@@ -163,7 +163,7 @@
   .product-detail {
     width: 360px;
     padding: 0 24px;
-    /* background-color: var(--white); */
+    background-color: var(--white);
     box-sizing: border-box;
     position: absolute;
     right: 0;
