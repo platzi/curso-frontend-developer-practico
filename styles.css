@@ -248,7 +248,7 @@
   width: 360px;
   padding: 12px;
   padding-bottom: 24px;
-  position: absolute;
+  position: fixed;
   right: 0;
   background-color: var(--white);
 }
@@ -327,7 +327,7 @@
   border: 1px solid transparent;
 }
 .product-card:hover {
-  border: 1px solid #35454c57;
+  border: 1px solid var(--hospital-green);
   border-radius: 8px;
 }
 .product-card img {
@@ -400,5 +400,9 @@
   @media (min-width: 641px) {
     .mobile-menu{
       display: none;
+    }
+    .product-detail-individual {
+      left: 50%;
+      margin-left: -180px;
     }
   }

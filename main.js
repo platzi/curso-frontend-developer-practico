@@ -3,6 +3,7 @@ const desktopMenu = document.querySelector('.desktop-menu');
 const menuHamIcon = document.querySelector('.menu');
 const mobileMenu = document.querySelector('.mobile-menu');
 const carIcon = document.querySelector('.navbar-shopping-cart');
+const numberOfItems = document.querySelector('.navbar-shopping-cart div'); // se debe poner en el recuadro el numero de items seleccionados hasta el momento (medir el length del aside product detail)
 const productDetailCloseIcon = document.querySelector('.product-detail-close');
 const aside = document.querySelector('.product-detail');
 const cardsContainer = document.querySelector('.cards-container');
@@ -43,6 +44,10 @@ function openProductDetailAsai() {
 function closeProductDetailAsai() {
     productDetailInd.classList.add('inactive');
 }
+
+function addToCart () {
+    console.log(addToCartImage.closest(".product-info"));
+};
 
 
 
@@ -177,3 +182,13 @@ function renderProducts(arr) {
 };
 
 renderProducts(productList);
+
+carList = [];
+
+
+
+// No sé si hay alguna solución para no tener que definir esta variable abajo
+const addToCartImages = document.querySelectorAll('.product-info figure img');
+for (addToCartImage of addToCartImages) {
+    addToCartImage.addEventListener('click', addToCart);
+};
