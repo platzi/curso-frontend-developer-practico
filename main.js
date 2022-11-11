@@ -15,7 +15,7 @@ burgerMenu.addEventListener("click", toggleMobileMenu);
 menuCarIcon.addEventListener("click", toggleCarAside);
 productDetailCloseIcon.addEventListener("click", closeProductDetail);
 
-//mostrar y ocultar paneles
+// mostrar y ocultar paneles
 function toggleDesktopMenu() {
     closeOtherPanel(shoppingcartcotainer);
     closeOtherPanel(productDetailContainer);
@@ -78,10 +78,10 @@ productList.push({
 function renderProducts(array) {
     for (product of array) {
         const productCard = document.createElement("div");
+        productCard.id = product.id;
         productCard.classList.add("product-card");
 
         const productImg = document.createElement("img");
-        productImg.id = product.id;
         productImg.setAttribute("src", product.image);
         productImg.addEventListener("click", openProductDetail);
         productImg.addEventListener("click", () =>
@@ -94,7 +94,7 @@ function renderProducts(array) {
         const productInfoDiv = document.createElement("div");
 
         const productPrice = document.createElement("p");
-        productPrice.innerText = "$" + product.price;
+        productPrice.innerText = "$" + product.price + ",00";
         const productName = document.createElement("p");
         productName.innerText = product.name;
 
@@ -116,19 +116,17 @@ function renderProducts(array) {
 
 renderProducts(productList);
 
-// incertar contenido a product detail segun producto
+// product detail
+// incertar contenido a product detail segun producto clikeado
 const productDetail_img = document.getElementById("product-detail-img");
 const productDetail_price = document.getElementById("product-detail-price");
 const productDetail_name = document.getElementById("product-detail-name");
 
-console.log(productDetail_img, productDetail_price, productDetail_name);
-
 function insertContentToProductDetail(element) {
-    let idIndex = element.id.split("_");
+    let idIndex = element.parentNode.id.split("_");
 
     switch (idIndex[0]) {
         case "productList":
-            //console.log(productList[idIndex[1]]);
             changeProductDeatail(productList, idIndex[1]);
             break;
         case "productsR":
@@ -146,10 +144,15 @@ function insertContentToProductDetail(element) {
         productDetail_name.textContent = arrayI.name;
     }
 
-    //console.log(idIndex);
+    //console.log(element.parentNode.id);
 }
 
-//#region Random products
+// Shopping car list
+// añadir productos a la lista con el botón de la card o el product detail
+// en la lista aparece específicamente el producto añadido y el total del precio de todos
+// y el número de la notificación del carrito cambia según la cantidad de productos
+
+// Random products
 // funcion de elementos aleatorios sin mucho sentido (no hace parte del curso)
 let productsR = [];
 
