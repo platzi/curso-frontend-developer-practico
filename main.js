@@ -5,39 +5,39 @@ const menuHamIcon= document.querySelector('.menu');
 const mobileMenu = document.querySelector('.mobile-menu');
 
 const menuCarritoIcon= document.querySelector('.navbar-shopping-cart');
-const aside = document.querySelector('.product-detail');
+const shoppingCartContainer = document.querySelector('#shoppingCartContainer');
 
 const cardsContainer = document.querySelector('.cards-container');
 
 menuEmail.addEventListener('click', toggleDesktopMenu);
 menuHamIcon.addEventListener('click', toggleMobileMenu);
-menuCarritoIcon.addEventListener('click', toggleCarritoAside);
+menuCarritoIcon.addEventListener('click', toggleCarritoshoppingCartContainer);
 
 //Cada vez que le den click al correo de arriba a la derecha,
 //esta funcion hara un toggle
 function toggleDesktopMenu() {
-    const isAsideClosed = aside.classList.contains('inactive');
+    const isShoppingCartContainerClosed = shoppingCartContainer.classList.contains('inactive');
 
-    if(!isAsideClosed) {
-        //Si esta abierto el aside, cerrarlo
-        aside.classList.add('inactive')
+    if(!isShoppingCartContainerClosed) {
+        //Si esta abierto el shoppingCartContainer, cerrarlo
+        shoppingCartContainer.classList.add('inactive')
     };
 
     desktopMenu.classList.toggle('inactive');
 };
 
 function toggleMobileMenu() {
-    const isAsideClosed = aside.classList.contains('inactive');
+    const isShoppingCartContainerClosed = shoppingCartContainer.classList.contains('inactive');
 
-    if(!isAsideClosed) {
-        //Si esta abierto el aside, cerrarlo
-        aside.classList.add('inactive')
+    if(!isShoppingCartContainerClosed) {
+        //Si esta abierto el shoppingCartContainer, cerrarlo
+        shoppingCartContainer.classList.add('inactive')
     };
 
     mobileMenu.classList.toggle('inactive');
 };
 
-function toggleCarritoAside() {
+function toggleCarritoshoppingCartContainer() {
     const isMobileMenuClosed = mobileMenu.classList.contains('inactive');
     const isDesktopMenuClosed = desktopMenu.classList.contains('inactive');
 
@@ -47,11 +47,11 @@ function toggleCarritoAside() {
     };
 
     if(!isDesktopMenuClosed) {
-        //Si esta abierto el aside, cerrarlo
+        //Si esta abierto el shoppingCartContainer, cerrarlo
         desktopMenu.classList.add('inactive')
     };
 
-    aside.classList.toggle('inactive');
+    shoppingCartContainer.classList.toggle('inactive');
 };
 
 const productList = [];
@@ -71,7 +71,7 @@ productList.push({
     image: "https://m.media-amazon.com/images/I/51edUAatM4L.jpg"
 });
 
-
+// Crea la estrucura original del html de la clase 6
 function renderProducts(arr){
     for (product of arr) {
         const productCard = document.createElement('div');
