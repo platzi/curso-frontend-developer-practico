@@ -15,30 +15,31 @@ burgerMenu.addEventListener("click", toggleMobileMenu);
 menuCarIcon.addEventListener("click", toggleCarAside);
 productDetailCloseIcon.addEventListener("click", closeProductDetail);
 
+//mostrar y ocultar paneles
 function toggleDesktopMenu() {
-    closeOthermenu(shoppingcartcotainer);
-    closeOthermenu(productDetailContainer);
+    closeOtherPanel(shoppingcartcotainer);
+    closeOtherPanel(productDetailContainer);
 
     desktopMenu.classList.toggle("inactive");
 }
 
 function toggleMobileMenu() {
-    closeOthermenu(shoppingcartcotainer);
-    closeOthermenu(productDetailContainer);
+    closeOtherPanel(shoppingcartcotainer);
+    closeOtherPanel(productDetailContainer);
 
     mobileMenu.classList.toggle("inactive");
 }
 
 function toggleCarAside() {
-    closeOthermenu(desktopMenu);
-    closeOthermenu(mobileMenu);
-    closeOthermenu(productDetailContainer);
+    closeOtherPanel(desktopMenu);
+    closeOtherPanel(mobileMenu);
+    closeOtherPanel(productDetailContainer);
 
     shoppingcartcotainer.classList.toggle("inactive");
 }
 
 function openProductDetail() {
-    closeOthermenu(shoppingcartcotainer);
+    closeOtherPanel(shoppingcartcotainer);
 
     productDetailContainer.classList.remove("inactive");
 }
@@ -47,7 +48,7 @@ function closeProductDetail() {
     productDetailContainer.classList.add("inactive");
 }
 
-function closeOthermenu(menu) {
+function closeOtherPanel(menu) {
     if (!menu.classList.contains("inactive")) {
         menu.classList.add("inactive");
     }
@@ -56,16 +57,19 @@ function closeOthermenu(menu) {
 // product cards
 const productList = [];
 productList.push({
+    id: "productList_0",
     name: "bike",
     price: 120,
     image: "https://images.pexels.com/photos/276517/pexels-photo-276517.jpeg?auto=compress&cs=tinysrgb&dpr=2&h=650&w=940",
 });
 productList.push({
+    id: "productList_1",
     name: "pantalla",
     price: 120,
     image: "https://images.pexels.com/photos/704555/pexels-photo-704555.jpeg?auto=compress&cs=tinysrgb&w=1260&h=750&dpr=1",
 });
 productList.push({
+    id: "productList_2",
     name: "compu",
     price: 620,
     image: "https://images.pexels.com/photos/777001/pexels-photo-777001.jpeg?auto=compress&cs=tinysrgb&w=1260&h=750&dpr=1",
@@ -77,8 +81,12 @@ function renderProducts(array) {
         productCard.classList.add("product-card");
 
         const productImg = document.createElement("img");
+        productImg.id = product.id;
         productImg.setAttribute("src", product.image);
         productImg.addEventListener("click", openProductDetail);
+        productImg.addEventListener("click", () =>
+            insertContentToProductDetail(productImg)
+        );
 
         const productInfo = document.createElement("div");
         productInfo.classList.add("product-info");
@@ -108,7 +116,43 @@ function renderProducts(array) {
 
 renderProducts(productList);
 
+// incertar contenido a product detail segun producto
+const productDetail_img = document.getElementById("product-detail-img");
+const productDetail_price = document.getElementById("product-detail-price");
+const productDetail_name = document.getElementById("product-detail-name");
+
+console.log(productDetail_img, productDetail_price, productDetail_name);
+
+function insertContentToProductDetail(element) {
+    let idIndex = element.id.split("_");
+
+    switch (idIndex[0]) {
+        case "productList":
+            //console.log(productList[idIndex[1]]);
+            changeProductDeatail(productList, idIndex[1]);
+            break;
+        case "productsR":
+            changeProductDeatail(productsR, idIndex[1]);
+            break;
+    }
+
+    function changeProductDeatail(array, i) {
+        arrayI = array[i];
+
+        productDetail_img.setAttribute("src", arrayI.image);
+        productDetail_img.setAttribute("alt", arrayI.name);
+
+        productDetail_price.textContent = "$" + arrayI.price + ",00";
+        productDetail_name.textContent = arrayI.name;
+    }
+
+    //console.log(idIndex);
+}
+
+//#region Random products
 // funcion de elementos aleatorios sin mucho sentido (no hace parte del curso)
+let productsR = [];
+
 const nameAlpha = [
     "tv",
     "trash bag",
@@ -136,16 +180,14 @@ const imageAlpha = [
 ];
 
 function ramdomProducts(numProducts = 0) {
-    let productsR = [];
     for (let index = 0; index < numProducts; index++) {
         productsR.push({
+            id: "productsR_" + index,
             name: nameAlpha[getRandomInt(0, nameAlpha.length)],
             price: getRandomInt(50, 5000),
             image: imageAlpha[getRandomInt(0, imageAlpha.length)],
         });
     }
-
-    return productsR;
 }
 
 function getRandomInt(min, max) {
@@ -153,5 +195,7 @@ function getRandomInt(min, max) {
     max = Math.floor(max);
     return Math.floor(Math.random() * (max - min) + min);
 }
+ramdomProducts(17);
 
-renderProducts(ramdomProducts(17));
+renderProducts(productsR);
+//#region
