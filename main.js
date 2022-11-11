@@ -103,6 +103,9 @@ function renderProducts(array) {
         const productInfoFigure = document.createElement("figure");
         const productImageCart = document.createElement("img");
         productImageCart.setAttribute("src", "./icons/bt_add_to_cart.svg");
+        productImageCart.addEventListener("click", () =>
+            addProductToCart(productImageCart)
+        );
 
         productInfoFigure.append(productImageCart);
 
@@ -114,37 +117,22 @@ function renderProducts(array) {
     }
 }
 
-renderProducts(productList);
-
 // product detail
 // incertar contenido a product detail segun producto clikeado
 const productDetail_img = document.getElementById("product-detail-img");
 const productDetail_price = document.getElementById("product-detail-price");
 const productDetail_name = document.getElementById("product-detail-name");
 
+let idIndex = new Array();
+
 function insertContentToProductDetail(element) {
-    let idIndex = element.parentNode.id.split("_");
+    idIndex = element.parentNode.id.split("_")[1];
 
-    switch (idIndex[0]) {
-        case "productList":
-            changeProductDeatail(productList, idIndex[1]);
-            break;
-        case "productsR":
-            changeProductDeatail(productsR, idIndex[1]);
-            break;
-    }
+    productDetail_img.setAttribute("src", productList[idIndex].image);
+    productDetail_img.setAttribute("alt", productList[idIndex].name);
 
-    function changeProductDeatail(array, i) {
-        arrayI = array[i];
-
-        productDetail_img.setAttribute("src", arrayI.image);
-        productDetail_img.setAttribute("alt", arrayI.name);
-
-        productDetail_price.textContent = "$" + arrayI.price + ",00";
-        productDetail_name.textContent = arrayI.name;
-    }
-
-    //console.log(element.parentNode.id);
+    productDetail_price.textContent = "$" + productList[idIndex].price + ",00";
+    productDetail_name.textContent = productList[idIndex].name;
 }
 
 // Shopping car list
@@ -152,9 +140,24 @@ function insertContentToProductDetail(element) {
 // en la lista aparece específicamente el producto añadido y el total del precio de todos
 // y el número de la notificación del carrito cambia según la cantidad de productos
 
+const productDetail_botton = document.getElementById("product-detail-button");
+productDetail_botton.addEventListener("click", () => addProductToCart());
+
+let shoppingCartList = new Array();
+
+function addProductToCart(element = null) {
+    if (element === null) {
+        shoppingCartList.push(productList[idIndex]);
+    } else {
+        element = element.parentNode.parentNode.parentNode.id.split("_")[1];
+        shoppingCartList.push(productList[element]);
+        console.log(element);
+    }
+    console.log(shoppingCartList);
+}
+
 // Random products
 // funcion de elementos aleatorios sin mucho sentido (no hace parte del curso)
-let productsR = [];
 
 const nameAlpha = [
     "tv",
@@ -182,10 +185,10 @@ const imageAlpha = [
     "https://images.pexels.com/photos/10204853/pexels-photo-10204853.jpeg?auto=compress&cs=tinysrgb&w=600",
 ];
 
-function ramdomProducts(numProducts = 0) {
+function randomProducts(numProducts = 0) {
     for (let index = 0; index < numProducts; index++) {
-        productsR.push({
-            id: "productsR_" + index,
+        productList.push({
+            id: "productsR_" + (index + 3),
             name: nameAlpha[getRandomInt(0, nameAlpha.length)],
             price: getRandomInt(50, 5000),
             image: imageAlpha[getRandomInt(0, imageAlpha.length)],
@@ -198,7 +201,7 @@ function getRandomInt(min, max) {
     max = Math.floor(max);
     return Math.floor(Math.random() * (max - min) + min);
 }
-ramdomProducts(17);
 
-renderProducts(productsR);
+randomProducts(7);
+renderProducts(productList);
 //#region
