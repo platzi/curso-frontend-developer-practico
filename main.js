@@ -136,7 +136,7 @@ function renderProduct(arr) {
 
     cardsContainer.appendChild(productCard);
 
-    console.log(123 + "456");
+    //console.log(123 + "456");
   }
 }
 
