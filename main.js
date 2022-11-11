@@ -5,10 +5,13 @@ const hamburgerMenuIcon = document.querySelector('.hamburger-icon');
 const menuCarritoComprasIcon = document.querySelector('.navbar-shopping-cart');
 const shoppingCartContainer = document.querySelector('#shoppingCartContainer');
 const cardContainer = document.querySelector('.cards-container');
+const productDetailContainer = document.querySelector('#product-detail');
+const productDetailCloseIcon = document.querySelector('.product-detail-close');
 
 hamburgerMenuIcon.addEventListener('click', toggleMenuMobile);
 navbarEmail.addEventListener('click', toggleDesktopMenu);
 menuCarritoComprasIcon.addEventListener('click', toggleCarritoCompras);
+productDetailCloseIcon.addEventListener('click', closeProductDatail);
 
 function toggleDesktopMenu(){
 
@@ -23,10 +26,14 @@ function toggleDesktopMenu(){
 }
 function toggleMenuMobile(){
 
-    const isAsideClosed = shoppingCartContainer.classList.contains('inactive');
+    const isCarritoComprasClosed = shoppingCartContainer.classList.contains('inactive');
+    const isProducDetailClosed = productDetailContainer.classList.contains('inactive');
 
-    if (!isAsideClosed){
+    if (!isCarritoComprasClosed){
         shoppingCartContainer.classList.add('inactive'); //Avoid menuMobile crash with carritoCompras
+    }
+    else if (!isProducDetailClosed){
+        productDetailContainer.classList.add('inactive'); //Avoid product-detail crash with carritoCompras
     }
 
     menuMobile.classList.toggle('inactive');
@@ -35,6 +42,7 @@ function toggleCarritoCompras(){
    
     const isMenuMobileClosed = menuMobile.classList.contains('inactive');
     const isDesktopMenuClosed = desktopMenu.classList.contains('inactive');
+    const isProducDetailClosed = productDetailContainer.classList.contains('inactive');
 
     if (!isMenuMobileClosed){
         menuMobile.classList.add('inactive'); //Avoid menuMobile crash with carritoCompras
@@ -42,8 +50,24 @@ function toggleCarritoCompras(){
     else if (!isDesktopMenuClosed){
         desktopMenu.classList.add('inactive'); //Avoid desktop-menu crash with carritoCompras
     }
+    else if (!isProducDetailClosed){
+        productDetailContainer.classList.add('inactive'); //Avoid product-detail crash with carritoCompras
+    }
     
     shoppingCartContainer.classList.toggle('inactive');
+}
+function openProductDetail(){
+    
+    const isCarritoComprasClosed = shoppingCartContainer.classList.contains('inactive');
+
+    if (!isCarritoComprasClosed){
+        shoppingCartContainer.classList.add('inactive'); //Avoid product-detail crash with carritoCompras
+    }
+    
+    productDetailContainer.classList.remove('inactive');
+}
+function closeProductDatail(){
+    productDetailContainer.classList.add('inactive');
 }
 
 const productList = [];
@@ -124,6 +148,7 @@ for (product of productList){
 
     const imgProduct = document.createElement('img');
     imgProduct.setAttribute('src', product.img);
+    imgProduct.addEventListener('click', openProductDetail);
 
     const productInfo = document.createElement('div');
     productInfo.classList.add('product-info');

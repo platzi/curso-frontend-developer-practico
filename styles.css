@@ -171,7 +171,6 @@ aside {
   box-sizing: border-box;
   position: absolute;
   right: 0;
-  height: 500px;
 }
 
 /* Carrito de compras */
@@ -374,6 +373,9 @@ aside {
   .product-card img {
     width: 140px;
     height: 140px;
+  }
+  aside {
+    width: 100%;
   }
 }
 
