@@ -169,6 +169,7 @@
     box-sizing: border-box;
     position: absolute;
     right: 0;
+    background: var(--white);
   }
   .title-container {
     display: flex;
@@ -290,6 +291,7 @@
     padding-bottom: 24px;
     position: absolute;
     right: 0;
+    background: var(--white);
   }
   .product-detailS-close {
     background: var(--white);
@@ -383,6 +385,10 @@
       .product-card img {
         width: 140px;
         height: 140px;
+      }
+
+      .product-detailS {
+        width: 100%;
       }
   }
 
