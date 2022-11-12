@@ -136,25 +136,66 @@ function insertContentToProductDetail(element) {
 }
 
 // Shopping car list
-// añadir productos a la lista con el botón de la card o el product detail
-// en la lista aparece específicamente el producto añadido y el total del precio de todos
-// y el número de la notificación del carrito cambia según la cantidad de productos
-
+// añadir productos a un array (shoppingCartList) con el botón de la card o el product detail
 const productDetail_botton = document.getElementById("product-detail-button");
 productDetail_botton.addEventListener("click", () => addProductToCart());
 
 let shoppingCartList = new Array();
 
 function addProductToCart(element = null) {
-    if (element === null) {
-        shoppingCartList.push(productList[idIndex]);
-    } else {
-        element = element.parentNode.parentNode.parentNode.id.split("_")[1];
-        shoppingCartList.push(productList[element]);
-        console.log(element);
+    element == null
+        ? (element = idIndex)
+        : (element = element.parentNode.parentNode.parentNode.id.split("_")[1]);
+
+    if (shoppingCartList.length != 0) {
+        for (item of shoppingCartList) {
+            //console.log(`item: ${item.id} element: ${productList[element].id}`);
+            if (item.id == productList[element].id) {
+                return;
+            }
+        }
     }
-    console.log(shoppingCartList);
+
+    shoppingCartList.push(productList[element]);
+
+    renderShoppingCart();
 }
+
+// en la lista aparece específicamente el producto añadido y el total del precio de todos
+const myOrderContent = document.getElementById("my-order-content");
+
+function renderShoppingCart() {
+    let inCart = shoppingCartList[shoppingCartList.length - 1];
+
+    const shoppingCart = document.createElement("div");
+    //TODO: insertar id
+    shoppingCart.classList.add("shopping-cart");
+
+    const shoppingFigure = document.createElement("figure");
+    const shoppingImgProduct = document.createElement("img");
+    shoppingImgProduct.setAttribute("src", inCart.image);
+    shoppingImgProduct.setAttribute("alt", inCart.name);
+    shoppingFigure.append(shoppingImgProduct);
+
+    const nameProduct = document.createElement("p");
+    nameProduct.innerText = inCart.name;
+    const priceProduct = document.createElement("p");
+    priceProduct.innerText = inCart.price + ",00";
+    const closeProduct = document.createElement("img");
+    closeProduct.setAttribute("src", "./icons/icon_close.png");
+    closeProduct.setAttribute("alt", "close");
+
+    shoppingCart.append(
+        shoppingFigure,
+        nameProduct,
+        priceProduct,
+        closeProduct
+    );
+
+    myOrderContent.appendChild(shoppingCart);
+}
+
+// y el número de la notificación del carrito cambia según la cantidad de productos
 
 // Random products
 // funcion de elementos aleatorios sin mucho sentido (no hace parte del curso)
@@ -204,4 +245,3 @@ function getRandomInt(min, max) {
 
 randomProducts(7);
 renderProducts(productList);
-//#region
