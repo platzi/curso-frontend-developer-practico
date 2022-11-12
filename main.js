@@ -161,14 +161,14 @@ function addProductToCart(element = null) {
     renderShoppingCart();
 }
 
-// en la lista aparece específicamente el producto añadido y el total del precio de todos
+// funcion para mostrar en la lista aparece específicamente el producto añadido
 const myOrderContent = document.getElementById("my-order-content");
 
 function renderShoppingCart() {
     let inCart = shoppingCartList[shoppingCartList.length - 1];
 
     const shoppingCart = document.createElement("div");
-    //TODO: insertar id
+    shoppingCart.id = "shoppingCartList_" + inCart.id.split("_")[1];
     shoppingCart.classList.add("shopping-cart");
 
     const shoppingFigure = document.createElement("figure");
@@ -184,6 +184,7 @@ function renderShoppingCart() {
     const closeProduct = document.createElement("img");
     closeProduct.setAttribute("src", "./icons/icon_close.png");
     closeProduct.setAttribute("alt", "close");
+    closeProduct.addEventListener("click", () => removeProduct(closeProduct));
 
     shoppingCart.append(
         shoppingFigure,
@@ -194,6 +195,22 @@ function renderShoppingCart() {
 
     myOrderContent.appendChild(shoppingCart);
 }
+
+// funcion para eliminar productos del carrito
+function removeProduct(idElement) {
+    let elementToRemove = document.getElementById(idElement.parentNode.id);
+    elementToRemove.remove();
+
+    let id = idElement.parentNode.id.split("_")[1];
+
+    for (item of shoppingCartList) {
+        if (item.id.split("_")[1] == id) {
+            shoppingCartList.splice(shoppingCartList.indexOf(item), 1);
+        }
+    }
+}
+
+// funcion para mostrar el total del precio de todos los productos
 
 // y el número de la notificación del carrito cambia según la cantidad de productos
 

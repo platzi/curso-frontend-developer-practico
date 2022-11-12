@@ -235,6 +235,9 @@ aside {
     font-size: var(--md);
     font-weight: bold;
 }
+.shopping-cart img {
+    cursor: pointer;
+}
 .primary-button {
     background-color: var(--hospital-green);
     border-radius: 8px;
@@ -374,6 +377,13 @@ aside {
     .product-card img {
         width: 140px;
         height: 140px;
+    }
+    .product-card .product-info {
+        margin: 12px 12px 0px 12px;
+    }
+    .product-card .product-info figure img {
+        width: 30px;
+        height: 30px;
     }
 }
 
