@@ -3,7 +3,7 @@ const menuEmailBox = document.querySelector('.desktop-menu')
 const menuMobileBtn = document.querySelector('.menu')
 const menuMobileBox = document.querySelector('.mobile-menu')
 const carritoIconBtn = document.querySelector('.navbar-shopping-cart')
-const carritoBox = document.querySelector('.product-detail')
+const carritoBox = document.querySelector('#shoppingCartContainer')
 
 menuEmailBtn.addEventListener('click', ()=>{
     const isCarritoClosed = carritoBox.classList.contains('inactive')
