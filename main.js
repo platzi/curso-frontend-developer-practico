@@ -5,10 +5,13 @@ const mobileMenu = document.querySelector('.mobile-menu');
 const menuCarritoIcon = document.querySelector('.navbar-shopping-cart');
 const shoppingCartContainer = document.querySelector('#shoppingCartContainer');
 const cardsContainer = document.querySelector('.cards-container');
+const productDetailContainer = document.querySelector('#product-detail');
+const productDetailCloseIcon = document.querySelector('.product-detail-close');
 
 menuEmail.addEventListener('click', toggleDesktopMenu);
 menuHamIcon.addEventListener('click', toggleMobileMenu);
 menuCarritoIcon.addEventListener('click', toggleCarritoAside);
+productDetailCloseIcon.addEventListener('click', closeProductDetailAside);
 
 function toggleDesktopMenu(){
     const isAsideClosed = shoppingCartContainer.classList.contains('inactive');
@@ -20,6 +23,9 @@ function toggleDesktopMenu(){
     //
     desktopMenu.classList.toggle('inactive');
 }
+function closeProductDetailAside(){
+    productDetailContainer.classList.add('inactive');
+}
 
 function toggleMobileMenu() {
     const isAsideClosed = shoppingCartContainer.classList.contains('inactive');
@@ -28,6 +34,7 @@ function toggleMobileMenu() {
         
     }
     mobileMenu.classList.toggle('inactive');
+    closeProductDetailAside();
 }
 
 
@@ -39,6 +46,10 @@ function toggleCarritoAside(){
     const isDesktopMenuClosed = desktopMenu.classList.contains('inactive');
     if (!isDesktopMenuClosed) {
         desktopMenu.classList.toggle('inactive');
+    }
+    const isProductDetailClosed = productDetailContainer.classList.contains('inactive');
+    if (!isProductDetailClosed){
+        productDetailContainer.classList.add('inactive');
     }
     shoppingCartContainer.classList.toggle('inactive');
 }
@@ -60,6 +71,11 @@ productList.push({
     image: 'https://images.pexels.com/photos/276517/pexels-photo-276517.jpeg?auto=compress&cs=tinysrgb&dpr=2&h=650&w=940',
 })
 
+function openProductDetailAside(){
+    shoppingCartContainer.classList.add('inactive');
+    productDetailContainer.classList.remove('inactive');
+}
+
 function renderProducts(arr) {
     for (product of arr) {
         const productCard = document.createElement('div');
@@ -68,6 +84,7 @@ function renderProducts(arr) {
         // product = {name, price, image} -> product.image
         const productImg = document.createElement('img');
         productImg.setAttribute('src', product.image);
+        productImg.addEventListener('click', openProductDetailAside);
         
         const productInfo = document.createElement('div');
         productInfo.classList.add('product-info');
@@ -75,7 +92,7 @@ function renderProducts(arr) {
         const productInfoDiv = document.createElement('div');
     
         const productPrice = document.createElement('p');
-        productPrice.innerText = '$ ' + product.price;
+        productPrice.innerText = '$ ' + product.precio;
         const productName = document.createElement('p');
         productName.innerText = product.name;
     
