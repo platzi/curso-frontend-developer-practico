@@ -68,10 +68,12 @@ function upTo(el, tagName) { //obtiene el elemento padre que se esté buscando. 
     return null;
 };
 
-function addArticleToCart() {
+function showArticle() {
     for (child of cardsContainer.children) {
-        let imgOfCard = document.querySelector('#' + child.id + ' img')
-         imgOfCard.addEventListener('click', function logParent() {console.log(upTo(imgOfCard, 'div'))});
+        let imgOfCard = document.querySelector('#' + child.id + ' img');
+        let productId = upTo(imgOfCard, 'div').id;
+        // imgOfCard.addEventListener('click', function logParent() {console.log(upTo(imgOfCard, 'div').id)});
+        imgOfCard.addEventListener('click', renderProduct);
         //console.log('#' + child.id + ' img')
     };
 };
@@ -82,49 +84,57 @@ const productList = [
         {
             name: "Gafas de marco negro",
             price: 25,
-            image: "https://images.pexels.com/photos/131018/pexels-photo-131018.jpeg?auto=compress&cs=tinysrgb&w=1260&h=750&dpr=1"
+            image: "https://images.pexels.com/photos/131018/pexels-photo-131018.jpeg?auto=compress&cs=tinysrgb&w=1260&h=750&dpr=1",
+            description: "Estass gafas tienen un marco negro"
 
         },
         {
             name: "Gafas de marco marrón",
             price: 30,
-            image: "https://images.pexels.com/photos/39716/pexels-photo-39716.jpeg?auto=compress&cs=tinysrgb&w=1260&h=750&dpr=1"
+            image: "https://images.pexels.com/photos/39716/pexels-photo-39716.jpeg?auto=compress&cs=tinysrgb&w=1260&h=750&dpr=1",
+            description: "estas gafas tienen el marco marrón"
 
         },
         {
             name: "Diferentes tipos de gafas",
             price: 20,
-            image: "https://images.pexels.com/photos/4226880/pexels-photo-4226880.jpeg?auto=compress&cs=tinysrgb&w=1260&h=750&dpr=1"
+            image: "https://images.pexels.com/photos/4226880/pexels-photo-4226880.jpeg?auto=compress&cs=tinysrgb&w=1260&h=750&dpr=1",
+            description: "vendo tres gafas de marco delgado"
 
         },
         {
             name: "Zapatos elegantes",
             price: 120,
-            image: "https://images.pexels.com/photos/267320/pexels-photo-267320.jpeg?auto=compress&cs=tinysrgb&w=1260&h=750&dpr=1"
+            image: "https://images.pexels.com/photos/267320/pexels-photo-267320.jpeg?auto=compress&cs=tinysrgb&w=1260&h=750&dpr=1",
+            description: "vendo zapatos muy elegantes"
 
         },
         {
             name: "Zapatos converse",
             price: 200,
-            image: "https://images.pexels.com/photos/267202/pexels-photo-267202.jpeg?auto=compress&cs=tinysrgb&w=1260&h=750&dpr=1"
+            image: "https://images.pexels.com/photos/267202/pexels-photo-267202.jpeg?auto=compress&cs=tinysrgb&w=1260&h=750&dpr=1",
+            description: "vendo Zapatos converse"
 
         },
         {
             name: "Tacones",
             price: 150,
-            image: "https://images.pexels.com/photos/134064/pexels-photo-134064.jpeg?auto=compress&cs=tinysrgb&w=1260&h=750&dpr=1"
+            image: "https://images.pexels.com/photos/134064/pexels-photo-134064.jpeg?auto=compress&cs=tinysrgb&w=1260&h=750&dpr=1",
+            description: "Vendo tacones muy altos"
 
         },
         {
             name: "Cámara canon con tripode",
             price:400,
-            image: "https://images.pexels.com/photos/1787235/pexels-photo-1787235.jpeg?auto=compress&cs=tinysrgb&w=1260&h=750&dpr=1"
+            image: "https://images.pexels.com/photos/1787235/pexels-photo-1787235.jpeg?auto=compress&cs=tinysrgb&w=1260&h=750&dpr=1",
+            description: "vendo cámara con su tripode"
 
         },
         {
             name: "Accesorios para cámara",
             price: 200,
-            image: "https://images.pexels.com/photos/821749/pexels-photo-821749.jpeg?auto=compress&cs=tinysrgb&w=1260&h=750&dpr=1"
+            image: "https://images.pexels.com/photos/821749/pexels-photo-821749.jpeg?auto=compress&cs=tinysrgb&w=1260&h=750&dpr=1",
+            description: "vendo diferentes accesorios para una cámara"
 
         },
         {
@@ -155,7 +165,8 @@ const productList = [
 productList.push({
     name: "bike",
     price: 120,
-    image: "https://images.pexels.com/photos/276517/pexels-photo-276517.jpeg?auto=compress&cs=tinysrgb&dpr=2&h=650&w=940"
+    image: "https://images.pexels.com/photos/276517/pexels-photo-276517.jpeg?auto=compress&cs=tinysrgb&dpr=2&h=650&w=940",
+    description: "With its practical position, this bike also fulfills a decorative function, add your hall or workspace."
 })
 productList.push({
     name: "pantalla",
@@ -190,9 +201,13 @@ function renderProducts(arr) {
         
         const productName = document.createElement('p');
         productName.innerText = product.name;
+
+        const productDescription = document.createElement('p');
+        product.description ? productDescription.innerText = product.description : productDescription.innerText = 'This item does not have a description';
     
         productInfoDiv.appendChild(productPrice);
         productInfoDiv.appendChild(productName);
+        productInfoDiv.appendChild(productDescription);
     
         const productInfoFigure = document.createElement('figure');
         const productImgCard = document.createElement('img');
@@ -210,8 +225,38 @@ function renderProducts(arr) {
     }
 };
 
+function renderProduct() {
+    let thisCard = upTo(this, 'div');
+
+    let productImg = productDetailInd.getElementsByTagName('img')[1];
+    productImg.setAttribute('src', this.src);
+    
+    let productName = productDetailInd.getElementsByTagName('p')[0];
+    productName.innerText = thisCard.querySelectorAll('.product-info div p')[0].innerText;
+    console.log(thisCard.querySelector('.product-info div p').innerText);
+    let productPrice = productDetailInd.getElementsByTagName('p')[1];
+    productPrice.innerText = thisCard.querySelectorAll('.product-info div p')[1].innerText;
+    let productDescription = productDetailInd.getElementsByTagName('p')[2];
+    productDescription.innerText = thisCard.querySelectorAll('.product-info div p')[2].innerText;
+
+
+    // <div class="product-detail-close">
+    //   <img src="./icons/icon_close.png" alt="close">
+    // </div>
+    // <img alt="nada">
+    // <div class="product-info">
+    //   <p></p>
+    //   <p></p>
+    //   <p></p>
+    //   <button class="primary-button add-to-cart-button">
+    //     <img src="./icons/bt_add_to_cart.svg" alt="add to cart">
+    //     Add to cart
+    //   </button>
+    // </div>
+}
+
 renderProducts(productList);
-addArticleToCart()
+showArticle()
 
 carList = [];
 

@@ -342,6 +342,9 @@
   align-items: center;
   margin-top: 12px;
 }
+.product-card .product-info div p:nth-child(3) {
+  display: none;
+}
 .product-card .product-info figure {
   margin: 0;
 }
