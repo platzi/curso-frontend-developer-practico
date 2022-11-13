@@ -38,7 +38,9 @@ function openProductDetailAsai() {
     aside.classList.add("inactive");
     mobileMenu.classList.add("inactive");
     desktopMenu.classList.add("inactive");
-    productDetailInd.classList.remove('inactive')
+    productDetailInd.classList.remove('inactive');
+    const productImage = document.querySelector('.product-card img');
+    // console.log(upTo(productImage, 'div'))
 }
 
 function closeProductDetailAsai() {
@@ -47,6 +49,31 @@ function closeProductDetailAsai() {
 
 function addToCart () {
     console.log(addToCartImage.closest(".product-info"));
+};
+
+function upTo(el, tagName) { //obtiene el elemento padre que se esté buscando. Lo usaré para buscar el padre de la imagen
+    tagName = tagName.toLowerCase();
+  
+    while (el && el.parentNode) {
+      el = el.parentNode;
+      if (el.tagName && el.tagName.toLowerCase() == tagName) {
+        return el;
+      }
+    }
+  
+    // Many DOM methods return null if they don't 
+    // find the element they are searching for
+    // It would be OK to omit the following and just
+    // return undefined
+    return null;
+};
+
+function addArticleToCart() {
+    for (child of cardsContainer.children) {
+        let imgOfCard = document.querySelector('#' + child.id + ' img')
+         imgOfCard.addEventListener('click', function logParent() {console.log(upTo(imgOfCard, 'div'))});
+        //console.log('#' + child.id + ' img')
+    };
 };
 
 
@@ -146,7 +173,9 @@ function renderProducts(arr) {
     for (product of productList) {
         const productCard = document.createElement('div');
         productCard.classList.add('product-card');
-    
+        const productId = 'product-' + productList.indexOf(product);
+        productCard.setAttribute('id', productId);
+        
         const productImg = document.createElement('img');
         productImg.setAttribute('src', product.image);
         productImg.addEventListener('click', openProductDetailAsai);
@@ -177,11 +206,12 @@ function renderProducts(arr) {
         productCard.appendChild(productImg);
         productCard.appendChild(productInfo);
     
-        cardsContainer.appendChild(productCard);
+        cardsContainer.appendChild(productCard); 
     }
 };
 
 renderProducts(productList);
+addArticleToCart()
 
 carList = [];
 
