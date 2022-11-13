@@ -180,7 +180,7 @@ function renderShoppingCart() {
     const nameProduct = document.createElement("p");
     nameProduct.innerText = inCart.name;
     const priceProduct = document.createElement("p");
-    priceProduct.innerText = inCart.price + ",00";
+    priceProduct.innerText = "$" + inCart.price + ",00";
     const closeProduct = document.createElement("img");
     closeProduct.setAttribute("src", "./icons/icon_close.png");
     closeProduct.setAttribute("alt", "close");
@@ -194,6 +194,8 @@ function renderShoppingCart() {
     );
 
     myOrderContent.appendChild(shoppingCart);
+
+    calculateTotalPrice();
 }
 
 // funcion para eliminar productos del carrito
@@ -208,9 +210,21 @@ function removeProduct(idElement) {
             shoppingCartList.splice(shoppingCartList.indexOf(item), 1);
         }
     }
+
+    calculateTotalPrice();
 }
 
 // funcion para mostrar el total del precio de todos los productos
+const totalPrice = document.getElementById("total-price");
+
+function calculateTotalPrice() {
+    let price = 0;
+    for (const item of shoppingCartList) {
+        price += item.price;
+    }
+
+    totalPrice.textContent = `$${price},00`;
+}
 
 // y el número de la notificación del carrito cambia según la cantidad de productos
 
