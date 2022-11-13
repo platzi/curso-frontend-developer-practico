@@ -196,6 +196,7 @@ function renderShoppingCart() {
     myOrderContent.appendChild(shoppingCart);
 
     calculateTotalPrice();
+    changeNotificationCart();
 }
 
 // funcion para eliminar productos del carrito
@@ -212,6 +213,7 @@ function removeProduct(idElement) {
     }
 
     calculateTotalPrice();
+    changeNotificationCart();
 }
 
 // funcion para mostrar el total del precio de todos los productos
@@ -226,7 +228,12 @@ function calculateTotalPrice() {
     totalPrice.textContent = `$${price},00`;
 }
 
-// y el número de la notificación del carrito cambia según la cantidad de productos
+// función para cambiar el número de la notificación según la cantidad de productos añadidos al carrito
+const notificationCart = document.getElementById("notification-cart");
+
+function changeNotificationCart() {
+    notificationCart.textContent = shoppingCartList.length;
+}
 
 // Random products
 // funcion de elementos aleatorios sin mucho sentido (no hace parte del curso)
