@@ -9,6 +9,7 @@ const aside = document.querySelector('.product-detail');
 const cardsContainer = document.querySelector('.cards-container');
 const productDetailInd = document.querySelector('.product-detail-individual');
 const shoppingCart = document.querySelector('.shopping-cart');
+const backToSite = document.querySelector('.product-detail .title-container img');
 
 
 
@@ -16,6 +17,7 @@ navEmail.addEventListener('click', toggleDesktopMenu);
 menuHamIcon.addEventListener('click', toggleMobileMenu);
 carIcon.addEventListener('click', toggleCarAside);
 productDetailCloseIcon.addEventListener('click', closeProductDetailAsai);
+backToSite.addEventListener('click', closeShoppingCart);
 
 function toggleDesktopMenu() {
     productDetailInd.classList.add('inactive');
@@ -45,6 +47,9 @@ function openProductDetailAsai() {
     // console.log(upTo(productImage, 'div'))
 }
 
+function closeShoppingCart() {
+    aside.classList.add('inactive');
+}
 function closeProductDetailAsai() {
     productDetailInd.classList.add('inactive');
 }
@@ -62,14 +67,6 @@ function addToCart () {
     let thisName = thisCard.querySelectorAll('p')[0].innerText;
     let thisPrice = thisCard.querySelectorAll('p')[1].innerText;
 
-    // console.log( thisSource, thisName, thisPrice);
-    // <figure>
-    //   <img alt="product-image">
-    // </figure>
-    // <p></p>
-    // <p></p>
-    // <img src="./icons/icon_close.png" alt="close"> --></img>
-
     let shoppingCartProduct = document.createElement('div');
     shoppingCartProduct.setAttribute('class', 'shopping-cart-product')
 
@@ -85,6 +82,8 @@ function addToCart () {
     let cartProductCloseImg = document.createElement('img');
     cartProductCloseImg.setAttribute('src', "./icons/icon_close.png");
     cartProductCloseImg.setAttribute('alt', "close");
+    cartProductCloseImg.addEventListener('click', removeFromCart)
+
 
     shoppingCartProduct.appendChild(cartProductFig);
     shoppingCartProduct.appendChild(cartProductName);
@@ -94,6 +93,56 @@ function addToCart () {
     shoppingCart.appendChild(shoppingCartProduct);
 
     numberOfItems.innerText = shoppingCart.children.length;
+
+    let total = aside.querySelector('.order span');
+    if (numberOfItems.innerText != 0) {total.innerText = 'Total'};
+    let totalPrice = aside.querySelector('.order p:nth-child(2)');
+    let priceList = [];
+    let price;
+    for (child of shoppingCart.children) {
+        price = Number(child.children[1].innerText.slice(1));
+        priceList.push(price);
+    }
+
+    totalPrice.innerText = '$' + calculateTotalPrice(priceList);
+    
+    //Aun no puedo remover las cosas y que se reste al número. creo que debo buscar una solución más fácil (p. ej. cuando se agrega algo al carrito, inmediatamente se suma el valor al Total, sin necesidad de listas. Cuando se quite, inmediatamente se resta.)
+    function removeFromCart() {
+        upTo(this, 'div').remove();
+
+        // for (i of priceList) {
+        //     if (i == price) {
+        //         priceList.splice(i, 1);
+        //         break
+        //     }
+        // }
+        // console.log(price)
+        // for(let i = 0; i < priceList; i++) {
+        //     console.log('funciona')
+        //     if (priceList[i] == price) {
+        //     };
+        // }
+        // console.log(upTo(this, 'div'));
+        // for (i of priceList) {
+        //     console.log(i);
+        // }
+        // priceList.splice(price, 1)
+        for (child of shoppingCart.children) {
+            price = Number(child.children[1].innerText.slice(1));
+            priceList.push(-price);
+        }
+        // price = Number(child.children[1].innerText.slice(1));
+        // priceList.push(-price); //falta encontrr la manera de remover el número, den vez de agregar el negativo
+        // totalPrice.innerText = '$' + calculateTotalPrice(priceList);
+        console.log(priceList)
+    };
+    console.log(priceList)
+};
+
+
+function calculateTotalPrice(arr) {
+    let result = arr.reduce(function(pv, cv) { return pv + cv; }, 0);
+    return result
 };
 
 function upTo(el, tagName) { //obtiene el elemento padre que se esté buscando. Lo usaré para buscar el padre de la imagen
