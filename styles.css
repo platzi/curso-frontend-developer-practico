@@ -25,6 +25,7 @@
   }
   .menu {
     display: none;
+    cursor: pointer;
   }
   .logo {
     width: 100px;
@@ -58,13 +59,17 @@
     color: var(--hospital-green);
   }
   .navbar-email {
+    cursor: pointer;
     color: var(--very-light-pink);
     font-size: var(--sm);
     margin-right: 12px;
   }
   .navbar-shopping-cart {
+    cursor: pointer;
     position: relative;
   }
+
+
   .navbar-shopping-cart div {
     width: 16px;
     height: 16px;
@@ -361,6 +366,10 @@
     .product-card img {
         width: 140px;
         height: 140px;
+    }
+
+    aside {
+      width: 100%;
     }
   }
 
