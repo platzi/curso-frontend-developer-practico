@@ -115,6 +115,7 @@ function addToCart () {
         totalPriceNumber = totalPriceNumber - Number(thisPrice.slice(1));
         totalPrice.innerText = ''
         totalPrice.innerText = '$' + totalPriceNumber;
+        numberOfItems.innerText = shoppingCart.children.length;
     };
 };
 
