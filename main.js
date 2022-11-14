@@ -3,7 +3,7 @@ const desktopMenu = document.querySelector('.desktop-menu');
 const menuHamIcon = document.querySelector('.menu');
 const mobileMenu = document.querySelector('.mobile-menu');
 const carIcon = document.querySelector('.navbar-shopping-cart');
-const numberOfItems = document.querySelector('.navbar-shopping-cart div'); // se debe poner en el recuadro el numero de items seleccionados hasta el momento (medir el length del aside product detail)
+const numberOfItems = document.querySelector('.navbar-shopping-cart div');
 const productDetailCloseIcon = document.querySelector('.product-detail-close');
 const aside = document.querySelector('.product-detail');
 const cardsContainer = document.querySelector('.cards-container');
@@ -16,7 +16,6 @@ let totalPriceNumber = 0;
 
 
 
-totalPrice.innerText = '$' + totalPriceNumber;
 navEmail.addEventListener('click', toggleDesktopMenu);
 menuHamIcon.addEventListener('click', toggleMobileMenu);
 carIcon.addEventListener('click', toggleCarAside);
@@ -48,7 +47,6 @@ function openProductDetailAsai() {
     desktopMenu.classList.add("inactive");
     productDetailInd.classList.remove('inactive');
     const productImage = document.querySelector('.product-card img');
-    // console.log(upTo(productImage, 'div'))
 }
 
 function closeShoppingCart() {
@@ -94,9 +92,6 @@ function addToCart () {
     cartProductCloseImg.setAttribute('alt', "close");
     cartProductCloseImg.addEventListener('click', removeFromCart)
 
-    // console.log(thisPrice);
-
-
     shoppingCartProduct.appendChild(cartProductFig);
     shoppingCartProduct.appendChild(cartProductName);
     shoppingCartProduct.appendChild(cartProductPrice);
@@ -107,14 +102,6 @@ function addToCart () {
     numberOfItems.innerText = shoppingCart.children.length;
 
     // let total = aside.querySelector('.order span'); // quería cambiar el nombre si el total es 0
-
-    
-    // let priceList = [];
-    let price;
-    for (child of shoppingCart.children) {
-        price = Number(child.children[1].innerText.slice(1));
-        // priceList.push(price);
-    }
     
     totalPriceNumber = totalPriceNumber + Number(thisPrice.slice(1));
     totalPrice.innerText = ''
@@ -128,10 +115,6 @@ function addToCart () {
         totalPriceNumber = totalPriceNumber - Number(thisPrice.slice(1));
         totalPrice.innerText = ''
         totalPrice.innerText = '$' + totalPriceNumber;
-
-        // for (child of shoppingCart.children) {
-        //     price = Number(child.children[1].innerText.slice(1));
-        // }
     };
 };
 
