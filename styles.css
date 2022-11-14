@@ -252,6 +252,12 @@
   .total-shopping-cart {
     display: flex;
     justify-content: center;
+    border-radius: 8px;
+    border: none;
+    color: var(--white);
+    height: 50px;
+    margin-bottom: 20px;
+    background-color: #cecdcd;
   }
   .total-shopping-cart p{
     display: inline;

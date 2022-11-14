@@ -207,6 +207,7 @@ for (product of productList) {
     // Por ultimo, agregamos la estructura al div existente <div class="cards-container"> declarado e inicializado en la linea 10
     cardsContainer.appendChild(productCard);
 }
+
 const allProducts = document.querySelectorAll('.product-card'); // Seleccionamos todos los productos que creamos
 const allProductsDetail = document.querySelectorAll('#product-detail'); // Seleccionamos todos los aside o product details
 const closeDetailIcon = document.querySelectorAll('.product-detail-close'); // Seleccionamos cada tachita  de cada product detail
@@ -254,6 +255,7 @@ function addShoppingCart(){
         cartDiv.append(productFigure, productName, productPrice, deleteIcon);
         myOrderContainer.appendChild(cartDiv);
     }
+
     cartCounter.innerText = shoppingCart.length
     const removeCartBtn = document.querySelectorAll('.remove-from-cart-btn');
     for(let i = 0; i < shoppingCart.length; i++) {
@@ -281,12 +283,10 @@ function addShoppingCart(){
     totalCartCost.appendChild(cartCostText);
     myOrderContainer.appendChild(totalCartCost);
 
-
     const checkoutButton = document.createElement('button');
     checkoutButton.classList.add('primary-button');
     checkoutButton.innerText = 'Checkout';
     myOrderContainer.appendChild(checkoutButton);
-    
 }
 
 // Feature para agregar un producto al carrito de compras desde la pantalla principal
@@ -310,4 +310,3 @@ for (let i = 0; i < productList.length; i++) {
         addShoppingCart();
     })
 }
-
