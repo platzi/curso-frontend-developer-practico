@@ -113,13 +113,14 @@ productList.push({
     name: 'Playstation 5',
     price: 500,
     image: "https://mxsonyb2c.vtexassets.com/arquivos/ids/263350/PS5_Fisica_DS.jpg?v=1751909001",
-    description: ''
+    description: `Experimenta una velocidad sorprendente de carga con una inmersión más intensa gracias a la SSD de ultra alta velocidad, compatible con retrolimentación háptica, gatillos adaptables y audio 3D, y una generación totalmente nueva de increíbles juegos de PlayStation®.
+    Velocidad sorprendente: Disfruta de la potencia de una CPU, una GPU y una SSD personalizadas con E/S integradas que redefinirán lo que una consola PlayStation® puede hacer. `
 });
 productList.push({
     name: 'Bed',
     price: 600,
     image: "https://cdn.shopify.com/s/files/1/0099/2867/1291/products/FIQBGUNNERQBBDWG_2000x.jpg?v=1654062840",
-    description: ''
+    description: `Are you searching for a bed that provides storage without compromising on looks? Then your search for the perfect bed ends here with the Gunner Queen Bed. This bed looks stunning and has ample storage space for all your things. It has a sturdy construction of engineered wood that provides optimal support that lasts for years. In terms of storage, this bed will never disappoint you. It has six spacious compartments that can accommodate your things easily. Furthermore, the headboard of the bed comprises shelves and a cabinet. These shelves can be used to keep your photo frames or small showpiece items and the cabinet can be used to store medicines or books. The bed has a warm wenge colour that gives your room a relaxing look and inviting feel. Its impeccable colour also works with many styles of decor. With the Gunner Queen Bed, add a classic and refined style to your bedroom.`
 });
 productList.push({
     name: 'iPhone 14 Pro Max',
