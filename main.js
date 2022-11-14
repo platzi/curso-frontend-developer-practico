@@ -10,9 +10,13 @@ const cardsContainer = document.querySelector('.cards-container');
 const productDetailInd = document.querySelector('.product-detail-individual');
 const shoppingCart = document.querySelector('.shopping-cart');
 const backToSite = document.querySelector('.product-detail .title-container img');
+let totalPrice = aside.querySelector('.order p:nth-child(2)');
+let totalPriceNumber = 0;
 
 
 
+
+totalPrice.innerText = '$' + totalPriceNumber;
 navEmail.addEventListener('click', toggleDesktopMenu);
 menuHamIcon.addEventListener('click', toggleMobileMenu);
 carIcon.addEventListener('click', toggleCarAside);
@@ -57,6 +61,9 @@ function closeProductDetailAsai() {
 function addToCart () {
     let thisCard;
     let thisSource;
+
+    // se pone la imagen dependiendo si se hizo click desde el elemento individual o desde la lista de productos
+
     if (this.tagName == 'IMG') {
         thisCard = upTo(upTo(this, 'div'), 'div')
         thisSource = thisCard.querySelectorAll('img')[0].src;
@@ -64,8 +71,9 @@ function addToCart () {
         thisCard = upTo(this, 'aside');
         thisSource = thisCard.querySelectorAll('img')[1].src;
     }
-    let thisName = thisCard.querySelectorAll('p')[0].innerText;
-    let thisPrice = thisCard.querySelectorAll('p')[1].innerText;
+
+    let thisName = thisCard.querySelectorAll('p')[1].innerText;
+    let thisPrice = thisCard.querySelectorAll('p')[0].innerText;
 
     let shoppingCartProduct = document.createElement('div');
     shoppingCartProduct.setAttribute('class', 'shopping-cart-product')
@@ -75,14 +83,18 @@ function addToCart () {
     cartProductImg.setAttribute('src', thisSource);
     cartProductFig.appendChild(cartProductImg);
 
-    let cartProductName = document.createElement('p');
-    cartProductName.innerText = thisName;
     let cartProductPrice = document.createElement('p');
     cartProductPrice.innerText = thisPrice;
+
+    let cartProductName = document.createElement('p');
+    cartProductName.innerText = thisName;
+
     let cartProductCloseImg = document.createElement('img');
     cartProductCloseImg.setAttribute('src', "./icons/icon_close.png");
     cartProductCloseImg.setAttribute('alt', "close");
     cartProductCloseImg.addEventListener('click', removeFromCart)
+
+    // console.log(thisPrice);
 
 
     shoppingCartProduct.appendChild(cartProductFig);
@@ -94,17 +106,19 @@ function addToCart () {
 
     numberOfItems.innerText = shoppingCart.children.length;
 
-    let total = aside.querySelector('.order span');
-    if (numberOfItems.innerText != 0) {total.innerText = 'Total'};
-    let totalPrice = aside.querySelector('.order p:nth-child(2)');
-    let priceList = [];
+    // let total = aside.querySelector('.order span'); // quería cambiar el nombre si el total es 0
+
+    
+    // let priceList = [];
     let price;
     for (child of shoppingCart.children) {
         price = Number(child.children[1].innerText.slice(1));
-        priceList.push(price);
+        // priceList.push(price);
     }
-
-    totalPrice.innerText = '$' + calculateTotalPrice(priceList);
+    console.log(totalPriceNumber)
+    totalPriceNumber = totalPriceNumber + thisPrice;
+    totalPrice.innerText = ''
+    totalPrice.innerText = '$' + totalPriceNumber;
     
     //Aun no puedo remover las cosas y que se reste al número. creo que debo buscar una solución más fácil (p. ej. cuando se agrega algo al carrito, inmediatamente se suma el valor al Total, sin necesidad de listas. Cuando se quite, inmediatamente se resta.)
     function removeFromCart() {
@@ -129,21 +143,21 @@ function addToCart () {
         // priceList.splice(price, 1)
         for (child of shoppingCart.children) {
             price = Number(child.children[1].innerText.slice(1));
-            priceList.push(-price);
+            // priceList.push(-price);
         }
         // price = Number(child.children[1].innerText.slice(1));
         // priceList.push(-price); //falta encontrr la manera de remover el número, den vez de agregar el negativo
         // totalPrice.innerText = '$' + calculateTotalPrice(priceList);
-        console.log(priceList)
+        // console.log(priceList)
     };
-    console.log(priceList)
+    // console.log(priceList)
 };
 
 
-function calculateTotalPrice(arr) {
-    let result = arr.reduce(function(pv, cv) { return pv + cv; }, 0);
-    return result
-};
+// function calculateTotalPrice() {
+//     totalPriceNumber = totalPriceNumber +  
+//     // arr.reduce(function(pv, cv) { return pv + cv; }, 0);
+// };
 
 function upTo(el, tagName) { //obtiene el elemento padre que se esté buscando. Lo usaré para buscar el padre de la imagen
     tagName = tagName.toLowerCase();
