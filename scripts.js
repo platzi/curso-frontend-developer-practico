@@ -4,6 +4,8 @@ const menuMobileBtn = document.querySelector('.menu')
 const menuMobileBox = document.querySelector('.mobile-menu')
 const carritoIconBtn = document.querySelector('.navbar-shopping-cart')
 const carritoBox = document.querySelector('#shoppingCartContainer')
+const asideDetailProduct = document.querySelector('#detailProduct')
+const productDetailCloseBtn = document.querySelector('.product-detail-close')
 
 menuEmailBtn.addEventListener('click', ()=>{
     const isCarritoClosed = carritoBox.classList.contains('inactive')
@@ -31,6 +33,16 @@ carritoIconBtn.addEventListener('click', ()=>{
         menuMobileBox.classList.add('inactive')
     }
     carritoBox.classList.toggle('inactive')
+})
+productDetailCloseBtn.addEventListener('click', ()=>{
+    asideDetailProduct.classList.add('inactive')
+})
+document.addEventListener('keyup', (e)=>{
+    if(!asideDetailProduct.classList.contains('inactive')){
+        if(e.keyCode == 27){
+            asideDetailProduct.classList.add('inactive')
+        }
+    }
 })
 
 // Crear el array de los productos (Hardcodeados)
@@ -83,26 +95,19 @@ productList.push(
     }
 )
 renderProducts(productList)
-/* 
-<div class="product-card">
-    <img src="https://images.pexels.com/photos/276517/pexels-photo-276517.jpeg?auto=compress&cs=tinysrgb&dpr=2&h=650&w=940" alt="">
-    <div class="product-info">
-        <div>
-            <p>$120,00</p>
-            <p>Bike</p>
-        </div>
-        <figure>
-            <img src="./icons/bt_add_to_cart.svg" alt="">
-        </figure>
-    </div>
-</div> 
-*/
+
+function openProductDetail(nameProduct){
+    asideDetailProduct.classList.remove('inactive')
+    console.log(nameProduct)
+}
+
 // Crear elementos del componente productos. Por cada unos de los elementos del array productos
 function renderProducts (productList) {
-    for (const product of productList) {   
+    for (const product of productList) {
         const productBox = document.querySelector('.cards-container');
             const productCard = document.createElement('div')
                 productCard.classList.add('product-card')
+                productCard.addEventListener('click', openProductDetail(product.name))
             const img_product = document.createElement('img')
                 img_product.src = product.image
             const productInfo = document.createElement('div')
