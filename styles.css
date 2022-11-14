@@ -270,7 +270,6 @@
 }
 .product-detail-individual > img:nth-child(2) {
   width: 100%;
-  width: -webkit-fill-available;
   height: 360px;
   object-fit: cover;
   border-radius: 20px;
