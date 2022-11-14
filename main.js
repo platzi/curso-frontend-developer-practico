@@ -115,49 +115,26 @@ function addToCart () {
         price = Number(child.children[1].innerText.slice(1));
         // priceList.push(price);
     }
-    console.log(totalPriceNumber)
-    totalPriceNumber = totalPriceNumber + thisPrice;
+    
+    totalPriceNumber = totalPriceNumber + Number(thisPrice.slice(1));
     totalPrice.innerText = ''
     totalPrice.innerText = '$' + totalPriceNumber;
-    
+    console.log(thisPrice.slice(1))
+
     //Aun no puedo remover las cosas y que se reste al número. creo que debo buscar una solución más fácil (p. ej. cuando se agrega algo al carrito, inmediatamente se suma el valor al Total, sin necesidad de listas. Cuando se quite, inmediatamente se resta.)
+
     function removeFromCart() {
         upTo(this, 'div').remove();
+        totalPriceNumber = totalPriceNumber - Number(thisPrice.slice(1));
+        totalPrice.innerText = ''
+        totalPrice.innerText = '$' + totalPriceNumber;
 
-        // for (i of priceList) {
-        //     if (i == price) {
-        //         priceList.splice(i, 1);
-        //         break
-        //     }
+        // for (child of shoppingCart.children) {
+        //     price = Number(child.children[1].innerText.slice(1));
         // }
-        // console.log(price)
-        // for(let i = 0; i < priceList; i++) {
-        //     console.log('funciona')
-        //     if (priceList[i] == price) {
-        //     };
-        // }
-        // console.log(upTo(this, 'div'));
-        // for (i of priceList) {
-        //     console.log(i);
-        // }
-        // priceList.splice(price, 1)
-        for (child of shoppingCart.children) {
-            price = Number(child.children[1].innerText.slice(1));
-            // priceList.push(-price);
-        }
-        // price = Number(child.children[1].innerText.slice(1));
-        // priceList.push(-price); //falta encontrr la manera de remover el número, den vez de agregar el negativo
-        // totalPrice.innerText = '$' + calculateTotalPrice(priceList);
-        // console.log(priceList)
     };
-    // console.log(priceList)
 };
 
-
-// function calculateTotalPrice() {
-//     totalPriceNumber = totalPriceNumber +  
-//     // arr.reduce(function(pv, cv) { return pv + cv; }, 0);
-// };
 
 function upTo(el, tagName) { //obtiene el elemento padre que se esté buscando. Lo usaré para buscar el padre de la imagen
     tagName = tagName.toLowerCase();
