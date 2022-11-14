@@ -8,6 +8,8 @@ const productDetailCloseIcon = document.querySelector('.product-detail-close');
 const aside = document.querySelector('.product-detail');
 const cardsContainer = document.querySelector('.cards-container');
 const productDetailInd = document.querySelector('.product-detail-individual');
+const shoppingCart = document.querySelector('.shopping-cart');
+
 
 
 navEmail.addEventListener('click', toggleDesktopMenu);
@@ -48,7 +50,50 @@ function closeProductDetailAsai() {
 }
 
 function addToCart () {
-    console.log(addToCartImage.closest(".product-info"));
+    let thisCard;
+    let thisSource;
+    if (this.tagName == 'IMG') {
+        thisCard = upTo(upTo(this, 'div'), 'div')
+        thisSource = thisCard.querySelectorAll('img')[0].src;
+    } else {
+        thisCard = upTo(this, 'aside');
+        thisSource = thisCard.querySelectorAll('img')[1].src;
+    }
+    let thisName = thisCard.querySelectorAll('p')[0].innerText;
+    let thisPrice = thisCard.querySelectorAll('p')[1].innerText;
+
+    // console.log( thisSource, thisName, thisPrice);
+    // <figure>
+    //   <img alt="product-image">
+    // </figure>
+    // <p></p>
+    // <p></p>
+    // <img src="./icons/icon_close.png" alt="close"> --></img>
+
+    let shoppingCartProduct = document.createElement('div');
+    shoppingCartProduct.setAttribute('class', 'shopping-cart-product')
+
+    let cartProductFig = document.createElement('figure');
+    let cartProductImg = document.createElement('img');
+    cartProductImg.setAttribute('src', thisSource);
+    cartProductFig.appendChild(cartProductImg);
+
+    let cartProductName = document.createElement('p');
+    cartProductName.innerText = thisName;
+    let cartProductPrice = document.createElement('p');
+    cartProductPrice.innerText = thisPrice;
+    let cartProductCloseImg = document.createElement('img');
+    cartProductCloseImg.setAttribute('src', "./icons/icon_close.png");
+    cartProductCloseImg.setAttribute('alt', "close");
+
+    shoppingCartProduct.appendChild(cartProductFig);
+    shoppingCartProduct.appendChild(cartProductName);
+    shoppingCartProduct.appendChild(cartProductPrice);
+    shoppingCartProduct.appendChild(cartProductCloseImg);
+
+    shoppingCart.appendChild(shoppingCartProduct);
+
+    numberOfItems.innerText = shoppingCart.children.length;
 };
 
 function upTo(el, tagName) { //obtiene el elemento padre que se esté buscando. Lo usaré para buscar el padre de la imagen
@@ -212,6 +257,7 @@ function renderProducts(arr) {
         const productInfoFigure = document.createElement('figure');
         const productImgCard = document.createElement('img');
         productImgCard.setAttribute('src', "./icons/bt_add_to_cart.svg");
+        productImgCard.addEventListener('click', addToCart);
     
         productInfoFigure.appendChild(productImgCard);
     
@@ -233,12 +279,14 @@ function renderProduct() {
     
     let productName = productDetailInd.getElementsByTagName('p')[0];
     productName.innerText = thisCard.querySelectorAll('.product-info div p')[0].innerText;
-    console.log(thisCard.querySelector('.product-info div p').innerText);
+    // console.log(thisCard.querySelector('.product-info div p').innerText);
     let productPrice = productDetailInd.getElementsByTagName('p')[1];
     productPrice.innerText = thisCard.querySelectorAll('.product-info div p')[1].innerText;
     let productDescription = productDetailInd.getElementsByTagName('p')[2];
     productDescription.innerText = thisCard.querySelectorAll('.product-info div p')[2].innerText;
 
+    let addToCartButton = document.querySelector('.add-to-cart-button');
+    addToCartButton.addEventListener('click', addToCart);
 
     // <div class="product-detail-close">
     //   <img src="./icons/icon_close.png" alt="close">
@@ -257,13 +305,3 @@ function renderProduct() {
 
 renderProducts(productList);
 showArticle()
-
-carList = [];
-
-
-
-// No sé si hay alguna solución para no tener que definir esta variable abajo
-const addToCartImages = document.querySelectorAll('.product-info figure img');
-for (addToCartImage of addToCartImages) {
-    addToCartImage.addEventListener('click', addToCart);
-};
