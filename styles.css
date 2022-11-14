@@ -162,9 +162,10 @@
 /* Aside (product detail y shopping Cart) */
   aside {
     background-color: var(--white);
-    width: 360px;
+    width: 480px;
     box-sizing: border-box;
     position: absolute;
+    top: 60px;
     right: 0;
   }
 
@@ -243,6 +244,10 @@
     font-size: var(--md);
     font-weight: bold;
     height: 50px;
+    margin-bottom: 20px;
+  }
+  .remove-from-cart-btn {
+    cursor: pointer;
   }
 
 /* Aside product detail*/
@@ -307,7 +312,6 @@
     justify-content: center;
   }
 
-
   /* Card containers (productos) */
   .cards-container {
     display: grid;
@@ -318,12 +322,15 @@
   }
   .product-card {
     width: 240px;
+    
   }
   .product-card img {
+    cursor: pointer;
     width: 240px;
     height: 240px;
     border-radius: 20px;
     object-fit: cover;
+    border: 1px solid gray;
   }
   .product-card .product-info {
     display: flex;
