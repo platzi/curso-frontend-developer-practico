@@ -1,0 +1,82 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta http-equiv="X-UA-Compatible" content="IE=edge" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <link rel="preconnect" href="https://fonts.googleapis.com" />
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+    <link
+      href="https://fonts.googleapis.com/css2?family=Mulish:wght@200&family=Quicksand:wght@300;500;700&display=swap"
+      rel="stylesheet"
+    />
+    <link rel="shortcut icon" href="./logos/favicon_bota_fora.svg" />
+    <title>Document</title>
+    <style>
+      :root {
+        --white: #ffffff;
+        --black: #000000;
+        --very-light-pink: #c7c7c7c7;
+        --text-input-field: #e5e7e9;
+        --hospital-green: #acd9b2;
+        --sm: 14px;
+        --md: 16px;
+        --lg: 18px;
+      }
+      body {
+        margin: 0;
+        font-family: "Mulish", sans-serif;
+        font-family: "Quicksand", sans-serif;
+        background-color: var(--white);
+      }
+      .desktop-menu {
+        width: 100px;
+        height: auto;
+        border: 1px solid var(--very-light-pink);
+        border-radius: 6px;
+        padding: 20px 20px 0 20px;
+      }
+      .desktop-menu ul {
+        list-style: none;
+        padding: 0;
+        margin: 0;
+      }
+      .desktop-menu ul li {
+        text-align: end;
+      }
+      .desktop-menu ul li:nth-child(1),
+      .desktop-menu ul li:nth-child(2) {
+        font-weight: bold;
+      }
+      .desktop-menu ul li:last-child {
+        padding-top: 20px;
+        border-top: 1px solid var(--very-light-pink);
+      }
+      .desktop-menu ul li:last-child a {
+        color: var(--hospital-green);
+        font-size: var(--sm);
+      }
+      .desktop-menu ul li a {
+        color: var(--black);
+        text-decoration: none;
+        margin-bottom: 20px;
+        display: inline-block;
+      }
+    </style>
+  </head>
+  <body>
+    <div class="desktop-menu">
+      <ul>
+        <li>
+          <a href="/" class="title">My orders</a>
+        </li>
+        <li>
+          <a href="/">My account</a>
+        </li>
+        <li>
+          <a href="/">Sign out</a>
+        </li>
+      </ul>
+    </div>
+  </body>
+</html>

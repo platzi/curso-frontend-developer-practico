@@ -1,0 +1,111 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta http-equiv="X-UA-Compatible" content="IE=edge" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <link rel="preconnect" href="https://fonts.googleapis.com" />
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+    <link
+      href="https://fonts.googleapis.com/css2?family=Mulish:wght@200&family=Quicksand:wght@300;500;700&display=swap"
+      rel="stylesheet"
+    />
+    <link rel="shortcut icon" href="./logos/favicon_bota_fora.svg" />
+    <title>Document</title>
+    <style>
+      :root {
+        --white: #ffffff;
+        --black: #000000;
+        --very-light-pink: #c7c7c7c7;
+        --text-input-field: #e5e7e9;
+        --hospital-green: #acd9b2;
+        --sm: 14px;
+        --md: 16px;
+        --lg: 18px;
+      }
+      body {
+        margin: 0;
+        font-family: "Mulish", sans-serif;
+        font-family: "Quicksand", sans-serif;
+        background-color: var(--white);
+      }
+      .mobile-menu{
+        padding: 24px;
+      }
+      .mobile-menu a {
+        text-decoration: none;
+        color: var(--black);
+        font-weight: bold;
+        /*margin-bottom: 24px; */
+      }
+      .mobile-menu ul {
+        padding: 0;
+        margin: 24px 0 0;
+        list-style: none;
+      }
+      .mobile-menu ul:nth-child(1) {
+        border-bottom: 1px solid var(--very-light-pink);
+      }
+      .mobile-menu ul li {
+        margin-bottom: 24px;
+      }
+      .email {
+        font-size: var(--sm);
+        font-weight: 300 !important;
+      }
+      .mobile-menu .sign-out {
+        font-size: var(--sm);
+        color: var(--hospital-green);
+      }
+      .mobile-menu ul:last-child {
+        position: absolute;
+        bottom: 0;
+      }
+    </style>
+  </head>
+  <body>
+    <div class="mobile-menu">
+      <ul>
+        <li>
+          <a href="/">CATEGORIES</a>
+        </li>
+        <li>
+          <a href="/">All</a>
+        </li>
+        <li>
+          <a href="/">Clothes</a>
+        </li>
+        <li>
+          <a href="/">Electronics</a>
+        </li>
+        <li>
+          <a href="/">Furnitures</a>
+        </li>
+        <li>
+          <a href="/">Toys</a>
+        </li>
+        <li>
+          <a href="/">Others</a>
+        </li>
+      </ul>
+      
+      <ul>
+        <li>
+          <a href="/">My orders</a>
+        </li>
+        <li>
+          <a href="/">My account</a>
+        </li>
+      </ul>
+
+      <ul>
+        <li>
+          <a href="/" class="email">email@ejemplo.com</a>
+        </li>
+        <li>
+          <a href="/" class="sign-out">Sign out </a>
+        </li>
+      </ul>
+    </div>
+  </body>
+</html>
