@@ -249,6 +249,17 @@
   .remove-from-cart-btn {
     cursor: pointer;
   }
+  .total-shopping-cart {
+    display: flex;
+    justify-content: center;
+  }
+  .total-shopping-cart p{
+    display: inline;
+    font-size: var(--md);
+    margin-bottom: 20px;
+    margin-left: 25px;
+    font-weight: bold;
+  }
 
 /* Aside product detail*/
   #product-detail {

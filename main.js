@@ -134,105 +134,99 @@ productList.push({
     description: ''
 });
 
-    for (product of productList) {
-        const asideDetail = document.createElement('aside');
-        asideDetail.classList.add('inactive');
-        asideDetail.setAttribute('id', 'product-detail');
+// Crea la estructura para los detalles del producto
+for (product of productList) {
+    const asideDetail = document.createElement('aside');
+    asideDetail.classList.add('inactive');
+    asideDetail.setAttribute('id', 'product-detail');
 
+    const productCloseIconContainer = document.createElement('div'); // Crea el contenedor del icono para cerrar el product-detail
+    productCloseIconContainer.classList.add('product-detail-close'); // Agrega la clase
+    const closeIconImage = document.createElement('img'); // Crea el <img>
+    closeIconImage.setAttribute('src', './icons/icon_close.png'); // Agrega el url del icono de la tachita
+    closeIconImage.classList.add('close-icon');
 
-        const productCloseIconContainer = document.createElement('div'); // Crea el contenedor del icono para cerrar el product-detail
-        productCloseIconContainer.classList.add('product-detail-close'); // Agrega la clase
-        const closeIconImage = document.createElement('img'); // Crea el <img>
-        closeIconImage.setAttribute('src', './icons/icon_close.png'); // Agrega el url del icono de la tachita
-        closeIconImage.classList.add('close-icon');
+    const productImage = document.createElement('img'); // Crea el <img>
+    productImage.setAttribute('src', product.image); // Agrega la imagen del producto
 
-        const productImage = document.createElement('img'); // Crea el <img>
-        productImage.setAttribute('src', product.image); // Agrega la imagen del producto
+    const productInformation = document.createElement('div'); // Crea el contenedor para la informacion del producto
+    productInformation.classList.add('product-info');
+    const productPrice = document.createElement('p'); // Crea el tag <p> para el precio del producto
+    productPrice.innerText = '$' + product.price; // Asigna el precio del producto
+    const productName = document.createElement('p'); // Crea el tag <p> para el nombre del producto
+    productName.innerText = product.name; // Asigna el nombre del producto
+    const productDescription = document.createElement('p'); // Crea el tag <p> para la descripcion del producto
+    productDescription.innerText = product.description; // Asigna la descripcion del producto
+    const addBtn = document.createElement('button'); // Crea el contenedor del icono para añadir producto al carrito
+    addBtn.classList.add('primary-button'); // Agrega la clase
+    addBtn.classList.add('add-to-cart-button'); //Agrega la segunda clase
+    const btnImage = document.createElement('img'); // Crea el <img>
+    btnImage.setAttribute('src', './icons/bt_add_to_cart.svg'); // Agrega la imagen del carrito
+    addBtn.innerText = 'Add to cart';
 
-        const productInformation = document.createElement('div'); // Crea el contenedor para la informacion del producto
-        productInformation.classList.add('product-info');
-        const productPrice = document.createElement('p'); // Crea el tag <p> para el precio del producto
-        productPrice.innerText = '$' + product.price; // Asigna el precio del producto
-        const productName = document.createElement('p'); // Crea el tag <p> para el nombre del producto
-        productName.innerText = product.name; // Asigna el nombre del producto
-        const productDescription = document.createElement('p'); // Crea el tag <p> para la descripcion del producto
-        productDescription.innerText = product.description; // Asigna la descripcion del producto
-        const addBtn = document.createElement('button'); // Crea el contenedor del icono para añadir producto al carrito
-        addBtn.classList.add('primary-button'); // Agrega la clase
-        addBtn.classList.add('add-to-cart-button'); //Agrega la segunda clase
-        const btnImage = document.createElement('img'); // Crea el <img>
-        btnImage.setAttribute('src', './icons/bt_add_to_cart.svg'); // Agrega la imagen del carrito
-        addBtn.innerText = 'Add to cart';
+    // Ahora a hacer el append de adentro hacia fuera de todo los tags 
+    addBtn.appendChild(btnImage);
 
-        // Ahora a hacer el append de adentro hacia fuera de todo los tags 
-        addBtn.appendChild(btnImage);
+    productInformation.append(productPrice, productName, productDescription, addBtn);
 
-        productInformation.append(productPrice, productName, productDescription, addBtn);
+    productCloseIconContainer.appendChild(closeIconImage);
 
-        productCloseIconContainer.appendChild(closeIconImage);
+    asideDetail.append(productCloseIconContainer, productImage, productInformation);
+    document.body.appendChild(asideDetail);
+}
 
-        // productDetailContainer.append(productCloseIconContainer, productImage, productInformation);
-
-        // const productDetailCloseIcon = document.querySelector('.product-detail-close');
-        // productDetailCloseIcon.addEventListener('click', console.log);
-
-        asideDetail.append(productCloseIconContainer, productImage, productInformation);
-        document.body.appendChild(asideDetail);
-    }
-
-    for (product of productList) {
-        const productCard = document.createElement('div'); // Crea el <div> principal
-        productCard.classList.add('product-card'); // Agrega la clase al div principal
+// Crea la estructura de los productos en el menu principal
+for (product of productList) {
+    const productCard = document.createElement('div'); // Crea el <div> principal
+    productCard.classList.add('product-card'); // Agrega la clase al div principal
         
-        const productImage = document.createElement('img'); // Crea el tag <img> del producto
-        productImage.setAttribute('src', product.image); // Agrega la url de la imagen
+    const productImage = document.createElement('img'); // Crea el tag <img> del producto
+    productImage.setAttribute('src', product.image); // Agrega la url de la imagen
         
+    const productInformation = document.createElement('div'); // Crea el <div> que va a contener el precio, el nombre del producto, asi como el icono para agregar al carrito de compras
+    productInformation.classList.add('product-info'); // Agrega la clase al div
 
-        const productInformation = document.createElement('div'); // Crea el <div> que va a contener el precio, el nombre del producto, asi como el icono para agregar al carrito de compras
-        productInformation.classList.add('product-info'); // Agrega la clase al div
+    const productNameAndPrice = document.createElement('div'); // Crea el <div> que contiene precio y nombre del producto 
+    const productName = document.createElement('p'); // Crea el tag <p> para el nombre del producto
+    productName.innerText = product.name; // Asigna el nombre del producto
+    const productPrice = document.createElement('p'); // Crea el tag <p> para el precio del producto
+    productPrice.innerText = '$' + product.price; // Asigna el precio del producto
 
-        const productNameAndPrice = document.createElement('div'); // Crea el <div> que contiene precio y nombre del producto 
-        const productName = document.createElement('p'); // Crea el tag <p> para el nombre del producto
-        productName.innerText = product.name; // Asigna el nombre del producto
-        const productPrice = document.createElement('p'); // Crea el tag <p> para el precio del producto
-        productPrice.innerText = '$' + product.price; // Asigna el precio del producto
+    const cartFigure = document.createElement('figure'); // Crea el tag <figure> donde pondremos la imagen del icono para agregar al carrito de compras
+    cartFigure.classList.add('add-cart-btn'); // Agrega la clase al boton para cada producto
+    const productShoppingCartIcon = document.createElement('img'); // Crea el tag <img>
+    productShoppingCartIcon.setAttribute('src', './icons/bt_add_to_cart.svg'); // Agrega la url de la imagen del carrito de compras
 
-        const cartFigure = document.createElement('figure'); // Crea el tag <figure> donde pondremos la imagen del icono para agregar al carrito de compras
-        cartFigure.classList.add('add-cart-btn'); // Agrega la clase al boton para cada producto
-        const productShoppingCartIcon = document.createElement('img'); // Crea el tag <img>
-        productShoppingCartIcon.setAttribute('src', './icons/bt_add_to_cart.svg'); // Agrega la url de la imagen del carrito de compras
+    // Vamos haciendo el append en orden de cada elemento desde dentro hacia fuera para generar la estructura correcta del "product-card"
+    cartFigure.appendChild(productShoppingCartIcon);
+    productNameAndPrice.append(productPrice, productName);
+    productInformation.append(productNameAndPrice, cartFigure);
+    productCard.append(productImage, productInformation);
 
-        // Vamos haciendo el append en orden de cada elemento desde dentro hacia fuera para generar la estructura correcta del "product-card"
-        cartFigure.appendChild(productShoppingCartIcon);
-        productNameAndPrice.append(productPrice, productName);
-        productInformation.append(productNameAndPrice, cartFigure);
-        productCard.append(productImage, productInformation);
+    // Por ultimo, agregamos la estructura al div existente <div class="cards-container"> declarado e inicializado en la linea 10
+    cardsContainer.appendChild(productCard);
+}
+const allProducts = document.querySelectorAll('.product-card'); // Seleccionamos todos los productos que creamos
+const allProductsDetail = document.querySelectorAll('#product-detail'); // Seleccionamos todos los aside o product details
+const closeDetailIcon = document.querySelectorAll('.product-detail-close'); // Seleccionamos cada tachita  de cada product detail
 
-        // Por ultimo, agregamos la estructura al div existente <div class="cards-container"> declarado e inicializado en la linea 10
-        cardsContainer.appendChild(productCard);
-    }
-
-    const allProducts = document.querySelectorAll('.product-card'); // Seleccionamos todos los productos que creamos
-    const allProductsDetail = document.querySelectorAll('#product-detail'); // Seleccionamos todos los aside o product details
-    const closeDetailIcon = document.querySelectorAll('.product-detail-close'); // Seleccionamos cada tachita  de cada product detail
-
-    //Procedemos a hacerles un loop a cada producto que tenemos para que se le asigne un eventListener unico
-    for (let i = 0; i < allProducts.length; i++) {
-        allProducts[i].firstChild.addEventListener('click', () => {
-            shoppingCartContainer.classList.add('inactive');
-            desktopMenu.classList.add('inactive');
-            mobileMenu.classList.add('inactive');
+//Procedemos a hacerles un loop a cada producto que tenemos para que se le asigne un eventListener unico
+for (let i = 0; i < allProducts.length; i++) {
+    allProducts[i].firstChild.addEventListener('click', () => {
+        shoppingCartContainer.classList.add('inactive');
+        desktopMenu.classList.add('inactive');
+        mobileMenu.classList.add('inactive');
             
-            addInactive();
-            allProductsDetail[i].classList.remove('inactive'); // Se le quita el inactive unicamente al producto al que el usuario hace el click
-        });
-        closeDetailIcon[i].addEventListener('click', () => { // Evento para que cuando se haga el click en la tacha, se cierre el detail del producto
-            allProductsDetail[i].classList.add('inactive');
-        });
-    }
+        addInactive();
+        allProductsDetail[i].classList.remove('inactive'); // Se le quita el inactive unicamente al producto al que el usuario hace el click
+    });
+    closeDetailIcon[i].addEventListener('click', () => { // Evento para que cuando se haga el click en la tacha, se cierre el detail del producto
+        allProductsDetail[i].classList.add('inactive');
+    });
+}
     
 
-// Shopping cart
+// Crea la estructura del carrito de compras
 function addShoppingCart(){
     myOrderContainer.replaceChildren(); // Hace reset del contenedor del carro de compras
     for (let i = 0; i < shoppingCart.length; i++) {
@@ -259,7 +253,7 @@ function addShoppingCart(){
         cartDiv.append(productFigure, productName, productPrice, deleteIcon);
         myOrderContainer.appendChild(cartDiv);
     }
-
+    cartCounter.innerText = shoppingCart.length
     const removeCartBtn = document.querySelectorAll('.remove-from-cart-btn');
     for(let i = 0; i < shoppingCart.length; i++) {
         removeCartBtn[i].addEventListener('click', () => {
@@ -268,13 +262,33 @@ function addShoppingCart(){
         })
     }
 
+    // Agrega el feature para saber el costo total del carrito de compras
+    const totalCartCost = document.createElement('div');
+    totalCartCost.classList.add('total-shopping-cart')
+    const cartTotalText = document.createElement('p');
+    let cartCostText = document.createElement('p');
+    cartTotalText.innerText = 'Total: '
+    let cartTotalArr = []
+    for (product of shoppingCart) {
+        cartTotalArr.push(product.price);
+    }
+    const cartCost = cartTotalArr.reduce((acc, currentValue) => {
+        return acc + currentValue;
+    })
+    cartCostText.innerText = '$' + cartCost;
+    totalCartCost.appendChild(cartTotalText);
+    totalCartCost.appendChild(cartCostText);
+    myOrderContainer.appendChild(totalCartCost);
+
+
     const checkoutButton = document.createElement('button');
     checkoutButton.classList.add('primary-button');
     checkoutButton.innerText = 'Checkout';
     myOrderContainer.appendChild(checkoutButton);
-    cartCounter.innerText = shoppingCart.length
+    
 }
 
+// Feature para agregar un producto al carrito de compras desde la pantalla principal
 const addCartBtn = document.querySelectorAll('.add-cart-btn');
 for (let i = 0; i < productList.length; i++) {
     addCartBtn[i].addEventListener('click', () => {
@@ -285,6 +299,7 @@ for (let i = 0; i < productList.length; i++) {
     })
 }
 
+// Feature para agregar un producto al carrito de compras desde el aside del detalle de producto
 const detailAddCartBtn = document.querySelectorAll('.add-to-cart-button');
 for (let i = 0; i < productList.length; i++) {
     detailAddCartBtn[i].addEventListener('click', () => {
