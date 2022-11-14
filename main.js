@@ -31,6 +31,7 @@ function toggleMobileMenu() {
     shoppingCartContainer.classList.add('inactive')
   }
 
+  closeMenuIconShopClose()
   mobileMenu.classList.toggle('inactive')
 }
 
@@ -40,7 +41,22 @@ function toggleCartAside() {
     mobileMenu.classList.add('inactive')
   }
 
+  const isProductCartDetailClosed =
+    productCartDetail.classList.contains('inactive')
+  if (!isProductCartDetailClosed) {
+    productCartDetail.classList.add('inactive')
+  }
+
   shoppingCartContainer.classList.toggle('inactive')
+}
+
+function openProductCartDetail() {
+  shoppingCartContainer.classList.add('inactive')
+  productCartDetail.classList.remove('inactive')
+}
+
+function closeMenuIconShopClose() {
+  productCartDetail.classList.add('inactive')
 }
 
 const productList = []
@@ -74,21 +90,11 @@ function renderProducts(arr) {
       '.product-card .product-info div p'
     )[1].textContent = product.name
 
-    const clone = cardTemplate.cloneNode(true)
+    const clone = cardTemplate.firstElementChild.cloneNode(true)
+    clone.addEventListener('click', openProductCartDetail)
     fragment.appendChild(clone)
   }
 
   cardsContainer.appendChild(fragment)
 }
 renderProducts(productList)
-
-function openProductCartDetail() {
-  productCartDetail.classList.remove('inactive')
-}
-
-function closeMenuIconShopClose() {
-  shoppingCartContainer.classList.toggle('inactive')
-  productCartDetail.classList.add('inactive')
-  mobileMenu.classList.add('inactive')
-  desktopMenu.classList.add('inactive')
-}
