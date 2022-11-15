@@ -10,6 +10,12 @@ hamMenu.addEventListener('click', toggleMobileMenu);
 iconCar.addEventListener('click', toggleCarMenu)
 
 function toggleDesktopMenu () {
+    const isCarClosed = carList.classList.contains('inactive');
+
+    if (!isCarClosed){
+        carList.classList.add('inactive');
+    }
+
     desktopMenu.classList.toggle('inactive');
 }
 
