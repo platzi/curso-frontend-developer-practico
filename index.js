@@ -5,13 +5,16 @@ const burgerMenu = document.querySelector('.menu');
 const mobileMenu = document.querySelector('.mobile-menu');
 
 const menuCarroIcon = document.querySelector('.navbar-shopping-cart');
-const aside = document.querySelector('.product-detail');
+const shoppingCardContainer = document.querySelector('#shopping-card-container');
+const productDetailContainer = document.querySelector('#product-detail');
+const productDetailContainerCloseIcon = document.querySelector('.product-detail-close');
 
 const cardsContainer = document.querySelector('.cards-container');
 
 menuEmail.addEventListener('click', toggleDesktopMenu);
 burgerMenu.addEventListener('click', toggleMobileMenu);
 menuCarroIcon.addEventListener('click', toggleCarroAside); 
+productDetailContainerCloseIcon.addEventListener('click', closeProductDetailAside);
 
 const productList = [];
 productList.push({
@@ -33,28 +36,34 @@ productList.push({
 
 // Cada vez que se de click quita o pone la clase inactive dependiendo si la tiene o no 
 function toggleDesktopMenu() {
-    const isAsideClose = aside.classList.contains('inactive'); // Valida si el aside esta cerrado
+    const isAsideClose = shoppingCardContainer.classList.contains('inactive'); // Valida si el aside esta cerrado
+    const isProductDetailClose = productDetailContainer.classList.contains('inactive');
 
     if(!isAsideClose) { // aside abierto
-        aside.classList.toggle('inactive'); // se inactiva el aside
+        shoppingCardContainer.classList.toggle('inactive'); // se inactiva el aside
+    }
+    if(!isProductDetailClose) { // detalle de producto abierto
+        productDetailContainer.classList.toggle('inactive'); // se inactiva el detalle de producto
     }
 
     desktopMenu.classList.toggle('inactive');
 }
 
 function toggleMobileMenu() {
-    const isAsideClose = aside.classList.contains('inactive'); // Valida si el aside esta cerrado
+    const isAsideClose = shoppingCardContainer.classList.contains('inactive'); // Valida si el aside esta cerrado
 
     if(!isAsideClose) { // aside abierto
-        aside.classList.toggle('inactive');  // se inactiva el aside
+        shoppingCardContainer.classList.toggle('inactive');  // se inactiva el aside
     }
 
+    closeProductDetailAside();
     mobileMenu.classList.toggle('inactive');
 }
 
 function toggleCarroAside() {
     const isMobileMenuClose = mobileMenu.classList.contains('inactive'); // Valida si el menú esta cerrado
     const isDesktopMenuClose = desktopMenu.classList.contains('inactive'); // Valida si el desktop menú esta cerrado
+    const isProductDetailClose = productDetailContainer.classList.contains('inactive');
 
     // Cada vez que se de click al menú del carrito, se cierra el menú mobile
     if(!isMobileMenuClose) { // Mobile menu abierto
@@ -63,8 +72,22 @@ function toggleCarroAside() {
     if(!isDesktopMenuClose) { // desktop menu abierto
         desktopMenu.classList.toggle('inactive'); // se inactiva el desktopMenu
     }
+    if(!isProductDetailClose) { // detalle de producto abierto
+        productDetailContainer.classList.toggle('inactive'); // se inactiva el detalle de producto
+    }
 
-     aside.classList.toggle('inactive');
+     shoppingCardContainer.classList.toggle('inactive');
+}
+
+function openProductDetailAside() { 
+
+    desktopMenu.classList.add('inactive');
+    shoppingCardContainer.classList.add('inactive');
+    productDetailContainer.classList.remove('inactive');
+}
+
+function closeProductDetailAside() {
+    productDetailContainer.classList.add('inactive');
 }
 
 // ? Para cada uno de los productos que se tienen en la lista de productos se esta creando su respectiva etiqueta HTML
@@ -75,7 +98,8 @@ function renderProducts(arr) {
         
         const productImg = document.createElement('img'); // Crea una etiqueta de HTML
         productImg.setAttribute('src', product.image); // Añade la imagen que contiene el objeto como atributo de la etiqueta img de HTML
-        
+        productCard.addEventListener('click', openProductDetailAside); // Cuando se da click, SOLAMENTE se debe abrir el aside del product
+
         const productInfo = document.createElement('div'); // Crea una etiqueta HTML
         productInfo.classList.add('product-info'); // Añade la clase product card al div creado anteriormente
     
