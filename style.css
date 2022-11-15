@@ -133,6 +133,7 @@
     left: 0;
     width: 100%;
     padding: 24px;
+    box-sizing: border-box;
   }
   .mobile-menu a {
     text-decoration: none;
@@ -361,7 +362,7 @@ aside {
     .desktop-menu {
       display: none;
     }
-    .product-detail {
+    #productDetail, #shoppingCartContainer {
       width: 100%;
     }
     .cards-container {
