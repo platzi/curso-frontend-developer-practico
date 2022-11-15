@@ -22,7 +22,6 @@ menuMobileBtn.addEventListener('click', ()=>{
     menuMobileBox.classList.toggle('inactive')
 })
 carritoIconBtn.addEventListener('click', ()=>{
-    console.log('le estoy dando click al carrito')
     const isMenuEmailClosed = menuEmailBox.classList.contains('inactive')
     const isMenuMobileClosed = menuMobileBox.classList.contains('inactive')
     
@@ -49,67 +48,71 @@ document.addEventListener('keyup', (e)=>{
 const productList = []
 productList.push(
     {
+        id:1,
         name:'Bike',
         price: 12700,
         image: 'https://images.pexels.com/photos/276517/pexels-photo-276517.jpeg?auto=compress&cs=tinysrgb&dpr=2&h=650&w=940'
     },
     {
+        id:2,
         name:'Bicycle helmet',
         price: 1200,
         image: 'https://images.pexels.com/photos/276517/pexels-photo-276517.jpeg?auto=compress&cs=tinysrgb&dpr=2&h=650&w=940'
     },
     {
+        id:3,
         name:'Bicycle helmet',
         price: 1600,
         image: 'https://images.pexels.com/photos/276517/pexels-photo-276517.jpeg?auto=compress&cs=tinysrgb&dpr=2&h=650&w=940'
     },
     {
+        id:4,
         name:'Bicycle helmet',
         price: 1500,
         image: 'https://images.pexels.com/photos/276517/pexels-photo-276517.jpeg?auto=compress&cs=tinysrgb&dpr=2&h=650&w=940'
     },
     {
+        id:5,
         name:'Seat',
         price: 300,
         image: 'https://images.pexels.com/photos/276517/pexels-photo-276517.jpeg?auto=compress&cs=tinysrgb&dpr=2&h=650&w=940'
     },
     {
+        id:6,
         name:'Tennis Montain Bike',
         price: 2200,
         image: 'https://images.pexels.com/photos/276517/pexels-photo-276517.jpeg?auto=compress&cs=tinysrgb&dpr=2&h=650&w=940'
     },
     {
+        id:7,
         name:'Sunglasses',
         price: 800,
         image: 'https://images.pexels.com/photos/276517/pexels-photo-276517.jpeg?auto=compress&cs=tinysrgb&dpr=2&h=650&w=940'
     },
     {
+        id:8,
         name:'Sunglasses',
         price: 600,
         image: 'https://images.pexels.com/photos/276517/pexels-photo-276517.jpeg?auto=compress&cs=tinysrgb&dpr=2&h=650&w=940'
     },
     {
+        id:9,
         name:'Bicycle seat bag',
         price: 876,
         image: 'https://images.pexels.com/photos/276517/pexels-photo-276517.jpeg?auto=compress&cs=tinysrgb&dpr=2&h=650&w=940'
     }
 )
-renderProducts(productList)
-
-function openProductDetail(nameProduct){
-    asideDetailProduct.classList.remove('inactive')
-    console.log(nameProduct)
-}
-
+renderProducts(productList);
 // Crear elementos del componente productos. Por cada unos de los elementos del array productos
 function renderProducts (productList) {
     for (const product of productList) {
         const productBox = document.querySelector('.cards-container');
             const productCard = document.createElement('div')
-                productCard.classList.add('product-card')
-                productCard.addEventListener('click', openProductDetail(product.name))
+                productCard.classList.add('product-card');
+                productCard.setAttribute('data_id', (product.id + '00'));
             const img_product = document.createElement('img')
                 img_product.src = product.image
+                img_product.addEventListener('click', openProductDetail)
             const productInfo = document.createElement('div')
                 productInfo.classList.add('product-info')
                 const productInfoText = document.createElement('div')
@@ -129,4 +132,8 @@ function renderProducts (productList) {
 
         productBox.appendChild(productCard)
     }
+}
+function openProductDetail(nameProduct){
+    asideDetailProduct.classList.remove('inactive')
+    console.log(nameProduct)
 }
