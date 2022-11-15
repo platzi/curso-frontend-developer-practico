@@ -110,9 +110,11 @@ function renderProducts (productList) {
             const productCard = document.createElement('div')
                 productCard.classList.add('product-card');
                 productCard.setAttribute('data_id', (product.id + '00'));
+                productCard.addEventListener('click', () => {
+                    openProductDetail(product.id)
+                })
             const img_product = document.createElement('img')
                 img_product.src = product.image
-                img_product.addEventListener('click', openProductDetail)
             const productInfo = document.createElement('div')
                 productInfo.classList.add('product-info')
                 const productInfoText = document.createElement('div')
@@ -133,7 +135,17 @@ function renderProducts (productList) {
         productBox.appendChild(productCard)
     }
 }
-function openProductDetail(nameProduct){
+function openProductDetail(productId){
     asideDetailProduct.classList.remove('inactive')
-    console.log(nameProduct)
+    const aside_imageProduct = document.querySelector('#detailProduct #aside_img_product')
+    const aside_productInfo_price = document.querySelector('#detailProduct .product-info p:nth-child(1)')
+    const aside_productInfo_name = document.querySelector('#detailProduct .product-info p:nth-child(2)')
+
+    productList.forEach((element, index) => {
+        if(productId == element.id) {
+            aside_imageProduct.setAttribute('src', element.image)
+            aside_productInfo_name.innerHTML = element.name
+            aside_productInfo_price.innerHTML = element.price
+        }
+    })
 }
