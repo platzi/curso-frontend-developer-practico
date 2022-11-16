@@ -237,6 +237,7 @@ nav {
 
 /* Products List Section: =======================================*/
 .cards-container {
+  padding-top: 2%;
   display: grid;
   grid-template-columns: repeat(auto-fill, 240px);
   gap: 26px;
