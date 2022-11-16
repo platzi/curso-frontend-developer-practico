@@ -2,7 +2,7 @@ const menuEmail = document.querySelector('.navbar-email');
 const desktopMenu = document.querySelector('.desktop-menu')
 const hamburMenuIcon = document.querySelector('.menu')
 const mobileMenu = document.querySelector('.mobile-menu')
-const asideCarrito = document.querySelector('.product-detail')
+const asideCarrito = document.querySelector('#shoppingCartContainer')
 const carritoIcon = document.querySelector('.navbar-shopping-cart')
 const cardsContainer = document.querySelector('.cards-container')
 
@@ -87,11 +87,11 @@ for(product of productList) {
 
             const productFigure = document.createElement('figure');
                 const productFigureLogo = document.createElement('img');
-                productFigureLogo.setAttribute('src','./icons/bt_add_to_cart.svg')
+                productFigureLogo.setAttribute('src','./icons/bt_add_to_cart.svg');
                 productFigure.appendChild(productFigureLogo);
     
         productInfo.append(productInfoDiv,productFigure);
 
-    productCard.append(productImage,productInfo)
+    productCard.append(productImage,productInfo);
     cardsContainer.appendChild(productCard);
 }

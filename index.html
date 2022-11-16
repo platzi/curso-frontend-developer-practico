@@ -12,7 +12,7 @@
 </head>
 <body>
   <nav>
-    <!-- MENÚ PRINCIPAL - clase11 -->
+<!-- MENÚ PRINCIPAL - clase11 -->
     <img src="./icons/icon_menu.svg" alt="menu" class="menu">
 
     <div class="navbar-left">
@@ -50,7 +50,7 @@
       </ul>
     </div>
 
-    <!-- DESKTOP MENÚ - clase7 -->
+<!-- DESKTOP MENÚ - clase7 -->
     <div class="desktop-menu inactive">
         <ul>
           <li>
@@ -67,7 +67,7 @@
         </ul>
       </div>
 
-    <!-- MENÚ MOBILE - clase8 -->
+<!-- MENÚ MOBILE - clase8 -->
     <div class="mobile-menu inactive">
       <ul>
         <li>
@@ -112,8 +112,8 @@
       </ul>
     </div>
       
-    <!-- CARRITO - clase13 -->
-    <aside class="product-detail inactive">
+<!-- CARRITO - clase13 -->
+    <aside id="shoppingCartContainer" class="inactive">
       <div class="title-container">
         <img src="./icons/flechita.svg" alt="arrow">
         <p class="title">My order</p>
@@ -161,8 +161,25 @@
       </div>
     </aside>
   </nav>
-  
-  <!-- LISTA DE PRODUCTOS -->
+
+<!-- DETALLES DEL PRODUCTO - clase12.html  -->
+  <aside id="productDetail" class="inactive">
+    <div class="product-detail-close">
+      <img src="./icons/icon_close.png" alt="close">
+    </div>
+    <img src="https://images.pexels.com/photos/276517/pexels-photo-276517.jpeg?auto=compress&cs=tinysrgb&dpr=2&h=650&w=940" alt="bike">
+    <div class="product-info">
+      <p>$35,00</p>
+      <p>Bike</p>
+      <p>With its practical position, this bike also fulfills a decorative function, add your hall or workspace.</p>
+      <button class="primary-button add-to-cart-button">
+        <img src="./icons/bt_add_to_cart.svg" alt="add to cart">
+        Add to cart
+      </button>
+    </div>
+  </aside>
+
+<!-- LISTA DE PRODUCTOS -->
   <section class="main-container">
     <div class="cards-container">     
     </div>
