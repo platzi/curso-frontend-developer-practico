@@ -6,7 +6,7 @@ const $menuHambIcon = document.querySelector('.menu');
 const $mobileMenu = document.querySelector('.mobile-menu');
 
 const $menuCarritoIcon = document.querySelector('.navbar-shopping-cart');
-const $aside = document.querySelector('.product-detail');
+const $shoppingCartContainer = document.querySelector('#shoppingCartContainer');
 
 const $cardsContainer = document.querySelector('.cards-container'); 
 
@@ -14,37 +14,37 @@ const $cardsContainer = document.querySelector('.cards-container');
 //Agregar el escuchador de eventos; 
 $menuEmail.addEventListener('click', toggleDesktopMenu);
 $menuHambIcon.addEventListener('click', toggleMobileMenu);
-$menuCarritoIcon.addEventListener('click', toggleCarritoAside); 
+$menuCarritoIcon.addEventListener('click', toggleCarrito$shoppingCartContainer); 
 
 //Funciones que agregar la clase inactive mediante 'toggle'; 
 function toggleDesktopMenu(){
-    const isAsideClosed = $aside.classList.contains('inactive');
+    const is$shoppingCartContainerClosed = $shoppingCartContainer.classList.contains('inactive');
     
-    if(!isAsideClosed){
-        $aside.classList.add('inactive');
+    if(!is$shoppingCartContainerClosed){
+        $shoppingCartContainer.classList.add('inactive');
     }
 
     $desktopMenu.classList.toggle('inactive');
 };
 
 function toggleMobileMenu(){
-    const isAsideClosed = $aside.classList.contains('inactive');
+    const is$shoppingCartContainerClosed = $shoppingCartContainer.classList.contains('inactive');
     
-    if(!isAsideClosed){
-        $aside.classList.add('inactive');
+    if(!is$shoppingCartContainerClosed){
+        $shoppingCartContainer.classList.add('inactive');
     }
 
     $mobileMenu.classList.toggle('inactive');
 };
 
-function toggleCarritoAside(){
+function toggleCarrito$shoppingCartContainer(){
     const isMobileMenuClosed = $mobileMenu.classList.contains('inactive');
 
     if(!isMobileMenuClosed){
         $mobileMenu.classList.add('inactive');
     }
 
-    $aside.classList.toggle('inactive');
+    $shoppingCartContainer.classList.toggle('inactive');
 
 };
 
@@ -171,6 +171,4 @@ function renderProducts(arr){
 };
 
 renderProducts(productList);
-
-
 
