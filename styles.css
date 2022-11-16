@@ -143,6 +143,7 @@ nav {
   box-sizing: border-box;
   left: 0;
   width: 100%;
+  height: calc(100vh - 61px);
 }
 .mobile-menu a {
   text-decoration: none;
