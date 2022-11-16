@@ -50,7 +50,9 @@ lanzarListener(mobileMenuIcon, toggleMobileMenu);
 lanzarListener(deskTopShoppingCartIcon, toggleShoppingCartAside);
 
 // Products Array: ==========================================
-const productsList = new Array();
+const productsContainer = document.querySelector(".cards-container");
+const productsList = [];
+
 productsList.push(
   {
     name: "Bike",
@@ -59,59 +61,58 @@ productsList.push(
   },
   {
     name: "Hola",
-    price: 120,
+    price: 10,
     image: "./images/BikeImage.png",
   },
   {
     name: "SS",
-    price: 120,
+    price: 20,
     image: "./images/BikeImage.png",
   }
 );
-/* 
-  <div class="product-card">
-<img src="./images/BikeImage.png" alt="bike">
-<div class="product-info">
-  <div>
-    <p>$120,00</p>
-    <p>Bike</p>
-  </div>
-  <figure>
-    <img src="./icons/bt_add_to_cart.svg" alt="">
-  </figure>
-</div>
-</div> 
-*/
-const productsContainer = document.querySelector(".cards-container");
 
 for (let i = 0; i < productsList.length; i++) {
+  // Div Padre:
   const productCard = document.createElement("div");
   productCard.classList.add("product-card");
 
+  // Product Image:
   const productImage = document.createElement("img");
   productImage.setAttribute("src", productsList[i].image);
 
+  // Div contenedor padre Secundario:
   const productInfo = document.createElement("div");
   productInfo.classList.add("product-info");
 
+  // Div contenedor del los Pharagrafs:
   const productInfoDiv = document.createElement("div");
 
+  // Pharagrafo del Precio:
   const paragraphPrice = document.createElement("p");
   let paragraphPriceContent = document.createTextNode(
-    "$" + productsList[productsList[i].price]
+    "$" + productsList[i].price
   );
   paragraphPrice.appendChild(paragraphPriceContent);
 
+  // Pharagrafo del Nombre:
   const paragraphName = document.createElement("p");
-  let paragraphNameContent = document.createTextNode(productsList.name);
+  let paragraphNameContent = document.createTextNode(productsList[i].name);
   paragraphName.appendChild(paragraphNameContent);
 
+  // Figure contenedor de la imagen pequeña:
   const productInfoFigure = document.createElement("figure");
+
+  // Imagen pequeña:
   const figureImage = document.createElement("img");
   figureImage.setAttribute("src", "./icons/bt_add_to_cart.svg");
 
-  // Add Elements:
+  //==============================================================================
+
+  // AAñadir Elementos:
   productInfoFigure.appendChild(figureImage);
+
+  productInfoDiv.appendChild(paragraphPrice);
+  productInfoDiv.appendChild(paragraphName);
 
   productInfo.append(productInfoDiv);
   productInfo.append(productInfoFigure);
