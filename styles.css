@@ -12,6 +12,16 @@ body {
     margin: 0;
     font-family: 'Quicksand', sans-serif;
 }
+body.productDetail_visible{position: relative;overflow-x: hidden;}
+body.productDetail_visible::after{
+    position: absolute;
+    width: 100vw;
+    height: 100%;
+    background-color: #00000063;
+    content: '';
+    top: 0;
+    left: 0;
+}
 nav {
     display: flex;
     justify-content: space-between;
@@ -240,15 +250,12 @@ nav {
     height: 100vh;
     position: fixed;
     top: 0;
+    right:-100%;
+    transition: right .4s;
+    z-index: 2;
 }
-#detailProduct::after{
-    position: absolute;
-    width: 100vw;
-    height: 100vh;
-    background-color: #00000063;
-    content: '';
-    top: -1px;
-    left: -100vw;
+#detailProduct.visible {
+    right: 0;
 }
 .product-detail-close {
     background: var(--white);

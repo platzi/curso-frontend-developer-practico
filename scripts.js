@@ -34,118 +34,76 @@ carritoIconBtn.addEventListener('click', ()=>{
     carritoBox.classList.toggle('inactive')
 })
 productDetailCloseBtn.addEventListener('click', ()=>{
-    asideDetailProduct.classList.add('inactive')
+    asideDetailProduct.classList.remove('visible')
+    document.querySelector('body').classList.remove('productDetail_visible')
 })
 document.addEventListener('keyup', (e)=>{
-    if(!asideDetailProduct.classList.contains('inactive')){
+    if(asideDetailProduct.classList.contains('visible')){
         if(e.keyCode == 27){
-            asideDetailProduct.classList.add('inactive')
+            asideDetailProduct.classList.remove('visible')
+            document.querySelector('body').classList.remove('productDetail_visible')
         }
     }
 })
 
 // Crear el array de los productos (Hardcodeados)
 const productList = []
-productList.push(
-    {
-        id:1,
-        name:'Bike',
-        price: 12700,
-        image: 'https://images.pexels.com/photos/276517/pexels-photo-276517.jpeg?auto=compress&cs=tinysrgb&dpr=2&h=650&w=940'
-    },
-    {
-        id:2,
-        name:'Bicycle helmet',
-        price: 1200,
-        image: 'https://images.pexels.com/photos/276517/pexels-photo-276517.jpeg?auto=compress&cs=tinysrgb&dpr=2&h=650&w=940'
-    },
-    {
-        id:3,
-        name:'Bicycle helmet',
-        price: 1600,
-        image: 'https://images.pexels.com/photos/276517/pexels-photo-276517.jpeg?auto=compress&cs=tinysrgb&dpr=2&h=650&w=940'
-    },
-    {
-        id:4,
-        name:'Bicycle helmet',
-        price: 1500,
-        image: 'https://images.pexels.com/photos/276517/pexels-photo-276517.jpeg?auto=compress&cs=tinysrgb&dpr=2&h=650&w=940'
-    },
-    {
-        id:5,
-        name:'Seat',
-        price: 300,
-        image: 'https://images.pexels.com/photos/276517/pexels-photo-276517.jpeg?auto=compress&cs=tinysrgb&dpr=2&h=650&w=940'
-    },
-    {
-        id:6,
-        name:'Tennis Montain Bike',
-        price: 2200,
-        image: 'https://images.pexels.com/photos/276517/pexels-photo-276517.jpeg?auto=compress&cs=tinysrgb&dpr=2&h=650&w=940'
-    },
-    {
-        id:7,
-        name:'Sunglasses',
-        price: 800,
-        image: 'https://images.pexels.com/photos/276517/pexels-photo-276517.jpeg?auto=compress&cs=tinysrgb&dpr=2&h=650&w=940'
-    },
-    {
-        id:8,
-        name:'Sunglasses',
-        price: 600,
-        image: 'https://images.pexels.com/photos/276517/pexels-photo-276517.jpeg?auto=compress&cs=tinysrgb&dpr=2&h=650&w=940'
-    },
-    {
-        id:9,
-        name:'Bicycle seat bag',
-        price: 876,
-        image: 'https://images.pexels.com/photos/276517/pexels-photo-276517.jpeg?auto=compress&cs=tinysrgb&dpr=2&h=650&w=940'
-    }
-)
 renderProducts(productList);
 // Crear elementos del componente productos. Por cada unos de los elementos del array productos
 function renderProducts (productList) {
-    for (const product of productList) {
-        const productBox = document.querySelector('.cards-container');
-            const productCard = document.createElement('div')
-                productCard.classList.add('product-card');
-                productCard.setAttribute('data_id', (product.id + '00'));
-                productCard.addEventListener('click', () => {
-                    openProductDetail(product.id)
-                })
-            const img_product = document.createElement('img')
-                img_product.src = product.image
-            const productInfo = document.createElement('div')
-                productInfo.classList.add('product-info')
-                const productInfoText = document.createElement('div')
-                    const productInfoTextPrice = document.createElement('p')
-                        productInfoTextPrice.innerHTML = '$' + product.price
-                    const productInfoTextName = document.createElement('p')
-                        productInfoTextName.innerHTML = '$' + product.name
-                const productInfoFigure = document.createElement('figure')
-                    const productInfoFigureImage = document.createElement('img')
-                        productInfoFigureImage.src = "./icons/bt_add_to_cart.svg"
+    // traemos todos los datos de los productos
+    const xhttp = new XMLHttpRequest();
+    xhttp.responseType = 'json'
+    xhttp.onload = function() {
+        productList = xhttp.response
 
-        productInfoFigure.appendChild(productInfoFigureImage)
-        productInfoText.append(productInfoTextPrice, productInfoTextName)
-        productInfo.append(productInfoText, productInfoFigure)
-
-        productCard.append(img_product, productInfo)
-
-        productBox.appendChild(productCard)
+        for (const product of productList) {
+            const productBox = document.querySelector('.cards-container');
+                const productCard = document.createElement('div')
+                    productCard.classList.add('product-card');
+                    productCard.addEventListener('click', () => {
+                        openProductDetail(product.id, productList)
+                    })
+                const img_product = document.createElement('img')
+                    img_product.src = product.images[0]
+                const productInfo = document.createElement('div')
+                    productInfo.classList.add('product-info')
+                    const productInfoText = document.createElement('div')
+                        const productInfoTextPrice = document.createElement('p')
+                            productInfoTextPrice.innerHTML = '$' + product.price
+                        const productInfoTextName = document.createElement('p')
+                            productInfoTextName.innerHTML = '$' + product.title
+                    const productInfoFigure = document.createElement('figure')
+                        const productInfoFigureImage = document.createElement('img')
+                            productInfoFigureImage.src = "./icons/bt_add_to_cart.svg"
+    
+            productInfoFigure.appendChild(productInfoFigureImage)
+            productInfoText.append(productInfoTextPrice, productInfoTextName)
+            productInfo.append(productInfoText, productInfoFigure)
+    
+            productCard.append(img_product, productInfo)
+    
+            productBox.appendChild(productCard)
+        }
     }
+    xhttp.open("GET", 'https://api.escuelajs.co/api/v1/products');
+    xhttp.send();
+
 }
-function openProductDetail(productId){
-    asideDetailProduct.classList.remove('inactive')
+function openProductDetail(productId, array){
+    asideDetailProduct.classList.add('visible')
+    document.querySelector('body').classList.add('productDetail_visible')
     const aside_imageProduct = document.querySelector('#detailProduct #aside_img_product')
     const aside_productInfo_price = document.querySelector('#detailProduct .product-info p:nth-child(1)')
     const aside_productInfo_name = document.querySelector('#detailProduct .product-info p:nth-child(2)')
+    const aside_productInfo_descr = document.querySelector('#detailProduct .product-info p:nth-child(3)')
 
-    productList.forEach((element, index) => {
+    array.forEach((element, index) => {
         if(productId == element.id) {
-            aside_imageProduct.setAttribute('src', element.image)
-            aside_productInfo_name.innerHTML = element.name
+            aside_imageProduct.setAttribute('src', element.images[0])
+            aside_productInfo_name.innerHTML = element.title
             aside_productInfo_price.innerHTML = element.price
+            aside_productInfo_descr.innerHTML = element.description
         }
     })
 }
