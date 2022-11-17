@@ -3,18 +3,24 @@ const request = new XMLHttpRequest()
 const nav_bar_email = document.querySelector('.navbar-email');
 const desktop_menu = document.querySelector('.desktop-menu');
 
+const cards_container = document.querySelector('.cards-container')
+const product_detail = document.querySelector('.product-detail')
+const product_detail_close = document.querySelector('.product-detail-close')
+
 const button_burguer = document.querySelector('.menu');
 const mobile_menu = document.querySelector('.mobile-menu');
 
 const shopping_cart = document.querySelector('.navbar-shopping-cart');
-const cart_detail = document.querySelector('.product-detail');
+const cart_detail = document.querySelector('.cart-product-detail');
 
 
-request.open('GET', 'https://api.escuelajs.co/api/v1/products', true)
+request.open('GET', 'https://api.escuelajs.co/api/v1/products?offset=0&limit=12', true)
 
 nav_bar_email.addEventListener('click', toggle_desktop_menu);
 button_burguer.addEventListener('click', toggle_mobile_menu);
 shopping_cart.addEventListener('click', toggle_shopping_cart);
+product_detail_close.addEventListener('click', close_product_detail);
+
 
 
 function toggle_desktop_menu(){
@@ -26,6 +32,7 @@ function toggle_desktop_menu(){
         cart_detail.classList.add('inactive'); 
         desktop_menu.classList.toggle('inactive');
     }
+    close_product_detail()
 };
 
 function toggle_mobile_menu(){
@@ -37,12 +44,12 @@ function toggle_mobile_menu(){
         cart_detail.classList.add('inactive'); 
         mobile_menu.classList.toggle('inactive');
     }
+    close_product_detail()
 };
 
 function toggle_shopping_cart(){
-    let is_desktop_menu = !desktop_menu.classList.contains('inactive');
-    let is_mobile_menu = !mobile_menu.classList.contains('inactive');
-    
+    const is_desktop_menu = !desktop_menu.classList.contains('inactive');
+    const is_mobile_menu = !mobile_menu.classList.contains('inactive');
     
     if(is_desktop_menu){
         desktop_menu.classList.add('inactive');
@@ -53,22 +60,17 @@ function toggle_shopping_cart(){
     }else{
         cart_detail.classList.toggle('inactive');
     }
-};
+    close_product_detail()
+}
 
-/*
-        <div class="product-card">
-          <img src="https://images.pexels.com/photos/276517/pexels-photo-276517.jpeg?auto=compress&cs=tinysrgb&dpr=2&h=650&w=940" alt="">
-          <div class="product-info">
-            <div>
-              <p>$120,00</p>
-              <p>Bike</p>
-            </div>
-            <figure>
-              <img src="./icons/bt_add_to_cart.svg" alt="">
-            </figure>
-          </div>
-        </div>
- */
+function open_product_detail() {
+    cart_detail.classList.add('inactive');
+    product_detail.classList.remove('inactive');
+  }
+  
+function close_product_detail() {
+    product_detail.classList.add('inactive');
+};
 
 request.onload = function(){
     let data = JSON.parse(this.response)
@@ -79,36 +81,41 @@ request.onload = function(){
             product_card.setAttribute('class', 'product-card');
             
             const product_image = document.createElement('img');
-            product_image.setAttribute('src', record['category']['image']);
-            product_card.appendChild(product_image);
+            product_image.setAttribute('src', record.category.image);
+            product_image.addEventListener('click', open_product_detail);
 
             const product_info = document.createElement('div');
-            product_info.setAttribute('class', 'product-info');
+            product_info.setAttribute('class', 'products-info');
+
             const product_info_div = document.createElement('div');
             const product_name = document.createElement('p');
-            let name = record['title'];
+           
+            let name = record.title;
             const product_price = document.createElement('p');
-            let price = `$ ${record['price']}`; 
+            let price = `$ ${record.price}`; 
 
-            product_price.append(price);
-            product_name.append(name);
-            product_info_div.append(product_price, product_name);
+           
 
             const figure = document.createElement('figure');
             const figure_img = document.createElement('img');
             figure_img.setAttribute('src', "../icons/bt_add_to_cart.svg");
-            figure.appendChild(figure_img);
+            
 
+            product_card.appendChild(product_image);
+            product_price.append(price);
+            product_name.append(name);
+            product_info_div.append(product_price, product_name);
+            figure.appendChild(figure_img);
             product_info.append(product_info_div, figure);
             product_card.appendChild(product_info);
             
-            const cards_container = document.querySelector('.cards-container')
             cards_container.append(product_card)
 
             //document.body.append(product_card);            
 
             console.log(record);
-        }
+        };
+
       } else {
         console.log('error');
       }
