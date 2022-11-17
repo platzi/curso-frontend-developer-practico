@@ -119,9 +119,28 @@ function openProductDetail(productId, array){
 }
 let carProducts = []
 function addToCar(idProduct, imageProduct, nameProduct, priceProduct) {
-    carProducts.push({id:idProduct, image: imageProduct, title:nameProduct, price: priceProduct})
+    let arrayLocal = JSON.parse(localStorage.getItem('productos_carrito')),
+        hasMatch = false
 
-    if(localStorage.getItem('productos_carrito')){
+    if(arrayLocal){
+        arrayLocal.forEach((elemento, index) => {
+            if(elemento.id == idProduct) {
+                elemento.cant += 1
+                hasMatch = true
+            }
+        })
+
+        if(!hasMatch) {
+            carProducts.push({id:idProduct, image: imageProduct, title:nameProduct, price: priceProduct, cant:1})
+        } else{
+            carProducts = arrayLocal
+        }
+    }
+    else {   
+        carProducts.push({id:idProduct, image: imageProduct, title:nameProduct, price: priceProduct, cant:1})
+    }
+        
+    if(localStorage.getItem('productos_carrito')) {
         localStorage.removeItem('productos_carrito')
     }
     localStorage.setItem('productos_carrito', JSON.stringify(carProducts))
@@ -154,6 +173,7 @@ function getCarItems(){
 }
 function deleteItemFromCart(idProduct, array){
     let productsInCart = Array.from(array)
+
     productsInCart.forEach((element, index) => {
         if(element.id == idProduct) {
             productsInCart.splice(index, 1)

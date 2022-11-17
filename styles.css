@@ -298,6 +298,18 @@ nav {
     margin-top: 0;
     margin-bottom: 36px;
 }
+.product-detail .product-info .cant {
+    padding: 10px 0;
+    display: flex;
+    justify-content: space-around;
+    background: var(--text-input-field);
+    margin-bottom: 20px;
+}
+.product-detail .product-info .cant input {
+    padding: 5px;
+    border: 1px solid #b1b1b1;
+    border-radius: 4px;
+}
 .add-to-cart-button {
     display: flex;
     align-items: center;
