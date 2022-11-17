@@ -127,9 +127,9 @@ nav {
     display: inline-block;
 }
 /* este es para que con el hover se muestre el desplegable del email */
-/* .navbar-email:hover ~ .desktop-menu {
+.navbar-email:hover ~ .desktop-menu {
     display: block;
-} */
+}
 /* MENU EN MOBILE */
 .mobile-menu {
     background-color: var(--white);
@@ -304,19 +304,27 @@ nav {
     justify-content: center;
 }
 /* PRODUCTOS */
+.main-container {
+    background-color: #f3f3f3;
+    padding: 3% 0;
+}
 .cards-container {
     display: grid;
-    grid-template-columns: repeat(auto-fill, 240px);
-    gap: 26px;
+    grid-template-columns: repeat(auto-fill, 260px);
+    gap: 30px;
     place-content: center;
 }
 .product-card {
     width: 240px;
+    padding: 10px;
+    border-radius: 4px;
+    background-color: var(--white);
+    cursor:pointer;
 }
 .product-card img {
     width: 240px;
     height: 240px;
-    border-radius: 20px;
+    /* border-radius: 20px; */
     object-fit: cover;
 }
 .product-card .product-info {
