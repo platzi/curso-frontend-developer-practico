@@ -98,7 +98,7 @@ request.onload = function(){
 
             const figure = document.createElement('figure');
             const figure_img = document.createElement('img');
-            figure_img.setAttribute('src', "../icons/bt_add_to_cart.svg");
+            figure_img.setAttribute('src', "../../icons/bt_add_to_cart.svg");
             
 
             product_card.appendChild(product_image);
