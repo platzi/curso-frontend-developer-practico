@@ -14,6 +14,13 @@ shopCart.addEventListener('click', toggleProductDetail);
 
 function toggleDesktopMenu() {
     
+    const isProductDetailClosed = prouctDetail.classList.contains('inactive'); 
+
+    if (!isProductDetailClosed) {
+            
+        prouctDetail.classList.add('inactive');
+    }
+    
     desktopMenu.classList.toggle('inactive');
 }
 
