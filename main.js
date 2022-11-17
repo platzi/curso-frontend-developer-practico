@@ -108,31 +108,54 @@ productList.push({
 </div>
 </div> */
 
-for(product of productList) {
-    const productCard = document.createElement('div');
-    productCard.classList.add('product-card');
-    productCard.addEventListener('click',toggleProductDetailAside)
+// for(product of productList) {
+//     const productCard = document.createElement('div');
+//     productCard.classList.add('product-card');
+//     productCard.addEventListener('click',toggleProductDetailAside)
 
-        const productImage = document.createElement('img');
-        productImage.setAttribute('src',product.image);
+//         const productImage = document.createElement('img');
+//         productImage.setAttribute('src',product.image);
 
-        const productInfo = document.createElement('div');
-        productInfo.classList.add('product-info');
+//         const productInfo = document.createElement('div');
+//         productInfo.classList.add('product-info');
 
-            const productInfoDiv = document.createElement('div');
-                const productInfoP1 = document.createElement('p');
-                productInfoP1.innerHTML = '$'+product.price;
-                const productInfoP2 = document.createElement('p');
-                productInfoP2.innerText = product.name;
-            productInfoDiv.append(productInfoP1,productInfoP2);
+//             const productInfoDiv = document.createElement('div');
+//                 const productInfoP1 = document.createElement('p');
+//                 productInfoP1.innerHTML = '$'+product.price;
+//                 const productInfoP2 = document.createElement('p');
+//                 productInfoP2.innerText = product.name;
+//             productInfoDiv.append(productInfoP1,productInfoP2);
 
-            const productFigure = document.createElement('figure');
-                const productFigureLogo = document.createElement('img');
-                productFigureLogo.setAttribute('src','./icons/bt_add_to_cart.svg');
-                productFigure.appendChild(productFigureLogo);
+//             const productFigure = document.createElement('figure');
+//                 const productFigureLogo = document.createElement('img');
+//                 productFigureLogo.setAttribute('src','./icons/bt_add_to_cart.svg');
+//                 productFigure.appendChild(productFigureLogo);
     
-        productInfo.append(productInfoDiv,productFigure);
+//         productInfo.append(productInfoDiv,productFigure);
 
-    productCard.append(productImage,productInfo);
-    cardsContainer.appendChild(productCard);
-}
+//     productCard.append(productImage,productInfo);
+//     cardsContainer.appendChild(productCard);
+// }
+
+let productCard
+productList.forEach((product)=>{
+    productMolde=`
+        <div class="product-card">
+            <img src="${product.image}" alt="">
+            <div class="product-info">
+                <div>
+                    <p>$${product.price}</p>
+                    <p>${product.name}</p>
+                </div>
+                <figure>
+                    <img src="./icons/bt_add_to_cart.svg" alt="">
+                </figure>
+            </div>
+        </div>
+    `
+    cardsContainer.innerHTML+=productMolde;
+    productCard = document.querySelectorAll('.product-card')
+})
+productCard.forEach((product)=>{
+    product.addEventListener('click',toggleProductDetailAside);
+})
