@@ -2,6 +2,10 @@
 const deskTopEmail = document.querySelector(".navbar-email");
 const deskTopMenu = document.querySelector(".desktop-menu");
 const deskTopShoppingCartIcon = document.querySelector(".navbar-shopping-cart");
+const productDetailContainer = document.querySelector(".productDetailAside");
+const productDetailAsideCloseButton = document.querySelector(
+  ".productDetailClose"
+);
 
 const mobileMenuIcon = document.querySelector(".menu");
 const mobileMenu = document.querySelector(".mobile-menu");
@@ -10,23 +14,52 @@ const asideDiv = document.querySelector(".product-detail");
 // Funtions: ==========================================
 const toggleDeskMenu = () => {
   const isAsideClose = asideDiv.classList.contains("inactive");
+  const isProductDetailAsideClose =
+    productDetailContainer.classList.contains("inactive");
 
   if (!isAsideClose) {
     asideDiv.classList.add("inactive");
+  }
+  if (!isProductDetailAsideClose) {
+    productDetailContainer.classList.add("inactive");
   }
   deskTopMenu.classList.toggle("inactive");
 };
 
 const toggleMobileMenu = () => {
   const isAsideClose = asideDiv.classList.contains("inactive");
+  const isProductDetailAsideClose =
+    productDetailContainer.classList.contains("inactive");
 
   if (!isAsideClose) {
     asideDiv.classList.add("inactive");
+  }
+  if (!isProductDetailAsideClose) {
+    productDetailContainer.classList.add("inactive");
   }
   mobileMenu.classList.toggle("inactive");
 };
 
 const toggleShoppingCartAside = () => {
+  const isMobileMenuClosed = mobileMenu.classList.contains("inactive");
+  const isDeskTopMenuClose = deskTopMenu.classList.contains("inactive");
+  const isProductDetailAsideClose =
+    productDetailContainer.classList.contains("inactive");
+
+  if (!isMobileMenuClosed) {
+    mobileMenu.classList.add("inactive");
+  }
+  if (!isDeskTopMenuClose) {
+    deskTopMenu.classList.add("inactive");
+  }
+  if (!isProductDetailAsideClose) {
+    productDetailContainer.classList.add("inactive");
+  }
+
+  asideDiv.classList.toggle("inactive");
+};
+
+const openProductDetailAside = () => {
   const isMobileMenuClosed = mobileMenu.classList.contains("inactive");
   const isDeskTopMenuClose = deskTopMenu.classList.contains("inactive");
 
@@ -37,7 +70,20 @@ const toggleShoppingCartAside = () => {
     deskTopMenu.classList.add("inactive");
   }
 
-  asideDiv.classList.toggle("inactive");
+  productDetailContainer.classList.remove("inactive");
+};
+
+const closeProductDetailAside = () => {
+  const isAsideClose = asideDiv.classList.contains("inactive");
+  const isMobileMenuClosed = mobileMenu.classList.contains("inactive");
+
+  if (!isAsideClose) {
+    asideDiv.classList.add("inactive");
+  }
+  if (!isMobileMenuClosed) {
+    mobileMenu.classList.add("inactive");
+  }
+  productDetailContainer.classList.add("inactive");
 };
 
 // Escuchando eventos: ==========================================
@@ -48,7 +94,9 @@ function lanzarListener(param1, param2) {
 lanzarListener(deskTopEmail, toggleDeskMenu);
 lanzarListener(mobileMenuIcon, toggleMobileMenu);
 lanzarListener(deskTopShoppingCartIcon, toggleShoppingCartAside);
+lanzarListener(productDetailAsideCloseButton, closeProductDetailAside);
 
+// Products Array: ==========================================
 function renderProducts(renderContainer, productsArray) {
   for (let i = 0; i < productsArray.length; i++) {
     // Div Padre:
@@ -58,6 +106,7 @@ function renderProducts(renderContainer, productsArray) {
     // Product Image:
     const productImage = document.createElement("img");
     productImage.setAttribute("src", productsArray[i].image);
+    productImage.addEventListener("click", openProductDetailAside);
 
     // Div contenedor padre Secundario:
     const productInfo = document.createElement("div");
@@ -103,10 +152,9 @@ function renderProducts(renderContainer, productsArray) {
   }
 }
 
-// Products Array: ==========================================
 const productsContainer = document.querySelector(".cards-container");
-const productsList = [];
 
+const productsList = [];
 productsList.push(
   {
     name: "Road Bike",
