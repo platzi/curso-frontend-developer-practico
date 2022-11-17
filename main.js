@@ -90,7 +90,7 @@ function renderProducts (arr) {
     productPrice.innerText = '$' + product.price;
     /*creamos  <p>Bike</p>*/
     const productName = document.createElement('p');
-    productName.innerTexto = product.name;
+    productName.innerText = product.name;
   
     productInfoDiv.appendChild(productPrice);
     productInfoDiv.appendChild(productName);
