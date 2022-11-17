@@ -13,45 +13,25 @@ shopCart.addEventListener('click', toggleProductDetail);
 
 
 function toggleDesktopMenu() {
-    
-    const isProductDetailClosed = prouctDetail.classList.contains('inactive'); 
 
-    if (!isProductDetailClosed) {
             
-        prouctDetail.classList.add('inactive');
-    }
-    
-    desktopMenu.classList.toggle('inactive');
+   prouctDetail.classList.add('inactive');
+   desktopMenu.classList.toggle('inactive');
 }
 
 function toggleMobileMenu() {
 
-    const isProductDetailClosed = prouctDetail.classList.contains('inactive'); 
-
-    if (!isProductDetailClosed) {
-            
-        prouctDetail.classList.add('inactive');
-    }
-
-    mobileMenu.classList.toggle('inactive');
+   prouctDetail.classList.add('inactive');
+   mobileMenu.classList.toggle('inactive');
 }
 
 
 function toggleProductDetail() {
 
-    const isDesktopMenuClosed = desktopMenu.classList.contains('inactive');
-    const isMobileMenuClosed = mobileMenu.classList.contains('inactive');
+  
+    desktopMenu.classList.add('inactive');
+    mobileMenu.classList.add('inactive');
 
-    if (!isDesktopMenuClosed) {
-            
-        desktopMenu.classList.add('inactive');
-    }
-    
-    
-    if (!isMobileMenuClosed) {
-            
-        mobileMenu.classList.add('inactive');
-    }
     prouctDetail.classList.toggle('inactive');  
     
 }
