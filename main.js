@@ -159,22 +159,22 @@ productsList.push(
   {
     name: "Road Bike",
     price: 699.99,
-    image: "./images/BikeImage.png",
+    image: "./images/RoadBike.png",
   },
   {
     name: "Mountain Bike",
     price: 1000.0,
-    image: "./images/BikeImage.png",
+    image: "./images/MountainBike.png",
   },
   {
     name: "BMX",
     price: 219.99,
-    image: "./images/BikeImage.png",
+    image: "./images/BMXBike.png",
   },
   {
     name: "Touring Bike",
     price: 899.0,
-    image: "./images/BikeImage.png",
+    image: "./images/TouringBike.png",
   }
 );
 
