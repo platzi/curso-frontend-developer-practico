@@ -28,7 +28,7 @@ function toggledesktopmenu() {
     }
     desktopmenu.classList.toggle('inactive');
 }
-*/
+
 
 
 function togglemobilemenu() {
@@ -45,7 +45,7 @@ function togglemobilemenu() {
 
     mobilemenu.classList.toggle('inactive');
 }
-
+*/
 
 
 function togglecarritoaside() {
