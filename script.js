@@ -15,7 +15,7 @@ menuhamicon.addEventListener('click', togglemobilemenu);
 menucarritoicon.addEventListener('click', togglecarritoaside);
 productDetailCloseIcon.addEventListener('click', CloseProductDetailAside)
 ;
-
+/*
 function toggledesktopmenu() {
     const asideinactivo = shoppingCartContainer.classList.contains('inactive');
     const productDetailinactivo = productDetailContainer.classList.contains('inactive');
@@ -28,6 +28,7 @@ function toggledesktopmenu() {
     }
     desktopmenu.classList.toggle('inactive');
 }
+*/
 
 
 function togglemobilemenu() {
