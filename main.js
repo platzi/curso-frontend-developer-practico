@@ -4,6 +4,8 @@ const burguerMenu = document.querySelector('.menu');
 const mobileMenu = document.querySelector('.mobile-menu');
 const menuCarrito = document.querySelector('.shopping-cart-icon');
 const shoppingCardContainer = document.querySelector('.shopping-card-container');
+const productDetailContainer = document.querySelector('#productDetail');
+const productDetailCloseItem = document.querySelector('.product-detail-close');
 
 menuEmail.addEventListener('click', ()=>toggleMenu(desktopMenu));
 burguerMenu.addEventListener('click',()=>toggleMenu(mobileMenu));
@@ -11,12 +13,16 @@ menuCarrito.addEventListener('click', ()=>toggleMenu(shoppingCardContainer));
 
 function toggleMenu(elemento) {
   elemento.classList.toggle('inactive');
-  if (elemento.classList.contains('desktop-menu')) shoppingCardContainer.classList.add('inactive');
+  productDetailContainer.classList.add('inactive');
+  if (elemento.classList.contains('desktop-menu')) {
+    shoppingCardContainer.classList.add('inactive');
+  }
   if (elemento.classList.contains('shopping-card-container')) {
     mobileMenu.classList.add('inactive');
-    desktopMenu.classList.add('inactive');
   }
-  if (elemento.classList.contains('mobile-menu')) shoppingCardContainer.classList.add('inactive');
+  if (elemento.classList.contains('mobile-menu')) {
+    shoppingCardContainer.classList.add('inactive');
+  }
 }
 
 // ========== OTRA SOLUCIÓN =============
@@ -99,6 +105,7 @@ for (product of productList) {
   
   const productImg = document.createElement('img');
   productImg.setAttribute('src', product.image);
+  productImg.addEventListener('click', openProductDetailAside);
 
   const productInfo = document.createElement('div');
   productInfo.classList.add('product-info');
@@ -123,6 +130,7 @@ for (product of productList) {
   cardsContainer.appendChild(productCard);
 }
 
+//****************** Cards
 {/* 
 <div class="product-card">
   <img
@@ -139,3 +147,14 @@ for (product of productList) {
   </div>
 </div> 
 */}
+
+function openProductDetailAside() {
+  productDetailContainer.classList.remove('inactive');
+  mobileMenu.classList.add('inactive');
+  desktopMenu.classList.add('inactive');
+  shoppingCardContainer.classList.add('inactive');
+}
+
+productDetailCloseItem.addEventListener('click', () => {
+  productDetailContainer.classList.add('inactive');
+})
