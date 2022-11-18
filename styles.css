@@ -13,7 +13,7 @@
       margin: 0;
       font-family: 'Quicksand', sans-serif;
     }
-
+   
     .inactive{
         display: none;
     }
@@ -59,6 +59,7 @@
       color: var(--hospital-green);
     }
     .navbar-email {
+        cursor: pointer;
       color: var(--very-light-pink);
       font-size: var(--sm);
       margin-right: 12px;

@@ -1,6 +1,8 @@
-const menuEmail = document.querySelector('.navbar-email');
+let menuEmail = document.querySelector('.navbar-email');
 const menuDesktop = document.querySelector('.desktop-menu');
 
 menuEmail.addEventListener('click', function(e) {
-    console.log('Hola');
-})
+    e.preventDefault();
+    //con toogle lo que hacemos es quitar o poner la clase inactive
+    menuDesktop.classList.toggle('inactive')
+});
