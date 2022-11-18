@@ -3,20 +3,20 @@ const desktopMenu = document.querySelector('.desktop-menu');
 const burguerMenu = document.querySelector('.menu');
 const mobileMenu = document.querySelector('.mobile-menu');
 const menuCarrito = document.querySelector('.shopping-cart-icon');
-const aside = document.querySelector('.product-detail');
+const shoppingCardContainer = document.querySelector('.shopping-card-container');
 
 menuEmail.addEventListener('click', ()=>toggleMenu(desktopMenu));
 burguerMenu.addEventListener('click',()=>toggleMenu(mobileMenu));
-menuCarrito.addEventListener('click', ()=>toggleMenu(aside));
+menuCarrito.addEventListener('click', ()=>toggleMenu(shoppingCardContainer));
 
 function toggleMenu(elemento) {
   elemento.classList.toggle('inactive');
-  if (elemento.classList.contains('desktop-menu')) aside.classList.add('inactive');
-  if (elemento.classList.contains('product-detail')) {
+  if (elemento.classList.contains('desktop-menu')) shoppingCardContainer.classList.add('inactive');
+  if (elemento.classList.contains('shopping-card-container')) {
     mobileMenu.classList.add('inactive');
     desktopMenu.classList.add('inactive');
   }
-  if (elemento.classList.contains('mobile-menu')) aside.classList.add('inactive');
+  if (elemento.classList.contains('mobile-menu')) shoppingCardContainer.classList.add('inactive');
 }
 
 // ========== OTRA SOLUCIÓN =============
@@ -57,6 +57,31 @@ const productList = [
   },
   {
     name: 'Speaker',
+    price: '120',
+    image: 'https://images.pexels.com/photos/276517/pexels-photo-276517.jpeg?auto=compress&cs=tinysrgb&dpr=2&h=650&w=940'
+  },
+  {
+    name: 'Mouse',
+    price: '120',
+    image: 'https://images.pexels.com/photos/276517/pexels-photo-276517.jpeg?auto=compress&cs=tinysrgb&dpr=2&h=650&w=940'
+  },
+  {
+    name: 'Mouse',
+    price: '120',
+    image: 'https://images.pexels.com/photos/276517/pexels-photo-276517.jpeg?auto=compress&cs=tinysrgb&dpr=2&h=650&w=940'
+  },
+  {
+    name: 'Mouse',
+    price: '120',
+    image: 'https://images.pexels.com/photos/276517/pexels-photo-276517.jpeg?auto=compress&cs=tinysrgb&dpr=2&h=650&w=940'
+  },
+  {
+    name: 'Mouse',
+    price: '120',
+    image: 'https://images.pexels.com/photos/276517/pexels-photo-276517.jpeg?auto=compress&cs=tinysrgb&dpr=2&h=650&w=940'
+  },
+  {
+    name: 'Mouse',
     price: '120',
     image: 'https://images.pexels.com/photos/276517/pexels-photo-276517.jpeg?auto=compress&cs=tinysrgb&dpr=2&h=650&w=940'
   },
