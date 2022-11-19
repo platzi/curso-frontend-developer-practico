@@ -243,6 +243,7 @@
     width: 240px;
   }
   .product-card img {
+    box-shadow: 0 7px 8px 0 rgb(0 0 0 / 20%), 0 1px 3px 0 rgb(0 0 0 / 10%);
     width: 240px;
     height: 240px;
     border-radius: 20px;
