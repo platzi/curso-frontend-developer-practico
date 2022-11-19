@@ -125,9 +125,12 @@
   /********************************/
   /***** estilos menu movil ******/
   .mobile-menu {
-    padding: 24px;
+    width: 100%;
+    padding: 24px 0 ;
     position: absolute;
     top:60px;
+    left: 0;
+    background-color: var(--white);
   }
   .mobile-menu a {
     text-decoration: none;
@@ -136,7 +139,7 @@
     /* margin-bottom: 24px; */
   }
   .mobile-menu ul {
-    padding: 0;
+    padding: 0 0 0 24px;
     margin: 24px 0 0;
     list-style: none;
   }
@@ -157,7 +160,7 @@
 
 
   /* carrito de compras */
-  .product-detail {
+  aside {
     width: 360px;
     padding: 24px;
     box-sizing: border-box;
@@ -165,6 +168,7 @@
     right: 0;
     background-color: var(--white);
   }
+  /* shoppingCarContainer */
   .title-container {
     display: flex;
   }
@@ -233,6 +237,74 @@
     height: 50px;
   }
 
+  /* product detail */
+  #shoppingCartContainer{
+    padding: 0 24px;
+  }
+  .product-detail-close {
+    background: var(--white);
+    width: 14px;
+    height: 14px;
+    position: absolute;
+    top: 24px;
+    left: 24px;
+    z-index: 2;
+    padding: 12px;
+    border-radius: 50%;
+  }
+  .product-detail-close:hover {
+    cursor: pointer;
+  }
+  #productDetail > img:nth-child(2) {
+    width: 100%;
+    height: 360px;
+    object-fit: cover;
+    border-radius: 0 0 20px 20px;
+  }
+  .product-info-detail {
+    margin: 24px 24px 0 24px;
+  }
+  .product-info-detail p:nth-child(1) {
+    font-weight: bold;
+    font-size: var(--md);
+    margin-top: 0;
+    margin-bottom: 4px;
+  }
+  .product-info-detail p:nth-child(2) {
+    color: var(--very-light-pink);
+    font-size: var(--md);
+    margin-top: 0;
+    margin-bottom: 36px;
+  }
+  .product-info-detail p:nth-child(3) {
+    color: var(--very-light-pink);
+    font-size: var(--sm);
+    margin-top: 0;
+    margin-bottom: 36px;
+  }
+  .primary-button {
+    background-color: var(--hospital-green);
+    border-radius: 8px;
+    border: none;
+    color: var(--white);
+    width: 100%;
+    cursor: pointer;
+    font-size: var(--md);
+    font-weight: bold;
+    height: 50px;
+  }
+  .add-to-cart-button {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+  }
+  @media (max-width: 640px) {
+    .product-detail {
+      width: 100%;
+    }
+  }
+
+
   /*LIsta de peoductos*/
 
   .cards-container {
@@ -292,7 +364,7 @@
   }
 
   @media (max-width: 640px) {
-    .product-detail {
+    aside {
       width: 100%;
     }
   }
