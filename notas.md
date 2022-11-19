@@ -1,0 +1,1 @@
+# quiero saber si funciona git al cambiar el nombre de mi repocitorio.
