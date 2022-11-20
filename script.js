@@ -13,6 +13,8 @@ const productDetailSecondary = document.querySelector('.product-detail-secondary
 
 const cardsContainer = document.querySelector('.cards-container');
 
+
+
 menuEmail.addEventListener('click', toggleDesktopMenu);
 botonMenuMobile.addEventListener('click', togglemobileMenu);
 botonShoppingCart.addEventListener('click',togglemyOrder);
@@ -52,19 +54,19 @@ const producList = [];
 producList.push({
     name: 'Bike',
     price: 120,
-    Image: 'https://images.pexels.com/photos/276517/pexels-photo-276517.jpeg?auto=compress&cs=tinysrgb&dpr=2&h=650&w=940',
+    Image: 'https://images.pexels.com/photos/8453040/pexels-photo-8453040.jpeg?auto=compress&cs=tinysrgb&w=1260&h=750&dpr=1',
 });
 producList.push({
     name: 'PC',
     price: 620,
-    Image: 'https://images.pexels.com/photos/276517/pexels-photo-276517.jpeg?auto=compress&cs=tinysrgb&dpr=2&h=650&w=940',
+    Image: 'https://images.pexels.com/photos/417014/pexels-photo-417014.jpeg?auto=compress&cs=tinysrgb&w=1260&h=750&dpr=1',
 });
 producList.push({
     name: 'Pantalla',
     price: 220,
     Image: 'https://images.pexels.com/photos/276517/pexels-photo-276517.jpeg?auto=compress&cs=tinysrgb&dpr=2&h=650&w=940',
 });
- 
+
 function renderArray (Arr){
     for (product of Arr){
 
@@ -107,3 +109,4 @@ function renderArray (Arr){
 }   
 
 renderArray(producList);
+
