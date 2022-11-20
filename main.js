@@ -22,7 +22,7 @@ function toggleMenus(menu) {
   if(!isClosedSidebarCarrito){
     sidebarCarrito.classList.add('inactive');
   }
-  menu.classList.toggle('inactive');
+  menu.classList.toggle('inactive')
 }
 
 function togglesidebarCarrito(){
