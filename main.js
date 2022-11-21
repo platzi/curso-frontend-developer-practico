@@ -3,25 +3,25 @@ const menuDesktop = document.querySelector('.desktop-menu');
 const navbarshopinCarr = document.querySelector('.navbar-shopping-cart');
 const menuHamIcon = document.querySelector('.menu');
 const mobilMenu= document.querySelector('.mobile-menu');
-const aside = document.querySelector('.product-detail');
+const shopingCartContainer = document.querySelector('#shopingCartContainer');
 const cardsContainer = document.querySelector('.cards-container');
 
 menuEmail.addEventListener('click', function(e) {
     e.preventDefault();
-    const isAsideClosed = aside.classList.contains('inactive');
+    const isAsideClosed = shopingCartContainer.classList.contains('inactive');
     if (!isAsideClosed) {
-        aside.classList.add('inactive');
+        shopingCartContainer.classList.add('inactive');
     }
     //con toogle lo que hacemos es quitar o poner la clase inactive
     menuDesktop.classList.toggle('inactive')
 });
 
 menuHamIcon.addEventListener('click', function(e) {
-    const isAsideClosed = aside.classList.contains('inactive');
+    const isAsideClosed = shopingCartContainer.classList.contains('inactive');
 
     e.preventDefault();
     if (!isAsideClosed) {
-        aside.classList.add('inactive');
+        shopingCartContainer.classList.add('inactive');
     }
     mobilMenu.classList.toggle('inactive')
 });
@@ -33,7 +33,7 @@ navbarshopinCarr.addEventListener('click', function(){
     if (!isMobilMenuClosed) {
         mobilMenu.classList.add('inactive');
     }
-    aside.classList.toggle('inactive');
+    shopingCartContainer.classList.toggle('inactive');
 
     if (!isdesktopMenuClosed) {
       menuDesktop.classList.toggle('inactive');
