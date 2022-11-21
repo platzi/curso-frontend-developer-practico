@@ -5,28 +5,135 @@ const burgerMenu = document.querySelector('.menu');
 const menuCarritoIcon = document.querySelector('.navbar-shopping-cart');
 const aside = document.querySelector('.product-detail');
 const cardsContainer = document.querySelector('.cards-container');
+const productDetailContainer = document.querySelector('.product-details');
+const productoDetailCloseIcon = document.querySelector('.product-details-close');
 
 menuMail.addEventListener('click', toogleDesktopMenu);
 burgerMenu.addEventListener('click', toogleMobileMenu);
 menuCarritoIcon.addEventListener('click', toogleCarritoAside);
+productoDetailCloseIcon.addEventListener('click', closeProductDetailAside);
 
-function toogleDesktopMenu(params) {
+function toogleDesktopMenu() {
     aside.classList.add('inactive');
     desktopMenu.classList.toggle('inactive');
+    productDetailContainer.classList.add('inactive');
 }
 
 function toogleMobileMenu() {
     aside.classList.add('inactive');
     mobileMenu.classList.toggle('inactive');
+    productDetailContainer.classList.add('inactive');   
 }
 
 function toogleCarritoAside() {
     mobileMenu.classList.add('inactive');
     desktopMenu.classList.add('inactive');
     aside.classList.toggle('inactive');
+    productDetailContainer.classList.add('inactive');
+}
+
+function openProductDetailAside () {
+    productDetailContainer.classList.remove('inactive');
+    aside.classList.add('inactive');
+    desktopMenu.classList.add('inactive');
+    mobileMenu.classList.add('inactive');
+}
+
+function closeProductDetailAside() {
+    productDetailContainer.classList.add('inactive');
 }
 
 const productList = [];
+productList.push({
+    name: 'bike',
+    price: 120,
+    image: 'https://images.pexels.com/photos/276517/pexels-photo-276517.jpeg?auto=compress&cs=tinysrgb&dpr=2&h=650&w=940" alt=""'
+})
+productList.push({
+    name: 'pc',
+    price: 360,
+    image: 'https://i.ibb.co/X5HqxK6/pexels-pixabay-38568.jpg" alt="computador"'
+})
+productList.push({
+    name: 'Samsung galaxy',
+    price: 900,
+    image: 'https://i.ibb.co/jW8H9R4/pexels-mohi-syed-47261.jpg" alt="phone"'
+})
+productList.push({
+    name: 'Shirt and Shoes',
+    price: 1000,
+    image: 'https://i.ibb.co/YRY9JBR/pexels-terje-sollie-298863.jpg" alt="shirt and shoes"'
+})
+productList.push({
+    name: 'Phone',
+    price: 800,
+    image: 'https://i.ibb.co/MDs9DVr/pexels-jess-bailey-designs-788946.jpg" alt="phone and airpods"'
+})
+productList.push({
+    name: 'shirt',
+    price: 80,
+    image: 'https://i.ibb.co/0hvhdzx/pexels-azamat-esenaliev-119550.jpg" alt="mouse and laptop"'
+})
+productList.push({  
+    name: 'Clock',
+    price: 750,
+    image: 'https://i.ibb.co/LxrQJMD/pexels-alex-carollo-592815.jpg alt="clock"'
+})
+productList.push({
+    name: 'Camera',
+    price: 1200,
+    image: 'https://i.ibb.co/Rgq8tNm/pexels-pixabay-51383.jpg" alt="camera"'
+})
+productList.push({
+    name: 'Sneakers',
+    price: 940,
+    image: 'https://i.ibb.co/qNrR3dn/pexels-adrian-dorobantu-2300334.jpg" alt="Sneakers"'
+})
+productList.push({
+    name: 'bike',
+    price: 120,
+    image: 'https://images.pexels.com/photos/276517/pexels-photo-276517.jpeg?auto=compress&cs=tinysrgb&dpr=2&h=650&w=940" alt=""'
+})
+productList.push({
+    name: 'pc',
+    price: 360,
+    image: 'https://i.ibb.co/X5HqxK6/pexels-pixabay-38568.jpg" alt="computador"'
+})
+productList.push({
+    name: 'Samsung galaxy',
+    price: 900,
+    image: 'https://i.ibb.co/jW8H9R4/pexels-mohi-syed-47261.jpg" alt="phone"'
+})
+productList.push({
+    name: 'Shirt and Shoes',
+    price: 1000,
+    image: 'https://i.ibb.co/YRY9JBR/pexels-terje-sollie-298863.jpg" alt="shirt and shoes"'
+})
+productList.push({
+    name: 'Phone',
+    price: 800,
+    image: 'https://i.ibb.co/MDs9DVr/pexels-jess-bailey-designs-788946.jpg" alt="phone and airpods"'
+})
+productList.push({
+    name: 'shirt',
+    price: 80,
+    image: 'https://i.ibb.co/0hvhdzx/pexels-azamat-esenaliev-119550.jpg" alt="mouse and laptop"'
+})
+productList.push({  
+    name: 'Clock',
+    price: 750,
+    image: 'https://i.ibb.co/LxrQJMD/pexels-alex-carollo-592815.jpg alt="clock"'
+})
+productList.push({
+    name: 'Camera',
+    price: 1200,
+    image: 'https://i.ibb.co/Rgq8tNm/pexels-pixabay-51383.jpg" alt="camera"'
+})
+productList.push({
+    name: 'Sneakers',
+    price: 940,
+    image: 'https://i.ibb.co/qNrR3dn/pexels-adrian-dorobantu-2300334.jpg" alt="Sneakers"'
+})
 productList.push({
     name: 'bike',
     price: 120,
@@ -79,6 +186,7 @@ for (product of productList) {
 
     const productImg = document.createElement('img');
     productImg.setAttribute('src', product.image);
+    productImg.addEventListener('click', openProductDetailAside);
 
     const productInfo = document.createElement('div');
     productInfo.classList.add('product-info');
