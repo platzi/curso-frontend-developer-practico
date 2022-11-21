@@ -106,6 +106,6 @@ function renderProducts(arr) {
     cardsContainer.append(productCard);
     }
 }
-
+// funcion con el arr
 renderProducts (productlist);
 
