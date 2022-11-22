@@ -131,8 +131,80 @@ productListRopa.push({
     image: "https://p1.pxfuel.com/preview/471/230/482/women-mexico-poverty-chatina.jpg",
 });
 
+productListRopa.push({
+    name: 'Chal Tradicional',
+    price: 120,
+    image: "https://p1.pxfuel.com/preview/471/230/482/women-mexico-poverty-chatina.jpg",
+});
+
+productListRopa.push({
+    name: 'Chal Tradicional',
+    price: 120,
+    image: "https://p1.pxfuel.com/preview/471/230/482/women-mexico-poverty-chatina.jpg",
+});
+
+productListRopa.push({
+    name: 'Chal Tradicional',
+    price: 120,
+    image: "https://p1.pxfuel.com/preview/471/230/482/women-mexico-poverty-chatina.jpg",
+});
+
+productListRopa.push({
+    name: 'Chal Tradicional',
+    price: 120,
+    image: "https://p1.pxfuel.com/preview/471/230/482/women-mexico-poverty-chatina.jpg",
+});
+
+productListRopa.push({
+    name: 'Chal Tradicional',
+    price: 120,
+    image: "https://p1.pxfuel.com/preview/471/230/482/women-mexico-poverty-chatina.jpg",
+});
+
+productListRopa.push({
+    name: 'Chal Tradicional',
+    price: 120,
+    image: "https://p1.pxfuel.com/preview/471/230/482/women-mexico-poverty-chatina.jpg",
+});
+
 //Joyería
 const productListJoyeria = [];
+productListJoyeria.push({
+    name: 'Máscara de Plata',
+    price: 1000,
+    image: "https://e0.pxfuel.com/wallpapers/322/665/desktop-wallpaper-ms-mask-blue-jewel-feathers-mardi-gras.jpg",
+});
+
+productListJoyeria.push({
+    name: 'Máscara de Plata',
+    price: 1000,
+    image: "https://e0.pxfuel.com/wallpapers/322/665/desktop-wallpaper-ms-mask-blue-jewel-feathers-mardi-gras.jpg",
+});
+
+productListJoyeria.push({
+    name: 'Máscara de Plata',
+    price: 1000,
+    image: "https://e0.pxfuel.com/wallpapers/322/665/desktop-wallpaper-ms-mask-blue-jewel-feathers-mardi-gras.jpg",
+});
+
+productListJoyeria.push({
+    name: 'Máscara de Plata',
+    price: 1000,
+    image: "https://e0.pxfuel.com/wallpapers/322/665/desktop-wallpaper-ms-mask-blue-jewel-feathers-mardi-gras.jpg",
+});
+
+productListJoyeria.push({
+    name: 'Máscara de Plata',
+    price: 1000,
+    image: "https://e0.pxfuel.com/wallpapers/322/665/desktop-wallpaper-ms-mask-blue-jewel-feathers-mardi-gras.jpg",
+});
+
+productListJoyeria.push({
+    name: 'Máscara de Plata',
+    price: 1000,
+    image: "https://e0.pxfuel.com/wallpapers/322/665/desktop-wallpaper-ms-mask-blue-jewel-feathers-mardi-gras.jpg",
+});
+
 productListJoyeria.push({
     name: 'Máscara de Plata',
     price: 1000,
@@ -243,6 +315,42 @@ productListPinturas.push({
     image: "https://e0.pxfuel.com/wallpapers/605/85/desktop-wallpaper-azteca-quetzalcoatl.jpg",
 });
 
+productListPinturas.push({
+    name: 'Cuadro Dos Mundos',
+    price: 75,
+    image: "https://e0.pxfuel.com/wallpapers/605/85/desktop-wallpaper-azteca-quetzalcoatl.jpg",
+});
+
+productListPinturas.push({
+    name: 'Cuadro Dos Mundos',
+    price: 75,
+    image: "https://e0.pxfuel.com/wallpapers/605/85/desktop-wallpaper-azteca-quetzalcoatl.jpg",
+});
+
+productListPinturas.push({
+    name: 'Cuadro Dos Mundos',
+    price: 75,
+    image: "https://e0.pxfuel.com/wallpapers/605/85/desktop-wallpaper-azteca-quetzalcoatl.jpg",
+});
+
+productListPinturas.push({
+    name: 'Cuadro Dos Mundos',
+    price: 75,
+    image: "https://e0.pxfuel.com/wallpapers/605/85/desktop-wallpaper-azteca-quetzalcoatl.jpg",
+});
+
+productListPinturas.push({
+    name: 'Cuadro Dos Mundos',
+    price: 75,
+    image: "https://e0.pxfuel.com/wallpapers/605/85/desktop-wallpaper-azteca-quetzalcoatl.jpg",
+});
+
+productListPinturas.push({
+    name: 'Cuadro Dos Mundos',
+    price: 75,
+    image: "https://e0.pxfuel.com/wallpapers/605/85/desktop-wallpaper-azteca-quetzalcoatl.jpg",
+});
+
 //Adornos
 const productListAdornos = [];
 productListAdornos.push({
@@ -299,8 +407,80 @@ productListAdornos.push({
     image: "https://e0.pxfuel.com/wallpapers/925/866/desktop-wallpaper-maya-calendar-mayan.jpg",
 });
 
+productListAdornos.push({
+    name: 'Calendario Solar',
+    price: 50,
+    image: "https://e0.pxfuel.com/wallpapers/925/866/desktop-wallpaper-maya-calendar-mayan.jpg",
+});
+
+productListAdornos.push({
+    name: 'Calendario Solar',
+    price: 50,
+    image: "https://e0.pxfuel.com/wallpapers/925/866/desktop-wallpaper-maya-calendar-mayan.jpg",
+});
+
+productListAdornos.push({
+    name: 'Calendario Solar',
+    price: 50,
+    image: "https://e0.pxfuel.com/wallpapers/925/866/desktop-wallpaper-maya-calendar-mayan.jpg",
+});
+
+productListAdornos.push({
+    name: 'Calendario Solar',
+    price: 50,
+    image: "https://e0.pxfuel.com/wallpapers/925/866/desktop-wallpaper-maya-calendar-mayan.jpg",
+});
+
+productListAdornos.push({
+    name: 'Calendario Solar',
+    price: 50,
+    image: "https://e0.pxfuel.com/wallpapers/925/866/desktop-wallpaper-maya-calendar-mayan.jpg",
+});
+
+productListAdornos.push({
+    name: 'Calendario Solar',
+    price: 50,
+    image: "https://e0.pxfuel.com/wallpapers/925/866/desktop-wallpaper-maya-calendar-mayan.jpg",
+});
+
 //Otros
 const productListOtros = [];
+productListOtros.push({
+    name: 'Manualidad de Piedra',
+    price: 20,
+    image: "https://e1.pxfuel.com/desktop-wallpaper/813/328/desktop-wallpaper-aztecs-azteca.jpg",
+});
+
+productListOtros.push({
+    name: 'Manualidad de Piedra',
+    price: 20,
+    image: "https://e1.pxfuel.com/desktop-wallpaper/813/328/desktop-wallpaper-aztecs-azteca.jpg",
+});
+
+productListOtros.push({
+    name: 'Manualidad de Piedra',
+    price: 20,
+    image: "https://e1.pxfuel.com/desktop-wallpaper/813/328/desktop-wallpaper-aztecs-azteca.jpg",
+});
+
+productListOtros.push({
+    name: 'Manualidad de Piedra',
+    price: 20,
+    image: "https://e1.pxfuel.com/desktop-wallpaper/813/328/desktop-wallpaper-aztecs-azteca.jpg",
+});
+
+productListOtros.push({
+    name: 'Manualidad de Piedra',
+    price: 20,
+    image: "https://e1.pxfuel.com/desktop-wallpaper/813/328/desktop-wallpaper-aztecs-azteca.jpg",
+});
+
+productListOtros.push({
+    name: 'Manualidad de Piedra',
+    price: 20,
+    image: "https://e1.pxfuel.com/desktop-wallpaper/813/328/desktop-wallpaper-aztecs-azteca.jpg",
+});
+
 productListOtros.push({
     name: 'Manualidad de Piedra',
     price: 20,
