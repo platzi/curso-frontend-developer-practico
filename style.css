@@ -148,7 +148,9 @@ nav {
     background-color: var(--white);
     position: absolute;
     top: 60.5px;
-    padding: 24px;
+    left: 0;
+    width: calc(100% - 24px);
+    padding-left: 24px;
 }
 
 .mobile-menu a {
@@ -188,7 +190,6 @@ nav {
 .product-detail {
     background-color: var(--white);
     width: 360px;
-    padding: 0 24px;
     box-sizing: border-box;
     position: absolute;
     right: 0;
@@ -327,6 +328,81 @@ nav {
       }
     }
 
+
+/****** DETALLES DE PRODUCTO******/
+
+.product-detail-secondary {
+    width: 300px;
+    padding: 0 24px;
+    padding-bottom: 24px;
+    position: absolute;
+    right: 0;
+    background-color: var(--white);
+    
+  }
+  .product-detail-close {
+    background: white;
+    width: 14px;
+    height: 14px;
+    position: absolute;
+    top: 10px;
+    left: 35px;
+    z-index: 2;
+    padding: 10px;
+    border-radius: 50%;
+    border: 1px solid black;
+  }
+  .product-detail-close:hover {
+    cursor: pointer;
+    background-color: rgb(209, 24, 24);
+    box-shadow: 3px -2px gainsboro;
+    
+  }
+  .product-detail-secondary > img:nth-child(2) {
+    width: 100%;
+    height: 360px;
+    object-fit: cover;
+    border-radius: 16px;
+    border: 2px solid;
+  }
+  .product-info-secondary {
+    margin: 24px 24px 0 24px;
+  }
+  .product-info-secondary p:nth-child(1) {
+    font-weight: bold;
+    font-size: var(--md);
+    margin-top: 0;
+    margin-bottom: 4px;
+  }
+  .product-info-secondary p:nth-child(2) {
+    color: var(--very-light-pink);
+    font-size: var(--md);
+    margin-top: 0;
+    margin-bottom: 36px;
+  }
+  .product-info-secondary p:nth-child(3) {
+    color: var(--very-light-pink);
+    font-size: var(--sm);
+    margin-top: 0;
+    margin-bottom: 36px;
+  }
+  .primary-button {
+    background-color: var(--hospital-green);
+    border-radius: 8px;
+    border: none;
+    color: var(--white);
+    width: 100%;
+    cursor: pointer;
+    font-size: var(--md);
+    font-weight: bold;
+    height: 50px;
+  }
+  .add-to-cart-button {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+  }
+  
 /****** PRODUCTOS ******/
 
 .cards-container {
@@ -398,15 +474,19 @@ nav {
         grid-template-columns: repeat(auto-fill, 140px);
       }
 
-      .product-card {
+    .product-card {
         width: 140px;
       }
 
-      .product-card img {
+    .product-card img {
         width: 140px;
         height: 140px;
       }
-}
+
+    .product-detail-secondary {
+          width: 100%;
+        }
+    }
 
 @media (min-width: 641px) {
     .mobile-menu {

@@ -4,6 +4,7 @@ const btnBurger = document.querySelector(".menu");
 const mobileMenu = document.querySelector(".mobile-menu");
 const menuCar = document.querySelector(".navbar-shopping-cart");
 const aside = document.querySelector(".product-detail");
+const productDetail = document.querySelector(".product-detail-secondary");
 const cardContainer = document.querySelector(".cards-container");
 
 menuEmail.addEventListener("click", toggleDesktopMenu);
