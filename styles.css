@@ -4,11 +4,11 @@
 
 /* Estilos Generales */
 :root {
-    --white: #FFFFFF;
+    --brown: #EFD199;
     --black: #000000;
-    --very-light-pink: #C7C7C7;
+    --very-light-brown: #CE8F5A;
     --text-input-field: #F7F7F7;
-    --hospital-green: #ACD9B2;
+    --hospital-blue: #6287A2;
     --sm: 14px;
     --md: 16px;
     --lg: 18px;
@@ -16,6 +16,7 @@
 body {
     margin: 0;
     font-family: 'Quicksand', sans-serif;
+    background: var(--brown);
 }
 
 .inactive{
@@ -27,16 +28,18 @@ nav {
     display: flex;
     justify-content: space-between;
     padding: 0 24px;
-    border-bottom: 1px solid var(--very-light-pink);
+    border-bottom: 1px solid var(--very-light-brown);
 }
 .menu {
     display: none;
 }
 .logo {
-    width: 100px;
+    width: 50px;
+    height: 50px;
 }
 .navbar-left ul,
 .navbar-right ul {
+    cursor: pointer;
     list-style: none;
     padding: 0;
     margin: 0;
@@ -53,18 +56,18 @@ nav {
 .navbar-left ul li a,
 .navbar-right ul li a {
     text-decoration: none;
-    color: var(--very-light-pink);
-    border: 1px solid var(--white);
+    color: var(--very-light-brown);
+    border: 1px solid var(--brown);
     padding: 8px;
     border-radius: 8px;
 }
 .navbar-left ul li a:hover,
 .navbar-right ul li a:hover {
-    border: 1px solid var(--hospital-green);
-    color: var(--hospital-green);
+    border: 1px solid var(--hospital-blue);
+    color: var(--hospital-blue);
 }
 .navbar-email {
-    color: var(--very-light-pink);
+    color: var(--very-light-brown);
     font-size: var(--sm);
     margin-right: 12px;
     cursor: pointer;
@@ -76,7 +79,7 @@ nav {
 .navbar-shopping-cart div {
     width: 16px;
     height: 16px;
-    background-color: var(--hospital-green);
+    background-color: var(--hospital-blue);
     border-radius: 50%;
     font-size: var(--sm);
     font-weight: bold;
@@ -90,14 +93,14 @@ nav {
 
 /* Estilo Menu Desktop */
 .desktop-menu {
-    background-color: var(--white);
+    background-color: var(--brown);
     position: absolute;
     top: 60px;
     right: 57px;
-    background: var(--white);
+    background: var(--brown);
     width: 100px;
     height: auto;
-    border: 1px solid var(--very-light-pink);
+    border: 1px solid var(--very-light-brown);
     border-radius: 6px;
     padding: 20px 20px 0 20px;
 }
@@ -115,10 +118,10 @@ nav {
 }
 .desktop-menu ul li:last-child {
     padding-top: 20px;
-    border-top: 1px solid var(--very-light-pink);
+    border-top: 1px solid var(--very-light-brown);
 }
 .desktop-menu ul li:last-child a {
-    color: var(--hospital-green);
+    color: var(--hospital-blue);
     font-size: var(--sm);
 }
 .desktop-menu ul li a {
@@ -159,7 +162,7 @@ nav {
 /* Estilos Menu Mobile */
 
 .mobile-menu {
-  background-color: var(--white);
+  background-color: var(--brown);
   position: absolute;
   top: 60px;
   left: 0;
@@ -179,7 +182,7 @@ nav {
   list-style: none;
 }
 .mobile-menu ul:nth-child(1) {
-  border-bottom: 1px solid var(--very-light-pink);
+  border-bottom: 1px solid var(--very-light-brown);
 }
 .mobile-menu ul li {
   margin-bottom: 24px;
@@ -190,7 +193,7 @@ nav {
 }
 .sign-out {
   font-size: var(--sm);
-  color: var(--hospital-green) !important;
+  color: var(--hospital-blue) !important;
 }
 
 @media (min-width: 641px) {
@@ -202,7 +205,7 @@ nav {
 /* Estilos Product Detail y Carrito*/
 
 aside {
-  background-color: var(--white);
+  background-color: var(--brown);
   width: 360px;
   box-sizing: border-box;
   position: absolute;
@@ -211,7 +214,10 @@ aside {
 
 /* ShoppingCart*/
 #shoppingCartContainer {
-  padding: 0 24px;
+  top: 60px;
+  padding: 20px 20px 20px 20px;
+  border: 1px solid var(--very-light-brown);
+  border-radius: 0px 0px 6px 6px;
 }
 
 .title-container {
@@ -222,7 +228,7 @@ aside {
   margin-right: 14px;
 }
 .title {
-  font-size: var(--lg);
+  font-size: var(--md);
   font-weight: bold;
 }
 .order {
@@ -264,17 +270,17 @@ aside {
   object-fit: cover;
 }
 .shopping-cart p:nth-child(2) {
-  color: var(--very-light-pink);
+  color: var(--very-light-brown);
 }
 .shopping-cart p:nth-child(3) {
   font-size: var(--md);
   font-weight: bold;
 }
 .primary-button {
-  background-color: var(--hospital-green);
+  background-color: var(--hospital-blue);
   border-radius: 8px;
   border: none;
-  color: var(--white);
+  color: var(--brown);
   width: 100%;
   cursor: pointer;
   font-size: var(--md);
@@ -285,7 +291,7 @@ aside {
 /* ProductDetail */
 
 .product-detail-close {
-  background: var(--white);
+  background: var(--brown);
   width: 14px;
   height: 14px;
   position: absolute;
@@ -314,22 +320,22 @@ aside {
   margin-bottom: 4px;
 }
 #productDetail .product-info p:nth-child(2) {
-  color: var(--very-light-pink);
+  color: var(--very-light-brown);
   font-size: var(--md);
   margin-top: 0;
   margin-bottom: 36px;
 }
 #productDetail .product-info p:nth-child(3) {
-  color: var(--very-light-pink);
+  color: var(--very-light-brown);
   font-size: var(--sm);
   margin-top: 0;
   margin-bottom: 36px;
 }
 .primary-button {
-  background-color: var(--hospital-green);
+  background-color: var(--hospital-blue);
   border-radius: 8px;
   border: none;
-  color: var(--white);
+  color: var(--brown);
   width: 100%;
   cursor: pointer;
   font-size: var(--md);
@@ -344,14 +350,38 @@ aside {
 
 /* Estilos para tarjetas de productos */
 
-.cards-container {
+.card-container-ropa{
   display: grid;
   grid-template-columns: repeat(auto-fill, 240px);
   gap: 26px;
   place-content: center;
   margin-top: 15px;
 }
-.product-card {
+.card-container-joyeria{
+  display: grid;
+  grid-template-columns: repeat(auto-fill, 240px);
+  gap: 26px;
+  place-content: center;
+}
+.card-container-pinturas{
+  display: grid;
+  grid-template-columns: repeat(auto-fill, 240px);
+  gap: 26px;
+  place-content: center;
+}
+.card-container-adornos{
+  display: grid;
+  grid-template-columns: repeat(auto-fill, 240px);
+  gap: 26px;
+  place-content: center;
+}
+.card-container-otros{
+  display: grid;
+  grid-template-columns: repeat(auto-fill, 240px);
+  gap: 26px;
+  place-content: center;
+}
+.product-card{
   width: 240px;
 }
 .product-card img {
@@ -359,12 +389,14 @@ aside {
   height: 240px;
   border-radius: 20px;
   object-fit: cover;
+  margin-top: 15px;
 }
 .product-card .product-info {
   display: flex;
   justify-content: space-between;
   align-items: center;
   margin-top: 12px;
+  margin-bottom: 12px;
 }
 .product-card .product-info figure {
   margin: 0;
@@ -383,5 +415,5 @@ aside {
   font-size: var(--sm);
   margin-top: 0;
   margin-bottom: 0;
-  color: var(--very-light-pink);
+  color: var(--very-light-brown);
 }
