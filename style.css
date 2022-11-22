@@ -126,6 +126,7 @@
     left: 0px;
     padding: 24px;
     width: 100%;
+    background: var(--white);
   }
   .mobile-menu a {
     text-decoration: none;
@@ -162,7 +163,8 @@
     box-sizing: border-box;
     position: absolute;
     right: 0;
-    /* background-color: var(--white); */
+    background-color: var(--white);
+    height: 100%;
   }
   .title-container {
     display: flex;
@@ -248,6 +250,7 @@
     height: 240px;
     border-radius: 20px;
     object-fit: cover;
+    cursor: pointer;
   }
   .product-info {
     display: flex;
@@ -280,6 +283,7 @@
     padding-bottom: 24px;
     position: absolute;
     right: 0;
+    background: var(--white);
   }
   .product-detalles-close {
     background: var(--white);
