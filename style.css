@@ -340,10 +340,11 @@ nav {
     width: 240px;
   }
   .product-card img {
-    width: 240px;
-    height: 240px;
+    width: 250px;
+    height: 250px;
     border-radius: 20px;
     object-fit: cover;
+    border: 2px solid black;
   }
   .product-info {
     display: flex;
