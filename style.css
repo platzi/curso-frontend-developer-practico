@@ -78,9 +78,11 @@ nav {
 
 .navbar-shopping-cart {
     position: relative;
+    
 }
 
 .navbar-shopping-cart div {
+
     width: 16px;
     height: 16px;
     background-color: var(--hospital-green);
@@ -93,6 +95,12 @@ nav {
     display: flex;
     justify-content: center;
     align-items: center;
+    
+}
+
+.my-order-content{
+  border: 2px solid black;
+  border-radius: 10px;
 }
 
 
@@ -281,6 +289,7 @@ nav {
       gap: 26px;
       place-content: center;
     }
+
     .product-card {
       width: 240px;
     }
@@ -333,11 +342,13 @@ nav {
 
 .product-detail-secondary {
     width: 300px;
-    padding: 0 24px;
+    padding: 0 30px;
     padding-bottom: 24px;
     position: absolute;
     right: 0;
-    background-color: var(--white);
+    background-color: gainsboro;
+    border: 1px solid black;
+    border-radius: 10px;
     
   }
   .product-detail-close {
@@ -346,24 +357,27 @@ nav {
     height: 14px;
     position: absolute;
     top: 10px;
-    left: 35px;
+    left: 40px;
     z-index: 2;
     padding: 10px;
     border-radius: 50%;
     border: 1px solid black;
+    margin-top: 10px;
   }
   .product-detail-close:hover {
     cursor: pointer;
     background-color: rgb(209, 24, 24);
     box-shadow: 3px -2px gainsboro;
     
-  }
+}
+
   .product-detail-secondary > img:nth-child(2) {
     width: 100%;
     height: 360px;
     object-fit: cover;
     border-radius: 16px;
     border: 2px solid;
+    margin-top: 10px;
   }
   .product-info-secondary {
     margin: 24px 24px 0 24px;
@@ -385,6 +399,7 @@ nav {
     font-size: var(--sm);
     margin-top: 0;
     margin-bottom: 36px;
+    color: black;
   }
   .primary-button {
     background-color: var(--hospital-green);

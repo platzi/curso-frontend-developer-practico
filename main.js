@@ -4,27 +4,56 @@ const btnBurger = document.querySelector(".menu");
 const mobileMenu = document.querySelector(".mobile-menu");
 const menuCar = document.querySelector(".navbar-shopping-cart");
 const aside = document.querySelector(".product-detail");
-const productDetail = document.querySelector(".product-detail-secondary");
+const productDetailSecondary = document.querySelector(".product-detail-secondary");
+const productInfoSecondary = document.querySelector('.product-info-secondary');
+const productDetailCloseIcon = document.querySelector('.product-detail-close')
 const cardContainer = document.querySelector(".cards-container");
 
 menuEmail.addEventListener("click", toggleDesktopMenu);
 btnBurger.addEventListener("click", toggleMobileMenu);
 menuCar.addEventListener("click", toggleCar);
+productDetailCloseIcon.addEventListener('click', closeProductInfo)
 
 function toggleDesktopMenu() {
-  desktopMenu.classList.toggle("inactive");
-  aside.classList.add("inactive");
+  desktopMenu.classList.toggle("inactive");   
+}
+
+function toogleProductDetail() {
+  productDetailSecondary.classList.toggle('inactive');
+  mobileMenu.classList.add('inactive');
+  desktopMenu.classList.add('inactive');
+  productInfoSecondary.classList.add('inactive')
+  aside.classList.add('inactive')
 }
 
 function toggleMobileMenu() {
   mobileMenu.classList.toggle("inactive");
   aside.classList.add("inactive");
+  productDetailSecondary.classList.add('inactive')
 }
 
 function toggleCar() {
   desktopMenu.classList.add("inactive");
   mobileMenu.classList.add("inactive");
   aside.classList.toggle("inactive");
+  productDetailSecondary.classList.add('inactive')
+  
+}
+
+function toggleproductDetailSecondary() {
+  productDetailSecondary.classList.toggle('inactive');
+  mobileMenu.classList.add('inactive');
+  desktopMenu.classList.add('inactive');
+  
+}
+
+function openProductInfo() {
+  productDetailSecondary.classList.remove('inactive');
+}
+
+function closeProductInfo(){
+  productDetailSecondary.classList.add('inactive')
+  
 }
 
 const productList = [];
@@ -92,6 +121,7 @@ function renderProducts (arr) {
   
     const img= document.createElement('img');
     img.setAttribute('src', product.img);
+    img.addEventListener('click', openProductInfo);
   
     const productInfo = document.createElement('div');
     productInfo.classList.add('product-info');
