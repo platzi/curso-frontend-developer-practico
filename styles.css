@@ -30,7 +30,8 @@
       cursor: pointer;
     }
     .logo {
-      width: 100px;
+      width: auto;
+      
     }
     .navbar-left ul,
     .navbar-right ul {
@@ -49,8 +50,10 @@
     }
     .navbar-left ul li a,
     .navbar-right ul li a {
+      display: flex; 
+      text-align: center;
       text-decoration: none;
-      color: var(--very-light-pink);
+      color: black;
       border: 1px solid var(--white);
       padding: 8px;
       border-radius: 8px;
@@ -261,9 +264,9 @@
       }
       #productDetail > img:nth-child(2) {
         width: 100%;
-        height: 360px;
+        height: 450px;
         object-fit: cover;
-        border-radius: 0 0 20px 20px;
+        border-radius: 20px;
       }
       #productDetail {
         margin: 24px 24px 0 24px;
@@ -306,17 +309,18 @@
       /* Product list*/
       .cards-container {
         display: grid;
-        grid-template-columns: repeat(auto-fill, 240px);
+        grid-template-columns: repeat(auto-fill, 360px);
         gap: 26px;
         place-content: center;
         margin-top: 20px;
+        border-radius: 2px solid(var(--hospital-green));
       }
       .product-card {
         width: 240px;
       }
       .product-card img {
-        width: 240px;
-        height: 240px;
+        width: 360px;
+        height: 360px;
         border-radius: 20px;
         object-fit: cover;
       }
@@ -326,13 +330,7 @@
         align-items: center;
         margin-top: 12px;
       }
-      .product-card .product-info figure {
-        margin: 0;
-      }
-      .product-card .product-info figure img {
-        width: 35px;
-        height: 35px;
-      }
+      
       .product-card .product-info div p:nth-child(1) {
         font-weight: bold;
         font-size: var(--md);
@@ -372,12 +370,33 @@
         width: 140px;
         height: 140px;
       }
+      .product-card .product-info figure {
+      margin: 0;
+      }
+      .product-card .product-info figure img {
+        
+        width: 35px;
+        height: 35px;
+        
+      }
     }
+    
 
 
     @media (min-width:641px) {
         .mobile-menu{
             display: none;
         }
+        .product-card .product-info figure {
+          margin: 0;
+        }
+        .product-card .product-info figure img {
+          position: relative;
+          left: 120px;
+          width: 35px;
+          height: 35px;
+          
+        }
     }
+
 
