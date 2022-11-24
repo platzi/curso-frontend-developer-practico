@@ -7,7 +7,7 @@ const mobileMenuBtn = document.querySelector('.menu');
 const mobileMenu = document.querySelector('.mobile-menu');
 
 const shoppingCartBtn = document.querySelector('.navbar-shopping-cart');
-const shoppingCartMenu = document.querySelector('.product-detail');
+const shoppingCartMenu = document.querySelector('#shopping-cart');
 
 userAccountLink.addEventListener('click', toggleDesktopMenu);
 mobileMenuBtn.addEventListener('click', toggleMobileMenu);
@@ -80,6 +80,7 @@ function renderProductsList(productsArray) {
         </figure>
       </div>
   `;
+    //Arreglar esto. Cada elemento debe ser creado individualmente para q funcionen los botones y enlaces
 
     productsContainer.appendChild(productCard);
   }

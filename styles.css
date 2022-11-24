@@ -114,7 +114,7 @@ nav {
 }
 .desktop-menu ul {
   list-style: none;
-  padding: 0;
+  padding-left: 24px;
   margin: 0;
 }
 .desktop-menu ul li {
@@ -144,6 +144,10 @@ nav {
   padding: 0px 24px 24px 0px;
   position: absolute;
   top: 60px;
+  left: 0;
+  padding-left: 24px;
+  width: 100%;
+  background-color: var(--white);
 }
 .mobile-menu a {
   text-decoration: none;
@@ -173,12 +177,16 @@ nav {
 
 /*Estilos tomados del archivo clase13.html propios del 
   container del carrito de compras, el componente shopping-cart*/
-.product-detail {
+aside {
   width: 360px;
-  padding: 0px 24px 24px;
   box-sizing: border-box;
   position: absolute;
   right: 0;
+  background-color: var(--white);
+}
+
+#shopping-cart {
+  padding: 0px 24px 24px;
 }
 .title-container {
   display: flex;
@@ -265,30 +273,94 @@ nav {
   border-radius: 20px;
   object-fit: cover;
 }
-.product-info {
+.product-card .product-info {
   display: flex;
   justify-content: space-between;
   align-items: center;
   margin-top: 12px;
 }
-.product-info figure {
+.product-card .product-info figure {
   margin: 0;
 }
-.product-info figure img {
+.product-card .product-info figure img {
   width: 35px;
   height: 35px;
 }
-.product-info div p:nth-child(1) {
+.product-card .product-info div p:nth-child(1) {
   font-weight: bold;
   font-size: var(--md);
   margin-top: 0;
   margin-bottom: 4px;
 }
-.product-info div p:nth-child(2) {
+.product-card .product-info div p:nth-child(2) {
   font-size: var(--sm);
   margin-top: 0;
   margin-bottom: 0;
   color: var(--very-light-pink);
+}
+
+/*Estilos tomados del archivo clase12.html propios del componente <aside> product-detail */
+#product-detail {
+  padding-bottom: 12px;
+  border-radius: 12px;
+}
+
+.product-detail-close {
+  background: var(--white);
+  width: 14px;
+  height: 14px;
+  position: absolute;
+  top: 24px;
+  left: 24px;
+  z-index: 2;
+  padding: 12px;
+  border-radius: 50%;
+}
+.product-detail-close:hover {
+  cursor: pointer;
+}
+#product-detail > img:nth-child(2) {
+  width: 100%;
+  height: 360px;
+  object-fit: cover;
+  border-radius: 0 0 20px 20px;
+}
+#product-detail .product-info {
+  margin: 24px 24px 0 24px;
+}
+.product-info p:nth-child(1) {
+  font-weight: bold;
+  font-size: var(--md);
+  margin-top: 0;
+  margin-bottom: 4px;
+}
+#product-detail .product-info p:nth-child(2) {
+  color: var(--very-light-pink);
+  font-size: var(--md);
+  margin-top: 0;
+  margin-bottom: 16px;
+}
+#product-detail .product-info p:nth-child(3) {
+  color: var(--very-light-pink);
+  font-size: var(--sm);
+  margin-top: 0;
+  margin-bottom: 16px;
+}
+.primary-button {
+  background-color: var(--hospital-green);
+  border-radius: 8px;
+  border: none;
+  color: var(--white);
+  width: 100%;
+  cursor: pointer;
+  font-size: var(--md);
+  font-weight: bold;
+  height: 50px;
+}
+.add-to-cart-button {
+  display: flex;
+  align-items: center;
+  justify-content: center;
 }
 
 @media (max-width: 640px) {
@@ -306,7 +378,7 @@ nav {
     display: none;
   }
 
-  .product-detail {
+  aside {
     width: 100%;
   }
 
@@ -319,6 +391,11 @@ nav {
   .product-card img {
     width: 140px;
     height: 140px;
+  }
+
+  #product-detail {
+    width: 100%;
+    margin: 0;
   }
 }
 
