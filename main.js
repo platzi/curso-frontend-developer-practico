@@ -4,11 +4,14 @@ const menuHamIcon = document.querySelector(".menu");
 const mobileMenu = document.querySelector(".mobile-menu");
 const menuCarritoIcon = document.querySelector(".navbar-shopping-cart");
 const aside = document.querySelector(".product-detail");
+const productDetailContainer = document.querySelector(".product-detail-secundary");
+const productDetailCloseIcon = document.querySelector(".product-detail-secundary-close");
 const cardsContainer = document.querySelector('.cards-container')
 
 menuEmail.addEventListener('click', toggleDesktopMenu);
 menuHamIcon.addEventListener('click', toggleMobileMenu);
 menuCarritoIcon.addEventListener('click', toggleCarritoAside);
+productDetailCloseIcon.addEventListener('click', closeProductDetailAside);
 
 function toggleDesktopMenu() {
     const isAsideClosed = aside.classList.contains('inactive');
@@ -27,6 +30,8 @@ function toggleMobileMenu() {
         aside.classList.add('inactive');    
     }
 
+    closeProductDetailAside();
+
     mobileMenu.classList.toggle('inactive');
 }
 
@@ -37,7 +42,23 @@ function toggleCarritoAside() {
         mobileMenu.classList.add('inactive');    
     }
 
+    const isProductDetailClosed = productDetailContainer.classList.contains('inactive');
+
+    if (!isProductDetailClosed){
+        productDetailContainer.classList.add('inactive');    
+    }
+
     aside.classList.toggle('inactive');
+}
+
+function openProductDetailAside() {
+
+    aside.classList.add('inactive');
+    productDetailContainer.classList.remove('inactive');
+}
+
+function closeProductDetailAside() {
+    productDetailContainer.classList.add('inactive');
 }
 
 const productList = [];
@@ -66,8 +87,10 @@ function renderProducts(arr) {
         const productCard = document.createElement('div');
         productCard.classList.add('product-card');
     
+        //product = {name, price, image} -> product.image
         const productImg = document.createElement('img')
         productImg.setAttribute('src', product.image);
+        productImg.addEventListener('click', openProductDetailAside);
     
         const productInfo = document.createElement('div');
         productInfo.classList.add('product-info');
