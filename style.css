@@ -348,8 +348,9 @@
     margin-bottom: 0;
     color: var(--very-light-pink);
   } 
-
-
+  #product-img{
+    cursor: pointer;
+  }
 
   @media (max-width: 640px) {
     .menu {

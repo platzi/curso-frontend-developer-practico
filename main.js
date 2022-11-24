@@ -12,7 +12,8 @@ function toggleDesktopMenu(){
     else{
         desktopMenu.className="desktop-menu inactive";
     } */
-    shoppingCartContainer.classList.add('inactive')
+    shoppingCartContainer.classList.add('inactive');
+    productDetail.classList.add('inactive');
     desktopMenu.classList.toggle("inactive");
 }
 
@@ -24,7 +25,8 @@ const mobileMenu= document.querySelector(".mobile-menu");
 menuHamIcon.addEventListener("click",toggleMobileMenu);
 
 function toggleMobileMenu(){    
-    shoppingCartContainer.classList.add('inactive')
+    shoppingCartContainer.classList.add('inactive');
+    productDetail.classList.add('inactive');
     mobileMenu.classList.toggle("inactive");
 }
 
@@ -38,6 +40,7 @@ carritoIcon.addEventListener("click",toggleCarritoshoppingCartContainer);
 function toggleCarritoshoppingCartContainer(){
     mobileMenu.classList.add('inactive');
     desktopMenu.classList.add("inactive");
+    productDetail.classList.add('inactive');
     shoppingCartContainer.classList.toggle("inactive");
 }
 
@@ -46,15 +49,18 @@ const productList= [];
 productList.push({
     name:"Bike",
     price: 120,
-    img: "https://images.pexels.com/photos/276517/pexels-photo-276517.jpeg?auto=compress&cs=tinysrgb&dpr=2&h=650&w=940"});
+    img: "https://images.pexels.com/photos/276517/pexels-photo-276517.jpeg?auto=compress&cs=tinysrgb&dpr=2&h=650&w=940"}
+    );
 productList.push({
     name:"Pantalla",
     price: 140,
-    img: "https://www.hd-tecnologia.com/imagenes/articulos/2016/12/La-competencia-se-calienta-en-el-mercado-de-los-Monitores-Gamers.jpg"});
+    img: "https://www.hd-tecnologia.com/imagenes/articulos/2016/12/La-competencia-se-calienta-en-el-mercado-de-los-Monitores-Gamers.jpg"}
+    );
 productList.push({
     name:"Computador",
     price: 220,
-    img: "https://themark.com.co/wp-content/uploads/2022/07/CORSAIR-CARBIDE-SPEC-OMEGA-BLANCO-1.png"});
+    img: "https://themark.com.co/wp-content/uploads/2022/07/CORSAIR-CARBIDE-SPEC-OMEGA-BLANCO-1.png"}
+    );
 
  
 {/* <div class="product-card">
@@ -84,7 +90,9 @@ function renderProducts(products){
         productInfo.classList.add('product-info');
     
         const productImg = document.createElement('img');
-        productImg.setAttribute('src', product.img);    
+        productImg.setAttribute('src', product.img);
+        productImg.setAttribute('id', "product-img");
+        productImg.addEventListener("click",openDetails)    
     
         const productInfoDiv = document.createElement('div');
          
@@ -113,7 +121,24 @@ function renderProducts(products){
 
 renderProducts(productList)
 
+//Product Details aside toggle
 
-        
+const productDetail= document.querySelector('#product-detail');
+const productDetailCloseIcon= document.querySelector('.product-detail-close');
+
+function openDetails(){
+    productDetail.classList.remove('inactive');
+    shoppingCartContainer.classList.add("inactive");
+}
+productDetailCloseIcon.addEventListener('click',toggleDetails);
+
+function toggleDetails(){
+    
+    productDetail.classList.toggle('inactive');
+    mobileMenu.classList.add('inactive');
+    desktopMenu.classList.add("inactive");
+    
+
+}
 
 
