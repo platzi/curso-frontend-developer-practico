@@ -66,15 +66,15 @@ productList.push({
 })
 
 productList.push({
-    name: 'Pantalla',
-    price: 20.00,
-    image: 'https://images.pexels.com/photos/276517/pexels-photo-276517.jpeg?auto=compress&cs=tinysrgb&dpr=2&h=650&w=940',
+    name: 'Reloj smart',
+    price: 1500.00,
+    image: 'https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcQvRFTOiVcRjVGV4P_0xQ7_eUa9UIWZRkmfcLMo6HnDR1Bw2-UjrkAa9oXnBtZhW8qLIIA&usqp=CAU',
 })
 
 productList.push({
-    name: 'Computadora',
-    price: 12000.00,
-    image: 'https://images.pexels.com/photos/276517/pexels-photo-276517.jpeg?auto=compress&cs=tinysrgb&dpr=2&h=650&w=940',
+    name: 'Smart TV',
+    price: 120000.00,
+    image: 'https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcRCCMypl_ClHFfjYrrPHiLSALVbhTM5Ai3Zaw&usqp=CAU',
 })
 
 function renderProducts(arr) {
