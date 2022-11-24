@@ -130,10 +130,11 @@
   .mobile-menu {
     padding: 24px;
     position: absolute;
-    top: 60px;
+    top: 61px;
     background-color: var(--white);
     left: 0;
-    width: 100%;
+    padding-left: 24px;
+    width: calc(100% - 24px);
   }
   .mobile-menu a {
     background-color: var(--white);
