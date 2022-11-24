@@ -9,3 +9,11 @@ function toggleDesktopMenu() {
     desktopMenu.classList.toggle('inactive');
 }
 
+const iconMenu = document.querySelector('.menu');
+const mobileMenu = document.querySelector('.mobile-menu');
+
+iconMenu.addEventListener('click', toggleMobilMenu);
+
+function toggleMobilMenu() {
+    mobileMenu.classList.toggle('inactive');
+}
