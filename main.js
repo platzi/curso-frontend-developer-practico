@@ -42,10 +42,18 @@ function toggleCarritoAside() {
         mobileMenu.classList.add('inactive');    
     }
 
+    
+
     const isProductDetailClosed = productDetailContainer.classList.contains('inactive');
 
     if (!isProductDetailClosed){
         productDetailContainer.classList.add('inactive');    
+    }
+
+    const isDessktopMenuClosed = desktopMenu.classList.contains('inactive');
+
+    if (!isDessktopMenuClosed){
+        desktopMenu.classList.add('inactive');    
     }
 
     aside.classList.toggle('inactive');
@@ -54,6 +62,7 @@ function toggleCarritoAside() {
 function openProductDetailAside() {
 
     aside.classList.add('inactive');
+    desktopMenu.classList.add('inactive');  
     productDetailContainer.classList.remove('inactive');
 }
 
