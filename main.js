@@ -78,9 +78,9 @@ for (product of productList) {
     const productInfoDiv = document.createElement('div');
 
     const productPrice = document.createElement('p');
-    productPrice.innerText = product.price;
+    productPrice.innerText = '$' + product.price;
     const productName = document.createElement('p');
-    productPrice.innerText = product.name;
+    productName.innerText = product.name;
 
     productInfoDiv.appendChild(productPrice);
     productInfoDiv.appendChild(productName);
