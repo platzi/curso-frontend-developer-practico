@@ -39,3 +39,65 @@ function toggleCart() {
     desktopMenu.classList.add('inactive');
 
 }
+
+// creoo las card que mas adelante se conectan a bases de datos, por ahora la completo a mano
+
+const cardsContainer = document.querySelector('.cards-container')
+
+const productList = [];
+productList.push({
+    name: 'Bike',
+    price: 120.00 ,
+    image: 'https://images.pexels.com/photos/276517/pexels-photo-276517.jpeg?auto=compress&cs=tinysrgb&dpr=2&h=650&w=940',
+    
+});
+productList.push({
+    name: 'Computer',
+    price: 100 ,
+    image: 'https://images.pexels.com/photos/276517/pexels-photo-276517.jpeg?auto=compress&cs=tinysrgb&dpr=2&h=650&w=940',
+    
+});
+productList.push({
+    name: 'Tv Led',
+    price: 220 , 
+    image: 'https://images.pexels.com/photos/276517/pexels-photo-276517.jpeg?auto=compress&cs=tinysrgb&dpr=2&h=650&w=940',
+    
+});
+
+//insertar en el html
+for (product of productList) {
+    const productCard = document.createElement('div');
+    productCard.classList.add('product-card');
+
+    const productImg = document.createElement('img');
+    productImg.setAttribute ('src' , product.image);
+
+    const productInfo = document.createElement('div');
+    productInfo.classList.add ('product-info');
+
+    const productInfoDiv = document.createElement('div');
+
+    const productPrice = document.createElement('p');
+    productPrice.innerText = product.price;
+    const productName = document.createElement('p');
+    productPrice.innerText = product.name;
+
+    productInfoDiv.appendChild(productPrice);
+    productInfoDiv.appendChild(productName);
+
+    const productInfoFigure = document.createElement('figure');
+
+    const productImgCart = document.createElement('img');
+    productImgCart.setAttribute ('src' ,'./icons/bt_add_to_cart.svg');
+
+    //para meter un elemento dentro de otro "appendChild"
+    productInfoFigure.appendChild(productImgCart);
+
+    productInfo.appendChild(productInfoDiv);
+    productInfo.appendChild(productInfoFigure);
+
+    productCard.appendChild(productImg);
+    productCard.appendChild(productInfo);
+
+    cardsContainer.appendChild(productCard);
+}
