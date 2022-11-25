@@ -128,14 +128,13 @@ nav {
   position: absolute;
   top: 61px;
   left: 0;
-  width: 91%;
+  width: calc(100% - 48px);
   padding: 24px;
 }
 .mobile-menu a {
   text-decoration: none;
   color: var(--black);
   font-weight: bold;
-  /* margin-bottom: 24px; */
 }
 .mobile-menu ul {
   padding: 0;
@@ -254,7 +253,6 @@ aside {
   border: 1px solid var(--very-light-pink);
 }
 .product-detail-close img {
-  /* position: absolute; */
   top: 9px;
   left: 9px;
 }
