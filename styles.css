@@ -33,6 +33,10 @@
       width: auto;
       
     }
+    .navbar-left .logo{
+      display: flex;
+      margin-right: 100px;
+    }
     .navbar-left ul,
     .navbar-right ul {
       list-style: none;
@@ -344,9 +348,18 @@
         color: var(--very-light-pink);
       }
       
+    @media (max-width: 490px) {
+      .navbar-left .logo {
+        width: 100%;
+      }
+    }
     @media (max-width: 640px) {
       .menu {
         display: block;
+      }
+      .navbar-left .logo {
+        right: 20px;
+
       }
       .navbar-left ul {
         display: none;
@@ -358,7 +371,10 @@
         display: none;
       }
       aside {
-        width: 100%;
+        display: block;
+        padding: 5px;
+        right: 40px;
+        width: 80%;
       }
       .cards-container {
         grid-template-columns: repeat(auto-fill, 140px);
@@ -370,6 +386,9 @@
         width: 140px;
         height: 140px;
       }
+      .product-info > p {
+        left: 20px;
+      }
       .product-card .product-info figure {
       margin: 0;
       }
@@ -379,10 +398,7 @@
         height: 35px;
         
       }
-    }
-    
-
-
+    }   
     @media (min-width:641px) {
         .mobile-menu{
             display: none;
@@ -400,3 +416,55 @@
     }
 
 
+
+.modal {
+  width: 100vw;
+  height: 100vh;
+
+  background-color: rgba(0, 0, 0, .8);
+  
+  position: fixed;
+  display: none;
+  /* display: flex; */
+  top: 0px;
+  left: 0px;
+
+  z-index: 1000;
+  justify-content: center;
+  align-items: center;
+}
+
+.modal .container {
+  width: 30vw;
+  height: auto;
+  background-color: #fff;
+  padding: 20px;
+  border-radius: 5px;
+  position: absolute;
+}
+
+.modal .container .product-img {
+  width: 100%;
+  background-color: #000000;
+  margin: auto;
+}
+
+.modal .container .product-img img {
+  width: 100%;
+}
+
+.modal .container .close{
+  background-color: red;
+  border-radius: 50%;  
+  width: 20px;
+  height: 20px;
+  color: #fff;
+  display: flex;
+  font-size: 1em;
+  justify-content: center;
+  align-items: center;
+  position: absolute;
+  top: 0;
+  right: 0;
+  cursor: pointer;
+}
