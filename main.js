@@ -1,45 +1,56 @@
 const menuEmail = document.querySelector('.navbar-email');
 const desktopMenu = document.querySelector('.desktop-menu');
 const iconMenu = document.querySelector('.menu');
+const poductDetailCloseIcon = document.querySelector('.product-detail-close')
 const btnCart = document.querySelector('.navbar-shopping-cart');
 const mobileMenu = document.querySelector('.mobile-menu');
 const aside = document.querySelector('#shoppingCartContainer');
-const cardsContainer = document.querySelector('.cards-container')
+const cardsContainer = document.querySelector('.cards-container');
+const productDetailContainer = document.querySelector('#productDetail');
+
 
 //menu desplegable que sale del email (usando una clase de css inactive)
 menuEmail.addEventListener('click', toggleDesktopMenu);
+iconMenu.addEventListener('click', toggleMobilMenu);
+btnCart.addEventListener('click', toggleCart);
+poductDetailCloseIcon.addEventListener('click',closeProductDetailAside);
+
 
 function toggleDesktopMenu() {
     desktopMenu.classList.toggle('inactive');
     aside.classList.add('inactive');
+    productDetailContainer.classList.add('inactive');
 }
 
 //menu desplegable que sale del menu hamburgueza (usando una clase de css inactive) , no hace falta tocar los @media ya que el menu hamburguesa solo aparece cuando esta en mobile
-
 //@media hace falta para evitar que se queden los menus abiertos si cambian de desktop a mobile
-
-iconMenu.addEventListener('click', toggleMobilMenu);
-
 function toggleMobilMenu() {
     mobileMenu.classList.toggle('inactive');
     // El add inactive se usa para obligar a cerrar cualquier otra cosa que no deba estar abierta al mismo tiempo
     aside.classList.add('inactive');
+    productDetailContainer.classList.add('inactive');
 }
 
 // Carrito de compras -My order-
-
-btnCart.addEventListener('click', toggleCart);
-
 function toggleCart() {
 
     aside.classList.toggle ('inactive');
     //// El add inactive se usa para obligar a cerrar cualquier otra cosa que no deba estar abierta al mismo tiempo
     mobileMenu.classList.add('inactive');
     desktopMenu.classList.add('inactive');
+    productDetailContainer.classList.add('inactive');
+}
+
+//funciones para abrir y cerrar con un icon el detalle del producto
+function openProductDetalAside() {
+    productDetailContainer.classList.remove('inactive');
+    aside.classList.add('inactive');
+}
+function closeProductDetailAside () {
+    productDetailContainer.classList.add('inactive');
 }
 
 // creoo las card desde JS que mas adelante se conectan a bases de datos, por ahora la completo a mano
-
 const productList = [];
 productList.push({
     name: 'Bike',
@@ -65,6 +76,8 @@ function renderProducts (arr) {
     
         const productImg = document.createElement('img');
         productImg.setAttribute ('src' , product.image);
+        //Creo una funcion que escuche un elemeto de los cards creados por Js, ya que no estan en html para seleccionarlos desde ahi
+        productImg.addEventListener ('click', openProductDetalAside);
     
         const productInfo = document.createElement('div');
         productInfo.classList.add ('product-info');
