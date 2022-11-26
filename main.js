@@ -1,17 +1,24 @@
+// VARIABLES QUE MANDASN ALLAMAR A LAS CLASES Y ID DEL CONTENIDO EN HTML
+
 const menuEmail = document.querySelector('.navbar-email');
 const desktopMenu = document.querySelector('.desktop-menu');
 const menuHamIcon = document.querySelector('.menu');
 const menuCarritoIcon = document.querySelector('.navbar-shopping-cart');
 const mobileMenu = document.querySelector('.mobile-menu');
-const shoppingCartContainer = document.querySelector('#shoppingCartContainer')
-const cardContainer = document.querySelector('.cards-container')
+const productDeatilCloseIcon = document.querySelector('.product-detail-close');
 
 
+const shoppingCartContainer = document.querySelector('#shoppingCartContainer');
+const productDeatilContainer = document.querySelector('#productDetail');
+const cardContainer = document.querySelector('.cards-container');
+
+// SECCION PARA ESCUCHAR LAS ACCIONES CLICK DE LOS BOTONES
 menuEmail.addEventListener('click', toggleDestopMenu);
 menuHamIcon.addEventListener('click', toggleMobileMenu);
 menuCarritoIcon.addEventListener('click', toggleCarritoMenu);
+productDeatilCloseIcon.addEventListener('click', closeProductDetailAside);
 
-
+// FUNCION PARA ABRIR Y CERRAR EL MENU DE USUARIO Y SI ESTA ABIERTO EL CARRITO DE COMPRAS CERRARLO
 function toggleDestopMenu(){
     const isAsideClosed = shoppingCartContainer.classList.contains('inactive');
 
@@ -21,15 +28,21 @@ function toggleDestopMenu(){
    desktopMenu.classList.toggle('inactive')
 } 
 
+
+// FUNCION PARA ABRIR Y CERRAR EL MENU DE VERSION MOBIL, CERRAR EL CARRITO DE COMPRAS SI ESTA ABIERTO Y CERRAR LOS DETALLES DE PRODUCTO
 function toggleMobileMenu(){
     const isAsideClosed = shoppingCartContainer.classList.contains('inactive');
 
   if (!isAsideClosed) {
     shoppingCartContainer.classList.add('inactive'); 
   }
+
+  closeProductDetailAside();
     mobileMenu.classList.toggle('inactive')
 } 
 
+
+// FUNCION PARA ABRIR Y CERRAR EL CARRITO DE COMPRAS, CERRAR EL MENU DEL USUARIO PARA EVITAR CONFLICTO
 function toggleCarritoMenu(){
 
     const IsMobileMenuClose = mobileMenu.classList.contains('inactive');
@@ -44,8 +57,30 @@ function toggleCarritoMenu(){
         desktopMenu.classList.add('inactive');
     }
 
+    const IsMProductDetailsClosed = productDeatilContainer.classList.contains('inactive');
+
+    if(!IsMProductDetailsClosed){
+        productDeatilContainer.classList.add('inactive');
+    }
+
     shoppingCartContainer.classList.toggle('inactive');
 } 
+
+// FUNCION PARA ABRIR LOS DETALLES DE PRODUCTO Y CERRAR EL CARRITO DE COMPRAS
+
+function openProductDetailAside(){
+
+    shoppingCartContainer.classList.add('inactive');
+
+productDeatilContainer.classList.remove('inactive');
+}
+
+// FUNCION PARA CERRAR LOS DETALLES DE PRODUCTO
+function closeProductDetailAside(){
+productDeatilContainer.classList.add('inactive');
+
+}
+
 
 const productList = [];
 
@@ -67,31 +102,9 @@ productList.push({
     image: 'https://images.pexels.com/photos/276517/pexels-photo-276517.jpeg?auto=compress&cs=tinysrgb&dpr=2&h=650&w=940s'
 });
 
-// for(product of productList){
-//     console.log(product.name)
-// }
-
-// for(product in productList){
-//     console.log(product)
-// }
 
 
-//  <div class="product-card">
-// <img src="https://images.pexels.com/photos/276517/pexels-photo-276517.jpeg?auto=compress&cs=tinysrgb&dpr=2&h=650&w=940" alt="">
-// <div class="product-info">
-//   <div>
-//     <p>$120,00</p>
-//     <p>Bike</p>
-//   </div>
-//   <figure>
-//     <img src="./icons/bt_add_to_cart.svg" alt="">
-//   </figure>
-// </div>
-// </div> 
-
-
-
-
+// INSERTAR LOS PRODUCTOS MEDIANTE JS
 function renderProducts(arr){
     for(product of arr){
         const productCard =  document.createElement('div');
@@ -99,6 +112,7 @@ function renderProducts(arr){
       
         const productImg = document.createElement('img');
         productImg.setAttribute('src', product.image);
+        productImg.addEventListener('click',openProductDetailAside);
       
         const productInfo =  document.createElement('div');
         productInfo.classList.add('product-info');
