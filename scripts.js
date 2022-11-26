@@ -104,6 +104,8 @@ function openProductDetail(productId, array){
     const aside_productInfo_name = document.querySelector('#detailProduct .product-info p:nth-child(2)')
     const aside_productInfo_descr = document.querySelector('#detailProduct .product-info p:nth-child(3)')
     const aside_productInfo_btn = document.querySelector('.add-to-cart-button')
+    const cant_box = document.querySelector('#detailProduct #cantArticle')
+    cant_box.value = 1
 
     array.forEach((element, index) => {
         if(productId == element.id) {
@@ -111,33 +113,34 @@ function openProductDetail(productId, array){
             aside_productInfo_name.innerHTML = element.title
             aside_productInfo_price.innerHTML = element.price
             aside_productInfo_descr.innerHTML = element.description
-            aside_productInfo_btn.addEventListener('click', function(){
-                addToCar(element.id, element.images[0], element.title, element.price)
+            aside_productInfo_btn.addEventListener('click', function() {
+                let cantidad_articulos = parseInt(cant_box.value)
+                addToCar(element.id, element.images[0], element.title, element.price, cantidad_articulos)
             })
         }
     })
 }
 let carProducts = []
-function addToCar(idProduct, imageProduct, nameProduct, priceProduct) {
+function addToCar(idProduct, imageProduct, nameProduct, priceProduct, cantArticulos) {
     let arrayLocal = JSON.parse(localStorage.getItem('productos_carrito')),
         hasMatch = false
 
     if(arrayLocal){
         arrayLocal.forEach((elemento, index) => {
             if(elemento.id == idProduct) {
-                elemento.cant += 1
+                elemento.cant += cantArticulos
                 hasMatch = true
             }
         })
 
         if(!hasMatch) {
-            carProducts.push({id:idProduct, image: imageProduct, title:nameProduct, price: priceProduct, cant:1})
+            carProducts.push({id:idProduct, image: imageProduct, title:nameProduct, price: priceProduct, cant:cantArticulos})
         } else{
             carProducts = arrayLocal
         }
     }
     else {   
-        carProducts.push({id:idProduct, image: imageProduct, title:nameProduct, price: priceProduct, cant:1})
+        carProducts.push({id:idProduct, image: imageProduct, title:nameProduct, price: priceProduct, cant:cantArticulos})
     }
         
     if(localStorage.getItem('productos_carrito')) {
@@ -148,27 +151,27 @@ function addToCar(idProduct, imageProduct, nameProduct, priceProduct) {
 function getCarItems(){
     const productCarBox = document.querySelector('#shoppingCartContainer .my-order-content #itemsContainer')
     productCarBox.innerHTML = ''
-    let productInCart = JSON.parse(localStorage.getItem('productos_carrito'))
+    let productInCart = localStorage.getItem('productos_carrito') ? JSON.parse(localStorage.getItem('productos_carrito')) : [];
 
     for (item of productInCart){
-                const shoppingCartItem = document.createElement('div')
-                    shoppingCartItem.classList.add('shopping-cart')
-                    const shoppingCartItem_figure = document.createElement('figure')
-                        const shoppingCartItem_figure_img = document.createElement('img')
-                            shoppingCartItem_figure_img.src = item.image
-                    const shoppingCartItem_name = document.createElement('p')
-                        shoppingCartItem_name.innerHTML = item.title
-                    const shoppingCartItem_price = document.createElement('p')
-                        shoppingCartItem_price.innerHTML = '$' + (item.price).toLocaleString('en-US')
-                    const shoppingCartItem_deleteBtn = document.createElement('img')
-                        shoppingCartItem_deleteBtn.src = './icons/icon_close.png'
-                        shoppingCartItem_deleteBtn.addEventListener('click', function(){
-                            deleteItemFromCart(item.id, productInCart)
-                        })
+        const shoppingCartItem = document.createElement('div')
+            shoppingCartItem.classList.add('shopping-cart')
+            const shoppingCartItem_figure = document.createElement('figure')
+                const shoppingCartItem_figure_img = document.createElement('img')
+                    shoppingCartItem_figure_img.src = item.image
+            const shoppingCartItem_name = document.createElement('p')
+                shoppingCartItem_name.innerHTML = item.title
+            const shoppingCartItem_price = document.createElement('p')
+                shoppingCartItem_price.innerHTML = '$' + (item.price).toLocaleString('en-US')
+            const shoppingCartItem_deleteBtn = document.createElement('img')
+                shoppingCartItem_deleteBtn.src = './icons/icon_close.png'
+                shoppingCartItem_deleteBtn.addEventListener('click', function(){
+                    deleteItemFromCart(item.id, productInCart)
+                })
 
-            shoppingCartItem_figure.appendChild(shoppingCartItem_figure_img)
-            shoppingCartItem.append(shoppingCartItem_figure, shoppingCartItem_name,shoppingCartItem_price, shoppingCartItem_deleteBtn)
-            productCarBox.appendChild(shoppingCartItem)
+        shoppingCartItem_figure.appendChild(shoppingCartItem_figure_img)
+        shoppingCartItem.append(shoppingCartItem_figure, shoppingCartItem_name,shoppingCartItem_price, shoppingCartItem_deleteBtn)
+        productCarBox.appendChild(shoppingCartItem)
     }
 }
 function deleteItemFromCart(idProduct, array){
