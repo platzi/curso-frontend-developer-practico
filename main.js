@@ -9,7 +9,7 @@ const mobileMenu = document.querySelector('.mobile-menu');
 
 // variables para el carrito (menu aside) en desktop
 const menuCarritoIcon = document.querySelector('.navbar-shopping-cart');
-const aside = document.querySelector('.product-detail');
+const shoppingCartContainer = document.querySelector('#shoppingCartContainer');
 
 //despues de maquetar nuestro html: 
 const cardsContainer = document.querySelector('.cards-container');
@@ -30,18 +30,18 @@ menuCarritoIcon.addEventListener('click', toggleCarritoAside);
 //aqui vamos a aparecer o desaparecer nuestra clase inactive de nuestra clase desktop-menu 
 function toggleDesktopMenu() {
   desktopMenu.classList.toggle('inactive');
-  aside.classList.add('inactive');
+  shoppingCartContainer.classList.add('inactive');
 }
 
 //aqui vamos a aparecer o desaparecer nuestra clase inactive de nuestra clase mobile-menu 
 function toggleMobileMenu() {
   mobileMenu.classList.toggle('inactive');
-  aside.classList.add('inactive');
+  shoppingCartContainer.classList.add('inactive');
 }
 
 //aqui vamos a aparecer o desaparecer nuestra clase inactive de nuestra clase .product-detail 
 function toggleCarritoAside() {
-  aside.classList.toggle('inactive');
+  shoppingCartContainer.classList.toggle('inactive');
   mobileMenu.classList.add('inactive');
   desktopMenu.classList.add('inactive');
 }
