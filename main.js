@@ -1,8 +1,12 @@
-
-//menu desplegable que sale del email (usando una clase de css inactive)
 const menuEmail = document.querySelector('.navbar-email');
 const desktopMenu = document.querySelector('.desktop-menu');
+const iconMenu = document.querySelector('.menu');
+const btnCart = document.querySelector('.navbar-shopping-cart');
+const mobileMenu = document.querySelector('.mobile-menu');
+const aside = document.querySelector('#shoppingCartContainer');
+const cardsContainer = document.querySelector('.cards-container')
 
+//menu desplegable que sale del email (usando una clase de css inactive)
 menuEmail.addEventListener('click', toggleDesktopMenu);
 
 function toggleDesktopMenu() {
@@ -14,9 +18,6 @@ function toggleDesktopMenu() {
 
 //@media hace falta para evitar que se queden los menus abiertos si cambian de desktop a mobile
 
-const iconMenu = document.querySelector('.menu');
-const mobileMenu = document.querySelector('.mobile-menu');
-
 iconMenu.addEventListener('click', toggleMobilMenu);
 
 function toggleMobilMenu() {
@@ -26,8 +27,6 @@ function toggleMobilMenu() {
 }
 
 // Carrito de compras -My order-
-const btnCart = document.querySelector('.navbar-shopping-cart');
-const aside = document.querySelector('#shoppingCartContainer');
 
 btnCart.addEventListener('click', toggleCart);
 
@@ -37,31 +36,25 @@ function toggleCart() {
     //// El add inactive se usa para obligar a cerrar cualquier otra cosa que no deba estar abierta al mismo tiempo
     mobileMenu.classList.add('inactive');
     desktopMenu.classList.add('inactive');
-
 }
 
-// creoo las card que mas adelante se conectan a bases de datos, por ahora la completo a mano
-
-const cardsContainer = document.querySelector('.cards-container')
+// creoo las card desde JS que mas adelante se conectan a bases de datos, por ahora la completo a mano
 
 const productList = [];
 productList.push({
     name: 'Bike',
     price: 120.00 ,
-    image: 'https://images.pexels.com/photos/276517/pexels-photo-276517.jpeg?auto=compress&cs=tinysrgb&dpr=2&h=650&w=940',
-    
+    image: 'https://images.pexels.com/photos/276517/pexels-photo-276517.jpeg?auto=compress&cs=tinysrgb&dpr=2&h=650&w=940',  
 });
 productList.push({
     name: 'Computer',
     price: 100 ,
     image: 'https://images.pexels.com/photos/276517/pexels-photo-276517.jpeg?auto=compress&cs=tinysrgb&dpr=2&h=650&w=940',
-    
 });
 productList.push({
     name: 'Tv Led',
     price: 220 , 
     image: 'https://images.pexels.com/photos/276517/pexels-photo-276517.jpeg?auto=compress&cs=tinysrgb&dpr=2&h=650&w=940',
-    
 });
 
 //insertar en el html (al crearlo en un funcion nos permite llamarlo en cualquier lado ademas de mas opciones de uso)
