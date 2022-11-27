@@ -34,3 +34,10 @@ function toggleProductDetail() {
     desktopMenu.classList.add("inactive");
   }
 }
+
+const productList = [];
+productList.push({
+    name: "Product 1",
+    price: 100,
+    image: "https://picsum.photos/200/300",
+});
