@@ -9,6 +9,7 @@ const mobileMenu = document.querySelector('.mobile-menu');
 const shoppingCartBtn = document.querySelector('.navbar-shopping-cart');
 const shoppingCartMenu = document.querySelector('#shopping-cart');
 
+const productDetailComponent = document.querySelector('#product-detail');
 const closeProductDetailBtn = document.querySelector('.product-detail-close');
 closeProductDetailBtn.addEventListener('click', closeProductDetail);
 
@@ -22,6 +23,7 @@ function toggleDesktopMenu() {
   if (isShoppingCartMenuOpen) {
     shoppingCartMenu.classList.add('inactive');
   }
+  closeProductDetail();
   desktopMenu.classList.toggle('inactive');
 }
 
@@ -31,6 +33,7 @@ function toggleMobileMenu() {
   if (isShoppingCartMenuOpen) {
     shoppingCartMenu.classList.add('inactive');
   }
+  closeProductDetail();
   mobileMenu.classList.toggle('inactive');
 }
 
@@ -43,6 +46,7 @@ function toggleShoppingCart() {
   } else if (isDesktopMenuOpen) {
     desktopMenu.classList.add('inactive');
   }
+  closeProductDetail();
   shoppingCartMenu.classList.toggle('inactive');
 }
 
@@ -144,11 +148,6 @@ productImage.forEach((image, index) => {
 });
 
 function showProductDetail(index) {
-  const productDetailComponent = document.querySelector('#product-detail');
-  productDetailComponent.classList.toggle('inactive');
-
-  // const imgSelected = productsArray[index];
-  // console.log(imgSelected);
   const { image, name, price } = productsArray[index];
 
   const productDetailImage = document.querySelector('#product-detail > img');
@@ -161,7 +160,13 @@ function showProductDetail(index) {
   porductDetailName.textContent = `$${name}`;
 }
 
+function showProductDetail() {
+  mobileMenu.classList.add('inactive');
+  desktopMenu.classList.add('inactive');
+  shoppingCartMenu.classList.add('inactive');
+  productDetailComponent.classList.toggle('inactive');
+}
+
 function closeProductDetail() {
-  const productDetailPopup = document.querySelector('#product-detail');
-  productDetailPopup.classList.add('inactive');
+  productDetailComponent.classList.add('inactive');
 }
