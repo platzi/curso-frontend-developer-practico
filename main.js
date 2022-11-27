@@ -9,10 +9,16 @@ const mobileMenu = document.querySelector('.mobile-menu');
 
 // variables para el carrito (menu aside) en desktop
 const menuCarritoIcon = document.querySelector('.navbar-shopping-cart');
+// usamos este selector (variable) para cuando queramos cerrar (haciendo clic en icono) al detalle del producto
+const productDetailCloseIcon = document.querySelector('.product-detail-close');
+
 const shoppingCartContainer = document.querySelector('#shoppingCartContainer');
 
 //despues de maquetar nuestro html: 
 const cardsContainer = document.querySelector('.cards-container');
+
+//despues de maquetar nuestro html: 
+const productDetailContainer = document.querySelector('#productDetail');
 
 
 //ahora utilizamos el metodo addEventListener
@@ -25,18 +31,23 @@ menuHambIcon.addEventListener('click', toggleMobileMenu);
 //para carrito
 menuCarritoIcon.addEventListener('click', toggleCarritoAside);
 
+//
+productDetailCloseIcon.addEventListener('click', closeProductDetailAside);
 
 
 //aqui vamos a aparecer o desaparecer nuestra clase inactive de nuestra clase desktop-menu 
 function toggleDesktopMenu() {
   desktopMenu.classList.toggle('inactive');
   shoppingCartContainer.classList.add('inactive');
+  productDetailContainer.classList.add('inactive');
 }
 
 //aqui vamos a aparecer o desaparecer nuestra clase inactive de nuestra clase mobile-menu 
 function toggleMobileMenu() {
   mobileMenu.classList.toggle('inactive');
+  desktopMenu.classList.add('inactive');
   shoppingCartContainer.classList.add('inactive');
+  productDetailContainer.classList.add('inactive');
 }
 
 //aqui vamos a aparecer o desaparecer nuestra clase inactive de nuestra clase .product-detail 
@@ -44,6 +55,17 @@ function toggleCarritoAside() {
   shoppingCartContainer.classList.toggle('inactive');
   mobileMenu.classList.add('inactive');
   desktopMenu.classList.add('inactive');
+  productDetailContainer.classList.add('inactive');
+}
+
+//funcion que abre mi aside con detalle de productos
+function openProductDetailAside () {
+  //tenemos que llamar a ese selector .. primero debemos crearlo: 
+  productDetailContainer.classList.remove('inactive'); //remove para sacarle la clase inactive para que aparezca
+}
+
+function closeProductDetailAside (){
+  productDetailContainer.classList.add('inactive');
 }
 
 /*creamos una variable productList*/
@@ -131,7 +153,10 @@ for (product of productList) {
   */
   productImg.setAttribute('src', product.image);
 
-  //vamos a hacer lo mismo con el resto de informacion dinamica como el price y el nombre del producto que sea que vamos a comprar
+  /*mediante js: vamos a llamar al evento click cuando hagamos click en una imagen para abrir su detalle*/
+  productImg.addEventListener('click', openProductDetailAside); /*que habra una funcion*/
+
+    //vamos a hacer lo mismo con el resto de informacion dinamica como el price y el nombre del producto que sea que vamos a comprar
 
   //este div es un contenedor 
   const productInfo = document.createElement('div');
