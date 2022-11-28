@@ -3,7 +3,7 @@ const desktopMenu = document.querySelector('.desktop-menu');
 const menuHamburgesa = document.querySelector('.menu');
 const mobileMenu = document.querySelector('.mobile-menu');
 const ShopingCar = document.querySelector('.navbar-shopping-cart');
-const ProductDetail = document.querySelector('.product-detail');
+const shoppingCartContainer = document.querySelector('#shoppingCartContainer');
 const cardscontainer = document.querySelector('.cards-container');
 
 
@@ -12,10 +12,10 @@ const cardscontainer = document.querySelector('.cards-container');
 //Desktop menu
 menuEmail.addEventListener('click',toggleDesktopMenu);
 function toggleDesktopMenu(){
-    const isProductDetailClosed = ProductDetail.classList.contains('inactive');
+    const isasideClosed = shoppingCartContainer.classList.contains('inactive');
 
     if(!isProductDetailClosed){  //si esta abierto el product detail lo CERRAMOS
-        ProductDetail.classList.toggle('inactive')
+        shoppingCartContainer.classList.toggle('inactive')
     }
 desktopMenu.classList.toggle('inactive'); //QUITA O PONE LA CLASE CON CADA CLICK QUE DEMOS
 }
@@ -23,10 +23,10 @@ desktopMenu.classList.toggle('inactive'); //QUITA O PONE LA CLASE CON CADA CLICK
 //MOBILE MENU
 menuHamburgesa.addEventListener('click',toggleMobilepMenu);
 function toggleMobilepMenu(){
-    const isProductDetailClosed = ProductDetail.classList.contains('inactive');
+    const isProductDetailClosed = shoppingCartContainer.classList.contains('inactive');
 
     if(!isProductDetailClosed){  //si esta abierto el product detail lo CERRAMOS
-        ProductDetail.classList.toggle('inactive')
+        shoppingCartContainer.classList.toggle('inactive')
     }
     mobileMenu.classList.toggle('inactive'); //QUITA O PONE LA CLASE CON CADA CLICK QUE DEMOS
 }
@@ -44,7 +44,7 @@ function togglecarShoping(){
     if(!isDesktopMenu){ //SI ESTA ABIERTO EL MOBILEMENU SE CIERRA
         desktopMenu.classList.toggle('inactive')
     }
-    ProductDetail.classList.toggle('inactive'); //QUITA O PONE LA CLASE CON CADA CLICK QUE DEMOS
+    shoppingCartContainer.classList.toggle('inactive'); //QUITA O PONE LA CLASE CON CADA CLICK QUE DEMOS
 }
 
 const productList=[];
