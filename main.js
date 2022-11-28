@@ -79,7 +79,7 @@ function renderProducts(arr){
     
         const productInfoFigure = document.createElement('figure');
         const productImgCart = document.createElement('img');   
-        productImgCart.setAttribute('src', './curso-frontend-developer-javascript-practico/icons/bt_add_to_cart.svg');
+        productImgCart.setAttribute('src', './icons/bt_add_to_cart.svg');
     
         productInfoFigure.appendChild(productImgCart);
     
@@ -103,7 +103,7 @@ renderProducts(productList);
                 <p>Bike</p>
             </div>
                 <figure>
-                    <img src="./curso-frontend-developer-javascript-practico/icons/bt_add_to_cart.svg" alt="">
+                    <img src="./icons/bt_add_to_cart.svg" alt="">
                 </figure>
             </div> 
         </div>
