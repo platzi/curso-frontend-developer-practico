@@ -161,7 +161,7 @@
 
   .product-detail {
     width: 360px;
-    background-color: var(--white); /* superponer contenedor sobre menu mobile*/
+    background-color: var(--white); /* superponer contenedor sobre menu mobile */
     padding: 0 24px;
     box-sizing: border-box;
     position: absolute;
