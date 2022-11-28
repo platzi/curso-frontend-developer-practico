@@ -4,7 +4,17 @@ const menu = document.querySelector(".menu");
 const mobileMenu = document.querySelector(".mobile-menu");
 const navbarShoppingCart = document.querySelector(".navbar-shopping-cart");
 const aside = document.querySelector("#shoppingCartContainer");
+const producDetailAside = document.querySelector("#producDetail");
+const productDetailClose = document.querySelector(".product-detail-close");
 
+productDetailClose.addEventListener("click", () => {
+  const isAsideActive = !aside.classList.contains("inactive");
+  producDetailAside.classList.add("inactive");
+
+  if (isAsideActive) {
+    aside.classList.add("inactive");
+  }
+});
 navbarEmail.addEventListener("click", toggleDesktopMenu);
 menu.addEventListener("click", toggleMobileMenu);
 navbarShoppingCart.addEventListener("click", toggleProductDetail);
@@ -20,41 +30,48 @@ const cardsContainer = document.querySelector(".cards-container");
 function toggleDesktopMenu() {
   aside.classList.add("inactive");
   desktopMenu.classList.toggle("inactive");
+  producDetailAside.classList.add("inactive");
 }
 
 function toggleMobileMenu() {
   const isProductDetailActive = !aside.classList.contains("inactive");
   mobileMenu.classList.toggle("inactive");
+  producDetailAside.classList.add("inactive");
 
   if (isProductDetailActive) {
     aside.classList.add("inactive");
-    console.log("product detail is active");
   }
 }
 
 function toggleProductDetail() {
   const isMobileMenuActive = !mobileMenu.classList.contains("inactive");
   const isDesktopMenuActive = !desktopMenu.classList.contains("inactive");
+  const isProductDetailActive = !producDetailAside.classList.contains("inactive");
+  console.log(isProductDetailActive);
   aside.classList.toggle("inactive");
   if (isMobileMenuActive) {
     mobileMenu.classList.add("inactive");
   } else if (isDesktopMenuActive) {
     desktopMenu.classList.add("inactive");
+  } else if (isProductDetailActive) {
+    producDetailAside.classList.add("inactive");
   }
+}
+
+function openPoductDetailAside() {
+  producDetailAside.classList.remove("inactive");
 }
 
 const productList = [];
 productList.push({
   name: "Switch",
   price: 100,
-  image:
-    "https://cdn-icons-png.flaticon.com/512/1089/1089006.png",
+  image: "https://cdn-icons-png.flaticon.com/512/1089/1089006.png",
 });
 productList.push({
   name: "Router",
   price: 200,
-  image:
-    "https://cdn-icons-png.flaticon.com/512/2972/2972473.png",
+  image: "https://cdn-icons-png.flaticon.com/512/2972/2972473.png",
 });
 productList.push({
   name: "Modem",
@@ -86,12 +103,16 @@ productList.push({
   price: 800,
   image: "https://cdn-icons-png.flaticon.com/512/4803/4803145.png",
 });
+
 function renderProducts(productListArray) {
   for (product of productListArray) {
     const productCard = document.createElement("div");
     productCard.classList.add("product-card");
     const img = document.createElement("img");
     img.src = product.image;
+
+    img.addEventListener("click", openPoductDetailAside);
+
     const productInfo = document.createElement("div");
     productInfo.classList.add("product-info");
     const div = document.createElement("div");
