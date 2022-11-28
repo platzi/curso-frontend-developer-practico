@@ -24,6 +24,7 @@ nav {
   display: none;
 }
 .logo {
+  cursor: pointer;
   width: 100px;
 }
 .navbar-left ul,
