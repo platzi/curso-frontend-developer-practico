@@ -4,7 +4,7 @@ const desktopMenu = $('.desktop-menu');
 const burgerMenu = $(".menu");
 const mobileMenu = $(".mobile-menu");
 const menuIconCar = $(".navbar-shopping-cart");
-const aside = $(".product-detail");
+const shoppingCartContainer = $("#shoppingCartContainer");
 const cardsContainer = $(".cards-container");
 
 menuEmail.addEventListener("click", toggleDesktopMenu);
@@ -12,14 +12,14 @@ burgerMenu.addEventListener("click", toggleMobileMenu);
 menuIconCar.addEventListener("click", toggleAsideCar);
 
 function toggleDesktopMenu () {
-const isAsideClosed = aside.classList.contains("inactive");if (!isAsideClosed) { 
-aside.classList.add("inactive");
+const isAsideClosed = shoppingCartContainer.classList.contains("inactive");if (!isAsideClosed) { 
+shoppingCartContainer.classList.add("inactive");
 }
 desktopMenu.classList.toggle("inactive");
 }
 function toggleMobileMenu () {
-const isAsideClosed = aside.classList.contains("inactive");if (!isAsideClosed) { 
-aside.classList.add("inactive");
+const isAsideClosed = shoppingCartContainer.classList.contains("inactive");if (!isAsideClosed) { 
+shoppingCartContainer.classList.add("inactive");
 }
 mobileMenu.classList.toggle("inactive");
 }
@@ -30,7 +30,7 @@ const isMobileMenuClosed = mobileMenu.classList.contains
 if (!isMobileMenuClosed) {
 mobileMenu.classList.add("inactive");
 }
-aside.classList.toggle("inactive");
+shoppingCartContainer.classList.toggle("inactive");
 }
 
 const productList = [];
