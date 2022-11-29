@@ -1,8 +1,10 @@
+
 const menuEmail = document.querySelector('.navbar-email');
 const menuHamIcon = document.querySelector('.menu');
 const menuCarritoIcon = document.querySelector('.navbar-shopping-cart');
 const productDetailCloseIcon = document.querySelector('.product-detail-close')
 const desktopMenu = document.querySelector('.desktop-menu');
+
 const mobileMenu = document.querySelector('.mobile-menu');
 const shoppingCartContainer = document.querySelector('#shoppingCartContainer');
 const productDetailContainer = document.querySelector('#productDetail');
@@ -62,20 +64,42 @@ function closeProductDetailAside() {
 
 const productList = [];
 productList.push({
-  name: 'Bike',
+  name: 'Nature',
   price: 120,
-  image: 'https://images.pexels.com/photos/276517/pexels-photo-276517.jpeg?auto=compress&cs=tinysrgb&dpr=2&h=650&w=940',
+  image: "https://placeimg.com/640/480/nature/grayscale"
 });
 productList.push({
-  name: 'Pantalla',
+  name: 'Architecture',
+  price: 120,
+  image: "https://placeimg.com/640/480/architecture/grayscale"
+});
+productList.push({
+  name: 'People',
   price: 220,
-  image: 'https://images.pexels.com/photos/276517/pexels-photo-276517.jpeg?auto=compress&cs=tinysrgb&dpr=2&h=650&w=940',
+  image: "https://placeimg.com/640/480/people/grayscale"
 });
 productList.push({
-  name: 'Compu',
+  name: 'Any',
   price: 620,
-  image: 'https://images.pexels.com/photos/276517/pexels-photo-276517.jpeg?auto=compress&cs=tinysrgb&dpr=2&h=650&w=940',
+  image: "https://placeimg.com/640/480/any/grayscale"
 });
+productList.push({
+  name: 'Art',
+  price: 720,
+  image: "https://placeimg.com/640/480/art/grayscale"
+});
+productList.push({
+  name: 'Animals',
+  price: 820,
+  image: "https://placeimg.com/640/480/animals/grayscale"
+});
+productList.push({
+  name: 'Tech',
+  price: 920,
+  image: "https://placeimg.com/640/480/tech/grayscale"
+});
+
+
 
 function renderProducts(arr) {
   for (product of arr) {
@@ -117,3 +141,87 @@ function renderProducts(arr) {
 }
 
 renderProducts(productList);
+
+
+
+
+
+/*
+const menuEmail = document.querySelector(".navbar-email");
+const desktopMenu = document.querySelector(".desktop-menu")
+const cuerpo = document.querySelector(".body");
+const dark = document.querySelector(".btn-dark");
+const logo = document.querySelector(".logo");
+const menuHambur = document.querySelector(".menu");
+const mobileMenu = document.querySelector(".mobile-menu");
+const carrito = document.querySelector(".navbar-shopping-cart");
+const product = document.querySelector(".product-detail");
+
+
+menuEmail.addEventListener("click", toggleDesktopMenu);
+
+function toggleDesktopMenu(){
+    desktopMenu.classList.toggle("inactive")
+    
+};
+
+
+
+dark.addEventListener("click", oscuro);
+
+function oscuro(){
+  cuerpo.classList.toggle("dark");
+  logo.classList.toggle("light");
+  menuHambur.classList("light");
+  
+  if (cuerpo.classList.contains("dark")){
+   dark.innerHTML = "☀"; 
+  } else {
+    dark.innerHTML = "🌑"; 
+  }
+  
+};
+
+
+
+
+
+menuHambur.addEventListener("click", toggleMobileMenu);
+
+
+function toggleMobileMenu() {
+  const isAsideClosed = shoppingCartContainer.classList.contains('inactive');
+
+  if (!isAsideClosed) {
+    aside.classList.add('inactive'); 
+  }
+
+  closeProductDetailAside();
+  
+  mobileMenu.classList.toggle('inactive');
+}
+
+
+ 
+const menuCarritoIcon = document.querySelector('.navbar-shopping-cart');
+const productDetailContainer = document.querySelector('#productDetail');
+
+carrito.addEventListener("click", comprar);
+
+
+function toggleCarritoAside() {
+  const isMobileMenuClosed = mobileMenu.classList.contains('inactive');
+  
+  if (!isMobileMenuClosed) {
+    mobileMenu.classList.add('inactive');
+  }
+
+  const isProductDetailClosed = productDetailContainer.classList.contains('inactive');
+  
+  if (!isProductDetailClosed) {
+    productDetailContainer.classList.add('inactive'); 
+  }
+  
+  shoppingCartContainer.classList.toggle('inactive');
+}
+*/
