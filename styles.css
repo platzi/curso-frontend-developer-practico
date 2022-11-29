@@ -2,7 +2,7 @@
 :root {
   --white: #FFFFFF;
   --black: #000000;
-  --very-light-pink: #C7C7C7;
+  --very-light-pink: #003;
   --text-input-field: #F7F7F7;
   --hospital-green: #ACD9B2;
   --sm: 14px;
@@ -15,6 +15,23 @@ body {
 }
 .inactive {
   display: none;
+}
+
+
+/*Dark mode*/
+.dark {
+  background-color: #0000008b;
+}
+
+.btn-dark {
+  border: none;
+  font-size: 3rem;
+  position: fixed;
+  top: 80vh;
+  left: 80vw;
+  background-color: #000000;
+  border-radius: 50%;
+  padding: .4rem;
 }
 
 
@@ -254,6 +271,8 @@ aside {
 .product-detail-close:hover {
   cursor: pointer;
 }
+
+
 #productDetail > img:nth-child(2) {
   width: 100%;
   height: 360px;
@@ -305,10 +324,16 @@ aside {
   grid-template-columns: repeat(auto-fill, 240px);
   gap: 26px;
   place-content: center;
-  margin-top: 20px;
+  margin-top: 0;
+  padding: 1rem;
 }
 .product-card {
   width: 240px;
+  transition: all .7s ease-in-out;
+}
+
+.product-card:hover{
+  scale: 1.1;
 }
 .product-card img {
   width: 240px;
