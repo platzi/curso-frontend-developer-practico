@@ -5,7 +5,7 @@ const desktopMenu = document.querySelector(".desktop-menu");
 const BurgerMenu = document.querySelector(".BurgerMenu")
 const mobileMenu = document.querySelector(".mobile-menu")
 const menuCarroIcono = document.querySelector(".navbar-shopping-cart")
-const aside = document.querySelector(".product-detail")
+const shoppingCartContainer = document.querySelector("#shoppingCartContainer")
 const CardsContainer = document.querySelector(".cards-container")
 
 
@@ -20,12 +20,12 @@ menuCarroIcono.addEventListener("click", toggleCarroAside)
 // Estas 3 funciones hacen que aparezcan y desaparezcan los menús
 function toggleDesktopMenu () {
 
-    const IsAsideClosed = aside.classList.contains("inactivo");
+    const IsAsideClosed = shoppingCartContainer.classList.contains("inactivo");
 
 
     if(!IsAsideClosed) {
         //Si no esta cerrado lo cerramos con inactivo
-        aside.classList.add("inactivo");     
+        shoppingCartContainer.classList.add("inactivo");     
     }
 
     desktopMenu.classList.toggle("inactivo"); //El classList accede a la clase inactivo y le otorga la propiedad toggle que la hace aparecer y desaparecer cuando demos click
@@ -33,11 +33,11 @@ function toggleDesktopMenu () {
 
 function toggleMobileMenu () {
 
-    const IsAsideClosed = aside.classList.contains("inactivo");
+    const IsAsideClosed = shoppingCartContainer.classList.contains("inactivo");
 
     if(!IsAsideClosed) {
         //Si no esta cerrado lo cerramos con inactivo
-        aside.classList.add("inactivo");     
+        shoppingCartContainer.classList.add("inactivo");     
     }
 
     mobileMenu.classList.toggle("inactivo");
