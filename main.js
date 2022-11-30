@@ -4,7 +4,9 @@ const desktopMenu = document.querySelector('.desktop-menu');
 const menuHamIcon = document.querySelector('.menu');
 const mobileMenu  = document.querySelector('.mobile-menu');
 const menuCarritoIcon = document.querySelector('.navbar-shopping-cart');
-const aside = document.querySelector('.product-detail');
+const aside = document.querySelector('#shoppingCartContainer');
+const productDetailContainer = document.querySelector('#productDetail');
+const productDetailCloseIcon = document.querySelector('.product-detail-close');
 const cardContainer = document.querySelector('.cards-container');
 
 const productList = [];
@@ -12,22 +14,39 @@ const productList = [];
 menuEmail.addEventListener('click', toggleDesktopMenu);
 menuHamIcon.addEventListener('click', toggleMobileMenu);
 menuCarritoIcon.addEventListener('click', toggleCarritoAside);
+productDetailCloseIcon.addEventListener('click', closeProductDetailAside);
 
 function toggleDesktopMenu(){
     // toggle quita o pone la clase, dependiendo de si la tiene o no
     desktopMenu.classList.toggle('inactive');    
-    aside.classList.add('inactive');   
+    aside.classList.add('inactive');
+    productDetailContainer.classList.add('inactive');   
 }
 
 function toggleMobileMenu(){
     mobileMenu.classList.toggle('inactive');  
-    aside.classList.add('inactive');  
+    aside.classList.add('inactive'); 
+    productDetailContainer.classList.add('inactive'); 
 }
 
 function toggleCarritoAside() {
     aside.classList.toggle('inactive');
     mobileMenu.classList.add('inactive');
+    productDetailContainer.classList.add('inactive');
 }
+
+function openProductDetailAside(){
+    productDetailContainer.classList.remove('inactive');
+    desktopMenu.classList.add('inactive');
+    aside.classList.add('inactive');
+}
+
+function closeProductDetailAside(){
+    productDetailContainer.classList.add('inactive');
+    
+}
+
+
 
 productList.push({
     name: 'Bike',
@@ -54,9 +73,10 @@ for( product of productList ){
     cardContainer.appendChild(productCard);
 
     // Se crea la etiqueta img y se le añade el src
-    const ProductImg = document.createElement('img');
-    ProductImg.setAttribute('src', product.image );
-    productCard.appendChild(ProductImg);
+    const productImg = document.createElement('img');
+    productImg.setAttribute('src', product.image );
+    productCard.appendChild(productImg);
+    productImg.addEventListener('click', openProductDetailAside);
 
     // Se crea el contenedor hijo
     const productInfo = document.createElement('div');
