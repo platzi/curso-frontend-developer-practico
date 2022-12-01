@@ -174,9 +174,14 @@ aside {
 .title-container {
   display: flex;
 }
-.title-container img {
+.imgArrowContainer img {
   transform: rotate(180deg);
   margin-right: 14px;
+  width: 45%;
+}
+
+.imgArrowContainer {
+  display: flex;
 }
 .title {
   font-size: var(--lg);
@@ -343,7 +348,7 @@ aside {
 }
 
 
-@media (max-width: 640px) {
+@media (max-width: 793px) {
   .menu {
     display: block;
   }
@@ -373,7 +378,7 @@ aside {
   }
 }
 
-@media (min-width: 641px) {
+@media (min-width: 794px) {
   .mobile-menu {
     display: none;
   }
