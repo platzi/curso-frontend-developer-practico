@@ -246,7 +246,7 @@
   .cards-container {
     display: grid;
     grid-template-columns: repeat(auto-fill, 240px);
-    gap: 26px;
+    gap: 20px;
     place-content: center;
     margin-top: 20px;
   }
