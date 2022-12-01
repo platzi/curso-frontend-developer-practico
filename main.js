@@ -5,10 +5,13 @@ const mobileMenu = document.querySelector(".mobile-menu");
 const menuCarrito = document.querySelector(".navbar-shopping-cart");
 const aside = document.querySelector("#shopping-cart");
 const cardsContainer = document.querySelector(".cards-container");
+const productDateailContainer = document.querySelector("#productDetail");
+const closeDetail = document.querySelector(".product-detail-close");
 
 menuEmail.addEventListener("click", toggleDesktopMenu);
 menu.addEventListener("click", toggleMenuMobile);
 menuCarrito.addEventListener("click", toggleMenuCarrito);
+closeDetail.addEventListener("click", closeDetailAside)
 
 const productList = [];
 
@@ -37,11 +40,24 @@ function toggleDesktopMenu() {
   desktopMenu.classList.toggle("inactive");
 }
 
+function closeDetailAside() {
+  productDateailContainer.classList.add("inactive");
+  if (!aside.classList.contains("inactive")) {
+    aside.classList.toggle("inactive");
+  }
+  if (!mobileMenu.classList.contains("inactive")) {
+    mobileMenu.classList.toggle("inactive");
+  }
+}
+
 function toggleMenuMobile() {
   console.log("hola");
   mobileMenu.classList.toggle("inactive");
   if (!aside.classList.contains("inactive")) {
     aside.classList.toggle("inactive");
+  }
+  if (!productDateailContainer.classList.contains("inactive")) {
+    productDateailContainer.classList.toggle("inactive");
   }
 }
 
@@ -49,6 +65,9 @@ function toggleMenuCarrito() {
   aside.classList.toggle("inactive");
   if (!mobileMenu.classList.contains("inactive")) {
     mobileMenu.classList.toggle("inactive");
+  }
+  if (!productDateailContainer.classList.contains("inactive")) {
+    productDateailContainer.classList.toggle("inactive");
   }
 }
 
@@ -59,6 +78,7 @@ function renderProducts(productList) {
       
         const img = document.createElement("img");
         img.setAttribute("src", product.image);
+        img.addEventListener('click', openProduct);
       
         const productInfo = document.createElement("div");
         productInfo.classList.add("product-info");
@@ -84,4 +104,9 @@ function renderProducts(productList) {
         productCard.appendChild(productInfo);
         cardsContainer.appendChild(productCard);
       }
+};
+
+function openProduct() {
+  productDateailContainer.classList.remove('inactive');
+
 }
