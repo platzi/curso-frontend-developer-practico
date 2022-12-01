@@ -6,6 +6,7 @@ const carritoIconBtn = document.querySelector('.navbar-shopping-cart')
 const carritoBox = document.querySelector('#shoppingCartContainer')
 const asideDetailProduct = document.querySelector('#detailProduct')
 const productDetailCloseBtn = document.querySelector('.product-detail-close')
+const counterCartBox = document.querySelector('#counter_cart')
 
 menuEmailBtn.addEventListener('click', ()=>{
     const isCarritoClosed = carritoBox.classList.contains('inactive')
@@ -33,7 +34,7 @@ carritoIconBtn.addEventListener('click', ()=>{
     }
     carritoBox.classList.toggle('inactive')
     if(!carritoBox.classList.contains('inactive')){
-        getCarItems()
+        getCartItems()
     }
 })
 productDetailCloseBtn.addEventListener('click', ()=>{
@@ -65,7 +66,7 @@ function renderProducts (productList) {
                 const productCard = document.createElement('div')
                     productCard.classList.add('product-card');
                     productCard.addEventListener('click', () => {
-                        openProductDetail(product.id, productList)
+                        openProductDetail(product.id, [product.images[0], product.title, product.price, product.description])
                     })
                 const img_product = document.createElement('img')
                     img_product.src = product.images[0]
@@ -75,7 +76,7 @@ function renderProducts (productList) {
                         const productInfoTextPrice = document.createElement('p')
                             productInfoTextPrice.innerHTML = '$' + product.price
                         const productInfoTextName = document.createElement('p')
-                            productInfoTextName.innerHTML = '$' + product.title
+                            productInfoTextName.innerHTML = product.title
                     const productInfoFigure = document.createElement('figure')
                         const productInfoFigureImage = document.createElement('img')
                             productInfoFigureImage.src = "./icons/bt_add_to_cart.svg"
@@ -96,64 +97,63 @@ function renderProducts (productList) {
     xhttp.send();
 
 }
+let currentProduct;
 function openProductDetail(productId, array){
+    currentProduct = []
     asideDetailProduct.classList.add('visible')
     document.querySelector('body').classList.add('productDetail_visible')
     const aside_imageProduct = document.querySelector('#detailProduct #aside_img_product')
     const aside_productInfo_price = document.querySelector('#detailProduct .product-info p:nth-child(1)')
     const aside_productInfo_name = document.querySelector('#detailProduct .product-info p:nth-child(2)')
     const aside_productInfo_descr = document.querySelector('#detailProduct .product-info p:nth-child(3)')
-    const aside_productInfo_btn = document.querySelector('.add-to-cart-button')
+    // const aside_productInfo_btn = document.querySelector('.add-to-cart-button')
     const cant_box = document.querySelector('#detailProduct #cantArticle')
+    
     cant_box.value = 1
+    aside_imageProduct.setAttribute('src', array[0])
+    aside_productInfo_name.innerHTML = array[1]
+    aside_productInfo_price.innerHTML = array[2]
+    aside_productInfo_descr.innerHTML = array[3]
 
-    array.forEach((element, index) => {
-        if(productId == element.id) {
-            aside_imageProduct.setAttribute('src', element.images[0])
-            aside_productInfo_name.innerHTML = element.title
-            aside_productInfo_price.innerHTML = element.price
-            aside_productInfo_descr.innerHTML = element.description
-            aside_productInfo_btn.addEventListener('click', function() {
-                let cantidad_articulos = parseInt(cant_box.value)
-                addToCar(element.id, element.images[0], element.title, element.price, cantidad_articulos)
-            })
-        }
-    })
+    currentProduct.push(productId, array[0], array[1], array[2])
 }
 let carProducts = []
-function addToCar(idProduct, imageProduct, nameProduct, priceProduct, cantArticulos) {
+function addToCar() {
+    const cant_box = parseInt(document.querySelector('#detailProduct #cantArticle').value)
     let arrayLocal = JSON.parse(localStorage.getItem('productos_carrito')),
         hasMatch = false
 
-    if(arrayLocal){
-        arrayLocal.forEach((elemento, index) => {
-            if(elemento.id == idProduct) {
-                elemento.cant += cantArticulos
+    if (arrayLocal){
+        for (const elemento of arrayLocal) {
+            if(elemento.id == currentProduct[0]) {
+                elemento.cant += cant_box
                 hasMatch = true
             }
-        })
+        }
 
         if(!hasMatch) {
-            carProducts.push({id:idProduct, image: imageProduct, title:nameProduct, price: priceProduct, cant:cantArticulos})
-        } else{
+            carProducts.push({id:currentProduct[0], image: currentProduct[1], title:currentProduct[2], price: currentProduct[3], cant:cant_box})
+        } else {
             carProducts = arrayLocal
         }
+    } else {
+        carProducts.push({id:currentProduct[0], image: currentProduct[1], title:currentProduct[2], price: currentProduct[3], cant:cant_box})
     }
-    else {   
-        carProducts.push({id:idProduct, image: imageProduct, title:nameProduct, price: priceProduct, cant:cantArticulos})
-    }
-        
+
     if(localStorage.getItem('productos_carrito')) {
         localStorage.removeItem('productos_carrito')
     }
     localStorage.setItem('productos_carrito', JSON.stringify(carProducts))
+    
+    productDetailCloseBtn.click()
+    updateCartCounter()
 }
-function getCarItems(){
+function getCartItems(){
     const productCarBox = document.querySelector('#shoppingCartContainer .my-order-content #itemsContainer')
     productCarBox.innerHTML = ''
     let productInCart = localStorage.getItem('productos_carrito') ? JSON.parse(localStorage.getItem('productos_carrito')) : [];
 
-    for (item of productInCart){
+    for (item of productInCart) {
         const shoppingCartItem = document.createElement('div')
             shoppingCartItem.classList.add('shopping-cart')
             const shoppingCartItem_figure = document.createElement('figure')
@@ -189,5 +189,9 @@ function deleteItemFromCart(idProduct, array){
     }
     localStorage.setItem('productos_carrito', JSON.stringify(productsInCart))
 
-    getCarItems()
+    getCartItems()
+}
+function updateCartCounter() {
+    let array_local = JSON.parse(localStorage.getItem('productos_carrito'))
+    counterCartBox.innerHTML = array_local.length
 }
