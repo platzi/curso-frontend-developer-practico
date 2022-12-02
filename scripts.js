@@ -8,6 +8,13 @@ const asideDetailProduct = document.querySelector('#detailProduct')
 const productDetailCloseBtn = document.querySelector('.product-detail-close')
 const counterCartBox = document.querySelector('#counter_cart')
 
+if(localStorage.getItem('productos_carrito')) {
+    updateCartCounter()
+} else {
+    counterCartBox.innerHTML = 0
+}
+
+
 menuEmailBtn.addEventListener('click', ()=>{
     const isCarritoClosed = carritoBox.classList.contains('inactive')
     if(!isCarritoClosed){
