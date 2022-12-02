@@ -241,14 +241,14 @@
     height: 50px;
   }
 
-  /* Product list */
+/* Product list */
 
   .cards-container {
-    display: grid;
-    grid-template-columns: repeat(auto-fill, 240px);
-    gap: 20px;
-    place-content: center;
-    margin-top: 20px;
+      display: grid;
+      grid-template-columns: repeat(auto-fill, 240px);
+      gap: 20px;
+      place-content: center;
+      margin-top: 20px;
   }
   .product-card {
     width: 240px;
@@ -285,9 +285,79 @@
     color: var(--very-light-pink);
   }
 
-  /* MEDIAQUERIS */
 
-  
+  /* Product Select */
+
+
+  .product-select {
+    width: 360px;
+    background-color: var(--white); 
+    box-sizing: border-box;
+    position: absolute;
+    right: 0;
+  }
+  .product-select-close {
+    background: var(--white);
+    width: 14px;
+    height: 14px;
+    position: absolute;
+    top: 10px;
+    left: 15px;
+    z-index: 2;
+    padding: 12px;
+    border-radius: 50%;
+  }
+  .product-select-close:hover {
+    cursor: pointer;
+  }
+  .product-select > img:nth-child(2) {
+    width: 100%;
+    height: 360px;
+    object-fit: cover;
+    border-radius: 0 20px;
+  }
+  .product-select-info {
+    margin: 24px 24px 0 24px;
+  }
+  .product-select-info p:nth-child(1) {
+    font-weight: bold;
+    font-size: var(--md);
+    margin-top: 0;
+    margin-bottom: 4px;
+  }
+  .product-select-info p:nth-child(2) {
+    color: var(--very-light-pink);
+    font-size: var(--md);
+    margin-top: 0;
+    margin-bottom: 36px;
+  }
+  .product-select-info p:nth-child(3) {
+    color: var(--very-light-pink);
+    font-size: var(--sm);
+    margin-top: 0;
+    margin-bottom: 36px;
+  }
+  .primary-button {
+    background-color: var(--hospital-green);
+    border-radius: 8px;
+    border: none;
+    color: var(--white);
+    width: 100%;
+    cursor: pointer;
+    font-size: var(--md);
+    font-weight: bold;
+    height: 50px;
+  }
+  .add-to-cart-button {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+  }
+
+
+/* MEDIAQUERIS */
+
+
   @media (max-width: 640px) {
     .product-detail {
       width: 100%;
