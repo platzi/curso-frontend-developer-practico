@@ -11,8 +11,6 @@
        - toggle(): Metodo que agrega y quita el valor de una clase
     7. Disparar el evento
 
-    Problema en toggleProductDetail()
-
 */
 
 let navEmail = document.querySelector(".navbar-email");
@@ -22,6 +20,9 @@ let mobileMenu = document.querySelector(".mobile-menu");
 let carritoIconMenu = document.querySelector(".icon-product-detail");
 let productDetailAside = document.querySelector(".product-detail");
 let cardsContainer = document.querySelector(".cards-container")
+let productSelect = document.querySelector(".product-select");
+let productSelectButton = document.querySelector(".product-select-close");
+
 const productList = [];
 productList.push({
     name: "bike",
@@ -67,27 +68,39 @@ const showProducts = function (arr) { // Crear contenedor de los productos con c
         productInfo.appendChild( iconContainer );
         iconContainer.appendChild( icon );
         cardsContainer.appendChild( productCard );
+
+        imagen.addEventListener( "click", openProductSelect );
     }
 }
 
 const toogleDesktopMenu = function () { // agregar el menú de escritorio solo sí los otros están cerrados.
     const isProductDetailOpen = productDetailAside.classList.contains( "inactive" );
+    const isProductSelectOpen = productSelect.classList.contains("inactive");
     const closedProductDetail = productDetailAside.classList.add( "inactive" );
+    const closedProductSelect = productSelect.classList.add("inactive");
     const openDesktopMenu = desktopMenu.classList.toggle( "inactive" );
 
     if ( isProductDetailOpen ) {
         closedProductDetail;
+    }
+    if (isProductSelectOpen) {
+        closedProductSelect;
     }
     openDesktopMenu;
 }
 
 const toogleMobileMenu = function () { // agregar el menú de mobil solo sí los otros están cerrados.
     const isProductDetailOpen = productDetailAside.classList.contains( "inactive" );
+    const isProductSelectOpen = productSelect.classList.contains("inactive");
     const closedProductDetail = productDetailAside.classList.add( "inactive" );
+    const closedProductSelect = productSelect.classList.add("inactive");
     const openMobileMenu = mobileMenu.classList.toggle( "inactive" );
 
     if ( isProductDetailOpen ) {
         closedProductDetail;
+    }
+    if ( isProductSelectOpen ) {
+        closedProductSelect;
     }
     openMobileMenu;
 }
@@ -95,6 +108,8 @@ const toogleMobileMenu = function () { // agregar el menú de mobil solo sí los
 const toogleProductDetail = function () { // agregar el menu de articulos solo sí los otros están cerrados.
     const isMobileMenuOpen = mobileMenu.classList.contains( "inactive" );
     const isDesktopMenuOpen = desktopMenu.classList.contains( "inactive" );
+    const isProductSelectOpen = productSelect.classList.contains("inactive");
+    const closedProductSelect = productSelect.classList.add("inactive");
     const closedDesktopMenu = desktopMenu.classList.add( "inactive" );
     const closedMobileMenu = mobileMenu.classList.add( "inactive" );
     const openProductDetail = productDetailAside.classList.toggle( "inactive" );
@@ -105,10 +120,36 @@ const toogleProductDetail = function () { // agregar el menu de articulos solo s
     if ( isDesktopMenuOpen ) {
         closedDesktopMenu;
     }
+    if ( isProductSelectOpen ) {
+        closedProductSelect;
+    }
     openProductDetail;
 }
 
-showProducts(productList);
-navEmail.addEventListener("click", toogleDesktopMenu);
-mobileIconMenu.addEventListener("click", toogleMobileMenu);
-carritoIconMenu.addEventListener("click", toogleProductDetail);
+const openProductSelect = function () { // Abrir el producto seleccionado solo sí el carrito y el menú desktop está cerrado
+    const isDesktopMenuOpen = desktopMenu.classList.contains("inactive");
+    const isProductDetailOpen = productDetailAside.classList.contains("inactive");
+    const closedDesktopMenu = desktopMenu.classList.add("inactive");
+    const closedProductDetail = productDetailAside.classList.add("inactive");
+    const openProductSelect = productSelect.classList.remove("inactive");
+
+    if ( isProductDetailOpen ) {
+        closedProductDetail;
+    }
+    if ( isDesktopMenuOpen ) {
+        closedDesktopMenu;
+    }
+    openProductSelect;
+}
+
+const closedProductSelect = function () { 
+    const closedProductSelect = productSelect.classList.add("inactive");
+
+    closedProductSelect;
+}
+
+showProducts( productList );
+navEmail.addEventListener( "click", toogleDesktopMenu );
+mobileIconMenu.addEventListener( "click", toogleMobileMenu );
+carritoIconMenu.addEventListener( "click", toogleProductDetail );
+productSelectButton.addEventListener( "click", closedProductSelect );
