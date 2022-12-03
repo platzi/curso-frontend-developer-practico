@@ -3,14 +3,15 @@ const desktopMenu = document.getElementById('desktop-menu')
 const menuHamIcon = document.getElementById('menu')
 const menuCarritoIcon = document.getElementById('navbar-shopping-cart')
 const mobileMenu = document.getElementById('mobile-menu')
-const aside = document.getElementById('product-detail')
+const aside = document.getElementById('shoppingCartContainer')
 const cardsContainer = document.getElementById('cards-container')
-
-
+const productDetailContainer = document.getElementById('productDetail')
+const productDetailClose = document.getElementById('product-detail-close')
 
 menuEmail.addEventListener('click', toggleDesktopMenu)
 menuHamIcon.addEventListener('click', toggleMobileMenu)
 menuCarritoIcon.addEventListener('click', toggleCarritoAside)
+productDetailClose.addEventListener('click', closeProductDetailAside)
 
 function toggleDesktopMenu() {
     const isMobileMenuClosed = mobileMenu.classList.contains('inactive')
@@ -34,12 +35,15 @@ function toggleMobileMenu() {
         aside.classList.add('inactive')
     }
 
+    closeProductDetailAside()
+
     mobileMenu.classList.toggle('inactive')
 }
 
 function toggleCarritoAside() {
     const isMobileMenuClosed = mobileMenu.classList.contains('inactive')
     const isDesktopMenuClosed = desktopMenu.classList.contains('inactive')
+    const isProductDetailAsideClosed = productDetailContainer.classList.contains('inactive')
 
     if (!isMobileMenuClosed) {
         mobileMenu.classList.add('inactive')
@@ -49,7 +53,24 @@ function toggleCarritoAside() {
         desktopMenu.classList.toggle('inactive')
     }
 
+    if(!isProductDetailAsideClosed){
+        productDetailContainer.classList.add('inactive')
+    }
+
     aside.classList.toggle('inactive')
+}
+
+function openProductDetailAside() {
+    const isAsideClosed = aside.classList.contains('inactive')
+
+    if (!isAsideClosed) {
+        aside.classList.add('inactive')
+    }
+    productDetailContainer.classList.remove('inactive')
+}
+
+function closeProductDetailAside() {
+    productDetailContainer.classList.add('inactive')
 }
 
 const productList = []
@@ -81,6 +102,7 @@ function renderProducts(array) {
     
         const productImg = document.createElement('img')
         productImg.setAttribute('src', product.image)
+        productImg.addEventListener('click', openProductDetailAside)
     
         const productInfo = document.createElement('div')
         productInfo.classList.add('product-info')
