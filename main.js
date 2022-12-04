@@ -81,7 +81,69 @@ productList.push({
     price: 50,
     image: 'https://images.pexels.com/photos/2115256/pexels-photo-2115256.jpeg?auto=compress&cs=tinysrgb&w=1260&h=750&dpr=1',
     description: 'With its practical position, this bike also fulfills a decorative function, add your hall or workspace.'
-})
+});
+
+productList.push({
+  name: "Bike",
+  price: 120,
+  image:
+    "https://images.pexels.com/photos/276517/pexels-photo-276517.jpeg?auto=compress&cs=tinysrgb&dpr=2&h=650&w=940",
+  description: 'With its practical position, this bike also fulfills a decorative function, add your hall or workspace.'
+});
+
+productList.push({
+  name: "Monitor",
+  price: 220,
+  image:
+    "https://images.pexels.com/photos/2049411/pexels-photo-2049411.jpeg?auto=compress&cs=tinysrgb&w=1260&h=750&dpr=1",
+  description: 'Beautiful monitor.'
+});
+
+productList.push({
+  name: "Keyboard",
+  price: 80,
+  image:
+    "https://images.pexels.com/photos/1772123/pexels-photo-1772123.jpeg?auto=compress&cs=tinysrgb&w=1260&h=750&dpr=1",
+  description: 'With its practical position, this bike also fulfills a decorative function, add your hall or workspace.'
+});
+
+productList.push({
+    name: 'Mouse',
+    price: 50,
+    image: 'https://images.pexels.com/photos/2115256/pexels-photo-2115256.jpeg?auto=compress&cs=tinysrgb&w=1260&h=750&dpr=1',
+    description: 'With its practical position, this bike also fulfills a decorative function, add your hall or workspace.'
+});
+
+productList.push({
+  name: "Bike",
+  price: 120,
+  image:
+    "https://images.pexels.com/photos/276517/pexels-photo-276517.jpeg?auto=compress&cs=tinysrgb&dpr=2&h=650&w=940",
+  description: 'With its practical position, this bike also fulfills a decorative function, add your hall or workspace.'
+});
+
+productList.push({
+  name: "Monitor",
+  price: 220,
+  image:
+    "https://images.pexels.com/photos/2049411/pexels-photo-2049411.jpeg?auto=compress&cs=tinysrgb&w=1260&h=750&dpr=1",
+  description: 'Beautiful monitor.'
+});
+
+productList.push({
+  name: "Keyboard",
+  price: 80,
+  image:
+    "https://images.pexels.com/photos/1772123/pexels-photo-1772123.jpeg?auto=compress&cs=tinysrgb&w=1260&h=750&dpr=1",
+  description: 'With its practical position, this bike also fulfills a decorative function, add your hall or workspace.'
+});
+
+productList.push({
+    name: 'Mouse',
+    price: 50,
+    image: 'https://images.pexels.com/photos/2115256/pexels-photo-2115256.jpeg?auto=compress&cs=tinysrgb&w=1260&h=750&dpr=1',
+    description: 'With its practical position, this bike also fulfills a decorative function, add your hall or workspace.'
+});
 
 /*CREACIÓN DE LAS PRODUCT CARDS HTML*/
 
@@ -125,11 +187,13 @@ function renderProducts(arr){
 }
 
 function showProductDetailsContainer(e, productInfo, index, product){
+  /*Agregando funcionalidad toggle correcta*/
   productDetailContainer.classList.remove('inactive');
   shoppingCartContainer.classList.add('inactive');
   mobileMenu.classList.add('inactive');
   desktopMenu.classList.add('inactive');
 
+  /**/
   imageProductDetail.setAttribute('src', e.target.src);
   productDetailContainer.children[2].children[0].innerText = `$${productList[index].price}`;
   productDetailContainer.children[2].children[1].innerText = productList[index].name;
