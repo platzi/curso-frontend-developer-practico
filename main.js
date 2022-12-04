@@ -3,7 +3,7 @@ const desktopMenu = document.querySelector(".desktop-menu");
 const menuHamIcon = document.querySelector(".menu");
 const mobileMenu = document.querySelector(".mobile-menu");
 const menuCarritoIcon = document.querySelector(".navbar-shopping-cart");
-const aside = document.querySelector(".product-detail");
+const shoppingCartContainer = document.querySelector("#shoppingCartContainer");
 const cardsContainer = document.querySelector(".cards-container");
 const productList = [];
 
@@ -61,26 +61,26 @@ productList.push({
 
 menuEmail.addEventListener("click", toggleDesktopMenu);
 menuHamIcon.addEventListener("click", toggleMobileMenu);
-menuCarritoIcon.addEventListener("click", toggleCarritoAside);
+menuCarritoIcon.addEventListener("click", toggleCarritoshoppingCartContainer);
 
 function toggleDesktopMenu() {
-  const isAsideOpen = !aside.classList.contains("inactive");
-  if (isAsideOpen) {
-    aside.classList.add("inactive");
+  const isshoppingCartContainerOpen = !shoppingCartContainer.classList.contains("inactive");
+  if (isshoppingCartContainerOpen) {
+    shoppingCartContainer.classList.add("inactive");
   }
   desktopMenu.classList.toggle("inactive");
 }
 
 function toggleMobileMenu() {
-  const isAsideOpen = !aside.classList.contains("inactive");
-  if (isAsideOpen) {
-    aside.classList.add("inactive");
+  const isshoppingCartContainerOpen = !shoppingCartContainer.classList.contains("inactive");
+  if (isshoppingCartContainerOpen) {
+    shoppingCartContainer.classList.add("inactive");
   }
 
   mobileMenu.classList.toggle("inactive");
 }
 
-function toggleCarritoAside() {
+function toggleCarritoshoppingCartContainer() {
   const isMobileMenuOpen = !mobileMenu.classList.contains("inactive");
   const isDesktopMenuOpen = !desktopMenu.classList.contains("inactive");
   if (isMobileMenuOpen) {
@@ -90,7 +90,7 @@ function toggleCarritoAside() {
     desktopMenu.classList.add("inactive");
   }
 
-  aside.classList.toggle("inactive");
+  shoppingCartContainer.classList.toggle("inactive");
 }
 
 function renderProducts(arr) {
