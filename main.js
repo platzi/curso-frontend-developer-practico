@@ -9,17 +9,16 @@ const shoppingProductDetailCloseIcon = document.querySelector('.product-detail-c
 
 const shoppingCartContainer = document.querySelector('#shoppingCardContainer');
 const shoppingCardCloseIcon = document.querySelector('img[alt="arrow"]');
-console.log();
-const productDetailContainer = document.querySelector('#productDetail')
 
+const productDetailContainer = document.querySelector('#productDetail')
 const cardsContainer = document.querySelector('.cards-container');
 
 // --------------Listen to events---------------------------
 menuEmail.addEventListener('click',toggleDesktopMenu);
 menuHamIcon.addEventListener('click',toggleMobileMenu);
 cartMenu.addEventListener('click',toggleCartAside);
-shoppingProductDetailCloseIcon.addEventListener('click',closeProductDetialAside)
-
+shoppingProductDetailCloseIcon.addEventListener('click',closeProductDetialAside);
+shoppingCardCloseIcon.addEventListener('click',closeShoppingCardIcon);
 // --------------Toggle/Open/Close if the event is enabled--------------
 function toggleDesktopMenu() {
     const isAsideClosed = shoppingCartContainer.classList.contains('inactive');
@@ -66,6 +65,11 @@ function openProductDetailAside() {
 function closeProductDetialAside() {
     productDetailContainer.classList.add('inactive');
 }
+
+function closeShoppingCardIcon(){
+    shoppingCartContainer.classList.add('inactive');
+}
+
 
 // --------------Creating a list of products--------------
 const productList = [];
