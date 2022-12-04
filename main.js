@@ -8,6 +8,10 @@ const cardsContainer = document.querySelector('.cards-container');
 const productDetailContainer = document.querySelector('#productDetail');
 const closeBottonDetail = document.querySelector('.product-detail-close');
 const imageProductDetail = document.querySelector('.image-product-detail');
+const orderContent = document.querySelector('.my-order-content');
+const countCart = document.querySelector('.navbar-shopping-cart div');
+const totalOrder = document.querySelector('.total');
+const productosEnCarrito = [];
 
 navEmail.addEventListener("click", toggleDesktopMenu);
 burgerMenu.addEventListener("click", toggleMobileMenu);
@@ -173,7 +177,15 @@ function renderProducts(arr){
         const productFigure = document.createElement('figure');
         const productCartImage = document.createElement('img');
         productCartImage.setAttribute('src', './icons/bt_add_to_cart.svg');
-
+        productCartImage.addEventListener('click',() => {
+          let productoAgregado = [];
+          productoAgregado.push({
+            name: product.name,
+            price: product.price,
+            image: product.image
+          });
+          addToCart(productoAgregado);
+        })
       
         /*COLOCAMOS LOS RESPECTIVOS HIJOS*/
         productFigure.appendChild(productCartImage);
@@ -200,5 +212,44 @@ function showProductDetailsContainer(e, productInfo, index, product){
   productDetailContainer.children[2].children[1].innerText = productList[index].name;
   productDetailContainer.children[2].children[2].innerText = productList[index].description;
 }
+
+function addToCart(producto){
+  
+  /*Creamos elementos HTML*/
+
+  const divShoppingCart = document.createElement('div');
+  const figureShoppingCart = document.createElement('figure');
+  const imgFigShoppingCart = document.createElement('img');
+  const pNameShoppingCart = document.createElement('p');
+  const pPriceShoppingCart = document.createElement('p');
+  const imgCloseShoppingCart = document.createElement('img');
+
+  /*Agregamos contenido*/
+
+  divShoppingCart.classList.add('shopping-cart');
+  imgFigShoppingCart.setAttribute('src', producto[0].image);
+  pNameShoppingCart.innerText = producto[0].name;
+  pPriceShoppingCart.innerText = `$ ${producto[0].price}`;
+  imgCloseShoppingCart.setAttribute('src', './icons/icon_close.png');
+
+  /*Insertamos los elementos */
+  figureShoppingCart.appendChild(imgFigShoppingCart);
+  divShoppingCart.append(figureShoppingCart, pNameShoppingCart, pPriceShoppingCart, imgCloseShoppingCart);
+  orderContent.appendChild(divShoppingCart);
+
+  /*Agregamos cantidad de productos y suma de precios*/
+  countCart.innerText = document.querySelectorAll('.shopping-cart').length;
+  totalOrder.innerText = '$' + (Number(totalOrder.innerText.substring(1)) + Number(producto[0].price));
+  productosEnCarrito.push(producto[0].name);
+
+  /*Eliminar elemento del carrito*/
+  imgCloseShoppingCart.addEventListener('click', () =>{
+    divShoppingCart.remove()
+    countCart.innerText = document.querySelectorAll('.shopping-cart').length
+    totalOrder.innerText = '$' + (Number(totalOrder.innerText.substring(1)) - Number(producto[0].price))
+    productosEnCarrito.splice(productosEnCarrito.indexOf(producto[0].name),1)
+  })
+}
+
 
 renderProducts(productList);

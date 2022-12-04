@@ -237,6 +237,9 @@ aside {
     border-radius: 20px;
     object-fit: cover;
   }
+  .shopping-cart img {
+    cursor: pointer;
+  }
   .shopping-cart p:nth-child(2) {
     color: var(--very-light-pink);
   }
