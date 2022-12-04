@@ -203,7 +203,18 @@
         background-color: var(--white);
         border-left: 4px solid var(--white);
         z-index: 2;
+        transform: translate(100%);
+        animation-iteration-count: 1;
+        animation-duration: 0.6s;
+        animation-fill-mode: forwards;
+        animation-name: enter-to-right;
       }
+      @keyframes enter-to-right {
+        to {
+          transform: translate(0);
+        }
+      }
+
       #shoppingCardContainer{
         padding: 0 24px;
       }
