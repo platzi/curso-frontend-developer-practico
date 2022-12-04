@@ -173,6 +173,7 @@ function renderProducts(arr){
         const productFigure = document.createElement('figure');
         const productCartImage = document.createElement('img');
         productCartImage.setAttribute('src', './icons/bt_add_to_cart.svg');
+
       
         /*COLOCAMOS LOS RESPECTIVOS HIJOS*/
         productFigure.appendChild(productCartImage);
@@ -193,7 +194,7 @@ function showProductDetailsContainer(e, productInfo, index, product){
   mobileMenu.classList.add('inactive');
   desktopMenu.classList.add('inactive');
 
-  /**/
+  /*Completando información del contenedor*/
   imageProductDetail.setAttribute('src', e.target.src);
   productDetailContainer.children[2].children[0].innerText = `$${productList[index].price}`;
   productDetailContainer.children[2].children[1].innerText = productList[index].name;
