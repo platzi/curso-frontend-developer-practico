@@ -12,6 +12,18 @@
 body {
     margin: 0;
     font-family: 'Quicksand', sans-serif;
+    height: 100%;
+}
+
+/* Darken */
+
+.darken
+{
+  width: 100%;
+  height: calc(100%);
+  position: fixed;
+  top: 0;
+  background-color: rgba(0, 0, 0, 0.5);
 }
 
 .inactive {
@@ -19,10 +31,13 @@ body {
 }
 
 nav {
+    position: relative;
     display: flex;
     justify-content: space-between;
     padding: 0 24px;
     border-bottom: 1px solid var(--very-light-pink);
+    background-color: var(--white);
+    z-index: 1;
 }
 
 .menu {
@@ -75,6 +90,7 @@ nav {
 
 .navbar-shopping-cart {
     position: relative;
+    cursor: pointer;
 }
 
 .navbar-shopping-cart div {
@@ -180,8 +196,11 @@ nav {
 
 /* Aside (producto detail y carrito )*/
 aside {
-    background-color: var(--white);
     width: 360px;
+    padding: 0 24px 12px;
+    background-color: var(--white);
+    border: 1px solid var(--very-light-pink);
+    border-radius: 8px;
     box-sizing: border-box;
     position: absolute;
     right: 0;
@@ -194,7 +213,13 @@ aside {
 
 .title-container {
     display: flex;
+    width: 100px;
 }
+
+.title-container:hover
+  {
+    cursor: pointer;
+  }
 
 .title-container img {
     transform: rotate(180deg);
@@ -270,9 +295,21 @@ aside {
     font-size: var(--md);
     font-weight: bold;
     height: 50px;
+    margin: 6px;
 }
 
 /*  Product Detail */
+
+.product-detail {
+    width: 640px;
+    padding: 24px;
+    position: fixed;
+    top: 120px;
+    right: 50%;
+    transform: translate(50%, 0);
+    background-color: var(--white);
+    border-radius: 10px;
+  }
 
 .product-detail-close {
     background: var(--white);
@@ -294,12 +331,12 @@ aside {
     width: 100%;
     height: 360px;
     object-fit: cover;
-    border-radius: 0 0 20px 20px;
+    border-radius: 20px;
 }
 
-#productDetail {
+/* #productDetail {
     margin: 24px 24px 0 24px;
-}
+} */
 
 #productDetail p:nth-child(1) {
     font-weight: bold;
@@ -361,6 +398,11 @@ aside {
     object-fit: cover;
 }
 
+.product-card img:hover
+  {
+    cursor: pointer;
+  }
+
 .product-card .product-info {
     display: flex;
     justify-content: space-between;
@@ -395,6 +437,7 @@ aside {
 @media (max-width: 640px) {
     .menu {
         display: block;
+        cursor: pointer;
     }
 
     .navbar-left ul {
@@ -410,7 +453,7 @@ aside {
     }
 
     .product-detail {
-        width: 100%;
+        width: calc(100% - 12px);
     }
 
     .cards-container {
