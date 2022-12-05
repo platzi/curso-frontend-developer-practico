@@ -99,11 +99,10 @@ function renderProducts(arr){
         // product = {name,price,image}
         const productCard = document.createElement('div');
         productCard.classList.add('product-card');
-        productCard.setAttribute('id',product.id);
     
         const productImg = document.createElement('img');
         productImg.setAttribute('src',product.image);
-        //productImg.addEventListener('click', openProductDetailAside);
+        productImg.addEventListener('click', openProductDetailAside);
     
         const productInfo = document.createElement('div');
         productInfo.classList.add('product-info');
