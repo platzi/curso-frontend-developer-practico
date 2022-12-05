@@ -75,19 +75,22 @@ function closeShoppingCardIcon(){
 const productList = [];
 
 productList.push({
-    name: 'Bike',
-    price: 120,
-    image: "https://images.pexels.com/photos/276517/pexels-photo-276517.jpeg?auto=compress&cs=tinysrgb&dpr=2&h=650&w=940"
+    id: '1',
+    name: 'Imploding The Mirage',
+    price: 49,
+    image: "https://m.media-amazon.com/images/I/91-dFqF+lTL._AC_SL1500_.jpg"
 });
 productList.push({
-    name: 'Screen',
-    price: 240,
-    image: "https://images.pexels.com/photos/276517/pexels-photo-276517.jpeg?auto=compress&cs=tinysrgb&dpr=2&h=650&w=940"
+    id: '2',
+    name: 'Harrys House',
+    price: 68,
+    image: "https://www.gannett-cdn.com/presto/2022/03/23/USAT/0db3bacb-eede-4fa6-a2be-dca3c4a6589c-HS.jpg?width=660&height=660&fit=crop&format=pjpg&auto=webp"
 });
 productList.push({
-    name: 'Switch',
-    price: 240,
-    image: "https://images.pexels.com/photos/276517/pexels-photo-276517.jpeg?auto=compress&cs=tinysrgb&dpr=2&h=650&w=940"
+    id: '3',
+    name: 'Random Access Memories',
+    price: 34,
+    image: "https://www.hoyesarte.com/constelac10n/files/2020/10/Daft-Punk-Get-Lucky.jpg"
 });
 
 // --------------Rendering the list of products-------------- 
