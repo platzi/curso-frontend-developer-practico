@@ -99,10 +99,11 @@ function renderProducts(arr){
         // product = {name,price,image}
         const productCard = document.createElement('div');
         productCard.classList.add('product-card');
+        productCard.setAttribute('id',product.id);
     
         const productImg = document.createElement('img');
         productImg.setAttribute('src',product.image);
-        productImg.addEventListener('click', openProductDetailAside);
+        //productImg.addEventListener('click', openProductDetailAside);
     
         const productInfo = document.createElement('div');
         productInfo.classList.add('product-info');
@@ -120,7 +121,7 @@ function renderProducts(arr){
     
         const productInfoFigure = document.createElement('figure');
         const productImgCart = document.createElement('img');
-        productImgCart.setAttribute('src','./icons/bt_add_to_cart.svg');
+        productImgCart.setAttribute('src','./icons/bt_add_to_cart_v2.svg');
         
         productInfoFigure.appendChild(productImgCart);
     
@@ -132,3 +133,5 @@ function renderProducts(arr){
 }
 
 renderProducts(productList);
+
+
