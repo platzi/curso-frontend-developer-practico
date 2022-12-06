@@ -28,6 +28,7 @@ nav {
 }
 .menu {
   display: none;
+  cursor: pointer;
 }
 .logo {
   width: 100px;
@@ -40,6 +41,7 @@ nav {
   display: flex;
   align-items: center;
   height: 60px;
+  cursor: pointer;
 }
 .navbar-left {
   display: flex;
@@ -82,6 +84,7 @@ nav {
   display: flex;
   justify-content: center;
   align-items: center;
+  
 }
 
 /* Menu en desktop */
@@ -316,6 +319,7 @@ aside {
   height: 240px;
   border-radius: 20px;
   object-fit: cover;
+  cursor: pointer;
 }
 .product-card .product-info {
   display: flex;
