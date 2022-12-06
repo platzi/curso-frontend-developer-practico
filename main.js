@@ -1,14 +1,17 @@
 const menuEmail = document.querySelector('.navbar-email');
 const menuHamIcon = document.querySelector('.menu');
 const menuCarritoIcon = document.querySelector('.navbar-shopping-cart');
+const productDetailCloseIcon = document.querySelector('.product-detail-close')
 const desktopMenu = document.querySelector('.desktop-menu');
 const mobileMenu = document.querySelector('.mobile-menu');
 const shoppingCartContainer = document.querySelector('#shoppingCartContainer');
+const producDetailContainer = document.querySelector('#productDetail');
 const cardsContainer = document.querySelector('.cards-container')
 
 menuEmail.addEventListener('click', toggleDesktopMenu);
 menuHamIcon.addEventListener('click', toggleMobileMenu);
 menuCarritoIcon.addEventListener('click', toggleCarritoAside);
+productDetailCloseIcon.addEventListener('click', closeProductDetailAside);
 
 
 
@@ -27,7 +30,12 @@ function toggleMobileMenu (){
     if (!isAsideClosed){
         shoppingCartContainer.classList.add('inactive');
     }
-        mobileMenu.classList.toggle('inactive');   
+
+    closeProductDetailAside();
+    
+    mobileMenu.classList.toggle('inactive');   
+
+       
 }
 
 function toggleCarritoAside (){
@@ -38,9 +46,26 @@ function toggleCarritoAside (){
     }else if(!isDesktopMenuClosed) {
         desktopMenu.classList.toggle('inactive');
     }
+
+    const isProductDetailClosed = producDetailContainer.classList.contains('inactive')
+    if (!isProductDetailClosed){
+        producDetailContainer.classList.add('inactive');
+    }
     shoppingCartContainer.classList.toggle('inactive');
     
+
 }
+
+function openProdutDetailAside(){
+shoppingCartContainer.classList.add('inactive');
+
+    producDetailContainer.classList.remove('inactive');
+}
+
+function closeProductDetailAside(){
+    producDetailContainer.classList.add('inactive');
+}
+
 
 const produclist = [];
 produclist.push({
@@ -54,8 +79,8 @@ produclist.push({
     image: './img/1.JPG',
 })
 produclist.push({
-    name:'pasta dental',
-    price:12,
+    name:'pasta dental con carbon activado',
+    price:25,
     image: './img/1.JPG',
 })
 produclist.push({
@@ -78,6 +103,7 @@ function renderProduct (arr){
         //product= {name, price, image}->product.image
         const productImg = document.createElement('img');
         productImg.setAttribute('src', product.image);
+        productImg.addEventListener('click', openProdutDetailAside);
         
         const productinfo = document.createElement('div');
         productinfo.classList.add('product-info');
