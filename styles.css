@@ -286,10 +286,12 @@
 
   /*PRODUCTOS UNO POR UNO*/
   .product-detail-big {
+    height: calc(100% - 90px);
     width: 360px;
     padding-bottom: 24px;
     position: absolute;
     right: 0;
+    background-color: var(--white);
   }
   .product-detail-close {
     background: var(--white);
