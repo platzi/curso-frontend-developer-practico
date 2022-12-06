@@ -168,12 +168,13 @@ aside {
   width: 360px;
   box-sizing: border-box;
   position: absolute;
-  right: 0;
+  left: 38%;
 }
 
 /* ShoppingCart */
 #shoppingCartContainer{
   padding: 0 24px;
+  
 }
 .title-container {
   display: flex;
@@ -254,6 +255,7 @@ aside {
   z-index: 2;
   padding: 12px;
   border-radius: 50%;
+
 }
 .product-detail-close:hover {
   cursor: pointer;
@@ -364,6 +366,7 @@ aside {
 
   aside {
     width: 100%;
+    left: 0;
   }
 
   .cards-container {

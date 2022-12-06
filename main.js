@@ -63,12 +63,12 @@ productList.push({
   image: 'https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcQjAtr9hrc2rMCgB5sUTq9hZrwzDO2YqSsccA&usqp=CAU',
 });
 productList.push({
-  name: 'Pantalla',
+  name: 'screen',
   price: 220,
   image: 'https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcQx72vd9oNaiyhYIfCNDNHu9_erC7XFQjQ2eg&usqp=CAU',
 });
 productList.push({
-  name: 'audifonos',
+  name: 'headphones',
   price: 100,
   image: 'https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcQKW5GRN9qO-_TPUJVfmIA9561wqT6QmkcCjvousjrOz6JiXsBS56wedqHrVkX9bFKcUME&usqp=CAU',
 });
@@ -88,22 +88,22 @@ productList.push({
     image: 'https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcT9A8LU9eTGF4j9A2oIAYLFzKmYJqaw-mQi5g&usqp=CAU',
   });
   productList.push({
-    name: 'Decoraciones',
+    name: 'Decorations',
     price: 100,
     image: 'https://www.elmueble.com/medio/2021/01/04/0125-ab2f8053-2000x1333_4a952138_2000x1333.jpg',
   });
   productList.push({
-      name: 'Instrumentos',
+      name: 'instruments',
       price: 700,
       image: 'https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcRQumOH_os-bMc1Z5fG8mDfD_bjujI96XqpQk8Fr1m-o8CSRk_zQ0Ut_XIUPCs7eMubpss&usqp=CAU',
     });
     productList.push({
-      name: 'Muebles',
+      name: 'furniture',
       price: 650,
       image: 'https://media.istockphoto.com/id/1350859272/es/foto/muebles-de-lujo.jpg?b=1&s=170667a&w=0&k=20&c=MejpinLUsJZ8pOgsr2D3Jz5y5aqrGHIlteLj7ysNBY8=',
     });
     productList.push({
-      name: 'Juguetes',
+      name: 'Toys',
       price: 300,
       image: 'https://media.istockphoto.com/id/642542254/es/vector/colecci%C3%B3n-de-iconos-de-juguete.jpg?s=612x612&w=0&k=20&c=AWWU-5VgZPJwAd5ZIYULjTpc5RhW-QWBVRe8wGxnwSU=',
     });
