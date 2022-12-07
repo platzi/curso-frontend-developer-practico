@@ -6,7 +6,7 @@ const hamMenuIcon = d.querySelector('.menu');
 const mobileMenu = d.querySelector('.mobile-menu');
 
 const menuCarIcon = d.querySelector('.navbar-shopping-cart');
-const aside = d.querySelector('.product-detail');
+const aside = d.getElementById('shoppingCartContainer');
 const cardContainer = d.querySelector('.cards-container');
 
 
@@ -52,19 +52,19 @@ const productList = [];
 productList.push({
     name: 'Bike',
     price: 1232,
-    image: 'https://picsum.photos/900/900'
+    image: "https://picsum.photos/500/500?random=1"
 });
 
 productList.push({
     name: 'Car',
     price: 23254,
-    image: 'https://picsum.photos/900/900'
+    image: 'https://picsum.photos/500/500?random=2'
 });
 
 productList.push({
     name: 'Airplane',
     price: 1233456,
-    image: 'https://picsum.photos/900/900'
+    image: 'https://picsum.photos/500/500?random=3'
 });
 
 productList.push({
