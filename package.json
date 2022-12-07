@@ -1,0 +1,20 @@
+{
+  "name": "curso-frontend-developer-practico",
+  "version": "1.0.0",
+  "description": "",
+  "main": "main.js",
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/Brandon328/curso-frontend-developer-practico.git"
+  },
+  "keywords": [],
+  "author": "",
+  "license": "ISC",
+  "bugs": {
+    "url": "https://github.com/Brandon328/curso-frontend-developer-practico/issues"
+  },
+  "homepage": "https://github.com/Brandon328/curso-frontend-developer-practico#readme"
+}
