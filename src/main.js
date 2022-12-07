@@ -6,10 +6,12 @@ const menuCarrito = document.querySelector('.shopping-cart-icon');
 const shoppingCardContainer = document.querySelector('.shopping-card-container');
 const productDetailContainer = document.querySelector('#productDetail');
 const productDetailCloseItem = document.querySelector('.product-detail-close');
+const cardsContainer = document.querySelector('.cards-container');
+const API = 'https://api.escuelajs.co/api/v1';
 
-menuEmail.addEventListener('click', ()=>toggleMenu(desktopMenu));
-burguerMenu.addEventListener('click',()=>toggleMenu(mobileMenu));
-menuCarrito.addEventListener('click', ()=>toggleMenu(shoppingCardContainer));
+menuEmail.addEventListener('click', () => toggleMenu(desktopMenu));
+burguerMenu.addEventListener('click', () => toggleMenu(mobileMenu));
+menuCarrito.addEventListener('click', () => toggleMenu(shoppingCardContainer));
 
 function toggleMenu(elemento) {
   elemento.classList.toggle('inactive');
@@ -50,84 +52,57 @@ function toggleMenu(elemento) {
 //   }
 // }
 
-const productList = [
-  {
-    name: 'Bike',
-    price: '120',
-    image: 'https://images.pexels.com/photos/276517/pexels-photo-276517.jpeg?auto=compress&cs=tinysrgb&dpr=2&h=650&w=940'
-  },
-  {
-    name: 'Computer',
-    price: '120',
-    image: 'https://images.pexels.com/photos/276517/pexels-photo-276517.jpeg?auto=compress&cs=tinysrgb&dpr=2&h=650&w=940'
-  },
-  {
-    name: 'Speaker',
-    price: '120',
-    image: 'https://images.pexels.com/photos/276517/pexels-photo-276517.jpeg?auto=compress&cs=tinysrgb&dpr=2&h=650&w=940'
-  },
-  {
-    name: 'Mouse',
-    price: '120',
-    image: 'https://images.pexels.com/photos/276517/pexels-photo-276517.jpeg?auto=compress&cs=tinysrgb&dpr=2&h=650&w=940'
-  },
-  {
-    name: 'Mouse',
-    price: '120',
-    image: 'https://images.pexels.com/photos/276517/pexels-photo-276517.jpeg?auto=compress&cs=tinysrgb&dpr=2&h=650&w=940'
-  },
-  {
-    name: 'Mouse',
-    price: '120',
-    image: 'https://images.pexels.com/photos/276517/pexels-photo-276517.jpeg?auto=compress&cs=tinysrgb&dpr=2&h=650&w=940'
-  },
-  {
-    name: 'Mouse',
-    price: '120',
-    image: 'https://images.pexels.com/photos/276517/pexels-photo-276517.jpeg?auto=compress&cs=tinysrgb&dpr=2&h=650&w=940'
-  },
-  {
-    name: 'Mouse',
-    price: '120',
-    image: 'https://images.pexels.com/photos/276517/pexels-photo-276517.jpeg?auto=compress&cs=tinysrgb&dpr=2&h=650&w=940'
-  },
-  {
-    name: 'Mouse',
-    price: '120',
-    image: 'https://images.pexels.com/photos/276517/pexels-photo-276517.jpeg?auto=compress&cs=tinysrgb&dpr=2&h=650&w=940'
-  },
-];
-const cardsContainer = document.querySelector('.cards-container');
+function openProductDetailAside() {
+  productDetailContainer.classList.remove('inactive');
+  mobileMenu.classList.add('inactive');
+  desktopMenu.classList.add('inactive');
+  shoppingCardContainer.classList.add('inactive');
+}
 
-for (product of productList) {
-  const productCard = document.createElement('div');
-  productCard.classList.add('product-card');
-  
-  const productImg = document.createElement('img');
-  productImg.setAttribute('src', product.image);
-  productImg.addEventListener('click', openProductDetailAside);
+productDetailCloseItem.addEventListener('click', () => {
+  productDetailContainer.classList.add('inactive');
+})
 
-  const productInfo = document.createElement('div');
-  productInfo.classList.add('product-info');
-  
-  const productInfoDiv = document.createElement('div');
-  
-  const productPrice = document.createElement('p');
-  productPrice.innerText = '$' + product.price;
-  
-  const productName = document.createElement('p');
-  productName.innerText = product.name;
-  
-  const productInfoFigure = document.createElement('figure');
-  const productImgCard = document.createElement('img');
-  productImgCard.setAttribute('src', './icons/bt_add_to_cart.svg');
 
-  productInfoFigure.appendChild(productImgCard);
-  productInfoDiv.append(productPrice, productName);
-  productInfo.append(productInfoDiv, productInfoFigure);
-  productCard.append(productImg, productInfo);
+async function fetchData(urlApi) {
+  const response = await fetch(urlApi);
+  const data = await response.json();
+  return data;
+}
 
-  cardsContainer.appendChild(productCard);
+async function loadProducts() {
+  const productList = await fetchData(`${API}/products?offset=0&limit=10`);
+
+  for (let product of productList) {
+    const productCard = document.createElement('div');
+    productCard.classList.add('product-card');
+
+    const productImg = document.createElement('img');
+    productImg.setAttribute('src', product.images[0]);
+    productImg.addEventListener('click', openProductDetailAside);
+
+    const productInfo = document.createElement('div');
+    productInfo.classList.add('product-info');
+
+    const productInfoDiv = document.createElement('div');
+
+    const productPrice = document.createElement('p');
+    productPrice.innerText = '$' + product.price;
+
+    const productName = document.createElement('p');
+    productName.innerText = product.title;
+
+    const productInfoFigure = document.createElement('figure');
+    const productImgCard = document.createElement('img');
+    productImgCard.setAttribute('src', './icons/bt_add_to_cart.svg');
+
+    productInfoFigure.appendChild(productImgCard);
+    productInfoDiv.append(productPrice, productName);
+    productInfo.append(productInfoDiv, productInfoFigure);
+    productCard.append(productImg, productInfo);
+
+    cardsContainer.appendChild(productCard);
+  }
 }
 
 //****************** Cards
@@ -148,13 +123,4 @@ for (product of productList) {
 </div> 
 */}
 
-function openProductDetailAside() {
-  productDetailContainer.classList.remove('inactive');
-  mobileMenu.classList.add('inactive');
-  desktopMenu.classList.add('inactive');
-  shoppingCardContainer.classList.add('inactive');
-}
-
-productDetailCloseItem.addEventListener('click', () => {
-  productDetailContainer.classList.add('inactive');
-})
+loadProducts();
