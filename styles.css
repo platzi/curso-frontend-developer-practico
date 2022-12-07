@@ -93,6 +93,7 @@ nav {
     border: 1px solid var(--very-light-pink);
     border-radius: 6px;
     padding: 20px 20px 0 20px;
+    z-index: 10;
 }
 .desktop-menu ul {
     list-style: none;
@@ -339,6 +340,13 @@ aside {
     margin-top: 0;
     margin-bottom: 0;
     color: var(--very-light-pink);
+}
+
+.darken {
+    width: 100%;
+    height: calc(100% - 61px);
+    position: absolute;
+    background: rgba(0, 0, 0, 0.5);
 }
 /* Medias queries */
 @media (min-width: 641px) {
