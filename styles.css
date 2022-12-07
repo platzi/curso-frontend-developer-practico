@@ -104,12 +104,24 @@ nav {
     border-radius: 6px;
     padding: 20px 20px 0 20px;
     position: absolute;
-    display: block;
-    right: 0;
+    right: 60px;
     top: 60px;
+    background-color: var(--white);
+}
+.desktop-menu::before{
+    content: '';
+    position: absolute;
+    top: -15px;
+    right: 15px;
+    border-right: 15px solid transparent;
+    border-left: 15px solid transparent;
+    border-bottom: 15px solid var(--very-light-pink);
+    width: 0.1px;
+    height: 0.1px;
+    z-index: 1;
 }
 
-.desktop-menu.display{
+.inactive{
     display: none;
 }
 
@@ -150,6 +162,9 @@ nav {
 
 /* BREAKPOINTS */
 @media (max-width: 640px) {
+    .desktop-menu{
+        display: none;
+    }
     .menu {
         display: block;
     }
