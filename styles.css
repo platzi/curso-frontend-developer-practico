@@ -28,6 +28,7 @@ nav {
 
 .menu {
     display: none;
+    cursor: pointer;
 }
 
 .logo {
@@ -96,7 +97,7 @@ nav {
 
 /* ***************************************************** */
 
-/* ESTILOS DEL MENU DESPLEGABLE */
+/* ESTILOS DEL MENU DESPLEGABLE DESKTOP */
 .desktop-menu {
     width: 100px;
     height: auto;
@@ -107,6 +108,9 @@ nav {
     right: 60px;
     top: 60px;
     background-color: var(--white);
+    visibility: visible;
+    opacity: 1;
+    transition:visibility .3s, opacity .3s;
 }
 .desktop-menu::before{
     content: '';
@@ -122,7 +126,11 @@ nav {
 }
 
 .inactive{
-    display: none;
+    /* display: none;
+    transition: none 1s; */
+    visibility: hidden;
+    opacity: 0;
+    transition:visibility .3s, opacity .3s;
 }
 
 .desktop-menu ul {
@@ -156,7 +164,54 @@ nav {
     margin-bottom: 20px;
     display: inline-block;
 }
-/* ESTILOS DEL MENU DESPLEGABLE */
+/* ESTILOS DEL MENU DESPLEGABLE  DESKTOP */
+
+/* ***************************************************** */
+
+/* ESTILOS DEL MENU DESPLEGABLE MOBILE */
+.mobile-menu {
+    width: 152px;
+    padding: 24px;
+    position: absolute;
+    background-color: var(--white);
+    top: 61px;
+    left: 0;
+  }
+  .oculto{
+    transform: translateX(-200px);
+    transition-duration: 0.3s;
+  }
+  .visible{
+    transform: translateX(0px);
+    transition-duration: 0.3s;
+  }
+
+  .mobile-menu a {
+    text-decoration: none;
+    color: var(--black);
+    font-weight: bold;
+    /* margin-bottom: 24px; */
+  }
+  .mobile-menu ul {
+    padding: 0;
+    margin: 24px 0 0;
+    list-style: none;
+  }
+  .mobile-menu ul:nth-child(1) {
+    border-bottom: 1px solid var(--very-light-pink);
+  }
+  .mobile-menu ul li {
+    margin-bottom: 24px;
+  }
+  .email {
+    font-size: var(--sm);
+    font-weight: 300 !important;
+  }
+  .sign-out {
+    font-size: var(--sm);
+    color: var(--hospital-green) !important;
+  }
+/* ESTILOS DEL MENU DESPLEGABLE MOBILE */
 
 /* ***************************************************** */
 
@@ -174,6 +229,11 @@ nav {
     }
 
     .navbar-email {
+        display: none;
+    }
+}
+@media (min-width: 640px){
+    .mobile-menu{
         display: none;
     }
 }

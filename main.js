@@ -1,11 +1,10 @@
 const navbar_email = document.querySelector('.navbar-email');
-const menu_desplegable = document.querySelector('.desktop-menu');
-const burger_menu = document.querySelector('.menu');
+const navbar_burger = document.querySelector('.menu');
+const desktop_menu = document.querySelector('.desktop-menu');
+const mobile_menu = document.querySelector('.mobile-menu');
 
-burger_menu.addEventListener('click', () => {
-    menu_desplegable.classList.toggle('inactive');
-})
-
-navbar_email.addEventListener('click', () => {
-    menu_desplegable.classList.toggle('inactive');
+navbar_email.addEventListener('click', e => {
+    desktop_menu.classList.toggle('inactive');
+    console.log(e)
 });
+navbar_burger.addEventListener('click', () => mobile_menu.classList.toggle('visible'));
