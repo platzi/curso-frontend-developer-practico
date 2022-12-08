@@ -7,7 +7,7 @@ const productList = []
 // Desplegables
 const desktopMenu = document.querySelector('.desktop-menu');
 const mobileMenu = document.querySelector('.mobile-menu');
-const aside = document.querySelector('.product-detail');
+const aside = document.querySelector('.shoppingCar-detail');
 
 menuEmail.addEventListener('click', toggleDesktopMenu);
 
