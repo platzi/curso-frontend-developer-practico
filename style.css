@@ -398,6 +398,9 @@ nav {
         .navbar-email {
             display: none;
         }
+        aside {
+            width: 100%;
+        }
         .desktop-menu {
             display: none;
         }
