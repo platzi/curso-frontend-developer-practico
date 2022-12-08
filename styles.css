@@ -20,6 +20,7 @@
   }
   .menu {
     display: none;
+    z-index: 2;
   }
   .logo {
     width: 100px;
@@ -39,6 +40,44 @@
   .navbar-left ul {
     margin-left: 12px;
   }
+
+  .mobile-menu {
+    position:absolute;
+    left: 0;
+    top: 4px;
+    padding: 24px;
+    background-color: var(--white);
+    z-index: 1;
+    border-right: 2px;
+    border-style:double;
+    border-color: var(--hospital-green);
+  }
+  .mobile-menu a {
+    text-decoration: none;
+    color: var(--black);
+    font-weight: bold;
+    /* margin-bottom: 24px; */
+  }
+  .mobile-menu ul {
+    padding: 0;
+    margin: 24px 0 0;
+    list-style: none;
+  }
+  .mobile-menu ul:nth-child(1) {
+    border-bottom: 1px solid var(--very-light-pink);
+  }
+  .mobile-menu ul li {
+    margin-bottom: 24px;
+  }
+  .email {
+    font-size: var(--sm);
+    font-weight: 300 !important;
+  }
+  .sign-out {
+    font-size: var(--sm);
+    color: var(--hospital-green) !important;
+  }
+
   .navbar-left ul li a,
   .navbar-right ul li a {
     text-decoration: none;
