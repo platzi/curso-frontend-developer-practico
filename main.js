@@ -88,7 +88,7 @@ productList.push({
     "https://images.pexels.com/photos/1201996/pexels-photo-1201996.jpeg?auto=compress&cs=tinysrgb&w=1260&h=750&dpr=1",
 });
 
-for (product in productList) {
+for (product of productList) {
   const productCard = document.createElement("div");
   productCard.classList.add("product-card");
 
