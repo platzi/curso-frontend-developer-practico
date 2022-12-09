@@ -15,6 +15,9 @@ const asideShoppingCar = document.querySelector('.shoppingCar-detail');
 const asideProductDetails = document.querySelector('.product-detail')
 const productDetailClose = document.querySelector('.product-detail-close');
 
+// Modal desplegable
+const darken = document.querySelector('.darken')
+
 menuEmail.addEventListener('click', toggleDesktopMenu);
 
 menuHamIcon.addEventListener('click', toggleMobileMenu);
@@ -22,6 +25,8 @@ menuHamIcon.addEventListener('click', toggleMobileMenu);
 menuCarritoIcon.addEventListener('click', toggleCarritoAside);
 
 productDetailClose.addEventListener('click', closeProductDetails);
+
+darken.addEventListener('click', closeDarken);
 
 function toggleCarritoAside() {
     const isMobileMenuClosed = mobileMenu.classList.contains('inactive');
@@ -34,6 +39,7 @@ function toggleCarritoAside() {
         asideProductDetails.classList.add('inactive');
     }
     asideShoppingCar.classList.toggle('inactive')
+    darken.classList.remove('inactive')
 }
 
 function toggleMobileMenu() {
@@ -44,7 +50,8 @@ function toggleMobileMenu() {
         asideShoppingCar.classList.add('inactive');
         asideProductDetails.classList.add('inactive');
     }
-    mobileMenu.classList.toggle('inactive')
+    mobileMenu.classList.toggle('inactive');
+    darken.classList.remove('inactive')
 }
 
 function toggleDesktopMenu() {
@@ -56,6 +63,7 @@ function toggleDesktopMenu() {
         asideProductDetails.classList.add('inactive');
     }
     desktopMenu.classList.toggle('inactive');
+    darken.classList.remove('inactive')
 }
 
 function toogleProductDetails(product){
@@ -73,9 +81,19 @@ function toogleProductDetails(product){
     productDetailInfoName.innerText = product.name;
     productDetailInfoDescription.innerText = product.description; 
     asideProductDetails.classList.toggle('inactive');
+    darken.classList.remove('inactive')
 }
 
 function closeProductDetails(){
+    asideProductDetails.classList.add('inactive');
+    darken.classList.add('inactive');
+}
+
+function closeDarken(){
+    darken.classList.add('inactive');
+    asideShoppingCar.classList.add('inactive');
+    mobileMenu.classList.add('inactive');
+    desktopMenu.classList.add('inactive');
     asideProductDetails.classList.add('inactive');
 }
 
