@@ -377,6 +377,10 @@ nav {
     object-fit: cover;
 }
 
+.product-card img:hover {
+    cursor: pointer;
+}
+
 .product-info {
     display: flex;
     justify-content: space-between;
@@ -439,6 +443,10 @@ nav {
     .product-card img {
         width: 140px;
         height: 140px;
+    }
+
+    .product-detail {
+        width: 100%;
     }
 }
 
