@@ -72,6 +72,7 @@ productList.push({
     imagen: 'https://images.pexels.com/photos/303383/pexels-photo-303383.jpeg?auto=compress&cs=tinysrgb&w=1260&h=750&dpr=1'
 });
 
+//funcion de maquetacion - lista de productos
 
 function renderProducts(arr)
 {
