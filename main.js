@@ -3,25 +3,25 @@ const menuIcon = document.querySelector('.menu');
 const desktopMenu = document.querySelector('.desktop-menu');
 const mobileMenu = document.querySelector('.mobile-menu');
 const carIconMain = document.querySelector('.navbar-shopping-cart');
-const aside = document.querySelector('.product-detail');
+const shoppingCartContainer = document.querySelector('#shoppingCartContainer');
 const cardsContainer = document.querySelector('.cards-container');
 
 function toggleDesktopMenu(element)
 {
-    if(element == aside)
+    if(element == shoppingCartContainer)
     {
-        aside.classList.toggle('inactive');
+        shoppingCartContainer.classList.toggle('inactive');
         desktopMenu.classList.add('inactive')
         mobileMenu.classList.add('inactive')
     }else{
         element.classList.toggle('inactive');
-        aside.classList.add('inactive');
+        shoppingCartContainer.classList.add('inactive');
     }
 }
 
 menuEmail.addEventListener('click', () => toggleDesktopMenu(desktopMenu));
 menuIcon.addEventListener('click', () => toggleDesktopMenu(mobileMenu));
-carIconMain.addEventListener('click', () => toggleDesktopMenu(aside));
+carIconMain.addEventListener('click', () => toggleDesktopMenu(shoppingCartContainer));
 
 //! AGREGANDO PRODUCTOS
 
