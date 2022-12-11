@@ -254,7 +254,7 @@
     height: 50px;
   }
   /* Estilos de mi aside de detalle de producto */
-  .product-detail-close {
+  .product-detail-close > img {
     background: var(--white);
     width: 14px;
     height: 14px;

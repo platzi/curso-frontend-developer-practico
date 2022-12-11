@@ -26,6 +26,8 @@ const mobileMenu = document.querySelector('.mobile-menu');
 const shoppingCart = document.querySelector('.navbar-shopping-cart');
 const shoppingCartContainer = document.querySelector('#shoppingCartContainer');
 const cardsContainer = document.querySelector('.cards-container');
+const productDetailContainer = document.querySelector('#productDetail');
+const productDetailClose = document.querySelector('.product-detail-close');
 
 /* Resuelto con dos funciones: 
 
@@ -39,6 +41,7 @@ navMenu.addEventListener('click', toggleMobileMenu);
 navEmail.addEventListener('click', toggleMenu);
 navMenu.addEventListener('click', toggleMenu);
 shoppingCart.addEventListener('click', toggleMenu);
+productDetailClose.addEventListener('click', toggleMenu);
 
 /* classList.toggle se usa para hacer aparecer o desaparecer la clase que
  está entre parentesis en función de si esta existe o no al momento de 
@@ -65,17 +68,23 @@ function toggleMenu(event) {
     /* console.log(event); */
     if (event.srcElement.className === 'menu') {
         const isshoppingCartContainerClose = shoppingCartContainer.classList.contains('inactive');
+        const isProductDetailContainerClosed = productDetailContainer.classList.contains('inactive');
 
         if (!isshoppingCartContainerClose) {
             shoppingCartContainer.classList.add('inactive');
+        } else if (!isProductDetailContainerClosed) {
+            productDetailContainer.classList.add('inactive');
         }
 
         mobileMenu.classList.toggle('inactive');
     } else if (event.srcElement.className === 'navbar-email') {
         const isshoppingCartContainerClose = shoppingCartContainer.classList.contains('inactive');
+        const isProductDetailContainerClosed = productDetailContainer.classList.contains('inactive');
 
         if (!isshoppingCartContainerClose) {
             shoppingCartContainer.classList.add('inactive');
+        } else if (!isProductDetailContainerClosed) {
+            productDetailContainer.classList.add('inactive');
         }
 
         desktopMenu.classList.toggle('inactive');
@@ -83,19 +92,43 @@ function toggleMenu(event) {
     } else if (event.srcElement.className === 'navbar-shopping-cart') {
         const isMobileMenuClosed = mobileMenu.classList.contains('inactive'); /* True si el mobileMenu está inactive */
         const isDesktopMenuClosed = desktopMenu.classList.contains('inactive');
+        const isProductDetailContainerClosed = productDetailContainer.classList.contains('inactive');
 
 
         if (!isMobileMenuClosed) {
             mobileMenu.classList.add('inactive');
         } else if (!isDesktopMenuClosed) {
             desktopMenu.classList.add('inactive');
+        } else if (!isProductDetailContainerClosed) {
+            productDetailContainer.classList.add('inactive');
         }
         
         /* Si el menú mobile o el menú desktop no están cerrados entonces los cierro. */
 
         shoppingCartContainer.classList.toggle('inactive'); /* Y luego hago toggle de inactive para el aside de product detail */
+    } else if (event.srcElement.className === 'product-img') {
+        const isMobileMenuClosed = mobileMenu.classList.contains('inactive'); 
+        const isDesktopMenuClosed = desktopMenu.classList.contains('inactive');
+        const isshoppingCartContainerClose = shoppingCartContainer.classList.contains('inactive');
+
+        if (!isMobileMenuClosed) {
+            mobileMenu.classList.add('inactive');
+        } 
+        if (!isDesktopMenuClosed) {
+            desktopMenu.classList.add('inactive');
+        } 
+        if (!isshoppingCartContainerClose) {
+            shoppingCartContainer.classList.add('inactive');
+        }
+
+        // console.log(event);  Entra bien al seleccionar la imagen
+        productDetailContainer.classList.remove('inactive');
+    } else if (event.srcElement.className === 'product-detail-close') {
+        // console.log(event);
+        productDetailContainer.classList.add('inactive');
     }
 }
+
 
 /* 
 Ahora vamos a hardcodear nuestras cards desde JavaScript en lugar del 
@@ -189,7 +222,9 @@ function renderProducts (arr) {
         productCard.classList.add('product-card'); // Le agrego la clase que tenía.
 
         const img = document.createElement('img'); // Creo una imagen
+        img.classList.add('product-img')
         img.setAttribute('src', producto.image); // Inserto la imagen de mi objeto producto como src de mi elemento img HTML
+        img.addEventListener('click', toggleMenu)
 
         const productInfo = document.createElement('div');
         productInfo.classList.add('product-info');
