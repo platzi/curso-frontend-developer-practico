@@ -24,7 +24,7 @@ const desktopMenu = document.querySelector('.desktop-menu');
 const navMenu = document.querySelector('.menu');
 const mobileMenu = document.querySelector('.mobile-menu');
 const shoppingCart = document.querySelector('.navbar-shopping-cart');
-const asideProductDetail = document.querySelector('.product-detail');
+const shoppingCartContainer = document.querySelector('#shoppingCartContainer');
 const cardsContainer = document.querySelector('.cards-container');
 
 /* Resuelto con dos funciones: 
@@ -64,18 +64,18 @@ function toggleMobileMenu(event) {
 function toggleMenu(event) {
     /* console.log(event); */
     if (event.srcElement.className === 'menu') {
-        const isAsideProductDetailClose = asideProductDetail.classList.contains('inactive');
+        const isshoppingCartContainerClose = shoppingCartContainer.classList.contains('inactive');
 
-        if (!isAsideProductDetailClose) {
-            asideProductDetail.classList.add('inactive');
+        if (!isshoppingCartContainerClose) {
+            shoppingCartContainer.classList.add('inactive');
         }
 
         mobileMenu.classList.toggle('inactive');
     } else if (event.srcElement.className === 'navbar-email') {
-        const isAsideProductDetailClose = asideProductDetail.classList.contains('inactive');
+        const isshoppingCartContainerClose = shoppingCartContainer.classList.contains('inactive');
 
-        if (!isAsideProductDetailClose) {
-            asideProductDetail.classList.add('inactive');
+        if (!isshoppingCartContainerClose) {
+            shoppingCartContainer.classList.add('inactive');
         }
 
         desktopMenu.classList.toggle('inactive');
@@ -93,7 +93,7 @@ function toggleMenu(event) {
         
         /* Si el menú mobile o el menú desktop no están cerrados entonces los cierro. */
 
-        asideProductDetail.classList.toggle('inactive'); /* Y luego hago toggle de inactive para el aside de product detail */
+        shoppingCartContainer.classList.toggle('inactive'); /* Y luego hago toggle de inactive para el aside de product detail */
     }
 }
 

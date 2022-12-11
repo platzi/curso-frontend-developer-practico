@@ -131,8 +131,9 @@
     border-radius: 4%;
     position: absolute;
     top: 61px;
-    left: 12px;
+    left: 0px;
     padding: 24px;
+    width: calc(93% - 24px);
   }
   .mobile-menu a {
     text-decoration: none;
@@ -170,17 +171,21 @@
     width: 100%;
   }
   */
-  /* Aside (product-detail) para el carrito */
-  .product-detail {
+  /* Estilos generales para mis asides */
+  aside {
     background-color: var(--white);
     width: 360px;
-    padding: 8px 24px; /* Arriba y abajo padding cero, izq y derecha 24px */
+    padding: 4px;
     box-sizing: border-box;
     position: absolute;
     border-radius: 4%;
     border: 1px solid var(--very-light-pink);
     right: 0;
   }
+  #shoppingCartContainer {
+    padding: 8px 24px;
+  }
+  /* Estilos de mi aside de carrito */
   .title-container {
     display: flex;
   }
@@ -248,6 +253,53 @@
     font-weight: bold;
     height: 50px;
   }
+  /* Estilos de mi aside de detalle de producto */
+  .product-detail-close {
+    background: var(--white);
+    width: 14px;
+    height: 14px;
+    position: absolute;
+    top: 16px;
+    left: 16px;
+    z-index: 2;
+    padding: 12px;
+    border-radius: 50%;
+  }
+  .product-detail-close:hover {
+    cursor: pointer;
+  }
+  #productDetail > img:nth-child(2) {
+    width: 100%;
+    height: 360px;
+    object-fit: cover;
+    border-radius: 20px;
+  }
+  #productDetail > .product-info {
+    margin: 24px 24px 0 24px;
+  }
+  #productDetail > .product-info p:nth-child(1) {
+    font-weight: bold;
+    font-size: var(--md);
+    margin-top: 0;
+    margin-bottom: 4px;
+  }
+  #productDetail > .product-info p:nth-child(2) {
+    color: var(--very-light-pink);
+    font-size: var(--md);
+    margin-top: 0;
+    margin-bottom: 36px;
+  }
+  #productDetail > .product-info p:nth-child(3) {
+    color: var(--very-light-pink);
+    font-size: var(--sm);
+    margin-top: 0;
+    margin-bottom: 36px;
+  }
+  .add-to-cart-button {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+  }
   /* Cards container o sección donde están nuestras cards a la venta */
   .cards-container {
     display: grid;
@@ -265,26 +317,26 @@
     border-radius: 20px;
     object-fit: cover;
   }
-  .product-info {
+  .product-card > .product-info {
     display: flex;
     justify-content: space-between;
     align-items: center;
     margin-top: 12px;
   }
-  .product-info figure {
+  .product-card > .product-info figure {
     margin: 0;
   }
-  .product-info figure img {
+  .product-card > .product-info figure img {
     width: 35px;
     height: 35px;
   }
-  .product-info div p:nth-child(1) {
+  .product-card > .product-info div p:nth-child(1) {
     font-weight: bold;
     font-size: var(--md);
     margin-top: 0;
     margin-bottom: 4px;
   }
-  .product-info div p:nth-child(2) {
+  .product-card > .product-info div p:nth-child(2) {
     font-size: var(--sm);
     margin-top: 0;
     margin-bottom: 0;
@@ -301,7 +353,7 @@
     .desktop-menu {
         display: none;
     }
-    .product-detail {
+    aside {
         width: 100%;
     }
     .cards-container {
