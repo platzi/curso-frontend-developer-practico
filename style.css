@@ -138,7 +138,6 @@ nav {
     text-decoration: none;
     color: var(--black);
     font-weight: bold;
-    /* margin-bottom: 24px; */
 }
 .mobile-menu ul {
     padding: 0;
@@ -240,8 +239,15 @@ aside {
     font-weight: bold;
     height: 50px;
 }
+.close-shop-container{
+    cursor: pointer;
+}
 
 /* Product Detail */
+#product-detail{
+    position: absolute;
+    
+}
 .product-detail-close {
     background: var(--white);
     width: 14px;
