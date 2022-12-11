@@ -65,7 +65,7 @@ function toggleMobileMenu(event) {
 /* Resuelto con 1 función */
 
 function toggleMenu(event) {
-    /* console.log(event); */
+    console.log(event);
     if (event.srcElement.className === 'menu') {
         const isshoppingCartContainerClose = shoppingCartContainer.classList.contains('inactive');
         const isProductDetailContainerClosed = productDetailContainer.classList.contains('inactive');
@@ -107,6 +107,7 @@ function toggleMenu(event) {
 
         shoppingCartContainer.classList.toggle('inactive'); /* Y luego hago toggle de inactive para el aside de product detail */
     } else if (event.srcElement.className === 'product-img') {
+
         const isMobileMenuClosed = mobileMenu.classList.contains('inactive'); 
         const isDesktopMenuClosed = desktopMenu.classList.contains('inactive');
         const isshoppingCartContainerClose = shoppingCartContainer.classList.contains('inactive');
@@ -123,6 +124,24 @@ function toggleMenu(event) {
 
         // console.log(event);  Entra bien al seleccionar la imagen
         productDetailContainer.classList.remove('inactive');
+
+        // Vamos a armar el contenido del detalle en función del producto que elegimos.  (TAREA POST CURSO)
+
+        /*
+        <!-- 
+        <img src="https://images.pexels.com/photos/276517/pexels-photo-276517.jpeg?auto=compress&cs=tinysrgb&dpr=2&h=650&w=940" alt="bike">
+        <div class="product-info">
+            <p>$35,00</p>
+            <p>Bike</p>
+            <p>Una hermosa bicicleta para paseos durante los fines de semana.</p>
+            <button class="primary-button add-to-cart-button">
+                <img src="./icons/bt_add_to_cart.svg" alt="add to cart">
+                Add to cart
+            </button>
+        </div>
+        -->
+        */
+
     } else if (event.srcElement.className === 'product-detail-close') {
         // console.log(event);
         productDetailContainer.classList.add('inactive');
