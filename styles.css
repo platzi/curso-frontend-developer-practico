@@ -1,3 +1,4 @@
+/* Generales */
 :root {
   --white: #ffffff;
   --black: #000000;
@@ -14,10 +15,11 @@ body {
 }
 
 /*Clase para ocultar un menu que no se esta utilizando inicialmente*/
-.inactive{
+.inactive {
   display: none;
 }
 
+/* Navbar (general) */
 nav {
   display: flex;
   justify-content: space-between;
@@ -84,44 +86,78 @@ nav {
 }
 
 /*Estilos de la clase7.html*/
+/* Menu en desktop */
 .desktop-menu {
-    position: absolute;
-    background: var(--white);
-    top: 60px;
-    right: 60px;
+  position: absolute;
+  background: var(--white);
+  top: 60px;
+  right: 60px;
 
-    width: 100px;
-    height: auto;
-    border: 1px solid var(--very-light-pink);
-    border-radius: 6px;
-    padding: 20px 20px 0 20px;
-  }
-  .desktop-menu ul {
-    list-style: none;
-    padding: 0;
-    margin: 0;
-  }
-  .desktop-menu ul li {
-    text-align: end;
-  }
-  .desktop-menu ul li:nth-child(1),
-  .desktop-menu ul li:nth-child(2) {
-    font-weight: bold;
-  }
-  .desktop-menu ul li:last-child {
-    padding-top: 20px;
-    border-top: 1px solid var(--very-light-pink);
-  }
-  .desktop-menu ul li:last-child a {
-    color: var(--hospital-green);
-    font-size: var(--sm);
-  }
-  .desktop-menu ul li a {
-    color: var(--back);
-    text-decoration: none;
-    margin-bottom: 20px;
-    display: inline-block;
-  }
+  width: 100px;
+  height: auto;
+  border: 1px solid var(--very-light-pink);
+  border-radius: 6px;
+  padding: 20px 20px 0 20px;
+}
+.desktop-menu ul {
+  list-style: none;
+  padding: 0;
+  margin: 0;
+}
+.desktop-menu ul li {
+  text-align: end;
+}
+.desktop-menu ul li:nth-child(1),
+.desktop-menu ul li:nth-child(2) {
+  font-weight: bold;
+}
+.desktop-menu ul li:last-child {
+  padding-top: 20px;
+  border-top: 1px solid var(--very-light-pink);
+}
+.desktop-menu ul li:last-child a {
+  color: var(--hospital-green);
+  font-size: var(--sm);
+}
+.desktop-menu ul li a {
+  color: var(--back);
+  text-decoration: none;
+  margin-bottom: 20px;
+  display: inline-block;
+}
+
+/* Clase 8, Menu en movile*/
+.mobile-menu {
+  /*Mover el menu abajo del nav*/
+  position:absolute;
+  top: 30px;
+  padding: 24px;  
+}
+.mobile-menu a {
+  text-decoration: none;
+  color: var(--black);
+  font-weight: bold;
+  /* margin-bottom: 24px; */
+}
+.mobile-menu ul {
+  padding: 0;
+  margin: 24px 0 0;
+  list-style: none;
+}
+.mobile-menu ul:nth-child(1) {
+  border-bottom: 1px solid var(--very-light-pink);
+}
+.mobile-menu ul li {
+  margin-bottom: 24px;
+}
+.email {
+  font-size: var(--sm);
+  font-weight: 300 !important;
+}
+.sign-out {
+  font-size: var(--sm);
+  color: var(--hospital-green) !important;
+}
 
 @media (max-width: 640px) {
   .menu {
@@ -131,6 +167,19 @@ nav {
     display: none;
   }
   .navbar-email {
+    display: none;
+  }
+
+  /*Quitar el menu de usuario en mobile*/
+  .desktop-menu{
+    display: none;
+  }
+}
+
+/*Media query para cuando la pantalla es desktop*/
+@media (min-width: 641px) {
+  /*Quitar el menu de mobile en desktop*/
+  .mobile-menu{
     display: none;
   }
 }

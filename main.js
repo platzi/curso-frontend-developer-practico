@@ -16,3 +16,16 @@ menuEmail.addEventListener('click', toggleDesktopMenu);
 function toggleDesktopMenu(){
     desktopMenu.classList.toggle('inactive');
 }
+
+/*El siguiente codigo es marecido al terior, pero lo que
+se busca es ocultar y mostrar el menu en mobile
+cuando se de clic en el icono que es un menu
+en forma de hamburguesa*/
+const menuHamIcon=document.querySelector('.menu');
+const mobileMenu=document.querySelector('.mobile-menu');
+
+menuHamIcon.addEventListener('click',toggleMobileMenu);
+
+function toggleMobileMenu(){
+    mobileMenu.classList.toggle('inactive');
+}
