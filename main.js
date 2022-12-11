@@ -77,19 +77,6 @@ productList.push({
         image: 'https://images.pexels.com/photos/276517/pexels-photo-276517.jpeg?auto=compress&cs=tinysrgb&dpr=2&h=650&w=940',
    });
 
-/* <div class="product-card">
-        <img src="https://images.pexels.com/photos/276517/pexels-photo-276517.jpeg?auto=compress&cs=tinysrgb&dpr=2&h=650&w=940" alt="">
-        <div class="product-info">
-          <div>
-            <p>$120,00</p>
-            <p>Bike</p>
-          </div>
-          <figure>
-            <img src="./icons/bt_add_to_cart.svg" alt="">
-          </figure>
-        </div>
-      </div> 
-      */
 
 function renderProducts(arr) {
 for (product of arr) {
@@ -119,6 +106,7 @@ for (product of arr) {
    const productInfoFigure = document.createElement('figure');
    const productImgCart = document.createElement('img');
    productImgCart.setAttribute('src', './icons/bt_add_to_cart.svg');
+   
 // Aqui ya terminamos de crear los elementos html ahora hay que meterlos 
 // uno dentro del otro, cada hijo dentro de su etiqueta padre.
 
