@@ -60,22 +60,34 @@ function closeProductDetailAside(){
 
 const productList = [];
 productList.push({
-    name: 'Bike',
-    price: 120,
-    image: 'https://images.pexels.com/photos/276517/pexels-photo-276517.jpeg?auto=compress&cs=tinysrgb&dpr=2&h=650&w=940',
+    name: 'Jogger',
+    price: 30,
+    image: 'https://m.media-amazon.com/images/I/51pvh5AKaIS._UY550_.jpg',
     });
 
 productList.push({
-        name: 'Pantalla',
-        price: 600,
-        image: 'https://images.pexels.com/photos/276517/pexels-photo-276517.jpeg?auto=compress&cs=tinysrgb&dpr=2&h=650&w=940',
+        name: 'T-Shirt Oversize',
+        price: 25,
+        image: 'https://ae01.alicdn.com/kf/Saa1ec1fc2af241a6938fec24b120cfb55/Hip-Hop-Streetwear-Harajuku-T-Shirt-Drew-House-Fashion-Justin-Bieber-Print-TShirt-Summer-Short-Sleeve.jpg_Q90.jpg_.webp',
     });
 
 productList.push({
-        name: 'Computadora',
-        price: 2000,
-        image: 'https://images.pexels.com/photos/276517/pexels-photo-276517.jpeg?auto=compress&cs=tinysrgb&dpr=2&h=650&w=940',
+        name: 'Beanie',
+        price: 20,
+        image: 'https://cdnx.jumpseller.com/ekol-cl/image/25441221/29.jpg?1663869112',
    });
+
+   productList.push({
+    name: 'Cap',
+    price: 30,
+    image: 'https://hips.hearstapps.com/vader-prod.s3.amazonaws.com/1622451266-gorra-roja-new-era-new-york-1622451207.jpg?crop=1.00xw:0.563xh;0,0.192xh&resize=480:*',
+});
+
+productList.push({
+  name: 'Watch Iconic',
+  price: 30,
+  image: 'https://cdn.shopify.com/s/files/1/0092/0613/6868/products/p-AX7137SET-1_512x.jpg?v=1669124637',
+});
 
 
 function renderProducts(arr) {
@@ -106,7 +118,7 @@ for (product of arr) {
    const productInfoFigure = document.createElement('figure');
    const productImgCart = document.createElement('img');
    productImgCart.setAttribute('src', './icons/bt_add_to_cart.svg');
-   
+
 // Aqui ya terminamos de crear los elementos html ahora hay que meterlos 
 // uno dentro del otro, cada hijo dentro de su etiqueta padre.
 
