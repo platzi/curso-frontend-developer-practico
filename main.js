@@ -1,13 +1,17 @@
 const menuEmail = document.querySelector('.navbar-email');
 const menuIcon = document.querySelector('.menu');
+const carIconMain = document.querySelector('.navbar-shopping-cart');
+const productDetailCloseIcon = document.querySelector('.product-detail-close');
 const desktopMenu = document.querySelector('.desktop-menu');
 const mobileMenu = document.querySelector('.mobile-menu');
-const carIconMain = document.querySelector('.navbar-shopping-cart');
 const shoppingCartContainer = document.querySelector('#shoppingCartContainer');
+const productDetailContainer = document.querySelector('#product-detail');
 const cardsContainer = document.querySelector('.cards-container');
+let isToggleElementMenu = false;
 
-function toggleDesktopMenu(element)
+function toggleElementMenu(element)
 {
+    isToggleElementMenu = true;
     if(element == shoppingCartContainer)
     {
         shoppingCartContainer.classList.toggle('inactive');
@@ -17,11 +21,28 @@ function toggleDesktopMenu(element)
         element.classList.toggle('inactive');
         shoppingCartContainer.classList.add('inactive');
     }
+    closeProductDetailAside();
 }
 
-menuEmail.addEventListener('click', () => toggleDesktopMenu(desktopMenu));
-menuIcon.addEventListener('click', () => toggleDesktopMenu(mobileMenu));
-carIconMain.addEventListener('click', () => toggleDesktopMenu(shoppingCartContainer));
+function openProductDetailAside()
+{
+    productDetailContainer.classList.remove('inactive');
+    if(isToggleElementMenu)
+    {
+        desktopMenu.classList.add('inactive')
+        mobileMenu.classList.add('inactive')
+        shoppingCartContainer.classList.add('inactive');
+    }
+}
+function closeProductDetailAside()
+{
+    productDetailContainer.classList.add('inactive');
+}
+
+productDetailCloseIcon.addEventListener('click', closeProductDetailAside);
+menuEmail.addEventListener('click', () => toggleElementMenu(desktopMenu));
+menuIcon.addEventListener('click', () => toggleElementMenu(mobileMenu));
+carIconMain.addEventListener('click', () => toggleElementMenu(shoppingCartContainer));
 
 //! AGREGANDO PRODUCTOS
 
@@ -83,6 +104,7 @@ function renderProducts(arr)
     
         const productImg = document.createElement('img');
         productImg.setAttribute('src', product.imagen);
+        productImg.addEventListener('click', openProductDetailAside);
     
         const productInfo = document.createElement('div');
         productInfo.classList.add('product-info');

@@ -253,7 +253,7 @@ aside {
     padding: 12px;
     border-radius: 50%;
   }
-  product-detail-close:hover {
+  .product-detail-close:hover {
     cursor: pointer;
   }
   #product-detail > img:nth-child(2) {
