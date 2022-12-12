@@ -1,14 +1,17 @@
 const menuEmail = document.querySelector('.navbar-email');
 const menuHamIcon = document.querySelector('.menu');
 const menuCarritoIcon = document.querySelector('.navbar-shopping-cart');
+const productDetailCloseIcon = document.querySelector('.product-detail-close')
 const desktopMenu = document.querySelector('.desktop-menu');
 const mobileMenu = document.querySelector('.mobile-menu');
 const shoppingCartContainer = document.querySelector('#shoppingCartContainer');
+const productDetailContainer = document.querySelector('#productDetail');
 const cardsContainer = document.querySelector('.cards-container');
 
 menuEmail.addEventListener('click', toggleDesktopMenu);
 menuHamIcon.addEventListener('click', toggleMobileMenu);
 menuCarritoIcon.addEventListener('click', toggleCarritoAside);
+productDetailCloseIcon.addEventListener('click', closeProductDetailAside);
 
 function toggleDesktopMenu() {
   const isAsideClosed = shoppingCartContainer.classList.contains('inactive');
@@ -26,6 +29,8 @@ function toggleMobileMenu() {
   if (!isAsideClosed) {
     shoppingCartContainer.classList.add('inactive'); 
   }
+
+  closeProductDetailAside();
   
   mobileMenu.classList.toggle('inactive');
 }
@@ -34,10 +39,25 @@ function toggleCarritoAside() {
   const isMobileMenuClosed = mobileMenu.classList.contains('inactive');
   
   if (!isMobileMenuClosed) {
-    mobileMenu.classList.add('inactive'); 
+    mobileMenu.classList.add('inactive');
+  }
+
+  const isProductDetailClosed = productDetailContainer.classList.contains('inactive');
+  
+  if (!isProductDetailClosed) {
+    productDetailContainer.classList.add('inactive'); 
   }
   
   shoppingCartContainer.classList.toggle('inactive');
+}
+
+function openProductDetailAside() {
+  shoppingCartContainer.classList.add('inactive');
+  productDetailContainer.classList.remove('inactive');
+}
+
+function closeProductDetailAside() {
+  productDetailContainer.classList.add('inactive');
 }
 
 const productList = [];
@@ -49,17 +69,12 @@ productList.push({
 productList.push({
   name: 'Pantalla',
   price: 220,
-  image: 'https://cdn.computerhoy.com/sites/navi.axelspringer.es/public/media/image/2019/10/elige-mejor-monitor-cada-tipo-juego_1.jpg?tf=3840x',
+  image: 'https://images.pexels.com/photos/276517/pexels-photo-276517.jpeg?auto=compress&cs=tinysrgb&dpr=2&h=650&w=940',
 });
 productList.push({
-  name: 'ordenador',
+  name: 'Compu',
   price: 620,
-  image: 'https://lecciones.batiburrillo.net/wp-content/uploads/2021/11/%C2%BFQue%CC%81-podemos-hacer-cuando-el-ordenador-va-muy-lento-o-se-bloquea-1200x675.jpg',
-});
-productList.push({
-  name: 'Cama',
-  price: 620,
-  image: 'https://cdn-7.com/media/catalog/product/n/u/nueva_cama_tapizada_emma_con_colch_n_emma_1.jpg',
+  image: 'https://images.pexels.com/photos/276517/pexels-photo-276517.jpeg?auto=compress&cs=tinysrgb&dpr=2&h=650&w=940',
 });
 
 function renderProducts(arr) {
@@ -70,6 +85,7 @@ function renderProducts(arr) {
     // product= {name, price, image} -> product.image
     const productImg = document.createElement('img');
     productImg.setAttribute('src', product.image);
+    productImg.addEventListener('click', openProductDetailAside);
   
     const productInfo = document.createElement('div');
     productInfo.classList.add('product-info');
