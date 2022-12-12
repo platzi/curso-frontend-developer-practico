@@ -189,6 +189,7 @@
     z-index: 2;
     padding: 12px;
     border-radius: 50%;
+    cursor: pointer;
   }
   #product-detail-close:hover {
     cursor: pointer;
@@ -320,6 +321,7 @@
     height: 240px;
     border-radius: 20px;
     object-fit: cover;
+    cursor: pointer;
   }
    .product-card .product-info {
     display: flex;
