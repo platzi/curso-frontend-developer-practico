@@ -194,47 +194,47 @@ productList.push(
 ); 
 
 productList.push(
-    new product('Monitor', 220, 'https://images.pexels.com/photos/1999463/pexels-photo-1999463.jpeg?auto=compress&cs=tinysrgb&w=1260&h=750&dpr=1')
+    new product('Monitor', 220, 'https://images.pexels.com/photos/1999463/pexels-photo-1999463.jpeg?auto=compress&cs=tinysrgb&w=1260&h=750&dpr=1', 'El mejor monitor del mercado. Optima resolución para juegos de última generación.')
 ); 
 
 productList.push(
-    new product('Computador', 550, 'https://images.pexels.com/photos/13260079/pexels-photo-13260079.jpeg?auto=compress&cs=tinysrgb&w=1260&h=750&dpr=1')
+    new product('Computador', 550, 'https://images.pexels.com/photos/13260079/pexels-photo-13260079.jpeg?auto=compress&cs=tinysrgb&w=1260&h=750&dpr=1', 'La computadora ideal para gamers que a su vez usan la PC para trabajar o estudiar.')
 ); 
 
 productList.push(
-    new product('Nintendo Switch', 300, 'https://images.pexels.com/photos/371924/pexels-photo-371924.jpeg?auto=compress&cs=tinysrgb&w=1260&h=750&dpr=1')
+    new product('Nintendo Switch', 300, 'https://images.pexels.com/photos/371924/pexels-photo-371924.jpeg?auto=compress&cs=tinysrgb&w=1260&h=750&dpr=1', 'Que decir de esta joya, ¿no?. Nintendo Switch: por lejos la mejor consola de su generación en cuanto a jugabilidad y performance')
 ); 
 
 productList.push(
-    new product('Motocicleta Vintage', 1000, 'https://images.pexels.com/photos/104842/bmw-vehicle-ride-bike-104842.jpeg?auto=compress&cs=tinysrgb&w=1260&h=750&dpr=1')
+    new product('Motocicleta Vintage', 1000, 'https://images.pexels.com/photos/104842/bmw-vehicle-ride-bike-104842.jpeg?auto=compress&cs=tinysrgb&w=1260&h=750&dpr=1', 'La motocicleta con la que soñaba tu abuelo ahora puede ser tuya al mejor precio del mercado.')
 ); 
 
 productList.push(
-    new product('Motocicleta Economic', 490, 'https://images.pexels.com/photos/159192/vespa-roller-motor-scooter-cult-159192.jpeg?auto=compress&cs=tinysrgb&w=1260&h=750&dpr=1')
+    new product('Motocicleta Economic', 490, 'https://images.pexels.com/photos/159192/vespa-roller-motor-scooter-cult-159192.jpeg?auto=compress&cs=tinysrgb&w=1260&h=750&dpr=1', 'Si estás buscando un vehiculo que te lleve y te traiga del trabajo a muy bajo costo pero muuuuuuy rapido, entonces esta moto es para vos.')
 ); 
 
 productList.push(
-    new product('Motocicleta de carrera', 1250, 'https://images.pexels.com/photos/163210/motorcycles-race-helmets-pilots-163210.jpeg?auto=compress&cs=tinysrgb&w=1260&h=750&dpr=1')
+    new product('Motocicleta de carrera', 1250, 'https://images.pexels.com/photos/163210/motorcycles-race-helmets-pilots-163210.jpeg?auto=compress&cs=tinysrgb&w=1260&h=750&dpr=1', 'Para los amantes de la velocidad y el vertigo también tenemos opciones.')
 ); 
 
 productList.push(
-    new product('Headset', 80, 'https://images.pexels.com/photos/846357/pexels-photo-846357.jpeg?auto=compress&cs=tinysrgb&w=1260&h=750&dpr=1')
+    new product('Headset', 80, 'https://images.pexels.com/photos/846357/pexels-photo-846357.jpeg?auto=compress&cs=tinysrgb&w=1260&h=750&dpr=1', 'Auriculares para el trabajo, los estudios o reunirse con tus amigos antes de iniciar una partida multijugador.')
 ); 
 
 productList.push(
-    new product('Auriculares inalambricos', 49, 'https://images.pexels.com/photos/8360626/pexels-photo-8360626.jpeg?auto=compress&cs=tinysrgb&w=1260&h=750&dpr=1')
+    new product('Auriculares inalambricos', 49, 'https://images.pexels.com/photos/8360626/pexels-photo-8360626.jpeg?auto=compress&cs=tinysrgb&w=1260&h=750&dpr=1', 'Ideales para oficinas pero también muy aptos para salir a hacer running por la ciudad y escuchar tus canciones.')
 ); 
 
 productList.push(
-    new product('Gafas de sol', 120, 'https://images.pexels.com/photos/13800992/pexels-photo-13800992.jpeg?auto=compress&cs=tinysrgb&w=1260&h=750&dpr=1')
+    new product('Gafas de sol', 120, 'https://images.pexels.com/photos/13800992/pexels-photo-13800992.jpeg?auto=compress&cs=tinysrgb&w=1260&h=750&dpr=1', 'Las mejores gafas de sol. Tan buenas que hasta los girasoles las usan!!!')
 ); 
 
 productList.push(
-    new product('Juego de camping', 230, 'https://images.pexels.com/photos/6271625/pexels-photo-6271625.jpeg?auto=compress&cs=tinysrgb&w=1260&h=750&dpr=1')
+    new product('Juego de camping', 230, 'https://images.pexels.com/photos/6271625/pexels-photo-6271625.jpeg?auto=compress&cs=tinysrgb&w=1260&h=750&dpr=1', 'Con este juego de camping tenés un 50% de día de campo resuelto. ')
 ); 
 
 productList.push(
-    new product('Juego de playa', 380, 'https://images.pexels.com/photos/3355732/pexels-photo-3355732.jpeg?auto=compress&cs=tinysrgb&w=1260&h=750&dpr=1')
+    new product('Juego de playa', 380, 'https://images.pexels.com/photos/3355732/pexels-photo-3355732.jpeg?auto=compress&cs=tinysrgb&w=1260&h=750&dpr=1', 'Un juego de playa de alto nivel y que las mejores prestaciones del mercado a un precio increible. No te lo pierdas. ')
 );
 
 /*
