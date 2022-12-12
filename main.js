@@ -29,6 +29,12 @@ const cardsContainer = document.querySelector('.cards-container');
 const productDetailContainer = document.querySelector('#productDetail');
 const productDetailClose = document.querySelector('.product-detail-close');
 
+const imgDetalle = document.querySelector('.img-detalle');
+const pPrecio = document.querySelector('.precio-detalle');
+const pNombre = document.querySelector('.nombre-detalle');
+const pDescription = document.querySelector('.descripcion-detalle');
+
+
 /* Resuelto con dos funciones: 
 
 navEmail.addEventListener('click', toggleDesktopMenu);
@@ -123,7 +129,7 @@ function toggleMenu(event) {
         }
 
         // console.log(event);  Entra bien al seleccionar la imagen
-        productDetailContainer.classList.remove('inactive');
+
 
         // Vamos a armar el contenido del detalle en función del producto que elegimos.  (TAREA POST CURSO)
 
@@ -141,6 +147,24 @@ function toggleMenu(event) {
         </div>
         -->
         */
+        
+        const valorBuscado = event.srcElement.currentSrc;
+        console.log(valorBuscado);
+        console.log(event.srcElement.currentSrc);
+
+        for (const producto of productList) {
+            console.log("producto.image " + producto.image)
+            console.log("valorBuscado " + valorBuscado)
+            if (producto.image == valorBuscado) {
+                console.log("llegue")
+                imgDetalle.src = producto.image;
+                pNombre.innerText = producto.name;
+                pPrecio.innerText = producto.price;
+                pDescription.innerText = producto.description;
+            }   
+        }
+
+        productDetailContainer.classList.remove('inactive');
 
     } else if (event.srcElement.className === 'product-detail-close') {
         // console.log(event);
@@ -156,16 +180,17 @@ Posteriormente este hardcodeo debemos reemplazarlo por la información que
 nos traiga la consulta a nuestra API Rest.
 */
 
-function product(name, price, image) {  
+function product(name, price, image, description = "N/A") {  
     this.name = name;
     this.price = price;
     this.image = image;
+    this.description = description;
 }
 
 let productList = [];
 
 productList.push(
-    new product('Bike', 120, 'https://images.pexels.com/photos/276517/pexels-photo-276517.jpeg?auto=compress&cs=tinysrgb&dpr=2&h=650&w=940')
+    new product('Bike', 120, 'https://images.pexels.com/photos/276517/pexels-photo-276517.jpeg?auto=compress&cs=tinysrgb&dpr=2&h=650&w=940', 'Una hermosa bicicleta para paseos durante los fines de semana.')
 ); 
 
 productList.push(
