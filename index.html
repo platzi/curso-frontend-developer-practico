@@ -17,6 +17,28 @@
   -->
 </head>
 <body>
+
+<div class="login">
+  <div class="form-container">
+    <img src="./logos/logo_yard_sale.svg" alt="logo-login" class="logo-login">
+
+    <form action="/" class="form inactive">
+      <label for="email" class="label">Email address</label>
+      <input type="text" id="email" placeholder="mgobea@example.com" class="input input-email">
+
+      <label for="password" class="label">Password</label>
+      <input type="password" id="password" placeholder="*********" class="input input-password">
+
+      <input type="submit" value="Log in" class="primary-button login-button">
+      <a href="/">Forgot my password</a>
+    </form>
+
+    <button class="secondary-button signup-button">Sign up</button>
+  </div>
+</div>
+
+<div class="principal-page inactive">
+
   <nav>
     <img src="./icons/icon_menu.svg" alt="menu" class="menu">
 
@@ -187,7 +209,7 @@
 
   </aside>
 
-  <section class="main-container">
+  <section class="main-container inactive">
     <div class="cards-container">
 
     <!-- En realidad, las cards deberían formarse en función de los articulos que nosotros tengamos en nuestra base de datos. La misma se debe consultar a través de una API Rest y con esa información debemos manipular el DOM para que aparezcan tantas cards como productos tengamos (o un límite establecido por pagina) -->
@@ -209,7 +231,9 @@
 
     </div>
   </section>
+  
+</div>
 
-  <script src="./main.js"></script>
+<script src="./main.js"></script>
 </body>
 </html>

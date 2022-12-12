@@ -34,6 +34,13 @@ const pPrecio = document.querySelector('.precio-detalle');
 const pNombre = document.querySelector('.nombre-detalle');
 const pDescription = document.querySelector('.descripcion-detalle');
 
+const emailLogin = document.getElementById('email');
+const passwordLogin = document.getElementById('password');
+const buttonLogin = document.querySelector('.login-button');
+
+const principalPage = document.querySelector('.principal-page');
+const sectionCards = document.querySelector('.main-container');
+const login = document.querySelector('.login');
 
 /* Resuelto con dos funciones: 
 
@@ -48,6 +55,7 @@ navEmail.addEventListener('click', toggleMenu);
 navMenu.addEventListener('click', toggleMenu);
 shoppingCart.addEventListener('click', toggleMenu);
 productDetailClose.addEventListener('click', toggleMenu);
+buttonLogin.addEventListener('click',toggleMenu);
 
 /* classList.toggle se usa para hacer aparecer o desaparecer la clase que
  está entre parentesis en función de si esta existe o no al momento de 
@@ -72,6 +80,7 @@ function toggleMobileMenu(event) {
 
 function toggleMenu(event) {
     console.log(event);
+    event.preventDefault();
     if (event.srcElement.className === 'menu') {
         const isshoppingCartContainerClose = shoppingCartContainer.classList.contains('inactive');
         const isProductDetailContainerClosed = productDetailContainer.classList.contains('inactive');
@@ -169,6 +178,15 @@ function toggleMenu(event) {
     } else if (event.srcElement.className === 'product-detail-close') {
         // console.log(event);
         productDetailContainer.classList.add('inactive');
+    } else if (event.srcElement.className === 'primary-button login-button') {
+        console.log("Hola. Aca estoy");
+        if (emailLogin.value !== "" && passwordLogin.value !== "") {
+            console.log("Hola. Llegué");
+            principalPage.classList.remove('inactive'); 
+            sectionCards.classList.remove('inactive');
+            login.classList.remove('login');
+            login.classList.add('inactive');
+        }
     }
 }
 
