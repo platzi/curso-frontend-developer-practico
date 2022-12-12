@@ -60,7 +60,6 @@ function openProductDetailAside() {
 function closeProductDetailAside() {
     productDetailContainer.classList.add('inactive');
 
-    .classList.close('inactive');
 }
 
 const productList = [];
