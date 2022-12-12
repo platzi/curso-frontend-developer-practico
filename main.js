@@ -5,14 +5,14 @@ const aside = document.querySelector('.product-detail');
 const menuHamIcon = document.querySelector('.menu');
 const mobileMenu = document.querySelector('.mobile-menu');
 const cardsContainer = document.querySelector('.cards-container');
-const productDescription = document.querySelector('.product-detail-secondary');
-const detailMenu = document.querySelector('.product-detail-secondary-close');
+const productDetailContainer = document.querySelector('.product-detail-secondary');
+const productDetailCloseIcon = document.querySelector('.product-detail-secondary-close');
 
 
 menuEmail.addEventListener('click', toggleDesktopMenu);
 menuHamIcon.addEventListener('click', toggleMobileMenu);
 menuCarritoIcon.addEventListener('click', toggleCarritoAside);
-productDescription.addEventListener('click', opendetailMenu);
+productDetailCloseIcon.addEventListener('click', closeProductDetailAside);
 
 function toggleDesktopMenu() {
     const isAsideClosed = aside.classList.contains('inactive');
@@ -31,6 +31,8 @@ function toggleMobileMenu() {
         aside.classList.add('inactive')
     }
 
+    closeProductDetailAside();
+
     mobileMenu.classList.toggle('inactive');
 }
 
@@ -41,15 +43,22 @@ function toggleCarritoAside() {
         mobileMenu.classList.add('inactive');
     }
 
+    const isProductDetailClosed = productDetailContainer.classList.contains('inactive');
+
+    if (!isProductDetailClosed) {
+        productDetailContainer.classList.add('inactive');
+    }
+
     aside.classList.toggle('inactive');
 }
 
-function opendetailMenu() {
-    const  = .classList.contains('inactive');
+function openProductDetailAside() {
+    aside.classList.add('inactive')
+    productDetailContainer.classList.remove('inactive');
+}
 
-    if (!is) {
-        .classList.add('inactive')
-    }
+function closeProductDetailAside() {
+    productDetailContainer.classList.add('inactive');
 
     .classList.close('inactive');
 }
@@ -64,13 +73,13 @@ productList.push({
 productList.push({
     name: 'smartTV',
     price: 320,
-    image: 'https://images.pexels.com/photos/275484/pexels-photo-275484.jpeg?cs=srgb&dl=pexels-pixabay-275484.jpg&fm=jpg&_gl=1*19tp35l*_ga*MTU4MzczNTQxLjE2NjcwMDY3MjY.*_ga_8JE65Q40S6*MTY2NzYwNzQ2NS4zLjEuMTY2NzYwNzY4My4wLjAuMA..'
+    image: 'https://images.pexels.com/photos/275484/pexels-photo-275484.jpeg?auto=compress&cs=tinysrgb&dpr=2&h=650&w=940'
 })
 
 productList.push({
     name: 'PC',
     price: 620,
-    image: 'https://images.pexels.com/photos/333984/pexels-photo-333984.jpeg'
+    image: 'https://images.pexels.com/photos/333984/pexels-photo-333984.jpeg?auto=compress&cs=tinysrgb&dpr=2&h=650&w=940'
 })
 
 for (product of productList) {
