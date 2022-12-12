@@ -186,6 +186,8 @@ function toggleMenu(event) {
             sectionCards.classList.remove('inactive');
             login.classList.remove('login');
             login.classList.add('inactive');
+        } else {
+            window.alert("Debe completar email y password para avanzar")
         }
     }
 }
