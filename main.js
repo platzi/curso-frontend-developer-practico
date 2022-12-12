@@ -2,57 +2,38 @@
 const $ = (selector) => document.querySelector(selector);
 
 const menuEmail = $('.navbar-email');
-const profileMenu = $('.desktop-menu');
+const desktopMenu = $('.desktop-menu');
 const burguerMenu = $('.menu');
 const mobileMenu = $('.mobile-menu');
 const menuCarritoIcon = $('.navbar-shopping-cart');
 const aside = $('.product-detail');
 
-menuEmail.addEventListener('click', toggleprofileMenu);
+menuEmail.addEventListener('click', toggledesktopMenu);
 burguerMenu.addEventListener('click', toggleMobileMenu);
-menuCarritoIcon.addEventListener('click', toggleCarritoAside);
+menuCarritoIcon.addEventListener('click', toggleAside);
+
+const isAsideClose = aside.classList.contains('inactive');
+const isMobileMenuClosed = mobileMenu.classList.contains('inactive');
+const isdesktopMenuClose = desktopMenu.classList.contains('inactive');
 
 
+function toggledesktopMenu() {
+    aside.classList.add('inactive');
+    mobileMenu.classList.add('inactive');
 
-function toggleprofileMenu() {
-    const isAsideClose = aside.classList.contains('inactive');
-    if (!isAsideClose) {
-        aside.classList.add('inactive');
-    }
-    
-    const isMobileMenuClosed = mobileMenu.classList.contains('inactive');
-    if (!isMobileMenuClosed) {
-        mobileMenu.classList.add('inactive');
-    }
-
-    profileMenu.classList.toggle('inactive');
+    desktopMenu.classList.toggle('inactive');
 }
 
 function toggleMobileMenu() {
-    const isAsideClose = aside.classList.contains('inactive');
-    if (!isAsideClose) {
-        aside.classList.add('inactive');
-    }
-
-    const isProfileMenuClose = profileMenu.classList.contains('inactive');
-    if (!isProfileMenuClose) {
-        profileMenu.classList.add('inactive');
-    }
+    aside.classList.add('inactive');
+    desktopMenu.classList.add('inactive');
 
     mobileMenu.classList.toggle('inactive');
 }
 
-function toggleCarritoAside() {
-    const isMobileMenuClosed = mobileMenu.classList.contains('inactive');
-
-    if (!isMobileMenuClosed) {
-        mobileMenu.classList.add('inactive');
-    }
-
-    const isProfileMenuClose = profileMenu.classList.contains('inactive');
-    if (!isProfileMenuClose) {
-        profileMenu.classList.add('inactive');
-    }
+function toggleAside() {
+    mobileMenu.classList.add('inactive');
+    desktopMenu.classList.add('inactive');
 
     aside.classList.toggle('inactive');
 }
