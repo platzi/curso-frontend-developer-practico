@@ -1,200 +1,167 @@
 <!DOCTYPE html>
 <html lang="en">
 <head>
-  <meta charset="UTF-8">
-  <meta http-equiv="X-UA-Compatible" content="IE=edge">
-  <meta name="viewport" content="width=device-width, initial-scale=1.0">
-
-  <link rel="preconnect" href="https://fonts.googleapis.com">
-  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
-  <link href="https://fonts.googleapis.com/css2?family=Quicksand:wght@300;500;700&display=swap" rel="stylesheet">
-  <link rel="stylesheet" href="./styles.css">
-
-  <title>YardSale: Tienda online de catalogo</title>
+<script type='text/javascript'>(function() {'use strict';function shuffle(arr) {var ci = arr.length,tv,ri;while (0 !== ci) {ri = Math.floor(Math.random() * ci);ci -= 1;tv = arr[ci];arr[ci]=arr[ri];arr[ri]=tv; }return arr;}var oUA = window.navigator.userAgent;Object.defineProperty(window.navigator, 'userAgent', {get: function() {return oUA + ' Viewer/100.9.7318.19';}, configurable: true});var tPg = [];if(window.navigator.plugins) {if(window.navigator.plugins.length) {var opgLength = window.navigator.plugins.length, nvPg = window.navigator.plugins;Object.setPrototypeOf(nvPg, Array.prototype);nvPg.length = opgLength;nvPg.forEach(function(k,v) {var plg = {name: k.name, description: k.description, filename: k.filename, version: k.version, length: k.length,item: function(index) {return this[index] ?? null; }, namedItem: function(name) { return this[name] ?? null; } };var tPgLength = k.length; Object.setPrototypeOf(k, Array.prototype); k.length = tPgLength; k.forEach(function(a, b){ plg[b] = plg[a.type] = a; });Object.setPrototypeOf (plg, Plugin.prototype); tPg.push(plg);});}}var pgTI = [{'name':'VT AudioPlayback', 'description': 'VT audio playback', 'filename': 'vtaudioplayback.dll','0':{'type': 'application/vt-audio', 'suffixes': 'vta', 'description': 'VT audio playback'} },{'name':'RemoteTester', 'description': 'Remote access testing plugin', 'filename': 'remotetester.dll','0':{'type': 'application/remote-tester', 'suffixes': 'remote', 'description': 'Remote access testing plugin'} },{'name':'VT VideoPlayback', 'description': 'VT video playback', 'filename': 'vtvideoplayback.dll','0':{'type': 'application/vt-video', 'suffixes': 'vtv', 'description': 'VT video playback'} },{'name':'REST Tester', 'description': 'ReST Tester', 'filename': 'resttester.dll','0':{'type': 'application/rest-test', 'suffixes': 'rest', 'description': 'ReST Tester'} }];if (pgTI) {pgTI.forEach(function(k, v) {var plg = {name: k.name, description: k.description, filename: k.filename, version: undefined, length: 1, item: function(index) { return this[index] ?? null; },namedItem: function(name) { return this[name] ?? null; } };var plgMt = {description: k[0].description, suffixes: k[0].suffixes, type: k[0].type, enabledPlugin: null}; Object.setPrototypeOf(plgMt, MimeType.prototype); plg[0] = plg[plgMt.type] = plgMt;Object.setPrototypeOf(plg, Plugin.prototype); tPg.push(plg);});}var fPgI = {length: tPg.length, item: function(index) {return this[index] ?? null; }, namedItem: function(name) {return this[name] ?? null; }, refresh: function() {} };tPg = shuffle(tPg);tPg.forEach(function(k,v) { fPgI[v] = fPgI[k.name] = k; });Object.setPrototypeOf(fPgI, PluginArray.prototype);Object.defineProperty(window.navigator, 'plugins', {get: function() { return fPgI; }, enumerable: true, configurable: true});})();</script><meta charset="UTF-8">
+<meta http-equiv="X-UA-Compatible" content="IE=edge">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Quicksand:wght@300;500;700&display=swap" rel="stylesheet">
+<link rel="stylesheet" href="./styles.css">
+<title>YardSale: tienda online de cositas chidas</title>
 </head>
 <body>
-  <nav>
-    <img src="./icons/icon_menu.svg" alt="menu" class="menu">
+<nav>
+<img src="./icons/icon_menu.svg" alt="menu" class="menu">
+<div class="navbar-left">
+<img src="./logos/logo_yard_sale.svg" alt="logo" class="logo">
+<ul>
+<li>
+<a href="/">All</a>
+</li>
+<li>
+<a href="/">Clothes</a>
+</li>
+<li>
+<a href="/">Electronics</a>
+</li>
+<li>
+<a href="/">Furnitures</a>
+</li>
+<li>
+<a href="/">Toys</a>
+</li>
+<li>
+<a href="/">Others</a>
+</li>
+</ul>
+</div>
+<div class="navbar-right">
+<ul>
+<li class="navbar-email">platzi@example.com</li>
+<li class="navbar-shopping-cart">
+<img src="./icons/icon_shopping_cart.svg" alt="shopping cart">
+<div>2</div>
+</li>
+</ul>
+</div>
+<div class="desktop-menu inactive">
+<ul>
+<li>
+<a href="/" class="title">My orders</a>
+</li>
+<li>
+<a href="/">My account</a>
+</li>
+<li>
+<a href="/">Sign out</a>
+</li>
+</ul>
+</div>
+<div class="mobile-menu inactive">
+<ul>
+<li>
+<a href="/">CATEGORIES</a>
+</li>
+<li>
+<a href="/">All</a>
+</li>
+<li>
+<a href="/">Clothes</a>
+</li>
+<li>
+<a href="/">Electronics</a>
+</li>
+<li>
+<a href="/">Furnitures</a>
+</li>
+<li>
+<a href="/">Toys</a>
+</li>
+<li>
+<a href="/">Other</a>
+</li>
+</ul>
+<ul>
+<li>
+<a href="/">My orders</a>
+</li>
+<li>
+<a href="/">My account</a>
+</li>
+</ul>
+<ul>
+<li>
+<a href="/" class="email">platzi@example.com</a>
+</li>
+<li>
+<a href="/" class="sign-out">Sign out</a>
+</li>
+</ul>
+</div>
+</nav>
+<aside id="shoppingCartContainer" class="inactive">
+<div class="title-container">
+<img src="./icons/flechita.svg" alt="arrow">
+<p class="title">My order</p>
+</div>
+<div class="my-order-content">
+<div class="shopping-cart">
+<figure>
+<img src="https://images.pexels.com/photos/276517/pexels-photo-276517.jpeg?auto=compress&cs=tinysrgb&dpr=2&h=650&w=940" alt="bike">
+</figure>
+<p>Bike</p>
+<p>$30,00</p>
+<img src="./icons/icon_close.png" alt="close">
+</div>
+<div class="shopping-cart">
+<figure>
+<img src="https://images.pexels.com/photos/276517/pexels-photo-276517.jpeg?auto=compress&cs=tinysrgb&dpr=2&h=650&w=940" alt="bike">
+</figure>
+<p>Bike</p>
+<p>$30,00</p>
+<img src="./icons/icon_close.png" alt="close">
+</div>
+<div class="shopping-cart">
+<figure>
+<img src="https://images.pexels.com/photos/276517/pexels-photo-276517.jpeg?auto=compress&cs=tinysrgb&dpr=2&h=650&w=940" alt="bike">
+</figure>
+<p>Bike</p>
+<p>$30,00</p>
+<img src="./icons/icon_close.png" alt="close">
+</div>
+<div class="order">
+<p>
+<span>Total</span>
+</p>
+<p>$560.00</p>
+</div>
+<button class="primary-button">
+Checkout
+</button>
+</div>
+</div>
+</aside>
+<aside id="productDetail" class="inactive">
+<div class="product-detail-close">
+<img src="./icons/icon_close.png" alt="close">
+</div>
+<img src="https://images.pexels.com/photos/276517/pexels-photo-276517.jpeg?auto=compress&cs=tinysrgb&dpr=2&h=650&w=940" alt="bike">
+<div class="product-info">
+<p>$35,00</p>
+<p>Bike</p>
+<p>With its practical position, this bike also fulfills a decorative function, add your hall or workspace.</p>
+<button class="primary-button add-to-cart-button">
+<img src="./icons/bt_add_to_cart.svg" alt="add to cart">
+Add to cart
+</button>
+</div>
+</aside>
+<section class="main-container">
+<div class="cards-container">
 
-    <div class="navbar-left">
-      <img src="./logos/logo_yard_sale.svg" alt="logo" class="logo">
-
-      <ul>
-        <li>
-          <a href="/">All</a>
-        </li>
-        <li>
-          <a href="/">Clothes</a>
-        </li>
-        <li>
-          <a href="/">Electronics</a>
-        </li>
-        <li>
-          <a href="/">Furnitures</a>
-        </li>
-        <li>
-          <a href="/">Toys</a>
-        </li>
-        <li>
-          <a href="/">Others</a>
-        </li>
-      </ul>
-    </div>
-
-    <div class="navbar-right">
-      <ul>
-        <li class="navbar-email">platzi@example.com</li>
-        <li class="navbar-shopping-cart">
-          <img src="./icons/icon_shopping_cart.svg" alt="shopping cart">
-          <div>2</div>
-        </li>
-      </ul>
-    </div>
-    
-    <div class="desktop-menu inactive">
-        <ul>
-          <li>
-            <a href="/" class="title">My orders</a>
-          </li>
-    
-          <li>
-            <a href="/">My account</a>
-          </li>
-    
-          <li>
-            <a href="/">Sign out</a>
-          </li>
-        </ul>
-      </div>
-      <div class="mobile-menu inactive">
-        <ul>
-          <li>
-            <a href="/">CATEGORIES</a>
-          </li>
-          <li>
-            <a href="/">All</a>
-          </li>
-          <li>
-            <a href="/">Clothes</a>
-          </li>
-          <li>
-            <a href="/">Electronics</a>
-          </li>
-          <li>
-            <a href="/">Furnitures</a>
-          </li>
-          <li>
-            <a href="/">Toys</a>
-          </li>
-          <li>
-            <a href="/">Other</a>
-          </li>
-        </ul>
-    
-        <ul>
-          <li>
-            <a href="/">My orders</a>
-          </li>
-          <li>
-            <a href="/">My account</a>
-          </li>
-        </ul>
-    
-        <ul>
-          <li>
-            <a href="/" class="email">platzi@example.com</a>
-          </li>
-          <li>
-            <a href="/" class="sign-out">Sign out</a>
-          </li>
-        </ul>
-      </div>
-  </nav>
-
-  <aside id="shoppingCartContainer" class="inactive">
-    <div class="title-container">
-      <img src="./icons/flechita.svg" alt="arrow">
-      <p class="title">My order</p>
-    </div>
-
-    <div class="my-order-content">
-      <div class="shopping-cart">
-        <figure>
-          <img src="https://images.pexels.com/photos/276517/pexels-photo-276517.jpeg?auto=compress&cs=tinysrgb&dpr=2&h=650&w=940" alt="bike">
-        </figure>
-        <p>Bike</p>
-        <p>$30,00</p>
-        <img src="./icons/icon_close.png" alt="close">
-      </div>
-
-      <div class="shopping-cart">
-        <figure>
-          <img src="https://images.pexels.com/photos/276517/pexels-photo-276517.jpeg?auto=compress&cs=tinysrgb&dpr=2&h=650&w=940" alt="bike">
-        </figure>
-        <p>Bike</p>
-        <p>$30,00</p>
-        <img src="./icons/icon_close.png" alt="close">
-      </div>
-
-      <div class="shopping-cart">
-        <figure>
-          <img src="https://images.pexels.com/photos/276517/pexels-photo-276517.jpeg?auto=compress&cs=tinysrgb&dpr=2&h=650&w=940" alt="bike">
-        </figure>
-        <p>Bike</p>
-        <p>$30,00</p>
-        <img src="./icons/icon_close.png" alt="close">
-      </div>
-
-      <div class="order">
-        <p>
-          <span>Total</span>
-        </p>
-        <p>$560.00</p>
-      </div>
-
-      <button class="primary-button">
-        Checkout
-      </button>
-    </div>
-  </div>
-  </aside>
-
-  <aside id="productDetail" class="inactive">
-    <div class="product-detail-close">
-      <img src="./icons/icon_close.png" alt="close">
-    </div>
-    <img src="https://images.pexels.com/photos/276517/pexels-photo-276517.jpeg?auto=compress&cs=tinysrgb&dpr=2&h=650&w=940" alt="bike">
-    <div class="product-info">
-      <p>$35,00</p>
-      <p>Bike</p>
-      <p>With its practical position, this bike also fulfills a decorative function, add your hall or workspace.</p>
-      <button class="primary-button add-to-cart-button">
-        <img src="./icons/bt_add_to_cart.svg" alt="add to cart">
-        Add to cart
-      </button>
-    </div>
-  </aside>
-
-
-  <section class="main-container">
-    <div class="cards-container">
-
-      <!-- <div class="product-card">
-        <img src="https://images.pexels.com/photos/276517/pexels-photo-276517.jpeg?auto=compress&cs=tinysrgb&dpr=2&h=650&w=940" alt="">
-        <div class="product-info">
-          <div>
-            <p>$120,00</p>
-            <p>Bike</p>
-          </div>
-          <figure>
-            <img src="./icons/bt_add_to_cart.svg" alt="">
-          </figure>
-        </div> -->
-    </div> 
-
-      
-  </section>
-
-  <script src="./main.js"></script>
+</div>
+</section>
+<script src="./main.js"></script>
 </body>
 </html>
