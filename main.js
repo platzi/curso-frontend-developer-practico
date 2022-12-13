@@ -6,39 +6,39 @@ const desktopMenu = $('.desktop-menu');
 const burguerMenu = $('.menu');
 const mobileMenu = $('.mobile-menu');
 const menuCarritoIcon = $('.navbar-shopping-cart');
-const aside = $('.product-detail');
+const shoopingCard = $('#shoppingCartContainer');
 const cardsContainer = $('.cards-container')
 
 // ESCUCHA EL EVENTO CLICK
-menuEmail.addEventListener('click', toggledesktopMenu);
+menuEmail.addEventListener('click', toggleDesktopMenu);
 burguerMenu.addEventListener('click', toggleMobileMenu);
-menuCarritoIcon.addEventListener('click', toggleAside);
+menuCarritoIcon.addEventListener('click', toggleShoopingCard);
 
 // REVISA SI EL ATRIBUTO 'inactive' SE ENCUENTRA PUESTO AL ELEMENTO
-const isAsideClose = aside.classList.contains('inactive');
+const isShoopingCardClose = shoopingCard.classList.contains('inactive');
 const isMobileMenuClosed = mobileMenu.classList.contains('inactive');
 const isdesktopMenuClose = desktopMenu.classList.contains('inactive');
 
 // MUESTRA UNA SECCIÓN Y ESCONDE LAS DEMÁS
-function toggledesktopMenu() {
-    aside.classList.add('inactive');
+function toggleDesktopMenu() {
+    shoopingCard.classList.add('inactive');
     mobileMenu.classList.add('inactive');
 
     desktopMenu.classList.toggle('inactive');
 }
 
 function toggleMobileMenu() {
-    aside.classList.add('inactive');
+    shoopingCard.classList.add('inactive');
     desktopMenu.classList.add('inactive');
 
     mobileMenu.classList.toggle('inactive');
 }
 
-function toggleAside() {
+function toggleShoopingCard() {
     mobileMenu.classList.add('inactive');
     desktopMenu.classList.add('inactive');
 
-    aside.classList.toggle('inactive');
+    shoopingCard.classList.toggle('inactive');
 }
 
 // CREANDO LISTA DE PRODUCTOS
