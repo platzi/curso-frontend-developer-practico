@@ -258,8 +258,8 @@ nav {
 
 /* estidos de cards container */
 .cards-container {
-  margin: 20px auto;
   display: grid;
+  margin: 20px auto;
   grid-template-columns: repeat(auto-fill, 240px);
   gap: 26px;
   place-content: center;
