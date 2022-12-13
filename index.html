@@ -1,0 +1,240 @@
+<!-- Aquí vamos a comenzar a hacer la fusión de todos nuestros componentes -->
+
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta http-equiv="X-UA-Compatible" content="IE=edge">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Quicksand:wght@300;500;700&display=swap" rel="stylesheet">
+  <link rel="stylesheet" href="./styles.css">
+  <title>YardSale: Tienda Online</title>
+  <link rel="shortcut icon" href="./logos/favicon_yard_sale.svg">
+  <!-- La forma de reemplazar el CSS en HTML por un file CSS es agregando la etiqueta link en el head y quitando style 
+  <style></style>
+  -->
+</head>
+<body>
+
+<div class="login">
+  <div class="form-container">
+    <img src="./logos/logo_yard_sale.svg" alt="logo-login" class="logo-login">
+
+    <form action="/" class="form inactive">
+      <label for="email" class="label">Email address</label>
+      <input type="text" id="email" placeholder="mgobea@example.com" class="input input-email">
+
+      <label for="password" class="label">Password</label>
+      <input type="password" id="password" placeholder="*********" class="input input-password">
+
+      <input type="submit" value="Log in" class="primary-button login-button">
+      <a href="/">Forgot my password</a>
+    </form>
+
+    <button class="secondary-button signup-button">Sign up</button>
+  </div>
+</div>
+
+<div class="principal-page inactive">
+
+  <nav>
+    <img src="./icons/icon_menu.svg" alt="menu" class="menu">
+
+    <div class="navbar-left">
+      <img src="./logos/logo_yard_sale.svg" alt="logo" class="logo">
+
+      <ul>
+        <li>
+          <a href="/">All</a>
+        </li>
+        <li>
+          <a href="/">Clothes</a>
+        </li>
+        <li>
+          <a href="/">Electronics</a>
+        </li>
+        <li>
+          <a href="/">Furnitures</a>
+        </li>
+        <li>
+          <a href="/">Toys</a>
+        </li>
+        <li>
+          <a href="/">Others</a>
+        </li>
+      </ul>
+    </div>
+
+    <div class="navbar-right">
+      <ul>
+        <li class="navbar-email">gobeamariano@gmail.com</li>
+        <li class="navbar-shopping-cart">
+          <img class="navbar-shopping-cart" src="./icons/icon_shopping_cart.svg" alt="shopping cart">
+          <div class="navbar-shopping-cart">2</div>
+        </li>
+      </ul>
+    </div>
+
+    <!-- Agrego el menú desplegable de la clase 7 como una div mas dentro de mi navbar de la clase 11. Luego debo determinar cuando se ve y cuando no con JS // Voy a sumarle una clase .inactice al desktop-menu para que por default no aparezca y solo cambie al hacer click en el mail-->
+
+    <div class="desktop-menu inactive">
+        <ul>
+          <li>
+            <a href="/" class="title">My orders</a>
+          </li>
+    
+          <li>
+            <a href="/">My account</a>
+          </li>
+    
+          <li>
+            <a href="/">Sign out</a>
+          </li>
+        </ul>
+    </div>
+
+    <div class="mobile-menu inactive">
+        <ul>
+          <li>
+            <a href="/">CATEGORIES</a>
+          </li>
+          <li>
+            <a href="/">All</a>
+          </li>
+          <li>
+            <a href="/">Clothes</a>
+          </li>
+          <li>
+            <a href="/">Electronics</a>
+          </li>
+          <li>
+            <a href="/">Furnitures</a>
+          </li>
+          <li>
+            <a href="/">Toys</a>
+          </li>
+          <li>
+            <a href="/">Other</a>
+          </li>
+        </ul>
+    
+        <ul>
+          <li>
+            <a href="/">My orders</a>
+          </li>
+          <li>
+            <a href="/">My account</a>
+          </li>
+        </ul>
+    
+        <ul>
+          <li>
+            <a href="/" class="email">gobeamariano@gmail.com</a>
+          </li>
+          <li>
+            <a href="/" class="sign-out">Sign out</a>
+          </li>
+        </ul>
+    </div>
+
+  </nav>
+
+  <aside id="shoppingCartContainer" class="inactive">
+    <div class="title-container">
+      <img src="./icons/flechita.svg" alt="arrow">
+      <p class="title">My order</p>
+    </div>
+
+    <div class="my-order-content">
+      <div class="shopping-cart">
+        <figure>
+          <img src="https://images.pexels.com/photos/276517/pexels-photo-276517.jpeg?auto=compress&cs=tinysrgb&dpr=2&h=650&w=940" alt="bike">
+        </figure>
+        <p>Bike</p>
+        <p>$120,00</p>
+        <img src="./icons/icon_close.png" alt="close">
+      </div>
+
+      <div class="shopping-cart">
+        <figure>
+          <img src="https://images.pexels.com/photos/1999463/pexels-photo-1999463.jpeg?auto=compress&cs=tinysrgb&w=1260&h=750&dpr=1" alt="Monitor">
+        </figure>
+        <p>Monitor</p>
+        <p>$220,00</p>
+        <img src="./icons/icon_close.png" alt="close">
+      </div>
+
+      <div class="shopping-cart">
+        <figure>
+          <img src="https://images.pexels.com/photos/104842/bmw-vehicle-ride-bike-104842.jpeg?auto=compress&cs=tinysrgb&w=1260&h=750&dpr=1" alt="motocicleta">
+        </figure>
+        <p>Motocicleta Vintage</p>
+        <p>$1000,00</p>
+        <img src="./icons/icon_close.png" alt="close">
+      </div>
+
+      <div class="order">
+        <p>
+          <span>Total</span>
+        </p>
+        <p>$1440.00</p>
+      </div>
+
+      <button class="primary-button">
+        Checkout
+      </button>
+    </div>
+  </div>
+  </aside>
+
+  <aside id="productDetail" class="inactive">
+    <div class="product-detail-close">
+      <img class="product-detail-close" src="./icons/icon_close.png" alt="close">
+    </div>
+  
+     
+    <img class="img-detalle" src="https://images.pexels.com/photos/276517/pexels-photo-276517.jpeg?auto=compress&cs=tinysrgb&dpr=2&h=650&w=940" alt="bike">
+    <div class="product-info">
+        <p class="precio-detalle">$35,00</p>
+        <p class="nombre-detalle">Bike</p>
+        <p class="descripcion-detalle">Una hermosa bicicleta para paseos durante los fines de semana.</p>
+        <button class="primary-button add-to-cart-button">
+            <img src="./icons/bt_add_to_cart.svg" alt="add to cart">
+            Add to cart
+        </button>
+    </div>
+  
+
+  </aside>
+
+  <section class="main-container inactive">
+    <div class="cards-container">
+
+    <!-- En realidad, las cards deberían formarse en función de los articulos que nosotros tengamos en nuestra base de datos. La misma se debe consultar a través de una API Rest y con esa información debemos manipular el DOM para que aparezcan tantas cards como productos tengamos (o un límite establecido por pagina) -->
+
+    <!-- 
+      <div class="product-card">
+        <img src="https://images.pexels.com/photos/276517/pexels-photo-276517.jpeg?auto=compress&cs=tinysrgb&dpr=2&h=650&w=940" alt="">
+        <div class="product-info">
+          <div>
+            <p>$120,00</p>
+            <p>Bike</p>
+          </div>
+          <figure>
+            <img src="./icons/bt_add_to_cart.svg" alt="">
+          </figure>
+        </div>
+      </div>
+    -->
+
+    </div>
+  </section>
+  
+</div>
+
+<script src="./main.js"></script>
+</body>
+</html>
