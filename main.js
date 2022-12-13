@@ -1,4 +1,4 @@
-// Función que permite abreviar y agilizar el querySelector
+//todo Función que permite abreviar y agilizar el querySelector
 const $ = (selector) => document.querySelector(selector);
 
 const menuEmail = $('.navbar-email');
@@ -8,21 +8,25 @@ const mobileMenu = $('.mobile-menu');
 const menuCarritoIcon = $('.navbar-shopping-cart');
 const shoopingCard = $('#shoppingCartContainer');
 const cardsContainer = $('.cards-container')
+const productDetailContainer = $('#productDetail')
+const productDetailCloseIcon = $('.product-detail-close')
 
-// ESCUCHA EL EVENTO CLICK
+//todo ESCUCHA EL EVENTO CLICK
 menuEmail.addEventListener('click', toggleDesktopMenu);
 burguerMenu.addEventListener('click', toggleMobileMenu);
 menuCarritoIcon.addEventListener('click', toggleShoopingCard);
+productDetailCloseIcon.addEventListener('click', closeProductDetail)
 
-// REVISA SI EL ATRIBUTO 'inactive' SE ENCUENTRA PUESTO AL ELEMENTO
+//todo REVISA SI EL ATRIBUTO 'inactive' SE ENCUENTRA PUESTO AL ELEMENTO
 const isShoopingCardClose = shoopingCard.classList.contains('inactive');
 const isMobileMenuClosed = mobileMenu.classList.contains('inactive');
 const isdesktopMenuClose = desktopMenu.classList.contains('inactive');
 
-// MUESTRA UNA SECCIÓN Y ESCONDE LAS DEMÁS
+//todo MUESTRA UNA SECCIÓN Y ESCONDE LAS DEMÁS
 function toggleDesktopMenu() {
     shoopingCard.classList.add('inactive');
     mobileMenu.classList.add('inactive');
+    productDetailContainer.classList.add('inactive');
 
     desktopMenu.classList.toggle('inactive');
 }
@@ -30,6 +34,7 @@ function toggleDesktopMenu() {
 function toggleMobileMenu() {
     shoopingCard.classList.add('inactive');
     desktopMenu.classList.add('inactive');
+    productDetailContainer.classList.add('inactive');
 
     mobileMenu.classList.toggle('inactive');
 }
@@ -37,11 +42,25 @@ function toggleMobileMenu() {
 function toggleShoopingCard() {
     mobileMenu.classList.add('inactive');
     desktopMenu.classList.add('inactive');
+    productDetailContainer.classList.add('inactive');
 
     shoopingCard.classList.toggle('inactive');
 }
 
-// CREANDO LISTA DE PRODUCTOS
+function openProductDetail() {
+    shoopingCard.classList.add('inactive');
+    mobileMenu.classList.add('inactive');
+    desktopMenu.classList.add('inactive');
+
+    productDetailContainer.classList.remove('inactive')
+}
+
+function closeProductDetail() {
+    productDetailContainer.classList.add('inactive')
+}
+
+
+//todo CREANDO LISTA DE PRODUCTOS
 const productLIst = [];
 productLIst.push({
     name: 'Bike',
@@ -61,7 +80,7 @@ productLIst.push({
     image:'https://images.pexels.com/photos/276517/pexels-photo-276517.jpeg?auto=compress&cs=tinysrgb&dpr=2&h=650&w=940'
 })
 
-// FUNCION QUE RENDERIZA LOS PRODUCTOS EN EL HTML
+//todo FUNCION QUE RENDERIZA LOS PRODUCTOS EN EL HTML
 function renderProduct(arr) {
     for (product of arr) {
         const productCard = document.createElement('div');
@@ -69,6 +88,7 @@ function renderProduct(arr) {
     
         const productImg = document.createElement('img');
         productImg.setAttribute('src', product.image);
+        productImg.addEventListener('click', openProductDetail);
     
         const productInfo = document.createElement('div');
         productInfo.classList.add('product-info');
@@ -100,8 +120,8 @@ function renderProduct(arr) {
     }
 }
 
-// LLAMANDO LA FUNCION PARA RENDERIZAR LOS PRODUCTOS
+//todo LLAMANDO LA FUNCION PARA RENDERIZAR LOS PRODUCTOS
 renderProduct(productLIst);
 
-// Verificar que el JS este conectado al
+//todo Verificar que el JS este conectado al
 console.log('/// JS Funcionando... ///');
