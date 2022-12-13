@@ -11,7 +11,6 @@ const mobile_menu= document.querySelector(".mobile-menu");
 const cardsContainer = document.querySelector(".cards-container");
 
 
-
 menuEmail.addEventListener("click", toggleDesktopMenu);
 mobile_menu_icon.addEventListener("click",toggleMobileMenu);
 carrito_Menu_icon.addEventListener("click",toggleAsideMenu);
