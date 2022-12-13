@@ -2,7 +2,7 @@ const navEmail = document.querySelector(".navbar-email");
 const navEmailSubMenu = document.querySelector(".desktop-menu");
 const menuHamIcon = document.querySelector(".menu");
 const mobileMenu = document.querySelector(".mobile-menu");
-const productDetail = document.querySelector(".product-detail");
+const productDetail = document.querySelector("#shoppingCardContainer");
 const menuCarrito = document.querySelector(".navbar-shopping-cart");
 const cardContainer = document.querySelector(".cards-container");
 
