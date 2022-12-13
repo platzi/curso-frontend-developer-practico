@@ -59,7 +59,6 @@ function closeProductDetail() {
     productDetailContainer.classList.add('inactive')
 }
 
-
 //todo CREANDO LISTA DE PRODUCTOS
 const productLIst = [];
 productLIst.push({

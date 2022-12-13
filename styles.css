@@ -36,7 +36,6 @@ nav {
 }
 
 
-
 /*todo NAVBAR GENERAL */
 .menu {
   display: none;
@@ -194,7 +193,6 @@ nav {
   color: var(--hospital-green) !important;
 }
 
-
 /*todo ASIDE */
 
 aside {
@@ -337,7 +335,6 @@ aside {
   margin-bottom: 0;
   color: var(--very-light-pink);
 }
-
 
 /*todo PRODUCT DETAIL */
 
