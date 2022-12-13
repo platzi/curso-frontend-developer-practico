@@ -3,8 +3,10 @@ const navbar_burger = document.querySelector('.menu');
 const navbar_shopping_cart = document.querySelector('.navbar-shopping-cart');
 const desktop_menu = document.querySelector('.desktop-menu');
 const mobile_menu = document.querySelector('.mobile-menu');
-const my_order_desktop = document.querySelector('.product-detail');
+const cart_detail = document.querySelector('#cart-detail');
 const cards_container = document.querySelector('.cards-container');
+const full_detail = document.querySelector('#full-detail');
+const full_detail_close = document.querySelector('.product-detail-close');
 
 // formulario
 const form_container = document.querySelector('.form-container');
@@ -16,29 +18,41 @@ const add_button = document.querySelector('.add-button');
 navbar_email.addEventListener('click', my_account_menu_visibility);
 navbar_burger.addEventListener('click', menu_visibility);
 navbar_shopping_cart.addEventListener('click', my_order_visibility);
+full_detail_close.addEventListener('click', full_detail_visibility);
 
 function my_account_menu_visibility(){
     desktop_menu.classList.toggle('inactive');
-    if(!my_order_desktop.classList.contains('inactive')){
-        my_order_desktop.classList.toggle('inactive');
+    if(!cart_detail.classList.contains('inactive')){
+      cart_detail.classList.toggle('inactive');
     }
 }
 
 function menu_visibility(){
     mobile_menu.classList.toggle('visible');
-    if(!my_order_desktop.classList.contains('inactive')){
-        my_order_desktop.classList.toggle('inactive');
+    mobile_menu.classList.toggle('oculto');
+    if(!cart_detail.classList.contains('inactive')){
+      cart_detail.classList.toggle('inactive');
     } 
 }
 
 function my_order_visibility(){
-    my_order_desktop.classList.toggle('inactive');
+  cart_detail.classList.toggle('inactive');
     if(!desktop_menu.classList.contains('inactive')){
         desktop_menu.classList.toggle('inactive');
     }
     if(mobile_menu.classList.contains('visible')){
         mobile_menu.classList.toggle('visible');
     }
+    if(!full_detail.classList.contains('inactive')){
+      full_detail.classList.toggle('inactive');
+  }
+}
+
+function full_detail_visibility(){
+  full_detail.classList.toggle('inactive');
+  if(!cart_detail.classList.contains('inactive')){
+    cart_detail.classList.add('inactive');
+  }
 }
 
 const products_array = [  {
@@ -230,7 +244,9 @@ function print_product(product_array){
         add_cart_icon_container.appendChild(img_add_cart_icon);
         
         cards_container.appendChild(product_card);
-        console.log(cards_container)
+  
+        img_product.addEventListener('click', full_detail_visibility);
+
     });
 }
 
