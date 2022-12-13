@@ -14,6 +14,10 @@ const menuEmail=document.querySelector('.navbar-email');
 menuEmail.addEventListener('click', toggleDesktopMenu);
 
 function toggleDesktopMenu(){
+    if(!aside.classList.contains('inactive')){
+        toggleCarritoAside();
+    }
+
     desktopMenu.classList.toggle('inactive');
 }
 
@@ -27,5 +31,30 @@ const mobileMenu=document.querySelector('.mobile-menu');
 menuHamIcon.addEventListener('click',toggleMobileMenu);
 
 function toggleMobileMenu(){
+    if(!aside.classList.contains('inactive')){
+        toggleCarritoAside();
+    }
+
     mobileMenu.classList.toggle('inactive');
+}
+
+/* Clase13.html agregando el aside de carrito de compras, verificando
+que el menu de usuario este cerrado, en caso contrartio cerrarlo
+y viceversa
+*/
+const menuCarritoIcon=document.querySelector('.navbar-shopping-cart');
+const aside=document.querySelector('.product-detail');
+
+menuCarritoIcon.addEventListener('click',toggleCarritoAside);
+
+function toggleCarritoAside(){  
+
+    if(!mobileMenu.classList.contains('inactive')){
+        toggleMobileMenu();
+    }
+    if(!desktopMenu.classList.contains('inactive')){
+        toggleDesktopMenu();
+    }
+    
+    aside.classList.toggle('inactive');
 }
