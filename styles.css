@@ -1,4 +1,4 @@
-<style> :root {
+:root {
     --white: #FFFFFF;
     --black: #000000;
     --very-light-pink: #C7C7C7;
@@ -318,17 +318,9 @@ nav {
     color: var(--very-light-pink);
 }
 
-@media (max-width: 640px) {
-    
-}
+@media (max-width: 640px) {}
 
 /*query media*/
-
-@media (min-width: 641px) {
-    .mobile-menu {
-        display: none;
-    }
-}
 
 @media (max-width: 640px) {
     .menu {
