@@ -6,37 +6,50 @@ const menuHamIcon = document.querySelector('.menu');
 const mobileMenu = document.querySelector('.mobile-menu');
 
 const menuCarritoIcon = document.querySelector('.navbar-shopping-cart');
-const aside = document.querySelector('.product-detail');
+const shoppingCartContainer = document.querySelector('.shoppingCartContainer');
 const cards_container = document.querySelector('.cards-container');
+
+const product_detail = document.querySelector('.product-detail');
+const product_detail_close = document.querySelector('.product-detail-close');
 
 // se agregan los eventos a las etiquetas y se le coloca la funcion que debe ejecutar al dar click
 menuEmail.addEventListener('click', toggleDesktopMenu);
 menuHamIcon.addEventListener('click', toggleMobileMenu);
-menuCarritoIcon.addEventListener('click', toggleCarritoAside);
+menuCarritoIcon.addEventListener('click', toggleCarritoshoppingCartContainer);
+product_detail_close.addEventListener('click', togglecloseProductDetailAs);
 
-function toggleDesktopMenu() {
-    const isAsideClose = aside.classList.contains('inactive');
+function toggleDesktopMenu() {//el correo y la parte de los usuarios
+    const isshoppingCartContainerClose = shoppingCartContainer.classList.contains('inactive');
+    const isProductDetailClose = product_detail.classList.contains('inactive');
 
     // si el carrito esta abierto se cierra para poder abir el DesktopMenu
-    if (!isAsideClose) {
-        aside.classList.add('inactive');
+    if (!isshoppingCartContainerClose) {
+        shoppingCartContainer.classList.add('inactive');
     }
+    if (!isProductDetailClose) {
+        product_detail.classList.add('inactive');
+    }
+
     menuDesktop.classList.toggle('inactive');
 }
 
 function toggleMobileMenu() {
-    const isAsideClose = aside.classList.contains('inactive');
+    const isshoppingCartContainerClose = shoppingCartContainer.classList.contains('inactive');
+    const isProductDetailClose = product_detail.classList.contains('inactive');
 
-
-    if (!isAsideClose) {
-        aside.classList.add('inactive');
+    if (!isshoppingCartContainerClose) {
+        shoppingCartContainer.classList.add('inactive');
+    }
+    if (!isProductDetailClose) {
+        product_detail.classList.add('inactive');
     }
     mobileMenu.classList.toggle('inactive');
 }
 
-function toggleCarritoAside() {
+function toggleCarritoshoppingCartContainer() {//corresponde al carrito
     const iSmobileMenuClose = mobileMenu.classList.contains('inactive');
     const isDesktopMenuClose = menuDesktop.classList.contains('inactive');
+    const isProductDetailClose = product_detail.classList.contains('inactive');
 
     if (!iSmobileMenuClose) {
         mobileMenu.classList.add('inactive');
@@ -44,8 +57,31 @@ function toggleCarritoAside() {
     if (!isDesktopMenuClose) {
         menuDesktop.classList.add('inactive');
     }
+    if (!isProductDetailClose) {
+        product_detail.classList.add('inactive');
+    }
 
-    aside.classList.toggle('inactive');
+    shoppingCartContainer.classList.toggle('inactive');
+}
+
+function openProductDetailAs() {
+    const isshoppingCartContainerClose = shoppingCartContainer.classList.contains('inactive');
+    const isDesktopMenuClose = menuDesktop.classList.contains('inactive');
+
+    // si el carrito esta abierto se cierra para poder abir el DesktopMenu
+    if (!isshoppingCartContainerClose) {
+        shoppingCartContainer.classList.add('inactive');
+    }
+    if (!isDesktopMenuClose) {
+        menuDesktop.classList.add('inactive');
+    }
+
+    product_detail.classList.remove('inactive');
+}
+
+function togglecloseProductDetailAs() {
+    product_detail.classList.toggle('inactive');
+    let y=5+(2*(4-5))
 }
 
 const productList = [];
@@ -94,6 +130,7 @@ function renderProductList(array) {
         // se crea una etiqueta img para mostrar la imagen del producto
         const img = document.createElement('img');
         img.setAttribute('src', product.image);
+        img.addEventListener("click", openProductDetailAs); //se le agrega el evento para que al dar click se abra el detalle del producto
 
         const productInfo = document.createElement('div');
         productInfo.classList.add('product-info');
