@@ -14,7 +14,7 @@ const menuEmail = document.querySelector(".navbar-email");
 menuEmail.addEventListener("click", toggleDesktopMenu);
 
 function toggleDesktopMenu() {
-  if (!aside.classList.contains("inactive")) {
+  if (!shoppingCartContainer.classList.contains("inactive")) {
     toggleCarritoAside();
   }
 
@@ -31,19 +31,19 @@ const mobileMenu = document.querySelector(".mobile-menu");
 menuHamIcon.addEventListener("click", toggleMobileMenu);
 
 function toggleMobileMenu() {
-  if (!aside.classList.contains("inactive")) {
+  if (!shoppingCartContainer.classList.contains("inactive")) {
     toggleCarritoAside();
   }
 
   mobileMenu.classList.toggle("inactive");
 }
 
-/* Clase13.html agregando el aside de carrito de compras, verificando
+/* Clase13.html agregando el shoppingCartContainer de carrito de compras, verificando
 que el menu de usuario este cerrado, en caso contrartio cerrarlo
 y viceversa
 */
 const menuCarritoIcon = document.querySelector(".navbar-shopping-cart");
-const aside = document.querySelector(".product-detail");
+const shoppingCartContainer = document.querySelector("#shoppingCartContainer");
 
 menuCarritoIcon.addEventListener("click", toggleCarritoAside);
 
@@ -55,7 +55,7 @@ function toggleCarritoAside() {
     toggleDesktopMenu();
   }
 
-  aside.classList.toggle("inactive");
+  shoppingCartContainer.classList.toggle("inactive");
 }
 
 /**Lo siguiente es lo que se espera de una API REST, una lista de prodcutos 
