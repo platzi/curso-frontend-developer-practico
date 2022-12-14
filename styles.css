@@ -202,12 +202,13 @@ nav {
 /* ESTILOS DEL CARRITO DE COMPRAS */
 #cart-detail {
   width: 360px;
-  padding: 0 24px;
+  padding: 24px;
   box-sizing: border-box;
   position: absolute;
   right: 0;
   top: 61px;
   background-color: var(--white);
+  box-shadow: 0px 4px 4px 1px rgba(0, 0, 0, 0.2);
   visibility: visible;
   opacity: 1;
   transition:visibility .3s, opacity .3s;
@@ -305,6 +306,9 @@ nav {
   border-radius: 20px;
   object-fit: cover;
 }
+.product-card > img:hover {
+  cursor: pointer;
+}
 .main-container .product-info {
   display: flex;
   justify-content: space-between;
@@ -338,7 +342,7 @@ nav {
 #full-detail {
   width: 360px;
   padding-bottom: 24px;
-  position: absolute;
+  position: fixed;
   right: 0;
   top: 61px;
   background-color: var(--white);
