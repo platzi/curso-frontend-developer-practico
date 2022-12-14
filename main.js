@@ -119,6 +119,7 @@ function renderProduct(arr) {
     }
 }
 
+
 //todo LLAMANDO LA FUNCION PARA RENDERIZAR LOS PRODUCTOS
 renderProduct(productLIst);
 
