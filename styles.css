@@ -326,6 +326,7 @@ aside {
 }
 #productDetail .product-info {
   margin: 24px 24px 0 24px;
+  height: 100vh;
 }
 #productDetail .product-info p:nth-child(1) {
   font-weight: bold;
