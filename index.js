@@ -8,3 +8,13 @@ function toggleDesktopMenu () {
 }
 
 menuEmail.addEventListener('click', toggleDesktopMenu)
+
+// Mobile menu display: 
+const hamburgerMenu = document.querySelector('.menu')
+const mobileMenu = document.querySelector('.mobile-menu')
+
+function toggleMobileMenu () {
+    mobileMenu.classList.toggle('inactive')
+}
+
+hamburgerMenu.addEventListener('click', toggleMobileMenu)
