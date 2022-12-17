@@ -3,32 +3,33 @@ const desktopMenu = document.querySelector('.desktop-menu');
 const burgerMenu = document.querySelector(".menu");
 const mobileMenu = document.querySelector(".mobile-menu");
 const shoppingCart = document.querySelector(".navbar-shopping-cart");
-const menuCarritoIcon = document.querySelector(".product-detail");
+const menuCarritoIcon = document.querySelector(".product-detail-cartshopping");
 const arrowIcon = document.querySelector("#flechita-menu-carrito");
 const cardsContainer = document.querySelector('.cards-container');
+const productDetail = document.querySelector('.product-detail');
+const productDetailCloser = document.querySelector('.product-detail-close');
 
 burgerMenu.addEventListener('click', function(){toggleSection(mobileMenu)});
 navbarEmail.addEventListener('click', function(){toggleSection(desktopMenu)});
 shoppingCart.addEventListener('click', function(){toggleSection(menuCarritoIcon)});
 arrowIcon.addEventListener('click', function(){toggleSection(menuCarritoIcon)});
+productDetailCloser.addEventListener('click', function(){toggleSection(productDetail)});
 
 function toggleSection(element){
+    
     element.classList.toggle("inactive");
-   /*  if(desktopMenu.getAttribute("class")==="desktop-menu inactive"){
-    desktopMenu.setAttribute("class", "desktop-menu");
-    } else if(desktopMenu.getAttribute("class")==="desktop-menu"){
-    desktopMenu.setAttribute("class", "desktop-menu inactive");
-    } */
+    const sections = [mobileMenu, desktopMenu, menuCarritoIcon, productDetail ];
+    let section;
 
-    const isMobileMenuOpen = mobileMenu.classList.contains("inactive");
-
-    if(!isMobileMenuOpen){
-        if(element == menuCarritoIcon){
-            mobileMenu.classList.toggle("inactive")
-        }
+    for (section of sections){
+        if(section != element){
+            if(!section.classList.contains('inactive')){
+                section.classList.add('inactive');
+            } 
+        } 
     }
-
 }
+
 
 const productList = [];
 productList.push({
@@ -48,14 +49,14 @@ productList.push({
     descripcion: "Manubrio",
 });
 
-console.log(productList);
-
 for (product of productList) {
 
     const productCard = document.createElement('div');
     productCard.classList.add('product-card');
     const img = document.createElement('img');
     img.setAttribute('src', product.img);
+    img.addEventListener('click', function(){toggleSection(productDetail)});
+
     const productInfo = document.createElement('div');
     productInfo.classList.add('product-info');
 
@@ -80,6 +81,8 @@ for (product of productList) {
     
     cardsContainer.append(productCard);
 }
+
+
 /* 
     <div class="product-card">
     <img src="https://images.pexels.com/photos/276517/pexels-photo-276517.jpeg?auto=compress&cs=tinysrgb&dpr=2&h=650&w=940" alt="">
