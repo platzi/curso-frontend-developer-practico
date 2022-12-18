@@ -1,16 +1,21 @@
 const navEmail = document.querySelector('.navbar-email')
 const desktopMenu = document.querySelector('.desktop-menu')
 const menuCarritoIcon = document.querySelector('.navbar-shopping-cart')
+const productDetailCloseIcon = document.querySelector('.product-detail-close')
 const menuHamIcon = document.querySelector('.menu')
 const mobileMenu = document.querySelector('.mobile-menu')
 const shoppingCartContainer = document.querySelector('#shoppingCartContainer')
+const productDetailContainer = document.querySelector('#productDetail')
 const cardsContainer = document.querySelector('.cards-container')
 const productList = [];
 
+// Escuchadores de eventos (AddEventListener)
 navEmail.addEventListener('click', toggleDesktopMenu)
 menuHamIcon.addEventListener('click', toggleMobileMenu)
-menuCarritoIcon.addEventListener('click', toggleCarritoshoppingCartContainer)
+menuCarritoIcon.addEventListener('click', toggleCarritoAside)
+productDetailCloseIcon.addEventListener('click', closeProductDetailAside)
 
+// Funciones 
 function toggleDesktopMenu() {
     const isshoppingCartContainerClose  = shoppingCartContainer.classList.contains('inactive')
 
@@ -28,10 +33,12 @@ function toggleMobileMenu() {
         shoppingCartContainer.classList.add('inactive')
     }
 
+    closeProductDetailAside()
+
     mobileMenu.classList.toggle('inactive')
 }
 
-function toggleCarritoshoppingCartContainer() {
+function toggleCarritoAside() {
     const isMobileMenuClose= mobileMenu.classList.contains('inactive')
     const isDesktopMenu = desktopMenu.classList.contains('inactive')
 
@@ -41,10 +48,26 @@ function toggleCarritoshoppingCartContainer() {
         desktopMenu.classList.toggle('inactive')
     }
 
+    const isProductDetailClose = productDetailContainer.classList.contains('inactive')
+
+    if (!isProductDetailClose) {
+        productDetailContainer.classList.add('inactive')
+    }
+
     shoppingCartContainer.classList.toggle('inactive')
 }
 
+function openProductDetailAside() {
+    shoppingCartContainer.classList.add('inactive')
 
+    productDetailContainer.classList.remove('inactive')
+}
+
+function closeProductDetailAside() {
+    productDetailContainer.classList.add('inactive')
+}
+
+//Arrays
 productList.push({
     name: 'Bike',
     price: 120,
@@ -69,6 +92,7 @@ productList.push({
     image: 'https://images.pexels.com/photos/1198264/pexels-photo-1198264.jpeg?auto=compress&cs=tinysrgb&w=1260&h=750&dpr=2'
 })
 
+//Funcion que renderiza los productos del array dinamicamente por producto
 function renderProducts(arr) {
     for (product of arr) {
         const productCard = document.createElement('div');
@@ -77,6 +101,7 @@ function renderProducts(arr) {
         // product = {name, price, image} -> product.image
         const productImg = document.createElement('img');
         productImg.setAttribute('src', product.image);
+        productImg.addEventListener('click', openProductDetailAside)
     
         const productInfo = document.createElement('div');
         productInfo.classList.add('product-info');
@@ -107,4 +132,5 @@ function renderProducts(arr) {
     }
 }
 
+// Invocacion de funciones para array
 renderProducts(productList);
