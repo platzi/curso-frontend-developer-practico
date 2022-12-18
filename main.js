@@ -5,12 +5,17 @@ const navbarEmail = document.querySelector('.navbar-email');
 const burgerIcon = document.querySelector('.menu');
 const shopyCart = document.querySelector('.navbar-shopping-cart');
 const asideArrow = document.querySelector('.product-detail--arrow');
-
+const detailClose = document.querySelector('.full-product-detail-close');
 //PopUp menu  
 const desktopMenu = document.querySelector('.desktop-menu');
 const mobileMenu = document.querySelector('.mobile-menu');
 const asideMyOrder = document.querySelector('.product-detail');
-const PopUpmenus = [desktopMenu, mobileMenu, asideMyOrder];
+const asideOrderDetail = document.querySelector('.full-product-detail');
+    const asideOrderDetailImg  = document.querySelector('#ProductDetailImg');
+    const asidePrice = document.querySelector('.product-info-detail p:nth-child(1)');
+    const asideName = document.querySelector('.product-info-detail p:nth-child(2)');
+    const asideDescription = document.querySelector('.product-info-detail p:nth-child(3)');
+const PopUpmenus = [desktopMenu, mobileMenu, asideMyOrder,asideOrderDetail];
 
 // Product list (main)
 const cardContainer = document.querySelector('.cards-container');
@@ -39,6 +44,8 @@ asideArrow.addEventListener('click', () =>{
     asideMyOrder.classList.add('inactive');
 })
 
+
+
 //functions 
 function showPopUp(e){
     // this function close all the other pop-up menus that are already open and then
@@ -51,6 +58,7 @@ function showPopUp(e){
         }
     })
 }
+
 
 function mainRender(arr){ //arr it's a array with objects to be render as a card in main 
     for (element of arr){
@@ -81,26 +89,70 @@ function mainRender(arr){ //arr it's a array with objects to be render as a card
                     productInfo.append(figure);
 
         cardContainer.append(productCardContainer);
+
+        //Set productCardContainer event
+        element.DOMElement = productCardContainer;
     }   
 }
 
 //product list (main)
 const productList = [];
 productList.push({
+    id: 0,
     name: 'Bike',
     price: '120,00',
-    Img: 'https://images.pexels.com/photos/276517/pexels-photo-276517.jpeg?auto=compress&cs=tinysrgb&dpr=2&h=650&w=940'
+    Img: 'https://images.pexels.com/photos/276517/pexels-photo-276517.jpeg?auto=compress&cs=tinysrgb&dpr=2&h=650&w=940',
+    description: 'With its practical position, this bike also fulfills a decorative function, add your hall or workspace.'
 });
 
 productList.push({
+    id: 1,
     name: 'Computer',
     price: '920,00',
-    Img: 'https://images.pexels.com/photos/18105/pexels-photo.jpg?auto=compress&cs=tinysrgb&w=1260&h=750&dpr=1'
-});
+    Img: 'https://images.pexels.com/photos/18105/pexels-photo.jpg?auto=compress&cs=tinysrgb&w=1260&h=750&dpr=1',
+    description:'This is the new lever experince in laptop!!!!, with the computer 2.0 enjoy your favorite games in ultra high resolution.'  
+})
 
 productList.push({
+    id: 2,
     name: 'MotorBike',
     price: '2220,00',
-    Img: 'https://images.pexels.com/photos/104842/bmw-vehicle-ride-bike-104842.jpeg?auto=compress&cs=tinysrgb&w=1260&h=750&dpr=1'
+    Img: 'https://images.pexels.com/photos/104842/bmw-vehicle-ride-bike-104842.jpeg?auto=compress&cs=tinysrgb&w=1260&h=750&dpr=1',
+    description:'The fastest Motorbike of the market, enjoy the road with the new model that could ride more than 200KM/hour'
 });
 mainRender(productList);
+
+
+
+let actualAside;
+detailClose.addEventListener('click', () => {
+    asideOrderDetail.classList.add('inactive');
+    actualAside = undefined;    
+})
+productList.forEach((element)=>{
+ element.DOMElement.addEventListener('click',()=>{
+    //showpopup closes all the other menus that could be open
+    showPopUp(null);
+    
+    if (asideOrderDetail.classList.contains('inactive')){
+        asideOrderDetail.classList.remove('inactive');
+        // actualAside = undefined;
+    }
+    
+    if (actualAside == element.id && (!asideOrderDetail.classList.contains('inactive'))){
+        asideOrderDetail.classList.add('inactive');
+        actualAside = undefined;
+        
+        return;
+    }
+    actualAside = element.id;
+    // asideOrderDetail.classList.toggle('inactive')
+    asideOrderDetailImg.setAttribute('src',element.Img);
+    asidePrice.innerText = element.price;
+    asideName.innerText = element.name;
+    asideDescription.innerText = element.description;
+    console.log(actualAside);
+    
+
+ })
+})

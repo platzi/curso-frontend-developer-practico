@@ -261,6 +261,7 @@ nav {
     }
     .product-card {
       width: 240px;
+      cursor: pointer;
     }
     .product-card img {
       width: 240px;
@@ -301,6 +302,7 @@ nav {
       padding-bottom: 24px;
       position: absolute;
       right: 0;
+      background-color: var(--white);
     }
     .full-product-detail-close {
       background: var(--white);
@@ -318,7 +320,7 @@ nav {
     }
     .full-product-detail > img:nth-child(2) {
       width: 100%;
-      height: 360px;
+      height: 30vh;
       object-fit: cover;
       border-radius: 0 0 20px 20px;
     }
