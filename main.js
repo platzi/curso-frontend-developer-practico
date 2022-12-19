@@ -18,6 +18,10 @@ function toggleDesktopMenu() {
     toggleCarritoAside();
   }
 
+  if(!productDetailContainer.classList.contains("inactive")){  
+    closeProductDetailAside();
+  }
+
   desktopMenu.classList.toggle("inactive");
 }
 
@@ -33,6 +37,10 @@ menuHamIcon.addEventListener("click", toggleMobileMenu);
 function toggleMobileMenu() {
   if (!shoppingCartContainer.classList.contains("inactive")) {
     toggleCarritoAside();
+  }
+
+  if(!productDetailContainer.classList.contains("inactive")){  
+    closeProductDetailAside();
   }
 
   mobileMenu.classList.toggle("inactive");
@@ -54,7 +62,9 @@ function toggleCarritoAside() {
   if (!desktopMenu.classList.contains("inactive")) {
     toggleDesktopMenu();
   }
-
+  if(!productDetailContainer.classList.contains("inactive")){  
+    closeProductDetailAside();
+  }
   shoppingCartContainer.classList.toggle("inactive");
 }
 
@@ -86,16 +96,16 @@ productList.push({
     "https://images.pexels.com/photos/887751/pexels-photo-887751.jpeg?auto=compress&cs=tinysrgb&w=1260&h=750&dpr=1",
 });
 productList.push({
-  name: "Candelabro",
-  price: 1450,
-  image:
-    "https://images.pexels.com/photos/14590600/pexels-photo-14590600.jpeg?auto=compress&cs=tinysrgb&w=1260&h=750&dpr=1",
-});
-productList.push({
   name: "KTM Super Duke",
   price: 45000,
   image:
     "https://images.pexels.com/photos/2626665/pexels-photo-2626665.jpeg?auto=compress&cs=tinysrgb&w=1260&h=750&dpr=1",
+});
+productList.push({
+  name: "Candelabro",
+  price: 1450,
+  image:
+    "https://images.pexels.com/photos/14590600/pexels-photo-14590600.jpeg?auto=compress&cs=tinysrgb&w=1260&h=750&dpr=1",
 });
 /*
 <div class="product-card">
@@ -158,4 +168,96 @@ for (product of productList) {
   productCard.appendChild(productInfo);
 
   cardsContainer.appendChild(productCard);
+
+  /*Para cada imagen de de los productos
+  se agrega un evenlistener, pero en la llamada
+  de la funcion no se pueden pasar argumentos entonces
+  usare una funcion anonima que reciba, las caracteristicas
+  del producto al que se le dio click para posteriormente
+  crear el componente con JS y pasarselo al HTML*/
+  productImg.addEventListener('click',function(){
+    createProductDetail(productImg,productPrice,productName);
+    openProductDetailAside();
+  });
+
+}
+
+/** Seleccionar el contenedor de las images*/
+const productDetailContainer = document.querySelector('#productDetail');
+//El icono de cerrar de la imagen
+const productDetailCloseIcon = document.querySelector('.product-detail-close');
+
+//Agregar el addEventListener
+productDetailCloseIcon.addEventListener('click',closeProductDetailAside);
+
+function createProductDetail(productImg,productPrice,productName){
+  //HAcer consulta de selector de un elemento, sobre escribir en vez de crear uno nuevo
+  console.log(productName,productImg);
+
+  //Creacion de la imagen
+  // const productImg = document.createElement("img");
+  // productImg.setAttribute("src", product.image);
+
+  //Sustituir la img de la clase productDetail
+  const imgTmp=productDetailContainer.querySelector(".product-detail-img");
+  imgTmp.setAttribute("src",productImg.getAttribute("src"));
+  imgTmp.setAttribute("alt", productName.innerText);
+  console.log(imgTmp);
+
+  //Traer las etiquetas contenedoras de productDetailContainer
+  const price=productDetailContainer.querySelector("#product-detail-price");
+  const name=productDetailContainer.querySelector("#product-detail-name");
+  const description=productDetailContainer.querySelector("#product-detail-description");
+
+  //Cambiar el contenido de las etiquetas P. por el contenido del producto seleccionado
+  price.innerText=productPrice.innerText; 
+  name.innerText=productName.innerText; 
+  description.innerText="Este texto deberia conseguirse desde un objeto DAO que a su vez viene desde la api"; 
+
+  
+  //Creacion del div que contiene la informacion de producto
+  // const productInfo = document.createElement("div");
+  // productInfo.classList.add("product-info");
+  // //Agregar la informacion contenedora
+  // const productPrice = document.createElement("p");
+  // productPrice.innerText = "$" + product.price;
+  // const productName = document.createElement("p");
+  // productName.innerText = product.name;
+  // const productDescription = document.createElement("p");;
+  // productDescription.innerText="Una descripcion que deberia venir desde la api"//en esta se obtendria la info de product, que viene de la api
+
+  //Creacion del boton agregar al carrito
+  // const buttonAdd = document.createElement("button");
+  // buttonAdd.classList.add("primary-button");
+  // buttonAdd.classList.add("add-to-cart-button");
+  // //Creacion del icono del carrito
+  // const productImgCart = document.createElement("img");
+  // productImgCart.setAttribute("src", "./icons/bt_add_to_cart.svg");
+  // productImgCart.setAttribute("alt", "add to cart");
+
+  //Adjuntar los elementos
+  // buttonAdd.appendChild(productImgCart);
+  // buttonAdd.append("Add to cart");
+  // productInfo.append(productPrice,productName,productDescription,buttonAdd);
+  // productDetailContainer.append(productImg,productInfo);
+}
+
+//Funcion cada vez que se abre una imagen
+function openProductDetailAside(){
+  
+  if (!mobileMenu.classList.contains("inactive")) {
+    toggleMobileMenu();
+  }
+  if (!desktopMenu.classList.contains("inactive")) {
+    toggleDesktopMenu();
+  }
+  if (!shoppingCartContainer.classList.contains("inactive")) {
+    toggleCarritoAside();
+  }
+  productDetailContainer.classList.remove('inactive');
+}
+
+//cerrar la imagen
+function closeProductDetailAside(){  
+  productDetailContainer.classList.add('inactive');
 }
