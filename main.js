@@ -45,6 +45,9 @@ asideArrow.addEventListener('click', () =>{
 })
 
 
+let actualAside;
+
+
 
 //functions 
 function showPopUp(e){
@@ -53,9 +56,13 @@ function showPopUp(e){
     PopUpmenus.forEach((element) => {
         if (element != e){
             element.classList.add('inactive');
+           
         }else{
-            element.classList.toggle('inactive');
+            element.classList.remove('inactive');
         }
+        // if (element != asideOrderDetail){
+        //     actualAside = null;
+        // }
     })
 }
 
@@ -124,20 +131,12 @@ mainRender(productList);
 
 
 
-let actualAside;
 detailClose.addEventListener('click', () => {
     asideOrderDetail.classList.add('inactive');
     actualAside = undefined;    
 })
 productList.forEach((element)=>{
  element.DOMElement.addEventListener('click',()=>{
-    //showpopup closes all the other menus that could be open
-    showPopUp(null);
-    
-    if (asideOrderDetail.classList.contains('inactive')){
-        asideOrderDetail.classList.remove('inactive');
-        // actualAside = undefined;
-    }
     
     if (actualAside == element.id && (!asideOrderDetail.classList.contains('inactive'))){
         asideOrderDetail.classList.add('inactive');
@@ -145,6 +144,10 @@ productList.forEach((element)=>{
         
         return;
     }
+
+    //showpopup closes all the other menus that could be open
+    showPopUp(asideOrderDetail);
+    
     actualAside = element.id;
     // asideOrderDetail.classList.toggle('inactive')
     asideOrderDetailImg.setAttribute('src',element.Img);
