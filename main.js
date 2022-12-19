@@ -58,11 +58,16 @@ function showPopUp(e){
             element.classList.add('inactive');
            
         }else{
+            element.classList.toggle('inactive');
+        }
+        
+        // the case of "asideOrderDetail" it's a special, it doesn't need to be
+        // toggle, it shold to be close because it has another behaivor
+        //(if it's inactive show it if isn't close it).
+        if (e == asideOrderDetail && e == element){
             element.classList.remove('inactive');
         }
-        // if (element != asideOrderDetail){
-        //     actualAside = null;
-        // }
+        
     })
 }
 
@@ -98,7 +103,8 @@ function mainRender(arr){ //arr it's a array with objects to be render as a card
         cardContainer.append(productCardContainer);
 
         //Set productCardContainer event
-        element.DOMElement = productCardContainer;
+        element.imageCard = image;
+        element.cart = cartIcon;
     }   
 }
 
@@ -136,8 +142,8 @@ detailClose.addEventListener('click', () => {
     actualAside = undefined;    
 })
 productList.forEach((element)=>{
- element.DOMElement.addEventListener('click',()=>{
-    
+ element.imageCard.addEventListener('click',()=>{
+
     if (actualAside == element.id && (!asideOrderDetail.classList.contains('inactive'))){
         asideOrderDetail.classList.add('inactive');
         actualAside = undefined;
@@ -154,8 +160,12 @@ productList.forEach((element)=>{
     asidePrice.innerText = element.price;
     asideName.innerText = element.name;
     asideDescription.innerText = element.description;
-    console.log(actualAside);
-    
-
  })
+
+
+
+ element.cart.addEventListener("click",() =>{
+    
+ })
+
 })
