@@ -177,6 +177,9 @@ nav {
   right: 0;
   background-color: var(--white);
 }
+/* .my-order-content{
+  overflow-y: scroll;
+} */
 .title-container {
   display: flex;
 }

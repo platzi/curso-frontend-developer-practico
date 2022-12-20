@@ -9,7 +9,12 @@ const detailClose = document.querySelector('.full-product-detail-close');
 //PopUp menu  
 const desktopMenu = document.querySelector('.desktop-menu');
 const mobileMenu = document.querySelector('.mobile-menu');
+
 const asideMyOrder = document.querySelector('.product-detail');
+    const myorderContent = document.querySelector('.my-order-content');
+    const totalOrder = document.querySelector('.order p:nth-child(2)');
+    const infoTotalOrder = document.querySelector('.order p span');
+
 const asideOrderDetail = document.querySelector('.full-product-detail');
     const asideOrderDetailImg  = document.querySelector('#ProductDetailImg');
     const asidePrice = document.querySelector('.product-info-detail p:nth-child(1)');
@@ -19,6 +24,9 @@ const PopUpmenus = [desktopMenu, mobileMenu, asideMyOrder,asideOrderDetail];
 
 // Product list (main)
 const cardContainer = document.querySelector('.cards-container');
+
+//shopping cart of the main cards (Aside behaivor)
+
 
 
 
@@ -37,6 +45,10 @@ burgerIcon.addEventListener('click', () =>{
 
 shopyCart.addEventListener('click', () =>{
     showPopUp(asideMyOrder);
+    if (totalItemShoppingCart() == 0 ){
+        infoTotalOrder.innerText = "There's no a item in the cart yet, add a product to see here!"
+    }
+
     // asideMyOrder.classList.toggle('inactive');
 });
 
@@ -45,11 +57,17 @@ asideArrow.addEventListener('click', () =>{
 })
 
 
-let actualAside;
 
 
 
 //functions 
+
+function totalItemShoppingCart(){
+    return document.querySelectorAll('.shopping-cart').length;
+}
+
+
+
 function showPopUp(e){
     // this function close all the other pop-up menus that are already open and then
     //toggle the pop-up that we passed using the parametrer "e"
@@ -135,7 +153,8 @@ productList.push({
 });
 mainRender(productList);
 
-
+let actualAside;
+let totalCart = 0;
 
 detailClose.addEventListener('click', () => {
     asideOrderDetail.classList.add('inactive');
@@ -147,7 +166,6 @@ productList.forEach((element)=>{
     if (actualAside == element.id && (!asideOrderDetail.classList.contains('inactive'))){
         asideOrderDetail.classList.add('inactive');
         actualAside = undefined;
-        
         return;
     }
 
@@ -165,7 +183,33 @@ productList.forEach((element)=>{
 
 
  element.cart.addEventListener("click",() =>{
+    const shoppingCart = document.createElement('div');
+        shoppingCart.classList.add('shopping-cart');
+            const shoppingCartFigure = document.createElement('figure');
+                const shoppingCartFigureImg = document.createElement('img');
+                shoppingCartFigureImg.setAttribute('src', element.Img);
+            shoppingCartFigure.append(shoppingCartFigureImg);
+    shoppingCart.append(shoppingCartFigure);
+
+        const cartItemPrice = document.createElement('p');
+        cartItemPrice.innerText = element.price;
+    shoppingCart.append(cartItemPrice);
+
+        const cartItemName = document.createElement('p');
+        cartItemName.innerText = element.price;
+    shoppingCart.append(cartItemName);
+
+        const eliminateItem = document.createElement('img');
+        eliminateItem.setAttribute('src', './icons/icon_close.png');
+        eliminateItem.setAttribute('style', 'cursor: pointer;');
+    shoppingCart.append(eliminateItem);
+
+    myorderContent.prepend(shoppingCart);
     
+    infoTotalOrder.innerText = 'Total'    
+    totalCart += Number(element.price.replace(',','.'));
+    totalOrder.innerText = `$${totalCart}`;    
+
  })
 
 })
