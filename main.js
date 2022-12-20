@@ -5,34 +5,46 @@ const mobileMenu = document.querySelector('.mobile-menu');
 const shoppingCartContainer = document.querySelector('#shoppingCartContainer')
 const shoppingCartIcon = document.querySelector('.navbar-shopping-cart')
 const CardsContainer = document.querySelector('.cards-container');
+const productDetailContainer = document.querySelector('#productDetail');
+const producDetailClose = document.querySelector('.product-detail-close');
+
+// Add all event listener for HTML entries
+navbarEmail.addEventListener('click', toggleAccountMenu);
+mobileIconMenu.addEventListener('click', toggleMobileMenu);
+shoppingCartIcon.addEventListener('click', toggleShoppingCartAside);
+producDetailClose.addEventListener('click', closeProductDetailAside);
 
 // When user clicks on navbarEmail the idea is to show or hide the AccountMenu
-navbarEmail.addEventListener('click', toggleAccountMenu);
-
-
 function toggleAccountMenu(){
     // Using classList it will shows or hides class inactive depending on the current status
     accountMenu.classList.toggle('inactive');
     shoppingCartContainer.classList.add('inactive');
 }
-
 // Add event when click in the Img menu to display the Mobile menu
-mobileIconMenu.addEventListener('click', toggleMobileMenu);
-
 function toggleMobileMenu(){
     mobileMenu.classList.toggle('inactive');
     shoppingCartContainer.classList.add('inactive');
+    productDetailContainer.classList.add('inactive');
 }
-
 // Add windows for shopping cart icon
-shoppingCartIcon.addEventListener('click', toggleShoppingCartAside);
-
 function toggleShoppingCartAside(){
     shoppingCartContainer.classList.toggle('inactive');
     mobileMenu.classList.add('inactive');
     accountMenu.classList.add('inactive');
+    productDetailContainer.classList.add('inactive');
 }
+// This function is call in updateProducts function in order to
+// open the product-detail windows when a product is clicked. 
+function openProductDetailAside(){
+    productDetailContainer.classList.remove('inactive');
+    shoppingCartContainer.classList.add('inactive');
+    mobileMenu.classList.add('inactive');
+}
+// This event is done when the X button is pressed in produc-detail
+function closeProductDetailAside(){
+    productDetailContainer.classList.add('inactive');
 
+}
 
 // All available products
 const tinte = {
@@ -65,6 +77,7 @@ function updateProducts(arr){
 
         const productImg = document.createElement('img');
         productImg.setAttribute('src', product.image);
+        productImg.addEventListener('click', openProductDetailAside);
 
         const productInfo = document.createElement('div');
         productInfo.classList.add('product-info');
