@@ -6,9 +6,15 @@ const shopCart = document.querySelector('.navbar-shopping-cart');
 const shoppingCartContainer = document.querySelector('#shoppingCartContainer');
 const cardsConstainer = document.querySelector('.cards-container');
 const productDetailContainer = document.querySelector('#productDetail')
+const productDetailCloseIcon = document.querySelector('.product-detail-close');
+
+
+
+
 navbarEmail.addEventListener('click',() => toggleGeneral(desktopMenu));
 burgerButton.addEventListener('click',() => toggleGeneral(mobileMenu));
 shopCart.addEventListener('click',()=> toggleGeneral(shoppingCartContainer));
+productDetailCloseIcon.addEventListener('click',()=>productDetailContainer.classList.add('inactive'));
 
 
 function toggleGeneral(item){
@@ -16,15 +22,23 @@ function toggleGeneral(item){
         case mobileMenu:
             item.classList.toggle('inactive');
             shoppingCartContainer.classList.add('inactive');
+            productDetailContainer.classList.add('inactive');
             break;
         case shoppingCartContainer:
             item.classList.toggle('inactive');
             mobileMenu.classList.add('inactive');
             desktopMenu.classList.add('inactive');
+            productDetailContainer.classList.add('inactive');
             break;
         case desktopMenu:
             item.classList.toggle('inactive');
             shoppingCartContainer.classList.add('inactive');
+            productDetailContainer.classList.add('inactive');
+            break;
+        case productDetailContainer:
+            item.classList.toggle('inactive');
+            shoppingCartContainer.classList.add('inactive');
+            desktopMenu.classList.add('inactive');
             break;
         default:
             item.classList.toggle('inactive');
@@ -33,7 +47,7 @@ function toggleGeneral(item){
 }
 
 function openProductDetailAside(){
-
+    productDetailContainer.classList.remove('inactive');
 }
 
 const productList = [];
@@ -61,7 +75,7 @@ function renderProducts(array){
     
         const img = document.createElement('img');
         img.setAttribute('src',product.img);
-        img.addEventListener('click',openProductDetailAside);
+        img.addEventListener('click',()=>toggleGeneral(productDetailContainer));
     
         const productInfo = document.createElement('div');
         productInfo.classList.add('product-info');
