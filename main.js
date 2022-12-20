@@ -63,6 +63,12 @@ productList.push({
     image: "https://images.pexels.com/photos/276517/pexels-photo-276517.jpeg?auto=compress&cs=tinysrgb&dpr=2&h=650&w=940"
 });
 
+productList.push({
+    name: 'mouse',
+    price: 60,
+    image: "https://images.pexels.com/photos/276517/pexels-photo-276517.jpeg?auto=compress&cs=tinysrgb&dpr=2&h=650&w=940"
+});
+
 function rederProducts(arr) {
     for (product of arr) {
         const productCard = document.createElement('div');
