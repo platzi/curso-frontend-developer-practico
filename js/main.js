@@ -22,7 +22,7 @@ menuHamIcon.addEventListener('click',()=>{
 
 //MY ORDER
 const menuCarritoIcon = document.querySelector('.navbar-shopping-cart');
-const aside = document.querySelector('.product-detail');
+const aside = document.querySelector('#shopping-cart-container');
 
 const cardsContainer = document.querySelector('.cards-container');
 
