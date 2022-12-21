@@ -5,7 +5,7 @@ const burgerMenu = document.querySelector("#burger-menu");
 const mobileMenu = document.querySelector(".mobile-menu");
 
 const menuCart = document.querySelector(".navbar-shopping-cart");
-const productDetail = document.querySelector(".product-detail");
+const productDetail = document.querySelector("#shopping-cart-container");
 
 const cardsContainer = document.querySelector(".cards-container");
 
