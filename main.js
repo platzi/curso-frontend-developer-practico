@@ -1,29 +1,3 @@
-const navbarEmail = document.querySelector(".navbar-email");
-const desktopMenu = document.querySelector(".desktop-menu");
-
-const burgerMenu = document.querySelector("#burger-menu");
-const mobileMenu = document.querySelector(".mobile-menu");
-
-const menuCart = document.querySelector(".navbar-shopping-cart");
-const productDetail = document.querySelector("#shopping-cart-container");
-
-const cardsContainer = document.querySelector(".cards-container");
-
-navbarEmail.addEventListener("click", () => {
-  desktopMenu.classList.toggle("inactive");
-});
-
-burgerMenu.addEventListener("click", () => {
-  productDetail.classList.add("inactive");
-  mobileMenu.classList.toggle("inactive");
-});
-
-menuCart.addEventListener("click", () => {
-  desktopMenu.classList.add("inactive");
-  mobileMenu.classList.add("inactive");
-  productDetail.classList.toggle("inactive");
-});
-
 const productList = [];
 productList.push({
   name: "Bike",
@@ -44,8 +18,44 @@ productList.push({
     "https://images.pexels.com/photos/276517/pexels-photo-276517.jpeg?auto=compress&cs=tinysrgb&dpr=2&h=650&w=940",
 });
 
+
+const navbarEmail = document.querySelector(".navbar-email");
+const desktopMenu = document.querySelector(".desktop-menu");
+
+const burgerMenu = document.querySelector("#burger-menu");
+const mobileMenu = document.querySelector(".mobile-menu");
+
+const menuCart = document.querySelector(".navbar-shopping-cart");
+const productDetail = document.querySelector("#shopping-cart-container");
+
+const cardsContainer = document.querySelector(".cards-container");
+
+displayProducts(productList);
+
+const productCards = document.querySelectorAll(".product-card");
+const asideDetail = document.querySelector("#product-detail");
+const closeDetail = document.querySelector(".product-detail-close");
+
+navbarEmail.addEventListener("click", () => {
+  asideDetail.classList.add("inactive");
+  desktopMenu.classList.toggle("inactive");
+});
+
+burgerMenu.addEventListener("click", () => {
+  asideDetail.classList.add("inactive");
+  productDetail.classList.add("inactive");
+  mobileMenu.classList.toggle("inactive");
+});
+
+menuCart.addEventListener("click", () => {
+  asideDetail.classList.add("inactive");
+  desktopMenu.classList.add("inactive");
+  mobileMenu.classList.add("inactive");
+  productDetail.classList.toggle("inactive");
+});
+
 function displayProducts(arr) {
-    for (product of arr) {
+  for (product of arr) {
     const container = document.createElement("div");
     container.className = "product-card";
 
@@ -73,7 +83,17 @@ function displayProducts(arr) {
     container.append(img, productInfo);
 
     cardsContainer.append(container);
-    }
+  }
 }
 
-displayProducts(productList);
+closeDetail.addEventListener("click", () => {
+  asideDetail.classList.add("inactive");
+});
+
+productCards.forEach((card) => {
+  card.addEventListener("click", () => {
+    desktopMenu.classList.add("inactive");
+    productDetail.classList.add("inactive");
+    asideDetail.classList.toggle("inactive");
+  });
+});
