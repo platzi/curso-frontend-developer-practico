@@ -5,7 +5,7 @@ const desktopMenu = document.querySelector('.desktop-menu');
 const menuHamIcon = document.querySelector('.menu');
 const mobileMenu = document.querySelector('.mobile-menu');
 const menuCarrito = document.querySelector('.navbar-shopping-cart');
-const AsidePDetail =document.querySelector('.product-detail');
+const shoppingCartContainer = document.querySelector('#ShoppingCartContainer');
 const cardsContainer = document.querySelector('.cards-container')
 
 
@@ -19,10 +19,10 @@ menuCarrito.addEventListener('click', toggleAsideProduct);// Esta llamada de fun
 
 // Estas son las FUNCIONES creadas y llamadas con los EVENT LISTENERS
 function toggleDestopMenu(){// esta funcion INTERCAMBIA una CLASE. Si existe, la elimina y viceversa 
-    const isAsideOpen = AsidePDetail.classList.contains('inactive'); //Contains comprueba si una clase es TRUE
+    const isAsideOpen = shoppingCartContainer.classList.contains('inactive'); //Contains comprueba si una clase es TRUE
 
     if (!isAsideOpen){//Esta condicion evalua, si una CLASE esta NO esta en el documento, si no esta es VERDADERO asi que agreguela
-        AsidePDetail.classList.add('inactive');
+        shoppingCartContainer.classList.add('inactive');
     }
 
     console.log('click');
@@ -30,11 +30,11 @@ function toggleDestopMenu(){// esta funcion INTERCAMBIA una CLASE. Si existe, la
 }
 
 function toggleMobileMenu(){
-    const isAsideOpen = AsidePDetail.classList.contains('inactive');
+    const isAsideOpen = shoppingCartContainer.classList.contains('inactive');
 
 
     if (!isAsideOpen){
-        AsidePDetail.classList.add('inactive');
+        shoppingCartContainer.classList.add('inactive');
     }
 
     console.log('click')
@@ -51,7 +51,7 @@ function toggleAsideProduct(){
     }
     
     console.log('click')
-    AsidePDetail.classList.toggle('inactive');
+    shoppingCartContainer.classList.toggle('inactive');
 }
 
 // Creacion de un ARRAY para INSERTAR los productos que son OBJETOS 
