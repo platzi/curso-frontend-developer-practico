@@ -269,7 +269,7 @@ aside {
 
 
 /* ProductDetail */
-#productDetail-close {
+#productDetail .product-detail-close {
   background: var(--white);
   width: 14px;
   height: 14px;
@@ -280,7 +280,8 @@ aside {
   padding: 12px;
   border-radius: 50%;
 }
-#productDetail-close:hover {
+
+#productDetail .product-detail-close:hover {
   cursor: pointer;
 }
 #productDetail > img:nth-child(2) {

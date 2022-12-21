@@ -6,7 +6,9 @@ const menuHamIcon = document.querySelector('.menu');
 const mobileMenu = document.querySelector('.mobile-menu');
 const menuCarrito = document.querySelector('.navbar-shopping-cart');
 const shoppingCartContainer = document.querySelector('#ShoppingCartContainer');
-const cardsContainer = document.querySelector('.cards-container')
+const cardsContainer = document.querySelector('.cards-container');
+const ProductDetailContainer = document.querySelector('#productDetail');
+const productDetailCloseIcon = document.querySelector('.product-detail-close');
 
 
 // Esta seccion ESCUCHA eventos y LLAMA funciones (EVENT LISTENERS)
@@ -16,6 +18,7 @@ menuHamIcon.addEventListener('click', toggleMobileMenu);
 
 menuCarrito.addEventListener('click', toggleAsideProduct);// Esta llamada de funcion, escucha el "Click" y llama a la funcion toggleAsideProdut
 
+productDetailCloseIcon.addEventListener('click',closeProducDetailAside);
 
 // Estas son las FUNCIONES creadas y llamadas con los EVENT LISTENERS
 function toggleDestopMenu(){// esta funcion INTERCAMBIA una CLASE. Si existe, la elimina y viceversa 
@@ -32,13 +35,14 @@ function toggleDestopMenu(){// esta funcion INTERCAMBIA una CLASE. Si existe, la
 function toggleMobileMenu(){
     const isAsideOpen = shoppingCartContainer.classList.contains('inactive');
 
-
     if (!isAsideOpen){
         shoppingCartContainer.classList.add('inactive');
     }
 
     console.log('click')
     mobileMenu.classList.toggle('inactive');
+
+    closeProducDetailAside();
   
 }
 
@@ -49,11 +53,31 @@ function toggleAsideProduct(){
     if (!ismobileMOpen){
         mobileMenu.classList.add('inactive');
     }
+
+    const isProductDetailClosed = ProductDetailContainer.classList.contains('inactive');
+
+    if (!isProductDetailClosed){
+        ProductDetailContainer.classList.add('inactive');
+    }
     
     console.log('click')
     shoppingCartContainer.classList.toggle('inactive');
 }
 
+function openProductDetailAside(){
+    const isShopcarClosed = shoppingCartContainer.classList.contains('inactive');
+
+    if (!isShopcarClosed){ // ¿no esta cerrado el carrito? si es verdadero (True) quiere decir que esta abierto
+        shoppingCartContainer.classList.add('inactive');
+    }
+
+    ProductDetailContainer.classList.remove('inactive');
+//si abro productDetail, y carrito(shoppingCartContainer) esta abierto, debe cerrarce (inactive on)
+}
+
+function closeProducDetailAside(){
+    ProductDetailContainer.classList.add('inactive');
+}
 // Creacion de un ARRAY para INSERTAR los productos que son OBJETOS 
 const productList = [];
 productList.push({//Con el metodo PUSH empujamos un nuevo OBJETO(Producto)
@@ -84,6 +108,7 @@ function renderProducts (arr){//Funcion que RECORRE Y a su vez CREA  el HTML par
         const productImg = document.createElement('img');
         productImg.setAttribute('src', product.image);
         // product = {name, price, image} -> product.image
+        productImg.addEventListener('click',openProductDetailAside);
     
         const productInfo = document.createElement('div');
         productInfo.classList.add('product-info');
