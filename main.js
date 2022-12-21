@@ -23,8 +23,8 @@ price: '180,00',
 image: 'https://images.pexels.com/photos/4413303/pexels-photo-4413303.jpeg'
 });
 
-function addProductList() {
-    for (product of productList){
+function renderProducts(productArray) {
+    for (product of productArray){
         const productCard = document.createElement('div');
         productCard.classList.add('product-card');
     
@@ -85,4 +85,4 @@ function toggleShoppingChart() {
     mobileMenu.classList.add('inactive');
 }
 
-addProductList();
+renderProducts(productList);
