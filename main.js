@@ -1,11 +1,20 @@
 let email = document.querySelector('.navbar-email')
 let desktopMenu = document.querySelector('.desktop-menu')
+let burguerMenu = document.querySelector('.burguerMenu')
+let mobileMenu = document.querySelector('.mobile-menu')
 
-function quitarPonerClase() {
+
+
+function quitarPonerClaseParaDesktop() {
     desktopMenu.classList.toggle('inactive')
 }
 
-email.addEventListener('click', quitarPonerClase)
+function quitarPonerClaseParaMobile(){
+    mobileMenu.classList.toggle('inactive')
+}
+burguerMenu.addEventListener('click', quitarPonerClaseParaMobile)
+email.addEventListener('click', quitarPonerClaseParaDesktop)
+
 
 
 
