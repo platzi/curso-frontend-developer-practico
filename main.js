@@ -48,21 +48,45 @@ function closeProductDetailAside(){
 }
 const productList = [];
 productList.push({
-    name: 'Bike',
-    price: 120,
-    Image: 'https://images.pexels.com/photos/276517/pexels-photo-276517.jpeg?auto=compress&cs=tinysrgb&dpr=2&h=650&w=940'
-});
-productList.push({
-    name: 'Monitor',
-    price: 220,
-    Image: 'https://images.pexels.com/photos/276517/pexels-photo-276517.jpeg?auto=compress&cs=tinysrgb&dpr=2&h=650&w=940'
+    name: 'motorcycle',
+    price: 11000,
+    Image: './images/image1.jpeg'
 });
 productList.push({
     name: 'Console',
-    price: 320,
-    Image: 'https://images.pexels.com/photos/276517/pexels-photo-276517.jpeg?auto=compress&cs=tinysrgb&dpr=2&h=650&w=940'
+    price: 560,
+    Image: './images/image2.jpg'
 });
-
+productList.push({
+    name: 'Monitor',
+    price: 420,
+    Image: './images/image3.jpg'
+});
+productList.push({
+    name: 'Computer',
+    price: 1200,
+    Image: './images/image4.jpg'
+});
+productList.push({
+    name: 'IPhone 14 Pro',
+    price: 1100,
+    Image: './images/image5.jpg'
+});
+productList.push({
+    name: 'Samsung Galaxy S22',
+    price: 700,
+    Image: './images/image6.jpg'
+});
+productList.push({
+    name: 'Beats Headphones',
+    price: 300,
+    Image: './images/image7.jpg'
+});
+productList.push({
+    name: 'Mouse Viper',
+    price: 60,
+    Image: './images/image8.jpeg'
+});
 function renderProducts(arr) {
     for(product of arr){
         const productCard = document.createElement('div');
@@ -82,14 +106,14 @@ function renderProducts(arr) {
     
         const productName = document.createElement('p');
         productName.innerText = product.name;
-    
+
         productInfoDiv.appendChild(productPrice);
         productInfoDiv.appendChild(productName);
     
         const productInfoFigure = document.createElement('figure');
         const productImgCart = document.createElement('img');
         productImgCart.setAttribute('src', './icons/bt_add_to_cart.svg');
-    
+
         productInfoFigure.appendChild(productImgCart);
     
         productInfo.appendChild(productInfoDiv);
