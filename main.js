@@ -3,12 +3,15 @@ const desktopMenu = document.querySelector('.desktop-menu')
 const mobileMenu = document.querySelector('.mobile-menu')
 const burgerMenu = document.querySelector('.menu')
 const menuShoppingCart = document.querySelector('.navbar-shopping-cart')
+const productDetailCloseIcon = document.querySelector('.product-detail-close')
 const shoppingCartContainer = document.querySelector('#shoppingCartContainer')
+const productDetailContainer = document.querySelector('#productDetail')
 const cardsContainer = document.querySelector('.cards-container')
 
 menuEmail.addEventListener('click', toggleDesktopMenu)
 burgerMenu.addEventListener('click', toggleMobileMenu)
 menuShoppingCart.addEventListener('click', toggleShoppingCart)
+productDetailCloseIcon.addEventListener('click', closeProductDetailAside)
 
 function toggleDesktopMenu() {
     const isAsideClosed = shoppingCartContainer.classList.contains('inactive');
@@ -25,6 +28,8 @@ function toggleMobileMenu(){
     if(!isAsideClosed){
         shoppingCartContainer.classList.add('inactive')
     }
+    closeProductDetailAside()
+    
     mobileMenu.classList.toggle('inactive')
 }
 
@@ -34,7 +39,23 @@ function toggleShoppingCart(){
     if(!isMobileMenuClosed){
         mobileMenu.classList.add('inactive')
     }
+
+    const isProductDetailClosed = productDetailContainer.classList.contains('inactive');
+
+    if(!isProductDetailClosed){
+        productDetailContainer.classList.add('inactive')
+    }
     shoppingCartContainer.classList.toggle('inactive')
+
+}
+
+function openProductDetailAside(){
+    shoppingCartContainer.classList.add('inactive')
+    productDetailContainer.classList.remove('inactive')
+}
+
+function closeProductDetailAside(){
+    productDetailContainer.classList.add('inactive')
 }
 
 const productList = [];
@@ -68,12 +89,12 @@ productList.push({
     image: 'https://resources.sears.com.mx/medios-plazavip/fotos/productos_sears1/original/3600792.jpg?scale=350'
 })
 
-
 productList.push({
     name: 'Bike',
     price: 120,
     image: 'https://images.pexels.com/photos/276517/pexels-photo-276517.jpeg?auto=compress&cs=tinysrgb&dpr=2&h=650&w=940'
 })
+
 productList.push({
     name: 'Bike',
     price: 120,
@@ -85,6 +106,7 @@ productList.push({
     price: 5200,
     image: 'https://images.acer.com/is/image/acer/Nitro5_AN51555_WP_RGBKBUK_1_Bl-1?$Product-Cards-XL$'
 })
+
 productList.push({
     name: 'Pantalla',
     price: 3440,
@@ -98,6 +120,7 @@ function renderProducts(arr){
 
         const productImg = document.createElement('img')
         productImg.setAttribute('src', product.image)
+        productImg.addEventListener('click', openProductDetailAside)
 
         const productInfo = document.createElement('div')
         productInfo.classList.add('product-info')
