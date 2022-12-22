@@ -10,6 +10,7 @@ menuEmail.addEventListener('click', toggleDesktopMenu);
 Hamburguer.addEventListener('click', toggleMobileMenu);
 Car.addEventListener('click', toggleDesktopCar);
 
+
 function toggleDesktopMenu(){
      DesktopMenu.classList.toggle('inactive');
      DesktopCar.classList.add('inactive');
@@ -62,6 +63,8 @@ function MaquetaProductos(arreglo){
      
           const ProductImage = document.createElement('img');
           ProductImage.setAttribute('src', product.image);
+          ProductImage.setAttribute('class', 'prueba');
+          ProductImage.addEventListener('click', removeDetailProduct);
      
           const ProductInfo = document.createElement('div');
           ProductInfo.classList.add('product-info');
@@ -80,6 +83,7 @@ function MaquetaProductos(arreglo){
           const ProductInfoFigure = document.createElement('figure');
           const ProductImgCart = document.createElement('img');
           ProductImgCart.setAttribute('src', './icons/bt_add_to_cart.svg')
+          ProductImgCart.setAttribute('class', 'cursor');
      
           ProductInfoFigure.appendChild(ProductImgCart); 
      
@@ -94,3 +98,24 @@ function MaquetaProductos(arreglo){
      
 }
 MaquetaProductos(ProductList);
+
+const ProductImage = document.querySelector('.prueba');
+const ProductDetail = document.querySelector('#detalle');
+const ProductClose = document.querySelector('#cerrar');
+var background = document.querySelector('#background');
+
+ProductImage.addEventListener('click', removeDetailProduct);
+ProductClose.addEventListener('click', addDetailProduct);
+
+function removeDetailProduct(){
+     ProductDetail.classList.remove('inactive');
+     background.classList.add('background-blur');
+     DesktopCar.classList.add('inactive');
+     DesktopMenu.classList.add('inactive');
+     MobileMenu.classList.add('inactive');
+     DesktopMenu.classList.add('inactive');
+}
+function addDetailProduct(){
+     ProductDetail.classList.add('inactive');
+     background.classList.remove('background-blur');
+}
