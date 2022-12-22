@@ -6,6 +6,7 @@ const cart = document.querySelector('.navbar-shopping-cart');
 const cartList = document.querySelector('.product-detail');
 const cardsContainer = document.querySelector('.cards-container');
 
+//eventos de los menus de opciones
 menuEmail.addEventListener('click', toggleDesktopMenu);
 menuHamburger.addEventListener('click', toggleMobileMenu);
 cart.addEventListener('click', toggleCart);
@@ -40,7 +41,7 @@ function toggleCart(){
     cartList.classList.toggle('inactive');
 }
 
-//product list
+//array de productos
 const productList = [];
 productList.push({
     name: 'spiderman',
@@ -75,9 +76,11 @@ productList.push({
 </div>
 */
 
+//mostrar productos
 function renderizarProductos(array){
     //recorrer el array
     for(product of array){
+        //creamos elementos HTML
         const productCard = document.createElement('div');
         productCard.classList.add('product-card');
 
@@ -99,19 +102,20 @@ function renderizarProductos(array){
         const icon = document.createElement('img');
         icon.setAttribute('src', './icons/bt_add_to_cart.svg');
 
-        //metemos el icon dentro de figure
+        //insertamos el icon dentro de figure
         figure.appendChild(icon);
-        //metemos el precio y el nombre dentro del div
+        //insertamos el precio y el nombre dentro del div
         div.append(precio, nombre);
-        //metermos el div y figure dentro de product info
+        //insertamos el div y figure dentro de product info
         productInfo.append(div, figure);
-        //metemos productIngo y img dento de productCard
+        //insertamos productIngo y img dento de productCard
         productCard.append(img, productInfo);
 
-        //introducimos el productCard al cards-container
+        //insertamos el productCard al cards-container
         cardsContainer.appendChild(productCard);
     }
 }
 
+//enviamos el array de productos como argumento
 renderizarProductos(productList);
 
