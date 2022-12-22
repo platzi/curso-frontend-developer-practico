@@ -151,11 +151,13 @@ nav {
 */
 
 .mobile-menu {
+    box-sizing: border-box;
     padding: 24px;
     position: absolute;
     top: 60px;
     left: 0;
     background-color: var(--white);
+    width: 100%;
 }
   
 .mobile-menu a {
@@ -192,8 +194,6 @@ nav {
 /* 
             *Carrito de compras 
 */
-
-
 .product-detail {
     background-color: var(--white);
     width: 360px;
@@ -201,6 +201,7 @@ nav {
     box-sizing: border-box;
     position: absolute;
     right: 0;
+    padding: 24px;
 }
 
 .title-container {
@@ -282,6 +283,83 @@ nav {
     font-weight: bold;
     height: 50px;
 }
+/* 
+            *Product details
+*/
+
+.product-details {
+    width: 360px;
+    padding-bottom: 24px;
+    position: absolute;
+    right: 0;
+    background-color: var(--white);
+}
+  
+  .product-details-close {
+    background: var(--white);
+    width: 14px;
+    height: 14px;
+    position: absolute;
+    top: 24px;
+    left: 24px;
+    z-index: 2;
+    padding: 12px;
+    border-radius: 50%;
+}
+  
+  .product-details-close:hover {
+    cursor: pointer;
+}
+  
+  .product-details > img:nth-child(2) {
+    width: 100%;
+    height: 360px;
+    object-fit: cover;
+    border-radius: 0 0 20px 20px;
+}
+  
+  .products-info {
+    margin: 24px 24px 0 24px;
+}
+  
+  .products-info p:nth-child(1) {
+    font-weight: bold;
+    font-size: var(--md);
+    margin-top: 0;
+    margin-bottom: 4px;
+}
+  
+  .products-info p:nth-child(2) {
+    color: var(--very-light-pink);
+    font-size: var(--md);
+    margin-top: 0;
+    margin-bottom: 36px;
+}
+  
+  .products-info p:nth-child(3) {
+    color: var(--very-light-pink);
+    font-size: var(--sm);
+    margin-top: 0;
+    margin-bottom: 36px;
+}
+  
+  .primary-button {
+    background-color: var(--hospital-green);
+    border-radius: 8px;
+    border: none;
+    color: var(--white);
+    width: 100%;
+    cursor: pointer;
+    font-size: var(--md);
+    font-weight: bold;
+    height: 50px;
+}
+  
+  .add-to-cart-button {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+}
 
 /* 
             *Product list 
@@ -351,17 +429,20 @@ nav {
     }
     .product-detail {
         width: 100%;
-      }
-      .cards-container {
+    }
+    .cards-container {
         grid-template-columns: repeat(auto-fill, 140px);
-      }
-      .product-card {
+    }
+    .product-card {
         width: 140px;
-      }
-      .product-card img {
+    }
+    .product-card img {
         width: 140px;
         height: 140px;
-      }
+    }
+    .product-details {
+        width: 100%;
+    }
 }
 
 @media (min-width: 741px){
