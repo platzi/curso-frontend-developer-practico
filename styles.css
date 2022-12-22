@@ -18,7 +18,7 @@ body {
     display: none;
 }
 
-/*navbar genera*/
+/* navbar genera */
 nav {
     display: flex;
     justify-content: space-between;
@@ -93,7 +93,7 @@ nav {
     align-items: center;
 }
 
-/*desktop menu*/
+/* desktop menu */
 .desktop-menu {
     position: absolute;
     top: 60px;
@@ -138,7 +138,7 @@ nav {
     display: inline-block;
 }
 
-/*mobile menu*/
+/* mobile menu */
 .mobile-menu {
     background-color: var(--white);
     position: absolute;
@@ -390,7 +390,7 @@ aside {
     color: var(--very-light-pink);
 }
 
-/*query media*/
+/* query media */
 
 @media (min-width: 641px) {
     .mobile-menu {
