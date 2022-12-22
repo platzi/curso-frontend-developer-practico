@@ -238,13 +238,7 @@ aside {
 }
 
 /*Product detail*/
-#productDetail {
-  width: 360px;
-  padding-bottom: 24px;
-  position: absolute;
-  right: 0;
 
-}
 #productDetail .product-detail-close {
   background: var(--white);
   width: 14px;
@@ -259,7 +253,7 @@ aside {
 #productDetail .product-detail-close:hover {
   cursor: pointer;
 }
-#productDetail  > img:nth-child(2) {
+#productDetail > img:nth-child(2) {
   width: 100%;
   height: 360px;
   object-fit: cover;
