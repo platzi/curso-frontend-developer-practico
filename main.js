@@ -1,32 +1,3 @@
-let email = document.querySelector('.navbar-email')
-let desktopMenu = document.querySelector('.desktop-menu')
-let burguerMenu = document.querySelector('.burguerMenu')
-let mobileMenu = document.querySelector('.mobile-menu')
-let aside = document.querySelector('.product-detail')
-let carrito = document.querySelector('.navbar-shopping-cart')
-
-
-function quitarPonerClaseParaDesktop() {
-    aside.classList.add('inactive')
-    desktopMenu.classList.toggle('inactive')
-}
-
-function quitarPonerClaseParaMobile(){
-    aside.classList.add('inactive')
-    mobileMenu.classList.toggle('inactive')
-}
-
-function quitarPonerClaseCarrito() {
-    mobileMenu.classList.add('inactive')
-    desktopMenu.classList.add('inactive')
-    aside.classList.toggle('inactive')
-}
-
-carrito.addEventListener('click', quitarPonerClaseCarrito)
-burguerMenu.addEventListener('click', quitarPonerClaseParaMobile)
-email.addEventListener('click', quitarPonerClaseParaDesktop)
-
-
 let productList = [];
 productList.push({
     name: 'AirPods',
@@ -52,6 +23,12 @@ productList.push({
     image: 'https://images.pexels.com/photos/699122/pexels-photo-699122.jpeg?auto=compress&cs=tinysrgb&w=1260&h=750&dpr=1'
 })
 
+productList.push({
+    name: 'Nintendo 3ds',
+    price: 250,
+    image: 'https://images.pexels.com/photos/1367036/pexels-photo-1367036.jpeg?auto=compress&cs=tinysrgb&w=1260&h=750&dpr=1'
+})
+
 function renderProducts(arr) {
     for (const producto of arr) {
 
@@ -60,6 +37,7 @@ function renderProducts(arr) {
     
         const image = document.createElement('img')
         image.setAttribute('src', producto.image)
+        image.addEventListener('click', PonerAsideDetails)
     
         const productInfo = document.createElement('div')
         productInfo.classList.add('product-info')
@@ -86,8 +64,50 @@ function renderProducts(arr) {
         contenedorDeLasCartas.appendChild(productCard)
     }
 }
-
 renderProducts(productList)
+
+let email = document.querySelector('.navbar-email')
+let desktopMenu = document.querySelector('.desktop-menu')
+let burguerMenu = document.querySelector('.burguerMenu')
+let mobileMenu = document.querySelector('.mobile-menu')
+let aside = document.querySelector('.product-detail')
+let carrito = document.querySelector('.navbar-shopping-cart')
+let asideDetails = document.querySelector('.product-details')
+let cerrarAsideDetails = document.querySelector('.product-details-close')
+
+function PonerAsideDetails(){
+    asideDetails.classList.remove('inactive')
+}
+
+function quitarAsideDetails(){
+    asideDetails.classList.add('inactive')
+}
+
+function quitarPonerClaseParaDesktop() {
+    aside.classList.add('inactive')
+    asideDetails.classList.add('inactive')
+    desktopMenu.classList.toggle('inactive')
+}
+
+function quitarPonerClaseParaMobile(){
+    aside.classList.add('inactive')
+    mobileMenu.classList.toggle('inactive')
+    asideDetails.classList.add('inactive')
+}
+
+function quitarPonerClaseCarrito() {
+    mobileMenu.classList.add('inactive')
+    desktopMenu.classList.add('inactive')
+    aside.classList.toggle('inactive')
+    asideDetails.classList.add('inactive')
+}
+
+carrito.addEventListener('click', quitarPonerClaseCarrito)
+burguerMenu.addEventListener('click', quitarPonerClaseParaMobile)
+email.addEventListener('click', quitarPonerClaseParaDesktop)
+cerrarAsideDetails.addEventListener('click', quitarAsideDetails)
+
+
 
 
 
