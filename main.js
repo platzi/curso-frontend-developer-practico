@@ -3,7 +3,7 @@ const desktopMenu = document.querySelector('.desktop-menu');
 const menuHamburger = document.querySelector('.menu');
 const mobileMenu = document.querySelector('.mobile-menu');
 const cart = document.querySelector('.navbar-shopping-cart');
-const cartList = document.querySelector('.product-detail');
+const cartList = document.querySelector('.product-cart');
 const cardsContainer = document.querySelector('.cards-container');
 
 //eventos de los menus de opciones
