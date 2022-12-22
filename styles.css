@@ -168,7 +168,7 @@
   /* Aside (product-detail) */
     aside {
     background-color: var(--white);
-    width: 100%;
+    width: 360px;
     box-sizing: border-box;
     position: absolute;
     right: 0;
@@ -183,6 +183,9 @@
   .title-container img {
     transform: rotate(180deg);
     margin-right: 20px;
+    width: 30px;
+    height: 30px;
+    margin-top: 15px;
     cursor: pointer;
   }
   .title {
