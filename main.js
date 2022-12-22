@@ -5,10 +5,13 @@ const mobileMenu = document.querySelector('.mobile-menu');
 const shoppingCart = document.querySelector('.navbar-shopping-cart')
 const shoppingCartContainer = document.querySelector('#shoppingCartContainer')
 const cardsContainer = document.querySelector('.cards-container')
+const productDetailContainer = document.querySelector('#productDetail')
+const closeProductDetail = document.querySelector('.product-detail-close')
 
 menuEmail.addEventListener('click', toggleDesktopMenu);
 menuHamIcon.addEventListener('click', toggleMobileMenu);
 shoppingCart.addEventListener('click', toggleShoppingCar)
+closeProductDetail.addEventListener('click', closeProductDetailAside)
 
 function toggleDesktopMenu() {
     const isshoppingCartContainerClose = shoppingCartContainer.classList.contains('inactive')
@@ -26,6 +29,7 @@ function toggleMobileMenu() {
         shoppingCartContainer.classList.add('inactive')
     }
     mobileMenu.classList.toggle('inactive');
+    closeProductDetailAside()
 }
 
 function toggleShoppingCar() {
@@ -36,7 +40,26 @@ function toggleShoppingCar() {
         //si mobileMenu esta open, hay que cerrarlo
         mobileMenu.classList.add('inactive')
     }
+
+    const isProductDetailClosed = productDetailContainer.classList.contains('inactive')
+
+
+    if (!isProductDetailClosed) {
+        //si mobileMenu esta open, hay que cerrarlo
+        productDetailContainer.classList.add('inactive')
+    }
+
     shoppingCartContainer.classList.toggle('inactive')
+
+}
+function openProductDetailAside() {
+    shoppingCartContainer.classList.add('inactive')
+    productDetailContainer.classList.remove('inactive')
+
+}
+
+function closeProductDetailAside() {
+    productDetailContainer.classList.add('inactive')
 
 }
 
@@ -68,7 +91,7 @@ function renderProduct(arr) {
 
         const productImg = document.createElement('img')
         productImg.setAttribute('src', product.image)
-        console.log(productImg);
+        productImg.addEventListener('click', openProductDetailAside)
 
         const productInfo = document.createElement('div')
         productInfo.classList.add('product-info')
@@ -76,9 +99,9 @@ function renderProduct(arr) {
         const productInfoDiv = document.createElement('div')
 
         const productPrice = document.createElement('p')
-        productPrice.innerText = '$'+ product.price
+        productPrice.innerText = '$' + product.price
         const productName = document.createElement('p')
-        productName.innerText= product.name
+        productName.innerText = product.name
 
         productInfoDiv.appendChild(productPrice)
         productInfoDiv.appendChild(productName)
