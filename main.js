@@ -53,7 +53,7 @@ productList.push({
     Image: './images/image1.jpeg'
 });
 productList.push({
-    name: 'Console',
+    name: 'Console PS5',
     price: 560,
     Image: './images/image2.jpg'
 });
