@@ -168,7 +168,7 @@
   /* Aside (product-detail) */
     aside {
     background-color: var(--white);
-    width: 360px;
+    width: 100%;
     box-sizing: border-box;
     position: absolute;
     right: 0;
