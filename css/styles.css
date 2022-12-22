@@ -270,6 +270,7 @@ aside {
   height: 240px;
   border-radius: 20px;
   object-fit: cover;
+  border: 1px solid gray;
 }
 .product-card .product-info {
   display: flex;

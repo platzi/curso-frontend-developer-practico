@@ -84,7 +84,7 @@ const productList= [
 ];
 
 const cardsContainer = document.querySelector(".cards-container");
-const navbarLeft = document.querySelector(".navbar-left");
+const navbarLeft = document.querySelector(".navbar-left-ul");
 
 //Desplegar items
 
@@ -93,7 +93,7 @@ nos permite conocer el momento en el que todos los elementos del DOM,
 es decir, los elementos HTML de un proyecto, están cargados*/
 window.addEventListener("DOMContentLoaded",function(){
     displayProductList(productList);
-    //displayNavbarLeft();
+    displayMenuButtons();
 });
 function displayProductList(listItems) {
     let displayProducts = listItems.map(function (item) {
@@ -114,8 +114,47 @@ function displayProductList(listItems) {
     });
     displayProducts = displayProducts.join("");
      //console.log(displayProducts);
-     cardsContainer.innerHTML = displayProducts
-     
+     cardsContainer.innerHTML = displayProducts  
   }
-
-
+// desplegar menu botones
+function displayMenuButtons() {
+    const categories = productList.reduce(
+      function (values, item) {
+        if (!values.includes(item.category)) {
+          values.push(item.category);
+        }
+        return values;
+      },
+      ["All"]
+    );
+    const categoryBtns = categories
+      .map(function (category) {
+        return ` <li>
+        <li>
+        <a href="/" class="filter-btn">${category}</a>
+      </li>`
+      })
+      .join("");
+  
+      navbarLeft.innerHTML = categoryBtns;
+    const filterBtns = navbarLeft.querySelectorAll(".filter-btn");
+    //console.log(filterBtns);
+  
+    filterBtns.forEach(function (btn) {
+      btn.addEventListener("click", function (e) {
+        // console.log(e.currentTarget.dataset);
+        const category = e.currentTarget.dataset.id;
+        const menuCategory = menu.filter(function (menuItem) {
+          // console.log(menuItem.category);
+          if (menuItem.category === category) {
+            return menuItem;
+          }
+        });
+        if (category === "All") {
+          diplayMenuItems(productList);
+        } else {
+          diplayMenuItems(menuCategory);
+        }
+      });
+    });
+  }
