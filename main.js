@@ -3,7 +3,7 @@ const desktop_menu = document.querySelector('.desktop-menu');
 const menu_ham_icon = document.querySelector('.menu');
 const mobile_menu = document.querySelector('.mobile-menu');
 const menu_carrito_icon = document.querySelector('.navbar-shopping-cart');
-const aside = document.querySelector('.product-detail');
+const shoppingCartContainer = document.querySelector('#shoppingCartContainer');
 const cards_container = document.querySelector('.cards-container');
 
 navbar_email.addEventListener('click', toggleDesktopMenu);
@@ -12,10 +12,10 @@ menu_carrito_icon.addEventListener('click', toggleCarritoAside);
 
 function toggleDesktopMenu() {
 
-    const isAsideClose = aside.classList.contains('inactive');
+    const isShoppingCartContainerClose = shoppingCartContainer.classList.contains('inactive');
 
-    if (!isAsideClose) {
-        aside.classList.add('inactive');
+    if (!isShoppingCartContainerClose) {
+     shoppingCartContainer.classList.add('inactive');
     }
 
     desktop_menu.classList.toggle('inactive');
@@ -23,10 +23,10 @@ function toggleDesktopMenu() {
 
 function toggleMobileMenu() {
 
-    const isAsideClose = aside.classList.contains('inactive');
+    const isShoppingCartContainerClose = shoppingCartContainer.classList.contains('inactive');
 
-    if (!isAsideClose) {
-        aside.classList.add('inactive');
+    if (!isShoppingCartContainerClose) {
+     shoppingCartContainer.classList.add('inactive');
     }
 
     mobile_menu.classList.toggle('inactive');
@@ -43,10 +43,85 @@ function toggleCarritoAside() {
     if (!isDesktopMenuClose) {
         desktop_menu.classList.add('inactive');
     }
-    aside.classList.toggle('inactive');
+ shoppingCartContainer.classList.toggle('inactive');
 }
 
 const productList = [];
+productList.push({
+    name: 'Bike',
+    price: '120,00',
+    image: 'https://images.pexels.com/photos/276517/pexels-photo-276517.jpeg?auto=compress&cs=tinysrgb&dpr=2&h=650&w=940'
+});
+productList.push({
+    name: 'Pantalla',
+    price: '220,00',
+    image: 'https://images.pexels.com/photos/1029757/pexels-photo-1029757.jpeg'
+});
+productList.push({
+    name: 'Computadora',
+    price: '620,00',
+    image: 'https://images.pexels.com/photos/7191160/pexels-photo-7191160.jpeg'
+});
+productList.push({
+    name: 'Bike',
+    price: '120,00',
+    image: 'https://images.pexels.com/photos/276517/pexels-photo-276517.jpeg?auto=compress&cs=tinysrgb&dpr=2&h=650&w=940'
+});
+productList.push({
+    name: 'Pantalla',
+    price: '220,00',
+    image: 'https://images.pexels.com/photos/1029757/pexels-photo-1029757.jpeg'
+});
+productList.push({
+    name: 'Computadora',
+    price: '620,00',
+    image: 'https://images.pexels.com/photos/7191160/pexels-photo-7191160.jpeg'
+});
+productList.push({
+    name: 'Bike',
+    price: '120,00',
+    image: 'https://images.pexels.com/photos/276517/pexels-photo-276517.jpeg?auto=compress&cs=tinysrgb&dpr=2&h=650&w=940'
+});
+productList.push({
+    name: 'Pantalla',
+    price: '220,00',
+    image: 'https://images.pexels.com/photos/1029757/pexels-photo-1029757.jpeg'
+});
+productList.push({
+    name: 'Computadora',
+    price: '620,00',
+    image: 'https://images.pexels.com/photos/7191160/pexels-photo-7191160.jpeg'
+});
+productList.push({
+    name: 'Bike',
+    price: '120,00',
+    image: 'https://images.pexels.com/photos/276517/pexels-photo-276517.jpeg?auto=compress&cs=tinysrgb&dpr=2&h=650&w=940'
+});
+productList.push({
+    name: 'Pantalla',
+    price: '220,00',
+    image: 'https://images.pexels.com/photos/1029757/pexels-photo-1029757.jpeg'
+});
+productList.push({
+    name: 'Computadora',
+    price: '620,00',
+    image: 'https://images.pexels.com/photos/7191160/pexels-photo-7191160.jpeg'
+});
+productList.push({
+    name: 'Bike',
+    price: '120,00',
+    image: 'https://images.pexels.com/photos/276517/pexels-photo-276517.jpeg?auto=compress&cs=tinysrgb&dpr=2&h=650&w=940'
+});
+productList.push({
+    name: 'Pantalla',
+    price: '220,00',
+    image: 'https://images.pexels.com/photos/1029757/pexels-photo-1029757.jpeg'
+});
+productList.push({
+    name: 'Computadora',
+    price: '620,00',
+    image: 'https://images.pexels.com/photos/7191160/pexels-photo-7191160.jpeg'
+});
 productList.push({
     name: 'Bike',
     price: '120,00',
