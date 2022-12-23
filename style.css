@@ -288,6 +288,7 @@ nav {
     padding-bottom: 24px;
     position: absolute;
     right: 0;
+    background-color: white;
 }
 .product-detail-close {
     background: var(--white);
