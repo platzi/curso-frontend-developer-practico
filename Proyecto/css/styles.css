@@ -64,8 +64,10 @@
     cursor: pointer;
     user-select: none;
   }
+
   .navbar-shopping-cart {
     position: relative;
+    cursor: pointer;
   }
   .navbar-shopping-cart div {
     width: 16px;
@@ -80,6 +82,7 @@
     display: flex;
     justify-content: center;
     align-items: center;
+    user-select: none;
   }
 
   .desktop-menu {
@@ -122,6 +125,7 @@
   @media (max-width: 640px) {
     .menu {
       display: block;
+      cursor: pointer;
     }
     .navbar-left ul, .navbar-email,  .desktop-menu {
       display: none;
