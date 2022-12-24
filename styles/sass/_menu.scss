@@ -3,10 +3,10 @@
   cursor: pointer;
   top: 60px;
   right: 57px;
-  background-color: var(--white);
+  background-color: $white;
   width: 100px;
   height: auto;
-  border: 1px solid var(--very-light-pink);
+  border: 1px solid $very-light-pink;
   border-radius: 6px;
   padding: 20px 20px 0 20px;
 }
@@ -24,14 +24,14 @@
 }
 .desktop-menu ul li:last-child {
   padding-top: 20px;
-  border-top: 1px solid var(--very-light-pink);
+  border-top: 1px solid $very-light-pink;
 }
 .desktop-menu ul li:last-child a {
-  color: var(--hospital-green);
-  font-size: var(--sm);
+  color: $hospital-green;
+  font-size: $sm;
 }
 .desktop-menu ul li a {
-  color: var(--back);
+  color: $black;
   text-decoration: none;
   margin-bottom: 20px;
   display: inline-block;
