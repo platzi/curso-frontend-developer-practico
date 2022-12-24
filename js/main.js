@@ -83,18 +83,17 @@ const productList= [
     }
 ];
 
+
 const cardsContainer = document.querySelector(".cards-container");
 const navbarLeft = document.querySelector(".navbar-left-ul");
 
 //Desplegar items
 
-/*El evento DOMContentLoaded es una palabra reservada que 
-nos permite conocer el momento en el que todos los elementos del DOM, 
-es decir, los elementos HTML de un proyecto, están cargados*/
 window.addEventListener("DOMContentLoaded",function(){
     displayProductList(productList);
     displayMenuButtons();
 });
+
 function displayProductList(listItems) {
     let displayProducts = listItems.map(function (item) {
       // console.log(item);
@@ -131,29 +130,34 @@ function displayMenuButtons() {
       .map(function (category) {
         return ` <li>
         <li>
-        <a href="/" class="filter-btn">${category}</a>
+        <a href="#" class="filter-btn" data-id="${category}">${category}</a>
       </li>`
       })
       .join("");
   
       navbarLeft.innerHTML = categoryBtns;
+
+      /*Filtrar por categoría*/
     const filterBtns = navbarLeft.querySelectorAll(".filter-btn");
     //console.log(filterBtns);
   
     filterBtns.forEach(function (btn) {
       btn.addEventListener("click", function (e) {
-        // console.log(e.currentTarget.dataset);
+        //console.log(e.currentTarget.dataset.id);
+        
+        //Guardar id de la categoria
         const category = e.currentTarget.dataset.id;
-        const menuCategory = menu.filter(function (menuItem) {
-          // console.log(menuItem.category);
-          if (menuItem.category === category) {
-            return menuItem;
+        const productCategory = productList.filter(function (productItem) {
+         //console.log(productItem.category);
+      
+          if (productItem.category === category) {
+            return productItem;
           }
         });
         if (category === "All") {
-          diplayMenuItems(productList);
+          displayProductList(productList);
         } else {
-          diplayMenuItems(menuCategory);
+          displayProductList(productCategory);
         }
       });
     });
