@@ -12,6 +12,7 @@
 body {
     margin: 0;
     font-family: 'Quicksand', sans-serif;
+    /* position: relative; */
   }
 
 .inactive{
@@ -171,14 +172,21 @@ nav {
 /*Aside (My order)*/
 .product-detail {
   width: 360px;
+  /* height: 100%;  */
   padding: 0 24px;
   box-sizing: border-box;
   position: absolute;
   right: 0;
   background-color: var(--white);
+  /* overflow-y: scroll; */
 }
-/* .my-order-content{
+.my-order-content{
+  max-height: calc(80vh - 126px);
   overflow-y: scroll;
+  height: 100%;
+}
+/* .my-order-contentBigger{
+  border: 1px solid violet;
 } */
 .title-container {
   display: flex;
@@ -248,6 +256,8 @@ nav {
   font-weight: bold;
   height: 50px;
 }
+
+
 @media (max-width: 640px) {
   .product-detail {
     width: 100%;
@@ -359,6 +369,20 @@ nav {
       font-weight: bold;
       height: 50px;
     }
+    
+
+    .totalAndButtonContainer{
+      
+      background-color: var(--white);
+      position: fixed;
+      bottom: 8px;
+      right: 38px;
+      /* transform: translateX(-50%); */
+      /* padding-right:; */
+      width: 297px;
+    }
+
+
     .add-to-cart-button {
       display: flex;
       align-items: center;

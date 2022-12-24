@@ -14,6 +14,7 @@ const asideMyOrder = document.querySelector('.product-detail');
     const myorderContent = document.querySelector('.my-order-content');
     const totalOrder = document.querySelector('.order p:nth-child(2)');
     const infoTotalOrder = document.querySelector('.order p span');
+    const totalAndButtonContainer = document.querySelector('#totalAndButtonContainer');
 
 const asideOrderDetail = document.querySelector('.full-product-detail');
     const asideOrderDetailImg  = document.querySelector('#ProductDetailImg');
@@ -48,6 +49,7 @@ shopyCart.addEventListener('click', () =>{
     if (totalItemShoppingCart() == 0 ){
         infoTotalOrder.innerText = "There's no a item in the cart yet, add a product to see here!"
     }
+    
 
     // asideMyOrder.classList.toggle('inactive');
 });
@@ -191,13 +193,13 @@ productList.forEach((element)=>{
             shoppingCartFigure.append(shoppingCartFigureImg);
     shoppingCart.append(shoppingCartFigure);
 
+        const cartItemName = document.createElement('p');
+        cartItemName.innerText = element.name;
+    shoppingCart.append(cartItemName);
+
         const cartItemPrice = document.createElement('p');
         cartItemPrice.innerText = element.price;
     shoppingCart.append(cartItemPrice);
-
-        const cartItemName = document.createElement('p');
-        cartItemName.innerText = element.price;
-    shoppingCart.append(cartItemName);
 
         const eliminateItem = document.createElement('img');
         eliminateItem.setAttribute('src', './icons/icon_close.png');
@@ -209,7 +211,11 @@ productList.forEach((element)=>{
     infoTotalOrder.innerText = 'Total'    
     totalCart += Number(element.price.replace(',','.'));
     totalOrder.innerText = `$${totalCart}`;    
+    if (myorderContent.scrollHeight > myorderContent.clientHeight){
+        totalAndButtonContainer.classList.add('totalAndButtonContainer');
+        // document.querySelector('.my-order-content div:nth-last-child(2)').classList.add('my-order-contentBigger');
 
+    }
  })
 
 })
