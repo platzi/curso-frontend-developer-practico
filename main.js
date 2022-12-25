@@ -5,7 +5,8 @@ const desktopMenu = document.querySelector('.desktop-menu');
 const menuCarritoIcon = document.querySelector('.navbar-shopping-cart')
 const menuHamIcon = document.querySelector('.menu');
 const mobileMenu = document.querySelector('.mobile-menu');
-const aside = document.querySelector('.product-detail')
+const aside = document.querySelector('.product-detail');
+const cardsContainer = document.querySelector('.cards-container');
 
 menuEmail.addEventListener('click', toggleDesktopMenu);
 menuHamIcon.addEventListener('click', toggleMobileMenu);
@@ -41,15 +42,77 @@ function toggleCarritoAside () {
     
 }
 
-/*Explicación Open-GPT
+// == Información de los productos ==
+const productList = [];
+productList.push({
+    name: 'Bike',
+    price: 120,
+    image: 'https://images.pexels.com/photos/276517/pexels-photo-276517.jpeg?auto=compress&cs=tinysrgb&dpr=2&h=650&w=940',
+});
+productList.push({
+    name: 'Pantalla',
+    price: 220,
+    image: 'https://images.pexels.com/photos/276517/pexels-photo-276517.jpeg?auto=compress&cs=tinysrgb&dpr=2&h=650&w=940',
+});
+productList.push({
+    name: 'Computadora',
+    price: 620,
+    image: 'https://images.pexels.com/photos/276517/pexels-photo-276517.jpeg?auto=compress&cs=tinysrgb&dpr=2&h=650&w=940',
+});
 
-Este código es parte de una página web y se ejecuta en el navegador web del usuario.
+// == Creando CSS desde Javascript ==
 
-Cuando se carga la página, primero se ejecuta la línea const menuEmail = document.querySelector('.navbar-email');, que busca en el documento HTML un elemento con la clase navbar-email y lo asigna a la variable menuEmail. Luego, se ejecuta la línea const desktopMenu = document.querySelector('.desktop-menu');, que hace lo mismo con un elemento con la clase desktop-menu y lo asigna a la variable desktopMenu.
-
-Luego, se ejecuta la línea menuEmail.addEventListener('click', toggleDesktopMenu);, que establece un "manejador de eventos" para el elemento con la clase navbar-email. Esto significa que cuando el elemento se haga clic, se ejecutará la función toggleDesktopMenu.
-
-La función toggleDesktopMenu es una función simple que imprime "Click" en la consola y luego toma el elemento con la clase desktop-menu y añade o elimina la clase inactive. La clase inactive puede ser utilizada para ocultar o mostrar el elemento en la página web.
-
-Finalmente, se imprime "JS funcionando" en la consola para indicar que el código JavaScript se ha ejecutado correctamente.
+/*
+<div class="product-card">
+    <img src="https://images.pexels.com/photos/276517/pexels-photo-276517.jpeg?auto=compress&cs=tinysrgb&dpr=2&h=650&w=940" alt="">
+    <div class="product-info">
+    <div>
+        <p>$120,00</p>
+        <p>Bike</p>
+    </div>
+    <figure>
+        <img src="./icons/bt_add_to_cart.svg" alt="">
+    </figure>
+    </div>
+</div>
 */
+
+function renderProducts(arr) {
+    for (product of productList) {
+        const productCard = document.createElement('div');
+        productCard.classList.add('product-card');
+        // Esto creará el class="product-card"
+    
+        const productImg = document.createElement('img');
+        productImg.setAttribute('src', product.image);
+        // product = {name, price, image} -> product.image 
+    
+        const productInfo = document.createElement('div');
+        productInfo.classList.add('product-info');
+    
+        const productInfoDiv = document.createElement('div');
+    
+        const productPrice = document.createElement('p');
+        productPrice.innerText = '$' + product.price;
+    
+        const productName = document.createElement('div');
+        productName.innerText = product.name;
+    
+        const productInfoFigure = document.createElement('figure');
+        const productImgCart = document.createElement('img')
+        productImgCart.setAttribute('src', product.image);
+    
+        productInfoFigure.appendChild(productImgCart);
+    
+        productInfo.appendChild(productInfoDiv);
+        productInfo.appendChild(productInfoFigure);
+    
+        productCard.appendChild(productImg);
+        productCard.appendChild(productInfo);
+    
+        cardsContainer.appendChild(productCard);
+    }
+}
+
+renderProducts(productList);
+//con function renderProducts(arr), vamos a generar la estructura desde una llamada de datos con, por ejemplo, la ejecución de un botón.
