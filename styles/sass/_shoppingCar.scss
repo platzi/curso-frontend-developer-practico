@@ -1,10 +1,12 @@
-.product-detail {
+aside {
   background-color: $white;
   width: 360px;
-  padding: 0 24px;
   box-sizing: border-box;
   position: absolute;
   right: 0;
+}
+#shoppingCartContainer{
+  padding: 0 24px;
 }
 .title-container {
   display: flex;
