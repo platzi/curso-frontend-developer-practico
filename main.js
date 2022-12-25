@@ -7,6 +7,7 @@ const mobileMenu = document.querySelector('.mobile-menu');
 const menuCarritoIcon = document.querySelector('.navbar-shopping-cart')
 const shoppingCartContainer = document.querySelector('#shoppingCartContainer');
 const cardsContainer = document.querySelector('.cards-container')
+const productDetailContainer = document.querySelector('#productDetail');
 
 // ----------------------------------- ESCUCHA DE EVENTOS -----------------------------------
 
@@ -61,6 +62,12 @@ function toggleCarritoAside() {
     shoppingCartContainer.classList.toggle('inactive');
 }
 
+// ----------------------------------- ABRIR EL DETALLE DE UN PRODUCTO -----------------------------------
+
+function openProductDetailAside() {
+    productDetailContainer.classList.remove('inactive');
+}
+
 // ----------------------------------- CREANDO LA LISTA DE PRODUCTOS DESDE JS -----------------------------------
 
 const productList = [];
@@ -87,6 +94,7 @@ function renderProducts(productList){
     
         const productImg = document.createElement('img');
         productImg.setAttribute('src',product.image);
+        productImg.addEventListener('click',openProductDetailAside);
     
         const productInfo = document.createElement('div');
         productInfo.classList.add('product-info');
