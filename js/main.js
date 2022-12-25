@@ -1,4 +1,5 @@
 const productList= [
+  
     {
         id:1,
         name:"Bike",
@@ -25,14 +26,7 @@ const productList= [
         desc:` Lorem ipsum dolor sit amet consectetur adipisicing elit. Possimus est minima nostrum voluptatibus nisi quis.`   
         
     },
-    {
-        id:4,
-        name:'Tennis Montain Bike',
-        category: 'Clothes',
-        price: 2200,
-        image: 'https://assets.adidas.com/images/h_840,f_auto,q_auto,fl_lossy,c_fill,g_auto/8ea578f6c07847fca2d0ac85011d7f1f_9366/Tenis_para_Mountain_Bike_Five_Ten_Freerider_Negro_FW2835_01_standard.jpg',
-        desc:` Lorem ipsum dolor sit amet consectetur adipisicing elit. Possimus est minima nostrum voluptatibus nisi quis.`   
-    },
+    ,
     {
         id:5,
         name: 'Rokid Air AR',
