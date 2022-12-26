@@ -85,91 +85,199 @@ const productList= [
         desc:` Lorem ipsum dolor sit amet consectetur adipisicing elit. Possimus est minima nostrum voluptatibus nisi quis.`   
     }
 ];
-
-
 const cardsContainer = document.querySelector(".cards-container");
 const navbarLeft = document.querySelector(".navbar-left-ul");
 const mobilMenu = document.querySelector(".mobile-menu-ul");
 
 //Desplegar items
-
 window.addEventListener("DOMContentLoaded",function(){
-    displayProductList(productList);
-    displayMenuButtons();
+  displayProductList(productList);
+  displayMenuButtons();
 });
 
 function displayProductList(listItems) {
-    let displayProducts = listItems.map(function (item) {
-      // console.log(item);
-  
-      return `<div class="product-card">
-      <img src=${item.image} alt=${item.name}>
-      <div class="product-info">
-        <div>
-          <p>$${item.price}</p>
-          <p>${item.name}</p>
-        </div>
-        <figure>
-          <img src="./icons/bt_add_to_cart.svg" alt="">
-        </figure>
+  let displayProducts = listItems.map(function (item) {
+    // console.log(item);
+
+    return `<div class="product-card">
+    <img src=${item.image} alt=${item.name} class="product-card-image">
+    <div class="product-info">
+      <div>
+        <p>$${item.price}</p>
+        <p>${item.name}</p>
       </div>
-    </div>`;
-    });
-    displayProducts = displayProducts.join("");
-     //console.log(displayProducts);
-     cardsContainer.innerHTML = displayProducts  
-  }
+      <figure>
+        <img src="./icons/bt_add_to_cart.svg" alt="">
+      </figure>
+    </div>
+  </div>`;
+  });
+  displayProducts = displayProducts.join("");
+   //console.log(displayProducts);
+   cardsContainer.innerHTML = displayProducts  
+}
 // desplegar menu botones
 function displayMenuButtons() {
-    const categories = productList.reduce(
-      function (values, item) {
-        if (!values.includes(item.category)) {
-          values.push(item.category);
-        }
-        return values;
-      },
-      ["All"]
-    );
-    const categoryBtns = categories
-      .map(function (category) {
-        return ` <li>
-        <li>
-        <a href="#" class="filter-btn" data-id="${category}">${category}</a>
-      </li>`
-      })
-      .join("");
+  const categories = productList.reduce(
+    function (values, item) {
+      if (!values.includes(item.category)) {
+        values.push(item.category);
+      }
+      return values;
+    },
+    ["All"]
+  );
+  const categoryBtns = categories
+    .map(function (category) {
+      return ` <li>
+      <li>
+      <a href="#" class="filter-btn" data-id="${category}">${category}</a>
+    </li>`
+    })
+    .join("");
+
+    navbarLeft.innerHTML = categoryBtns;
+    mobilMenu.innerHTML = categoryBtns;
+
+    /*Filtrar por categoría*/
+  const filterBtns = navbarLeft.querySelectorAll(".filter-btn");
+  const filterBtnsMb = mobilMenu.querySelectorAll(".filter-btn");
+  //console.log(filterBtns);
+
+  filterProducts(filterBtns);
+  filterProducts(filterBtnsMb);
   
-      navbarLeft.innerHTML = categoryBtns;
-      mobilMenu.innerHTML = categoryBtns;
-
-      /*Filtrar por categoría*/
-    const filterBtns = navbarLeft.querySelectorAll(".filter-btn");
-    const filterBtnsMb = mobilMenu.querySelectorAll(".filter-btn");
-    //console.log(filterBtns);
-
-    filterProducts(filterBtns);
-    filterProducts(filterBtnsMb);
-    
-    function filterProducts(filter){
-      filter.forEach(function (btn) {
-        btn.addEventListener("click", function (e) {
-          //console.log(e.currentTarget.dataset.id);
-          
-          //Guardar id de la categoria
-          const category = e.currentTarget.dataset.id;
-          const productCategory = productList.filter(function (productItem) {
-           //console.log(productItem.category);
+  function filterProducts(filter){
+    filter.forEach(function (btn) {
+      btn.addEventListener("click", function (e) {
+        //console.log(e.currentTarget.dataset.id);
         
-            if (productItem.category === category) {
-              return productItem;
-            }
-          });
-          if (category === "All") {
-            displayProductList(productList);
-          } else {
-            displayProductList(productCategory);
+        //Guardar id de la categoria
+        const category = e.currentTarget.dataset.id;
+        const productCategory = productList.filter(function (productItem) {
+         //console.log(productItem.category);
+      
+          if (productItem.category === category) {
+            return productItem;
           }
         });
+        if (category === "All") {
+          displayProductList(productList);
+        } else {
+          displayProductList(productCategory);
+        }
       });
-    }
+    });
   }
+}
+
+
+
+
+/*Email deskyop*/
+const desktopMenu = document.querySelector(".desktop-menu");
+const navEmail = document.querySelector('.navbar-email');
+navEmail.addEventListener('click',()=>{
+  //console.log('navEmail clicked'); 
+  if(!aside.classList.contains('inactive')|| !productDetailContainer.classList.contains('inactive')){
+    aside.classList.add('inactive');
+    productDetailContainer.classList.add('inactive');
+    
+}
+  desktopMenu.classList.toggle('inactive'); 
+});
+
+/*Desplegar menu mobil*/
+const menuHamIcon = document.querySelector('.menu');
+const mobileMenu = document.querySelector('.mobile-menu');
+menuHamIcon.addEventListener('click',()=>{
+  if(!aside.classList.contains('inactive')||!productDetailContainer.classList.contains('inactive')){
+    aside.classList.add('inactive');
+    productDetailContainer.classList.add('inactive');
+}
+    mobileMenu.classList.toggle('inactive');  
+});
+
+/*my order*/
+const menuCarritoIcon = document.querySelector('.navbar-shopping-cart');
+const aside = document.querySelector('#shopping-cart-container');
+const productDetailContainer = document.querySelector('#product-detail');
+
+menuCarritoIcon.addEventListener('click',()=>{
+  if(!mobileMenu.classList.contains('inactive') ||!desktopMenu.classList.contains('inactive') ||!productDetailContainer.classList.contains('inactive')){
+      mobileMenu.classList.add('inactive');
+      desktopMenu.classList.add('inactive');
+      productDetailContainer.classList.add('inactive');  
+  }
+
+  aside.classList.toggle('inactive');
+ 
+});
+
+const closeIcon = document.querySelector('.product-detail-close');
+closeIcon.addEventListener('click',()=>{
+  productDetailContainer.classList.add('inactive');
+});
+
+
+
+  /*
+
+  //Fusión del menú en desktop
+let navEmail = document.querySelector('.navbar-email');
+const desktopMenu = document.querySelector('.desktop-menu');
+const closeIcon = document.querySelector('.product-detail-close');
+
+
+navEmail.addEventListener('click',()=>{
+    if(!aside.classList.contains('inactive')|| !productDetailContainer.classList.contains('inactive')){
+        aside.classList.add('inactive');
+        productDetailContainer.classList.add('inactive');
+        
+    }
+    desktopMenu.classList.toggle('inactive');  
+});
+
+
+// Fusion menu en mobile
+const menuHamIcon = document.querySelector('.menu');
+const mobileMenu = document.querySelector('.mobile-menu');
+menuHamIcon.addEventListener('click',()=>{
+    if(!aside.classList.contains('inactive')||!productDetailContainer.classList.contains('inactive')){
+        aside.classList.add('inactive');
+        productDetailContainer.classList.add('inactive');
+    }
+    mobileMenu.classList.toggle('inactive');  
+});
+
+//MY ORDER
+const menuCarritoIcon = document.querySelector('.navbar-shopping-cart');
+const aside = document.querySelector('#shopping-cart-container');
+
+const cardsContainer = document.querySelector('.cards-container');
+const productDetailContainer = document.querySelector('#product-detail')
+
+menuCarritoIcon.addEventListener('click',()=>{
+    if(!mobileMenu.classList.contains('inactive') ||!desktopMenu.classList.contains('inactive') ||!productDetailContainer.classList.contains('inactive')){
+        mobileMenu.classList.add('inactive');
+        desktopMenu.classList.add('inactive');
+        productDetailContainer.classList.add('inactive');  
+    }
+  
+    aside.classList.toggle('inactive');
+   
+});
+closeIcon.addEventListener('click',()=>{
+    productDetailContainer.classList.add('inactive');
+});
+
+productImg.addEventListener('click',()=>{
+  if(!mobileMenu.classList.contains('inactive') ||!desktopMenu.classList.contains('inactive') || !aside.classList.contains('inactive')){
+      mobileMenu.classList.add('inactive');
+      desktopMenu.classList.add('inactive');
+      aside.classList.add('inactive');
+      
+  }
+  productDetailContainer.classList.toggle('inactive')
+});
+*/
