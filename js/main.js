@@ -26,6 +26,15 @@ const productList= [
         desc:` Lorem ipsum dolor sit amet consectetur adipisicing elit. Possimus est minima nostrum voluptatibus nisi quis.`   
         
     },
+    {
+      id:4,
+      name: 'Rokid Air AR',
+      category: 'Clothes',
+      price: 399.99,
+      image: 'https://m.media-amazon.com/images/W/WEBP_402378-T1/images/I/518WFzR2kGL._AC_UY218_.jpg',
+      desc:` Lorem ipsum dolor sit amet consectetur adipisicing elit. Possimus est minima nostrum voluptatibus nisi quis.`   
+  }
+
     ,
     {
         id:5,
@@ -80,6 +89,7 @@ const productList= [
 
 const cardsContainer = document.querySelector(".cards-container");
 const navbarLeft = document.querySelector(".navbar-left-ul");
+const mobilMenu = document.querySelector(".mobile-menu-ul");
 
 //Desplegar items
 
@@ -130,29 +140,36 @@ function displayMenuButtons() {
       .join("");
   
       navbarLeft.innerHTML = categoryBtns;
+      mobilMenu.innerHTML = categoryBtns;
 
       /*Filtrar por categoría*/
     const filterBtns = navbarLeft.querySelectorAll(".filter-btn");
+    const filterBtnsMb = mobilMenu.querySelectorAll(".filter-btn");
     //console.log(filterBtns);
-  
-    filterBtns.forEach(function (btn) {
-      btn.addEventListener("click", function (e) {
-        //console.log(e.currentTarget.dataset.id);
+
+    filterProducts(filterBtns);
+    filterProducts(filterBtnsMb);
+    
+    function filterProducts(filter){
+      filter.forEach(function (btn) {
+        btn.addEventListener("click", function (e) {
+          //console.log(e.currentTarget.dataset.id);
+          
+          //Guardar id de la categoria
+          const category = e.currentTarget.dataset.id;
+          const productCategory = productList.filter(function (productItem) {
+           //console.log(productItem.category);
         
-        //Guardar id de la categoria
-        const category = e.currentTarget.dataset.id;
-        const productCategory = productList.filter(function (productItem) {
-         //console.log(productItem.category);
-      
-          if (productItem.category === category) {
-            return productItem;
+            if (productItem.category === category) {
+              return productItem;
+            }
+          });
+          if (category === "All") {
+            displayProductList(productList);
+          } else {
+            displayProductList(productCategory);
           }
         });
-        if (category === "All") {
-          displayProductList(productList);
-        } else {
-          displayProductList(productCategory);
-        }
       });
-    });
+    }
   }
