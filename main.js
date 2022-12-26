@@ -1,4 +1,5 @@
 //Inicialización de selectores
+const style = document.documentElement.style;
 const homeIcon = document.querySelector('.navbar-left > .logo')
 const menuEmail = document.querySelector('.navbar-email');
 const desktopMenu = document.querySelector('.desktop-menu');
