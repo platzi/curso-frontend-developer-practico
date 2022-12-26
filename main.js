@@ -1,17 +1,22 @@
 const menuEmail = document.querySelector('.navbar-email');
 const menuHamIcon = document.querySelector('.menu');
 const menuCarritoIcon = document.querySelector('.navbar-shopping-cart');
-
+const productDetailContainer = document.querySelector('#productDetail');
+const productDetailCloseIcon = document.querySelector('.product-detail-close');
 
 const desktopMenu = document.querySelector('.desktop-menu');
 const mobileMenu = document.querySelector('.mobile-menu');
 const shoppingCartContainer = document.querySelector('#shoppingCartContainer');
 const cardsContainer = document.querySelector('.cards-container');
 
+const imagen = document.querySelector("#infoImages");
+const priceProduct = document.querySelector("#price");
+
 
 menuEmail.addEventListener('click', toggleDesktopMenu);
 menuHamIcon.addEventListener('click', toggleMobileMenu);
 menuCarritoIcon.addEventListener('click', toggleCarritoAside);
+productDetailCloseIcon.addEventListener('click', closeProductDetailAside);
 
 
 function toggleDesktopMenu(){
@@ -42,16 +47,37 @@ function toggleCarritoAside(){
 
     const isMobileMenuClosed = mobileMenu.classList.contains('inactive');
 
-    //aside.classList.toggle('inactive');  //cambia la clase a inactivo si esta activo y vicecersa
-
     //si el mobileMenu esta open, hay que cerrarlo
     if(!isMobileMenuClosed){
         mobileMenu.classList.add('inactive');
     }
 
+    const isProductDetailClose = productDetailContainer.classList.contains('inactive');
+
+    //si el mobileMenu esta open, hay que cerrarlo
+    if(!isProductDetailClose){
+        productDetailContainer.classList.add('inactive');
+    }
+
     //crerrar el aside
     shoppingCartContainer.classList.toggle('inactive');
     
+}
+
+function openProductDetailAside(event){
+
+    shoppingCartContainer.classList.add("inactive");
+    mobileMenu.classList.add("inactive");
+    productDetailContainer.classList.remove("inactive");
+    desktopMenu.classList.add("inactive");
+
+
+    imagen.setAttribute("src", event.target.src);
+    priceProduct.innerText = event.target.nextElementSibling.innerText;
+}
+
+function closeProductDetailAside(){
+    productDetailContainer.classList.add('inactive');
 }
 
 const productList = [];
@@ -122,6 +148,7 @@ function renderProducts(arr){
         // product= {name, price, image} -> product.image
         const productImg = document.createElement('img');
         productImg.setAttribute('src', product.image);
+        productImg.addEventListener('click', openProductDetailAside);
       
         const productInfo = document.createElement('div');
         productInfo.classList.add('product-info');
@@ -130,6 +157,7 @@ function renderProducts(arr){
       
         const productPrice = document.createElement('p');
         productPrice.innerText = '$' + product.price;
+
         const productName = document.createElement('p');
         productName.innerText = product.name;
       
