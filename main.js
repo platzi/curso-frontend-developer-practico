@@ -10,6 +10,7 @@ const modals = document.querySelectorAll('.modals')
 const productCard = document.querySelector('.product-card');
 const productDetail = document.querySelector('.product-detail');
 const closeProductDetail = document.querySelector('.product-detail-close');
+const overlay = document.querySelector('.darken');
 
 
 
@@ -64,8 +65,9 @@ function renderProducts(array){
 }
 
 function openProductDetails(){
-    // Abrimos los detalles del producto
+    // Abrimos los detalles del producto y el Overlay
     productDetail.classList.remove('inactive');
+    overlay.classList.toggle('inactive');
 
     // Cerramos el resto de modales que puedan estar abierto, uno por uno
     asideOrders.classList.add('inactive');
@@ -75,11 +77,13 @@ function openProductDetails(){
 
 function closeModalProductDetail(){
     productDetail.classList.add('inactive');
+    overlay.classList.toggle('inactive');
 }
 
 function toggleMenuDesktop() {
-    // Abrimos el Menu Desktop si estuviera cerrado
+    // Abrimos el Menu Desktop si estuviera cerrado y abrimos el overlay
     desktopMenu.classList.toggle('inactive');
+    overlay.classList.toggle('inactive');
 
     // Cerramos el resto de modales que puedan estar abierto, uno por uno
     asideOrders.classList.add('inactive');
@@ -87,8 +91,9 @@ function toggleMenuDesktop() {
 }
 
 function toggleMenuMobile() {
-    // Abrimos el Menu Desktop si estuviera cerrado
+    // Abrimos el Menu Desktop si estuviera cerrado y abrimos el overlay
     mobileMenu.classList.toggle('inactive');
+    overlay.classList.toggle('inactive');
 
     // Cerramos el resto de modales que puedan estar abierto, uno por uno
     asideOrders.classList.add('inactive');
@@ -96,8 +101,9 @@ function toggleMenuMobile() {
 }
 
 function toggleShoppingCart(){
-   // Abrimos el Menu Desktop si estuviera cerrado
+   // Abrimos el Menu Desktop si estuviera cerrado y abrimos el overlay
     asideOrders.classList.toggle('inactive');
+    overlay.classList.toggle('inactive');
 
     // Cerramos el resto de modales que puedan estar abierto, uno por uno
     mobileMenu.classList.add('inactive');
