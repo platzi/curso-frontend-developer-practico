@@ -1,7 +1,9 @@
+
 .mobile-menu {
     padding: 24px;
     position: absolute;
     top: 60px;
+    background-color: var(--white);
   }
   .mobile-menu a {
     text-decoration: none;

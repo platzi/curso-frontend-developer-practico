@@ -4,7 +4,9 @@
     box-sizing: border-box;
     position: absolute;
     right: 0;
-    top: 30px;
+    top: 60px;
+    background-color: var(--white);
+    border-radius: 6px;
   }
   .title-container {
     display: flex;
