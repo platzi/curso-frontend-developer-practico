@@ -10,10 +10,6 @@
     --lg: 18px;
   }
   
-  * {
-    box-sizing: border-box;
-  }
-
   body {
     margin: 0;
     font-family: 'Quicksand', sans-serif;
@@ -134,7 +130,7 @@
   position: absolute;
   top: 60px;
   left: 0;
-  width: 100%;
+  width: calc(100% - 24px);
   padding: 24px;
 }
 .mobile-menu a {
