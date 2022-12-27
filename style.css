@@ -1,3 +1,4 @@
+/*General*/
 :root {
     --white: #FFFFFF;
     --black: #000000;
@@ -12,15 +13,18 @@
     margin: 0;
     font-family: 'Quicksand', sans-serif;
   }
+  .inactive {
+    display: none;
+  }
+
+/*NavBar*/
+
   nav {
     display: flex;
     justify-content: space-between;
     padding: 0 24px;
     border-bottom: 1px solid var(--very-light-pink);
-  }
-
-  .inactive {
-    display: none;
+    z-index: 1;
   }
 
   .menu {
@@ -90,10 +94,10 @@
     align-items: center;
   }
 
-
+/*Desktop Menu*/
 
   .desktop-menu {
-    position: absolute;
+    position: fixed;
     background: var(--white);
     top: 60px;
     right: 0;
@@ -103,6 +107,8 @@
     border: 1px solid var(--very-light-pink);
     border-radius: 6px;
     padding: 20px 20px 0 20px;
+    animation-duration: 0.5s;
+    animation-name: slidebottom
   }
   .desktop-menu ul {
     list-style: none;
@@ -131,6 +137,7 @@
     display: inline-block;
   }
 
+/*Mobile Menu*/
 
   .mobile-menu {
     position: absolute;
@@ -181,6 +188,8 @@
     color: var(--hospital-green) !important;
   }
 
+/*Medias*/
+
   @keyframes slideright {
     from {
       margin-left: -400px;
@@ -188,6 +197,17 @@
   
     to {
       margin-left: 0.1%;
+    }
+  }
+
+  @keyframes slidebottom {
+    from {
+      top: -6000px;
+      z-index: -1;
+    }
+  
+    to {
+      top: 61px;
     }
   }
 
