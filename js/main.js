@@ -88,22 +88,44 @@ const productList= [
 const cardsContainer = document.querySelector(".cards-container");
 const navbarLeft = document.querySelector(".navbar-left-ul");
 const mobilMenu = document.querySelector(".mobile-menu-ul");
+const productDetailContainer = document.querySelector('#product-detail');
+
 
 //Desplegar items
 window.addEventListener("DOMContentLoaded",function(){
   displayProductList(productList);
+  //displayAside(productList)
   displayMenuButtons();
 });
+
+function displayAside(asideItem){
+  
+    // console.log(item);
+
+    return ` <img src=${item.image} alt=${item.name}>
+    <div class="product-info">
+      <p>${item.price}</p>
+      <p>${item.name}</p>
+      <p>${item.desc}</p>
+      <button class="primary-button add-to-cart-button">
+        <img src="./icons/bt_add_to_cart.svg" alt="add to cart">
+        Add to cart
+      </button>
+    </div>`;
+  
+  //console.log( displayAsideProduct);
+  productDetailContainer.innerHTML = displayAsideProduct;
+}
 
 function displayProductList(listItems) {
   let displayProducts = listItems.map(function (item) {
     // console.log(item);
 
     return `<div class="product-card">
-    <img src=${item.image} alt=${item.name} class="product-card-image">
+    <img class="product-card-image" src=${item.image} alt=${item.name} >
     <div class="product-info">
       <div>
-        <p>$${item.price}</p>
+        <p data-id="${item.price}">$${item.price}</p>
         <p>${item.name}</p>
       </div>
       <figure>
@@ -113,8 +135,26 @@ function displayProductList(listItems) {
   </div>`;
   });
   displayProducts = displayProducts.join("");
+  
    //console.log(displayProducts);
-   cardsContainer.innerHTML = displayProducts  
+   cardsContainer.innerHTML = displayProducts
+
+   const product = cardsContainer.querySelectorAll('.product-card');
+   //console.log(product);
+   product.forEach(element=>{
+    //console.log(element)
+    element.addEventListener('click',()=>{
+      if(!mobileMenu.classList.contains('inactive') ||!desktopMenu.classList.contains('inactive') || !aside.classList.contains('inactive')){
+        mobileMenu.classList.add('inactive');
+        desktopMenu.classList.add('inactive');
+        aside.classList.add('inactive');
+        
+    }
+      console.log(element.currentTarget)
+      
+      //productDetailContainer.classList.toggle('inactive');
+    });
+   });
 }
 // desplegar menu botones
 function displayMenuButtons() {
@@ -201,7 +241,6 @@ menuHamIcon.addEventListener('click',()=>{
 /*my order*/
 const menuCarritoIcon = document.querySelector('.navbar-shopping-cart');
 const aside = document.querySelector('#shopping-cart-container');
-const productDetailContainer = document.querySelector('#product-detail');
 
 menuCarritoIcon.addEventListener('click',()=>{
   if(!mobileMenu.classList.contains('inactive') ||!desktopMenu.classList.contains('inactive') ||!productDetailContainer.classList.contains('inactive')){
@@ -214,10 +253,18 @@ menuCarritoIcon.addEventListener('click',()=>{
  
 });
 
+/*Close Icon*/
 const closeIcon = document.querySelector('.product-detail-close');
 closeIcon.addEventListener('click',()=>{
   productDetailContainer.classList.add('inactive');
 });
+
+
+
+
+
+
+
 
 
 
