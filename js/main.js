@@ -89,6 +89,7 @@ const cardsContainer = document.querySelector(".cards-container");
 const navbarLeft = document.querySelector(".navbar-left-ul");
 const mobilMenu = document.querySelector(".mobile-menu-ul");
 const productDetailContainer = document.querySelector('#product-detail');
+const productDetailInfo = document.querySelector('.product-detail-info');
 
 
 //Desplegar items
@@ -97,6 +98,7 @@ window.addEventListener("DOMContentLoaded",function(){
   //displayAside(productList)
   displayMenuButtons();
 });
+console.log(productList);
 
 function displayAside(asideItem){
   
@@ -121,8 +123,10 @@ function displayProductList(listItems) {
   let displayProducts = listItems.map(function (item) {
     // console.log(item);
 
-    return `<div class="product-card">
-    <img class="product-card-image" src=${item.image} alt=${item.name} >
+    return `
+    
+    <div class="product-card">
+    <img src=${item.image} alt=${item.name} >
     <div class="product-info">
       <div>
         <p data-id="${item.price}">$${item.price}</p>
@@ -139,20 +143,36 @@ function displayProductList(listItems) {
    //console.log(displayProducts);
    cardsContainer.innerHTML = displayProducts
 
-   const product = cardsContainer.querySelectorAll('.product-card');
-   //console.log(product);
-   product.forEach(element=>{
+   const productImg= cardsContainer.querySelectorAll('.product-card');
+   const productInfo = cardsContainer.querySelectorAll('.product-info');
+   //console.log(productInfo)
+   
+   productImg.forEach(element=>{
     //console.log(element)
-    element.addEventListener('click',()=>{
+    element.addEventListener('click',event=>{
       if(!mobileMenu.classList.contains('inactive') ||!desktopMenu.classList.contains('inactive') || !aside.classList.contains('inactive')){
         mobileMenu.classList.add('inactive');
         desktopMenu.classList.add('inactive');
         aside.classList.add('inactive');
-        
+       
     }
-      console.log(element.currentTarget)
-      
-      //productDetailContainer.classList.toggle('inactive');
+    console.log(event);
+    let info= `
+    <img src=${event.target.src} alt="bike" class="image-detail">
+    <div class="product-info">
+      <p>$35,00</p>
+      <p>Bike</p>
+      <p>With its practical position, this bike also fulfills a decorative function, add your hall or workspace.</p>
+      <button class="primary-button add-to-cart-button">
+        <img src="./icons/bt_add_to_cart.svg" alt="add to cart">
+        Add to cart
+      </button>
+      `;
+      console.log(info);
+      productDetailInfo.innerHTML = info;
+      productDetailContainer.classList.toggle('inactive');
+
+     
     });
    });
 }
@@ -182,7 +202,7 @@ function displayMenuButtons() {
     /*Filtrar por categoría*/
   const filterBtns = navbarLeft.querySelectorAll(".filter-btn");
   const filterBtnsMb = mobilMenu.querySelectorAll(".filter-btn");
-  //console.log(filterBtns);
+  console.log(filterBtns);
 
   filterProducts(filterBtns);
   filterProducts(filterBtnsMb);
