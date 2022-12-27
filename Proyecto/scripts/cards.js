@@ -48,8 +48,7 @@ productList.push({
 
 //CON ESTE CICLO FOR ESTAMOS DICIENDO QUE POR CADA ELEMENTO EN UN ARRAY, HACE UNA EJECUCION, PARA ESTO TENEMOS QUE CREAR UNA VARIABLE EN LA PROPIA DECLARACION DEL FOR Y EL ARRAY QUE QUEREMOS QUE SE LE CIRCULE CADA UNO DE SUS ELEMENTOS
 
-logoProductos.addEventListener('click', sacaProductos)
-function sacaProductos(){
+
 for(product of productList){
    const productCard  = document.createElement('div')
    productCard.classList.add('product-card')
@@ -84,7 +83,7 @@ for(product of productList){
 
    cardsContainer.appendChild(productCard)
 }
-}
+
 
 //SI USAMOS EN VES DE UN "OF" USAMOS UN "IN", PODEMOS HACER QUE NOS REGRESE EL INDICE
 

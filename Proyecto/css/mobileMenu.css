@@ -1,9 +1,10 @@
 
 .mobile-menu {
-    padding: 24px;
+    padding-left: 24px;
     position: absolute;
-    top: 60px;
+    top: 61px;
     background-color: var(--white);
+    box-sizing: border-box;
   }
   .mobile-menu a {
     text-decoration: none;
@@ -31,4 +32,11 @@
     color: var(--hospital-green) !important;
   }
 
- 
+ @media (max-width: 640px) {
+  .mobile-menu{
+    width: 100%;
+    box-sizing: border-box;
+    position: absolute;
+    left: 0;
+  }
+ }

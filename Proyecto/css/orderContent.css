@@ -1,10 +1,10 @@
-.product-detail {
+aside {
     width: 360px;
     padding: 24px;
     box-sizing: border-box;
     position: absolute;
     right: 0;
-    top: 60px;
+    top: 61px;
     background-color: var(--white);
     border-radius: 6px;
   }
@@ -76,7 +76,7 @@
     height: 50px;
   }
   @media (max-width: 640px) {
-    .product-detail {
+    aside {
       width: 100%;
     }
   }

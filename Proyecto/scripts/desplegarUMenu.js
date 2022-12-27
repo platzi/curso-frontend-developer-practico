@@ -1,18 +1,18 @@
 const menuEmail = document.querySelector('.navbar-email')
 const menudropdown = document.querySelector('.desktop-menu')
 const menuCarritoIcon = document.querySelector('.navbar-shopping-cart')
-const menuDeOrdenes = document.querySelector('.product-detail')
+const shoppingCardContainer = document.querySelector('#shoppingCartContainer')
 
 menuEmail.addEventListener('click', toggleMenuEmail)
 menuCarritoIcon.addEventListener('click', toggleMenuOrder)
 
 function toggleMenuEmail(){
     menudropdown.classList.toggle('inactive')
-    menuDeOrdenes.classList.add('inactive')
+    shoppingCardContainer.classList.add('inactive')
 }
 
 function toggleMenuOrder(){
-    menuDeOrdenes.classList.toggle('inactive')
+    shoppingCardContainer.classList.toggle('inactive')
     menudropdown.classList.add('inactive')
     mobilemenu.classList.add('inactive')
     
@@ -21,7 +21,7 @@ function toggleMenuOrder(){
     // if(!isMobileMenuClosed){
     //    mobilemenu.classList.add('inactive')
     // }
-    // menuDeOrdenes.classList.toggle('inactive')
+    // shoppingCardContainer.classList.toggle('inactive')
 }
 
 // mobile //
@@ -32,17 +32,17 @@ burgerMenuMobile.addEventListener('click', toggleMenuMobile)
 
 function toggleMenuMobile(){
     mobilemenu.classList.toggle('inactive')
-    menuDeOrdenes.classList.add('inactive')
+    shoppingCardContainer.classList.add('inactive')
 }
 
 //segunda forma de hacerlo
 // function toggleMenuMobile(){
 //     //creamos una variable que revise que un elemento en el html tenga una clase especifica
-//     const isMenuDeOrdenesClosed = menuDeOrdenes.classList.contains('inactive')
+//     const isshoppingCardContainerClosed = shoppingCardContainer.classList.contains('inactive')
     
 //     //revisa si no tiene la clase, osea que esta activo, se ejecuta, si si tiene la clase, no se ejecuta
-//     if(!isMenuDeOrdenesClosed){
-//        menuDeOrdenes.classList.add('inactive')
+//     if(!isshoppingCardContainerClosed){
+//        shoppingCardContainer.classList.add('inactive')
 //     }
 
 //     //Y al final se muestra el menu
