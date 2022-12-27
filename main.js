@@ -7,18 +7,39 @@ const shoppingCart = document.querySelector('.navbar-shopping-cart');
 const mainContainer = document.querySelector('.cards-container');
 const productDetail = document.querySelector('.product-detail');
 const productDetailCloseButton = document.querySelector('.product-detail-close');
+const cover = document.querySelector('.cover');
 const productList = [];
+
+cover.addEventListener('click', hideAll);
+
+function hideAll(){
+    mobileMenu.classList.add('inactive');
+    desktopMenu.classList.add('inactive');
+    myOrder.classList.add('inactive');
+    closeProductDetail();
+    cover.classList.add('inactive');
+}
 
 function toggleDesktopMenu(){
     myOrder.classList.add('inactive');
+    closeProductDetail();
     desktopMenu.classList.toggle('inactive');
-    closeProductDetail()
+    if(!desktopMenu.classList.contains('inactive')){
+        cover.classList.remove('inactive');
+    }else{
+        cover.classList.add('inactive');
+    }
 }
 
 function toggleMobileMenu(){
     myOrder.classList.add('inactive');
     mobileMenu.classList.toggle('inactive');
     closeProductDetail();
+    if(!mobileMenu.classList.contains('inactive')){
+        cover.classList.remove('inactive');
+    }else{
+        cover.classList.add('inactive');
+    }
 }
 
 function toggleMyOrder(){
@@ -26,6 +47,11 @@ function toggleMyOrder(){
     desktopMenu.classList.add('inactive');
     myOrder.classList.toggle('inactive');
     closeProductDetail();
+    if(!myOrder.classList.contains('inactive')){
+        cover.classList.remove('inactive');
+    }else{
+        cover.classList.add('inactive');
+    }
 }
 
 function showProductDetail(){
@@ -33,10 +59,16 @@ function showProductDetail(){
     desktopMenu.classList.add('inactive');
     myOrder.classList.add('inactive');
     productDetail.classList.remove('inactive');
+    if(!productDetail.classList.contains('inactive')){
+        cover.classList.remove('inactive');
+    }else{
+        cover.classList.add('inactive');
+    }
 }
 
 function closeProductDetail(){
     productDetail.classList.add('inactive');
+    cover.classList.toggle('inactive');
 }
 
 function renderProducts(arr){
