@@ -12,6 +12,13 @@ body {
     margin: 0;
     font-family: 'Quicksand', sans-serif;
 }
+aside{
+    width: 360px;
+    padding-bottom: 24px;
+    position: absolute;
+    right: 0;
+    background-color: var(--white);
+}
 .primary-button {
     background-color: var(--hospital-green);
     border-radius: 8px;
@@ -189,13 +196,6 @@ nav {
 
 /* PRODUCT DETAIL SHARING BETWEEN SHOPPING CART AND PRODUCT DETAIL */
 
-.product-detail {
-    width: 360px;
-    padding-bottom: 24px;
-    position: absolute;
-    right: 0;
-    background-color: var(--white);
-}
 .product-detail-close {
     background: var(--white);
     width: 14px;
@@ -325,6 +325,7 @@ nav {
     height: 240px;
     border-radius: 20px;
     object-fit: cover;
+    cursor: pointer;
 }
 .main-container .product-info {
     display: flex;

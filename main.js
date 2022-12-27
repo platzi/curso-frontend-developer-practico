@@ -5,22 +5,38 @@ const mobileMenu = document.querySelector('.mobile-menu');
 const myOrder = document.querySelector('.my-order');
 const shoppingCart = document.querySelector('.navbar-shopping-cart');
 const mainContainer = document.querySelector('.cards-container');
+const productDetail = document.querySelector('.product-detail');
+const productDetailCloseButton = document.querySelector('.product-detail-close');
 const productList = [];
 
 function toggleDesktopMenu(){
     myOrder.classList.add('inactive');
     desktopMenu.classList.toggle('inactive');
+    closeProductDetail()
 }
 
 function toggleMobileMenu(){
     myOrder.classList.add('inactive');
     mobileMenu.classList.toggle('inactive');
+    closeProductDetail();
 }
 
 function toggleMyOrder(){
     mobileMenu.classList.add('inactive');
     desktopMenu.classList.add('inactive');
     myOrder.classList.toggle('inactive');
+    closeProductDetail();
+}
+
+function showProductDetail(){
+    mobileMenu.classList.add('inactive');
+    desktopMenu.classList.add('inactive');
+    myOrder.classList.add('inactive');
+    productDetail.classList.remove('inactive');
+}
+
+function closeProductDetail(){
+    productDetail.classList.add('inactive');
 }
 
 function renderProducts(arr){
@@ -48,12 +64,14 @@ function renderProducts(arr){
         addToCarImg.setAttribute('src', './icons/bt_add_to_cart.svg');
         productPrice.innerText = `$${product.price}`;
         productName.innerText = `${product.name}`;
+        productImage.addEventListener('click', showProductDetail);
     }
 }
 
 navbarEmail.addEventListener('click', toggleDesktopMenu);
 burguerIcon.addEventListener('click', toggleMobileMenu);
 shoppingCart.addEventListener('click', toggleMyOrder);
+productDetailCloseButton.addEventListener('click', closeProductDetail);
 
 productList.push ({
     name:'Bike',
