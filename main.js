@@ -2,8 +2,10 @@ const navEmail = document.querySelector('.navbar-email');
 const DesktopMenu = document.querySelector('.desktop-menu');
 const menuHamIcon = document.querySelector('.menu');
 const menuCarritoIcon = document.querySelector('.navbar-shopping-cart');
+const productDetailCloseIcon = document.querySelector('.product-detail-close');
 const mobileMenu = document.querySelector('.mobile-menu');
 const shoppingCartContainer = document.querySelector('#shoppingCartContainer');
+const productDetailContainer = document.querySelector('#product-detail');
 const cardContainer = document.querySelector('.cards-container');
 
 
@@ -11,6 +13,8 @@ const cardContainer = document.querySelector('.cards-container');
 navEmail.addEventListener('click', toggleDesktopMenu);
 menuHamIcon.addEventListener('click', toggleMobileMenu);
 menuCarritoIcon.addEventListener('click', toggleCarritoAside);
+productDetailCloseIcon.addEventListener('click', closeProductDetailAside);
+
 
 function toggleDesktopMenu() {
     const isAsideClosed = shoppingCartContainer.classList.contains('inactive');
@@ -29,7 +33,9 @@ function toggleMobileMenu() {
         shoppingCartContainer.classList.add('inactive')
     }
     
-    mobileMenu.classList.toggle('inactive')
+    mobileMenu.classList.toggle('inactive');
+
+    closeProductDetailAside();
 }
 
 function toggleCarritoAside() {
@@ -37,6 +43,12 @@ function toggleCarritoAside() {
 
     if (!isMobileMenuClosed){
         mobileMenu.classList.add('inactive')
+    }
+
+    const isProductDetailClosed = productDetailContainer.classList.contains('inactive');
+
+    if (!isProductDetailClosed){
+        productDetailContainer.classList.add('inactive')
     }
     
     if (!DesktopMenu.classList.contains('inactive')){
@@ -46,24 +58,34 @@ function toggleCarritoAside() {
     shoppingCartContainer.classList.toggle('inactive');
 }
 
+function closeProductDetailAside (){
+    productDetailContainer.classList.add('inactive')
+}
+
+function openProductDetailAside(){
+    shoppingCartContainer.classList.add('inactive')
+
+    productDetailContainer.classList.remove('inactive')
+}
+
 const productList = [];
 
 productList.push({
-    name: 'bike',
+    name: 'Bike',
     price: 120,
     image: 'https://images.pexels.com/photos/276517/pexels-photo-276517.jpeg?auto=compress&cs=tinysrgb&dpr=2&h=650&w=940',
 });
 
 productList.push({
-    name: 'blue car',
+    name: 'Blue Car',
     price: 1300,
-    image: 'https://images.pexels.com/photos/276517/pexels-photo-276517.jpeg?auto=compress&cs=tinysrgb&dpr=2&h=650&w=940',
+    image: 'https://www.autosactual.mx/wp-content/uploads/2017/11/bmw-m4-cs-2018-mexico-01.jpg',
 });
 
 productList.push({
-    name: 'red car',
+    name: 'Red Car',
     price: 1300,
-    image: 'https://images.pexels.com/photos/276517/pexels-photo-276517.jpeg?auto=compress&cs=tinysrgb&dpr=2&h=650&w=940',
+    image: 'https://soymotor.com/sites/default/files/imagenes/noticia/bmw_m4_50_jahre_edition_1.jpg',
 });
 
 
@@ -74,6 +96,7 @@ function renderProduts (array) {
     
         const productImg = document.createElement('img');
         productImg.setAttribute('src', product.image)
+        productImg.addEventListener('click', openProductDetailAside);
     
         const productInfo = document.createElement('div');
         productInfo.classList.add('product-info');
@@ -106,3 +129,4 @@ function renderProduts (array) {
 }
 
 renderProduts(productList);
+

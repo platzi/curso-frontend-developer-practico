@@ -349,6 +349,7 @@
 
 
   @media (max-width: 640px) {
+
     .menu {
       display: block;
     }
@@ -375,7 +376,6 @@
         width: 140px;
         height: 140px;
   }
-
 
   @media (min-width: 641px) {
     .mobile-menu {
