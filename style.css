@@ -139,6 +139,8 @@
     border-bottom: solid 1px var(--very-light-pink);
     border-right: solid 1px var(--very-light-pink);
     padding: 0 24px 24px 18px;
+    animation-duration: 0.5s;
+    animation-name: slideright
   }
   .mobile-menu a {
     text-decoration: none;
@@ -177,6 +179,16 @@
   .sign-out {
     font-size: var(--sm);
     color: var(--hospital-green) !important;
+  }
+
+  @keyframes slideright {
+    from {
+      margin-left: -400px;
+    }
+  
+    to {
+      margin-left: 0.1%;
+    }
   }
 
   @media (max-width: 640px) {
