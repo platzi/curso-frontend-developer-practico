@@ -104,5 +104,5 @@ function renderDisplay(arr){for (product of productList) {
   cardsContainer.appendChild(productCard);
 
 }};
-renderDisplay(productList)
+renderDisplay(productList);
 
