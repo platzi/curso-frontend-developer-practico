@@ -49,60 +49,50 @@ function menuAside() {
 //         </div>
 const productList = [];
 productList.push({
-  nombre: "Bike",
+  name: "Bike",
   price: 120,
-  imagen:
-    "https://images.pexels.com/photos/276517/pexels-photo-276517.jpeg?auto=compress&cs=tinysrgb&dpr=2&h=650&w=940",
+  img: "https://images.pexels.com/photos/276517/pexels-photo-276517.jpeg?auto=compress&cs=tinysrgb&dpr=2&h=650&w=940",
 });
 productList.push({
-  nombre: "Pantalla",
-  price: 220,
-  imagen:
-    "https://images.pexels.com/photos/777001/pexels-photo-777001.jpeg?auto=compress&cs=tinysrgb&w=1260&h=750&dpr=1",
+  name: "Car",
+  price: 224,
+  img: "https://images.pexels.com/photos/112460/pexels-photo-112460.jpeg?auto=compress&cs=tinysrgb&w=600",
 });
 productList.push({
-  nombre: "Platillo Volador",
-  price: 220,
-  imagen:
-    "https://images.pexels.com/photos/9271471/pexels-photo-9271471.jpeg?auto=compress&cs=tinysrgb&w=600",
+  name: "Fly",
+  price: 2240,
+  img: "https://images.pexels.com/photos/46148/aircraft-jet-landing-cloud-46148.jpeg?auto=compress&cs=tinysrgb&w=600",
 });
-function renderDisplay(arr){for (product of productList) {
+for (product of productList) {
   const productCard = document.createElement("div");
   productCard.classList.add("product-card");
 
+  const productImg = document.createElement("img");
+  productImg.setAttribute("src", product.img);
 
-//Imagen que cambia con el elemento
-  const ProductImg = document.createElement("img");
-  ProductImg.setAttribute("src", product.imagen);
+  //prouductInfo
+  const productInfo=document.createElement('div');
+  productInfo.classList.add('product-info');
 
-//product-info
-  const productInfo = document.createElement("div");
-  productInfo.classList.add("product-info");
-  
+  //Info name and price
+  const divGeneral = document.createElement("div");
+  const price=document.createElement("p");
+  price.innerText = product.price;
+  const nombre=document.createElement('p');
+  nombre.innerText=product.name;
+  divGeneral.append(price,nombre);
 
-  //Div Contenedor!.
-  const productInfoDiv = document.createElement("div");
 
-  const productPrice = document.createElement("p");
-  productPrice.innerText = "$" + product.price;
-  const productName = document.createElement("div");
-  productName.innerText = product.nombre;
-  productInfoDiv.append(productPrice, productName);
+  //Last CardImagen.
+  const divImg=document.createElement('div');
+  const figureImg=document.createElement('figure')
+  const imagenCart=document.createElement('img');
+  imagenCart.setAttribute('src',"./icons/bt_add_to_cart.svg");
+  figureImg.append(imagenCart);
+  divImg.append(figureImg);
 
-//Imagen que se repite
-  const productInfoFigure = document.createElement("figure");
-  const productImgCard=document.createElement('img');
-  productImgCard.setAttribute('src','./icons/bt_add_to_cart.svg');
-  productInfoFigure.append(productImgCard);
-
-  //Uniendo Todo en producto-info
-  productInfo.append(productInfoDiv, productInfoFigure);
-
-  //uniendo Global
-  productCard.append(ProductImg,productInfo)
-  //Append del producto maquetado
-  cardsContainer.appendChild(productCard);
-
-}};
-renderDisplay(productList);
-
+  //Appends Generales
+  productInfo.append(divImg,divGeneral);
+  productCard.append(productImg,productInfo);
+  cardsContainer.append(productCard);
+}
