@@ -70,5 +70,64 @@ function toggleCarritoAside(){
     aside.classList.toggle('inactive');
 }
 
+
+
 // ----------------------------------------------------------------------------------------------
 
+// Constante que va a contener el array de productos
+const productList = [];
+
+// Metodo PUSH para insertar los objetos en el array vacio (productList)
+productList.push({
+    name: "Bike",
+    price: 120000,
+    image: "https://images.pexels.com/photos/276517/pexels-photo-276517.jpeg?auto=compress&cs=tinysrgb&dpr=2&h=650&w=940",
+});
+productList.push({
+    name: "Notebook",
+    price: 249000,
+    image: "https://mla-s1-p.mlstatic.com/873896-MLA48241212970_112021-F.jpg",
+});
+productList.push({
+    name: "Iphone 14",
+    price: 350000,
+    image: "https://www.telstra.com.au/content/dam/tcom/devices/mobile/mhdwhst-14pr/deeppurple/landscape-front.png",
+});
+productList.push({
+    name: "Escritorio",
+    price: 55000,
+    image: "https://www.costco.com.mx/medias/sys_master/products/h5f/h0d/32302073479198.jpg",
+});
+productList.push({
+    name: "Bike",
+    price: 120000,
+    image: "https://images.pexels.com/photos/276517/pexels-photo-276517.jpeg?auto=compress&cs=tinysrgb&dpr=2&h=650&w=940",
+});
+productList.push({
+    name: "Notebook",
+    price: 249000,
+    image: "https://mla-s1-p.mlstatic.com/873896-MLA48241212970_112021-F.jpg",
+});
+productList.push({
+    name: "Iphone 14",
+    price: 350000,
+    image: "https://www.telstra.com.au/content/dam/tcom/devices/mobile/mhdwhst-14pr/deeppurple/landscape-front.png",
+});
+productList.push({
+    name: "Escritorio",
+    price: 55000,
+    image: "https://www.costco.com.mx/medias/sys_master/products/h5f/h0d/32302073479198.jpg",
+});
+// 
+for (product of productList){
+    const productCard = document.createElement('div');
+    productCard.classList.add('product-card');
+
+    const img = document.createElement('img');
+    img.setAttribute('src', product.image);
+
+    const productInfo = document.createElement('div');
+    productInfo.classList.add('product-info');
+
+    const 
+}
