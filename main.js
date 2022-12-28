@@ -9,28 +9,87 @@ const shoppingCar = document.querySelector('.navbar-shopping-cart');
 const burguerMenu = document.querySelector('.menu');
 const mobileMenu = document.querySelector('.mobile-menu');
 const aside = document.querySelector('.product-detail');
-
+const carsContainer = document.querySelector('.cards-container');
 //añadir un listener al evento del click
-menuEmail.addEventListener('click',toggleDesktopMenu);
-burguerMenu.addEventListener('click',toggleMobileMenu);
-shoppingCar.addEventListener('click',toggleShoppingCar);
+menuEmail.addEventListener('click', toggleDesktopMenu);
+burguerMenu.addEventListener('click', toggleMobileMenu);
+shoppingCar.addEventListener('click', toggleShoppingCar);
 //crear la función que cambia la propiedad del elemento
-function toggleDesktopMenu(){
+function toggleDesktopMenu() {
     desktopMenu.classList.toggle('inactive');
 }
 
-function toggleMobileMenu(){
+function toggleMobileMenu() {
     const isAsideOpen = !aside.classList.contains('inactive');
-    if(isAsideOpen)
+    if (isAsideOpen)
         aside.classList.toggle('inactive');
     mobileMenu.classList.toggle('inactive');
 }
 
-function toggleShoppingCar(){
+function toggleShoppingCar() {
     const isMobileMenuOpen = !mobileMenu.classList.contains('inactive');
-    if(isMobileMenuOpen)
+    if (isMobileMenuOpen)
         mobileMenu.classList.toggle('inactive');
     aside.classList.toggle('inactive');
 
 }
-console.log('js funcionando');
+
+function renderProducts(products) {
+    for (product of productList) {
+        const productCard = document.createElement('div');
+        productCard.classList.add('product-card');
+
+        const productImg = document.createElement('img');
+        productImg.setAttribute('src', product.image);
+
+        const productInfo = document.createElement('div');
+        productInfo.classList.add('product-info');
+
+        const productInfoDiv = document.createElement('div');
+
+        const productPrice = document.createElement('p');
+        productPrice.innerText = `$ ${product.price}`;
+
+        const productName = document.createElement('p');
+        productName.innerText = `$ ${product.name}`;
+
+        productInfoDiv.appendChild(productPrice);
+        productInfoDiv.appendChild(productName);
+
+        const productInfoFigure = document.createElement('figure');
+        const productImgCar = document.createElement('img')
+
+        productImgCar.setAttribute('src', './icons/bt_add_to_cart.svg');
+        productInfoFigure.appendChild(productImgCar);
+
+        productInfo.appendChild(productInfoDiv);
+        productInfo.appendChild(productInfoFigure);
+
+        productCard.appendChild(productImg);
+        productCard.appendChild(productInfo);
+
+        carsContainer.appendChild(productCard);
+    }
+}
+
+//Lista de productos:
+const productList = [];
+productList.push({
+    name: 'Mouse',
+    price: 120,
+    image: 'https://images.pexels.com/photos/276517/pexels-photo-276517.jpeg?auto=compress&cs=tinysrgb&dpr=2&h=650&w=940'
+});
+
+productList.push({
+    name: 'Monitor',
+    price: 500,
+    image: 'https://images.pexels.com/photos/276517/pexels-photo-276517.jpeg?auto=compress&cs=tinysrgb&dpr=2&h=650&w=940'
+});
+
+productList.push({
+    name: 'Keyboard',
+    price: 250,
+    image: 'https://images.pexels.com/photos/276517/pexels-photo-276517.jpeg?auto=compress&cs=tinysrgb&dpr=2&h=650&w=940'
+});
+
+renderProducts(productList);
