@@ -14,6 +14,13 @@ body {
     font-family: 'Quicksand', sans-serif;
 }
 
+.product-detail {
+    width: 360px;
+    padding-bottom: 24px;
+    position: absolute;
+    right: 0;
+}
+
 .inactive {
     display: none;
 }
@@ -301,7 +308,7 @@ aside {
     margin: 24px 24px 0 24px;
 }
 
-.product-card .product-info p:nth-child(1) {
+.productDetail .product-info p:nth-child(1) {
     font-weight: bold;
     font-size: var(--md);
     margin-top: 0;
