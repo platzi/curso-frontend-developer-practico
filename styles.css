@@ -156,6 +156,8 @@
     position: absolute;
     top: 60px;
     background-color: var(--white);
+    left: 0;
+    width: 100%;
   }
   .mobile-menu a {
     text-decoration: none;
