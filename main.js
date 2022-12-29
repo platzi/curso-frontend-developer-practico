@@ -8,7 +8,7 @@ const menuHamIcon = document.querySelector('.menu');
 const mobileMenu = document.querySelector('.mobile-menu');
 //VARIABLES SHOPPING CART
 const shoppingCart = document.querySelector('.navbar-shopping-cart');
-const productDetail = document.querySelector('.product-detail');
+const shoppingCartContainer = document.querySelector('#shoppingCartContainer');
 
 // VARIABLE CARD CONTAINER
 const cardsContainer = document.querySelector('.cards-container');
@@ -18,13 +18,13 @@ const cardsContainer = document.querySelector('.cards-container');
 // MENU EMAIL
 menuEmail.addEventListener('click', toggleDesktopMenu);
 function toggleDesktopMenu() {
-    productDetail.classList.add('inactive')//cierra
+    shoppingCartContainer.classList.add('inactive')//cierra
     desktopMenu.classList.toggle('inactive')//abre
 }
 // MENU MOBILE
 menuHamIcon.addEventListener('click', toggleMobileMenu);
 function toggleMobileMenu() {
-    productDetail.classList.add('inactive')//cierra
+    shoppingCartContainer.classList.add('inactive')//cierra
     mobileMenu.classList.toggle('inactive')//abre
 }
 //SHOPPING CART
@@ -32,7 +32,7 @@ shoppingCart.addEventListener('click', toggleShoppingCart);
 function toggleShoppingCart() {
     desktopMenu.classList.add('inactive')//cierra
     mobileMenu.classList.add('inactive')//cierra
-    productDetail.classList.toggle('inactive')//abre
+    shoppingCartContainer.classList.toggle('inactive')//abre
 }
 
 /////////// CREANDO LAS CARDS /////////////////////////////////////////
@@ -112,10 +112,9 @@ function renderProducts(arr){
         productIconCart.setAttribute('src', './icons/bt_add_to_cart.svg');
     
 
-
         productInfoDiv.append(productPrice, productName);
         productInfoFigure.appendChild(productIconCart);
-        productInfo.append(productInfoFigure, productInfoDiv);
+        productInfo.append(productInfoDiv, productInfoFigure);
         productCard.append(ProductImg, productInfo);
         cardsContainer.appendChild(productCard);
 
@@ -128,7 +127,7 @@ function renderProducts(arr){
         //productInfoDiv.appendChild(productName);
     
         // Metiendo en el info, el info div y el info figure
-       //productInfo.appendChild(productInfoDiv);
+        //productInfo.appendChild(productInfoDiv);
         //productInfo.appendChild(productInfoFigure);
     
         // Metiendo en la Card, el product img y el info
