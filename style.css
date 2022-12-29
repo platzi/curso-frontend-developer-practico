@@ -131,7 +131,7 @@ nav {
   left: 0;
   padding: 0px 20px 0px 20px;;
   border: 1px solid var(--very-light-pink);
-  border-radius: 6px;
+  border-radius: 0px 6px 6px 6px;
 }
 .mobile-menu a {
   text-decoration: none;
@@ -170,7 +170,7 @@ nav {
   right: 0px;
   top: 60px;
   border: 1px solid var(--very-light-pink);
-  border-radius: 6px;
+  border-radius: 6px 0px 6px 6px;
 }
 .title-container {
   display: flex;
