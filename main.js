@@ -1,4 +1,4 @@
-/////////// VARIABLES /////////////////////////////////////////
+/////////// VARIABLES - SELECTORES /////////////////////////////////////////
 
 // VARIABLES MENU EMAIL
 const menuEmail = document.querySelector('.navbar-email');
@@ -10,6 +10,12 @@ const mobileMenu = document.querySelector('.mobile-menu');
 const shoppingCart = document.querySelector('.navbar-shopping-cart');
 const shoppingCartContainer = document.querySelector('#shoppingCartContainer');
 
+//VARIABLE PRODUCT CONTAINER
+const productDetailContainer = document.querySelector('#productDetail');
+//VARIABLE ICONO CERRAR PRODUCT DETAIL
+const productDetailCloseIcon = document.querySelector('.product-detail-close');
+
+
 // VARIABLE CARD CONTAINER
 const cardsContainer = document.querySelector('.cards-container');
 
@@ -20,12 +26,14 @@ menuEmail.addEventListener('click', toggleDesktopMenu);
 function toggleDesktopMenu() {
     shoppingCartContainer.classList.add('inactive')//cierra
     desktopMenu.classList.toggle('inactive')//abre
+    productDetailContainer.classList.add('inactive');//cierra
 }
 // MENU MOBILE
 menuHamIcon.addEventListener('click', toggleMobileMenu);
 function toggleMobileMenu() {
     shoppingCartContainer.classList.add('inactive')//cierra
     mobileMenu.classList.toggle('inactive')//abre
+    productDetailContainer.classList.add('inactive');//cierra
 }
 //SHOPPING CART
 shoppingCart.addEventListener('click', toggleShoppingCart);
@@ -33,6 +41,19 @@ function toggleShoppingCart() {
     desktopMenu.classList.add('inactive')//cierra
     mobileMenu.classList.add('inactive')//cierra
     shoppingCartContainer.classList.toggle('inactive')//abre
+    productDetailContainer.classList.add('inactive');//cierra
+}
+//OPEN PRODUCT DETAIL
+function openProductDetailAside() {
+    productDetailContainer.classList.remove('inactive');
+    shoppingCartContainer.classList.add('inactive')//cierra
+    desktopMenu.classList.add('inactive')//cierra
+    mobileMenu.classList.add('inactive')//cierra
+}
+//BOTON CERRAR PRODUCT DETAIL
+productDetailCloseIcon.addEventListener('click', closeProductDetailAside );
+function closeProductDetailAside() {
+    productDetailContainer.classList.add('inactive');
 }
 
 /////////// CREANDO LAS CARDS /////////////////////////////////////////
@@ -88,6 +109,7 @@ function renderProducts(arr){
         // product = {name, price, image} -> product.image
         const ProductImg = document.createElement('img');
         ProductImg.setAttribute('src', product.image);
+        ProductImg.addEventListener('click', openProductDetailAside);
     
         // Creando el div contenedor con clase product-info
         const productInfo = document.createElement('div');
