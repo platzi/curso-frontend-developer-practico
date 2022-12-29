@@ -118,16 +118,3 @@ productList.push({
     price: 55000,
     image: "https://www.costco.com.mx/medias/sys_master/products/h5f/h0d/32302073479198.jpg",
 });
-// 
-for (product of productList){
-    const productCard = document.createElement('div');
-    productCard.classList.add('product-card');
-
-    const img = document.createElement('img');
-    img.setAttribute('src', product.image);
-
-    const productInfo = document.createElement('div');
-    productInfo.classList.add('product-info');
-
-    const 
-}

@@ -128,7 +128,10 @@ nav {
   background: var(--white);
   position: absolute;
   top: 60px;
-  padding: 24px;
+  left: 0;
+  padding: 0px 20px 0px 20px;;
+  border: 1px solid var(--very-light-pink);
+  border-radius: 6px;
 }
 .mobile-menu a {
   text-decoration: none;
@@ -161,10 +164,13 @@ nav {
 .product-detail {
   background: var(--white);
   width: 360px;
-  padding: 0 24px;
+  padding: 0px 20px 20px 20px;
   box-sizing: border-box;
   position: absolute;
-  right: 0;
+  right: 0px;
+  top: 60px;
+  border: 1px solid var(--very-light-pink);
+  border-radius: 6px;
 }
 .title-container {
   display: flex;
