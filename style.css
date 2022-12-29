@@ -68,6 +68,9 @@
   .navbar-shopping-cart {
     position: relative;
   }
+  img[alt="shopping cart"]{
+    cursor: pointer;
+  }
   .navbar-shopping-cart div {
     width: 16px;
     height: 16px;
@@ -159,7 +162,7 @@
   aside {
     background-color: var(--white);
     width: 360px;
-    
+    padding-bottom: 24px;
     border-radius: 2px;
     box-sizing: border-box;
     position: absolute;
@@ -251,6 +254,7 @@
     height: 240px;
     border-radius: 20px;
     object-fit: cover;
+    cursor: pointer;
   }
   .product-card .product-info {
     display: flex;
