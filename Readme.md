@@ -11,3 +11,10 @@ En esta parte, se agrego un aside el cual corresponde a los elementos que tiene
 el carrito de compras, es de resaltar que con JS se agrego el dinamismo que
 permite hacer que un elemento aparezca o desaparezca dependiendo si otro elemento
 esta activo
+
+# Se eliminaron elementos del cards-container del HTML 
+En esta ocasión se eliminaron todos los elementos que habían sido creados de forma
+manual (quemada) en cards-container desde el HTML, para luego crear un módelo desde 
+JS similar a cada uno de los que se eliminaron, este módelo ayuda a dar más dinamismo
+a la aplicación ya que los elementos desde JS son agregados de forma dinamica al HTML 
+y no de forma manual.
