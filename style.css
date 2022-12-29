@@ -155,7 +155,7 @@
 
 
   /* Clase 13  Carrito de compras */
-  .product-detail {
+  #carrito {
     width: 360px;
     padding: 0 24px;
     box-sizing: border-box;
@@ -292,7 +292,7 @@
     .navbar-email {
       display: none;
     }
-    .product-detail {
+    #carrito {
         width: 100%;
       }
     .cards-container {
