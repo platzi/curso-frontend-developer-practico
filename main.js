@@ -5,7 +5,7 @@ const desktopMenu = document.querySelector(".desktop-menu");
 const menuBurger = document.querySelector(".menu");
 const mobileMenu = document.querySelector(".mobile-menu");
 const aside = document.querySelector(".navbar-shopping-cart");
-const asidedetail = document.querySelector(".product-detail");
+const shoppingCartContainer = document.querySelector("#shoppingCartContainer");
 const cardsContainer = document.querySelector(".cards-container");
 
 //Email Menu
@@ -17,9 +17,9 @@ function menuToggle() {
 //burger Menu
 menuBurger.addEventListener("click", menuToggleMobile);
 function menuToggleMobile() {
-  const carritoStatus = asidedetail.classList.contains("inactive");
+  const carritoStatus = shoppingCartContainer.classList.contains("inactive");
   if (!carritoStatus) {
-    asidedetail.classList.add("inactive");
+    shoppingCartContainer.classList.add("inactive");
   }
   mobileMenu.classList.toggle("inactive");
 }
@@ -32,7 +32,7 @@ function menuAside() {
   if (!burgerStatus) {
     mobileMenu.classList.add("inactive");
   }
-  asidedetail.classList.toggle("inactive");
+  shoppingCartContainer.classList.toggle("inactive");
 }
 
 // <div class="product-card">
@@ -63,6 +63,7 @@ productList.push({
   price: 2240,
   img: "https://images.pexels.com/photos/46148/aircraft-jet-landing-cloud-46148.jpeg?auto=compress&cs=tinysrgb&w=600",
 });
+
 for (product of productList) {
   const productCard = document.createElement("div");
   productCard.classList.add("product-card");
@@ -92,7 +93,7 @@ for (product of productList) {
   divImg.append(figureImg);
 
   //Appends Generales
-  productInfo.append(divImg,divGeneral);
+  productInfo.append(divGeneral,divImg);
   productCard.append(productImg,productInfo);
   cardsContainer.append(productCard);
 }
