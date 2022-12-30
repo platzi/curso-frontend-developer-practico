@@ -250,6 +250,7 @@
         grid-template-columns: repeat(auto-fill, 240px);
         gap: 26px;
         place-content: center;
+        margin-top: 20px;
       }
       .product-card {
         width: 240px;
@@ -285,9 +286,7 @@
         margin-bottom: 0;
         color: var(--very-light-pink);
       }
-      @media (max-width: 640px) {
-        
-      }
+     
 
       @media (max-width: 640px) {
         .menu {
