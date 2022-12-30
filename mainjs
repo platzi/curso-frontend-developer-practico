@@ -1,8 +1,53 @@
 const menuEmail = document.querySelector('.navbar-email');
+const menuHamIcon = document.querySelector('.menu');
+const menuCarritoIcon = document.querySelector('.navbar-shopping-cart');
+
 const desktopMenu = document.querySelector('.desktop-menu');
+const mobileMenu = document.querySelector('.mobile-menu');
+const aside = document.querySelector('.product-detail');
 
 menuEmail.addEventListener('click', toggleDestopMenu);
+menuHamIcon.addEventListener('click', toggleMobileMenu);
+menuCarritoIcon.addEventListener('click', toggleCarritoAside);
 
 function toggleDestopMenu(){
+    //mirem si menu carrito o aside està obert o no. 
+    //Si està obert l'hem de tancar per evitar solapaments
+    const isAsideClosed = aside.classList.contains('inactive');
+
+    //mirem si tenim obert el menu carrito o ASIDE pq no es solapin els menus
+    if (!isAsideClosed){
+        aside.classList.add('inactive');
+    }
+
+    //activem o desactivem el menu destop
     desktopMenu.classList.toggle('inactive');
+}
+
+function toggleMobileMenu(){
+    //mirem si menu carrito o aside està obert o no. 
+    //Si està obert l'hem de tancar per evitar solapaments
+    const isAsideClosed = aside.classList.contains('inactive');
+
+    //mirem si tenim obert el menu carrito o ASIDE pq no es solapin els menus
+    if (!isAsideClosed){
+        aside.classList.add('inactive');
+    }
+
+    //activem o desactivem el menu mobile
+    mobileMenu.classList.toggle('inactive');
+}
+
+function toggleCarritoAside(){
+    //variables per veure si menus mobile  estan oberts o no
+    //tractem la variable inactive, per això la variable es diu Closed
+    const isMobileMenuClosed = mobileMenu.classList.contains('inactive');
+
+    //mirem si tenim obert el menu mobile pq no es solapin els menus
+    if (!isMobileMenuClosed){
+        mobileMenu.classList.add('inactive');
+    }
+
+    //activem o desactivem el menu aside o menu carrito
+    aside.classList.toggle('inactive');
 }
