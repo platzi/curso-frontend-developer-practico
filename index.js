@@ -61,18 +61,6 @@ productList.push ({
     image:'https://cdn.pixabay.com/photo/2013/07/13/13/46/bicycle-161524_960_720.png'
 })
 
-/*<div class="product-card">
-    <img src="https://images.pexels.com/photos/276517/pexels-photo-276517.jpeg?auto=compress&cs=tinysrgb&dpr=2&h=650&w=940" alt="">
-    <div class="product-info">
-        <div>
-        <p>$120,00</p>
-        <p>Bike</p>
-        </div>
-        <figure>
-        <img src="./icons/bt_add_to_cart.svg" alt="">
-        </figure>
-    </div>
-</div>*/
 
 for(product of productList){
     const productCard = document.createElement('div');
