@@ -5,8 +5,11 @@ const menuHamIcon = document.querySelector('.menu');
 const mobileMenu = document.querySelector('.mobile-menu');
 const menuCarritoIcon = document.querySelector('.navbar-shopping-cart');
 const aside = document.querySelector('.product-detail');
+const productDetailSecondary = document.querySelector('.product-detail-secondary');
+const productDetailClosedSecondary = document.querySelector('.product-detail-close-secondary');
 // Constante que va a contener <DIV CLASS="PRODUCT-CARD">
 const cardsContainer = document.querySelector('.cards-container');
+
 
 
 
@@ -21,7 +24,7 @@ menuEmail.addEventListener('click', toggleDesktopMenu);
 function toggleDesktopMenu(){
 
     const isAsideClosed = aside.classList.contains('inactive');
-
+    
     if(!isAsideClosed){
         aside.classList.add('inactive');
     }
@@ -40,7 +43,7 @@ menuHamIcon.addEventListener('click', toggleMobileMenu);
 function toggleMobileMenu(){
 
     const isAsideClosed = aside.classList.contains('inactive');
-
+    
     if(!isAsideClosed){
         aside.classList.add('inactive');
     }
@@ -60,7 +63,7 @@ function toggleCarritoAside(){
 
     const isMobileMenuClosed = mobileMenu.classList.contains('inactive');
     const isDesktopMenuClosed = desktopMenu.classList.contains('inactive');
-
+    
     if(!isMobileMenuClosed){
         mobileMenu.classList.add('inactive');
     }
@@ -70,6 +73,18 @@ function toggleCarritoAside(){
     }
 
     aside.classList.toggle('inactive');
+};
+
+// Funcion que solamente ABRE al elemento (productDetailSecondary).
+function openProductDetailSecondary(){
+    productDetailSecondary.classList.remove('inactive');
+};
+
+// Funcion que solamente CIERRA al elemento (productDetailSecondary).
+productDetailClosedSecondary.addEventListener('click', closedProductDetailClosedSecondary);
+
+function closedProductDetailClosedSecondary(){
+    productDetailSecondary.classList.add('inactive');
 }
 
 
@@ -214,6 +229,7 @@ function renderProducts(arrayNuevo){
     // SETATTRIBUTE establece el valor de un atributo en el elemento indicado. Si el atributo ya existe, el valor es actualizado, en caso contrario, el nuevo atributo es añadido con el nombre y valor indicado.
     const productImg = document.createElement('img');
     productImg.setAttribute('src', product.image);
+    productImg.addEventListener('click', openProductDetailSecondary);
 
     // CLASSLIST.ADD propiedad para agregar una clase al elemento creado.
     const productInfo = document.createElement('div');
