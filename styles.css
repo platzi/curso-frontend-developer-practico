@@ -130,7 +130,12 @@ nav {
     position: absolute;
     top: 60px;
     padding: 24px;
-    /* background-color: var(--white); */
+    background-color: var(--white);
+    /* Le quito todo el espaciado que tenga el menu del lado izquierdo. */
+    left: 0;
+    /* IMPORTANTE: si le doy el width del 100%, nos generará un pequeño scrool horizontal, debido a que tenemos un padding de 24px a los lados, es decir, nuestro width sería del 100% + 48px (24px de padding a cada lado). 
+    Para solucionar esto, se puede utilizar la funcion calc para restar la cantidad de pixeles por la que mi menu se esta saliendo de la pantalla. */
+    width: calc(100% - 48px);
 }
 .mobile-menu a {
     text-decoration: none;
@@ -159,14 +164,18 @@ nav {
 }
 
 /*** Estilos Clase 13 ***/
-.product-detail {
+/* Se cambia el nombre de la clase product-detail, directamente por la etiqueta aside. */
+aside {
     width: 360px;
-    /* Se le quita el padding arriba y abajo y solo se deja a los lados. */
-    padding: 0 24px;
     box-sizing: border-box;
     position: absolute;
     right: 0;
     background-color: var(--white);
+}
+/* Ya que ahora tengo 2 etiquetas <aside> y el padding no sirve en ambas, creo una nueva etiqueta utilizando el id del shopping card para darle un espaciado solo a el. */
+#shoppingCartContainer {
+    /* Se le quita el padding arriba y abajo y solo se deja a los lados. */
+    padding: 0 24px;
 }
 .title-container {
     display: flex;
@@ -254,31 +263,93 @@ nav {
     border-radius: 20px;
     object-fit: cover;
 }
-.product-info {
+/* Como existe un problema en que la clase product-info se esta utilizando en otra etiqueta y con estilos distintos, para evitar errores de estilos, le agrego la clase "product-card" para indicar que solo cambie los estilos cuando se encuentren estas dos clases juntas. */
+.product-card .product-info {
     display: flex;
     justify-content: space-between;
     align-items: center;
     margin-top: 12px;
 }
-.product-info figure {
+.product-card .product-info figure {
     margin: 0;
 }
-.product-info figure img {
+.product-card .product-info figure img {
     width: 35px;
     height: 35px;
 }
-.product-info div p:nth-child(1) {
+.product-card .product-info div p:nth-child(1) {
     font-weight: bold;
     font-size: var(--md);
     margin-top: 0;
     margin-bottom: 4px;
 }
-.product-info div p:nth-child(2) {
+.product-card .product-info div p:nth-child(2) {
     font-size: var(--sm);
     margin-top: 0;
     margin-bottom: 0;
     color: var(--very-light-pink);
 }
+
+/*** Estilos Clase 12 ***/
+.product-detail-close {
+    background: var(--white);
+    width: 14px;
+    height: 14px;
+    position: absolute;
+    top: 24px;
+    left: 24px;
+    z-index: 2;
+    padding: 12px;
+    border-radius: 50%;
+}
+.product-detail-close:hover {
+    cursor: pointer;
+}
+/* Debo cambiar todas las menciones a la clase product-detail por el nuevo id que le asigne al aside. */
+#productDetailContainer > img:nth-child(2) {
+    width: 100%;
+    height: 360px;
+    object-fit: cover;
+    border-radius: 0 0 20px 20px;
+}
+#productDetailContainer > .product-info {
+    margin: 24px 24px 0 24px;
+}
+#productDetailContainer > .product-info p:nth-child(1) {
+    font-weight: bold;
+    font-size: var(--md);
+    margin-top: 0;
+    margin-bottom: 4px;
+}
+#productDetailContainer > .product-info p:nth-child(2) {
+    color: var(--very-light-pink);
+    font-size: var(--md);
+    margin-top: 0;
+    margin-bottom: 36px;
+}
+#productDetailContainer > .product-info p:nth-child(3) {
+    color: var(--very-light-pink);
+    font-size: var(--sm);
+    margin-top: 0;
+    margin-bottom: 36px;
+}
+#productDetailContainer > .primary-button {
+    background-color: var(--hospital-green);
+    border-radius: 8px;
+    border: none;
+    color: var(--white);
+    width: 100%;
+    cursor: pointer;
+    font-size: var(--md);
+    font-weight: bold;
+    height: 50px;
+}
+#productDetailContainer .add-to-cart-button {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+}
+
 
 /*** media querys para dispositivos moviles menores a 640px. ***/
 /*** los media querys SIEMPRE van al final. ***/
@@ -297,7 +368,7 @@ nav {
         display: none;
     }
     /* Clase 13 */
-    .product-detail {
+    aside {
         width: 100%;
     }
     /* Clase 6 */
