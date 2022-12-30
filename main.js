@@ -48,6 +48,8 @@ function toggleMobileMenu(){
         aside.classList.add('inactive');
     }
 
+    closedProductDetailClosedSecondary();
+
     mobileMenu.classList.toggle('inactive');
 };
 
@@ -63,6 +65,7 @@ function toggleCarritoAside(){
 
     const isMobileMenuClosed = mobileMenu.classList.contains('inactive');
     const isDesktopMenuClosed = desktopMenu.classList.contains('inactive');
+    const isProductDetailSecondaryClosed = productDetailSecondary.classList.contains('inactive');
     
     if(!isMobileMenuClosed){
         mobileMenu.classList.add('inactive');
@@ -72,15 +75,24 @@ function toggleCarritoAside(){
         desktopMenu.classList.add('inactive');
     }
 
+    if(!isProductDetailSecondaryClosed){
+        productDetailSecondary.classList.add('inactive');
+    }
+
     aside.classList.toggle('inactive');
 };
 
-// Funcion que solamente ABRE al elemento (productDetailSecondary).
+// ----------------------------------------------------------------------------------------------
+
+
+// Funcion que solamente ABRE al elemento (productDetailSecondary) quitando la clase INACTIVE, llamada a traves de la funcion (function renderProducts) que a su vez contiene el (productImg.addEventListener('click', openProductDetailSecondary);
+
 function openProductDetailSecondary(){
+    aside.classList.add('inactive');
     productDetailSecondary.classList.remove('inactive');
 };
 
-// Funcion que solamente CIERRA al elemento (productDetailSecondary).
+// Funcion que solamente CIERRA al elemento (productDetailSecondary) agregando la clase INACTIVE.
 productDetailClosedSecondary.addEventListener('click', closedProductDetailClosedSecondary);
 
 function closedProductDetailClosedSecondary(){
@@ -226,7 +238,7 @@ function renderProducts(arrayNuevo){
     const productCard = document.createElement('div');
     productCard.classList.add('product-card');
      
-    // SETATTRIBUTE establece el valor de un atributo en el elemento indicado. Si el atributo ya existe, el valor es actualizado, en caso contrario, el nuevo atributo es añadido con el nombre y valor indicado.
+    // SETATTRIBUTE establece el valor de un atributo en el elemento indicado. Si el atributo ya existe, el valor es actualizado, en caso contrario, el nuevo atributo es añadido con el nombre y valor indicado. ADDEVENTLISTENER escucha y activa la funcion (openProductDetailSecondary) mediante el click
     const productImg = document.createElement('img');
     productImg.setAttribute('src', product.image);
     productImg.addEventListener('click', openProductDetailSecondary);
