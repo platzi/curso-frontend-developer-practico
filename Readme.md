@@ -18,3 +18,9 @@ manual (quemada) en cards-container desde el HTML, para luego crear un módelo d
 JS similar a cada uno de los que se eliminaron, este módelo ayuda a dar más dinamismo
 a la aplicación ya que los elementos desde JS son agregados de forma dinamica al HTML 
 y no de forma manual.
+
+# Se agrego el aside correpondiente al productDetail
+Es esta ocasión se agrego un aside el cual hace referencia al product detail, este
+requirío una serie de modificaciones tanto en el css como en el html y js, para que
+se logrará diferenciar bien las diferencias que hay entre los dos asides contruidos
+hasta el momento en la aplicación.
