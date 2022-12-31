@@ -6,6 +6,8 @@ const mobileMenu = document.querySelector('.mobile-menu');
 const menuCarritoIcon = document.querySelector('.navbar-shopping-cart');
 const aside = document.querySelector('#shoppingCartContainer');
 const cardsContainer = document.querySelector('.cards-container');
+const productDetailContainer = document.querySelector('#productDetailContainer');
+const productDetailCloseIcon = document.querySelector('.product-detail-close')
 
 /* escuchar el metodo click que al presionar un icono o texto, aparesca y desaparesca alguno de los menus. */
 /* toogle significa intercambiar */
@@ -34,9 +36,12 @@ function toogleMobileMenu() {
     if (!isAsideClosed) {
         aside.classList.add('inactive'); 
     }
-    
+    // Si el aside esta abierto y quiero ver el menu en movil, llamo a la funcion para que lo cierre y asi no se monten entre ellos.
+    // La funcion debe ir declarada en esta parte de la otra funcion, sino no logra funcionar bien.
+    closeProductDetailAside();
+
     mobileMenu.classList.toggle('inactive');
-    
+
 }
 
 
@@ -52,6 +57,15 @@ function toggleCarritoAside() {
     if (!isMobileMenuClosed) {
         desktopMenu.classList.add('inactive');
         mobileMenu.classList.add('inactive'); 
+    }
+
+    // Si intento abrir otro menu al tener abierto el <aside> de productos no se vera ya que este se visualiza sobre los otros, es por eso que debo hacer que se oculte al presionar el boton de otro menu, para esto:
+    // Creo una nueva variable, que se encargara de comparar si productDetailContainer tiene la clase inactive.
+    const isProductDetailClosed = productDetailContainer.classList.contains('inactive');
+    
+    // En el caso en que no tenga dicha clase, se la agrego con un add.
+    if (!isProductDetailClosed) {
+        productDetailContainer.classList.add('inactive'); 
     }
     
     aside.classList.toggle('inactive');
@@ -101,6 +115,10 @@ function renderProducts(array) {
         // Se crea una nueva variable para la etiqueta <img> y como atributo se le pasa un source o src mas el valor que tiene producto.image en el arreglo.
         const productImg = document.createElement('img');
         productImg.setAttribute('src', producto.image);
+        // le agrego un evento click al crear la etiqueta <img> y creo una nueva funcion llamada openProductDetailAside para mostrar los productos al hacer clic sobre las imagenes.
+        // el evento se debe hacer dentro de esta funcion renderProducts() ya que fuera de esta seccion no existe, por lo que si la llamara desde afuera, el compilador de JS no seria capaz de leerla.
+        productImg.addEventListener('click', openProductDetailAside);
+
 
         const productInfo = document.createElement('div');
         productInfo.classList.add('product-info');
@@ -140,3 +158,19 @@ function renderProducts(array) {
 
 /* Inicializo la funcion de renderizado y le paso como parametro el arreglo con los productos. */
 renderProducts(productList);
+
+
+
+/* Funcion para mostrar el menu aside con la vista del producto. Para hacerlo funcionar, solo debo remover la clase inactive, que por defecto estara dentro del html. */
+function openProductDetailAside() {
+    productDetailContainer.classList.remove('inactive');
+    // creo una nueva regla, cuando tenga el aside abierto, que cierre el menu del carrito, ya que si no se solapan entre ellos.
+    aside.classList.add('inactive');
+}
+
+productDetailCloseIcon.addEventListener('click', closeProductDetailAside);
+
+/* Funcion que al presionar el boton con la X de cerrar en el menu aside, agregue la clase inactive para ocultar dicho menu. */
+function closeProductDetailAside() {
+    productDetailContainer.classList.add('inactive');
+}

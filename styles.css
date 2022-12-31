@@ -90,7 +90,7 @@ nav {
     /* utilizando top y right con valor 60 pixeles, envio el menu al lado derecho justo debajo del email. */
     top: 60px;
     right: 60px;
-    background: --var(--white);
+    background: var(--white);
     width: 100px;
     height: auto;
     border: 1px solid var(--very-light-pink);
