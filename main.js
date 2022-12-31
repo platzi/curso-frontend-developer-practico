@@ -1,5 +1,5 @@
 //Variables constantes
-
+alert("choncha")
 const menuEmail = document.querySelector(".navbar-email");
 const desktopMenu = document.querySelector(".desktop-menu");
 const menuBurger = document.querySelector(".menu");
