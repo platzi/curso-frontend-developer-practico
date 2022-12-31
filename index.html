@@ -1,7 +1,7 @@
 <!DOCTYPE html>
 <html>
     <head>
-        <title>Javscript y Frontend</title>
+        <title>Yard Sale</title>
         <meta charset="UTF-8">
         <meta name="viewport" content="width= device-width, initial-scale=1.0">
         <link rel="preconnect" href="https://fonts.googleapis.com">
@@ -11,8 +11,10 @@
     </head>
     <body>
         <nav>
+          <!-- Mobile logo -->
             <img src="./icons/icon_menu.svg" alt="menu" class="menu">
-        
+
+          <!-- Left side of navbar-->
             <div class="navbar-left">
               <img src="./logos/logo_yard_sale.svg" alt="logo" class="logo">
               <ul>
@@ -37,6 +39,7 @@
               </ul>
             </div>
         
+            <!-- Right side of navbar -->
             <div class="navbar-right">
               <ul>
                 <li class="navbar-email">
@@ -49,7 +52,12 @@
               </ul>
             </div>
 
-            <!-- Menú pop up -->
+          </nav>
+
+          <!-- Wrapper where i have all menus -->
+          <div class="wrapper inactive">
+
+            <!-- Popup menu -->
             <div class="desktop-menu inactive">
               <ul>
                 <li>
@@ -66,8 +74,8 @@
               </ul>
             </div>
 
-            <!-- Menú en mobile -->
-            <div class="mobile-menu inactive">
+            <!-- Mobile menu -->
+            <aside class="mobile-menu inactive">
               <ul>
                 <li>
                   <a href="/">CATEGORIES</a>
@@ -109,55 +117,80 @@
                   <a href="/" class="sign-out">Sign out</a>
                 </li>
               </ul>
-            </div>
-          </nav>
-          <aside class="cart-detail inactive">
-            <div class="title-container">
-              <img src="./icons/flechita.svg" alt="arrow">
-              <p class="title">My order</p>
-            </div>
-        
-            <div class="my-order-content">
-              <div class="shopping-cart">
-                <figure>
-                  <img src="https://images.pexels.com/photos/276517/pexels-photo-276517.jpeg?auto=compress&cs=tinysrgb&dpr=2&h=650&w=940" alt="bike">
-                </figure>
-                <p>Bike</p>
-                <p>$30,00</p>
+            </aside>
+
+            <!-- Cart Detail-->
+            <aside class="cart-detail inactive">
+              <div class="title-container">
+                <img src="./icons/flechita.svg" alt="arrow">
+                <p class="title">My order</p>
+              </div>
+          
+              <div class="my-order-content">
+                <div class="shopping-cart-container">
+                  <div class="shopping-cart">
+                    <figure>
+                      <img src="https://images.pexels.com/photos/276517/pexels-photo-276517.jpeg?auto=compress&cs=tinysrgb&dpr=2&h=650&w=940" alt="bike">
+                    </figure>
+                    <p>Bike</p>
+                    <p>$30,00</p>
+                    <img src="./icons/icon_close.png" alt="close">
+                  </div>
+            
+                  <div class="shopping-cart">
+                    <figure>
+                      <img src="https://images.pexels.com/photos/276517/pexels-photo-276517.jpeg?auto=compress&cs=tinysrgb&dpr=2&h=650&w=940" alt="bike">
+                    </figure>
+                    <p>Bike</p>
+                    <p>$30,00</p>
+                    <img src="./icons/icon_close.png" alt="close">
+                  </div>
+            
+                  <div class="shopping-cart">
+                    <figure>
+                      <img src="https://images.pexels.com/photos/276517/pexels-photo-276517.jpeg?auto=compress&cs=tinysrgb&dpr=2&h=650&w=940" alt="bike">
+                    </figure>
+                    <p>Bike</p>
+                    <p>$30,00</p>
+                    <img src="./icons/icon_close.png" alt="close">
+                  </div>
+                </div>
+          
+                <div class="my-order-buy">
+                  <div class="order">
+                    <p>
+                      <span>Total</span>
+                    </p>
+                    <p>$560.00</p>
+                    
+                  </div>
+                  <button class="primary-button">
+                    Checkout
+                  </button>
+                </div>          
+               
+              </div>
+            </aside>
+
+            <!-- Product Detail -->
+            <aside class="product-detail inactive">
+              <div class="product-detail-close">
                 <img src="./icons/icon_close.png" alt="close">
               </div>
-        
-              <div class="shopping-cart">
-                <figure>
-                  <img src="https://images.pexels.com/photos/276517/pexels-photo-276517.jpeg?auto=compress&cs=tinysrgb&dpr=2&h=650&w=940" alt="bike">
-                </figure>
+              <img src="https://images.pexels.com/photos/276517/pexels-photo-276517.jpeg?auto=compress&cs=tinysrgb&dpr=2&h=650&w=940" alt="bike">
+              <div class="product-info">
+                <p>$35,00</p>
                 <p>Bike</p>
-                <p>$30,00</p>
-                <img src="./icons/icon_close.png" alt="close">
+                <p>With its practical position, this bike also fulfills a decorative function, add your hall or workspace.</p>
+                <button class="primary-button add-to-cart-button">
+                  <img src="./icons/bt_add_to_cart.svg" alt="add to cart">
+                  Add to cart
+                </button>
               </div>
-        
-              <div class="shopping-cart">
-                <figure>
-                  <img src="https://images.pexels.com/photos/276517/pexels-photo-276517.jpeg?auto=compress&cs=tinysrgb&dpr=2&h=650&w=940" alt="bike">
-                </figure>
-                <p>Bike</p>
-                <p>$30,00</p>
-                <img src="./icons/icon_close.png" alt="close">
-              </div>
-        
-              <div class="order">
-                <p>
-                  <span>Total</span>
-                </p>
-                <p>$560.00</p>
-              </div>
-        
-              <button class="primary-button">
-                Checkout
-              </button>
-            </div>
+            </aside>
           </div>
-          </aside>
+
+          <!-- Main section where i display all the products -->
           <section class="main-container">
             <div class="cards-container">
             </div>
