@@ -10,10 +10,13 @@ const menuHamIcon = document.querySelector(`.menu`);
 const mobileMenu = document.querySelector(`.mobile-menu`);
 
 const menuCarritoIcon = document.querySelector(`.navbar-shopping-cart`);
-const aside = document.querySelector(`.product-detail`);
+const shoppingCartContainer = document.querySelector(`#shoppingCartContainer`);
 
 const cardsContainer = document.querySelector(`.cards-container`);
 
+const productDetailContainer = document.querySelector(`#productDetail`);
+
+const productDetailCloseIcon = document.querySelector(`.product-detail-close`);
 //Cuando queremos ejecutar un evento necesitamos traer la etiqueta de quien recibe el "addEventListener" y quien se ejecunta dentro de la función 
 //en este caso los elementos del menú que presionamos son el menu hamburguesa y el correo electronico y aparecen dos menus diferentes uno para desktop y otro para mobile.
 
@@ -22,10 +25,17 @@ const cardsContainer = document.querySelector(`.cards-container`);
 navMenu.addEventListener(`click` , toggleDesktopMenu);
 function toggleDesktopMenu(){
 
-    const isAsideClosed = aside.classList.contains(`inactive`);
+    const isAsideClosed = shoppingCartContainer.classList.contains(`inactive`);
 
     if (!isAsideClosed){
-        aside.classList.add(`inactive`);
+        shoppingCartContainer.classList.add(`inactive`);
+    }
+
+    const isProductDetailContainerClosed = productDetailContainer.classList.contains(`inactive`);
+
+    if (!isProductDetailContainerClosed) {
+        productDetailContainer.classList.add(`inactive`);
+
     }
 
     desktopMenu.classList.toggle(`inactive`);
@@ -34,12 +44,23 @@ function toggleDesktopMenu(){
 
 menuHamIcon.addEventListener(`click`, toggleMobileMenu);
 function toggleMobileMenu(){
-    const isAsideClosed = aside.classList.contains(`inactive`);
+    const isAsideClosed = shoppingCartContainer.classList.contains(`inactive`);
 
     if(!isAsideClosed){
-        aside.classList.add(`inactive`);
+        shoppingCartContainer.classList.add(`inactive`);
     }
+
+    const isProductDetailContainerClosed = productDetailContainer.classList.contains(`inactive`);
+
+    if(!isProductDetailContainerClosed){
+        productDetailContainer.classList.add(`inactive`)
+
+    }
+
+
     mobileMenu.classList.toggle(`inactive`)
+
+
 };
 
 
@@ -63,8 +84,41 @@ function toggleMobileMenu(){
         mobileMenu.classList.add(`inactive`);//condicional que valida si el menu que queremos cerrar no lo esta y lo cierra agregando la clase que lo i
     }
 
-    aside.classList.toggle(`inactive`);//agrega un switch que "quita y pone" la clase que le indicamos.
+    const isProductDetailContainerClosed = productDetailContainer.classList.contains(`inactive`);
 
+    if(!isProductDetailContainerClosed){
+        productDetailContainer.classList.add(`inactive`);
+    }
+
+    shoppingCartContainer.classList.toggle(`inactive`);//agrega un switch que "quita y pone" la clase que le indicamos.
+
+ }
+
+
+ productDetailCloseIcon.addEventListener(`click` , closeProductDetailAside);
+
+ function closeProductDetailAside (){ 
+
+    const isMobileMenuClosed = mobileMenu.classList.contains(`inactive`);
+
+    if (!isMobileMenuClosed) {
+        mobileMenu.classList.add(`inactive`);
+    }
+
+    const isAsideClosed = shoppingCartContainer.classList.contains(`inactive`);
+
+    if (!isAsideClosed) {
+        shoppingCartContainer.classList.add(`inactive`);
+    }
+
+    const  isDesktopMenuClosed = desktopMenu.classList.contains(`inactive`);
+
+    if (!isDesktopMenuClosed) {
+        desktopMenu.classList.add(`inactive`);
+    }
+  
+    productDetailContainer.classList.add(`inactive`);
+    
  }
 
 
@@ -144,6 +198,26 @@ function renderProducts(arr){
     
         const productCardImg = document.createElement(`img`);
         productCardImg.setAttribute(`src`, product.image);
+        productCardImg.addEventListener(`click` , openProductDetailAside);
+
+        function openProductDetailAside (){
+
+            const isMobileMenuClosed = mobileMenu.classList.contains(`inactive`);
+            if (!isMobileMenuClosed) {
+                mobileMenu.classList.add(`inactive`);
+            }
+
+
+            const isAsideClosed = shoppingCartContainer.classList.contains(`inactive`);
+            if (!isAsideClosed){
+                shoppingCartContainer.classList.add(`inactive`);
+            }
+            
+            
+            productDetailContainer.classList.remove(`inactive`);
+
+            
+        }
     
     
     
