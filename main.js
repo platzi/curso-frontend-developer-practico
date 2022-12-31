@@ -12,7 +12,12 @@ const cards_container = document.querySelector('div.cards-container');
 const product_detail = document.querySelector('aside.product-detail');
 const close_product_detail = document.querySelector('div.product-detail-close');
 const wrapper = document.querySelector('div.wrapper');
+const cart_items_count = document.getElementById('cart-items-count');
+const cart_container = document.querySelector('div.shopping-cart-container');
+const total = document.querySelector('div.order>p:nth-child(2)');
 
+//A constant array so cart items can be pushed
+const cart = [];
 // constant array of products, later i am gonna consume a REST API  
 const productList = [];
 productList.push({
@@ -68,6 +73,7 @@ function createProductElementHTML(product){
     const figure_container = document.createElement('figure');
     const image_cart_icon = document.createElement('img');
     image_cart_icon.setAttribute('src', './icons/bt_add_to_cart.svg');
+    figure_container.addEventListener('click', onAddCart);
 
     figure_container.appendChild(image_cart_icon);
     product_info_div.append(product_price, product_name);
@@ -77,6 +83,39 @@ function createProductElementHTML(product){
 
 
     return product_card;
+}
+
+function createCartItemElementHTML(product){
+  
+    const shopping_cart = document.createElement('div');
+    shopping_cart.classList.add('shopping-cart');
+
+    const figure = document.createElement('figure');
+    const img = document.createElement('img');
+    img.setAttribute('src', product.image_source);
+
+    const div_info = document.createElement('div');
+
+    const name = document.createElement('p');
+    name.innerText = product.name;
+
+    const units = document.createElement('p');
+    units.innerText = product.units;
+
+    const price = document.createElement('p');
+    price.innerText = product.price;
+
+    const delete_cart_item = document.createElement('img');
+    delete_cart_item.setAttribute('src', './icons/icon_close.png');
+    delete_cart_item.addEventListener('click', onDeleteCartItem);
+
+    div_info.append(name, units);
+
+    figure.appendChild(img);
+    shopping_cart.append(figure, div_info, price, delete_cart_item);
+
+    return shopping_cart;
+
 }
 
 // Click Events
@@ -222,6 +261,7 @@ function onToggleCartDetail(event){
             
             cart_detail.classList.add('product-detail--show');
             cart_detail.classList.remove('inactive');
+            cartTotal();
         }, 250);
 
         return;
@@ -337,12 +377,124 @@ function onCloseProductDetail(event){
 
 }
 
-// Renders
-function productsRender(products_array){
+function onAddCart(event){
 
-    products_array.forEach(function(product){
-        cards_container.appendChild(createProductElementHTML(product));
+    const product_info = event.composedPath()[2]; 
+    const price = product_info.querySelector('div>p:nth-child(1)').innerText;
+    const name = product_info.querySelector('div>p:nth-child(2)').innerText;
+    const image_source = product_info.previousSibling.getAttribute('src');
+
+    let found = cart.some(function(cart_item){
+        if(cart_item.name === name){
+            cart_item.units += 1;
+            return true;
+        }    
+    })
+    
+    if(!found){
+        cart.push({
+            name : name,
+            price : price,
+            units: 1,
+            image_source : image_source
+        });
+    }
+
+    clearContainer(cart_container);
+    cart_items_count.innerText = cart.length;
+    arrayRender(cart_container, cart, createCartItemElementHTML);
+}
+
+function onDeleteCartItem(event){
+    //animation of delete
+    console.log()
+    const parent = event.composedPath()[1];
+    const elements = cart_container.childNodes;
+    let index = Array.prototype.indexOf.call(cart_container.children, parent);
+    let length = elements.length - 1;
+
+
+    if(index > 0 && index !== length){
+        parent.classList.add('product-detail--hide');
+        cart.splice(index, 1);
+        
+        setTimeout(function(){
+            for(let i = index; i < elements.length; i++){
+                elements[i].classList.add('shopping-cart-container--delete-element');
+            }
+
+            setTimeout(function(){
+                parent.remove();
+                
+                for(let i = index; i < elements.length; i++){
+                    elements[i].classList.remove('shopping-cart-container--delete-element');
+                }   
+            }, 250)
+        }, 250);
+        
+        cart_items_count.innerText = cart.length;
+        return;
+    }
+    else if(index == 0){
+        console.log('Eliminando el primero');
+        parent.classList.add('product-detail--hide');
+        cart.shift();
+        setTimeout(function(){
+            cart_container.classList.add('shopping-cart-container--delete-element');
+            setTimeout(function(){
+                parent.remove();
+                cart_container.classList.remove('shopping-cart-container--delete-element');
+            }, 250);
+        }, 250);
+
+        cart_items_count.innerText = cart.length;
+        return;
+    }
+
+    cart.pop();
+    parent.classList.add('product-detail--hide');
+    setTimeout(function(){
+        parent.classList.remove('product-detail--hide');
+        parent.remove();
+    }, 250);
+
+    cart_items_count.innerText = cart.length;
+    
+}
+// Renders
+function arrayRender(node_container, array, html_create_element_function){
+    array.forEach(function(element){
+        node_container.appendChild(html_create_element_function(element));
     })
 }
 
-productsRender(productList);
+
+// Clear childs
+
+function clearContainer(node_element){
+    while(node_element.firstChild){
+        node_element.removeChild(node_element.lastChild);
+    }
+}
+
+
+// Specific functions
+
+function cartTotal(){
+    const cart_items = cart_container.querySelectorAll('div.shopping-cart');
+    let totalPay = 0;
+    cart_items.forEach(function(item){
+
+        let price = Number(item.querySelector('.shopping-cart>p').innerText.replace('$', ''));
+        let units = Number(item.querySelector('.shopping-cart>div>p:nth-child(2)').innerText);
+        
+        totalPay += (price * units);
+
+    });
+    console.log(totalPay);
+    total.innerText = `$${totalPay}`;
+    
+}
+
+arrayRender(cards_container, productList, createProductElementHTML);
+arrayRender(cart_container, cart, createCartItemElementHTML);
