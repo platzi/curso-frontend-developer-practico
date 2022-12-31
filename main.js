@@ -461,6 +461,7 @@ function onDeleteCartItem(event){
     cart_items_count.innerText = cart.length;
     
 }
+
 // Renders
 function arrayRender(node_container, array, html_create_element_function){
     array.forEach(function(element){
@@ -468,9 +469,7 @@ function arrayRender(node_container, array, html_create_element_function){
     })
 }
 
-
 // Clear childs
-
 function clearContainer(node_element){
     while(node_element.firstChild){
         node_element.removeChild(node_element.lastChild);
@@ -479,7 +478,6 @@ function clearContainer(node_element){
 
 
 // Specific functions
-
 function cartTotal(){
     const cart_items = cart_container.querySelectorAll('div.shopping-cart');
     let totalPay = 0;
@@ -492,7 +490,7 @@ function cartTotal(){
 
     });
     console.log(totalPay);
-    total.innerText = `$${totalPay}`;
+    total.innerText = `$${totalPay.toFixed(2)}`;
     
 }
 
