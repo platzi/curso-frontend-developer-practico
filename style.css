@@ -211,8 +211,17 @@
     z-index: 101;
   }
   .title-container {
-    display: flex;
+    
     margin-bottom: 24px;
+  }
+  .title-container>button{
+    cursor: pointer;
+    display: flex;
+    align-items: center;
+    border: none;
+    width: fit-content;
+    
+    background-color: transparent;
   }
   .title-container img {
     transform: rotate(180deg);

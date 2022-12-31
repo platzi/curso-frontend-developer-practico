@@ -14,6 +14,7 @@ const close_product_detail = document.querySelector('div.product-detail-close');
 const wrapper = document.querySelector('div.wrapper');
 const cart_items_count = document.getElementById('cart-items-count');
 const cart_container = document.querySelector('div.shopping-cart-container');
+const close_cart_button = document.querySelector('div.title-container>button');
 const total = document.querySelector('div.order>p:nth-child(2)');
 
 //A constant array so cart items can be pushed
@@ -28,20 +29,86 @@ productList.push({
 
 productList.push({
     name: 'TV',
-    price: '8599.99',
+    price: '50.00',
     image: 'https://images.pexels.com/photos/5197069/pexels-photo-5197069.jpeg?auto=compress&cs=tinysrgb&w=1260&h=750&dpr=1'
 });
 
 productList.push({
     name: 'Xbox One Controller',
-    price: '600.00',
+    price: '27.99',
     image: 'https://images.pexels.com/photos/1365795/pexels-photo-1365795.jpeg?auto=compress&cs=tinysrgb&w=1260&h=750&dpr=1'
 });
 
 productList.push({
     name: 'Gamer Setup',
-    price: '12000.00',
+    price: '600.00',
     image: 'https://images.pexels.com/photos/7238759/pexels-photo-7238759.jpeg?auto=compress&cs=tinysrgb&w=1260&h=750&dpr=1'
+});
+
+productList.push({
+    name: 'Lenovo Laptop',
+    price: '324.99',
+    image: 'https://images.pexels.com/photos/1229861/pexels-photo-1229861.jpeg?auto=compress&cs=tinysrgb&w=1260&h=750&dpr=1'
+});
+
+productList.push({
+    name: 'PlayStation 5',
+    price: '450.00',
+    image: 'https://images.pexels.com/photos/13189272/pexels-photo-13189272.jpeg?auto=compress&cs=tinysrgb&w=1260&h=750&dpr=1'
+});
+
+productList.push({
+    name: 'Simple Blue Shoes',
+    price: '250.00',
+    image: 'https://images.pexels.com/photos/19090/pexels-photo.jpg?auto=compress&cs=tinysrgb&w=1260&h=750&dpr=1'
+});
+
+productList.push({
+    name: 'PlayStation VR',
+    price: '467.99',
+    image: 'https://images.pexels.com/photos/5207605/pexels-photo-5207605.jpeg?auto=compress&cs=tinysrgb&w=1260&h=750&dpr=1'
+});
+
+productList.push({
+    name: 'iPhone 8',
+    price: '200.00',
+    image: 'https://images.pexels.com/photos/699122/pexels-photo-699122.jpeg?auto=compress&cs=tinysrgb&w=1260&h=750&dpr=1'
+});
+
+productList.push({
+    name: 'White Adidas hoodie',
+    price: '40.00',
+    image: 'https://images.pexels.com/photos/1661471/pexels-photo-1661471.jpeg?auto=compress&cs=tinysrgb&w=1260&h=750&dpr=1'
+});
+
+productList.push({
+    name: 'Brown Jacket',
+    price: '175.00',
+    image: 'https://images.pexels.com/photos/887898/pexels-photo-887898.jpeg?auto=compress&cs=tinysrgb&w=1260&h=750&dpr=1'
+});
+
+productList.push({
+    name: 'Classic Car',
+    price: '32000.00',
+    image: 'https://images.pexels.com/photos/1592384/pexels-photo-1592384.jpeg?auto=compress&cs=tinysrgb&w=1260&h=750&dpr=1'
+});
+
+productList.push({
+    name: 'Simple White Pack',
+    price: '25.00',
+    image: 'https://images.pexels.com/photos/414548/pexels-photo-414548.jpeg?auto=compress&cs=tinysrgb&w=1260&h=750&dpr=1'
+});
+
+productList.push({
+    name: 'White Tiny Mug',
+    price: '7.00',
+    image: 'https://images.pexels.com/photos/1566308/pexels-photo-1566308.jpeg?auto=compress&cs=tinysrgb&w=1260&h=750&dpr=1'
+});
+
+productList.push({
+    name: 'Monitor 14 inches',
+    price: '240.00',
+    image: 'https://images.pexels.com/photos/1999463/pexels-photo-1999463.jpeg?auto=compress&cs=tinysrgb&w=1260&h=750&dpr=1'
 });
 
 // Event listeners
@@ -49,6 +116,8 @@ nav_email.addEventListener('click', onToggleDesktopPopUpMenu);
 burger_button.addEventListener('click', onToggleMobileMenu);
 cart_button.addEventListener('click', onToggleCartDetail);
 close_product_detail.addEventListener('click', onCloseProductDetail);
+close_cart_button.addEventListener('click', onCloseCartDetail);
+
 
 // HTML Create Elements
 function createProductElementHTML(product){
@@ -321,6 +390,26 @@ function onToggleCartDetail(event){
     }
 }
 
+function onCloseCartDetail(event){
+    cart_detail.classList.add('product-detail--hide');
+        
+    setTimeout(function(){
+        cart_detail.classList.add('inactive');
+        cart_detail.classList.remove('product-detail--show');
+        cart_detail.classList.remove('product-detail--hide');
+        
+        wrapper.classList.add('wrapper--fade-out');
+        setTimeout(function(){
+            wrapper.classList.remove('wrapper--fade-in');
+            wrapper.classList.remove('wrapper--fade-out');
+            wrapper.classList.remove('wrapper--overflow-none');
+            wrapper.classList.add('inactive');
+            body.classList.remove('wrapper--overflow-none');
+
+        }, 250);
+    }, 250);
+}
+
 function onOpenProductDetail(event){
     if(!mobile_menu.classList.contains('inactive'))
         mobile_menu.classList.toggle('inactive');
@@ -406,8 +495,6 @@ function onAddCart(event){
 }
 
 function onDeleteCartItem(event){
-    //animation of delete
-    console.log()
     const parent = event.composedPath()[1];
     const elements = cart_container.childNodes;
     let index = Array.prototype.indexOf.call(cart_container.children, parent);
@@ -429,10 +516,12 @@ function onDeleteCartItem(event){
                 for(let i = index; i < elements.length; i++){
                     elements[i].classList.remove('shopping-cart-container--delete-element');
                 }   
+                cartTotal();
             }, 250)
         }, 250);
         
         cart_items_count.innerText = cart.length;
+        
         return;
     }
     else if(index == 0){
@@ -444,6 +533,7 @@ function onDeleteCartItem(event){
             setTimeout(function(){
                 parent.remove();
                 cart_container.classList.remove('shopping-cart-container--delete-element');
+                cartTotal();
             }, 250);
         }, 250);
 
@@ -456,6 +546,7 @@ function onDeleteCartItem(event){
     setTimeout(function(){
         parent.classList.remove('product-detail--hide');
         parent.remove();
+        cartTotal();
     }, 250);
 
     cart_items_count.innerText = cart.length;
