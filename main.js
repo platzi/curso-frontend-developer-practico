@@ -7,6 +7,7 @@ menuEmail.addEventListener('click', toggleDesktopMenu);
 function toggleDesktopMenu() {
     shoppingCarContainer.classList.add('inactive');
     desktopMenu.classList.toggle('inactive');
+    productDetail.classList.add('inactive');
 }
 
 
@@ -19,10 +20,11 @@ burguerIcon.addEventListener('click', toggleMobileMenu);
 function toggleMobileMenu() {
     mobileMenu.classList.toggle('inactive');
     shoppingCarContainer.classList.add('inactive');
+    productDetail.classList.add('inactive');
 }
 
 
-// D & M - TOGGLE SHOPPING CAR FROM CLICKING CAR ICON
+// DESKTOP & MOBILE - TOGGLE SHOPPING CAR FROM CLICKING CAR ICON
 const carritoIcon = document.querySelector('.navbar-shopping-cart');
 const shoppingCarContainer = document.querySelector('#shoppingCarContainer');
 
@@ -32,8 +34,24 @@ function toggleShoppingCar() {
     shoppingCarContainer.classList.toggle('inactive');
     mobileMenu.classList.add('inactive');
     desktopMenu.classList.add('inactive');
+    productDetail.classList.add('inactive');
 }
 
+// PRODUCT DETAIL
+    // OPEN
+const productDetail = document.querySelector('#productDetail');
+function openProductDetail(){
+    productDetail.classList.remove('inactive');
+    shoppingCarContainer.classList.add('inactive');
+    mobileMenu.classList.add('inactive');
+    desktopMenu.classList.add('inactive');
+}
+    // CLOSE
+const iconCloseProductDetail = document.querySelector('.product-detail-close');
+function closeProductDetail(){
+    productDetail.classList.add('inactive');
+}
+iconCloseProductDetail.addEventListener('click', closeProductDetail);
 
 // DATA
 const productList = [];
@@ -77,6 +95,7 @@ function renderProductos(arr) {
 
         const img = document.createElement('img');
         img.setAttribute('src', product.image);
+        img.addEventListener('click', openProductDetail)
 
         const productInfo = document.createElement('div');
         productInfo.classList.add('product-info');
