@@ -50,16 +50,21 @@ productList.push({
 
 /* Se crea una nueva funcion que se encargara de renderizar todo el contenido del arreglo dentro del archivo index.html */
 /* La funcion recibira como parametro un arreglo. */
+/* Se realizan cambios en esta funcion, se reemplaza el for of por un forEach para recorrer el arreglo y enviar el producto al que se le hizo clic a una nueva función. */
+/* Se cambia el evento addEventListener para enviar "producto" como parametro.  */
 function renderProducts(array) {
 
-    for (producto of array) {
+    array.forEach(producto => {
 
         const productCard = document.createElement('div');
         productCard.classList.add('product-card');
 
         const productImg = document.createElement('img');
         productImg.setAttribute('src', producto.image);
-        productImg.addEventListener('click', openProductDetailAside);
+
+        productImg.addEventListener('click', function(){
+            renderDetailsAside(producto);
+        });
 
         const productInfo = document.createElement('div');
         productInfo.classList.add('product-info');
@@ -87,13 +92,31 @@ function renderProducts(array) {
         productCard.appendChild(productInfo);
 
         cardsContainer.appendChild(productCard);
-    }
+    //}
+    })
 
 }
 
 /* Se Inicializz la funcion de renderizado y se le pasa como parametro, el arreglo de los productos. */
 renderProducts(productList);
 
+
+/* Se crea una nueva función para imprimir en el menu aside la información del producto tal cual se creo en el arreglo. */
+/* Se le agregan ID a las etiquetas del HTML para poder imprimir cada valor del arreglo donde correspondan. */
+function renderDetailsAside(producto){
+
+    productDetailContainer.classList.remove("inactive");
+
+    const productImage = document.querySelector("#product-image")
+    const productPrice = document.querySelector("#product-price");
+    const productName = document.querySelector("#product-name");
+    const productDescription = document.querySelector("#product-description");
+
+    productImage.setAttribute('src', producto.image);
+    productPrice.innerText = "$ " + producto.price;
+    productName.innerText = producto.name;
+    productDescription.innerText = producto.description;
+}
 
 /* Se reescriben las funciones principales, utilizando solamente clases, toggle para intercambiar la clase de la variable principal y add para agregar la clase inactiva cuando este levantado otro menu. */
 
@@ -117,9 +140,9 @@ function toggleCarritoAside() {
     productDetailContainer.classList.add('inactive');
 }
 
-function openProductDetailAside() {
+/* function openProductDetailAside() {
     productDetailContainer.classList.remove('inactive');
-}
+} */
 
 function closeProductDetailAside() {
     productDetailContainer.classList.toggle('inactive');
