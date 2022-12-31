@@ -5,7 +5,7 @@ const desktopMenu = document.querySelector('.desktop-menu');
 menuEmail.addEventListener('click', toggleDesktopMenu);
 
 function toggleDesktopMenu() {
-    aside.classList.add('inactive');
+    shoppingCarContainer.classList.add('inactive');
     desktopMenu.classList.toggle('inactive');
 }
 
@@ -18,18 +18,18 @@ burguerIcon.addEventListener('click', toggleMobileMenu);
 
 function toggleMobileMenu() {
     mobileMenu.classList.toggle('inactive');
-    aside.classList.add('inactive');
+    shoppingCarContainer.classList.add('inactive');
 }
 
 
 // D & M - TOGGLE SHOPPING CAR FROM CLICKING CAR ICON
 const carritoIcon = document.querySelector('.navbar-shopping-cart');
-const aside = document.querySelector('.product-detail');
+const shoppingCarContainer = document.querySelector('#shoppingCarContainer');
 
 carritoIcon.addEventListener('click', toggleShoppingCar);
 
 function toggleShoppingCar() {
-    aside.classList.toggle('inactive');
+    shoppingCarContainer.classList.toggle('inactive');
     mobileMenu.classList.add('inactive');
     desktopMenu.classList.add('inactive');
 }
