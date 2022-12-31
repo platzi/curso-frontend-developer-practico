@@ -24,3 +24,8 @@ Es esta ocasión se agrego un aside el cual hace referencia al product detail, e
 requirío una serie de modificaciones tanto en el css como en el html y js, para que
 se logrará diferenciar bien las diferencias que hay entre los dos asides contruidos
 hasta el momento en la aplicación.
+
+# Se agrego interaccion entre todos los componentes
+En esta parte, se trabajo en la parte de JS, especificamente en la interacción que
+hay entre cada componente ya definido, es de resaltar que esta interacción funsiona
+tanto para desktop como para mobile.
