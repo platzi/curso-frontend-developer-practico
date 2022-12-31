@@ -4,7 +4,7 @@ const menuCarritoIcon = document.querySelector('.navbar-shopping-cart');
 
 const desktopMenu = document.querySelector('.desktop-menu');
 const mobileMenu = document.querySelector('.mobile-menu');
-const aside = document.querySelector('.product-detail');
+const shoppingCartContainer = document.querySelector('#shoppingCartContainer');
 const cardsContainer = document.querySelector('.cards-container');
 
 menuEmail.addEventListener('click', toggleDestopMenu);
@@ -14,11 +14,11 @@ menuCarritoIcon.addEventListener('click', toggleCarritoAside);
 function toggleDestopMenu(){
     //mirem si menu carrito o aside està obert o no. 
     //Si està obert l'hem de tancar per evitar solapaments
-    const isAsideClosed = aside.classList.contains('inactive');
+    const isAsideClosed = shoppingCartContainer.classList.contains('inactive');
 
     //mirem si tenim obert el menu carrito o ASIDE pq no es solapin els menus
     if (!isAsideClosed){
-        aside.classList.add('inactive');
+        shoppingCartContainer.classList.add('inactive');
     }
 
     //activem o desactivem el menu destop
@@ -28,11 +28,11 @@ function toggleDestopMenu(){
 function toggleMobileMenu(){
     //mirem si menu carrito o aside està obert o no. 
     //Si està obert l'hem de tancar per evitar solapaments
-    const isAsideClosed = aside.classList.contains('inactive');
+    const isAsideClosed = shoppingCartContainer.classList.contains('inactive');
 
     //mirem si tenim obert el menu carrito o ASIDE pq no es solapin els menus
     if (!isAsideClosed){
-        aside.classList.add('inactive');
+        shoppingCartContainer.classList.add('inactive');
     }
 
     //activem o desactivem el menu mobile
@@ -50,7 +50,7 @@ function toggleCarritoAside(){
     }
 
     //activem o desactivem el menu aside o menu carrito
-    aside.classList.toggle('inactive');
+    shoppingCartContainer.classList.toggle('inactive');
 }
 
 
