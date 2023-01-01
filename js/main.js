@@ -85,97 +85,77 @@ const productList= [
         desc:` Lorem ipsum dolor sit amet consectetur adipisicing elit. Possimus est minima nostrum voluptatibus nisi quis.`   
     }
 ];
-const cardsContainer = document.querySelector(".cards-container");
-const navbarLeft = document.querySelector(".navbar-left-ul");
-const mobilMenu = document.querySelector(".mobile-menu-ul");
-const productDetailContainer = document.querySelector('#product-detail');
-const productDetailInfo = document.querySelector('.product-detail-info');
+
+const cardsContainer = document.querySelector(".cards-container"),
+navbarLeft = document.querySelector(".navbar-left-ul"),
+mobilMenu = document.querySelector(".mobile-menu-ul"),
+productDetailContainer = document.querySelector('#product-detail'),
+productDetailAside = document.querySelector('.product-info'),
+background = document.querySelector('.product-detail-background');
+
 
 
 //Desplegar items
 window.addEventListener("DOMContentLoaded",function(){
   displayProductList(productList);
-  //displayAside(productList)
   displayMenuButtons();
 });
-console.log(productList);
-
-function displayAside(asideItem){
-  
-    // console.log(item);
-
-    return ` <img src=${item.image} alt=${item.name}>
-    <div class="product-info">
-      <p>${item.price}</p>
-      <p>${item.name}</p>
-      <p>${item.desc}</p>
-      <button class="primary-button add-to-cart-button">
-        <img src="./icons/bt_add_to_cart.svg" alt="add to cart">
-        Add to cart
-      </button>
-    </div>`;
-  
-  //console.log( displayAsideProduct);
-  productDetailContainer.innerHTML = displayAsideProduct;
-}
 
 function displayProductList(listItems) {
   let displayProducts = listItems.map(function (item) {
-    // console.log(item);
-
-    return `
     
-    <div class="product-card">
-    <img src=${item.image} alt=${item.name} >
-    <div class="product-info">
-      <div>
-        <p data-id="${item.price}">$${item.price}</p>
-        <p>${item.name}</p>
+    return `
+    <div class="info-cards">
+    <div class="product-card" >
+    <img src=${item.image}  alt=${item.name} >
+    <div class="product-info" >
+      <div class= "info">
+        <p class="price">$${item.price}</p>
+        <p class="name">${item.name}</p>
       </div>
       <figure>
         <img src="./icons/bt_add_to_cart.svg" alt="">
       </figure>
     </div>
-  </div>`;
-  });
-  displayProducts = displayProducts.join("");
+    </div>
+    </div>`;
   
-   //console.log(displayProducts);
-   cardsContainer.innerHTML = displayProducts
-
-   const productImg= cardsContainer.querySelectorAll('.product-card');
-   const productInfo = cardsContainer.querySelectorAll('.product-info');
-   //console.log(productInfo)
-   
-   productImg.forEach(element=>{
-    //console.log(element)
-    element.addEventListener('click',event=>{
-      if(!mobileMenu.classList.contains('inactive') ||!desktopMenu.classList.contains('inactive') || !aside.classList.contains('inactive')){
-        mobileMenu.classList.add('inactive');
-        desktopMenu.classList.add('inactive');
-        aside.classList.add('inactive');
-       
-    }
-    console.log(event);
-    let info= `
-    <img src=${event.target.src} alt="bike" class="image-detail">
-    <div class="product-info">
-      <p>$35,00</p>
-      <p>Bike</p>
-      <p>With its practical position, this bike also fulfills a decorative function, add your hall or workspace.</p>
-      <button class="primary-button add-to-cart-button">
-        <img src="./icons/bt_add_to_cart.svg" alt="add to cart">
-        Add to cart
-      </button>
-      `;
-      console.log(info);
-      productDetailInfo.innerHTML = info;
-      productDetailContainer.classList.toggle('inactive');
-
-     
     });
-   });
-}
+  
+    displayProducts = displayProducts.join("");
+    cardsContainer.innerHTML = displayProducts;
+
+    const productImg = cardsContainer.querySelectorAll('.info-cards');
+    productImg.forEach(product=>{
+      product.addEventListener("click",event=>{
+        let url = event.target.src;
+        const productCategory = listItems.filter(function (productItem){
+          if(productItem.image === url){
+            let aside = `
+          <div class="product-detail-info">
+            
+            <img src=${productItem.image} alt="${productItem.name}" class="image-detail">
+            
+              <div class="product-info">
+                <p>$${productItem.price}</p>
+                <p>${productItem.name}</p>
+                <p>${productItem.desc}</p>
+                
+              </div> 
+            
+            `;
+            productDetailAside.innerHTML=aside;
+            //background.style.display='block';
+            productDetailContainer.classList.remove("inactive");
+
+            //productDetailContainer.classList.add("product-detail-background");
+          } 
+        });
+      }); 
+    });
+
+} 
+
 // desplegar menu botones
 function displayMenuButtons() {
   const categories = productList.reduce(
@@ -202,7 +182,7 @@ function displayMenuButtons() {
     /*Filtrar por categoría*/
   const filterBtns = navbarLeft.querySelectorAll(".filter-btn");
   const filterBtnsMb = mobilMenu.querySelectorAll(".filter-btn");
-  console.log(filterBtns);
+  //console.log(filterBtns);
 
   filterProducts(filterBtns);
   filterProducts(filterBtnsMb);
@@ -217,7 +197,8 @@ function displayMenuButtons() {
         const productCategory = productList.filter(function (productItem) {
          //console.log(productItem.category);
       
-          if (productItem.category === category) {
+          if (productItem.category === category ) {
+            productDetailContainer.classList.add("inactive");
             return productItem;
           }
         });
@@ -230,9 +211,6 @@ function displayMenuButtons() {
     });
   }
 }
-
-
-
 
 /*Email deskyop*/
 const desktopMenu = document.querySelector(".desktop-menu");
@@ -274,77 +252,8 @@ menuCarritoIcon.addEventListener('click',()=>{
 });
 
 /*Close Icon*/
-const closeIcon = document.querySelector('.product-detail-close');
+const closeIcon = productDetailContainer.querySelector('.product-detail-close');
+console.log(closeIcon);
 closeIcon.addEventListener('click',()=>{
   productDetailContainer.classList.add('inactive');
 });
-
-
-
-
-
-
-
-
-
-
-  /*
-
-  //Fusión del menú en desktop
-let navEmail = document.querySelector('.navbar-email');
-const desktopMenu = document.querySelector('.desktop-menu');
-const closeIcon = document.querySelector('.product-detail-close');
-
-
-navEmail.addEventListener('click',()=>{
-    if(!aside.classList.contains('inactive')|| !productDetailContainer.classList.contains('inactive')){
-        aside.classList.add('inactive');
-        productDetailContainer.classList.add('inactive');
-        
-    }
-    desktopMenu.classList.toggle('inactive');  
-});
-
-
-// Fusion menu en mobile
-const menuHamIcon = document.querySelector('.menu');
-const mobileMenu = document.querySelector('.mobile-menu');
-menuHamIcon.addEventListener('click',()=>{
-    if(!aside.classList.contains('inactive')||!productDetailContainer.classList.contains('inactive')){
-        aside.classList.add('inactive');
-        productDetailContainer.classList.add('inactive');
-    }
-    mobileMenu.classList.toggle('inactive');  
-});
-
-//MY ORDER
-const menuCarritoIcon = document.querySelector('.navbar-shopping-cart');
-const aside = document.querySelector('#shopping-cart-container');
-
-const cardsContainer = document.querySelector('.cards-container');
-const productDetailContainer = document.querySelector('#product-detail')
-
-menuCarritoIcon.addEventListener('click',()=>{
-    if(!mobileMenu.classList.contains('inactive') ||!desktopMenu.classList.contains('inactive') ||!productDetailContainer.classList.contains('inactive')){
-        mobileMenu.classList.add('inactive');
-        desktopMenu.classList.add('inactive');
-        productDetailContainer.classList.add('inactive');  
-    }
-  
-    aside.classList.toggle('inactive');
-   
-});
-closeIcon.addEventListener('click',()=>{
-    productDetailContainer.classList.add('inactive');
-});
-
-productImg.addEventListener('click',()=>{
-  if(!mobileMenu.classList.contains('inactive') ||!desktopMenu.classList.contains('inactive') || !aside.classList.contains('inactive')){
-      mobileMenu.classList.add('inactive');
-      desktopMenu.classList.add('inactive');
-      aside.classList.add('inactive');
-      
-  }
-  productDetailContainer.classList.toggle('inactive')
-});
-*/

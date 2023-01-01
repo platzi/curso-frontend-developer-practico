@@ -178,7 +178,7 @@
 /*****   MY ORDER  *******/
 aside {
   background-color:var(--white);
-  width: 360px;
+  width: 380px;
   box-sizing: border-box;
   position: absolute;
   right: 0;
@@ -233,7 +233,7 @@ aside {
   width: 70px;
   height: 70px;
   border-radius: 20px;
-  object-fit: cover;
+ object-fit: cover;
 }
 .shopping-cart p:nth-child(2) {
   color: var(--very-light-pink);
@@ -272,6 +272,9 @@ aside {
   object-fit: cover;
   border: 1px solid gray;
 }
+.product-card img:hover {
+  cursor: pointer;
+}
 .product-card .product-info {
   display: flex;
   justify-content: space-between;
@@ -303,9 +306,18 @@ aside {
 }
 
 
-/* ProductDetail */
+/* ProductDetail 
+
+-Background*/
+.product-detail-background {
+  background-color: hsla(0deg, 0%, 0%, 0.5);
+  z-index: 1;
+  display: none;
+
+}
+
 .product-detail-close {
-  background: var(--white);
+  background: var(--very-light-pink);
   width: 14px;
   height: 14px;
   position: absolute;
