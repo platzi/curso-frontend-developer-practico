@@ -15,7 +15,7 @@ const mobileMenu = document.querySelector('.mobile-menu')
 const menuCarritoDeCompras = document.querySelector('.navbar-shopping-cart')
 menuCarritoDeCompras.addEventListener('click' , showMyOrder)
 
-const porductDetail = document.querySelector('.product-detail')
+const porductDetail = document.querySelector('#carroDeCompras')
 
 const cardsContainer = document.querySelector('.cards-container')
 
@@ -68,7 +68,7 @@ function renderProducts(arr){
     img.setAttribute('src', productos.img);
 
     const productInfo = document.createElement('div');
-    productInfo.classList.add('product-info');
+    productInfo.classList.add('productInfo');
 
     const productInfoDiv = document.createElement('div');
 
