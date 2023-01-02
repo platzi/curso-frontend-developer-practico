@@ -57,8 +57,9 @@ listaDeProductos.push({
     img: 'https://m.media-amazon.com/images/I/51-FhVIYrVL.jpg'
 });
 
-/* Este for realiza un recorrido por el array de la lista de productos y a su ves, crea los elementos en el HTML para cada producto que se agregue a la tienda. */
-for (productos of listaDeProductos){
+function renderProducts(arr){
+    /* Este for realiza un recorrido por el array de la lista de productos y a su ves, crea los elementos en el HTML para cada producto que se agregue a la tienda. */
+    for (productos of arr){
 
     const productCard = document.createElement('div');
     productCard.classList.add('product-card');
@@ -90,4 +91,7 @@ for (productos of listaDeProductos){
     productCard.append(img, productInfo);
 
     cardsContainer.append(productCard)
-};
+    };  
+}
+
+renderProducts(listaDeProductos);
