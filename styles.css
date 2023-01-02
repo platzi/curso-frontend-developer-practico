@@ -131,7 +131,7 @@
     position: absolute;
     top: 60px;
     left: 0;
-    width: calc(100%-24px);
+    width: calc(100%);
   }
   .mobile-menu a {
     text-decoration: none;
@@ -241,11 +241,14 @@
     font-size: var(--md);
     font-weight: bold;
     height: 50px;
+    
+    
   }
 
 /*Lista de productos*/
 .cards-container {
     display: grid;
+    background-color: var(--white);
     grid-template-columns: repeat(auto-fill, 240px);
     gap: 26px;
     place-content: center;
@@ -289,7 +292,7 @@
 
   /*product detail*/
   .product-detail-close {
-    background: var(--white);
+    background-color: var(--white);
     width: 14px;
     height: 14px;
     position: absolute;
