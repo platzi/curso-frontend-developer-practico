@@ -131,6 +131,7 @@
     top: 61px;
     left: 0%; 
     width: 100%;
+    
     padding: 24px;
   }
   .mobile-menu a {
@@ -251,7 +252,7 @@
     margin-top: 20px ;
     display: grid;
     grid-template-columns: repeat(auto-fill, 240px);
-    gap: 26px;
+    gap: 100px;
     place-content: center;
   }
   .product-card {
