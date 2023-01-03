@@ -373,4 +373,10 @@ aside {
         display: none;
     }
 }
+
+  @media (max-width: 360px) {
+    aside {
+      width: 100%;
+    }
+  }
   
