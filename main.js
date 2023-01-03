@@ -79,17 +79,17 @@ productList.push({
      imagen: 'https://images.pexels.com/photos/276517/pexels-photo-276517.jpeg?auto=compress&cs=tinysrgb&dpr=2&h=650&w=940'
 });
 productList.push({  
-     name: 'Patin',
-     price: 2350,
+     name: 'Carro',
+     price: 235220,
      imagen: 'https://images.pexels.com/photos/276517/pexels-photo-276517.jpeg?auto=compress&cs=tinysrgb&dpr=2&h=650&w=940'
 });
 productList.push({  
-     name: 'motorcicle',
-     price: 1350,
+     name: 'Escoba',
+     price: 13,
      imagen: 'https://images.pexels.com/photos/276517/pexels-photo-276517.jpeg?auto=compress&cs=tinysrgb&dpr=2&h=650&w=940'
 });
 productList.push({  
-     name: 'Patin',
+     name: 'Celular',
      price: 2350,
      imagen: 'https://images.pexels.com/photos/276517/pexels-photo-276517.jpeg?auto=compress&cs=tinysrgb&dpr=2&h=650&w=940'
 });
