@@ -9,6 +9,8 @@
   <link rel="preconnect" href="https://fonts.googleapis.com">
   <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
   <link href="https://fonts.googleapis.com/css2?family=Quicksand:wght@300;500;700&display=swap" rel="stylesheet">
+  <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0-alpha1/dist/css/bootstrap.min.css" rel="stylesheet" integrity="sha384-GLhlTQ8iRABdZLl6O3oVMWSktQOp6b7In1Zl3/Jr59b6EGGoI1aFkw7cmDA6j6gD" crossorigin="anonymous">
+  <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap-icons@1.10.3/font/bootstrap-icons.css">
 </head>
 <body>
   <nav>
@@ -42,7 +44,7 @@
         <li class="navbar-email">platzi@ejemplo.com</li>
         <li class="navbar-shopping-cart">
           <img src="./icons/icon_shopping_cart.svg" alt="shopping cart">
-          <div>2</div>
+          <div id="cantidad-carrito">2</div>
         </li>
       </ul>
     </div>
@@ -106,58 +108,40 @@
         </ul>
     </div>
   </nav>
-  <aside id="shoppingCartContainer" class=" inactive">
-    <div class="title-container">
+  <aside id="shoppingCartContainer" class="inactive">
+    <div class="title-container ">
       <img src="./icons/flechita.svg" alt="arrow">
       <p class="title">My order</p>
     </div>
-   <div class="my-order-content">
-       <!--<div class="shopping-cart">
-        <figure>
-          <img src="https://images.pexels.com/photos/100582/pexels-photo-100582.jpeg?auto=compress&cs=tinysrgb&w=600" alt="bike">
-        </figure>
-        <p>Bike</p>
-        <p>$30,00</p>
-        <img src="./icons/icon_close.png" alt="close">
-      </div>
-
-      <div class="shopping-cart">
-        <figure>
-          <img src="https://images.pexels.com/photos/276517/pexels-photo-276517.jpeg?auto=compress&cs=tinysrgb&dpr=2&h=650&w=940" alt="bike">
-        </figure>
-        <p>Bike</p>
-        <p>$30,00</p>
-        <img src="./icons/icon_close.png" alt="close">
-      </div>
-
-      <div class="shopping-cart">
-        <figure>
-          <img src="https://images.pexels.com/photos/276517/pexels-photo-276517.jpeg?auto=compress&cs=tinysrgb&dpr=2&h=650&w=940" alt="bike">
-        </figure>
-        <p>Bike</p>
-        <p>$30,00</p>
-        <img src="./icons/icon_close.png" alt="close">
-      </div>-->
+    <div id="footer-cart" class="container text-center text-danger">
+      <!-- <p>Vacio, agrega productos a tu carrito.</p> -->
     </div>
-      <!--<div class="order-container">
-          <div class="order">
+   <div class="my-order-content">
+      <!-- <div class="containCov"></div> -->
+    </div> 
+       <div class="order-container">
+         <div class="order d-flex justify-content-around">
           <p>
             <span>Total</span>
           </p>
-          <p>$560.00</p>
+          <div class="d-flex">
+            <p><b>$</b></p>
+            <p id="total">0</p>
+          </div>
         </div>
 
         <button class="primary-button">
           Checkout
         </button>
-    </div>-->
+    </div> 
   </aside>
 
-  <aside id="productDetail" class="inactive">
-    <div class="product-detail-close">
+  <div id="contain-product" class="inactive" >
+   <!-- <aside id="productDetail" class="inactive">
+     <div class="product-detail-close">
       <img src="./icons/icon_close.png" alt="close">
-    </div>
-    <img src="https://images.pexels.com/photos/100582/pexels-photo-100582.jpeg?auto=compress&cs=tinysrgb&w=600" alt="bike">
+    </div> -->
+    <!--<img src="https://images.pexels.com/photos/100582/pexels-photo-100582.jpeg?auto=compress&cs=tinysrgb&w=600" alt="bike">
     <div class="product-info">
       <p>$120</p>
       <p>Bike</p>
@@ -166,8 +150,9 @@
         <img src="./icons/bt_add_to_cart.svg" alt="add to cart">
         Add to cart
       </button>
-    </div>
-  </aside>
+    </div> -->
+  <!-- </aside>  -->
+</div>
 
   <section class="main-container">
     <div class="cards-container">
@@ -184,7 +169,8 @@
         </div>
       </div> -->
     </div>
-  </section>
+  </section> 
+ 
   <script src="./script/script.js"></script>
 </body>
 </html>
