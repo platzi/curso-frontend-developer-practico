@@ -23,6 +23,7 @@ function toggleDesktopMenu(){
     }
 
     desktopMenu.classList.toggle("inactive");
+    closeProductDetailAside();
 }
 
 function toggleMobileMenu(){
@@ -53,9 +54,12 @@ function toggleCarritoAside(){
 }
 
 function openProductDetailAside(){
-    shoppingCardContainer.classList.add('inactive');
     productDetailContainer.classList.remove('inactive');
+    shoppingCardContainer.classList.add('inactive');
     mobileMenu.classList.add("inactive");
+    desktopMenu.classList.add("inactive");
+
+
 }
 
 function closeProductDetailAside(){
