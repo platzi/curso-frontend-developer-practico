@@ -373,7 +373,7 @@ aside {
       display: none;
     }
 
-    .product-detail {
+    #productDetail {
       width: 100%;
     }
 
@@ -386,6 +386,10 @@ aside {
     .product-card img {
       width: 140px;
       height: 140px;
+    }
+
+    #shoppingCardContainer{
+      width: 100%;
     }
 
   }
