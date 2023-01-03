@@ -131,7 +131,7 @@ nav {
   position: absolute;
   top: 60px;
   left: 0;
-  width: 100%;
+  width: calc(100% - 48px);
   padding: 24px;
 }
 .mobile-menu a {
@@ -317,6 +317,7 @@ aside {
   height: 240px;
   border-radius: 20px;
   object-fit: cover;
+  cursor: pointer;
 }
 .product-card .product-info {
   display: flex;
