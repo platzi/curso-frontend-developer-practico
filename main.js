@@ -33,7 +33,10 @@ function toggleMobilemenu (){
           shoppingCartContainer.classList.add('inactive');
      }
 
+     closeProductoDetail()
      mobileMenu.classList.toggle('inactive');
+
+
 }
 
 function toggleMenuCarrito (){
@@ -42,12 +45,22 @@ function toggleMenuCarrito (){
    if (!isMobileMenuClosed){
      mobileMenu.classList.add('inactive');
 }
+
+const isProductDetailClose= productDetailContainer.classList.contains('inactive');
+
+if (!isProductDetailClose){
+     productDetailContainer.classList.add('inactive');
+}
      shoppingCartContainer.classList.toggle('inactive');
      
+
 }
 
 function openProducDetail(){
+     shoppingCartContainer.classList.add('inactive');
+    
      productDetailContainer.classList.remove('inactive');
+
 }
 
 function closeProductoDetail(){
@@ -70,22 +83,6 @@ productList.push({
      price: 2350,
      imagen: 'https://images.pexels.com/photos/276517/pexels-photo-276517.jpeg?auto=compress&cs=tinysrgb&dpr=2&h=650&w=940'
 });
-
-/*
-<div class="product-card">
-<img src="https://images.pexels.com/photos/276517/pexels-photo-276517.jpeg?auto=compress&cs=tinysrgb&dpr=2&h=650&w=940" alt="">
-<div class="product-info">
-  <div>
-    <p>$120,00</p>
-    <p>Bike</p>
-  </div>
-  <figure>
-    <img src="./icons/bt_add_to_cart.svg" alt="">
-  </figure>
-</div> 
-</div> 
-
-*/
 
 
 function renderproduct(arr){
