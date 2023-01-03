@@ -1,3 +1,4 @@
+//Selectors to work whit javascript
 const menuEmail=document.querySelector('.navbar-email');
 const desktopMenu =document.querySelector('.desktop-menu');
 const MenuHamIcon=document.querySelector('.menu');
@@ -8,14 +9,12 @@ const CardsContainer =document.querySelector('.cards-container');
 const productDetailContainer =document.querySelector('#productDetail');
 const ProductDetailCloseIcon = document.querySelector('.product-detail-close');
 
-
-
-
-
 menuEmail.addEventListener('click', toggleDesktopMenu);
 MenuHamIcon.addEventListener('click',toggleMobilemenu);
 MenuCarritoIcon.addEventListener('click', toggleMenuCarrito );
 ProductDetailCloseIcon.addEventListener('click', closeProductoDetail)
+
+//Functions to hide o show the menu
 
 function toggleDesktopMenu () {
 
@@ -67,6 +66,9 @@ function closeProductoDetail(){
      productDetailContainer.classList.add('inactive');
 }
 
+
+
+// List of products 
 const productList = [];
 productList.push({  
      name: 'bike',
@@ -80,7 +82,7 @@ productList.push({
 });
 productList.push({  
      name: 'Carro',
-     price: 235220,
+     price: 678,
      imagen: 'https://images.pexels.com/photos/276517/pexels-photo-276517.jpeg?auto=compress&cs=tinysrgb&dpr=2&h=650&w=940'
 });
 productList.push({  
@@ -94,6 +96,7 @@ productList.push({
      imagen: 'https://images.pexels.com/photos/276517/pexels-photo-276517.jpeg?auto=compress&cs=tinysrgb&dpr=2&h=650&w=940'
 });
 
+//Insert products on page
 
 function renderproduct(arr){
      for (product of arr){
