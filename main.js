@@ -3,7 +3,7 @@ const desktopMenu = document.querySelector('.desktop-menu');
 const menuHamIcon = document.querySelector('.menu');
 const mobileMenu =document.querySelector('.mobile-menu');
 const menuCarritoIcon =document.querySelector('.navbar-shopping-cart');
-const asideProductDetail =document.querySelector('.product-detail');
+const shoppingCardContainer =document.querySelector('#shoppingCardContainer');
 const cardContainer = document.querySelector('.cards-container');
 
 
@@ -13,20 +13,20 @@ menuHamIcon.addEventListener('click',toggleMobileMenu);
 menuCarritoIcon.addEventListener('click',toggleCarritoAside);
 
 function toggleDesktopMenu(){ 
-    const isAsideProductDetailClosed = asideProductDetail.classList.contains('inactive');
+    const isShoppingCardContainerClosed = shoppingCardContainer.classList.contains('inactive');
 
-    if(!isAsideProductDetailClosed){
-        asideProductDetail.classList.add("inactive");
+    if(!isShoppingCardContainerClosed){
+        shoppingCardContainer.classList.add("inactive");
     }
 
     desktopMenu.classList.toggle("inactive");
 }
 
 function toggleMobileMenu(){
-    const isAsideProductDetailClosed = asideProductDetail.classList.contains('inactive');
+    const isShoppingCardContainerClosed = shoppingCardContainer.classList.contains('inactive');
 
-    if(!isAsideProductDetailClosed){
-        asideProductDetail.classList.add("inactive");
+    if(!isShoppingCardContainerClosed){
+        shoppingCardContainer.classList.add("inactive");
     }
 
     mobileMenu.classList.toggle("inactive");
@@ -43,7 +43,7 @@ function toggleCarritoAside(){
         desktopMenu.classList.add("inactive");
     }
 
-    asideProductDetail.classList.toggle("inactive");
+    shoppingCardContainer.classList.toggle("inactive");
 }
 
 const productList =[];
@@ -105,14 +105,17 @@ function renderProducts(array){
                     const productImgCard = document.createElement('img');
                     productImgCard.setAttribute('src','./icons/bt_add_to_cart.svg');
     
-        productInfoFigure.appendChild(productImgCard);
+        
+        
+        cardContainer.appendChild(productCard);
+        productCard.appendChild(ProductImg);
+        productCard.appendChild(productInfo);
+        productInfo.appendChild(productInfoDiv);
         productInfoDiv.appendChild(productPrice);
         productInfoDiv.appendChild(productName);
-        productInfo.appendChild(productInfoDiv);
         productInfo.appendChild(productInfoFigure);
-        productCard.appendChild(productInfo);
-        productCard.appendChild(ProductImg);
-        cardContainer.appendChild(productCard)
+        productInfoFigure.appendChild(productImgCard);  
+        
     }
 }
 
