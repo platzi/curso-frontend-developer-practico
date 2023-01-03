@@ -15,6 +15,7 @@ productDetailCloseIcon.addEventListener('click', closeProductDetailAside);
 
 function toggleDesktopMenu() {
   desktopMenu.classList.toggle('inactive');
+  mobileMenu.classList.add('inactive');
   shoppingCartContainer.classList.add('inactive');
   productDetailContainer.classList.add('inactive');
 }
@@ -44,21 +45,82 @@ function closeProductDetailAside() {
   desktopMenu.classList.add('inactive');
 }
 
+
 const productList = [];
 productList.push({
-  name: 'Bike',
-  price: 120,
-  image: 'https://images.pexels.com/photos/276517/pexels-photo-276517.jpeg?auto=compress&cs=tinysrgb&dpr=2&h=650&w=940',
+  name: 'Temaki',
+  price: 30,
+  image: 'productos/temaki.jpg',
 });
 productList.push({
-  name: 'Pantalla',
-  price: 220,
-  image: 'pantalla.jpg',
+  name: 'Hosomaki',
+  price: 25,
+  image: 'productos/hosomaki.jpg',
 });
 productList.push({
-  name: 'Computer',
-  price: 620,
-  image: 'computadora.jpg',
+  name: 'SpringRolls',
+  price: 20,
+  image: 'productos/springroll.jpg',
+});
+productList.push({
+  name: 'California Roll',
+  price: 30,
+  image: 'productos/california.jpg',
+});
+productList.push({
+  name: 'New York Roll',
+  price: 30,
+  image: 'productos/roll1.jpg',
+});
+productList.push({
+  name: 'Spice Roll',
+  price: 30,
+  image: 'productos/roll2.jpg',
+});
+productList.push({
+  name: 'Kamakiri Roll',
+  price: 35,
+  image: 'productos/roll3.jpg',
+});
+productList.push({
+  name: 'Ramen',
+  price: 30,
+  image: 'productos/ramen.jpg',
+});
+productList.push({
+  name: 'Tataki',
+  price: 35,
+  image: 'productos/tataki.jpg',
+});
+productList.push({
+  name: 'Yakimeshi',
+  price: 25,
+  image: 'productos/wok1.jpg',
+});
+productList.push({
+  name: 'Yakisoba',
+  price: 25,
+  image: 'productos/wok2.jpg',
+});
+productList.push({
+  name: 'Tiguer Roll',
+  price: 25,
+  image: 'productos/tempura.jpg',
+});
+productList.push({
+  name: 'Merch',
+  price: 20,
+  image: 'productos/merch1.jpg',
+});
+productList.push({
+  name: 'Merch',
+  price: 20,
+  image: 'productos/merch2.jpg',
+});
+productList.push({
+  name: 'Torta de sushi',
+  price: 50,
+  image: 'productos/torta.jpg',
 });
 
 function renderProducts(arr) {
@@ -86,7 +148,7 @@ function renderProducts(arr) {
   
     const productInfoFigure = document.createElement('figure');
     const productImgCart = document.createElement('img');
-    productImgCart.setAttribute('src', './icons/bt_add_to_cart.svg');
+    productImgCart.setAttribute('src', 'icons/icon_shopping_cart.svg');
   
     productInfoFigure.appendChild(productImgCart);
   

@@ -4,7 +4,7 @@
     --black: #000000;
     --very-light-pink: #C7C7C7;
     --text-input-field: #F7F7F7;
-    --hospital-green: #ACD9B2;
+    --hospital-green: red;
     --sm: 14px;
     --md: 16px;
     --lg: 18px;
@@ -29,7 +29,8 @@
     cursor: pointer;
   }
   .logo {
-    width: 100px;
+    width: 200px;
+    height: 60px;
   }
   .navbar-left ul,
   .navbar-right ul {
@@ -90,7 +91,7 @@
   .desktop-menu {
     position: absolute;
     top: 60px;
-    right: 58px;
+    right: 49px;
     width: 100px;
     background: var(--white);
     height: auto;
@@ -132,10 +133,11 @@
   .mobile-menu {
     position: absolute;
     background-color: var(--white);
-    top: 61px;
+    top: 60px;
     left: 0;
     width: calc(100% - 24px);
     padding-left: 24px;
+    height: 92%;
   } 
 
   .mobile-menu a {
@@ -174,6 +176,7 @@ aside {
   box-sizing: border-box;
   position: absolute;
   right: 0;
+  height: 585px;
 }
 
 /* ShoppingCart */
@@ -246,9 +249,11 @@ aside {
   font-size: var(--md);
   font-weight: bold;
   height: 50px;
+  margin-bottom: 10px;
 }
 
 /* ProductDetail */
+
 .product-detail-close {
   background: var(--white);
   width: 14px;
@@ -265,7 +270,7 @@ aside {
 }
 #productDetail > img:nth-child(2) {
   width: 100%;
-  height: 360px;
+  height: 330px;
   object-fit: cover;
   border-radius: 0 0 20px 20px;
 }
@@ -282,13 +287,13 @@ aside {
   color: var(--very-light-pink);
   font-size: var(--md);
   margin-top: 0;
-  margin-bottom: 36px;
+  margin-bottom: 20px;
 }
 #productDetail .product-info p:nth-child(3) {
   color: var(--very-light-pink);
   font-size: var(--sm);
   margin-top: 0;
-  margin-bottom: 36px;
+  margin-bottom: 30px;
 }
 .primary-button {
   background-color: var(--hospital-green);
@@ -299,12 +304,13 @@ aside {
   cursor: pointer;
   font-size: var(--md);
   font-weight: bold;
-  height: 50px;
+  height: 45px;
 }
 .add-to-cart-button {
   display: flex;
   align-items: center;
   justify-content: center;
+  margin-bottom: 10px;
 }
 
 
@@ -335,8 +341,9 @@ aside {
   margin: 0;
 }
 .product-card .product-info figure img {
-  width: 35px;
-  height: 35px;
+  width: 25px;
+  height: 25px;
+  border-radius: 0%;  
 }
 .product-card .product-info div p:nth-child(1) {
   font-weight: bold;
@@ -348,10 +355,22 @@ aside {
   font-size: var(--sm);
   margin-top: 0;
   margin-bottom: 0;
-  color: var(--very-light-pink);
+  color: var(--hospital-green);
 }
 
-
+/*animacion*/
+.shadows {
+  box-shadow: 0px 0px 400px 2000px rgba(0,0,0,0.25);
+  -webkit-box-shadow: 0px 0px 400px 2000px rgba(0,0,0,0.25);
+  -moz-box-shadow: 0px 0px 400px 2000px rgba(0,0,0,0.25);
+}
+.menu-animation {
+  opacity: 1;
+  transition: transform 0.3s ease-in;
+  transform: scaleY(1);
+  transform-origin: top;
+}
+/*@media*/
 @media (max-width: 640px) {
   .menu {
     display: block;
@@ -368,6 +387,7 @@ aside {
 
   aside {
     width: 100%;
+    height: 580px;
   }
 
   .cards-container {
