@@ -19,6 +19,10 @@
   }
 /* navbar general*/
   nav {
+    position: fixed;
+    top: 0;
+    width: 96%;
+    background: var(--white);
     display: flex;
     justify-content: space-between;
     padding: 0 24px;
@@ -96,7 +100,7 @@
     background: var(--white);
     height: auto;
     border: 1px solid var(--very-light-pink);
-    border-radius: 6px;
+    border-radius: 0 0 6px 6px;
     padding: 20px 20px 0 20px;
     background: var(--white);
     
@@ -131,9 +135,9 @@
   /*mobile menu*/
 
   .mobile-menu {
-    position: absolute;
-    background-color: var(--white);
-    top: 60px;
+    position: fixed;
+    background: var(--white);
+    top: 61px;
     left: 0;
     width: calc(100% - 24px);
     padding-left: 24px;
@@ -171,12 +175,15 @@
   /* Aside (product detail y carrito) */
 /* Aside (product detail y carrito) */
 aside {
+  
   background-color: var(--white);
   width: 360px;
   box-sizing: border-box;
   position: absolute;
   right: 0;
-  height: 585px;
+  height: 596px;
+  top: 61px;
+  position: fixed;
 }
 
 /* ShoppingCart */
@@ -320,7 +327,7 @@ aside {
   grid-template-columns: repeat(auto-fill, 240px);
   gap: 26px;
   place-content: center;
-  margin-top: 20px;
+  margin-top: 75px;
 }
 .product-card {
   width: 240px;
@@ -358,18 +365,6 @@ aside {
   color: var(--hospital-green);
 }
 
-/*animacion*/
-.shadows {
-  box-shadow: 0px 0px 400px 2000px rgba(0,0,0,0.25);
-  -webkit-box-shadow: 0px 0px 400px 2000px rgba(0,0,0,0.25);
-  -moz-box-shadow: 0px 0px 400px 2000px rgba(0,0,0,0.25);
-}
-.menu-animation {
-  opacity: 1;
-  transition: transform 0.3s ease-in;
-  transform: scaleY(1);
-  transform-origin: top;
-}
 /*@media*/
 @media (max-width: 640px) {
   .menu {
