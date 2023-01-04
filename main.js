@@ -95,7 +95,7 @@ function renderProducts(arr) {
     const productName = document.createElement('p');
     productName.innerText = product.name;
 
-    productInfoDiv.appendChild(productPrice, productName);
+    productInfoDiv.append(productPrice, productName);
 
     const productInfoFigure = document.createElement('figure');
 
