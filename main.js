@@ -95,23 +95,20 @@ function renderProducts(arr) {
     const productName = document.createElement('p');
     productName.innerText = product.name;
 
-    productInfoDiv.appendChild(productPrice);
-    productInfoDiv.appendChild(productName);
+    productInfoDiv.appendChild(productPrice, productName);
 
     const productInfoFigure = document.createElement('figure');
 
     const productImgCart = document.createElement('img');
     productImgCart.setAttribute('src', './icons/bt_add_to_cart.svg');
 
-    productInfoFigure.appendChild(productImgCart);
+    productInfoFigure.append(productImgCart);
 
-    productInfo.appendChild(productInfoDiv);
-    productInfo.appendChild(productInfoFigure);
+    productInfo.append(productInfoDiv, productInfoFigure);
 
-    productCard.appendChild(productImg);
-    productCard.appendChild(productInfo);
+    productCard.append(productImg, productInfo);
 
-    cardsContainer[0].appendChild(productCard);
+    cardsContainer[0].append(productCard);
   }
 }
 
