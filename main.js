@@ -1,6 +1,6 @@
 const navEmail = document.querySelector(".navbar-email");
 const desktopMenu = document.querySelector(".desktop-menu");
-const buttonMenuMobile = document.querySelector(".menu");
+const buttonMenuMobile = document.querySelector(".menuMobile");
 const menuMobile = document.querySelector(".mobile-menu");
 
 navEmail.addEventListener("click", toggleDesktopMenu);
