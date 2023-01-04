@@ -10,7 +10,7 @@ const productList= [
   },
   {
       id:2,
-      name:'Bicycle helmet',
+      name:'Bicycle Helmet',
       category: 'Others',
       price: 1600,
       image: 'https://m.media-amazon.com/images/I/61eExL-rIAL._AC_SL1001_.jpg',
@@ -28,10 +28,10 @@ const productList= [
   },
   {
     id:4,
-    name: 'Rokid Air AR',
+    name: 'Gildan Mens Crew T-Shirts',
     category: 'Clothes',
-    price: 399.99,
-    image: 'https://m.media-amazon.com/images/W/WEBP_402378-T1/images/I/518WFzR2kGL._AC_UY218_.jpg',
+    price: 19.89,
+    image: 'https://m.media-amazon.com/images/W/WEBP_402378-T1/images/I/710o0VupScL._AC_UL320_.jpg',
     desc:` Lorem ipsum dolor sit amet consectetur adipisicing elit. Possimus est minima nostrum voluptatibus nisi quis.`   
 }
 
@@ -87,13 +87,13 @@ const productList= [
 ];
 
 const cardsContainer = document.querySelector(".cards-container"),
-navbarLeft = document.querySelector(".navbar-left-ul"),
-mobilMenu = document.querySelector(".mobile-menu-ul"),
-productDetailContainer = document.querySelector('#product-detail'),
-productDetailAside = document.querySelector('.product-info'),
-background = document.querySelector('.product-detail-background');
-
-
+      navbarLeft = document.querySelector(".navbar-left-ul"),
+      mobilMenu = document.querySelector(".mobile-menu-ul"),
+      productDetailContainer = document.querySelector('#product-detail'),
+      productDetailAside = document.querySelector('.product-info'),
+      background = document.querySelector('.product-detail-background'),
+      shoppingCart = document.querySelector('.my-order-content');
+let countItems = document.querySelector('#countItems');
 
 //Desplegar items
 window.addEventListener("DOMContentLoaded",function(){
@@ -105,6 +105,7 @@ function displayProductList(listItems) {
 let displayProducts = listItems.map(function (item) {
   
   return `
+
   <div class="info-cards">
   <div class="product-card" >
   <img src=${item.image}  alt=${item.name} >
@@ -113,8 +114,8 @@ let displayProducts = listItems.map(function (item) {
       <p class="price">$${item.price}</p>
       <p class="name">${item.name}</p>
     </div>
-    <figure>
-      <img src="./icons/bt_add_to_cart.svg" alt="">
+    <figure class = "btnAddToCart">
+      <img src="./icons/bt_add_to_cart.svg" alt="add to cart" class= "product-add-to-cart" data-id=${item.id}>
     </figure>
   </div>
   </div>
@@ -122,16 +123,19 @@ let displayProducts = listItems.map(function (item) {
 
   });
 
+  
   displayProducts = displayProducts.join("");
   cardsContainer.innerHTML = displayProducts;
 
+  /*Mostrar aside e info al momento de dar click*/
   const productImg = cardsContainer.querySelectorAll('.info-cards');
   productImg.forEach(product=>{
     product.addEventListener("click",event=>{
-      let url = event.target.src;
-      const productCategory = listItems.filter(function (productItem){
+      const url = event.target.src;
+      listItems.filter(function (productItem){
         if(productItem.image === url){
           let aside = `
+          
         <div class="product-detail-info">
           
           <img src=${productItem.image} alt="${productItem.name}" class="image-detail">
@@ -152,6 +156,34 @@ let displayProducts = listItems.map(function (item) {
         } 
       });
     }); 
+  });
+  /*add btn */
+  const btnAddToCart = cardsContainer.querySelectorAll('.btnAddToCart');
+  btnAddToCart.forEach(btn=>{
+    btn.addEventListener('click',event=>{
+      let countItem = 0;
+      const idBtn = event.target.dataset.id;
+      let productOrder = listItems.map(function (productItem){
+        if(productItem.id == idBtn){
+         
+          //console.log(productItem.id);
+          return `
+          <div class="shopping-cart" id="shopping-cart">
+          <figure>
+          <img src=${productItem.image} alt=${productItem.name}>
+        </figure>
+        <p>${productItem.name}</p>
+        <p>$${productItem.price}</p>
+        <img src="./icons/icon_close.png" alt="close" class="close">
+        </div> 
+          `;   
+        }
+         
+      });
+      productOrder = productOrder.join("");
+      console.log(productOrder);
+      shoppingCart.innerHTML+=productOrder;
+    });
   });
 
 } 
@@ -253,7 +285,12 @@ aside.classList.toggle('inactive');
 
 /*Close Icon*/
 const closeIcon = productDetailContainer.querySelector('.product-detail-close');
-console.log(closeIcon);
+//console.log(closeIcon);
 closeIcon.addEventListener('click',()=>{
 productDetailContainer.classList.add('inactive');
 });
+
+const btnAddToCart = document.querySelector('.add-to-cart-button');
+btnAddToCart.addEventListener('click',()=>{
+  console.log(btnAddToCart);
+})

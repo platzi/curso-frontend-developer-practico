@@ -184,10 +184,8 @@ aside {
   right: 0;
 }
 #shopping-cart-container{
-  padding: 24px;
+  padding: 0 24px;
   border-radius: 0 12px 12px ; 
-  
- 
 }
 .title-container {
   display: flex;
@@ -286,6 +284,9 @@ aside {
 .product-card .product-info figure img {
   width: 35px;
   height: 35px;
+}
+.product-add-to-cart:hover{
+  cursor: pointer;
 }
 .product-card .product-info div p:nth-child(1) {
   font-weight: bold;
