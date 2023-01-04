@@ -91,10 +91,11 @@ const cardsContainer = document.querySelector(".cards-container"),
       mobilMenu = document.querySelector(".mobile-menu-ul"),
       productDetailContainer = document.querySelector('#product-detail'),
       productDetailAside = document.querySelector('.product-info'),
+      productInfoBtn = document.querySelector('.product-detail-info'),
       background = document.querySelector('.product-detail-background'),
       shoppingCart = document.querySelector('.my-order-content');
 let countItems = document.querySelector('#countItems');
-
+let countItemsCart =0;
 //Desplegar items
 window.addEventListener("DOMContentLoaded",function(){
 displayProductList(productList);
@@ -136,7 +137,7 @@ let displayProducts = listItems.map(function (item) {
         if(productItem.image === url){
           let aside = `
           
-        <div class="product-detail-info">
+        
           
           <img src=${productItem.image} alt="${productItem.name}" class="image-detail">
           
@@ -144,48 +145,40 @@ let displayProducts = listItems.map(function (item) {
               <p>$${productItem.price}</p>
               <p>${productItem.name}</p>
               <p>${productItem.desc}</p>
-              
+
             </div> 
+            <button class="primary-button add-to-cart-button btn-aside" data-id=${productItem.id}>
+            <img src="./icons/bt_add_to_cart.svg" alt="add to cart" class="product-add-to-cart">
+            Add to cart
+          </button>
           
           `;
           productDetailAside.innerHTML=aside;
-          //background.style.display='block';
           productDetailContainer.classList.remove("inactive");
 
-          //productDetailContainer.classList.add("product-detail-background");
+          /* Agregar al carrito desde el aside*/
+          const btnAddToCartAside =productDetailContainer.querySelector('.btn-aside');
+          btnAddToCartAside.addEventListener('click',function(e){
+            let idBtn=(e.target.dataset.id);
+            productOrder (listItems, idBtn);
+            countItemsCart++;
+            countItems.innerText = countItemsCart;
+          });
         } 
       });
     }); 
   });
-  /*add btn */
+
+  /*add btn pagina principal */
   const btnAddToCart = cardsContainer.querySelectorAll('.btnAddToCart');
   btnAddToCart.forEach(btn=>{
     btn.addEventListener('click',event=>{
-      let countItem = 0;
       const idBtn = event.target.dataset.id;
-      let productOrder = listItems.map(function (productItem){
-        if(productItem.id == idBtn){
-         
-          //console.log(productItem.id);
-          return `
-          <div class="shopping-cart" id="shopping-cart">
-          <figure>
-          <img src=${productItem.image} alt=${productItem.name}>
-        </figure>
-        <p>${productItem.name}</p>
-        <p>$${productItem.price}</p>
-        <img src="./icons/icon_close.png" alt="close" class="close">
-        </div> 
-          `;   
-        }
-         
-      });
-      productOrder = productOrder.join("");
-      console.log(productOrder);
-      shoppingCart.innerHTML+=productOrder;
+      productOrder(listItems,idBtn);
+      countItemsCart++;
+      countItems.innerText = countItemsCart;
     });
   });
-
 } 
 
 // desplegar menu botones
@@ -290,7 +283,26 @@ closeIcon.addEventListener('click',()=>{
 productDetailContainer.classList.add('inactive');
 });
 
-const btnAddToCart = document.querySelector('.add-to-cart-button');
-btnAddToCart.addEventListener('click',()=>{
-  console.log(btnAddToCart);
-})
+//functions
+function productOrder (listItems, id){
+  let orderProduct=listItems.map(function (productItem){
+    if(productItem.id == id){
+     
+      //console.log(productItem.id);
+      return `
+      <div class="shopping-cart" id="shopping-cart">
+      <figure>
+      <img src=${productItem.image} alt=${productItem.name}>
+    </figure>
+    <p>${productItem.name}</p>
+    <p>$${productItem.price}</p>
+    <img src="./icons/icon_close.png" alt="close" class="close">
+    </div> 
+      `;   
+    }
+     
+  });
+  orderProduct = orderProduct.join("");
+  shoppingCart.innerHTML+=orderProduct;
+}
+
