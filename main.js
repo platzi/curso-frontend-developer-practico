@@ -62,7 +62,7 @@ productList.push({
   price: 220,
   image: 'https://cdn.pixabay.com/photo/2018/12/22/03/27/smart-tv-3889141_960_720.png',
 });
-productList.push({
+productList.push({ 
   name: 'Compu',
   price: 620,
   image: 'https://cdn.pixabay.com/photo/2013/07/13/11/46/laptop-158648_960_720.png',
