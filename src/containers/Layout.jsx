@@ -1,5 +1,5 @@
 import React from 'react';
-import "../styles/Login.scss";
+import "../styles/Index.scss";
 
 const Layout = ({children}) => {
     return (
