@@ -12,6 +12,11 @@
     margin: 0;
     font-family: 'Quicksand', sans-serif;
   }
+
+.inactive {
+  display: none;
+}
+
   nav {
     display: flex;
     justify-content: space-between;
