@@ -6,19 +6,25 @@ const iconoHamburguesa=document.querySelector('.menu');
 const mobile_menu=document.querySelector('.mobile-menu');
 
 const Carrito_compras=document.querySelector('.navbar-shopping-cart');
-const detalleCarrito=document.querySelector('.product-detail');
+const detalleCarrito=document.querySelector('#shoppingcarcontainer');
 const cards_container=document.querySelector('.cards-container');
+const productdetailcontainer=document.querySelector('#productdetail');
+const productdetailcloseicon=document.querySelector('.product-detail-close');
 
 menu_email.addEventListener('click',toggle_desktop_menu)
 iconoHamburguesa.addEventListener('click',toggle_mobile_menu)
 Carrito_compras.addEventListener('click',toggle_carrito_detalle)
+productdetailcloseicon.addEventListener('click', closeproductdetail)
 
 function toggle_desktop_menu(){
     const isCarritoClose=detalleCarrito.classList.contains('inactive');
+    
 
     if(!isCarritoClose){
         detalleCarrito.classList.add('inactive');
     }
+
+    closeproductdetail()
 
     desktop_menu.classList.toggle('inactive')
 }
@@ -30,12 +36,20 @@ function toggle_mobile_menu(){
         detalleCarrito.classList.add('inactive');
     }
 
+    closeproductdetail()
+
     mobile_menu.classList.toggle('inactive')
 }
 
 function toggle_carrito_detalle(){
     const isMobielMenuClose=mobile_menu.classList.contains('inactive');
     const isMenuMailClose=desktop_menu.classList.contains('inactive');
+    const isproductDetailClose=productdetailcontainer.classList.contains('inactive');
+
+    if(!isMenuMailClose){
+        productdetailcontainer.classList.add('inactive');
+    }
+    
 
     if(!isMenuMailClose){
         desktop_menu.classList.add('inactive');
@@ -45,7 +59,26 @@ function toggle_carrito_detalle(){
         mobile_menu.classList.add('inactive');
     }
 
+    if(!isproductDetailClose){
+        productdetailcontainer.classList.add('inactive');
+    }
+
     detalleCarrito.classList.toggle('inactive')
+}
+
+function opendetailproduct(){
+    productdetailcontainer.classList.remove('inactive')
+
+    const isproductdetailClose=productdetailcontainer.classList.contains('inactive');
+    if(!isproductdetailClose){
+        detalleCarrito.classList.add('inactive');
+        desktop_menu.classList.add('inactive');
+    }
+
+}
+
+function closeproductdetail(){
+    productdetailcontainer.classList.add('inactive');
 }
 
 function render_products(array){
@@ -55,6 +88,7 @@ function render_products(array){
     
         const product_img= document.createElement('img');
         product_img.setAttribute('src', product.image);
+        product_img.addEventListener('click', opendetailproduct);
     
         const infoproduct= document.createElement('div');
         infoproduct.classList.add('product-info')
