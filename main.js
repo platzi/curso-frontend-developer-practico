@@ -23,7 +23,7 @@ function toggleDesktopMenu() {
 
     
  function toggleMobilMenu(){  
-    const isAsideClosed = aside.classList.contains("inactive")
+    const isAsideClosed = shoppingCartContainer.classList.contains("inactive")
 
     if(!isAsideClosed){
         shoppingCartContainer.classList.add("inactive")
@@ -40,7 +40,7 @@ function toggleCarritoAside(){
         mobileMenu.classList.add("inactive")
     }
 
-    aside.classList.toggle("inactive")
+    shoppingCartContainer.classList.toggle("inactive")
     
 }
 
