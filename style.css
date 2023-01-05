@@ -78,6 +78,7 @@
   }
   .navbar-shopping-cart {
     position: relative;
+    cursor: pointer;
   }
   .navbar-shopping-cart div {
     width: 16px;
@@ -107,7 +108,7 @@
     border: 1px solid var(--very-light-pink);
     border-radius: 6px;
     padding: 20px 20px 0 20px;
-    animation-duration: 0.5s;
+    animation-duration: 0.25s;
     animation-name: slidebottom
   }
   .desktop-menu ul {
@@ -192,10 +193,12 @@
 
 .product-detail {
   width: 360px;
-  padding: 24px;
+  padding: 0 24px;
   box-sizing: border-box;
   position: absolute;
   right: 0;
+  animation-duration: 0.2s;
+  animation-name: slideleft
 }
 .title-container {
   display: flex;
@@ -285,6 +288,16 @@
   
     to {
       top: 61px;
+    }
+  }
+
+  @keyframes slideleft {
+    from {
+      margin-right: -400px;
+    }
+  
+    to {
+      margin-right: 0.1%;
     }
   }
 
