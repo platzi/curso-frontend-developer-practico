@@ -92,6 +92,8 @@ productList.push({
 </div>
 */
 
+//productInfoDiv.append(productPrice, productName)
+
 function renderProducts(arr) {
     for (product of arr) {
         const productCard = document.createElement('div');
