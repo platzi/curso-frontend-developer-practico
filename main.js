@@ -3,7 +3,7 @@ const desktopMenu=document.querySelector(".desktop-menu");
 const mobileMenu=document.querySelector(".mobile-menu")
 const menuHamburgesa=document.querySelector(".menu")
 const carritoCompra=document.querySelector(".navbar-shopping-cart")
-const aside=document.querySelector(".product-detail")
+const shoppingCartContainer=document.querySelector("#shoppingCartContainer ")
 cardsContainer=document.querySelector(".cards-container")
 
 
@@ -13,7 +13,7 @@ menuHamburgesa.addEventListener("click",toggleMobileMenu)
 carritoCompra.addEventListener("click",toggleCarritoIcon) //aside
 
 function toggleDesktopMenu() {
-    const isAsideclosed = aside.classList.contains("inactive")
+    const isAsideclosed = shoppingCartContainer.classList.contains("inactive")
     if (!isAsideclosed){
         aside.classList.add("inactive")
     }
@@ -22,7 +22,7 @@ function toggleDesktopMenu() {
 }
 
 function toggleMobileMenu(){
-    const isAsideclosed = aside.classList.contains("inactive")
+    const isAsideclosed = shoppingCartContainer.classList.contains("inactive")
     if (!isAsideclosed){
         aside.classList.add("inactive")
     }
@@ -40,7 +40,7 @@ function toggleCarritoIcon(){
         desktopMenu.classList.add("inactive")
     }
 
-    aside.classList.toggle("inactive");
+    shoppingCartContainer.classList.toggle("inactive");
 }
 
 const productList=[];
