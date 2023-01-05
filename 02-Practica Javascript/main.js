@@ -7,6 +7,8 @@ const detalleProduct = document.querySelector('#shoppingCartContainer');
 const productDetailAside = document.querySelector('#productDetail');
 const productDetailClosed = document.querySelector('.product-detail-close')
 
+const containBicicletas = document.getElementById('containBicicletas');
+
 const containerCards = document.querySelector('.cards-container');
 
 navbarClient.addEventListener('click', mostrarMenu);
@@ -114,3 +116,78 @@ function renderProduct(arr) {
 };
 
 renderProduct(productList);
+
+
+
+const producBicicletas = [];
+
+producBicicletas.push({
+  name: 'SLP Verde',
+  price: 1500,
+  image: 'https://www.heavenimagenes.com/heavencommerce/68ac9d04-8767-4aca-9951-49f2fea1383b/images/v2/SLP/2101281456372735_02_medium.jpg?auto=compress&cs=tinysrgb&dpr=2&h=650&w=940',
+})
+producBicicletas.push({
+  name: 'SLP Roja-amarilla',
+  price: 1500,
+  image: 'https://http2.mlstatic.com/D_NQ_NP_879307-MLA44935850522_022021-O.jpg?auto=compress&cs=tinysrgb&dpr=2&h=650&w=940',
+})
+producBicicletas.push({
+  name: 'SLP Roja',
+  price: 1500,
+  image: 'https://http2.mlstatic.com/D_NQ_NP_603822-MLA45015488796_022021-O.webp?auto=compress&cs=tinysrgb&dpr=2&h=650&w=940',
+})
+
+function openContainCardBicicletas(arr) {
+  for( prodBici of arr ) {
+    const productoCard = document.createElement('div');
+    productoCard.classList.add('product-card');
+    
+  
+    const img = document.createElement('img');
+    img.setAttribute('src', prodBici.image);
+    img.addEventListener('click', openProductDetailAside);
+  
+    const prodInfo = document.createElement('div');
+    prodInfo.classList.add('product-info');
+  
+    productoCard.appendChild(img);
+    productoCard.appendChild(prodInfo);
+    
+    const prodDato = document.createElement('div');
+    const dataPrice = document.createElement('p');
+    dataPrice.innerHTML = '$' + prodBici.price;
+    const dataName = document.createElement('p');
+    dataName.innerHTML = prodBici.name;
+  
+    prodInfo.appendChild(prodDato);
+    prodDato.appendChild(dataPrice);
+    prodDato.appendChild(dataName);
+  
+    const prodFigure = document.createElement('figure');
+    const prodImgCart = document.createElement('img');
+    prodImgCart.setAttribute('src', './icons/bt_add_to_cart.svg');
+  
+    prodInfo.appendChild(prodFigure);
+    prodFigure.appendChild(prodImgCart);
+  
+    containerCards.appendChild(productoCard);
+  }
+}
+containBicicletas.addEventListener('click', openContainCardBicicletas);
+
+if(openContainCardBicicletas(producBicicletas)) {
+  openContainCardBicicletas(producBicicletas)
+}
+
+// COMPORTAMIENTO DEL CARRITO CONTADOR
+const agregarCarrito = document.getElementById('agregarCarrito');
+let sumaCarrito = document.getElementById('carritoSuma');
+
+agregarCarrito.addEventListener('click', sumarProducto);
+function sumarProducto() {
+  sumaCarrito = 0
+    for(let i = 0; i <= sumaCarrito; i++){
+      sumaCarrito.innerHTML = sumaCarrito[i];
+    }
+  }
+

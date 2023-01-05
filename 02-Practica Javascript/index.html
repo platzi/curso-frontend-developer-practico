@@ -23,22 +23,19 @@
 
       <ul>
         <li>
-          <a href="/">All</a>
+          <a href="/">Todos</a>
+        </li>
+        <div id="containBicicletas">Bicicletas</div>
+        <li>
         </li>
         <li>
-          <a href="/">Clothes</a>
+          <a href="/">Monopatines</a>
         </li>
         <li>
-          <a href="/">Electronics</a>
+          <a href="/">Jerseys</a>
         </li>
         <li>
-          <a href="/">Furnitures</a>
-        </li>
-        <li>
-          <a href="/">Toys</a>
-        </li>
-        <li>
-          <a href="/">Others</a>
+          <a href="/">Skates</a>
         </li>
       </ul>
     </div>
@@ -48,7 +45,7 @@
         <li class="navbar-email">platzi@example.com</li>
         <li class="navbar-shopping-cart">
           <img src="./icons/icon_shopping_cart.svg" alt="shopping cart">
-          <div>2</div>
+          <div id="carritoSuma">0</div>
         </li>
       </ul>
     </div>
@@ -74,22 +71,19 @@
           <a href="/">CATEGORIES</a>
         </li>
         <li>
-          <a href="/">All</a>
+          <a href="/">Todos</a>
         </li>
         <li>
-          <a href="/">Clothes</a>
+          <a href="/">Bicicletas</a>
         </li>
         <li>
-          <a href="/">Electronics</a>
+          <a href="/">Monopatines</a>
         </li>
         <li>
-          <a href="/">Furnitures</a>
+          <a href="/">Jerseys</a>
         </li>
         <li>
-          <a href="/">Toys</a>
-        </li>
-        <li>
-          <a href="/">Other</a>
+          <a href="/">Skates</a>
         </li>
       </ul>
   
@@ -112,6 +106,10 @@
       </ul>
     </div>
   </nav>
+
+  <div class="portada">
+    <h1>Tus aventuras sobre ruedas</h1>
+  </div>
 
   <aside id="shoppingCartContainer" class="inactive">
     <div class="title-container">
@@ -161,7 +159,7 @@
   </div>
   </aside>
 
-  <aside id="productDetail" class="inactive">
+  <aside id="productDetail" class="inactive animation-aside">
     <div class="product-detail-close">
       <img src="./icons/icon_close.png" alt="close">
     </div>
@@ -170,7 +168,7 @@
       <p>$35,00</p>
       <p>Bike</p>
       <p>With its practical position, this bike also fulfills a decorative function, add your hall or workspace.</p>
-      <button class="primary-button add-to-cart-button">
+      <button class="primary-button add-to-cart-button" id="agregarCarrito">
         <img src="./icons/bt_add_to_cart.svg" alt="add to cart">
         Add to cart
       </button>
@@ -179,20 +177,7 @@
 
   <section class="main-container">
     <div class="cards-container">
-
-      <!-- <div class="product-card">
-        <img src="https://images.pexels.com/photos/276517/pexels-photo-276517.jpeg?auto=compress&cs=tinysrgb&dpr=2&h=650&w=940" alt="">
-        <div class="product-info">
-          <div>
-            <p>$120,00</p>
-            <p>Bike</p>
-          </div>
-          <figure>
-            <img src="./icons/bt_add_to_cart.svg" alt="">
-          </figure>
-        </div>
-      </div> -->
-
+      <!-- Productos por categoria -->
     </div>
   </section>
   

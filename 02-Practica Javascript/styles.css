@@ -7,13 +7,32 @@
   --sm: 14px;
   --md: 16px;
   --lg: 18px;
+  --xl: 24px;
+  --xxl: 43px
 }
 body {
   margin: 0;
   font-family: 'Quicksand', sans-serif;
 }
+.animation-aside {
+  animation: asider 1s ;
+}
 .inactive {
   display: none;
+}
+.portada {
+  background-image: url('./images/wBici.jpeg');
+  background-size: cover;
+  background-repeat: no-repeat;
+  background-position-y: 15%;
+  height: 450px;
+  display: flex;
+  align-items: center;
+}
+.portada h1 {
+  color: var(--white);
+  font-size: var(--xxl);
+  padding: 0 15px;
 }
 nav {
   display: flex;
@@ -26,6 +45,7 @@ nav {
 }
 .logo {
   width: 100px;
+  color: #060606;
 }
 .navbar-left ul,
 .navbar-right ul {
@@ -279,6 +299,7 @@ aside {
   width: 360px;
   padding-bottom: 24px;
   position: absolute;
+  top: 61px;
   right: 0;
 }
 .product-detail-close {
@@ -360,6 +381,9 @@ aside {
   }
   aside {
     width: 100%;
+  }
+  .portada {
+    background-position-x: 70%;
   }
   .cards-container {
     grid-template-columns: repeat(auto-fill, 140px);
