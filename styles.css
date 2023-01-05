@@ -239,6 +239,7 @@
   grid-template-columns: repeat(auto-fill, 240px);
   gap: 26px;
   place-content: center;
+  margin-top: 20px;
 }
 .product-card {
   width: 240px;
@@ -289,9 +290,11 @@
     .desktop-menu {
       display: none;
     }
+
     .product-detail {
       width: 100%;
     }
+
     .cards-container {
       grid-template-columns: repeat(auto-fill, 140px);
     }
