@@ -4,13 +4,14 @@
   <meta charset="UTF-8">
   <meta http-equiv="X-UA-Compatible" content="IE=edge">
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
-  <link rel="stylesheet" href="css/styles.css">
+  <link rel="stylesheet" href="/css/styles.css">
   <link rel="preconnect" href="https://fonts.googleapis.com">
   <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
   <link href="https://fonts.googleapis.com/css2?family=Quicksand:wght@300;500;700&display=swap" rel="stylesheet">
   <title>Document</title>
 </head>
 <body>
+  <header>
   <nav>
     <img src="./icons/icon_menu.svg" alt="menu" class="menu">
     <div class="navbar-left">
@@ -105,16 +106,32 @@
     </div>
     
   </nav>
-  <div class="my-order-general inactive">
-      <div class="my-order-container-general">
-        <aside class="product-detail-general">
-          <div class="title-container-general">
+</header>
+  <aside class="product-detail__shopping inactive">
+    <div class="product-detail-close">
+      <img src="./icons/icon_close.png" alt="close">
+    </div>
+    <img class="images" alt="bike">
+    <div class="product-info-shopping ">
+      <p>$35,00</p>
+      <p>Bike</p>
+      <p>With its practical position, this bike also fulfills a decorative function, add your hall or workspace.</p>
+      <button class="primary-button add-to-cart-button">
+        <img src="./icons/bt_add_to_cart.svg" alt="add to cart">
+        Add to cart
+      </button>
+    </div>
+  </aside>
+  <div class="my-order inactive ">
+      <div class="my-order-container ">
+        <aside class="product-detail">
+          <div class="title-container">
             <img src="./icons/flechita.svg" alt="arrow">
-            <p class="title-general">My order</p>
+            <p class="title">My order</p>
           </div>
       
-          <div class="my-order-content-general">
-            <div class="shopping-cart-general">
+          <div class="my-order-content">
+            <div class="shopping-cart">
               <figure>
                 <img src="https://images.pexels.com/photos/276517/pexels-photo-276517.jpeg?auto=compress&cs=tinysrgb&dpr=2&h=650&w=940" alt="bike">
               </figure>
@@ -123,7 +140,7 @@
               <img src="./icons/icon_close.png" alt="close">
             </div>
       
-            <div class="shopping-cart-general">
+            <div class="shopping-cart">
               <figure>
                 <img src="https://images.pexels.com/photos/276517/pexels-photo-276517.jpeg?auto=compress&cs=tinysrgb&dpr=2&h=650&w=940" alt="bike">
               </figure>
@@ -132,7 +149,7 @@
               <img src="./icons/icon_close.png" alt="close">
             </div>
       
-            <div class="shopping-cart-general">
+            <div class="shopping-cart">
               <figure>
                 <img src="https://images.pexels.com/photos/276517/pexels-photo-276517.jpeg?auto=compress&cs=tinysrgb&dpr=2&h=650&w=940" alt="bike">
               </figure>
@@ -141,39 +158,21 @@
               <img src="./icons/icon_close.png" alt="close">
             </div>
       
-            <div class="order-general">
+            <div class="order">
               <p>
                 <span>Total</span>
               </p>
               <p>$560.00</p>
             </div>
       
-            <button class="primary-button-general">
+            <button class="primary-button">
               Checkout
             </button>
           </div>
+          </div>
+          </aside>
         </div>
-        </aside>
       </div>
-    </div>
-
-    <aside class="product-detail inactive">
-      <div class="product-detail-close">
-        <img src="./icons/icon_close.png" alt="close">
-      </div>
-      <div class="product-detail-img">
-      <!-- <img src="https://media.istockphoto.com/id/1396924232/es/foto/burro-negro-aislado-sobre-fondo-blanco.jpg?b=1&s=170667a&w=0&k=20&c=9HbxH-pKBePng9Qt-LVqlwZKHLuddDTGY_TFf1uDlVc=" alt="bike"> -->
-      </div>
-      <div class="product-info-detail">
-        <p>$35,00</p>
-        <p>Bike</p>
-        <p>With its practical position, this bike also fulfills a decorative function, add your hall or workspace.</p>
-        <button class="primary-button-detail add-to-cart-button">
-          <img src="./icons/bt_add_to_cart.svg" alt="add to cart">
-          Add to cart
-        </button>
-      </div>
-    </aside>
 
     <section class="main-container">
       <div class="cards-container">
@@ -192,7 +191,6 @@
         </div> -->
       </div>
     </section>
-
       <script src="main.js"></script>
 </body>
 </html>
