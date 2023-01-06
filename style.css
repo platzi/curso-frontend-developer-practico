@@ -271,6 +271,7 @@
 /*Lista de Productos*/
 
 .cards-container {
+  margin-top: 24px;
   display: grid;
   grid-template-columns: repeat(auto-fill, 240px);
   gap: 26px;
