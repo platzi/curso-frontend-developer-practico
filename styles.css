@@ -13,6 +13,7 @@
 body {
     margin: 0;
     font-family: 'Quicksand', sans-serif;
+    overflow-x: hidden;
 }
 
 /* NAVBAR GENERAL  */
@@ -150,6 +151,9 @@ nav {
     background-color: var(--white);
     position: absolute;
     top: 61px;
+    left: 0;
+    padding-left: 24px;
+    width: 100%;
 }
 .mobile-menu a {
     text-decoration: none;
