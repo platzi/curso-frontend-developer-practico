@@ -111,6 +111,8 @@ nav {
     border: 1px solid var(--very-light-pink);
     border-top: none;
     padding: 20px 20px 0 20px;
+    border-bottom-right-radius: 8px;
+    border-bottom-left-radius: 8px;
 }
 
 
@@ -185,10 +187,14 @@ nav {
 .aside-product-detail {
     background-color: var(--white);
     width: 360px;
-    padding: 0 24px;
+    padding: 0 24px 24px;
     box-sizing: border-box;
     position: absolute;
     right: 0;
+    border: 1px solid var(--very-light-pink);
+    border-top: none;
+    border-bottom-left-radius: 8px;
+    border-bottom-right-radius: 8px;
 }
 
 .title-container {
@@ -360,7 +366,7 @@ nav {
     width: 240px;
     height: 240px;
     border-radius: 20px;
-    object-fit: contain;
+    /* object-fit: contain; */
   }
   .product-info {
     display: flex;
