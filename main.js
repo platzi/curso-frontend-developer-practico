@@ -10,7 +10,6 @@ const pageTitle = document.querySelector(".page-title");
 const productPopupDetail = document.querySelector(".product-popup-detail");
 const productPopupDetailClose = document.querySelector(".product-popup-detail .close");
 
-
 // Funcion para identificar y cerrar los otros elementos popup
 function closeOtherPopUps(contentToggle) {
   for (elementPopUp of elementsPopUps) {
