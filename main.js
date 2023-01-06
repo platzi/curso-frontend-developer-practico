@@ -7,25 +7,42 @@ const contentShoppingCart = document.querySelector("#ShoppingCart");
 const elementsPopUps = document.querySelectorAll(".popUpElement");
 const productsContainer = document.querySelector(".products-container");
 const pageTitle = document.querySelector(".page-title");
+const productPopupDetail = document.querySelector(".product-popup-detail");
+const productPopupDetailClose = document.querySelector(".product-popup-detail .close");
 
-var toogleFunction = function (btnToggle, contentToggle, eventToogle) {
-  // Funcion para identificar los otros elementos popups y cerrarlos
-  function closeOtherPopUps() {
-    for (let i = 0; i < elementsPopUps.length; i++) {
-      elementsPopUps[i].classList.add("inactive");
-    }
+
+// Funcion para identificar y cerrar los otros elementos popup
+function closeOtherPopUps(contentToggle) {
+  for (elementPopUp of elementsPopUps) {
+    if (!elementPopUp.classList.contains(contentToggle.classList[0])) {
+      elementPopUp.classList.add("inactive");
+    } 
   }
+}
 
+// Función para Abrir/Cerrar elementos
+var toogleFunction = function (btnToggle, contentToggle, eventToogle) {
   btnToggle.addEventListener(eventToogle, function () {
     // 1. Cerramos los popups
     closeOtherPopUps(contentToggle);
     // 2. Abrimos el popups del Evento actual
     contentToggle.classList.toggle("inactive");
+    console.log('Elemento "' + contentToggle.classList[0] +'" abierto.');
   });
 };
+
+// Abrir "User menu".
 toogleFunction(btnAccount, desktopMenu, "click");
+// Abrir "Mobile menu".
 toogleFunction(btnMobileMenu, mobileMenu, "click");
+// Abrir "Shopping Cart".
 toogleFunction(btnShoppingCart, contentShoppingCart, "click");
+// Cerrar "Product Detail".
+toogleFunction(productPopupDetailClose, productPopupDetail, "click");
+
+
+
+
 
 // LISTADO DE PRODUCTOS
 // Paso 1. Creación de Arrays de los productos
@@ -54,6 +71,7 @@ productList.push({
   imgUrl:
     "https://images.pexels.com/photos/276517/pexels-photo-276517.jpeg?auto=compress&cs=tinysrgb&dpr=2&h=650&w=940",
 });
+
 // Paso 2. Creación de la función para renderizar los productos.
 function renderProduct(arrProductys, selectorContainer) {
   for (product of productList) {
@@ -64,9 +82,10 @@ function renderProduct(arrProductys, selectorContainer) {
     productImg.setAttribute("src", product.imgUrl);
     productImg.setAttribute("title", product.name);
     productImg.setAttribute("alt", product.name);
-
+   
     const productInfo = document.createElement("div");
     productInfo.classList.add("product-info");
+    toogleFunction(productImg, productPopupDetail, "click");
 
     const productInfoInner = document.createElement("div");
     productInfoInner.classList.add("product-info-inner");
@@ -100,4 +119,7 @@ function renderProduct(arrProductys, selectorContainer) {
 }
 renderProduct(productList, productsContainer);
 
+// Título con contador de productos.
 pageTitle.innerText = 'Contamos con ' + productList.length + ' productos en nuestro catálogo.';
+
+
