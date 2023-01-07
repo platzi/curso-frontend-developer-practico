@@ -58,6 +58,7 @@ nav {
   color: var(--very-light-pink);
   font-size: var(--sm);
   margin-right: 12px;
+  cursor: pointer;
 }
 .navbar-shopping-cart {
   position: relative;
@@ -91,10 +92,15 @@ nav {
 /* -------------------------------------------------------------------------- */
 /* ------------------------------- menu toggle ------------------------------ */
 .desktop-menu {
+  margin-right: 0.8rem;
+  position: absolute;
+  top: 59;
+  right: 0;
   width: 100px;
   height: auto;
-  border: 1px solid var(--very-light-pink);
-  border-radius: 6px;
+  border:1px solid var(--very-light-pink);
+  border-top: none;
+  border-radius: 0   0 6px 6px  ;
   padding: 20px 20px 0 20px;
 }
 .desktop-menu ul {
@@ -124,4 +130,10 @@ nav {
   display: inline-block;
 }
 /* -------------------------------------------------------------------------- */
-
+ /*ocultar menu */
+.inactive{
+  display: none;
+}
+.active{
+  display: block;
+}
