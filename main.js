@@ -5,6 +5,8 @@ const menuHamIcon = document.querySelector (".menu");
 const mobileMenu = document.querySelector (".mobile-menu");
 const shoppingCartContainer = document.querySelector ("#shoppingCartContainer");
 const cardsContainer = document.querySelector (".cards-container");
+const productDetailContainer = document.querySelector (".productDetail");
+
 
 menuEmail.addEventListener ("click", toggleDesktopMenu);
 menuHamIcon.addEventListener ("click", toggleMobileMenu);
@@ -45,6 +47,10 @@ function toggleCarritoAside () {
     shoppingCartContainer.classList.toggle ("inactive")
 }
 
+function openProductDetailAside () {
+    productDetailContainer.classList.toggle ("inactive")
+}
+
 const productList = [];
 productList.push ({
     name: 'Bike',
@@ -70,6 +76,7 @@ for (product of productList) {
 
    const productImg = document.createElement ("img") 
    productImg.setAttribute ('src', product.Image);
+   productImg.addEventListener ('click', openProductDetailAside);
    
    const productInfo = document.createElement ('div');
    productInfo.classList.add ('product-info');
