@@ -7,7 +7,6 @@ const menu = document.querySelector('.menu');
 const shopping_cart = document.querySelector('.shopping-cart-container');
 const navbar_shopping_cart = document.querySelector('.navbar-shopping-cart')
 
-
 menu_email.addEventListener('click', toggle_menu)
 menu.addEventListener('click', toggle_menu_hamburguer);
 
@@ -32,3 +31,9 @@ function toggle_shopping_cart(){
   mobile_menu.classList.add('inactive')
   
 }
+/* -------------------------------------------------------------------------- */
+/* ---------------------- lista de producto con arrays ---------------------- */
+
+const product_list =[];
+
+
