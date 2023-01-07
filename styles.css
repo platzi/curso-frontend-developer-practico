@@ -111,6 +111,7 @@ nav {
 
 /* MENU EN DESKTOP */
 .desktop-menu {
+    z-index: 100;
     background-color: var(--white);
     position: absolute;
     top: 61px;
@@ -159,6 +160,7 @@ nav {
 
 /* MENU EN MOBILE */
 .mobile-menu {
+    z-index: 100;
     background-color: var(--white);
     position: absolute;
     top: 61px;
@@ -194,6 +196,7 @@ nav {
 
 /* ASIDE DETALLES DEL PRODUCTO Y DETALLES CARRITO DE COMPRAS */
 .aside-product-detail {
+    z-index: 100;
     background-color: var(--white);
     width: 360px;
     padding: 0 24px 24px;
@@ -293,7 +296,7 @@ nav {
 /* DETALLE DEL PRODUCTO SELECCIONADO */
 
 .product-detail {
-    z-index: 100; 
+    /* z-index: 100; 
     background: var(--white);
     width: 360px;
     position: absolute;
@@ -302,15 +305,38 @@ nav {
     border: 1px solid var(--very-light-pink);
     border-top: none;
     border-bottom-left-radius: 8px;
-    border-bottom-right-radius: 8px;
+    border-bottom-right-radius: 8px; */
+    /* z-index: 100;
+    background: var(--white);
+    width: 360px;
+    position: absolute;
+    right: 50px;
+    left: 50px;
+    top: 100px;
+    margin: 0 auto;
+    padding: 20px;
+    border: 1px solid var(--very-light-pink);
+    border-radius: 8px; */
+
+    z-index: 100;
+    background: var(--white);
+    position: absolute;
+    width: 360px;
+    top: 122px;
+    right: 50px;
+    left: 50px;
+    margin: 0 auto;
+    padding: 20px;
+    border: 1px solid var(--very-light-pink);
+    border-radius: 8px;
   }
   .product-detail-close {
     background: var(--white);
     width: 14px;
     height: 14px;
     position: absolute;
-    top: 24px;
-    left: 24px;
+    top: 10px;
+    left: 10px;
     z-index: 2;
     padding: 12px;
     border-radius: 50%;
@@ -425,7 +451,7 @@ nav {
         display: none;
     }
 
-    .aside-product-detail, .product-detail {
+    .aside-product-detail /* .product-detail */ {
         width: 100%;
     }
 

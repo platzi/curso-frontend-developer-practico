@@ -22,12 +22,14 @@ function toggleDesktopMenu() {
   desktopMenu.classList.toggle("active");
   asideProductDetail.classList.add("active");
   cardProductDetail.classList.add("active");
+  bodyDarken.classList.remove("darken");
 }
 
 function toggleMobileMenu() {
   mobileMenu.classList.toggle("active");
   asideProductDetail.classList.add("active");
   cardProductDetail.classList.add("active");
+  bodyDarken.classList.remove("darken");
 }
 
 function toggleAsideProductDetail() {
@@ -35,18 +37,22 @@ function toggleAsideProductDetail() {
   desktopMenu.classList.add("active");
   mobileMenu.classList.add("active");
   cardProductDetail.classList.add("active");
+  bodyDarken.classList.remove("darken");
 }
 
-function openCardProductDetail(product) {
+function openCardProductDetail(activeId, arr) {
   cardProductDetail.classList.remove("active");
   asideProductDetail.classList.add("active");
   desktopMenu.classList.add("active");
   mobileMenu.classList.add("active");
   bodyDarken.classList.add("darken");
-  console.log(product);
-  if (product.id) {
-    product.id.classList.toggle("active");
-    console.log(product.id);
+ 
+  for (product of arr){
+    if(activeId === product.id){
+      productDetailImage.setAttribute('src', product.image)
+      productDetailPrice.innerText = product.price
+      productDetailName.innerText = product.name
+    }
   }
 }
 
@@ -97,10 +103,12 @@ const productsList = [
 
 function renderProducts(arr) {
   for (product of arr) {
-    console.log(product);
+    
+    let activeId = product.id
+
     const productCard = document.createElement("div");
     productCard.classList.add("product-card");
-    productCard.addEventListener("click", () => openCardProductDetail(product));
+    productCard.addEventListener("click", () => openCardProductDetail(activeId, arr));
 
     const productImage = document.createElement("img");
     productImage.setAttribute("src", product.image);
