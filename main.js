@@ -6,7 +6,7 @@ const menuCarritoIcon=document.querySelector('.navbar-shopping-cart');
 const aside=document.querySelector('.product-detail')
 const cardsContainer = document.querySelector('.cards-container')
 const productDetail = document.querySelector('#productDetailSec')
-const IconcCloseProductDetail = document.querySelector('.product-detail-close-secondary')
+const IconcCloseProductDetail = document.querySelector('.prodct-detail-close-secondary')
 
 
 menuEmail.addEventListener('click', toggleDesktopMenu);
