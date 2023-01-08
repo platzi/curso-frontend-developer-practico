@@ -3,34 +3,34 @@ const desktopMenu = document.querySelector('.desktop-menu');
 const iconMenu = document.querySelector('.menu');
 const mobileMenu = document.querySelector('.mobile-menu');
 const shoppingCart = document.querySelector('.navbar-shopping-cart');
-const productDetail = document.querySelector('.product-detail');
+const productCartDetail = document.querySelector('.product-cart-detail');
 const cardsContainer = document.querySelector('.cards-container');
 
 menuEmail.addEventListener('click', toggleDesktopMenu);
 iconMenu.addEventListener('click', toggleMobileMenu);
-shoppingCart.addEventListener('click', toggleProductDetail);
+shoppingCart.addEventListener('click', toggleProductCartDetail);
 
 function toggleDesktopMenu() {
-  const isProductDetailOpen = !productDetail.classList.contains('inactive');
+  const isProductCartDetailOpen = !productCartDetail.classList.contains('inactive');
 
-  if (isProductDetailOpen) productDetail.classList.add('inactive');
+  if (isProductCartDetailOpen) productCartDetail.classList.add('inactive');
   desktopMenu.classList.toggle('inactive');
 }
 
 function toggleMobileMenu() {
-  const isProductDetailOpen = !productDetail.classList.contains('inactive');
+  const isProductCartDetailOpen = !productCartDetail.classList.contains('inactive');
 
-  if (isProductDetailOpen) productDetail.classList.add('inactive');
+  if (isProductCartDetailOpen) productCartDetail.classList.add('inactive');
   mobileMenu.classList.toggle('inactive');
 }
 
-function toggleProductDetail() {
+function toggleProductCartDetail() {
   const isMobileMenuOpen = !mobileMenu.classList.contains('inactive');
   const isdesktopMenuOpen = !desktopMenu.classList.contains('inactive');
 
   if (isMobileMenuOpen) mobileMenu.classList.add('inactive');
   if (isdesktopMenuOpen) desktopMenu.classList.add('inactive');
-  productDetail.classList.toggle('inactive');
+  productCartDetail.classList.toggle('inactive');
 }
 
 function renderProducts(products) {
@@ -42,7 +42,7 @@ function renderProducts(products) {
     img.src = product.image;
   
     const productInfo = document.createElement('div');
-    productInfo.classList.add('product-info');
+    productInfo.classList.add('product-cart-info');
   
     const productInfoDiv = document.createElement('div');
   
