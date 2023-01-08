@@ -331,6 +331,7 @@
   }
   .product-card {
     width: 240px;
+    margin: 0 1rem 1rem 1rem;
   }
   .product-card img {
     width: 240px;

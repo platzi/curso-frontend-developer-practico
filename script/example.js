@@ -24,13 +24,97 @@ productList.push({
 });
 productList.push({
   id: 4,
-  name: `Audifonos`,
+  name: `Cascos de Audio`,
   cantidad: 1,
   price: 110,
   image: `https://www.officedepot.com.mx/medias/100021917.jpg-1200ftw?context=bWFzdGVyfHJvb3R8NDgzNjQ3fGltYWdlL2pwZWd8aDI1L2g5ZS8xMDA1MTI3ODkyOTk1MC5qcGd8MDFhOWMzODUwNzg4ZTdkMzA0NTljODZiZGU0Y2M2MmFmNmFkN2Y3NjY1NTljYjQwMzQ5OGRhZDU2NWI0N2EwNA`,
 });
 productList.push({
   id: 5,
+  name: `Regulador`,
+  cantidad: 1,
+  price: 50,
+  image: `https://digitalconnection.com.ec/wp-content/uploads/2021/02/REGULADOR-DE-VOLTAJE-FVR-1200B-FORZA-1200VA-600W-120V-8-TOMAS-2.jpg`,
+});
+productList.push({
+  id: 6,
+  name: `Motocicleta`,
+  cantidad: 1,
+  price: 1200,
+  image: `https://digitalconnection.com.ec/wp-content/uploads/2021/02/REGULADOR-DE-VOLTAJE-FVR-1200B-FORZA-1200VA-600W-120V-8-TOMAS-2.jpg`,
+});
+productList.push({
+  id: 7,
+  name: `Guantes FutBol`,
+  cantidad: 1,
+  price: 50,
+  image: `https://digitalconnection.com.ec/wp-content/uploads/2021/02/REGULADOR-DE-VOLTAJE-FVR-1200B-FORZA-1200VA-600W-120V-8-TOMAS-2.jpg`,
+});
+productList.push({
+  id: 8,
+  name: `Tennis Futbol`,
+  cantidad: 1,
+  price: 80,
+  image: `https://digitalconnection.com.ec/wp-content/uploads/2021/02/REGULADOR-DE-VOLTAJE-FVR-1200B-FORZA-1200VA-600W-120V-8-TOMAS-2.jpg`,
+});
+productList.push({
+  id: 9,
+  name: `Sillon Personal`,
+  cantidad: 1,
+  price: 450,
+  image: `https://digitalconnection.com.ec/wp-content/uploads/2021/02/REGULADOR-DE-VOLTAJE-FVR-1200B-FORZA-1200VA-600W-120V-8-TOMAS-2.jpg`,
+});
+productList.push({
+  id: 11,
+  name: `Carrito Control Remoto`,
+  cantidad: 1,
+  price: 130,
+  image: `https://digitalconnection.com.ec/wp-content/uploads/2021/02/REGULADOR-DE-VOLTAJE-FVR-1200B-FORZA-1200VA-600W-120V-8-TOMAS-2.jpg`,
+});
+productList.push({
+  id: 12,
+  name: `Silla Reclinable`,
+  cantidad: 1,
+  price: 150,
+  image: `https://digitalconnection.com.ec/wp-content/uploads/2021/02/REGULADOR-DE-VOLTAJE-FVR-1200B-FORZA-1200VA-600W-120V-8-TOMAS-2.jpg`,
+});
+productList.push({
+  id: 13,
+  name: '',
+  cantidad: 1,
+  price: 50,
+  image: `https://digitalconnection.com.ec/wp-content/uploads/2021/02/REGULADOR-DE-VOLTAJE-FVR-1200B-FORZA-1200VA-600W-120V-8-TOMAS-2.jpg`,
+});
+productList.push({
+  id: 14,
+  name: `Regulador`,
+  cantidad: 1,
+  price: 50,
+  image: `https://digitalconnection.com.ec/wp-content/uploads/2021/02/REGULADOR-DE-VOLTAJE-FVR-1200B-FORZA-1200VA-600W-120V-8-TOMAS-2.jpg`,
+});
+productList.push({
+  id: 15,
+  name: `Regulador`,
+  cantidad: 1,
+  price: 50,
+  image: `https://digitalconnection.com.ec/wp-content/uploads/2021/02/REGULADOR-DE-VOLTAJE-FVR-1200B-FORZA-1200VA-600W-120V-8-TOMAS-2.jpg`,
+});
+productList.push({
+  id: 16,
+  name: `Regulador`,
+  cantidad: 1,
+  price: 50,
+  image: `https://digitalconnection.com.ec/wp-content/uploads/2021/02/REGULADOR-DE-VOLTAJE-FVR-1200B-FORZA-1200VA-600W-120V-8-TOMAS-2.jpg`,
+});
+productList.push({
+  id: 17,
+  name: `Regulador`,
+  cantidad: 1,
+  price: 50,
+  image: `https://digitalconnection.com.ec/wp-content/uploads/2021/02/REGULADOR-DE-VOLTAJE-FVR-1200B-FORZA-1200VA-600W-120V-8-TOMAS-2.jpg`,
+});
+productList.push({
+  id: 18,
   name: `Regulador`,
   cantidad: 1,
   price: 50,
