@@ -179,7 +179,7 @@ const productList = [
     name: `Reloj de Oro`,
     cantidad: 1,
     price: 3000,
-    image: `hhttps://phone-out.com/wp-content/uploads/2020/11/Reloj0-10.jpg`,
+    image: ``,
   }
   ,{
     id: 16,
