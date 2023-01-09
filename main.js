@@ -8,6 +8,7 @@ const cardsContainer = document.querySelector(".cards-container");
 const cardProductDetail = document.querySelector(".product-detail");
 const iconProductDetailClose = document.querySelector(".product-detail-close");
 const bodyDarken = document.querySelector("#darken");
+const myOrderContent = document.querySelector('.my-order-content')
 
 const productDetailImage = document.querySelector("#product-detail-image");
 const productDetailPrice = document.querySelector("#product-detail-price");
@@ -15,8 +16,10 @@ const productDetailName = document.querySelector("#product-detail-name");
 
 navbarEmail.addEventListener("click", toggleDesktopMenu);
 iconBurgerMenu.addEventListener("click", toggleMobileMenu);
-navbarShoppingCart.addEventListener("click", toggleAsideProductDetail);
+navbarShoppingCart.addEventListener("click", toggleAsideProductDetail); //carro icono menu
 iconProductDetailClose.addEventListener("click", closeCardProductDetail);
+
+const savePrice = []
 
 function toggleDesktopMenu() {
   desktopMenu.classList.toggle("active");
@@ -50,11 +53,43 @@ function openCardProductDetail(activeId, arr) {
   for (product of arr){
     if(activeId === product.id){
       productDetailImage.setAttribute('src', product.image)
-      productDetailPrice.innerText = product.price
+      productDetailPrice.innerText = '$' + product.price
       productDetailName.innerText = product.name
     }
   }
 }
+
+
+function saveArticle(activeId, arr){
+
+  const shoppingCart = document.createElement('div')
+  shoppingCart.classList.add('shopping-cart')
+  const figure = document.createElement('figure')
+  const imageArticule = document.createElement('img')
+  const productPrice = document.createElement("p");
+  const productName = document.createElement("p");
+  const deleteIcon = document.createElement('img')
+  deleteIcon.setAttribute("src", "./icons/icon_close.png")
+  const total = document.querySelector('#total')
+  
+  for (product of arr){
+    if(activeId === product.id){
+      imageArticule.setAttribute('src', product.image)
+      productPrice.innerText = "$" + product.price
+      productName.innerText = product.name
+      savePrice.push(parseFloat(product.price))
+    }
+  }
+
+  const totalPrice = savePrice.reduce((total, actual)=> total + actual)
+  console.log(totalPrice);
+  total.innerText = '$' + totalPrice
+  figure.appendChild(imageArticule)
+  shoppingCart.append(figure, productName, productPrice, deleteIcon)
+  myOrderContent.appendChild(shoppingCart)
+
+}
+
 
 function closeCardProductDetail() {
   cardProductDetail.classList.add("active");
@@ -105,13 +140,13 @@ function renderProducts(arr) {
   for (product of arr) {
     
     let activeId = product.id
-
+    
     const productCard = document.createElement("div");
-    productCard.classList.add("product-card");
-    productCard.addEventListener("click", () => openCardProductDetail(activeId, arr));
+    productCard.classList.add("product-card"); 
 
     const productImage = document.createElement("img");
     productImage.setAttribute("src", product.image);
+    productImage.addEventListener("click", () => openCardProductDetail(activeId, arr));
 
     const productInfo = document.createElement("div");
     productInfo.classList.add("product-info");
@@ -126,6 +161,7 @@ function renderProducts(arr) {
     const figure = document.createElement("figure");
     const iconCart = document.createElement("img");
     iconCart.setAttribute("src", "./icons/bt_add_to_cart.svg");
+    iconCart.addEventListener("click", () => saveArticle(activeId, arr))
 
     figure.appendChild(iconCart);
     productPriceProduct.appendChild(productPrice);

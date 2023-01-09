@@ -402,6 +402,7 @@ nav {
     padding: 5px 0 10px;
 
   }
+
   .product-info {
     display: flex;
     justify-content: space-between;
@@ -442,6 +443,7 @@ nav {
 
     .aside-product-detail /* .product-detail */ {
         width: 100%;
+        min-width: 280px;
     }
 
     .cards-container {
