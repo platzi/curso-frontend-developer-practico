@@ -14,8 +14,14 @@ PlatziMath.esImpar = function esImpar( lista ) {
   return lista.length % 2;
 }
 
+//////////////////////////////////
+
+/*Es el valor que se ubica en la mitad de la lista de valores, cuando la 
+lista es impar. Cuando la lista es par, entonces se toman los dos valores 
+centrales, se suman y se divide entre dos.*/
+
 PlatziMath.calcularMediana = function calcularMediana( lista ) {
-  const listaEsPar = esPar( lista )
+  const listaEsPar = PlatziMath.esPar( lista )
   if( listaEsPar ) {
 
     //opcion 1
@@ -24,7 +30,7 @@ PlatziMath.calcularMediana = function calcularMediana( lista ) {
     const listaMitades = [];
     listaMitades.push(lista[indexMitad1ListaPar]);
     listaMitades.push(lista[indexMitad2ListaPar]);
-    const medianaListaPar = calcularPromedio(listaMitades);
+    const medianaListaPar = PlatziMath.calcularPromedio(listaMitades);
     console.log(medianaListaPar);
     return medianaListaPar;
   
@@ -35,6 +41,11 @@ PlatziMath.calcularMediana = function calcularMediana( lista ) {
     return medianaListaImpar;
   }
 }
+
+//////////////////////////////////
+
+/* El nombre técnico es media aritmética y se calcula sumando todos los valores 
+y luego dividiendo esa suma por la cantidad de valores. */
 
 PlatziMath.calcularPromedio = function calcularPromedio(lista) {
   // let sumarLista = 0;
@@ -58,6 +69,7 @@ PlatziMath.calcularPromedio = function calcularPromedio(lista) {
 }
 
 PlatziMath.ordernarLista = function ordernarLista( listaDesordenada ) {
+  // Versión larga
   function ordenarListaSort( valorAcumulado, nuevoValor ) {
     if( valorAcumulado > nuevoValor ) {
       return 1;
@@ -86,6 +98,12 @@ PlatziMath.ordernarLista = function ordernarLista( listaDesordenada ) {
   return lista;
   
 }
+
+//////////////////////////////////
+
+/* Consiste en encontrar el valor que se repite mayor cantidad de veces en una 
+lista de valores. La moda no solo se puede trabajar con números, sino que aplica 
+tambien para cualquier tipo de dato.*/
 
 PlatziMath.calcularModa = function calcularModa( lista ) {
 	const listaCount = {};

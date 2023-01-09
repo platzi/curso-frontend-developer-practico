@@ -1,0 +1,115 @@
+@import url('https://fonts.googleapis.com/css2?family=Poppins:wght@400;700&display=swap');
+
+* {
+  margin: 0;
+  padding: 0;
+  box-sizing: border-box;
+}
+p, span {
+  font-family: 'Poppins';
+}
+.d-none {
+  display: none;
+}
+.navbar {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  height: 8vh;
+  box-shadow: 0 1px 15px rgb(0 0 0 / 50%);
+  padding: 10px 30px;
+}
+.navbar img {
+  max-width: 100%;
+  width: 40px;
+}
+.navbar .contain {
+  display: flex;
+  align-items: center;
+}
+.navbar .contain .nav-title {
+  display: block;
+  margin-left: 15px;
+  font-size: 22px;
+}
+.section-main {
+  height: 92vh;
+}
+.contain-main {
+  margin: auto;
+  width: 800px;
+  padding-top: 30px;
+}
+.img-background {
+  background-image: url(./bodyBack.jpg);
+  background-repeat: no-repeat;
+  background-size: cover;
+  background-position-y: center;
+  width: 800px;
+  height: 320px;
+  border-radius: 15px;
+}
+.contain-form {
+  max-width: 100%;
+  width: 800px;
+  background-color: rgb(217 217 217 / 50%);
+  margin-top: 30px;
+  padding: 15px 60px;
+  border-radius: 15px;
+} 
+.contain-form form {
+  display: grid;
+  row-gap: 15px;
+  font-family: 'Poppins';
+}
+.contain-form form .error-dato {
+  border-radius: 5px;
+  border: 1px solid red;
+  padding: 10px 15px;
+  background: rgb(255 0 0 / 10%);
+  color: red;
+}
+.contain-form form .form-group {
+  display: flex;
+  flex-direction: column;
+}
+.contain-form form .form-group input {
+  border: 1px solid #bdbdbd;
+  border-radius: 5px;
+  height: 30px;
+  font-size: 16px;
+  color: #424242;
+  font-family: 'Poppins';
+}
+.contain-form form .form-group input:focus {
+  outline: none;
+}
+.contain-form form .form-group input::-webkit-textfield-decoration-container {
+  padding: 0 15px;
+}
+.contain-form form .form-group input::-webkit-inner-spin-button {
+  display: none;
+}
+.contain-form form .form-group span {
+  font-size: 14px;
+  color: #838383;
+}
+.contain-form form .btn-group .btnEnviar,
+.contain-form form .btn-group .btnBorrar {
+  border: none;
+  background: #4170c5;
+  padding: 5px 20px;
+  border-radius: 3px;
+  color: #fff;
+  cursor: pointer;
+  font-size: 16px;
+}
+.contain-form form .btn-group .btnEnviar:hover {
+  background: #315597;
+}
+.contain-form form .btn-group .btnBorrar {
+  background: #cb5353;
+}
+.contain-form form .btn-group .btnBorrar:hover {
+  background: #943a3a;
+}

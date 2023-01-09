@@ -1,0 +1,50 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta http-equiv="X-UA-Compatible" content="IE=edge">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <link rel="stylesheet" href="styles.css">
+
+  <link rel="preconnect" href="https://fonts.googleapis.com"><link rel="preconnect" href="https://fonts.gstatic.com" crossorigin><link href="https://fonts.googleapis.com/css2?family=Poppins:wght@400;700&display=swap" rel="stylesheet">
+  <title>Document</title>
+</head>
+<body>
+  <div class="navbar">
+    <div class="contain">
+      <img src="profits.png" alt="">
+      <span class="nav-title">Fondo de inversión</span>
+    </div>
+    <span>Cristian Leonardo</span>
+  </div>
+
+  <section class="section-main">
+    <div class="contain-main">
+      <div class="img-background"></div>
+      <div class="contain-form">
+        <form action="" id="form">
+          <div class="error-dato d-none" id="cartelWarning"></div>
+          <div class="form-group">
+            <label for="ingresos">Capital a invertir</label>
+            <input type="number" name="ingresos" id="ingresos">
+            <span>(Inversión mínima $1.500. Inversión máxima $10.000)</span>
+          </div>
+          
+          <div class="form-group">
+            <label for="gastosFijos">Plazo(en días)</label>
+            <input type="number" name="diasInversion" id="diasInversion" required>
+            <span>(Mínimo 30 días - Máximo 365 días)</span>
+          </div>
+
+          <div class="btn-group">
+            <input type="submit" value="Enviar" class="btnEnviar" id="btnEnviar">
+            <input type="button" value="Borrar" class="btnBorrar" id="btnBorrar" required>
+          </div>
+        </form>
+      </div>
+    </div>
+  </section>
+
+  <script src="./script.js"></script>
+</body>
+</html>
