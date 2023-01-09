@@ -59,6 +59,19 @@ function openCardProductDetail(activeId, arr) {
   }
 }
 
+function removeArticule(activeId, arr, shoppingCart, totalPrice, total){
+  for (product of arr){
+    if(activeId === product.id){
+      shoppingCart.remove()
+      /* const totalRest = totalPrice - parseInt(product.price)
+      totalPrice = totalRest
+      console.log(totalRest);
+      console.log(totalPrice);
+      total.innerText = */
+    }
+  }
+  
+}
 
 function saveArticle(activeId, arr){
 
@@ -70,6 +83,7 @@ function saveArticle(activeId, arr){
   const productName = document.createElement("p");
   const deleteIcon = document.createElement('img')
   deleteIcon.setAttribute("src", "./icons/icon_close.png")
+  deleteIcon.addEventListener('click', () => removeArticule(activeId, arr, shoppingCart, totalPrice, total))
   const total = document.querySelector('#total')
   
   for (product of arr){
@@ -77,13 +91,13 @@ function saveArticle(activeId, arr){
       imageArticule.setAttribute('src', product.image)
       productPrice.innerText = "$" + product.price
       productName.innerText = product.name
-      savePrice.push(parseFloat(product.price))
+      savePrice.push(parseInt(product.price))
     }
   }
 
   const totalPrice = savePrice.reduce((total, actual)=> total + actual)
-  console.log(totalPrice);
   total.innerText = '$' + totalPrice
+  
   figure.appendChild(imageArticule)
   shoppingCart.append(figure, productName, productPrice, deleteIcon)
   myOrderContent.appendChild(shoppingCart)
