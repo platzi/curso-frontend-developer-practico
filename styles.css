@@ -306,22 +306,11 @@ nav {
     border-top: none;
     border-bottom-left-radius: 8px;
     border-bottom-right-radius: 8px; */
-    /* z-index: 100;
-    background: var(--white);
-    width: 360px;
-    position: absolute;
-    right: 50px;
-    left: 50px;
-    top: 100px;
-    margin: 0 auto;
-    padding: 20px;
-    border: 1px solid var(--very-light-pink);
-    border-radius: 8px; */
-
     z-index: 100;
     background: var(--white);
     position: absolute;
-    width: 360px;
+    max-width: 360px;
+    min-width: 255px;
     top: 122px;
     right: 50px;
     left: 50px;
