@@ -1,3 +1,5 @@
+/* Estilo General */
+
 :root {
     --white: #FFFFFF;
     --black: #000000;
@@ -8,10 +10,12 @@
     --md: 16px;
     --lg: 18px;
   }
+
   body {
     margin: 0;
     font-family: 'Quicksand', sans-serif;
   }
+
 .inactive{
     display: none;
     
@@ -23,6 +27,7 @@
     padding: 0 24px;
     border-bottom: 1px solid var(--very-light-pink);
   }
+
   .menu {
     display: none;
   }
@@ -58,7 +63,9 @@
     border: 1px solid var(--hospital-green);
     color: var(--hospital-green);
   }
-  .navbar-email {
+
+  .navbar-email{
+    user-select: none;
     cursor: pointer;
     color: var(--very-light-pink);
     font-size: var(--sm);
@@ -67,6 +74,16 @@
   .navbar-shopping-cart {
     position: relative;
   }
+
+  .navbar-email:hover{
+    color: var(--hospital-green)
+  }
+  
+  
+  .navbar-shopping-cart {
+    position: relative;
+  }
+
   .navbar-shopping-cart div {
     width: 16px;
     height: 16px;
@@ -81,6 +98,8 @@
     justify-content: center;
     align-items: center;
   }
+
+/* Estilos Menu Desktop */
 
   .desktop-menu {
     position: absolute;
@@ -131,4 +150,51 @@
     .navbar-email {
       display: none;
     }
+
+    .desktop-menu{
+      display: none;
+    }
+
   }
+
+  @media (min-width: 641px) {
+    .mobile-menu {
+      display: none;
+    }
+ }
+
+
+
+/* Estilos Menu Mobile (Hamburguesa) */
+
+  .mobile-menu {
+    padding: 24px;
+    position: absolute;
+    top: 60px;
+  }
+  .mobile-menu a {
+    text-decoration: none;
+    color: var(--black);
+    font-weight: bold;
+    /* margin-bottom: 24px; */
+  }
+  .mobile-menu ul {
+    padding: 0;
+    margin: 24px 0 0;
+    list-style: none;
+  }
+  .mobile-menu ul:nth-child(1) {
+    border-bottom: 1px solid var(--very-light-pink);
+  }
+  .mobile-menu ul li {
+    margin-bottom: 24px;
+  }
+  .email {
+    font-size: var(--sm);
+    font-weight: 300 !important;
+  }
+  .sign-out {
+    font-size: var(--sm);
+    color: var(--hospital-green) !important;
+  }
+
