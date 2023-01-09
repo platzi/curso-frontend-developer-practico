@@ -18,6 +18,7 @@ arrowShoppingCart.addEventListener("click", closeShoppingCart);
 function toggleDesktopMenu() {
     desktopMenu.classList.toggle("inactive");
     asideShoppingCart.classList.add("inactive");
+    asideProductDetail.classList.add("inactive");
 }
 
 function toggleMobileMenu() {
@@ -36,7 +37,8 @@ function toggleShoppingCart() {
 function openAsideProductDetail() {
     asideProductDetail.classList.remove("inactive");
     asideShoppingCart.classList.add("inactive");
-    menuMobile.classList.add("inactive")
+    menuMobile.classList.add("inactive");
+    desktopMenu.classList.add("inactive");
 }
 
 function closeAsideProductDetail() {
