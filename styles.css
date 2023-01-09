@@ -127,6 +127,8 @@
   background-color: var(--white);
   position: absolute;
   top: 60px;
+  left: 0;
+  width: calc(100% - 24px);
   padding: 24px;
 }
 .mobile-menu a {
@@ -160,13 +162,16 @@
 aside {
   background-color: var(--white);
   width: 360px;
-  padding: 0 24px;
+  
   box-sizing: border-box;
   position: absolute;
   right: 0;
 }
 
 /*ShoppingCart*/
+#shoppingCartContainer {
+  padding: 0 24px;
+}
 .title-container {
   display: flex;
 }
