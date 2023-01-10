@@ -25,10 +25,12 @@ HamIcon.addEventListener('click', toggleMobileMenu);
 function toggleMobileMenu() {
     //Esta constante me dice cuándo el aside está abierto, y cuándo está cerrado (true=cerrado, false=abierto)
     const isasideclosed = aside.classList.contains('inactive');
+    const isproductInfoclosed = productInfo.classList.contains('inactive');
 
     //Si el aside no está cerrado, hágalo
-    if (!isasideclosed) {
+    if (!isasideclosed || !isproductInfoclosed) {
         aside.classList.add('inactive');
+        productInfo.classList.add('inactive');
     }
 
     mobileMenu.classList.toggle('inactive')
@@ -44,11 +46,13 @@ function toggleCarro() {
     //Esta constante me dice cuándo el mobileMenu está abierto, y cuándo está cerrado
     const ismobileMenuClosed = mobileMenu.classList.contains('inactive');
     const isdesktopclosed = desktopMenu.classList.contains('inactive');
+    const isproductInfoclosed = productInfo.classList.contains('inactive');
 
     //Si el menu mobile o el desktopmenu no ésta cerrado, hágalo
-    if (!ismobileMenuClosed || !isdesktopclosed)  {
+    if (!ismobileMenuClosed || !isdesktopclosed || !isproductInfoclosed)  {
         mobileMenu.classList.add('inactive');
         desktopMenu.classList.add('inactive');
+        productInfo.classList.add('inactive');
     }
 
     aside.classList.toggle('inactive');
@@ -74,38 +78,67 @@ productList.push({
 
 const cardsContainer = document.querySelector('.cards-container')
 
-for (product of productList){
-    const productCard = document.createElement('div');
-    productCard.classList.add('product-card');
+function renderProducts(arr) {
+    for (product of arr){
+        const productCard = document.createElement('div');
+        productCard.classList.add('product-card');
+        //el sgte EventListener se utiliza para luego abrir el productinfo
+        productCard.addEventListener('click', openproductInfo);
+    
+        const productImg = document.createElement('img');
+        productImg.setAttribute('src', product.image)
+        // product ={name, price, image} -> product.image
+    
+        const productInfo = document.createElement('div');
+        productInfo.classList.add('product-info');
+    
+        const productInfoDiv = document.createElement('div');
+    
+        const productPrice = document.createElement('p');
+        productPrice.innerText = '$' + product.price;
+        const productName = document.createElement('p');
+        productName.innerText = product.name;
+    
+        productInfoDiv.appendChild(productPrice);
+        productInfoDiv.appendChild(productName);
+    
+        const productInfoFigure = document.createElement('figure');
+        const productImgCart = document.createElement('img');
+        productImgCart.setAttribute('src', './icons/bt_add_to_cart.svg');
+    
+        productInfoFigure.appendChild(productImgCart);
+    
+        productInfo.appendChild(productInfoDiv);
+        productInfo.appendChild(productInfoFigure);
+    
+        productCard.appendChild(productImg);
+        productCard.appendChild(productInfo);
+    
+        cardsContainer.appendChild(productCard);
+    }
+}
+renderProducts(productList);
 
-    const productImg = document.createElement('img');
-    productImg.setAttribute('src', product.image)
-    // product ={name, price, image} -> product.image
 
-    const productInfo = document.createElement('div');
-    productInfo.classList.add('product-info');
+const productInfo = document.querySelector('.product-detail-main');
 
-    const productInfoDiv = document.createElement('div');
+//Función para cerrar manualmente productinfo desde el símbolo de close icon
+const closeIcon = document.querySelector('.product-detail-close');
 
-    const productPrice = document.createElement('p');
-    productPrice.innerText = '$' + product.price;
-    const productName = document.createElement('p');
-    productName.innerText = product.name;
+closeIcon.addEventListener('click', closeproductInfo);
+function closeproductInfo(){
+    productInfo.classList.add('inactive');
+}
 
-    productInfoDiv.appendChild(productPrice);
-    productInfoDiv.appendChild(productName);
+//función para abrir product info
+function openproductInfo(){
+    const isasideclosed = aside.classList.contains('inactive');
+    const ismobileMenuClosed = mobileMenu.classList.contains('inactive');
 
-    const productInfoFigure = document.createElement('figure');
-    const productImgCart = document.createElement('img');
-    productImgCart.setAttribute('src', './icons/bt_add_to_cart.svg');
+    if (!isasideclosed || !ismobileMenuClosed){
+        aside.classList.add('inactive');
+        mobileMenu.classList.add('inactive');
+    }
 
-    productInfoFigure.appendChild(productImgCart);
-
-    productInfo.appendChild(productInfoDiv);
-    productInfo.appendChild(productInfoFigure);
-
-    productCard.appendChild(productImg);
-    productCard.appendChild(productInfo);
-
-    cardsContainer.appendChild(productCard);
+    productInfo.classList.remove('inactive');
 }
