@@ -83,6 +83,7 @@ function closeProductDetail(){
 function addToCart(){
     const items = document.querySelector('#items-on-cart');
     const orderContent = document.querySelector('#cart-items');
+    const totalAmount = document.querySelector('.order')
     orderContent.innerHTML += `
         <div class="shopping-cart">
                 <figure><img src="https://images.pexels.com/photos/276517/pexels-photo-276517.jpeg?auto=compress&cs=tinysrgb&dpr=2&h=650&w=940" alt="bike"></figure>
@@ -93,9 +94,10 @@ function addToCart(){
     `
     new_quantity = Number(items.textContent) + 1;
     items.innerText = new_quantity;
-
-    var totalAmount = document.querySelector('.order p:nth-child(2)')
-    totalAmount.innerText = `$ ${new_quantity * 120}`
+    totalAmount.innerHTML = `
+            <p><span>Total</span></p>
+            <p>$ ${new_quantity * 120}</p>
+        `
 }
 
 function removeFromCart() {
@@ -103,17 +105,18 @@ function removeFromCart() {
     const orderContent = document.querySelector('#cart-items');
     const lastItem = orderContent.lastChild
     orderContent.removeChild(lastItem)
-    const totalAmount = document.querySelector('.order p:nth-child(2)')
+    const totalAmount = document.querySelector('.order')
     if ((Number(items.textContent) - 1) < 0) {
         new_quantity = 0;
-        new_amount = 0;
     } else {
         new_quantity =  (Number(items.textContent) - 1)
-        new_amount = new_quantity * 120
     }
         items.innerText = new_quantity;
-        
-        totalAmount.textContent = `$ ${new_amount}`
+        totalAmount.innerHTML = `
+            <p><span>Total</span></p>
+            <p>$ ${new_quantity * 120}</p>
+        `
+
 }
 
 const products = [];
