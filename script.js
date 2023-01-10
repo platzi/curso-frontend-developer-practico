@@ -4,7 +4,7 @@ const navbarEmail = document.querySelector(".navbar-email");
 const burgerIconMenu = document.querySelector(".menu");
 const mobileMenu = document.querySelector(".mobile-menu");
 const mainCarIcon = document.querySelector(".navbar-shopping-cart");
-const aside = document.querySelector(".product-detail");
+const asideCartConatiner = document.querySelector(".product-detail-cart-container");
 const cardsContainer = document.querySelector('.cards-container')
 
 // ASIGNACION DE LOS EVENT LISTENERS 
@@ -27,25 +27,25 @@ function togggleCarAside() {
         desktopMenu.classList.add('inactive')
     }
 
-    aside.classList.toggle('inactive')
+    asideCartConatiner.classList.toggle('inactive')
 }
 
 function togggleShowDesktopMenu() {
-    const isAsideClosed = aside.classList.contains('inactive')
+    const isAsideClosed = asideCartConatiner.classList.contains('inactive')
 
     if (!isAsideClosed) {
-        aside.classList.add('inactive')
+        asideCartConatiner.classList.add('inactive')
     }
 
     desktopMenu.classList.toggle("inactive");
 }
 
 function togggleMobileMenu() {
-    const isAsideClosed = aside.classList.contains('inactive');
+    const isAsideClosed = asideCartConatiner.classList.contains('inactive');
 
     if (!isAsideClosed) {
         // si mobilemenu esta open, hay que cerrarlo
-        aside.classList.add('inactive')
+        asideCartConatiner.classList.add('inactive')
     }
 
     mobileMenu.classList.toggle("inactive");
