@@ -5,7 +5,7 @@ const burguerMenu = document.querySelector('.menu');
 const mobileMenu = document.querySelector('.mobile-menu');
 
 const menuShoppingCart = document.querySelector('.navbar-shopping-cart');
-const aside = document.querySelector('.product-detail');
+const shoppingCart = document.querySelector('#shoppingCart');
 
 const cardsContainer = document.querySelector('.cards-container');
 
@@ -15,9 +15,9 @@ menuShoppingCart.addEventListener('click', toggleShoppingCart);
 
 function toggleDesktopMenu() {
     // Pregunta si el Aside esta abierto
-    if(!aside.classList.contains('inactive')) {
+    if(!shoppingCart.classList.contains('inactive')) {
         // Si lo esta, lo cierra
-        aside.classList.add('inactive');
+        shoppingCart.classList.add('inactive');
     }
     
     // Abre o cierra el menu en Desktop
@@ -27,9 +27,9 @@ function toggleDesktopMenu() {
 
 function toggleMobileMenu() {
     // Pregunta si el Aside está abierto
-    if(!aside.classList.contains('inactive')) {
+    if(!shoppingCart.classList.contains('inactive')) {
         // Si lo esta, lo cierra
-        aside.classList.add('inactive');
+        shoppingCart.classList.add('inactive');
     }
 
     // Abre o cierra el menu Mobile
@@ -50,7 +50,7 @@ function toggleShoppingCart() {
     }
 
     // Abre o cierra el Aside
-    aside.classList.toggle('inactive');
+    shoppingCart.classList.toggle('inactive');
 
 }
 
