@@ -1,0 +1,23 @@
+@media (max-width: 730px) {
+  .navbar__menu {
+    display: block;
+  }
+
+  .navbar__left__ul {
+    display: none;
+  }
+
+  .navbar__email {
+    display: none;
+  }
+
+  .desktop__menu {
+    display: none;
+  }
+}
+
+@media (min-width: 731px) {
+  .mobile__menu {
+    display: none;
+  }
+}
