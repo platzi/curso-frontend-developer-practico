@@ -256,6 +256,9 @@ aside {
 #shoppingCart {
     padding: 0 24px;
 }
+#shoppingCart .arrow {
+  cursor: pointer;
+}
 
 /* Product Detail */
 
@@ -275,6 +278,7 @@ aside {
   }
   #productDetail {
     padding-bottom: 8px;
+
   }
   #productDetail > img:nth-child(2) {
     width: 100%;
