@@ -3,24 +3,41 @@ const desktopMenu = document.querySelector('.desktop-menu');
 const mobilMenu = document.querySelector('.mobile-menu');
 const burgerImg = document.querySelector('.menu');
 const shoppingCardContainer = document.querySelector('#shoppingCardContainer')
+const productDetailAside = document.querySelector('#productDetail')
 const carrito = document.querySelector('.navbar-shopping-cart')
 const cardContainer = document.querySelector('.cards-container')
+const productDetailClose = document.querySelector('.product-detail-close')
 
 email.addEventListener('click', toogleDesktopMenu);
 burgerImg.addEventListener('click',toogleMobilMenu)
 carrito.addEventListener('click',toogleCartContens);
+productDetailClose.addEventListener('click', closeProductDetail);
 
+function openProductDetailAside(){
+    productDetailAside.classList.remove('inactive');
+    shoppingCardContainer.classList.add('inactive');
+    mobilMenu.classList.add('inactive');
+    desktopMenu.classList.add('inactive');
+}
+
+function closeProductDetail(){
+    productDetailAside.classList.add('inactive')
+};
 
 function toogleDesktopMenu(){   
     shoppingCardContainer.classList.add('inactive');
     desktopMenu.classList.toggle('inactive');
+    productDetailAside.classList.add('inactive');
+
 }
 function toogleMobilMenu(){
     shoppingCardContainer.classList.add('inactive');
     mobilMenu.classList.toggle('inactive');
+    productDetailAside.classList.add('inactive')
 }
 
 function toogleCartContens(){
+    productDetailAside.classList.add('inactive');
     desktopMenu.classList.add('inactive');
     mobilMenu.classList.add('inactive');
     shoppingCardContainer.classList.toggle('inactive');
@@ -49,6 +66,8 @@ function renderProducts(array) {
 
         const productImg = document.createElement('img');
         productImg.setAttribute('src',product.img);
+        productImg.addEventListener('click',openProductDetailAside);
+        
 
         const productInfo = document.createElement('div');
         productInfo.classList.add('product-info');
@@ -69,9 +88,10 @@ function renderProducts(array) {
 
         const productInfoFigureImg = document.createElement('img');
         productInfoFigureImg.setAttribute('src','./icons/bt_add_to_cart.svg');
+        
 
         productInfoFigure.appendChild(productInfoFigureImg);
-
+        
         productInfo.appendChild(productInfoDiv);
         productInfo.appendChild(productInfoFigure);
 
@@ -79,6 +99,7 @@ function renderProducts(array) {
         productCard.appendChild(productInfo);
 
         cardContainer.appendChild(productCard);
+       
 
 
 
