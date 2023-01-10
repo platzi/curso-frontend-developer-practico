@@ -96,8 +96,6 @@ nav {
     border: 1px solid var(--very-light-pink);
     border-radius: 0 0 6px 6px;
     padding: 20px 20px 0 20px;
-
-    /* Nuevo CSS*/
     background-color: var(--white);
     position: absolute;
     right: 56px;

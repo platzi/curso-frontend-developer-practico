@@ -7,11 +7,15 @@ const mobileMenu = document.querySelector('.mobile-menu');
 const menuShoppingCart = document.querySelector('.navbar-shopping-cart');
 const shoppingCart = document.querySelector('#shoppingCart');
 
+
 const cardsContainer = document.querySelector('.cards-container');
+
 
 menuEmail.addEventListener('click', toggleDesktopMenu);
 burguerMenu.addEventListener('click', toggleMobileMenu);
 menuShoppingCart.addEventListener('click', toggleShoppingCart);
+
+
 
 function toggleDesktopMenu() {
     // Pregunta si el Aside esta abierto
@@ -22,7 +26,7 @@ function toggleDesktopMenu() {
     
     // Abre o cierra el menu en Desktop
     desktopMenu.classList.toggle('inactive');
-
+    
 }
 
 function toggleMobileMenu() {
@@ -31,7 +35,7 @@ function toggleMobileMenu() {
         // Si lo esta, lo cierra
         shoppingCart.classList.add('inactive');
     }
-
+    
     // Abre o cierra el menu Mobile
     mobileMenu.classList.toggle('inactive');
 
@@ -51,7 +55,7 @@ function toggleShoppingCart() {
 
     // Abre o cierra el Aside
     shoppingCart.classList.toggle('inactive');
-
+    
 }
 
 
@@ -173,3 +177,13 @@ function renderProducts(arr) {
 }
 
 renderProducts(productList);
+
+const productCard = document.querySelector('.product-card');
+const orderDetail = document.querySelector('#productDetail');
+
+
+productCard.addEventListener('click', toggleProductDetail);
+
+function toggleProductDetail() {
+    orderDetail.classList.toggle('inactive');
+}
