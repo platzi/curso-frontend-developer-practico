@@ -2,7 +2,7 @@ let gmail = document.querySelector('.navbar-email');
 let menuHamIcon = document.querySelector('.menu')
 let mobileMenu = document.querySelector('.mobile-menu')
 let iconCarrito = document.querySelector('.navbar-shopping-cart ')
-let pDetail = document.querySelector('.product-detail')
+let shoppingcartContainer = document.querySelector('#shoppingcartContainer')
 let desktopM = document.querySelector('.desktop-menu');
 
 let cardContainer = document.querySelector('.cards-container')
@@ -11,9 +11,9 @@ gmail.addEventListener('click', () => {
 
 });
 menuHamIcon.addEventListener('click', () => {
-    const isAsideClosed = pDetail.classList.contains('active');
+    const isAsideClosed = shoppingcartContainer.classList.contains('active');
     if(!isAsideClosed) {
-        pDetail.classList.add('active')
+        shoppingcartContainer.classList.add('active')
     }
     mobileMenu.classList.toggle('active')
 })
@@ -22,7 +22,7 @@ iconCarrito.addEventListener('click', () => {
     if(!isMobileMenuClosed) {
         mobileMenu.classList.add('active')
     }
-    pDetail.classList.toggle('active')
+    shoppingcartContainer.classList.toggle('active')
     
 })
 
