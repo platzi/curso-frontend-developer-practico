@@ -3,7 +3,7 @@ const otracosa=document.querySelector(".desktop-menu");
 const imagen=document.querySelector(".menu");
 const movile=document.querySelector(".mobile-menu")
 const carrito=document.querySelector(".navbar-shopping-cart")
-const aside=document.querySelector(".product-detail")
+const aside=document.querySelector("#shopping-cart-container")
 const articulos=document.querySelector('.cards-container')
 
 email.addEventListener('click',()=>{
