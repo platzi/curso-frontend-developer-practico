@@ -1,54 +1,47 @@
 const menuEmail = document.querySelector (".navbar-email");
 const desktopMenu = document.querySelector (".desktop-menu");
 const menuCarritoIcon = document.querySelector (".navbar-shopping-cart");
+const productDetailCloseicon = document.querySelector (".product-detail-close");
 const menuHamIcon = document.querySelector (".menu");
 const mobileMenu = document.querySelector (".mobile-menu");
 const shoppingCartContainer = document.querySelector ("#shoppingCartContainer");
 const cardsContainer = document.querySelector (".cards-container");
-const productDetailContainer = document.querySelector (".productDetail");
+const productDetailContainer = document.querySelector ("#productDetail");
+
 
 
 menuEmail.addEventListener ("click", toggleDesktopMenu);
 menuHamIcon.addEventListener ("click", toggleMobileMenu);
 menuCarritoIcon.addEventListener ("click", toggleCarritoAside);
+productDetailCloseicon.addEventListener ("click", closeProductDetailAside);
 
 function toggleDesktopMenu () {
-    const isAsideColsed = shoppingCartContainer.classList.contains ("inactive");
-
-    if (!isAsideColsed) {
-        shoppingCartContainer.classList.add ("inactive");
-    }
-
+    shoppingCartContainer.classList.add ("inactive");
     desktopMenu.classList.toggle ("inactive")
+    closeProductDetailAside ();
 }
 
 function toggleMobileMenu () {
-    const isAsideColsed = shoppingCartContainer.classList.contains ("inactive");
-
-    if (!isAsideColsed) {
-        shoppingCartContainer.classList.add ("inactive");
-    }
-
+    shoppingCartContainer.classList.add ("inactive");
+    closeProductDetailAside ();
     mobileMenu.classList.toggle ("inactive");
 }
 
 function toggleCarritoAside () {
-    const isMobileMenuClosed = mobileMenu.classList.contains ("inactive");
-    const isDesktopMenuClosed = desktopMenu.classList.contains ("inactive");
-
-    if (!isDesktopMenuClosed) {
-        desktopMenu.classList.add ("inactive");
-    }
-
-    if (!isMobileMenuClosed) {
-        mobileMenu.classList.add ("inactive");
-    }
-    
-    shoppingCartContainer.classList.toggle ("inactive")
+    desktopMenu.classList.add ("inactive");
+    productDetailContainer.classList.add ("inactive");
+    mobileMenu.classList.add ("inactive");
+    shoppingCartContainer.classList.toggle ("inactive");
 }
 
 function openProductDetailAside () {
-    productDetailContainer.classList.toggle ("inactive")
+    shoppingCartContainer.classList.add ("inactive");
+    productDetailContainer.classList.remove ("inactive");
+    desktopMenu.classList.add ("inactive");
+}
+
+function closeProductDetailAside () {
+    productDetailContainer.classList.add ("inactive")
 }
 
 const productList = [];
@@ -58,14 +51,14 @@ productList.push ({
     Image: 'https://images.pexels.com/photos/276517/pexels-photo-276517.jpeg?auto=compress&cs=tinysrgb&dpr=2&h=650&w=940'
 });
 productList.push ({
-    name: 'TV',
-    Price: 220,
-    Image: 'https://assets.sams.com.mx/image/upload/f_auto,q_auto:eco,w_350,c_scale,dpr_auto/mx/images/product-images/img_large/980000170l.jpg'
+    name: 'Bike',
+    Price: 120,
+    Image: 'https://images.pexels.com/photos/276517/pexels-photo-276517.jpeg?auto=compress&cs=tinysrgb&dpr=2&h=650&w=940'
 });
 productList.push ({
-    name: 'Computer',
-    Price: 620,
-    Image: 'https://i.dell.com/sites/imagecontent/merchandizing/PublishingImages/xps_8900.png'
+    name: 'Bike',
+    Price: 120,
+    Image: 'https://images.pexels.com/photos/276517/pexels-photo-276517.jpeg?auto=compress&cs=tinysrgb&dpr=2&h=650&w=940'
 });
 
 function renderProducts (arr) {
