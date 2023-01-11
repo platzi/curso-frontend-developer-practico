@@ -4,6 +4,8 @@ const menuEmail = document.querySelector('.navbar-email')
 //Apuntamos al menú
 const desktopmenu = document.querySelector('.desktop-menu')
 
+//Creamos icono de cierre
+const productDetailCloseIcon = document.querySelector('.product-detail-close');
 //Creamos un selector para el icono del menú mobile
 const menuHamIcon = document.querySelector('.menu');
 //Para el menú mobile
@@ -11,7 +13,9 @@ const mobileMenu = document.querySelector('.mobile-menu');
 //Carrito
 const menuCarritoIcon = document.querySelector('.navbar-shopping-cart')
 //Ahora del product detail que es lo que saldrá al seleccionar el carrito
-const aside = document.querySelector('.product-detail')
+const shoppingCartContainer = document.querySelector('#shoppingCartContainer')
+//Product detail
+const productDetailContainer = document.querySelector('#productDetail');
 //List products
 const cards_container = document.querySelector('.cards-container')
 
@@ -22,23 +26,29 @@ menuEmail.addEventListener('click',toggleDesktopmenu);
 menuHamIcon.addEventListener('click',toggleMobilepmenu);
 //Ejecutamos un evento
 menuCarritoIcon.addEventListener('click',toggleCarritoAside);
+//Create event
+productDetailCloseIcon.addEventListener('click', closeProductDetailAside);
+
 
 
 
 //Activa o desactiva el menú en desk
 function toggleDesktopmenu(){
-    const isAsideClosed = aside.classList.contains('inactive');
+    const isAsideClosed = shoppingCartContainer.classList.contains('inactive');
     if(!isAsideClosed){
-        aside.classList.add('inactive');   
+        shoppingCartContainer.classList.add('inactive');   
     }
     desktopmenu.classList.toggle('inactive');
 };
 //Activa o desactiva el menú en movil
 function toggleMobilepmenu(){
-    const isAsideClosed = aside.classList.contains('inactive');
+    const isAsideClosed = shoppingCartContainer.classList.contains('inactive');
     if(!isAsideClosed){
-        aside.classList.add('inactive');   
+        shoppingCartContainer.classList.add('inactive');   
     }
+    //Cierra el product details cuando abrimos menu movile
+    closeProductDetailAside();
+
     mobileMenu.classList.toggle('inactive');
 };
 //Activa o desactiva el carrito
@@ -55,9 +65,30 @@ function toggleCarritoAside(){
     if(!isMobileMenuClosed){
         mobileMenu.classList.add('inactive');   
     }
+    const isProductDetailClosed = productDetailContainer.classList.contains('inactive');
+    //Si el product detalles esta abierto
+    if(!isProductDetailClosed){
+        productDetailContainer.classList.add('inactive');   
+    }
     //Quita el inactive
-    aside.classList.toggle('inactive');
+    shoppingCartContainer.classList.toggle('inactive');
+
 }
+//Abrirá los dtalles de algún producto
+function openProductDetailAside(){
+    //Simplificando pasos y condicionales simplemente borrar clases
+    shoppingCartContainer.classList.add('inactive');  
+
+
+    //Aparece..
+    productDetailContainer.classList.remove('inactive');
+    
+}
+//Cerrará al seleccionar el icono tachita
+function closeProductDetailAside(){
+    productDetailContainer.classList.add('inactive');
+}
+
 
 /**Lista de productos */
 const productList=[];
@@ -89,6 +120,9 @@ function renderProducts(array){
         //product = {name,price,image}->product.img
         const product_img = document.createElement('img');
         product_img.setAttribute('src', product.image);
+        //Ejecutará una función que abrirá sus detalles
+        product_img.addEventListener('click', openProductDetailAside);
+
         //ready
         const product_info = document.createElement('div');
         product_info.classList.add('product-info');
