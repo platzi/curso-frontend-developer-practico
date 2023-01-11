@@ -130,7 +130,8 @@
     position: absolute;
     top: 60px;
     left: 0;
-    width: 100%;
+    /*esto es para que no se genere un scrool por los padding */
+    width: calc(100% - 24px);
     padding-left: 22px;
     background-color: var(--white);
     
