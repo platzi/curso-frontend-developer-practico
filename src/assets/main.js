@@ -1,14 +1,17 @@
 const menuEmail = document.querySelector('.navbar-email');
 const menuBurger = document.querySelector('.menu');
 const menuShoppingCart = document.querySelector('.navbar-shopping-cart');
+const productInfoClose = document.querySelector('.product-detail__product-info-close');
 const desktopMenu = document.querySelector('.desktop-menu');
 const mobileMenu = document.querySelector('.mobile-menu');
-const asideShoppingCart = document.querySelector('.product-detail');
+const asideShoppingCart = document.querySelector('#shoppingCartContainer');
+const asideProductInfo = document.querySelector('#productInfoContainer');
 const productCardsContainer = document.querySelector('.cards-container');
 
 menuEmail.addEventListener('click', toggleMenuDesktop);
 menuBurger.addEventListener('click', toggleMenuMobile);
 menuShoppingCart.addEventListener('click', toggleMenuShoppingCart);
+productInfoClose.addEventListener('click', closeProductInfo);
 
 function toggleMenuDesktop() {
     const isAsideShoppingCartOpen = !asideShoppingCart.classList.contains('inactive');
@@ -27,6 +30,7 @@ function toggleMenuMobile() {
         asideShoppingCart.classList.add('inactive');
     }
 
+    asideProductInfo.classList.add('inactive');
     mobileMenu.classList.toggle('inactive');
 }
 
@@ -37,7 +41,27 @@ function toggleMenuShoppingCart() {
         mobileMenu.classList.add('inactive');
     }
 
+    const isProductInfoOpen = !asideProductInfo.classList.contains('inactive');
+
+    if (isProductInfoOpen) {
+        asideProductInfo.classList.add('inactive');
+    }
+
     asideShoppingCart.classList.toggle('inactive');
+}
+
+function openProductInfoAside() {
+    const isShoppingMenuOpen = !asideShoppingCart.classList.contains('inactive');
+
+    if (isShoppingMenuOpen) {
+        asideShoppingCart.classList.add('inactive');
+    }
+
+    asideProductInfo.classList.remove('inactive');
+}
+
+function closeProductInfo() {
+    asideProductInfo.classList.add('inactive');
 }
 
 const productList = [];
@@ -57,7 +81,7 @@ productList.push({
     imgUrl: 'https://images.pexels.com/photos/4509573/pexels-photo-4509573.jpeg?auto=compress&cs=tinysrgb&w=1260&h=750&dpr=2'
 });
 productList.push({
-    name: 'MucBook Eir',
+    name: 'Laptop',
     price: 999.99,
     imgUrl: 'https://images.pexels.com/photos/812264/pexels-photo-812264.jpeg?auto=compress&cs=tinysrgb&w=1260&h=750&dpr=2'
 });
@@ -89,6 +113,7 @@ function renderProducts(array) {
         // <div class="product-card">
         const productCard = document.createElement('div');
         productCard.classList.add('product-card');
+        productCard.addEventListener('click', openProductInfoAside);
 
         // <img src="some url" alt="">
         const productImg = document.createElement('img');
