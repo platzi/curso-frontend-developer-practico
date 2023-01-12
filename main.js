@@ -13,6 +13,7 @@ mobileMenuIcon.addEventListener("click", toggleMobileMenu);
 shoppingIcon.addEventListener("click", toggleShoppingIcon);
 productDetailCloseIcon.addEventListener("click", closeProductDetailAside)
 
+//* En las funciones siguientes en realidad no deben acabar en OPEN, sino en CLOSED*//
 function toggleDesktopMenu(){
     const isshoppingCartContainerOpen = shoppingCartContainer.classList.contains("inactive")
 
@@ -25,10 +26,12 @@ function toggleDesktopMenu(){
 
 function toggleMobileMenu(){
     const isshoppingCartContainerOpen = shoppingCartContainer.classList.contains("inactive")
+    const isProductDetailContainerOpen = productDetailContainer.classList.contains("inactive")
 
     if (!isshoppingCartContainerOpen){
         shoppingCartContainer.classList.add("inactive");
-    }
+    } else if (!isProductDetailContainerOpen);
+    productDetailContainer.classList.add("inactive")
 
     mobileMenu.classList.toggle("inactive");
 }
@@ -36,17 +39,20 @@ function toggleMobileMenu(){
 function toggleShoppingIcon(){
     const isMobileMenuOpen = mobileMenu.classList.contains("inactive");
     const isDesktopMenuOpen = desktopMenu.classList.contains("inactive");
+    const isProductDetailContainerOpen = productDetailContainer.classList.contains("inactive")
 
     if (!isMobileMenuOpen){
         mobileMenu.classList.add("inactive")
     } else if (!isDesktopMenuOpen){
         desktopMenu.classList.add("inactive")
-    }
+    } else if (!isProductDetailContainerOpen);
+        productDetailContainer.classList.add("inactive")
 
     shoppingCartContainer.classList.toggle("inactive")
 }
 
 function openProductDetailAside(){
+    shoppingCartContainer.classList.add("inactive");
     productDetailContainer.classList.remove("inactive")
 }
 
