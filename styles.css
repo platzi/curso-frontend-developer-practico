@@ -90,6 +90,7 @@ nav {
     border: 1px solid var(--very-light-pink);
     border-radius: 6px;
     padding: 20px 20px 0 20px;
+    background-color: var(--white);
     }
     .desktop-menu ul {
     list-style: none;
@@ -122,6 +123,7 @@ nav {
     position: absolute;
     top: 60px;
     padding: 24px;
+    background-color: var(--white);
     }
     .mobile-menu a {
     text-decoration: none;
@@ -156,6 +158,7 @@ nav {
     box-sizing: border-box;
     position: absolute;
     right: 0;
+    background-color: var(--white);
   }
   .title-container {
     display: flex;
