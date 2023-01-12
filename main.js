@@ -31,9 +31,12 @@ function toggleMobileMenu(){
 
 function toggleShoppingIcon(){
     const isMobileMenuOpen = mobileMenu.classList.contains("inactive");
+    const isDesktopMenuOpen = desktopMenu.classList.contains("inactive")
 
     if (!isMobileMenuOpen){
         mobileMenu.classList.add("inactive")
+    } else if (!isDesktopMenuOpen){
+        desktopMenu.classList.add("inactive")
     }
 
     productDetail.classList.toggle("inactive")
