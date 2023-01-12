@@ -370,6 +370,9 @@ aside {
   .menu {
     display: block;
   }
+  nav {
+    width: 92%;
+  }
   .navbar-left ul {
     display: none;
   }
