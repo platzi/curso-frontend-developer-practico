@@ -1,6 +1,7 @@
 const menuEmail = document.querySelector('.navbar-email');
 const desktopMenu = document.querySelector('.desktop-menu');
 const menuHamIcon = document.querySelector('.menu');
+menuCarritoIcon
 const mobileMenu = document.querySelector('.mobile-menu');
 
 menuEmail.addEventListener('click',toggleDesktopMenu);
