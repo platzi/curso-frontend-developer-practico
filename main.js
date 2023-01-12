@@ -1,29 +1,38 @@
 const manuEmail = document.querySelector(".navbar-email");
 const menuHamIcon = document.querySelector(".menu");
 const menuCarIcon= document.querySelector(".navbar-shopping-cart");
+const productdetailCloseIcon = document.querySelector(".product-detail-close");
 
 const desktopMenu = document.querySelector(".desktop-menu");
 const mobileMenu = document.querySelector(".mobile-menu");
 const shoppingCartContainer = document.querySelector("#shoppingCartContainer");
+const productDetailContainer = document.querySelector("#productDitail");
 const cardsContainer = document.querySelector(".cards-container");
 
 manuEmail.addEventListener("click", toggleDesktopMenu);
 menuHamIcon.addEventListener("click", toggleMobileMenu);
 menuCarIcon.addEventListener("click", toggleShoppingCartContainer);
+productdetailCloseIcon.addEventListener("click", closePoductdetailAside);
 
 function toggleDesktopMenu() {
     const isShoppingCartContainerClosed = shoppingCartContainer.classList.contains("inactive");
-    if(!isShoppingCartContainerClosed){
+    const isProductDetailContainerClosed = productDetailContainer.classList.contains("inactive");
+
+    if(!isShoppingCartContainerClosed || !isProductDetailContainerClosed){
         shoppingCartContainer.classList.add("inactive");
         desktopMenu.classList.add("inactive");/* Esto permite agrefar .inactive a la función  toggleDesktopMenu para primero ponerle la calse y luego,  al hacer clic sobre la etiqueta la funcion por defecto cambia la clase (en este caso la quita)*/
+        productDetailContainer.classList.add("inactive");
     }
     desktopMenu.classList.toggle("inactive");
 }
 
 function toggleMobileMenu() {
     const isShoppingCartContainerClosed = shoppingCartContainer.classList.contains("inactive");
-    if(!isShoppingCartContainerClosed){
+    const isProductDetailContainerClosed = productDetailContainer.classList.contains("inactive");
+
+    if(!isShoppingCartContainerClosed || !isProductDetailContainerClosed){
         shoppingCartContainer.classList.add("inactive");
+        productDetailContainer.classList.add("inactive");
     }
     mobileMenu.classList.toggle("inactive");
 }
@@ -31,11 +40,26 @@ function toggleMobileMenu() {
 function toggleShoppingCartContainer() {
     const isMobileMenuClosed = mobileMenu.classList.contains("inactive");
     const isdesktopMenuClosed = desktopMenu.classList.contains("inactive");
-    if(!isMobileMenuClosed || !isdesktopMenuClosed){
+    const isProductDetailContainerClosed = productDetailContainer.classList.contains("inactive");
+
+    if(!isMobileMenuClosed || !isdesktopMenuClosed || !isProductDetailContainerClosed){
         mobileMenu.classList.add("inactive");
         desktopMenu.classList.add("inactive");
+        productDetailContainer.classList.add("inactive");
     }
     shoppingCartContainer.classList.toggle("inactive");
+}
+
+function openProductDetailAside() {
+    productDetailContainer.classList.remove("inactive");
+    shoppingCartContainer.classList.add("inactive");
+    desktopMenu.classList.add("inactive");
+    mobileMenu.classList.add("inactive");
+    /* Esto permite que al abrir el productDetail se cierre todo lo que pueda estar abuerto, se ahorran lineas de codigo por que no es necesaria la condicional */
+}
+
+function closePoductdetailAside() {
+    productDetailContainer.classList.add("inactive");
 }
 
 const productList = [];
@@ -69,6 +93,7 @@ function renderProduts(arr){
         //product = {name, proce, image} -> product.image
         const imageCard = document.createElement("img");
         imageCard.setAttribute("src", product.image);
+        imageCard.addEventListener("click", openProductDetailAside)
         
         const productInfo = document.createElement("div");
         productInfo.classList.add("product-info");
