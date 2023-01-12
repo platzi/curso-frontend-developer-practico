@@ -151,27 +151,27 @@ nav {
     color: var(--hospital-green) !important;
     }
 
-/* Aside */
-.product-detail {
+/* Shopping cart */
+ .shopping-cart-container {
     width: 360px;
-    padding: 0 24px;
+    padding: 0 24px 24px;
     box-sizing: border-box;
     position: absolute;
     right: 0;
     background-color: var(--white);
   }
-  .title-container {
+  #shopping-cart-container .title-container {
     display: flex;
   }
-  .title-container img {
+  #shopping-cart-container .title-container img {
     transform: rotate(180deg);
     margin-right: 14px;
   }
-  .title {
+  #shopping-cart-container .title {
     font-size: var(--lg);
     font-weight: bold;
   }
-  .order {
+  #shopping-cart-container .order {
     display: grid;
     grid-template-columns: auto 1fr;
     gap: 16px;
@@ -181,42 +181,42 @@ nav {
     border-radius: 8px;
     padding: 0 24px;
   }
-  .order p:nth-child(1) {
+  #shopping-cart-container .order p:nth-child(1) {
     display: flex;
     flex-direction: column;
   }
-  .order p span:nth-child(1) {
+  #shopping-cart-container .order p span:nth-child(1) {
     font-size: var(--md);
     font-weight: bold;
   }
-  .order p:nth-child(2) {
+  #shopping-cart-container .order p:nth-child(2) {
     text-align: end;
     font-weight: bold;
   }
-  .shopping-cart {
+  #shopping-cart-container .shopping-cart {
     display: grid;
     grid-template-columns: auto 1fr auto auto;
     gap: 16px;
     margin-bottom: 24px;
     align-items: center;
   }
-  .shopping-cart figure {
+  #shopping-cart-container .shopping-cart figure {
     margin: 0;
   }
-  .shopping-cart figure img {
+  #shopping-cart-container .shopping-cart figure img {
     width: 70px;
     height: 70px;
     border-radius: 20px;
     object-fit: cover;
   }
-  .shopping-cart p:nth-child(2) {
+  #shopping-cart-container .shopping-cart p:nth-child(2) {
     color: var(--very-light-pink);
   }
-  .shopping-cart p:nth-child(3) {
+  #shopping-cart-container .shopping-cart p:nth-child(3) {
     font-size: var(--md);
     font-weight: bold;
   }
-  .primary-button {
+  #shopping-cart-container .primary-button {
     background-color: var(--hospital-green);
     border-radius: 8px;
     border: none;
@@ -282,7 +282,7 @@ nav {
   .desktop-menu {
     display: none;
   }
-  .product-detail {
+  shopping-cart-container {
     width: 100%;
   }
   .cards-container {
