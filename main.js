@@ -4,6 +4,14 @@ let mobileMenu = document.querySelector('.mobile-menu')
 let iconCarrito = document.querySelector('.navbar-shopping-cart ')
 let shoppingcartContainer = document.querySelector('#shoppingcartContainer')
 let desktopM = document.querySelector('.desktop-menu');
+let productDetailCloseIcon = document.querySelector('.product-detail-close')
+
+productDetailCloseIcon.addEventListener('click', () => {
+    shoppingcartContainer.classList.add('active')
+    productDetail.classList.add('active')
+})
+
+let productDetail = document.querySelector('#productDetail');
 
 let cardContainer = document.querySelector('.cards-container')
 gmail.addEventListener('click', () => {
@@ -15,12 +23,18 @@ menuHamIcon.addEventListener('click', () => {
     if(!isAsideClosed) {
         shoppingcartContainer.classList.add('active')
     }
+    productDetail.classList.add('active')
     mobileMenu.classList.toggle('active')
 })
 iconCarrito.addEventListener('click', () => {
     const isMobileMenuClosed = mobileMenu.classList.contains('active')
     if(!isMobileMenuClosed) {
         mobileMenu.classList.add('active')
+    }
+
+    const isProductDetailClose = productDetail.classList.contains('active')
+    if(!isProductDetailClose) {
+        productDetail.classList.add('active')
     }
     shoppingcartContainer.classList.toggle('active')
     
@@ -61,6 +75,10 @@ function renderList (arr) {
 
     let productImg = document.createElement('img');
     productImg.setAttribute('src', product.image);
+
+    productImg.addEventListener('click', () => {
+        productDetail.classList.remove('active')
+    })
     
     let productInfo = document.createElement('div');
     productInfo.classList.add('product-info');

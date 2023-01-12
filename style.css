@@ -125,11 +125,11 @@
   .mobile-menu {
     position: absolute;
     top: 60px;
-    padding: 24px;
     transition: .3s;
     left: 0;
-    width: 100%;
+    width: calc(100% - 24px);
     background-color: var(--white);
+    padding-left: 24px;
   }
   .mobile-menu a {
     text-decoration: none;
@@ -165,6 +165,7 @@
     position: absolute;
     right: 0;
     transition: .3s;
+    padding: 24px;
   }
 
 
