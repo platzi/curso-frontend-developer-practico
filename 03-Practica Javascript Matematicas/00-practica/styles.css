@@ -34,6 +34,7 @@ p, span {
 }
 .section-main {
   height: 92vh;
+  background-color: #e7e7e7;
 }
 .contain-main {
   margin: auto;

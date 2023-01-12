@@ -19,7 +19,7 @@ inputIngresos.addEventListener('change', (e) => {
     cartelWarning.textContent = 'Tu inversion debe no debe superar los $10.000(dólares)'
   } else {
    cartelWarning.classList.add('d-none');
- }
+  }
 })
 
 inputDias.addEventListener('change', (e) => {
