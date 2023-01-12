@@ -141,6 +141,7 @@ nav {
 
 /* Mobile */
 .mobile-menu {
+    background-color: var(--white);
     position: absolute;
     top: 60px;
     padding: 24px;
