@@ -18,6 +18,19 @@
   .product__detail {
     width: 100%;
   }
+
+  .product__container {
+    grid-template-columns: repeat(auto-fill, 140px);
+  }
+
+  .product__card {
+    width: 140px;
+  }
+
+  .product__card__img {
+    width: 140px;
+    height: 140px;
+  }
 }
 
 @media (min-width: 731px) {

@@ -26,3 +26,86 @@ function toogleCarritoAside() {
   mobileMenu.classList.add('inactive');
   aside.classList.toggle('inactive');
 }
+
+
+const productList = [];
+productList.push({
+  name: 'Bike',
+  price: 220,
+  image: 'https://images.pexels.com/photos/276517/pexels-photo-276517.jpeg?auto=compress&cs=tinysrgb&dpr=2&h=650&w=940'
+});
+
+productList.push({
+  name: 'Bike',
+  price: 220,
+  image: 'https://images.pexels.com/photos/276517/pexels-photo-276517.jpeg?auto=compress&cs=tinysrgb&dpr=2&h=650&w=940'
+});
+
+productList.push({
+  name: 'Bike',
+  price: 220,
+  image: 'https://images.pexels.com/photos/276517/pexels-photo-276517.jpeg?auto=compress&cs=tinysrgb&dpr=2&h=650&w=940'
+});
+
+productList.push({
+  name: 'Bike',
+  price: 220,
+  image: 'https://images.pexels.com/photos/276517/pexels-photo-276517.jpeg?auto=compress&cs=tinysrgb&dpr=2&h=650&w=940'
+});
+
+productList.push({
+  name: 'Bike',
+  price: 220,
+  image: 'https://images.pexels.com/photos/276517/pexels-photo-276517.jpeg?auto=compress&cs=tinysrgb&dpr=2&h=650&w=940'
+});
+
+productList.push({
+  name: 'Bike',
+  price: 220,
+  image: 'https://images.pexels.com/photos/276517/pexels-photo-276517.jpeg?auto=compress&cs=tinysrgb&dpr=2&h=650&w=940'
+});
+
+function renderProducts(arr) {
+  for (product of productList) {
+    const productCard = document.createElement('div');
+    productCard.classList.add('product__card');
+
+    const productImg = document.createElement('img');
+    productImg.setAttribute('src', product.image);
+    productImg.classList.add('product__card__img');
+
+    const productInfo = document.createElement('div');
+    productInfo.classList.add('product__info');
+
+    const productInfoContainer = document.createElement('div');
+    productInfoContainer.classList.add('product__info--container');
+
+    const productInfoPrice = document.createElement('p');
+    productInfoPrice.innerText = '$' + product.price;
+    productInfoPrice.classList.add('product__info__price');
+
+    const productInfoName = document.createElement('p');
+    productInfoName.innerText = product.name;
+    productInfoName.classList.add('product__info__name');
+
+    productInfoContainer.append(productInfoPrice, productInfoName);
+
+    const productInfoIconContainer = document.createElement('figure');
+    productInfoIconContainer.classList.add('product__info__icon--container');
+
+    const productInfoIcon = document.createElement('img');
+    productInfoIcon.setAttribute('src', './icons/bt_add_to_cart.svg');
+    productInfoIcon.classList.add('product__info__icon');
+
+    productInfoIconContainer.appendChild(productInfoIcon);
+
+    productInfo.append(productInfoContainer, productInfoIconContainer);
+
+    productCard.append(productImg, productInfo);
+
+    const productContainer = document.querySelector('.product__container');
+    productContainer.appendChild(productCard);
+  }
+}
+
+renderProducts(productList);
