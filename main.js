@@ -7,17 +7,34 @@ const  aside= document.querySelector('.product-detail');
 const  cardsContainer= document.querySelector('.cards-container');
 const  mainConteiner=document.querySelector('.main-container')
 const  index=document.querySelector('body');
-
+const  asideDetails= document.querySelector('.detalles-producto');
+const  btnIconCloseDetains=document.querySelector('#close')
 
 menuEmail.addEventListener('click', toggleDesktopMenu);
 menuHamIcon.addEventListener('click', toggleMobileMenu);
 menuCarritoIcon.addEventListener('click', toggleCarritoAsice);
 mainConteiner.addEventListener('click',DesactivarMenusDesktopyMobile)
+mainConteiner.addEventListener('click', openAsideDetails)
+btnIconCloseDetains.addEventListener('click', closeAsideDetails)
+
+function closeAsideDetails(){
+       asideDetails.classList.add('inactive', true)
+
+}
+
+function openAsideDetails() {
+       asideDetails.classList.toggle('inactive')
+       desktopMenu.classList.toggle ('inactive',true);
+       aside.classList.add('inactive',true)
+       mobileMenu.classList.toggle ('inactive',true);
+       aside.classList.add('inactive',true);
+
+}
 
 function toggleDesktopMenu (){
        desktopMenu.classList.toggle ('inactive');
        aside.classList.add('inactive',true)
-
+       asideDetails.classList.add('inactive', true)
 }
 
 function DesactivarMenusDesktopyMobile (){
@@ -33,12 +50,15 @@ function DesactivarMenusDesktopyMobile (){
 function toggleMobileMenu (){
 mobileMenu.classList.toggle ('inactive');
 aside.classList.add('inactive',true);
+asideDetails.classList.add('inactive', true)
 }
 
 function toggleCarritoAsice (){
        aside.classList.toggle ('inactive');
        mobileMenu.classList.add('inactive',true);       
        desktopMenu.classList.add ('inactive',true);
+       asideDetails.classList.add('inactive',true);
+      
 }
 
 const productList = []
@@ -151,3 +171,4 @@ function ProductAdd (arry){
 
     index.onload=ProductAdd(productList);
 
+    
