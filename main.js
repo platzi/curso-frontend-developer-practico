@@ -5,8 +5,8 @@ const  mobileMenu= document.querySelector('.mobile-menu');
 const  menuCarritoIcon= document.querySelector('.navbar-shopping-cart');
 const  aside= document.querySelector('.product-detail');
 const  cardsContainer= document.querySelector('.cards-container');
-const  mainConteiner = document.querySelector('.main-container')
-const index=document.querySelector('body')
+const  mainConteiner=document.querySelector('.main-container')
+const  index=document.querySelector('body');
 
 
 menuEmail.addEventListener('click', toggleDesktopMenu);
@@ -112,8 +112,8 @@ productList.push({
 //     }    
 
 // for (const país of Object.keys(obj))   
-function ProductAdd (arr){
-           for (product  of arr){
+function ProductAdd (arry){
+           for (product  of arry){
     
                   const productCard=document.createElement('div')
                   const img=document.createElement('img') 
@@ -150,3 +150,4 @@ function ProductAdd (arr){
     }
 
     index.onload=ProductAdd(productList);
+
