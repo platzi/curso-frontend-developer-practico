@@ -5,7 +5,7 @@ const mobileMenuIcon = document.querySelector(".menu_icon");
 const mobileMenu = document.querySelector(".mobile-menu");
 
 const menuCarritoIcon = document.querySelector(".navbar-shopping-cart");
-const aside = document.querySelector(".product-detail");
+const shoppingCartContainer = document.querySelector("#shoppingCartContainer");
 
 const cardsContainer = document.querySelector(".cards-container");
 
@@ -13,7 +13,7 @@ mail.addEventListener("click", () => toggleMenu(mailMenu));
 
 mobileMenuIcon.addEventListener("click", () => toggleMenu(mobileMenu));
 
-menuCarritoIcon.addEventListener("click", () => toggleMenu(aside));
+menuCarritoIcon.addEventListener("click", () => toggleMenu(shoppingCartContainer));
 
 function toggleMenu(element) {
   element.classList.toggle("inactive");
