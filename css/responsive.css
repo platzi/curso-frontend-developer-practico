@@ -14,6 +14,10 @@
   .desktop__menu {
     display: none;
   }
+
+  .product__detail {
+    width: 100%;
+  }
 }
 
 @media (min-width: 731px) {
