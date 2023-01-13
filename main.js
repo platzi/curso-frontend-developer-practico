@@ -91,7 +91,7 @@ function renderProducts(arr){
         productImg.addEventListener('click', openProductDetailAside);
     
         const productInfo = document.createElement('div');
-        productCard.classList.add('product-info')
+        productInfo.classList.add('product-info')
     
         const productInfoDiv = document.createElement('div');
     
