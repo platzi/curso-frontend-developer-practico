@@ -5,42 +5,44 @@ const burguerMenu = document.querySelector('.navbar__menu');
 const mobileMenu = document.querySelector('.mobile__menu');
 
 const menuCarritoIcon = document.querySelector('.navbar__shopping__cart');
-const aside = document.querySelector('.product__detail');
+const aside = document.querySelector('.aside__product');
+
+const productDetailClose = document.querySelector('.product__detail__close');
+const productDetail = document.querySelector('.product__detail');
 
 emailMenu.addEventListener('click', toggleDesktopMenu);
 burguerMenu.addEventListener('click', toggleMobileMenu);
 menuCarritoIcon.addEventListener('click', toogleCarritoAside);
+productDetailClose.addEventListener('click', toogleProductDetail);
 
 function toggleDesktopMenu() {
   desktopMenu.classList.toggle('inactive');
   aside.classList.add('inactive');
+  productDetail.classList.add('inactive');
 }
 
 function toggleMobileMenu() {
   mobileMenu.classList.toggle('inactive');
   aside.classList.add('inactive');
+  productDetail.classList.add('inactive');
 }
 
 function toogleCarritoAside() {
+  aside.classList.toggle('inactive');
   desktopMenu.classList.add('inactive');
   mobileMenu.classList.add('inactive');
-  aside.classList.toggle('inactive');
+  productDetail.classList.add('inactive');
+}
+
+function toogleProductDetail() {
+  productDetail.classList.toggle('inactive');
+  desktopMenu.classList.add('inactive');
+  mobileMenu.classList.add('inactive');
+  aside.classList.add('inactive');
 }
 
 
 const productList = [];
-productList.push({
-  name: 'Bike',
-  price: 220,
-  image: 'https://images.pexels.com/photos/276517/pexels-photo-276517.jpeg?auto=compress&cs=tinysrgb&dpr=2&h=650&w=940'
-});
-
-productList.push({
-  name: 'Bike',
-  price: 220,
-  image: 'https://images.pexels.com/photos/276517/pexels-photo-276517.jpeg?auto=compress&cs=tinysrgb&dpr=2&h=650&w=940'
-});
-
 productList.push({
   name: 'Bike',
   price: 220,
@@ -73,6 +75,7 @@ function renderProducts(arr) {
     const productImg = document.createElement('img');
     productImg.setAttribute('src', product.image);
     productImg.classList.add('product__card__img');
+    productImg.addEventListener('click', toogleProductDetail);
 
     const productInfo = document.createElement('div');
     productInfo.classList.add('product__info');

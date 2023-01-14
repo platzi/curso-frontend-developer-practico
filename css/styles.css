@@ -166,12 +166,7 @@ body {
   position: absolute;
   top: 60px;
   padding: 24px;
-
-  left: -400px;
-  transition: 400ms;
-}
-
-.slide-right {
+  width: 100%;
   left: 0;
 }
 
@@ -204,9 +199,9 @@ body {
   color: var(--hospital-green) !important;
 }
 
-/* Product detail and shopping cart */
+/* Aside Product and shopping cart */
 
-.product__detail {
+.aside__product {
   background-color: var(--white);
   width: 360px;
   padding: 12px 24px;
@@ -214,17 +209,17 @@ body {
   right: 0;
 }
 
-.product__detail__title--container {
+.aside__product__title--container {
   display: flex;
   margin-bottom: 15px;
 }
 
-.product__detail__icon {
+.aside__product__icon {
   transform: rotate(180deg);
   margin-right: 14px;
 }
 
-.product__detail__title {
+.aside__product__title {
   font-size: var(--lg);
   font-weight: bold;
 }
@@ -348,4 +343,77 @@ body {
 .product__info__icon {
   width: 35px;
   height: 35px;
+}
+
+/* Product detail */
+
+.product__detail {
+  width: 360px;
+  padding-bottom: 24px;
+  position: absolute;
+  right: 0;
+  background-color: var(--white);
+}
+
+.product__detail__close {
+  background: var(--white);
+  width: 14px;
+  height: 14px;
+  position: absolute;
+  top: 24px;
+  left: 24px;
+  z-index: 2;
+  padding: 12px;
+  border-radius: 50%;
+}
+
+.product__detail__close:hover {
+  cursor: pointer;
+}
+
+.product__detail__img {
+  width: 100%;
+  height: 360px;
+  object-fit: cover;
+  border-radius: 0 0 20px 20px;
+}
+
+.product__detail__info {
+  margin: 24px 24px 0 24px;
+}
+
+.product__detail__price {
+  font-weight: bold;
+  font-size: var(--md);
+  margin-top: 0;
+  margin-bottom: 4px;
+}
+
+.product__detail__name {
+  color: var(--very-light-pink);
+  font-size: var(--md);
+  margin-top: 0;
+  margin-bottom: 36px;
+}
+
+.product__detail__text {
+  color: var(--very-light-pink);
+  font-size: var(--sm);
+  margin-top: 0;
+  margin-bottom: 36px;
+}
+
+.product__detail__button {
+  background-color: var(--hospital-green);
+  border-radius: 8px;
+  border: none;
+  color: var(--white);
+  width: 100%;
+  cursor: pointer;
+  font-size: var(--md);
+  font-weight: bold;
+  height: 50px;
+  display: flex;
+  align-items: center;
+  justify-content: center;
 }
