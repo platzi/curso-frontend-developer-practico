@@ -164,6 +164,7 @@ nav {
 aside {
     background: var(--white);
     width: 360px;
+    padding: 10px;
     box-sizing: border-box;
     position: absolute;
     right: 0;
