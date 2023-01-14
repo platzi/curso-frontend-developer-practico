@@ -43,7 +43,6 @@ function openProductDetailAside() {
     shoppingCartContainer.classList.add('inactive');
     productDetailContainer.classList.remove('inactive');
     
-    renderProductDetails();
 }
 function closeProductDetailAside(){
     productDetailContainer.classList.add('inactive');
@@ -186,3 +185,4 @@ function renderProductDetails (){
     productDetailContainer.appendChild(productInfo_Container);
 }
 
+renderProductDetails();
