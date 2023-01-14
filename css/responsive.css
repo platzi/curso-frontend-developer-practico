@@ -1,0 +1,44 @@
+@media (max-width: 730px) {
+  .navbar__menu {
+    display: block;
+  }
+
+  .navbar__left__ul {
+    display: none;
+  }
+
+  .navbar__email {
+    display: none;
+  }
+
+  .desktop__menu {
+    display: none;
+  }
+
+  .aside__product {
+    width: 100%;
+  }
+
+  .product__container {
+    grid-template-columns: repeat(auto-fill, 140px);
+  }
+
+  .product__card {
+    width: 140px;
+  }
+
+  .product__card__img {
+    width: 140px;
+    height: 140px;
+  }
+
+  .product__detail {
+    width: 100%;
+  }
+}
+
+@media (min-width: 731px) {
+  .mobile__menu {
+    display: none;
+  }
+}
