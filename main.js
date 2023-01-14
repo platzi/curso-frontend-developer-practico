@@ -1,29 +1,35 @@
 const menuEmail = document.querySelector('.navbar-email');
 const menuBurgerIcon = document.querySelector('.menu');
 const menuCartIcon = document.querySelector('.navbar-shopping-cart')
+const productDetailCloseIcon = document.querySelector('.product-detail-close');
 const desktopMenu = document.querySelector('.desktop-menu');
 const mobileMenu = document.querySelector('.mobile-menu');
 const shoppingCartContainer = document.querySelector('#shoppingCartContainer');
+const productDetailContainer = document.querySelector('#productDetail');
 const cardsContainer = document.querySelector('.cards-container');
 
 menuEmail.addEventListener('click', toggleDesktopMenu);
 menuBurgerIcon.addEventListener('click', toggleMobileMenu);
 menuCartIcon.addEventListener('click', toggleCartAside);
+productDetailCloseIcon.addEventListener('click', closeProductDetailAside);
 
 function toggleDesktopMenu() {
-  desktopMenu.classList.toggle('inactive');
-  shoppingCartContainer.classList.add('inactive')
+  desktopMenu.classList.toggle('inactive'); //inactive está, al hacer clic se quitará
+  shoppingCartContainer.classList.add('inactive') //si está abierta la ventana, se le agrega inactive a las demás para que desaparezcan
+  productDetailContainer.classList.add('inactive');
 };
 
 function toggleMobileMenu() {
   mobileMenu.classList.toggle('inactive');
   shoppingCartContainer.classList.add('inactive')
+  productDetailContainer.classList.add('inactive');
 };
 
 function toggleCartAside() {
   shoppingCartContainer.classList.toggle('inactive');
   desktopMenu.classList.add('inactive');
   mobileMenu.classList.add('inactive');
+  productDetailContainer.classList.add('inactive'); 
 };
 
 const productList = [];
@@ -73,6 +79,16 @@ productList.push ({
   image: 'https://m.media-amazon.com/images/I/81k2Gmal+VL._AC_SL1500_.jpg'
 }); 
 
+function openProductDetailAside() {
+  productDetailContainer.classList.remove('inactive'); //para que aparezca el aside de producDetail al darle clic a la imagen
+  shoppingCartContainer.classList.add('inactive'); //para que desaparezcan todas las ventanas abiertas cuando queramos abrir el product detail
+  desktopMenu.classList.add('inactive');
+  mobileMenu.classList.add('inactive');
+}
+function closeProductDetailAside() {
+  productDetailContainer.classList.add('inactive');
+}
+
 function renderProducts(arr) {
   for (product of arr) {
     const productCard = document.createElement('div');
@@ -80,6 +96,7 @@ function renderProducts(arr) {
   
     const productImg = document.createElement('img');
     productImg.setAttribute('src', product.image)
+    productImg.addEventListener('click', openProductDetailAside);
   
     const productInfo = document.createElement('div');
     productInfo.classList.add('product-info');
