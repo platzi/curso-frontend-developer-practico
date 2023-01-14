@@ -11,7 +11,9 @@ const mobileMenu = document.querySelector('.mobile-menu');
 const carritoComprasIcon = document.querySelector('.navbar-shopping-cart');
 carritoComprasIcon.addEventListener('click', toogleDetailCarritoCompra);
 
-const detalleCarrito = document.querySelector('.product-detail');
+const detalleCarrito = document.querySelector('#detalleCarrito');
+
+const detalleProducto = document.querySelector('#detalleProducto');
 
 const listaProductos = [
     {
@@ -53,6 +55,7 @@ function renderListProductos(arr) {
         
         const productoImagen = document.createElement('img');
         productoImagen.setAttribute('src', producto.imagen);
+        productoImagen.addEventListener('click', showDetalleProducto);
         
         const productInfo = document.createElement('div');
         productInfo.classList.add('product-info');
@@ -83,6 +86,7 @@ function toogleDesktopMenu() {
     desktopMenu.classList.toggle('inactive');
     detalleCarrito.classList.add('inactive');
     mobileMenu.classList.add('inactive');
+    detalleProducto.classList.add('inactive');
 }
 
 function toogleMobileMenuHamburguesa() {
@@ -90,12 +94,28 @@ function toogleMobileMenuHamburguesa() {
     mobileMenu.classList.toggle('inactive');
     detalleCarrito.classList.add('inactive');
     desktopMenu.classList.add('inactive');
+    detalleProducto.classList.add('inactive');
 }
 
 function toogleDetailCarritoCompra() {
     detalleCarrito.classList.toggle('inactive');
     mobileMenu.classList.add('inactive');
     desktopMenu.classList.add('inactive');
+    detalleProducto.classList.add('inactive');
+}
+
+function showDetalleProducto() {
+    detalleProducto.classList.remove('inactive');
+    mobileMenu.classList.add('inactive');
+    desktopMenu.classList.add('inactive');
+    detalleCarrito.classList.add('inactive');
 }
 
 renderListProductos(listaProductos);
+
+function closeDetalleProducto() {
+    detalleProducto.classList.add('inactive');
+    // mobileMenu.classList.add('inactive');
+    // desktopMenu.classList.add('inactive');
+    // detalleCarrito.classList.add('inactive');
+}
