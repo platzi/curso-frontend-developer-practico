@@ -3,7 +3,7 @@ const desktopMenu = document.querySelector('.desktop-menu');
 const menuHamIcon = document.querySelector('.menu');
 const mobileMenu = document.querySelector('.mobile-menu');
 const menuCarritoIcon = document.querySelector('.navbar-shopping-cart');
-const aside = document.querySelector('.product-detail');
+const shoppingCartContainer = document.querySelector('#shoppingCartContainer');
 const cardsContainer = document.querySelector('.cards-container')
 
 menuEmail.addEventListener('click', toggleDestopMenu);
@@ -11,18 +11,18 @@ menuHamIcon.addEventListener('click', toggleMobileMenu);
 menuCarritoIcon.addEventListener('click', toggleCarritoAside);
 
 function toggleDestopMenu (){
-    const isAsideClosed = aside.classList.contains('inactive')
+    const isAsideClosed = shoppingCartContainer.classList.contains('inactive')
     if(!isAsideClosed){
-        aside.classList.add('inactive')    
+        shoppingCartContainer.classList.add('inactive')    
     }
     desktopMenu.classList.toggle('inactive')
 }
 
 
 function toggleMobileMenu (){
-    const isAsideClosed = aside.classList.contains('inactive')
+    const isAsideClosed = shoppingCartContainer.classList.contains('inactive')
     if(!isAsideClosed){
-        aside.classList.add('inactive')    
+        shoppingCartContainer.classList.add('inactive')    
     }
     mobileMenu.classList.toggle('inactive')
 }
@@ -33,7 +33,7 @@ function toggleCarritoAside () {
     if(!isMobileMenuClosed){
         mobileMenu.classList.add('inactive')    
     }
-    aside.classList.toggle('inactive')
+    shoppingCartContainer.classList.toggle('inactive')
 }
 
 const productList = []
@@ -56,26 +56,10 @@ productList.push({
     image : 'https://images.pexels.com/photos/276517/pexels-photo-276517.jpeg?auto=compress&cs=tinysrgb&dpr=2&h=650&w=940'
 });
 
-productList.push({
-    name: 'bike',
-    price: 120,
-    image : 'https://images.pexels.com/photos/276517/pexels-photo-276517.jpeg?auto=compress&cs=tinysrgb&dpr=2&h=650&w=940'
-});
-
-productList.push({
-    name: 'pantalla',
-    price: 220,
-    image : 'https://images.pexels.com/photos/276517/pexels-photo-276517.jpeg?auto=compress&cs=tinysrgb&dpr=2&h=650&w=940'
-});
-
-productList.push({
-    name: 'compu',
-    price: 620,
-    image : 'https://images.pexels.com/photos/276517/pexels-photo-276517.jpeg?auto=compress&cs=tinysrgb&dpr=2&h=650&w=940'
-});
 
 
-/*
+
+/* Crear esta plantilla de HTML  desde Js 
 <div class="product-card">
   <img src="https://images.pexels.com/photos/276517/pexels-photo-276517.jpeg?auto=compress&cs=tinysrgb&dpr=2&h=650&w=940" alt="">
   <div class="product-info">
@@ -127,7 +111,7 @@ function renderProducts(arr){
         cardsContainer.appendChild(productCard)
     
     
-     }
+    }
 
 }
 
