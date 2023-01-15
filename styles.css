@@ -67,6 +67,7 @@ nav {
 }
 .navbar-shopping-cart {
   position: relative;
+  cursor: pointer;
 }
 .navbar-shopping-cart div {
   width: 16px;
@@ -124,6 +125,7 @@ nav {
 
 /*Menu en Mobile*/
 .mobile-menu {
+  background-color: var(--white);
   position: absolute;
   top: 60px;
   padding: 24px;
@@ -156,6 +158,7 @@ nav {
 
 /*Aside (product detail y carrito)*/
 .product-detail {
+  background-color: var(--white);
   width: 360px;
   padding: 24px;
   box-sizing: border-box;
@@ -201,15 +204,18 @@ nav {
   gap: 16px;
   margin-bottom: 24px;
   align-items: center;
+  cursor: pointer;
 }
 .shopping-cart figure {
   margin: 0;
+
 }
 .shopping-cart figure img {
   width: 70px;
   height: 70px;
   border-radius: 20px;
   object-fit: cover;
+  
 }
 .shopping-cart p:nth-child(2) {
   color: var(--very-light-pink);
