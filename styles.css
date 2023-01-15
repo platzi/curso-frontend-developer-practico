@@ -17,7 +17,7 @@
     display: none;
   }
 
-  /*Clase 11........................................*/
+  /*Clase 11 NAVBAR GENERAL........................................*/
   nav {
     display: flex;
     justify-content: space-between;
@@ -26,6 +26,7 @@
   }
   .menu {
     display: none;
+    cursor: pointer;
   }
   .logo {
     width: 100px;
@@ -81,19 +82,8 @@
     justify-content: center;
     align-items: center;
   }
-  @media (max-width: 640px) {
-    .menu {
-      display: block;
-    }
-    .navbar-left ul {
-      display: none;
-    }
-    .navbar-email {
-      display: none;
-    }
-  }
 
-/*Clase 7......................................................*/
+/*Clase 7 DESKTOP MENU......................................................*/
 
 .desktop-menu {
     width: 100px;
@@ -131,4 +121,60 @@
     text-decoration: none;
     margin-bottom: 20px;
     display: inline-block;
+  }
+
+  /*Clase 8 MOBILE MENU................................................*/
+
+  .mobile-menu {
+    padding: 24px;
+    position: absolute;
+    top: 60px;
+  }
+  .mobile-menu a {
+    text-decoration: none;
+    color: var(--black);
+    font-weight: bold;
+    /* margin-bottom: 24px; */
+  }
+  .mobile-menu ul {
+    padding: 0;
+    margin: 24px 0 0;
+    list-style: none;
+  }
+  .mobile-menu ul:nth-child(1) {
+    border-bottom: 1px solid var(--very-light-pink);
+  }
+  .mobile-menu ul li {
+    margin-bottom: 24px;
+  }
+  .email {
+    font-size: var(--sm);
+    font-weight: 300 !important;
+  }
+  .sign-out {
+    font-size: var(--sm);
+    color: var(--hospital-green) !important;
+  }
+
+
+
+  @media (max-width: 640px) {
+    .menu {
+      display: block;
+    }
+    .navbar-left ul {
+      display: none;
+    }
+    .navbar-email {
+      display: none;
+    }
+    .desktop-menu{
+        display: none;
+    }
+  }
+
+  @media (min-width: 641px) {
+    .mobile-menu{
+        display: none;
+    }
   }
