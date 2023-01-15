@@ -1,17 +1,18 @@
 const menuEmail = document.querySelector('.navbar-email');
 const menuBurgerIcon = document.querySelector('.menu');
 const menuCartIcon = document.querySelector('.navbar-shopping-cart')
-const productDetailCloseIcon = document.querySelector('.product-detail-close');
+// const productDetailCloseIcon = document.querySelector('.product-detail-close');
 const desktopMenu = document.querySelector('.desktop-menu');
 const mobileMenu = document.querySelector('.mobile-menu');
 const shoppingCartContainer = document.querySelector('#shoppingCartContainer');
 const productDetailContainer = document.querySelector('#productDetail');
 const cardsContainer = document.querySelector('.cards-container');
 
+
 menuEmail.addEventListener('click', toggleDesktopMenu);
 menuBurgerIcon.addEventListener('click', toggleMobileMenu);
 menuCartIcon.addEventListener('click', toggleCartAside);
-productDetailCloseIcon.addEventListener('click', closeProductDetailAside);
+// productDetailCloseIcon.addEventListener('click', closeProductDetailAside);
 
 function toggleDesktopMenu() {
   desktopMenu.classList.toggle('inactive'); //inactive está, al hacer clic se quitará
@@ -34,69 +35,76 @@ function toggleCartAside() {
 
 const productList = [];
 productList.push ({
-  name:'Bike',
-  price: 12700,
-  image: 'https://images.pexels.com/photos/276517/pexels-photo-276517.jpeg?auto=compress&cs=tinysrgb&dpr=2&h=650&w=940'
+  name:'Reebuk Air',
+  price: 100,
+  description: 'powerful shoes',
+  image: 'https://images.pexels.com/photos/11123099/pexels-photo-11123099.jpeg?auto=compress&cs=tinysrgb&w=1260&h=750&dpr=1'
 });
 productList.push ({
-  name:'Bicycle helmet',
-  price: 1200,
-  image: 'https://assets.specialized.com/i/specialized/60821-104_HLMT_ALIGN-II-HLMT-MIPS-CE-BLK-BLKREFL-S-M_HERO?bg=rgb(241,241,241)&w=1600&h=900&fmt=auto'
+  name:'Niky Air',
+  price: 150,
+  description: 'powerful shoes',
+  image: 'https://images.pexels.com/photos/11870331/pexels-photo-11870331.jpeg?auto=compress&cs=tinysrgb&w=1260&h=750&dpr=1'
 });
 productList.push ({
-  name:'Bicycle helmet',
-  price: 1600,
-  image: 'https://m.media-amazon.com/images/I/61eExL-rIAL._AC_SL1001_.jpg'
+  name:'Jorden Force',
+  price: 160,
+  description: 'powerful shoes',
+  image: 'https://images.pexels.com/photos/14637513/pexels-photo-14637513.jpeg?auto=compress&cs=tinysrgb&w=1260&h=750&dpr=1'
 });
 productList.push ({
-  name:'Bicycle helmet',
-  price: 1500,
-  image: 'https://assets.specialized.com/i/specialized/60822-140_HLMT_CHAMONIX-HLMT-MIPS-CE-MRN-M-L_HERO?bg=rgb(241,241,241)&w=1600&h=900&fmt=auto'
+  name:'Helmet Adi',
+  price: 80,
+  description: 'powerful shoes',
+  image: 'https://images.pexels.com/photos/2529148/pexels-photo-2529148.jpeg?auto=compress&cs=tinysrgb&w=1260&h=750&dpr=1'
 });
 productList.push ({
-  name:'Seat',
-  price: 300,
-  image: 'https://m.media-amazon.com/images/I/61e+sZ9rgNL._AC_SL1500_.jpg'
+  name:'Seat HotWheels',
+  price: 90,
+  description: 'powerful shoes',
+  image: 'https://images.pexels.com/photos/12730146/pexels-photo-12730146.jpeg?auto=compress&cs=tinysrgb&w=1260&h=750&dpr=1'
 });
 productList.push ({
-  name:'Tennis Montain Bike',
-  price: 2200,
+  name:'Tennis Montain Skate',
+  price: 110,
+  description: 'powerful shoes',
   image: 'https://assets.adidas.com/images/h_840,f_auto,q_auto,fl_lossy,c_fill,g_auto/8ea578f6c07847fca2d0ac85011d7f1f_9366/Tenis_para_Mountain_Bike_Five_Ten_Freerider_Negro_FW2835_01_standard.jpg'
 });
 productList.push ({
-  name:'Sunglasses',
-  price: 800,
-  image: 'https://cdn.siroko.com/s/files/1/1220/6874/products/gafas-siroko-tech-k3s-london-lateral/1200x/crop_center.jpg?v=1635209602'
+  name:'Niky Sun',
+  price: 115,
+  description: 'powerful shoes',
+  image: 'https://images.pexels.com/photos/4462781/pexels-photo-4462781.jpeg?auto=compress&cs=tinysrgb&w=1260&h=750&dpr=1'
 });
 productList.push ({
-  name:'Sunglasses',
-  price: 600,
-  image: 'https://cdn.siroko.com/s/files/1/1220/6874/products/siroko-tech-k3s-clearfog-lente-antiniebla-frontal/1200x/crop_center.jpg?v=1635209603'
+  name:'White Niky',
+  price: 110,
+  description: 'powerful shoes',
+  image: 'https://images.pexels.com/photos/7396650/pexels-photo-7396650.jpeg?auto=compress&cs=tinysrgb&w=1260&h=750&dpr=1'
 });
 productList.push ({
-  name:'Bicycle seat bag',
-  price: 876,
-  image: 'https://m.media-amazon.com/images/I/81k2Gmal+VL._AC_SL1500_.jpg'
+  name:'White Converte',
+  price: 100,
+  description: 'powerful shoes',
+  image: 'https://images.pexels.com/photos/2421374/pexels-photo-2421374.jpeg?auto=compress&cs=tinysrgb&w=1260&h=750&dpr=1'
+});
+productList.push ({
+  name:'Air Force Niky',
+  price: 120,
+  description: 'powerful shoes',
+  image: 'https://images.pexels.com/photos/1598505/pexels-photo-1598505.jpeg?auto=compress&cs=tinysrgb&w=1260&h=750&dpr=1'
 }); 
 
-function openProductDetailAside() {
-  productDetailContainer.classList.remove('inactive'); //para que aparezca el aside de producDetail al darle clic a la imagen
-  shoppingCartContainer.classList.add('inactive'); //para que desaparezcan todas las ventanas abiertas cuando queramos abrir el product detail
-  desktopMenu.classList.add('inactive');
-  mobileMenu.classList.add('inactive');
-}
-function closeProductDetailAside() {
-  productDetailContainer.classList.add('inactive');
-}
-
 function renderProducts(arr) {
-  for (product of arr) {
+  arr.forEach((product) => {
     const productCard = document.createElement('div');
     productCard.classList.add('product-card');
   
     const productImg = document.createElement('img');
     productImg.setAttribute('src', product.image)
-    productImg.addEventListener('click', openProductDetailAside);
+    productImg.addEventListener('click', () => {
+      openProductDetailAside(product);
+    });
   
     const productInfo = document.createElement('div');
     productInfo.classList.add('product-info');
@@ -124,6 +132,58 @@ function renderProducts(arr) {
     productCard.appendChild(productInfo);
   
     cardsContainer.appendChild(productCard);
-  };
+  });
 };
 renderProducts(productList);
+
+//función para abrir el aside con el detalle del producto
+function openProductDetailAside(product) {
+  shoppingCartContainer.classList.add('inactive'); //para que desaparezcan todas las ventanas abiertas cuando queramos abrir el product detail
+  desktopMenu.classList.add('inactive');
+  mobileMenu.classList.add('inactive');
+
+  productDetailContainer.innerHTML= "";
+
+  const productDetailCloseIcon = document.createElement('div');
+  productDetailCloseIcon.classList.add('product-detail-close');
+  const closeIcon = document.createElement('img');
+  closeIcon.setAttribute('src', './icons/icon_close.png');
+  productDetailCloseIcon.addEventListener('click', closeProductDetailAside);
+
+  productDetailCloseIcon.appendChild(closeIcon);
+
+  const productImage = document.createElement('img');
+  productImage.setAttribute('src', product.image);
+
+  const productInfo = document.createElement('div');
+  productInfo.classList.add('product-info');
+  const productPrice = document.createElement('p');
+  productPrice.innerText = '$' + product.price;
+  const productName = document.createElement('p');
+  productName.innerText = product.name;
+  const productDescription = document.createElement('p');
+  productDescription.innerText = product.description;
+
+  const addToCartButton = document.createElement('button')
+  addToCartButton.classList.add('primary-button', 'add-to-cart-button')
+  addToCartButton.innerText = "Add to cart";
+    
+  const addToCartImg = document.createElement('img');
+  addToCartImg.setAttribute('src', './icons/bt_add_to_cart.svg');
+  addToCartButton.appendChild(addToCartImg);
+
+  productInfo.append(
+    productPrice,
+    productName,
+    productDescription,
+    addToCartButton
+  );
+
+  productDetailContainer.append(productDetailCloseIcon, productImage, productInfo);
+  productDetailContainer.classList.remove('inactive'); //para que aparezca el aside de producDetail al darle clic a la imagen
+};
+//openProductDetailAside(productList);
+
+function closeProductDetailAside() {
+  productDetailContainer.classList.add('inactive');
+}
