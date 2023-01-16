@@ -1,10 +1,10 @@
 /* GENERAL */
 :root {
-    --white: #FFFFFF;
-    --black: #000000;
-    --very-light-pink: #C7C7C7;
-    --text-input-field: #F7F7F7;
-    --hospital-green: #ACD9B2;
+    --white: #F0EAD2;
+    --black: #6C584C;
+    --very-light-pink: #A98467;
+    --text-input-field: #DDE5B6;
+    --hospital-green: #ADC178;
     --sm: 14px;
     --md: 16px;
     --lg: 18px;
@@ -12,6 +12,7 @@
   body {
     margin: 0;
     font-family: 'Quicksand', sans-serif;
+    background-color: var(--white);
   }
 
   .inactive{
@@ -95,6 +96,7 @@
     border: 1px solid var(--very-light-pink);
     border-radius: 6px;
     padding: 20px 20px 0 20px;
+    z-index: 1;
   }
   .desktop-menu ul {
     list-style: none;
