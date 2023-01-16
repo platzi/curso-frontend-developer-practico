@@ -1,30 +1,15 @@
+// HTML Selectors *****
 const menuEmail = document.querySelector('.navbar-email')
 const menuIcon = document.querySelector('.menu-icon')
 const cartIcon = document.querySelector('.navbar-shopping-cart')
-
 const desktopMenu = document.querySelector('.desktop-menu')
 const mobileMenu = document.querySelector('.mobile-menu')
-const cartMenu = document.querySelector('.product-detail')
-
+const cartMenu = document.querySelector('#shoppingCartContainer')
 const cardsContainer = document.querySelector('.cards-container')
+const productDetailContainer = document.querySelector('#product-detail')
+const closeProductButon = document.querySelector('.product-detail-close')
 
-menuEmail.addEventListener('click', toggleDesktopMenu)
-function toggleDesktopMenu() {
-  cartMenu.classList.contains('innactive') || cartMenu.classList.add('innactive')
-  desktopMenu.classList.toggle('innactive')
-}
-menuIcon.addEventListener('click', toggleMobileMenu)
-function toggleMobileMenu() {
-  cartMenu.classList.contains('innactive') || cartMenu.classList.add('innactive')
-  mobileMenu.classList.toggle('innactive')
-}
-cartIcon.addEventListener('click', toggleCartAside)
-function toggleCartAside() {
-  mobileMenu.classList.contains('innactive') || mobileMenu.classList.add('innactive')
-  desktopMenu.classList.contains('innactive') || desktopMenu.classList.add('innactive')
-  cartMenu.classList.toggle('innactive')
-}
-
+// Array of products
 const productsList = [
   {
     name: 'Rockstar t-shirt',
@@ -76,6 +61,40 @@ const productsList = [
   },
 ]
 
+// Open and close menus and asides *****
+const close = (sectionToClose) => sectionToClose.classList.contains('innactive') || sectionToClose.classList.add('innactive')
+const toggle = (sectionToToggle) => sectionToToggle.classList.toggle('innactive')
+const open = (sectionToOpen) => sectionToOpen.classList.remove('innactive')
+
+menuEmail.addEventListener('click', toggleDesktopMenu)
+function toggleDesktopMenu() {
+  close(cartMenu)
+  close(productDetailContainer)
+  toggle(desktopMenu)
+}
+menuIcon.addEventListener('click', toggleMobileMenu)
+function toggleMobileMenu() {
+  close(cartMenu)
+  close(productDetailContainer)
+  toggle(mobileMenu)
+}
+cartIcon.addEventListener('click', toggleCartAside)
+function toggleCartAside() {
+  close(mobileMenu)
+  close(desktopMenu)
+  close(productDetailContainer)
+  toggle(cartMenu)
+}
+const closeProductAside = () => close(productDetailContainer)
+closeProductButon.addEventListener('click', closeProductAside)
+const openProductAside = () => {
+  close(mobileMenu)
+  close(desktopMenu)
+  close(cartMenu)
+  open(productDetailContainer)
+}
+
+// Render each product *****
 const displayList = (arr) => {
   arr.map(product => {
     const productCard = document.createElement('div')
@@ -83,6 +102,7 @@ const displayList = (arr) => {
 
     const productImg = document.createElement('img')
     productImg.setAttribute('src', product.img)
+    productImg.addEventListener('click', openProductAside)
     
     const productInfo = document.createElement('div')
     productInfo.classList.add('product-info')
