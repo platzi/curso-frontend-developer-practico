@@ -21,6 +21,10 @@
     justify-content: space-between;
     padding: 0 24px;
     border-bottom: 1px solid var(--very-light-pink);
+    
+    z-index: 2;
+    position: relative;
+    background-color: var(--white);
   }
   .menu {
     display: none;
@@ -42,6 +46,7 @@
   }
   .navbar-left ul {
     margin-left: 12px;
+    
   }
   .navbar-left ul li a,
   .navbar-right ul li a {
@@ -145,7 +150,6 @@
   position: absolute;
   top: 60px;
   left: 0;
-  height: 100%;
   width: calc(100% - 24px);
   padding: 24px;
   
@@ -177,15 +181,19 @@
 }
 /*****   MY ORDER  *******/
 aside {
-  background-color:var(--white);
-  width: 380px;
-  box-sizing: border-box;
-  position: absolute;
+  width: 360px;
+  padding-bottom: 24px;
+  position: fixed;
   right: 0;
+  background-color: var(--white);
+  z-index: 1;
+  border-radius: 0 0 10px 10px;
+  place-items: center;
 }
 #shopping-cart-container{
-  padding: 0 24px;
-  border-radius: 0 12px 12px ; 
+  padding: 24px;
+  border-radius:0 0 12px 12px;
+  z-index: 1;
 }
 .title-container {
   display: flex;
@@ -208,6 +216,7 @@ aside {
   border-radius: 8px;
   padding: 0 24px;
 }
+
 .order p:nth-child(1) {
   display: flex;
   flex-direction: column;
@@ -253,6 +262,9 @@ aside {
   font-size: var(--md);
   font-weight: bold;
   height: 50px;
+}
+.close-button:hover{
+  cursor: pointer;
 }
 /*******************LISTA PRODUCTOS ********************************/
 /* Product List */
@@ -304,7 +316,7 @@ aside {
 
 /* ProductDetail */
 .product-detail-close {
-  background: var(--very-light-pink);
+  background-color: gray;
   width: 14px;
   height: 14px;
   position: absolute;
@@ -313,6 +325,9 @@ aside {
   z-index: 2;
   padding: 12px;
   border-radius: 50%;
+}
+.product-detail-close {
+  cursor: pointer;
 }
 .product-detail-close:hover {
   cursor: pointer;
@@ -332,12 +347,14 @@ aside {
   font-size: var(--md);
   margin-top: 0;
   margin-bottom: 4px;
+  
 }
 #product-detail .product-info p:nth-child(2) {
   color: var(--very-light-pink);
   font-size: var(--md);
   margin-top: 0;
   margin-bottom: 36px;
+
 }
 .image-detail {
   width: 100%;
@@ -450,4 +467,11 @@ aside {
     display: none;
     
   }
+}
+.dark{
+  width: 100%;
+  height: calc(100%);
+  position: fixed;
+  top: 0;
+  background-color: rgba(0, 0, 0, 0.5);
 }

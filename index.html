@@ -4,13 +4,16 @@
   <meta charset="UTF-8">
   <meta http-equiv="X-UA-Compatible" content="IE=edge">
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
-  <title>YardSale</title>
+  <title>YardSale - Luis Miguel</title>
   <link rel="stylesheet" href="/css/styles.css">
   <link rel="preconnect" href="https://fonts.googleapis.com">
   <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
   <link href="https://fonts.googleapis.com/css2?family=Quicksand:wght@300;500;700&display=swap" rel="stylesheet">
+  <!--Unicons-->
+  <link rel="stylesheet" href="https://unicons.iconscout.com/release/v4.0.0/css/line.css">
 </head>
 <body>
+  <div class="dark inactive"></div>
     <!-- nav Desktop -->
   <nav>
     <img src="./icons/icon_menu.svg" alt="menu" class="menu">
@@ -115,6 +118,7 @@
     </ul>
   </div>
   </nav>
+
   <!--ASIDE MY ORDER-->
   <aside class="product-detail inactive" id="shopping-cart-container">
     <div class="title-container">
@@ -138,9 +142,9 @@
 
       <div class="order">
         <p>
-          <span>Total</span>
+          <span id="order__product"></span>
         </p>
-        <p>$560.00</p>
+        <p id="order__total">$00.00</p>
       </div>
 
       <button class="primary-button">
@@ -150,11 +154,13 @@
   </div>
   </aside>
 
+
 <!--Product Detail-->
 
 <aside id="product-detail" class="inactive " >
   <div class="product-detail-close">
     <img src="./icons/icon_close.png" alt="close">
+    
   </div>
   <div class="product-info">
     <div class="product-detail-info">
@@ -200,7 +206,7 @@
       
     </div>
   </section>
-  
+ 
   
   <script src="./js/main.js"></script>
 </body>
