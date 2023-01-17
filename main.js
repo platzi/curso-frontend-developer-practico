@@ -3,12 +3,15 @@ const desktopMenu = document.querySelector('.desktop-menu');
 const menuHamIcon = document.querySelector('.menu');
 const mobileMenu = document.querySelector('.mobile-menu');
 const menuCarritoIcon = document.querySelector('.navbar-shopping-cart');
+const productDetailCloseIcon =  document.querySelector('.product-detail-close')
 const shoppingCartContainer = document.querySelector('#shoppingCartContainer');
+const productDetailContainer = document.querySelector('#productDetail');
 const cardsContainer = document.querySelector('.cards-container')
 
 menuEmail.addEventListener('click', toggleDestopMenu);
 menuHamIcon.addEventListener('click', toggleMobileMenu);
 menuCarritoIcon.addEventListener('click', toggleCarritoAside);
+productDetailCloseIcon.addEventListener('click', closeProductDetailAside)
 
 function toggleDestopMenu (){
     const isAsideClosed = shoppingCartContainer.classList.contains('inactive')
@@ -24,6 +27,8 @@ function toggleMobileMenu (){
     if(!isAsideClosed){
         shoppingCartContainer.classList.add('inactive')    
     }
+
+    closeProductDetailAside()
     mobileMenu.classList.toggle('inactive')
 }
 
@@ -33,7 +38,30 @@ function toggleCarritoAside () {
     if(!isMobileMenuClosed){
         mobileMenu.classList.add('inactive')    
     }
+    
+    const isproductDetailClosed = productDetailContainer.classList.contains('inactive')
+    
+    if(!isproductDetailClosed){
+        productDetailContainer.classList.add('inactive')    
+    }
+    
     shoppingCartContainer.classList.toggle('inactive')
+}
+
+function openProductDetailAside () {
+    shoppingCartContainer.classList.add('inactive')
+    productDetailContainer.classList.remove('inactive')
+}
+
+function closeProductDetailAside () {
+    const isproductDetailClosed = productDetailContainer.classList.contains('inactive')
+    
+    if(!isproductDetailClosed){
+        productDetailContainer.classList.add('inactive')    
+    }
+    
+    
+    productDetailContainer.classList.add('inactive') 
 }
 
 const productList = []
@@ -80,6 +108,7 @@ function renderProducts(arr){
     
         const ProductImg = document.createElement('img')
         ProductImg.setAttribute('src', product.image)
+        ProductImg.addEventListener('click', openProductDetailAside)
     
         const productInfo = document.createElement('div')
         productInfo.classList.add('product-info')
