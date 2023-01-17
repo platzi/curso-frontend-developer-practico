@@ -3,7 +3,7 @@ const desktopMenu = document.querySelector('.desktop-menu');
 const mobileMenu = document.querySelector('.mobile-menu');
 const menuHamIcon = document.querySelector('.menu');
 const menuCarritoIcon=document.querySelector('.navbar-shopping-cart')
-const aside = document.querySelector('.product-detail')
+const shoppingCartContainer = document.querySelector('#shopping-cart-container')
 const container= document.querySelector('.cards-container')
 
 menuEmail.addEventListener('click', toogleDesktopMenu);
@@ -11,16 +11,16 @@ menuHamIcon.addEventListener('click', toggleMobileMenu);
 menuCarritoIcon.addEventListener('click', toggleShopCart);
 
 function toogleDesktopMenu() {
-    const isAsideClosed = aside.classList.contains('inactive')
-    if (!isAsideClosed) {
-            aside.classList.add('inactive')
+    const isshoppingCartContainerClosed = shoppingCartContainer.classList.contains('inactive')
+    if (!isshoppingCartContainerClosed) {
+            shoppingCartContainer.classList.add('inactive')
         }
     desktopMenu.classList.toggle('inactive')
 }
 function toggleMobileMenu() {
-    const isAsideClosed = aside.classList.contains('inactive')
-    if (!isAsideClosed) {
-            aside.classList.add('inactive')
+    const isshoppingCartContainerClosed = shoppingCartContainer.classList.contains('inactive')
+    if (!isshoppingCartContainerClosed) {
+            shoppingCartContainer.classList.add('inactive')
         }
     mobileMenu.classList.toggle('inactive')
 }
@@ -28,14 +28,14 @@ function toggleShopCart() {
     const isMobileMenuClosed = mobileMenu.classList.contains('inactive');
     const isDesktopMenuColsed = desktopMenu.classList.contains('inactive');
     
-    //aside.classList.toggle('inactive')
+    //shoppingCartContainer.classList.toggle('inactive')
     if (!isMobileMenuClosed) {
             mobileMenu.classList.add('inactive')
     }
     if (!isDesktopMenuColsed) {
             desktopMenu.classList.add('inactive')
         }
-    aside.classList.toggle('inactive')
+    shoppingCartContainer.classList.toggle('inactive')
 }
 
 const productList = [];
@@ -104,7 +104,7 @@ function renderProducts(productList) {
         const productInfonName = document.createElement('p');
         productInfonName.innerHTML = product.name;
         const productInfoPrice = document.createElement('p');
-        productInfoPrice.innerHTML = '$' + product.name;
+        productInfoPrice.innerHTML = '$' + product.price;
     
         productInfoDiv.append(productInfonName, productInfoPrice);
 
