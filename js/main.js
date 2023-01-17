@@ -94,9 +94,11 @@ const cardsContainer = document.querySelector(".cards-container"),
       productInfoBtn = document.querySelector('.product-detail-info'),
       background = document.querySelector('.product-detail-background'),
       shoppingCart = document.querySelector('.my-order-content'),
-      darkenScreen = document.querySelector(".dark");
+      darkenScreen = document.querySelector(".dark")
+      orderTotal = document.querySelector('#order__total');
 let countItems = document.querySelector('#countItems');
 let countItemsCart =0,lastValue=0;
+let arrayTotalPrice =[];
 
 //Desplegar items
 window.addEventListener("DOMContentLoaded",function(){
@@ -147,7 +149,6 @@ let displayProducts = listItems.map(function (item) {
               <p>$${productItem.price}</p>
               <p>${productItem.name}</p>
               <p>${productItem.desc}</p>
-
             </div> 
             <button class="primary-button add-to-cart-button btn-aside" data-id=${productItem.id}>
             <img src="./icons/bt_add_to_cart.svg" alt="add to cart" class="product-add-to-cart">
@@ -187,8 +188,11 @@ let displayProducts = listItems.map(function (item) {
       productOrder(listItems,idBtn);
       countItemsCart++;
       countItems.innerText = countItemsCart;
+      
     });
   });
+
+
 } 
 
 // desplegar menu botones
@@ -285,7 +289,7 @@ if(!aside.classList.contains('inactive')||!productDetailContainer.classList.cont
 /*my order*/
 const menuCarritoIcon = document.querySelector('.navbar-shopping-cart');
 const aside = document.querySelector('#shopping-cart-container');
-const orderTotal = document.querySelector('#order__product')
+const orderProduct = document.querySelector('#order__product')
 menuCarritoIcon.addEventListener('click',()=>{
 if(!mobileMenu.classList.contains('inactive') ||!desktopMenu.classList.contains('inactive') ||!productDetailContainer.classList.contains('inactive') ){
     mobileMenu.classList.add('inactive');
@@ -328,7 +332,7 @@ function productOrder (listItems, id){
       <img src=${productItem.image} alt=${productItem.name}>
     </figure>
     <p class="product-name-order">${productItem.name}</p>
-    <p class="price-order">$${productItem.price}</p>
+    <p class="price-order">${productItem.price}</p>
     <img src="./icons/icon_close.png" alt="close" class="close-button" id="close-button">
     </div> 
       `; 
@@ -338,28 +342,41 @@ function productOrder (listItems, id){
   orderProduct = orderProduct.join("");
   shoppingCart.innerHTML+=orderProduct;
   const divCart=shoppingCart.querySelectorAll('.shopping-cart');
+ 
       divCart.forEach(div=>{
-        div.addEventListener("click", ()=>{
+        div.addEventListener("click",()=>{
           div.remove();
           countItemsCart--;
           emptyCar();
           countItems.innerText = countItemsCart;
-          
         })
-  })
-
+  });
+  
   const priceOrder = shoppingCart.querySelectorAll('.price-order');
-  console.log(priceOrder.innerText);
-  const getTotalNumber = Number(Array.from(priceOrder)[0]);
-  console.log(getTotalNumber);
+  let suma=0;
+  priceOrder.forEach(price=>{
+    suma=(Number(price.innerHTML));
+  })
+  arrayTotalPrice.push(suma);
+  orderTotal.innerHTML="$ "+sumProducts(arrayTotalPrice);
+  
+ 
 }
 
 // Empty car
 function emptyCar(){
   if(countItemsCart==0){
-    orderTotal.innerHTML =`<span id="order__product">Your cart is empty</span>`
+    orderProduct.innerHTML =`<span id="order__product">Your cart is empty</span>`
   } else{
-    orderTotal.innerHTML =`<span id="order__product">Total</span>`
+    orderProduct.innerHTML =`<span id="order__product">Total</span>`
 
   }
+}
+
+function sumProducts(arr) {
+  let sum = 0;
+  for (let i = 0; i < arr.length; i++) {
+      sum = sum + arr[i];
+  }
+  return sum;
 }
