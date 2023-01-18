@@ -4,7 +4,7 @@ const shopIcon = document.querySelector(".navbar-shopping-cart");
 
 const desktopMenu = document.querySelector(".desktop-menu");
 const mobileMenu = document.querySelector(".mobile-menu");
-const aside = document.querySelector(".product-detail");
+const shoppingCartContainer = document.querySelector(".shopping-cart-detail");
 
 const cardsContainer = document.querySelector(".cards-container");
 
@@ -12,22 +12,22 @@ const cardsContainer = document.querySelector(".cards-container");
 
 navEmail.addEventListener("click", toggleDesktopMenu);
 burguerIcon.addEventListener("click", toggleMobileMenu);
-shopIcon.addEventListener("click", toggleCardAside);
+shopIcon.addEventListener("click", toggleShoppingCartContainer);
 
 function toggleDesktopMenu() {
-  aside.classList.add("inactive");
+  shoppingCartContainer.classList.add("inactive");
   desktopMenu.classList.toggle("inactive");
 }
 
 function toggleMobileMenu() {
-  aside.classList.add("inactive");
+  shoppingCartContainer.classList.add("inactive");
   mobileMenu.classList.toggle("inactive");
 }
 
-function toggleCardAside() {
+function toggleShoppingCartContainer() {
   desktopMenu.classList.add("inactive");
   mobileMenu.classList.add("inactive");
-  aside.classList.toggle("inactive");
+  shoppingCartContainer.classList.toggle("inactive");
 }
 
 const productList = [];
@@ -133,18 +133,18 @@ renderProducts(productList);
 
 navEmail.addEventListener("click", () => toggleElement(desktopMenu));
 burguerIcon.addEventListener("click", () => toggleElement(mobileMenu));
-shopIcon.addEventListener("click", () => toggleElement(aside));
+shopIcon.addEventListener("click", () => toggleElement(shoppingCartContainer));
 
 function toggleElement(element) {
   element.classList.toggle("inactive");
   switch (element.getAttribute("class")) {
     case desktopMenu.getAttribute("class"):
-      aside.classList.add("inactive");
+      shoppingCartContainer.classList.add("inactive");
       break;
     case mobileMenu.getAttribute("class"):
-      aside.classList.add("inactive");
+      shoppingCartContainer.classList.add("inactive");
       break;
-    case aside.getAttribute("class"):
+    case shoppingCartContainer.getAttribute("class"):
       desktopMenu.classList.add("inactive");
       mobileMenu.classList.add("inactive");
       break;
