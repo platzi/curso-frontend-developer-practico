@@ -41,9 +41,9 @@ function toggleAside(){
 </div> */
 
 const listaProductos=[];
-listaProductos.push({name:"celular",price:300,img:"https://http2.mlstatic.com/D_NQ_NP_899859-MLA52747760371_122022-O.webp"})
+listaProductos.push({name:"celular",price:300,img:"https://images.fravega.com/f1000/491d28e113b36fb06f6a9bcdf65f74e8.jpg"})
 listaProductos.push({name:"zapatos",price:50,img:"https://ringostore.ar/web-experto/representations/eyJfcmFpbHMiOnsibWVzc2FnZSI6IkJBaHBBbk0rIiwiZXhwIjpudWxsLCJwdXIiOiJibG9iX2lkIn19--15c5fb6cc22a58ec77c345ec5df6130cd979767c/eyJfcmFpbHMiOnsibWVzc2FnZSI6IkJBaDdCam9MY21WemFYcGxTU0lOTmpBd2VEWXdNRDRHT2daRlZBPT0iLCJleHAiOm51bGwsInB1ciI6InZhcmlhdGlvbiJ9fQ==--9e4335f98fdd86f10e04195d2c760312997e95c2/1644342908-Ryker01_atanado_caoba_lateral.jpg"})
-listaProductos.push({name:"camisa",price:12,img:"https://images.pexels.com/photos/276517/pexels-photo-276517.jpeg?auto=compress&cs=tinysrgb&dpr=2&h=650&w=940"})
+listaProductos.push({name:"camisa",price:12,img:"https://http2.mlstatic.com/D_NQ_NP_788292-MLA45154543703_032021-O.jpg"})
 
 
 function renderProductos(arr){
