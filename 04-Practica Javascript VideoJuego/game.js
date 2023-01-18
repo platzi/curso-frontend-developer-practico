@@ -6,10 +6,17 @@ const btnRight = document.querySelector('#right');
 const btnDown = document.querySelector('#down');
 const btnLeft = document.querySelector('#left');
 
+const spanLives = document.querySelector('#lives');
+const spanTimes = document.querySelector('#time')
+
 let canvasSize;
 let elementSize;
 let level = 0;
-let lives = 3 ;
+let lives = 3;
+
+let timeStart;
+let timePlayer;
+let timeInterval;
 
 const playerPosition = {
   x: undefined,
@@ -55,9 +62,16 @@ function startGame() {
     return;
   }
 
+  if(!timeStart) {
+    timeStart = Date.now();
+    timeInterval = setInterval(showTime, 100)
+  }
+
   const mapRows = mapNivel.trim().split('\n');
   const mapRowCol = mapRows.map(row => row.trim().split(''));
   console.log({mapNivel, mapRows, mapRowCol});
+
+  showLives()
 
   /* Estamos asignando un nuevo array vacío cada vez que el jugador mueve el personaje */
   enemyPositions = [];
@@ -151,6 +165,7 @@ function levelFail() {
   if(lives <= 0) {
     level = 0;
     lives = 3;
+    timeStart = undefined;
   }
 
   playerPosition.x = undefined;
@@ -160,11 +175,25 @@ function levelFail() {
 
 function gameWin() {
   console.log('Ganaste el juego');
+
+  clearInterval(timeInterval);
 }
 
 function gameOver() {
   console.log('Pisaste bomba');
   startGame();
+}
+
+function showLives() {
+  const heartsArray = Array(lives).fill(emojis['HEART']);
+
+  spanLives.innerHTML = '';
+
+  heartsArray.forEach(heart => spanLives.append(heart));
+}
+
+function showTime() {
+  spanTimes.innerHTML = Date.now() - timeStart;
 }
 
 ///////////// Movimientos de con sus respectivas TECLAS
