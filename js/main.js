@@ -339,8 +339,21 @@ function productOrder (listItems, id){
     }
     
   });
+
+  
   orderProduct = orderProduct.join("");
   shoppingCart.innerHTML+=orderProduct;
+
+  // sumar productos
+  const priceOrder = shoppingCart.querySelectorAll('.price-order');
+  let suma=0;
+  priceOrder.forEach(price=>{
+    suma=(Number(price.innerHTML));
+  })
+  arrayTotalPrice.push(suma);
+  orderTotal.innerHTML="$ "+sumProducts(arrayTotalPrice);
+
+  //Eliminar Elementos del caritto
   const divCart=shoppingCart.querySelectorAll('.shopping-cart');
  
       divCart.forEach(div=>{
@@ -349,16 +362,15 @@ function productOrder (listItems, id){
           countItemsCart--;
           emptyCar();
           countItems.innerText = countItemsCart;
+          arrayTotalPrice.splice(-1,1)
+          orderTotal.innerHTML= "$ "+sumProducts(arrayTotalPrice);
         })
+       
   });
   
-  const priceOrder = shoppingCart.querySelectorAll('.price-order');
-  let suma=0;
-  priceOrder.forEach(price=>{
-    suma=(Number(price.innerHTML));
-  })
-  arrayTotalPrice.push(suma);
-  orderTotal.innerHTML="$ "+sumProducts(arrayTotalPrice);
+
+  
+  
   
  
 }
@@ -380,3 +392,4 @@ function sumProducts(arr) {
   }
   return sum;
 }
+
