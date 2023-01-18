@@ -9,6 +9,10 @@ const menuCarritoIcon = document.querySelector('.navbar-shopping-cart')
 const shoppingCartContainer = document.querySelector('#shoppingCartContainer')
 //PRODUCT LIST
 const cardsContainer = document.querySelector('.cards-container')
+//PRODUCT-DETAIL
+const productDetailContainer = document.querySelector('#productDetail')
+const productDetailCloseIcon = document.querySelector('.product-detail-close')
+
 
 //DESKTOP MENU
 menuEmail.addEventListener('click', toggleDesktopMenu)
@@ -23,11 +27,15 @@ function toggleDesktopMenu(){
     //Intercambiar el agregar/quitar un clase
 }
 
+
 //MOBILE MENU
 menuHamIcon.addEventListener('click',toggleMobileMenu)
 function toggleMobileMenu(){
     //Saber si el shoppingCartContainer esta cerrado
     const isshoppingCartContainerClosed = shoppingCartContainer.classList.contains('inactive')
+    
+    //CERRAR EL PRODUCT DETAIL AL ABRIR EL MENU
+    closeProductDetailAside()
 
     if(!isshoppingCartContainerClosed){
         shoppingCartContainer.classList.add('inactive')
@@ -37,11 +45,13 @@ function toggleMobileMenu(){
     mobileMenu.classList.toggle('inactive')
 }
 
+
 //shoppingCartContainer CARRITO
 menuCarritoIcon.addEventListener('click',toggleCarritoshoppingCartContainer)
 function toggleCarritoshoppingCartContainer(){
     const isMobileClosed = mobileMenu.classList.contains('inactive')
     const isDesktopClosed = desktopMenu.classList.contains('inactive')
+    const isProductDetailClosed = productDetailContainer.classList.contains('inactive')
 
     if(!isMobileClosed){
         mobileMenu.classList.add('inactive')
@@ -50,9 +60,13 @@ function toggleCarritoshoppingCartContainer(){
     if(!isDesktopClosed){
         desktopMenu.classList.add('inactive')
     }
+    if(!isProductDetailClosed){
+        productDetailContainer.classList.add('inactive')
+    }
 
     shoppingCartContainer.classList.toggle('inactive')
 }
+
 
 //PRODUCT LIST
 const productList = []
@@ -98,7 +112,8 @@ function renderProducts(arr){
 
         const productImg = document.createElement('img')
         productImg.setAttribute('src', product.image) //MODIDICAR EL VALOR DE UN ATRIBUTO
-        //product = {name, price, image} -> product.image
+        productImg.addEventListener('click', openProductDetail)
+
 
         const productInfo = document.createElement('div')
         productInfo.classList.add('product-info')
@@ -129,5 +144,20 @@ function renderProducts(arr){
         cardsContainer.appendChild(productCard)
     }
 }
-
 renderProducts(productList)
+
+
+//PRODUCT DETAIL (ASIDE)
+productDetailCloseIcon.addEventListener('click',closeProductDetailAside)
+function openProductDetail(){
+    const isCarritoClosed = shoppingCartContainer.classList.contains('inactive')
+
+    if(!isCarritoClosed){
+        shoppingCartContainer.classList.add('inactive')
+    }
+
+    productDetailContainer.classList.remove('inactive')
+}
+function closeProductDetailAside(){
+    productDetailContainer.classList.add('inactive')
+}
