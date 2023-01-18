@@ -48,28 +48,28 @@ listaProductos.push({name:"camisa",price:12,img:"https://images.pexels.com/photo
 
 function renderProductos(arr){
     for(let product of arr){
-        let productCard=document.createElement("div");
-        productCard.classList.add("product-card");
-        let imgProduct=document.createElement("img");
-        imgProduct.setAttribute("src",product.img);
-        productCard.appendChild(imgProduct);
-        let productInfo=document.createElement("div");
-        productInfo.classList.add("product-info");
-        let productInfoDiv=document.createElement("div");
-        let priceProduct=document.createElement("p")
-        priceProduct.innerText=product.price
-        let nameProduct=document.createElement("p");
-        nameProduct.innerText=product.name;
-        productInfoDiv.appendChild(nameProduct);
-        productInfoDiv.appendChild(priceProduct);
-        productInfo.appendChild(productInfoDiv)
-        let productFigure=document.createElement("figure")
-        let btnCarrito=document.createElement("img")
-        btnCarrito.setAttribute("src","./icons/bt_add_to_cart.svg")
-        productFigure.appendChild(btnCarrito);
-        productInfo.appendChild(productFigure)
-        productCard.appendChild(productInfo)
-        cardContainer.appendChild(productCard)
+        let productCard=document.createElement("div");//se crea el div
+        productCard.classList.add("product-card");//se le agrega la clase 
+        let imgProduct=document.createElement("img");//se crea el elemento img
+        imgProduct.setAttribute("src",product.img);//se le agrega el atributo src para enlazarse con su arr
+        productCard.appendChild(imgProduct);//se le agrega como hijo a el div productCar
+        let productInfo=document.createElement("div");//se crea el div que contendra la informacion del producto
+        productInfo.classList.add("product-info");//se le agrega la clase
+        let productInfoDiv=document.createElement("div");//se crea un div para contener las descripciones
+        let priceProduct=document.createElement("p")//se crea un parrafo para el precio del producto
+        priceProduct.innerText=product.price//se ingresa el precio del producto directamente del array
+        let nameProduct=document.createElement("p");//se crea un parrafo para el nombre el producto
+        nameProduct.innerText=product.name;//se ingresa el nombre del producto directamente del array 
+        productInfoDiv.appendChild(nameProduct);//se ingresa como hijo el nombre del producto con su estructura 
+        productInfoDiv.appendChild(priceProduct);//se ingresa como hijo el precio del producto con su estructura 
+        productInfo.appendChild(productInfoDiv);//se ingresa como hijo el div con los elementos precio y nombre
+        let productFigure=document.createElement("figure");//se creo el elemento figure
+        let btnCarrito=document.createElement("img");//se crea elemento btnCarrito
+        btnCarrito.setAttribute("src","./icons/bt_add_to_cart.svg");//se le agrega el atributo src con su imagen
+        productFigure.appendChild(btnCarrito);//se agrega btnCarrito como hijo a productFigure
+        productInfo.appendChild(productFigure);//se agrega productFigure como hijo a productInfo con su contenido
+        productCard.appendChild(productInfo);//se agrega productInfo como hijo a productCard con su contenido 
+        cardContainer.appendChild(productCard);//
     }
 }
 renderProductos(listaProductos)
