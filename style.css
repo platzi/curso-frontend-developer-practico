@@ -12,6 +12,8 @@
 body {
   margin: 0;
   font-family: 'Quicksand', sans-serif;
+  background-color: #202124;
+  color: #e2e2e3;
 }
 .inactive {
   display: none;
@@ -48,8 +50,7 @@ nav {
 .navbar-left ul li a,
 .navbar-right ul li a {
   text-decoration: none;
-  color: var(--very-light-pink);
-  border: 1px solid var(--white);
+  color: #e2e2e3;
   padding: 8px;
   border-radius: 8px;
 }
@@ -59,7 +60,7 @@ nav {
   color: var(--hospital-green);
 }
 .navbar-email {
-  color: var(--very-light-pink);
+  color: #e2e2e3;
   cursor: pointer;
   font-size: var(--sm);
   margin-right: 12px;
@@ -87,7 +88,7 @@ nav {
   position: absolute;
   top: 60px;
   right: 60px;
-  background: var(--white);
+  background: #202124;
   width: 100px;
   height: auto;
   border: 1px solid var(--very-light-pink);
@@ -115,7 +116,7 @@ nav {
   font-size: var(--sm);
 }
 .desktop-menu ul li a {
-  color: var(--back);
+  color: #e2e2e3;
   text-decoration: none;
   margin-bottom: 20px;
   display: inline-block;
@@ -123,7 +124,7 @@ nav {
 
 /* MOBILE MENU */
 .mobile-menu {
-  background-color: var(--white);
+  background-color: #202124;
   position: absolute;
   top: 60px;
   padding-left: 24px;
@@ -132,7 +133,7 @@ nav {
 }
 .mobile-menu a {
   text-decoration: none;
-  color: var(--black);
+  color: #e2e2e3;
   font-weight: bold;
   /* margin-bottom: 24px; */
 }
@@ -158,7 +159,7 @@ nav {
 
 /*ASIDE (PRODUCT DETAIL AND SHOPPING CART)*/
 aside {
-  background-color: var(--white);
+  background-color: #202124;
   width: 360px;
   box-sizing: border-box;
   position: absolute;
@@ -167,7 +168,8 @@ aside {
 
 /*SHOPING CART*/
 #shoppingCartContainer {
-  padding: 0 24px; /*PADDING A LOS LADOS Y SIN PADDING ARRIBA Y ABAJO*/
+  padding: 15px;
+  border-radius: 0 0 10px 10px;
 }
 .title-container {
   display: flex;
@@ -185,7 +187,8 @@ aside {
   grid-template-columns: auto 1fr;
   gap: 16px;
   align-items: center;
-  background-color: var(--text-input-field);
+  background-color: #202124;
+  border: 1px solid #e2e2e3;
   margin-bottom: 24px;
   border-radius: 8px;
   padding: 0 24px;
@@ -270,6 +273,7 @@ aside {
   font-size: var(--md);
   margin-top: 0;
   margin-bottom: 4px;
+  color: #FFFFFF;
 }
 #productDetail .product-info p:nth-child(2) {
   color: var(--very-light-pink);
@@ -336,6 +340,7 @@ aside {
   font-size: var(--md);
   margin-top: 0;
   margin-bottom: 4px;
+  color: #FFFFFF;
 }
 .product-card .product-info div p:nth-child(2) {
   font-size: var(--sm);
