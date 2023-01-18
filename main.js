@@ -81,20 +81,71 @@ function closeProductDetailAside() {
 const productList = [];
 
 productList.push({
-    name: 'Bike',
+    name: 'Valeria y su familia',
     price: 120,
-    imagen: 'https://images.pexels.com/photos/276517/pexels-photo-276517.jpeg?auto=compress&cs=tinysrgb&dpr=2&h=650&w=940',
+    imagen: './fotosValeria/foto1.jpeg',
 })
+
 productList.push({
-    name: 'Pantalla',
+    name: 'Valeria no me deja salir',
     price: 120,
-    imagen: 'https://images.pexels.com/photos/276517/pexels-photo-276517.jpeg?auto=compress&cs=tinysrgb&dpr=2&h=650&w=940',
+    imagen: './fotosValeria/foto2.jpeg',
 })
+
 productList.push({
-    name: 'Ron',
+    name: 'Valeria y florez',
     price: 120,
-    imagen: 'https://images.pexels.com/photos/276517/pexels-photo-276517.jpeg?auto=compress&cs=tinysrgb&dpr=2&h=650&w=940',
+    imagen: './fotosValeria/foto3.jpeg',
 })
+
+productList.push({
+    name: 'valeria y yop',
+    price: 120,
+    imagen: './fotosValeria/foto4.jpeg',
+})
+
+productList.push({
+    name: 'valeria dormida',
+    price: 120,
+    imagen: './fotosValeria/foto5.jpeg',
+})
+
+productList.push({
+    name: 'valeria top model',
+    price: 120,
+    imagen: './fotosValeria/foto6.jpeg',
+})
+
+productList.push({
+    name: 'valeria ojos de reyna',
+    price: 120,
+    imagen: './fotosValeria/foto7.jpeg',
+})
+
+productList.push({
+    name: 'valeria fit',
+    price: 120,
+    imagen: './fotosValeria/foto8.jpeg',
+})
+
+productList.push({
+    name: 'valeria congo',
+    price: 120,
+    imagen: './fotosValeria/foto9.jpeg',
+})
+
+productList.push({
+    name: 'valeria esteril',
+    price: 120,
+    imagen: './fotosValeria/foto10.jpeg',
+})
+
+productList.push({
+    name: 'valeria looser',
+    price: 120,
+    imagen: './fotosValeria/foto11.jpeg',
+})
+
 
 
 
