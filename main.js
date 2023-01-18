@@ -4,43 +4,49 @@ const burgerMenu = document.querySelector('.menu');
 const mobileMenu = document.querySelector('.mobile-menu');
 const cartIcon = document.querySelector('.navbar-shopping-cart');
 const cartDetail = document.querySelector('#shoppingCartContainer');
+const productDetailContainer = document.querySelector('#product-detail');
+const productDetailCloseIcon = document.querySelector('.product-detail-close');
 const cardsContainer = document.querySelector('.cards-container');
 
 
 navEmail.addEventListener('click', toogleDesktopMenu);
 burgerMenu.addEventListener('click', toogleBurgerMenu);
 cartIcon.addEventListener('click', toogleCartDetail);
+productDetailCloseIcon.addEventListener('click', closeProductDetailAside);
 
 function toogleDesktopMenu() {
-    const isCartDetailClosed = cartDetail.classList.contains('inactive');
-    if (!isCartDetailClosed) {
-        cartDetail.classList.add('inactive');
-    }
+    cartDetail.classList.add('inactive');
+    productDetailContainer.classList.add('inactive');
+
     desktopMenu.classList.toggle('inactive');
 }
 
 function toogleBurgerMenu() {
-    const isCartDetailClosed = cartDetail.classList.contains('inactive');
-    if (!isCartDetailClosed) {
-        cartDetail.classList.add('inactive');
-    }
+    cartDetail.classList.add('inactive');
+    productDetailContainer.classList.add('inactive');
+
     mobileMenu.classList.toggle('inactive');
 }
 
 function toogleCartDetail() {
-    const isMobileMenuClosed = mobileMenu.classList.contains('inactive');
-    const isDesktopMenuClosed = desktopMenu.classList.contains('inactive');
+    mobileMenu.classList.add('inactive');
+    desktopMenu.classList.add('inactive');
+    productDetailContainer.classList.add('inactive');
 
-
-    if (!isMobileMenuClosed) {
-        mobileMenu.classList.add('inactive');
-    }
-
-    if (!isDesktopMenuClosed) {
-        desktopMenu.classList.add('inactive');
-    }
     cartDetail.classList.toggle('inactive');
 
+}
+
+function openProductDetailAside() {
+    mobileMenu.classList.add('inactive');
+    desktopMenu.classList.add('inactive');
+    cartDetail.classList.add('inactive');
+
+    productDetailContainer.classList.remove('inactive');
+}
+
+function closeProductDetailAside() {
+    productDetailContainer.classList.add('inactive');
 }
 
 const productList = [];
@@ -51,7 +57,7 @@ productList.push({
 });
 productList.push({
     name: 'Bike',
-    price: 120,
+    price: 200,
     image: 'https://images.pexels.com/photos/276517/pexels-photo-276517.jpeg?auto=compress&cs=tinysrgb&dpr=2&h=650&w=940'
 });
 productList.push({
@@ -67,6 +73,7 @@ function renderProducts(arr) {
 
         const productImg = document.createElement('img');
         productImg.setAttribute('src', product.image);
+        productImg.addEventListener('click', openProductDetailAside);
 
         const productInfo = document.createElement('div');
         productInfo.classList.add('product-info');
