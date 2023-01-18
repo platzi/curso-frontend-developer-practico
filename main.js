@@ -1,10 +1,13 @@
 const navEmail = document.querySelector(".navbar-email");
 const burguerIcon = document.querySelector(".menu");
 const shopIcon = document.querySelector(".navbar-shopping-cart");
+const productCard = document.querySelector(".product-card");
+const productDetailCloseIcon = document.querySelector(".product-detail-close");
 
 const desktopMenu = document.querySelector(".desktop-menu");
 const mobileMenu = document.querySelector(".mobile-menu");
-const shoppingCartContainer = document.querySelector(".shopping-cart-detail");
+const shoppingCartDetail = document.querySelector(".shopping-cart-detail");
+const productDetail = document.querySelector(".product-detail");
 
 const cardsContainer = document.querySelector(".cards-container");
 
@@ -12,22 +15,33 @@ const cardsContainer = document.querySelector(".cards-container");
 
 navEmail.addEventListener("click", toggleDesktopMenu);
 burguerIcon.addEventListener("click", toggleMobileMenu);
-shopIcon.addEventListener("click", toggleShoppingCartContainer);
+shopIcon.addEventListener("click", toggleShoppingCartDetail);
+productDetailCloseIcon.addEventListener("click", closeProductDetail);
 
 function toggleDesktopMenu() {
-  shoppingCartContainer.classList.add("inactive");
+  shoppingCartDetail.classList.add("inactive");
+  productDetail.classList.add("inactive");
   desktopMenu.classList.toggle("inactive");
 }
-
 function toggleMobileMenu() {
-  shoppingCartContainer.classList.add("inactive");
+  shoppingCartDetail.classList.add("inactive");
+  productDetail.classList.add("inactive");
   mobileMenu.classList.toggle("inactive");
 }
-
-function toggleShoppingCartContainer() {
+function toggleShoppingCartDetail() {
   desktopMenu.classList.add("inactive");
   mobileMenu.classList.add("inactive");
-  shoppingCartContainer.classList.toggle("inactive");
+  productDetail.classList.add("inactive");
+  shoppingCartDetail.classList.toggle("inactive");
+}
+function openProductDetail() {
+  desktopMenu.classList.add("inactive");
+  mobileMenu.classList.add("inactive");
+  shoppingCartDetail.classList.add("inactive");
+  productDetail.classList.remove("inactive");
+}
+function closeProductDetail() {
+  productDetail.classList.add("inactive");
 }
 
 const productList = [];
@@ -90,6 +104,7 @@ function renderProducts(array) {
 
     const productImg = document.createElement("img");
     productImg.setAttribute("src", product.image);
+    productImg.addEventListener("click", openProductDetail);
 
     const productInfo = document.createElement("div");
     productInfo.classList.add("product-info");
@@ -133,18 +148,18 @@ renderProducts(productList);
 
 navEmail.addEventListener("click", () => toggleElement(desktopMenu));
 burguerIcon.addEventListener("click", () => toggleElement(mobileMenu));
-shopIcon.addEventListener("click", () => toggleElement(shoppingCartContainer));
+shopIcon.addEventListener("click", () => toggleElement(shoppingCartDetail));
 
 function toggleElement(element) {
   element.classList.toggle("inactive");
   switch (element.getAttribute("class")) {
     case desktopMenu.getAttribute("class"):
-      shoppingCartContainer.classList.add("inactive");
+      shoppingCartDetail.classList.add("inactive");
       break;
     case mobileMenu.getAttribute("class"):
-      shoppingCartContainer.classList.add("inactive");
+      shoppingCartDetail.classList.add("inactive");
       break;
-    case shoppingCartContainer.getAttribute("class"):
+    case shoppingCartDetail.getAttribute("class"):
       desktopMenu.classList.add("inactive");
       mobileMenu.classList.add("inactive");
       break;

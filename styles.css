@@ -123,9 +123,16 @@ nav {
 .mobile-menu {
   background-color: var(--white);
   position: absolute;
-  top: 70px;
-  left: 10px;
-  padding: 0 24px;
+  top: 61px;
+  left: 0;
+  padding-left: 24px;
+  width: calc(100% - 24px);
+  /*
+  top: 61px;
+  left: 0;
+  width: calc(100% - 24px);
+  padding-left: 24px;
+  */
 }
 .mobile-menu a {
   text-decoration: none;
