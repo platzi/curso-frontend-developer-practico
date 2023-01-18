@@ -68,12 +68,19 @@ productList.push({
     price: 1200.00,
     img: "https://images.pexels.com/photos/276517/pexels-photo-276517.jpeg?auto=compress&cs=tinysrgb&dpr=2&h=650&w=940"
 });
+productList.push({
+    name: "Coco",
+    price: 1200.00,
+    img: "https://images.pexels.com/photos/276517/pexels-photo-276517.jpeg?auto=compress&cs=tinysrgb&dpr=2&h=650&w=940"
+});
 
 //Extraer html card
 const templateProductCard = document.querySelector(".product-card");
 const container_products = document.querySelector(".cards-container");
 //console.log(templateProductCard.outerHTML)
 //container_products.removeChild(templateProductCard);
+document.addEventListener("DOMContentLoaded", ActualizarProductos)
+
 function ActualizarProductos() {
 
     container_products.innerHTML = "";
@@ -87,7 +94,35 @@ function ActualizarProductos() {
         let elem = document.createElement("div");
         elem.classList.add("product-card");
         elem.innerHTML = productCard;
+
+        const productoCopia = prod;
+        const func = function() {call_ProductDatail(productoCopia)}
+        elem.querySelector(".product-card-add").addEventListener("click", func);
+
         container_products.appendChild(elem);
     }
 }
     
+// Product Datail
+const panel_productDatail = document.querySelector(".product-detail"); 
+function call_ProductDatail(product) {
+    AddVentana(panel_productDatail);
+    CloseOtherWindows(panel_productDatail);
+    if (panel_productDatail.classList.contains("inactive")){
+        panel_productDatail.classList.remove("inactive");
+    } 
+    
+    console.log(panel_productDatail);
+    console.log(panel_productDatail);
+    console.log(panel_productDatail.querySelector(".name"));
+    console.log(product);
+    panel_productDatail.querySelector(".name").innerHTML = product.name;
+    panel_productDatail.querySelector(".price").innerHTML = "$ " + product.price;
+    panel_productDatail.querySelector(".product-detail-img").src = product.img;
+    panel_productDatail.querySelector(".description").src = "Temporal Description main.js";
+}
+
+document.querySelector(".product-detail-close").addEventListener("click", close_ProductDetail);
+function close_ProductDetail(){
+    panel_productDatail.classList.add("inactive");
+}
