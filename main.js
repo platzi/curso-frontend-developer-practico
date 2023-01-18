@@ -4,20 +4,20 @@ const desktopMenu = document.querySelector('.desktop-menu')
 //MOBILE MENU
 const menuHamIcon = document.querySelector('.menu')
 const mobileMenu = document.querySelector('.mobile-menu')
-//ASIDE CARRITO
+//shoppingCartContainer CARRITO
 const menuCarritoIcon = document.querySelector('.navbar-shopping-cart')
-const aside = document.querySelector('.product-detail')
+const shoppingCartContainer = document.querySelector('#shoppingCartContainer')
 //PRODUCT LIST
 const cardsContainer = document.querySelector('.cards-container')
 
 //DESKTOP MENU
 menuEmail.addEventListener('click', toggleDesktopMenu)
 function toggleDesktopMenu(){
-    const isAsideClosed = aside.classList.contains('inactive')
+    const isshoppingCartContainerClosed = shoppingCartContainer.classList.contains('inactive')
 
-    if(!isAsideClosed){
-        aside.classList.add('inactive')
-        //Si el aside esta abierto al querer abrir el menu, se cerrara el aside
+    if(!isshoppingCartContainerClosed){
+        shoppingCartContainer.classList.add('inactive')
+        //Si el shoppingCartContainer esta abierto al querer abrir el menu, se cerrara el shoppingCartContainer
     }
     desktopMenu.classList.toggle('inactive') 
     //Intercambiar el agregar/quitar un clase
@@ -26,20 +26,20 @@ function toggleDesktopMenu(){
 //MOBILE MENU
 menuHamIcon.addEventListener('click',toggleMobileMenu)
 function toggleMobileMenu(){
-    //Saber si el aside esta cerrado
-    const isAsideClosed = aside.classList.contains('inactive')
+    //Saber si el shoppingCartContainer esta cerrado
+    const isshoppingCartContainerClosed = shoppingCartContainer.classList.contains('inactive')
 
-    if(!isAsideClosed){
-        aside.classList.add('inactive')
-        //Si el aside esta abierto al querer abrir el menu, se cerrara el aside
+    if(!isshoppingCartContainerClosed){
+        shoppingCartContainer.classList.add('inactive')
+        //Si el shoppingCartContainer esta abierto al querer abrir el menu, se cerrara el shoppingCartContainer
     }
 
     mobileMenu.classList.toggle('inactive')
 }
 
-//ASIDE CARRITO
-menuCarritoIcon.addEventListener('click',toggleCarritoAside)
-function toggleCarritoAside(){
+//shoppingCartContainer CARRITO
+menuCarritoIcon.addEventListener('click',toggleCarritoshoppingCartContainer)
+function toggleCarritoshoppingCartContainer(){
     const isMobileClosed = mobileMenu.classList.contains('inactive')
     const isDesktopClosed = desktopMenu.classList.contains('inactive')
 
@@ -51,7 +51,7 @@ function toggleCarritoAside(){
         desktopMenu.classList.add('inactive')
     }
 
-    aside.classList.toggle('inactive')
+    shoppingCartContainer.classList.toggle('inactive')
 }
 
 //PRODUCT LIST
