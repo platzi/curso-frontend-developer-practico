@@ -1,3 +1,4 @@
+// Vector con productos
 const productList= [
   
   {
@@ -86,6 +87,7 @@ const productList= [
   }
 ];
 
+// Variables
 const cardsContainer = document.querySelector(".cards-container"),
       navbarLeft = document.querySelector(".navbar-left-ul"),
       mobilMenu = document.querySelector(".mobile-menu-ul"),
@@ -96,16 +98,18 @@ const cardsContainer = document.querySelector(".cards-container"),
       shoppingCart = document.querySelector('.my-order-content'),
       darkenScreen = document.querySelector(".dark")
       orderTotal = document.querySelector('#order__total');
-let countItems = document.querySelector('#countItems');
-let countItemsCart =0,lastValue=0;
-let arrayTotalPrice =[];
+let countItems = document.querySelector('#countItems'),
+    countItemsCart =0,
+    lastValue=0,
+    arrayTotalPrice =[];
 
-//Desplegar items
+//Desplegar pag
 window.addEventListener("DOMContentLoaded",function(){
 displayProductList(productList);
 displayMenuButtons();
 });
 
+// Desplegar products
 function displayProductList(listItems) {
 let displayProducts = listItems.map(function (item) {
   
@@ -140,9 +144,6 @@ let displayProducts = listItems.map(function (item) {
       listItems.filter(function (productItem){
         if(productItem.image === url){
           let aside = `
-          
-        
-          
           <img src=${productItem.image} alt="${productItem.name}" class="image-detail">
           
             <div class="product-info">
@@ -157,7 +158,7 @@ let displayProducts = listItems.map(function (item) {
           
           `;
           productDetailAside.innerHTML=aside;
-          
+          // Activar el dark screen
           const active = productDetailContainer.classList.contains('inactive');
             if(active){
               darkenScreen.classList.remove('inactive')
@@ -167,7 +168,8 @@ let displayProducts = listItems.map(function (item) {
             
           productDetailContainer.classList.remove("inactive");
 
-          /* Agregar al carrito desde el aside*/
+          /* Agregar poriducto al carrito desde el aside*/
+
           const btnAddToCartAside =productDetailContainer.querySelector('.btn-aside');
           btnAddToCartAside.addEventListener('click',function(e){
             let idBtn=(e.target.dataset.id);
@@ -180,7 +182,7 @@ let displayProducts = listItems.map(function (item) {
     }); 
   });
 
-  /*add btn pagina principal */
+  /*agregar producto desde la pagina principal */
   const btnAddToCart = cardsContainer.querySelectorAll('.btnAddToCart');
   btnAddToCart.forEach(btn=>{
     btn.addEventListener('click',event=>{
@@ -195,7 +197,7 @@ let displayProducts = listItems.map(function (item) {
 
 } 
 
-// desplegar menu botones
+// desplegar las diferentes categorias
 function displayMenuButtons() {
 const categories = productList.reduce(
   function (values, item) {
@@ -255,7 +257,9 @@ function filterProducts(filter){
 }
 }
 
-/*Email deskyop*/
+
+
+/*Email desktop*/
 const desktopMenu = document.querySelector(".desktop-menu");
 const navEmail = document.querySelector('.navbar-email');
 navEmail.addEventListener('click',()=>{
@@ -320,7 +324,12 @@ closeIcon.addEventListener('click',()=>{
 productDetailContainer.classList.add('inactive');
 });
 
-//functions
+// al momento de dawr click en cualquier parte, cerrar lo que este activo en el momento: bien sea dark screen, o alguna de las otras funciones
+window.addEventListener('click',()=>{
+  
+})
+
+//function order product
 function productOrder (listItems, id){
   let orderProduct=listItems.map(function (productItem){
     if(productItem.id == id){
@@ -340,7 +349,6 @@ function productOrder (listItems, id){
     
   });
 
-  
   orderProduct = orderProduct.join("");
   shoppingCart.innerHTML+=orderProduct;
 
@@ -366,13 +374,7 @@ function productOrder (listItems, id){
           orderTotal.innerHTML= "$ "+sumProducts(arrayTotalPrice);
         })
        
-  });
-  
-
-  
-  
-  
- 
+  });  
 }
 
 // Empty car
@@ -392,4 +394,26 @@ function sumProducts(arr) {
   }
   return sum;
 }
+
+/*Aquí esta mi proyecto, agregue varias funcionalidades, como:
+
+Editar el carrito para agregar/eliminar productos.
+Cambiar el estado de los iconos del carrito segun sea el estado.
+El aside muestra los datos del producto al que se le dio click.
+Creacion de una clase para los productos para tener mas organizacion a la hora de crearlos.
+Visualización del total a pagar en el carito de compras.
+Visualización de cuantos elementos hay en el carrito desde la vista externa.
+Enlace al repositorio:
+https://github.com/FredYegres/yard-sale
+
+Enlace al deploy en GitHubPages:
+https://fredyegres.github.io/yard-sale/ 
+
+
+Todos los ids y las clases agregadas fue para poder manipularlos desde Javascript.
+
+Repositorio: https://github.com/gabygramajo/curso-frontend-developer-practico
+
+Seguramente muchas cosas se podrían haber solucionado de una manera más sencilla, pero bueno jajaj es lo que se me ocurrió con lo que sé. Cualquier crítica, comentario o correción es bienvenida 💚 NUNCA PARES DE APRENDES 💚
+*/
 
