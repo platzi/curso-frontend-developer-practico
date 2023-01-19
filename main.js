@@ -11,23 +11,19 @@ menuHamIcon.addEventListener('click', toggleMobileMenu);
 carritoIcon.addEventListener('click', toggleCarritoMenu)
 
 function toggleDesktopMenu() {
-  menuCarrito.classList.add('inactive')
-  desktopMenu.classList.toggle('inactive');
+ menuCarrito.classList.add('inactive')
+ desktopMenu.classList.toggle('inactive');
 }
 
 function toggleMobileMenu(){
- // const ifMenuCarritoClosed = menuCarrito.classList.contains('inactive')
- // if(ifMenuCarritoClosed){
-   // menuCarrito.classList.add('inactive')
-  //}
-  menuCarrito.classList.add('inactive');// cierra la ventana(add)
-  mobileMenu.classList.toggle('inactive');// cierra o abre la ventana(toggle)
+  //menuCarrito.classList.add('inactive');// cierra la ventana(add)
+  mobileMenu.classList.toggle('inactive');// cierra o abre la ventana(toggle) 
 }
 
 function toggleCarritoMenu(){
-  desktopMenu.classList.add('inactive')
-  mobileMenu.classList.add('inactive');
-  menuCarrito.classList.toggle('inactive') 
+  //desktopMenu.classList.toggle('inactive')
+ // mobileMenu.classList.add('inactive');
+  menuCarrito.classList.toggle('inactive'); 
 }
 
 const productList = []
