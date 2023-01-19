@@ -8,6 +8,8 @@ const btnLeft = document.querySelector('#left');
 
 const spanLives = document.querySelector('#lives');
 const spanTimes = document.querySelector('#time')
+const spanRecord = document.querySelector('#record')
+const pResult = document.querySelector('#result')
 
 let canvasSize;
 let elementSize;
@@ -35,16 +37,18 @@ window.addEventListener('resize', setCanvasSize);
 ///////////// Tamaño dinámico dependiendo de la resulución de window
 function setCanvasSize() {
   if(window.innerHeight > window.innerWidth) {
-    canvasSize = window.innerWidth * 0.8;
+    canvasSize = window.innerWidth * 0.7;
   } else {
-    canvasSize = window.innerHeight * 0.8;
+    canvasSize = window.innerHeight * 0.7;
   }
 
   canvas.setAttribute('width', canvasSize);
   canvas.setAttribute('height', canvasSize);
 
-  elementSize = canvasSize / 10.2;
+  elementSize = canvasSize / 10;
 
+  playerPosition.x = undefined;
+  playerPosition.y = undefined;
   startGame();
 }
 
@@ -65,6 +69,8 @@ function startGame() {
   if(!timeStart) {
     timeStart = Date.now();
     timeInterval = setInterval(showTime, 100)
+
+    showRecord();
   }
 
   const mapRows = mapNivel.trim().split('\n');
@@ -96,10 +102,10 @@ function startGame() {
       game.fillText(emoji, posX, posY);
 
       if(col == 'O') {
-        if( !playerPosition.x && !playerPosition.y) {
+        if(!playerPosition.x && !playerPosition.y) {
           playerPosition.x = posX;
           playerPosition.y = posY;
-          console.log({playerPosition});
+          // console.log({playerPosition});
         }
       } else if (col == 'I'){
         giftPosition.x = posX;
@@ -130,8 +136,8 @@ function startGame() {
 
 ///////////// Función del movimiento del jugador en pantalla
 function movePlayer() {
-  const giftPositionX = playerPosition.x == giftPosition.x;
-  const giftPositionY = playerPosition.y == giftPosition.y;
+  const giftPositionX = playerPosition.x.toFixed(2) == giftPosition.x.toFixed(2);
+  const giftPositionY = playerPosition.y.toFixed(2) == giftPosition.y.toFixed(2);
   const giftCollision = giftPositionX && giftPositionY;
 
   if( giftCollision ) {
@@ -139,8 +145,8 @@ function movePlayer() {
   }
 
   const enemyCollision = enemyPositions.find(enemy => {
-    const enemyCollisionX = enemy.x == playerPosition.x;
-    const enemyCollisionY = enemy.y == playerPosition.y;
+    const enemyCollisionX = enemy.x.toFixed(2) == playerPosition.x.toFixed(2);
+    const enemyCollisionY = enemy.y.toFixed(2) == playerPosition.y.toFixed(2);
     return enemyCollisionX && enemyCollisionY;
   })
 
@@ -175,8 +181,28 @@ function levelFail() {
 
 function gameWin() {
   console.log('Ganaste el juego');
-
   clearInterval(timeInterval);
+
+  recordWin();
+}
+
+function recordWin() {
+  const recordTime = localStorage.getItem('record_time');
+  const playerTime = Date.now() - timeStart;
+
+  if(recordTime) {
+    if(recordTime >= playerTime) {
+      localStorage.setItem('record_time', playerTime);
+      pResult.innerHTML = 'NUEVO RECORD!!';
+    } else {
+      pResult.innerHTML = 'No superaste el Record';
+    }
+  } else {
+    localStorage.setItem('record_time', playerTime);
+    pResult.innerHTML = 'A por un RECORD! 😎';
+  }
+
+  console.log({recordTime, playerTime});
 }
 
 function gameOver() {
@@ -194,6 +220,10 @@ function showLives() {
 
 function showTime() {
   spanTimes.innerHTML = Date.now() - timeStart;
+}
+
+function showRecord() {
+  spanRecord.innerHTML = localStorage.getItem('record_time');
 }
 
 ///////////// Movimientos de con sus respectivas TECLAS
