@@ -81,69 +81,69 @@ function closeProductDetailAside() {
 const productList = [];
 
 productList.push({
-    name: 'Valeria y su familia',
+    name: 'Lulu la mas fea',
     price: 120,
-    imagen: './fotosValeria/foto1.jpeg',
+    imagen: './fotosPeludos/foto1.jpeg',
 })
 
 productList.push({
-    name: 'Valeria no me deja salir',
+    name: 'pipu y la tropa',
     price: 120,
-    imagen: './fotosValeria/foto2.jpeg',
+    imagen: './fotosPeludos/foto2.jpeg',
 })
 
 productList.push({
-    name: 'Valeria y florez',
+    name: 'pelusa es mas linda',
     price: 120,
-    imagen: './fotosValeria/foto3.jpeg',
+    imagen: './fotosPeludos/foto3.jpeg',
 })
 
 productList.push({
-    name: 'valeria y yop',
+    name: 'lulu',
     price: 120,
-    imagen: './fotosValeria/foto4.jpeg',
+    imagen: './fotosPeludos/foto4.jpeg',
 })
 
 productList.push({
-    name: 'valeria dormida',
+    name: 'pelusa',
     price: 120,
-    imagen: './fotosValeria/foto5.jpeg',
+    imagen: './fotosPeludos/foto5.jpeg',
 })
 
 productList.push({
-    name: 'valeria top model',
+    name: 'pelusa 2',
     price: 120,
-    imagen: './fotosValeria/foto6.jpeg',
+    imagen: './fotosPeludos/foto6.jpeg',
 })
 
 productList.push({
-    name: 'valeria ojos de reyna',
+    name: 'pelusa cono de la verguenza',
     price: 120,
-    imagen: './fotosValeria/foto7.jpeg',
+    imagen: './fotosPeludos/foto7.jpeg',
 })
 
 productList.push({
-    name: 'valeria fit',
+    name: 'familia',
     price: 120,
-    imagen: './fotosValeria/foto8.jpeg',
+    imagen: './fotosPeludos/foto8.jpeg',
 })
 
 productList.push({
-    name: 'valeria congo',
+    name: 'sueño',
     price: 120,
-    imagen: './fotosValeria/foto9.jpeg',
+    imagen: './fotosPeludos/foto9.jpeg',
 })
 
 productList.push({
-    name: 'valeria esteril',
+    name: 'lucas',
     price: 120,
-    imagen: './fotosValeria/foto10.jpeg',
+    imagen: './fotosPeludos/foto10.jpeg',
 })
 
 productList.push({
-    name: 'valeria looser',
+    name: 'pelusa',
     price: 120,
-    imagen: './fotosValeria/foto11.jpeg',
+    imagen: './fotosPeludos/foto11.jpeg',
 })
 
 
