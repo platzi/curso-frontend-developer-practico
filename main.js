@@ -4,21 +4,30 @@ const menuCarritoIcon = document.querySelector('.navbar-shopping-cart')
 const desktopMenu = document.querySelector('.desktop-menu')
 const mobileMenu = document.querySelector('.mobile-menu') 
 const asideShoppingCart = document.querySelector('.shopping-cart-detail')
+const asideProductDetail = document.querySelector('.product-detail')
+const productDetailCloseIcon = document.querySelector('.product-detail-close')
 const cardsContainer = document.querySelector('.cards-container')
+
+// console.warn(asideProductDetail)
 
 //Variables para verificar si están abiertos los diferentes menus
 let isMobileMenuOpen = !mobileMenu.classList.contains('inactive')
 let isDesktopMenuOpen = !desktopMenu.classList.contains('inactive')
 let isAsideShoppingCardOpen = !asideShoppingCart.classList.contains('inactive')
+let isAsideProductDetailOpen = !asideProductDetail.classList.contains('inactive')
 
 menuEmail.addEventListener('click', toggleDesktopMenu)
 burgerIcon.addEventListener('click', toggleMobileMenu)
 menuCarritoIcon.addEventListener('click', toggleCarritoAside)
+productDetailCloseIcon.addEventListener('click', closeProductDetailAside)
 
 function toggleDesktopMenu() {
-    console.warn(isAsideShoppingCardOpen)
+    // console.warn(isAsideShoppingCardOpen)
     if (isAsideShoppingCardOpen) {
         asideShoppingCart.classList.add('inactive')
+    }
+    if (isAsideProductDetailOpen) {
+        asideProductDetail.classList.add('inactive')
     }
     desktopMenu.classList.toggle('inactive')
     isDesktopMenuOpen = true
@@ -27,6 +36,9 @@ function toggleDesktopMenu() {
 function toggleMobileMenu() { 
     if (isAsideShoppingCardOpen) {
         asideShoppingCart.classList.add('inactive')
+    }
+    if (isAsideProductDetailOpen) {
+        asideProductDetail.classList.add('inactive')
     }
     mobileMenu.classList.toggle('inactive')
     isMobileMenuOpen = true
@@ -39,8 +51,29 @@ function toggleCarritoAside() {
     if (isDesktopMenuOpen) {
         desktopMenu.classList.add('inactive')
     }
+    if (isAsideProductDetailOpen) {
+        asideProductDetail.classList.add('inactive')
+    }
     asideShoppingCart.classList.toggle('inactive')
     isAsideShoppingCardOpen = true
+}
+
+function openProductDetailAside() {
+    if (isMobileMenuOpen) {
+        mobileMenu.classList.add('inactive')
+    }
+    if (isDesktopMenuOpen) {
+        desktopMenu.classList.add('inactive')
+    }
+    if (isAsideShoppingCardOpen) {
+        asideShoppingCart.classList.add('inactive')
+    }
+    asideProductDetail.classList.remove('inactive')
+    isAsideProductDetailOpen = true
+}
+function closeProductDetailAside() {
+    asideProductDetail.classList.add('inactive')
+    isAsideProductDetailOpen = false
 }
 
 const productList = []
@@ -116,6 +149,7 @@ function renderProducts(arr) {
         
         const productImg = document.createElement('img')
         productImg.setAttribute('src', product.image)
+        productImg.addEventListener('click', openProductDetailAside)
         
         const productInfo = document.createElement('div')
         productInfo.classList.add('product-info')
