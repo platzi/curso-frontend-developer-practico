@@ -316,7 +316,6 @@ body {
 /*(aside) product-detail*/
 .product-detail {
   width: 360px;
-  padding-right: 24px;
   padding-bottom: 24px;
   position: absolute;
   right: 0;
