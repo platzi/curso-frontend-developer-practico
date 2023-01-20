@@ -128,22 +128,16 @@ function renderProducts(arr) {
         const productName = document.createElement('p')
         productName.innerText = product.name
         
-        productInfoDiv.appendChild(productPrice)
-        productInfoDiv.appendChild(productName)
         
         const productInfoFigure = document.createElement('figure')
         const productImgCart = document.createElement('img')
         productImgCart.setAttribute('src', './icons/bt_add_to_cart.svg')
-    
-        productInfoFigure.appendChild(productImgCart)
-    
-        productInfo.appendChild(productInfoDiv)
-        productInfo.appendChild(productInfoFigure)
-    
-        productCard.appendChild(productImg)
-        productCard.appendChild(productInfo)
-    
-        cardsContainer.appendChild(productCard)
+        
+        productInfoDiv.append(productPrice,productName)
+            productInfoFigure.appendChild(productImgCart)
+            productInfo.append(productInfoDiv,productInfoFigure)
+            productCard.append(productImg,productInfo)
+            cardsContainer.appendChild(productCard)
     }
 }
 
