@@ -69,21 +69,76 @@ function closeProductDetailAside() {
 const productList = [];
 productList.push({
     name: 'Bike',
-    price: 120,
+    price: 150,
     image: "https://images.pexels.com/photos/276517/pexels-photo-276517.jpeg?auto=compress&cs=tinysrgb&dpr=2&h=650&w=940"
 });
 
 productList.push({
-    name: 'Pantalla',
-    price: 80,
-    image: "https://images.pexels.com/photos/276517/pexels-photo-276517.jpeg?auto=compress&cs=tinysrgb&dpr=2&h=650&w=940"
+    name: 'Shirt',
+    price: 17,
+    image: "https://media.istockphoto.com/id/1199864582/es/foto/camiseta-aislada-sobre-blanco.jpg?s=1024x1024&w=is&k=20&c=Jm4wZuXGl33L_XRr0yPhXWjOGxu7Oj0OMpIHeXFZ1YY="
 });
 
 productList.push({
-    name: 'Computador',
-    price: 200,
-    image: "https://images.pexels.com/photos/276517/pexels-photo-276517.jpeg?auto=compress&cs=tinysrgb&dpr=2&h=650&w=940"
+    name: 'Tennis shoes Nike',
+    price: 53,
+    image: "https://images.pexels.com/photos/4252969/pexels-photo-4252969.jpeg"
 });
+
+productList.push({
+    name: 'Computer',
+    price: 635,
+    image: "https://images.pexels.com/photos/1999463/pexels-photo-1999463.jpeg?auto=compress&cs=tinysrgb&w=1260&h=750&dpr=1"
+});
+
+productList.push({
+    name: 'Smarthphone',
+    price: 190,
+    image: "https://images.pexels.com/photos/404280/pexels-photo-404280.jpeg?auto=compress&cs=tinysrgb&w=1260&h=750&dpr=1"
+});
+
+productList.push({
+    name: 'Sofa',
+    price: 254,
+    image: "https://images.pexels.com/photos/3757055/pexels-photo-3757055.jpeg?auto=compress&cs=tinysrgb&w=1260&h=750&dpr=1"
+});
+
+productList.push({
+    name: 'Doll Captain America',
+    price: 20,
+    image: "https://http2.mlstatic.com/D_NQ_NP_761102-CBT50141142921_052022-V.jpg"
+});
+
+productList.push({
+    name: 'Toy car with Remote Control',
+    price: 20,
+    image: "https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcQ3BURN1s-I0cgS11isCtA8dduRs_xy_sW6_Q&usqp=CAU"
+});
+
+productList.push({
+    name: 'Tools kit',
+    price: 20,
+    image: "https://images.pexels.com/photos/175039/pexels-photo-175039.jpeg?auto=compress&cs=tinysrgb&w=1260&h=750&dpr=1"
+});
+
+productList.push({
+    name: 'Portfolio',
+    price: 53,
+    image: "https://media.istockphoto.com/id/182255361/es/foto/negro-malet%C3%ADn.jpg?s=1024x1024&w=is&k=20&c=L6AJUaQAy8e0XYPux9buutfFMWAOrdyydwpu8h0oSXg="
+});
+
+productList.push({
+    name: 'Blender',
+    price: 22,
+    image: "https://almacencoogranada.com/wp-content/uploads/2020/06/L63200electro1.jpg"
+});
+
+productList.push({
+    name: 'Chair',
+    price: 70,
+    image: "https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcRhY56eZQPRMW60xEgEXwP7hHukw4caQcW8EA&usqp=CAU"
+});
+
 
 /*
 <div class="product-card">
