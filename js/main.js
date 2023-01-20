@@ -262,20 +262,16 @@ function filterProducts(filter){
 /*Email desktop*/
 const desktopMenu = document.querySelector(".desktop-menu");
 const navEmail = document.querySelector('.navbar-email');
+
 navEmail.addEventListener('click',()=>{
-//console.log('navEmail clicked'); 
-if(!aside.classList.contains('inactive')|| !productDetailContainer.classList.contains('inactive')){
-  aside.classList.add('inactive');
-  productDetailContainer.classList.add('inactive');
-  
-}
-const active = desktopMenu.classList.contains('inactive');
-if(active){
-  darkenScreen.classList.remove('inactive')
-} else{
-  darkenScreen.classList.add('inactive')
-}
-desktopMenu.classList.toggle('inactive'); 
+      //console.log('navEmail clicked'); 
+      if(!aside.classList.contains('inactive')|| !productDetailContainer.classList.contains('inactive')){
+        aside.classList.add('inactive');
+        productDetailContainer.classList.add('inactive');
+        
+      }
+      const active = desktopMenu.classList.contains('inactive');
+      darkScreen(active);
 });
 
 /*Desplegar menu mobil*/
@@ -293,41 +289,34 @@ if(!aside.classList.contains('inactive')||!productDetailContainer.classList.cont
 /*my order*/
 const menuCarritoIcon = document.querySelector('.navbar-shopping-cart');
 const aside = document.querySelector('#shopping-cart-container');
-const orderProduct = document.querySelector('#order__product')
+const orderProduct = document.querySelector('#order__product');
+
 menuCarritoIcon.addEventListener('click',()=>{
 if(!mobileMenu.classList.contains('inactive') ||!desktopMenu.classList.contains('inactive') ||!productDetailContainer.classList.contains('inactive') ){
     mobileMenu.classList.add('inactive');
     desktopMenu.classList.add('inactive');
     productDetailContainer.classList.add('inactive');  
 }
-
   const active = aside.classList.contains('inactive');
-  if(active){
-    darkenScreen.classList.remove('inactive')
-  } else{
-    darkenScreen.classList.add('inactive')
-  }
+  darkScreen(active);
   aside.classList.toggle('inactive');
   emptyCar();
 });
 
 /*Close Icon*/
 const closeIcon = productDetailContainer.querySelector('.product-detail-close');
-//console.log(closeIcon);
+
 closeIcon.addEventListener('click',()=>{
   const active = productDetailContainer.classList.contains('inactive');
-  if(active){
-  darkenScreen.classList.remove('inactive')
-  } else{
-  darkenScreen.classList.add('inactive')
-  }
+  darkScreen(active);
+
 productDetailContainer.classList.add('inactive');
 });
 
 // al momento de dawr click en cualquier parte, cerrar lo que este activo en el momento: bien sea dark screen, o alguna de las otras funciones
 window.addEventListener('click',()=>{
   
-})
+});
 
 //function order product
 function productOrder (listItems, id){
@@ -355,6 +344,7 @@ function productOrder (listItems, id){
   // sumar productos
   const priceOrder = shoppingCart.querySelectorAll('.price-order');
   let suma=0;
+  
   priceOrder.forEach(price=>{
     suma=(Number(price.innerHTML));
   })
@@ -372,7 +362,7 @@ function productOrder (listItems, id){
           countItems.innerText = countItemsCart;
           arrayTotalPrice.splice(-1,1)
           orderTotal.innerHTML= "$ "+sumProducts(arrayTotalPrice);
-        })
+        });
        
   });  
 }
@@ -387,6 +377,7 @@ function emptyCar(){
   }
 }
 
+// productos
 function sumProducts(arr) {
   let sum = 0;
   for (let i = 0; i < arr.length; i++) {
@@ -395,25 +386,11 @@ function sumProducts(arr) {
   return sum;
 }
 
-/*Aquí esta mi proyecto, agregue varias funcionalidades, como:
-
-Editar el carrito para agregar/eliminar productos.
-Cambiar el estado de los iconos del carrito segun sea el estado.
-El aside muestra los datos del producto al que se le dio click.
-Creacion de una clase para los productos para tener mas organizacion a la hora de crearlos.
-Visualización del total a pagar en el carito de compras.
-Visualización de cuantos elementos hay en el carrito desde la vista externa.
-Enlace al repositorio:
-https://github.com/FredYegres/yard-sale
-
-Enlace al deploy en GitHubPages:
-https://fredyegres.github.io/yard-sale/ 
-
-
-Todos los ids y las clases agregadas fue para poder manipularlos desde Javascript.
-
-Repositorio: https://github.com/gabygramajo/curso-frontend-developer-practico
-
-Seguramente muchas cosas se podrían haber solucionado de una manera más sencilla, pero bueno jajaj es lo que se me ocurrió con lo que sé. Cualquier crítica, comentario o correción es bienvenida 💚 NUNCA PARES DE APRENDES 💚
-*/
-
+//activate darkscreen
+function darkScreen(active){
+  if(active){
+    darkenScreen.classList.remove('inactive')
+  } else{
+    darkenScreen.classList.add('inactive')
+  }
+}
