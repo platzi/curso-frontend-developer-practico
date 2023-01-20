@@ -5,40 +5,31 @@ var desktop_menu = document.querySelector(".desktop-menu");
 var menu_icon = document.querySelector(".menu");
 var mobile_menu = document.querySelector(".mobile-menu");
 var shopping_cart_icon = document.querySelector(".navbar-shopping-cart");
-var shopping_detail = document.querySelector(".product-detail");
+var shopping_detail = document.querySelector(".order-detail");
 var cards_container = document.querySelector(".cards-container");
+var product_detail = document.querySelector(".product-detail");
+var product_detail_close_icon = document.querySelector(".product-detail-close");
 
 var trigger_menus = {
     "navbar-email": desktop_menu,
     "menu": mobile_menu,
-    "navbar-shopping-cart": shopping_detail
+    "navbar-shopping-cart": shopping_detail,
+    "product-card": product_detail
 }
 
-function toggle_menu(e) {
-    const srcElement = e.target.className;
+function click_menu(e) {
+    toggle_menu(e.target);
+}
+
+function toggle_menu(element) {
+    const srcElement = element.className;
     for (const trigger in trigger_menus) {
         (trigger != srcElement)? trigger_menus[trigger].classList.add("inactive"):trigger_menus[trigger].classList.toggle("inactive");
     }
 }
-
-navbar_email.addEventListener("click", toggle_menu);
-menu_icon.addEventListener("click", toggle_menu);
-shopping_cart_icon.addEventListener("click", toggle_menu);
-
-
-/*   <div class="product-card">
-<img src="https://images.pexels.com/photos/276517/pexels-photo-276517.jpeg?auto=compress&cs=tinysrgb&dpr=2&h=650&w=940" alt="">
-<div class="product-info">
-  <div>
-    <p>$120,00</p>
-    <p>Bike</p>
-  </div>
-  <figure>
-    <img src="./icons/bt_add_to_cart.svg" alt="">
-  </figure>
-</div>
-</div>
-*/
+navbar_email.addEventListener("click", click_menu);
+menu_icon.addEventListener("click", click_menu);
+shopping_cart_icon.addEventListener("click", click_menu);
 
 function product_object (id, name, price, image, description) {
     this.id=id;
@@ -53,20 +44,15 @@ var product_list = [];
 product_list.push(new product_object(1,"Bike", 250.00, "https://images.pexels.com/photos/276517/pexels-photo-276517.jpeg?auto=compress&cs=tinysrgb&dpr=2&h=650&w=940"));
 product_list.push(new product_object(2,"Computer", 1000.00, "https://images.pexels.com/photos/276517/pexels-photo-276517.jpeg?auto=compress&cs=tinysrgb&dpr=2&h=650&w=940"));
 product_list.push(new product_object(3,"Monitor", 150.00, "https://images.pexels.com/photos/276517/pexels-photo-276517.jpeg?auto=compress&cs=tinysrgb&dpr=2&h=650&w=940"));
-product_list.push(new product_object(4,"Keyboard", 30.00, "https://images.pexels.com/photos/276517/pexels-photo-276517.jpeg?auto=compress&cs=tinysrgb&dpr=2&h=650&w=940"));
-product_list.push(new product_object(5,"Keyboard", 30.00, "https://images.pexels.com/photos/276517/pexels-photo-276517.jpeg?auto=compress&cs=tinysrgb&dpr=2&h=650&w=940"));
-product_list.push(new product_object(6,"Keyboard", 30.00, "https://images.pexels.com/photos/276517/pexels-photo-276517.jpeg?auto=compress&cs=tinysrgb&dpr=2&h=650&w=940"));
-product_list.push(new product_object(7,"Keyboard", 30.00, "https://images.pexels.com/photos/276517/pexels-photo-276517.jpeg?auto=compress&cs=tinysrgb&dpr=2&h=650&w=940"));
 
 function renderProductCards (productList){
     for (product of productList) {
         let productCard = document.createElement("div");
         productCard.className = "product-card";
-        
+        productCard.setAttribute("data-id", product.id);
 
         let productImg = document.createElement("img");
         productImg.setAttribute('src', product.image);
-        productImg.setAttribute("data-id", product.id);
         productImg.addEventListener("click", productClickHandler);
         productCard.appendChild(productImg);
 
@@ -102,11 +88,29 @@ function renderProductCards (productList){
 renderProductCards(product_list);
 
 
-function renderProductDetail(product) {
-    
-    console.log(product);
+function renderProductDetail(product_id) {
+    let product = product_list.filter(product => product.id == product_id)[0];
+    let product_image = document.querySelector('.product-detail #product-image');
+    let product_price= document.querySelector('.product-detail #product-price');
+    let product_name = document.querySelector('.product-detail #product-name');
+    let product_description = document.querySelector('.product-detail #product-description');
+
+    product_image.setAttribute('src', product.image)
+    product_price.innerText = `$ ${product.price}`;
+    product_name.innerText = product.name;
+    product_description.innerText = 'babaabsdsakdjl kdjsa df';
+
 }
 
 function productClickHandler(e) {
-    renderProductDetail(e.target.getAttribute('data-id'));
+    renderProductDetail(e.target.parentElement.getAttribute("data-id"));
+    if (product_detail.classList.contains('inactive')) {
+        toggle_menu(e.target.parentElement);
+    }
+}
+
+
+product_detail_close_icon.addEventListener("click", closeProductDetail);
+function closeProductDetail(e) {
+    product_detail.classList.add('inactive');
 }
