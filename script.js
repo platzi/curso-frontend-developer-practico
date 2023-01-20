@@ -5,7 +5,7 @@ const menuMobile = document.querySelector('.mobile-menu')
 const iconShoppingCart = document.querySelector('.navbar-shopping-cart')
 const myOrder = document.querySelector('.product-detail')
 const productDetail = document.querySelector('.product-detail-secondary')
-
+const closeProductDetail = document.querySelector('.product-detail-secondary-close')
 const counterShop = document.querySelector('.counter-shop')
 const cardsContainer = document.querySelector('.cards-container')
 
@@ -38,13 +38,15 @@ function toggleMyOrder() {
     myOrder.classList.toggle('inactive');
 }
 
-// load product details
+// load and close product details
+
+closeProductDetail.addEventListener('click', () => {productDetail.classList.add('inactive')})
 
 function openProductDetail() {
     desktopMenu.classList.add('inactive');
     menuMobile.classList.add('inactive');
     myOrder.classList.add('inactive');
-    productDetail.classList.toggle('inactive');
+    productDetail.classList.remove('inactive');
 }
 
 
