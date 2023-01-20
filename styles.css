@@ -324,6 +324,11 @@
   }
   .product-card {
     width: 240px;
+    border-radius: 20px;
+    border: 1px solid transparent;
+  }
+  .product-card:hover {
+    border: 1px solid var(--very-light-pink);
   }
   .product-card img {
     width: 240px;
@@ -335,7 +340,7 @@
     display: flex;
     justify-content: space-around;
     align-items: center;
-    margin-top: 12px;
+    margin: 12px 0;
   }
   .product-info figure {
     margin: 0;
