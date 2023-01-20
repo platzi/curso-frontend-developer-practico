@@ -61,7 +61,7 @@ function printCards(arr) {
     const div = document.createElement("div");
     
     const price = document.createElement("p");
-    price.append(document.createTextNode(`${elem.price}`));
+    price.append(document.createTextNode(`$${elem.price}`));
     
     const productName = document.createElement("p");
     productName.append(document.createTextNode(`${elem.name}`));
