@@ -9,6 +9,13 @@
 </head>
 <body>
   <div class="game-container">
+    <div class="fin-juego d-none" id="finishGame">
+      <div>😎</div>
+      <p>Tiempo: <span id="finishTime"></span></p>
+      <p>🏅 Record: <span id="record"></span></p>
+      <p id="result"></p>
+      <button class="game-restart" id="gameRestart">Jugar de nuevo</button>
+    </div>
     <canvas id="game"></canvas>
 
     <div class="group-btn">
@@ -22,8 +29,6 @@
       <!-- TODO -->
       <p>💕 Vidas: <span id="lives"></span></p>
       <p>⏱ Tiempo: <span id="time"></span></p>
-      <p>🏅 Record: <span id="record"></span></p>
-      <p id="result"></p>
     </div>
   </div>
 

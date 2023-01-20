@@ -13,6 +13,31 @@ body {
   height:100vh;
   width:100vw
 }
+.fin-juego {
+  display: none;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+  row-gap: 10px;
+  width: 100vw;
+  height: 100vh;
+  background: rgba(12, 12, 12, .95);
+  position: absolute;
+  backdrop-filter: blur(2px);
+}
+.active {
+  display: flex;
+}
+.fin-juego div {
+  font-size: 60px;
+}
+.fin-juego p {
+  text-align: center;
+  font-size: 30px;
+}
+.game-restart {
+  width: 150px;
+}
 canvas {
   border:4px solid #f60;
   border-radius:8px;
@@ -32,7 +57,8 @@ button {
   font-family:inherit;
   margin:0;
   padding:5px 20px;
-  width:100px
+  width:100px;
+  cursor: pointer;
 }
 button:not(:last-child) {
   margin-right:10px

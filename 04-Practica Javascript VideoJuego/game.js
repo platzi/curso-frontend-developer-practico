@@ -1,4 +1,7 @@
 const canvas = document.querySelector('#game');
+const finishGame = document.querySelector('#finishGame');
+const gameRestart = document.querySelector('#gameRestart');
+const finishTime = document.querySelector('#finishTime');
 const game = canvas.getContext('2d');
 
 const btnUp = document.querySelector('#up');
@@ -35,20 +38,23 @@ window.addEventListener('load', setCanvasSize);
 window.addEventListener('resize', setCanvasSize);
 
 ///////////// Tamaño dinámico dependiendo de la resulución de window
+function fixNumber(n) {
+  return Number(n.toFixed(0));
+}
+
 function setCanvasSize() {
-  if(window.innerHeight > window.innerWidth) {
-    canvasSize = window.innerWidth * 0.7;
-  } else {
-    canvasSize = window.innerHeight * 0.7;
-  }
+  canvasSize = Math.min(window.innerHeight, window.innerWidth) * 0.7;
+
+  canvasSize = fixNumber(canvasSize);
 
   canvas.setAttribute('width', canvasSize);
   canvas.setAttribute('height', canvasSize);
 
-  elementSize = canvasSize / 10;
+  elementSize = fixNumber(canvasSize / 10);
 
   playerPosition.x = undefined;
   playerPosition.y = undefined;
+
   startGame();
 }
 
@@ -56,7 +62,7 @@ function setCanvasSize() {
 function startGame() {
   console.log({ canvasSize, elementSize });
 
-  game.font = elementSize + 'px Verdana';
+  game.font = (elementSize * 0.95) + 'px Verdana';
   game.textAlign = 'end';
 
   const mapNivel = maps[level];
@@ -82,7 +88,7 @@ function startGame() {
   /* Estamos asignando un nuevo array vacío cada vez que el jugador mueve el personaje */
   enemyPositions = [];
   // Cada vez que inicia el juego, hace un recarga del mapa completo 👇🏼
-  game.clearRect(0,0,canvasSize, canvasSize);
+  game.clearRect(0, 0, canvasSize, canvasSize);
 
   //////////////////////// INICIO DE UBICACIÓN DE LOS ELEMENTOS
 
@@ -99,7 +105,6 @@ function startGame() {
       const emoji = emojis[col];
       const posX = elementSize * (colIndex + 1);
       const posY = elementSize * (rowIndex + 1);
-      game.fillText(emoji, posX, posY);
 
       if(col == 'O') {
         if(!playerPosition.x && !playerPosition.y) {
@@ -117,7 +122,7 @@ function startGame() {
         })
       }
 
-      game.fillText(emoji, posX, posY);
+      game.fillText(emoji, posX + 9, posY - 9);
     })
   });
   
@@ -154,7 +159,8 @@ function movePlayer() {
     levelFail();
   }
 
-  game.fillText(emojis['PLAYER'], playerPosition.x, playerPosition.y);
+  game.font = (elementSize * 0.9) + 'px Verdana';
+  game.fillText(emojis['PLAYER'], playerPosition.x + 7, playerPosition.y - 10);
 }
 
 function levelWin() {
@@ -179,9 +185,23 @@ function levelFail() {
   startGame();
 }
 
+function modalFinish() {
+  finishGame.classList.add('active');
+  
+  gameRestart.addEventListener('keydown', (e) => {
+    if(e.key == 'Space') {
+      location.reload();
+      console.log(e);
+    }
+    finishGame.classList.remove('active');
+  })
+}
+
 function gameWin() {
   console.log('Ganaste el juego');
   clearInterval(timeInterval);
+
+  modalFinish();
 
   recordWin();
 }
