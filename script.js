@@ -4,6 +4,8 @@ const iconMenu = document.querySelector('.icon-menu-mobile')
 const menuMobile = document.querySelector('.mobile-menu')
 const iconShoppingCart = document.querySelector('.navbar-shopping-cart')
 const myOrder = document.querySelector('.product-detail')
+const productDetail = document.querySelector('.product-detail-secondary')
+
 const counterShop = document.querySelector('.counter-shop')
 const cardsContainer = document.querySelector('.cards-container')
 
@@ -14,6 +16,7 @@ navMenu.addEventListener('click', toggleMenuDesktop);
 function toggleMenuDesktop() {
     myOrder.classList.add('inactive');
     menuMobile.classList.add('inactive');
+    productDetail.classList.add('inactive');
     desktopMenu.classList.toggle('inactive');
 }
 
@@ -22,6 +25,7 @@ iconMenu.addEventListener('click', toggleIconMenu);
 function toggleIconMenu() {
     myOrder.classList.add('inactive');
     desktopMenu.classList.add('inactive');
+    productDetail.classList.add('inactive');
     menuMobile.classList.toggle('inactive');
 }
 
@@ -30,8 +34,19 @@ iconShoppingCart.addEventListener('click', toggleMyOrder);
 function toggleMyOrder() {
     desktopMenu.classList.add('inactive');
     menuMobile.classList.add('inactive');
+    productDetail.classList.add('inactive');
     myOrder.classList.toggle('inactive');
 }
+
+// load product details
+
+function openProductDetail() {
+    desktopMenu.classList.add('inactive');
+    menuMobile.classList.add('inactive');
+    myOrder.classList.add('inactive');
+    productDetail.classList.toggle('inactive');
+}
+
 
 // create products
 
@@ -107,27 +122,27 @@ function createProducts(arr) {
     for (product of arr) {
         const productCard = document.createElement('div')
         productCard.classList.add('product-card')
-    
+
         const imgSrc = document.createElement('img')
         imgSrc.setAttribute('src', product.img)
-        imgSrc.classList.add('add-to-cart')
-    
+        imgSrc.addEventListener('click', openProductDetail)
+        
         const productInfo = document.createElement('div')
         productInfo.classList.add('product-info')
-    
+
         const divProductInfo = document.createElement('div')
-    
+
         const productPrice = document.createElement('p')
         productPrice.innerText = `$ ${product.price}`
-    
+
         const productName = document.createElement('p')
         productName.innerText = product.name
-    
+
         const figureCart = document.createElement('figure')
-    
+
         const imgCart = document.createElement('img')
         imgCart.setAttribute('src', './icons/bt_add_to_cart.svg')
-    
+
         figureCart.appendChild(imgCart)
         divProductInfo.append(productPrice, productName)
         productInfo.append(divProductInfo, figureCart)
