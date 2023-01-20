@@ -43,18 +43,46 @@ productlist.push({
 
 const cardsContainer = document.querySelector('.cards-container');
 
+const cards = []
 
 function printCards(arr) {
   
-
-
   for(elem of arr){
-    const productCards = cardsContainer.querySelectorAll('.product-card');
+
+    const productCard = document.createElement("div");
+    productCard.className =  "product-card";
+
+    const img = document.createElement("img");
+    img.setAttribute( "src" , elem.img );
+    
+    const info = document.createElement("div");
+    info.className = "product-info";
+
+    const div = document.createElement("div");
+    
+    const price = document.createElement("p");
+    price.append(document.createTextNode(`${elem.price}`));
+    
+    const productName = document.createElement("p");
+    productName.append(document.createTextNode(`${elem.name}`));
+    
+    const fig = document.createElement("figure");
+    const imgCart = document.createElement("img");
+    imgCart.setAttribute("src", "./icons/bt_add_to_cart.svg")
+    
+    fig.append(imgCart);
+    div.append(price,productName);
+    info.append(div, fig);
+    productCard.append(img, info);
+
+    cards.push(productCard)
 
   }
-  
 
+  debugger
 
+  cardsContainer.append(...cards)
 }
+
 
 printCards(productlist);
