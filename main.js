@@ -3,30 +3,30 @@ const burgerIcon = document.querySelector('.menu')
 const menuCarritoIcon = document.querySelector('.navbar-shopping-cart')
 const desktopMenu = document.querySelector('.desktop-menu')
 const mobileMenu = document.querySelector('.mobile-menu') 
-const aside = document.querySelector('.product-detail')
+const asideShoppingCart = document.querySelector('.shopping-cart-detail')
 const cardsContainer = document.querySelector('.cards-container')
 
 //Variables para verificar si están abiertos los diferentes menus
 let isMobileMenuOpen = !mobileMenu.classList.contains('inactive')
 let isDesktopMenuOpen = !desktopMenu.classList.contains('inactive')
-let isAsideOpen = !aside.classList.contains('inactive')
+let isAsideShoppingCardOpen = !asideShoppingCart.classList.contains('inactive')
 
 menuEmail.addEventListener('click', toggleDesktopMenu)
 burgerIcon.addEventListener('click', toggleMobileMenu)
 menuCarritoIcon.addEventListener('click', toggleCarritoAside)
 
 function toggleDesktopMenu() {
-    console.warn(isAsideOpen)
-    if (isAsideOpen) {
-        aside.classList.add('inactive')
+    console.warn(isAsideShoppingCardOpen)
+    if (isAsideShoppingCardOpen) {
+        asideShoppingCart.classList.add('inactive')
     }
     desktopMenu.classList.toggle('inactive')
     isDesktopMenuOpen = true
 }
 
 function toggleMobileMenu() { 
-    if (isAsideOpen) {
-        aside.classList.add('inactive')
+    if (isAsideShoppingCardOpen) {
+        asideShoppingCart.classList.add('inactive')
     }
     mobileMenu.classList.toggle('inactive')
     isMobileMenuOpen = true
@@ -39,8 +39,8 @@ function toggleCarritoAside() {
     if (isDesktopMenuOpen) {
         desktopMenu.classList.add('inactive')
     }
-    aside.classList.toggle('inactive')
-    isAsideOpen = true
+    asideShoppingCart.classList.toggle('inactive')
+    isAsideShoppingCardOpen = true
 }
 
 const productList = []
