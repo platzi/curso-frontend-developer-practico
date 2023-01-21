@@ -1,33 +1,5 @@
 "use strict";
 
-let navEmail = document.querySelector('.navbar-email'),
-  deskMenu = document.querySelector('.desktop-menu'),
-  burgerMenu = document.querySelector('.menu'),
-  mobMenu = document.querySelector('.mobile-menu'),
-  shoppingCart = document.querySelector('.navbar-shopping-cart'),
-  productDetail = document.querySelector('.product-detail');
-
-let showDeskMenu = () => {
-  deskMenu.classList.toggle('inactive');
-};
-
-navEmail.addEventListener('click', showDeskMenu);
-
-// # secuencia que muestra y oculta carrito de compras y menu mobile
-let ShowDeskMenuCart = () => {
-  productDetail.classList.add('inactive');
-  mobMenu.classList.toggle('hide-menu');
-};
-
-burgerMenu.addEventListener('click', ShowDeskMenuCart);
-
-let ShowMobMenuCart = () => {
-  mobMenu.classList.add('hide-menu');
-  productDetail.classList.toggle('inactive');
-};
-
-shoppingCart.addEventListener('click', ShowMobMenuCart);
-
 // # Carga de productos
 const productList = [
   {
@@ -86,38 +58,92 @@ const productList = [
   }
 ];
 
-const cardContainer = document.querySelector('.cards-container');
-let toRender = [];
+let navEmail = document.querySelector('.navbar-email'),
+  deskMenu = document.querySelector('.desktop-menu'),
+  burgerMenu = document.querySelector('.menu'),
+  mobMenu = document.querySelector('.mobile-menu'),
+  shoppingCart = document.querySelector('.navbar-shopping-cart'),
+  productShoppingCart = document.querySelector('#productShoppingCart'),
+  productDetail = document.querySelector('#productDetail'),
+  productDetailClose = document.querySelector('.product-detail-close');
 
-for (let products of productList) {
-  // * creacion de elementos del html
-  const productCard = document.createElement('div'),
-    productImages = document.createElement('img'),
-    productInfo = document.createElement('div'),
-    productInfoDiv = document.createElement('div'),
-    productName = document.createElement('p'),
-    productPrice = document.createElement('p'),
-    productAddCart = document.createElement('figure'),
-    productIconCart = document.createElement('img');
+// # secuencia que muestra y oculta menu,carrito compras y detalle producto
+let showDeskMenu = () => {
+  productDetail.classList.add('inactive');
+  mobMenu.classList.add('hide-menu');
+  productShoppingCart.classList.add('inactive');
+  deskMenu.classList.toggle('inactive');
+};
+navEmail.addEventListener('click', showDeskMenu);
 
-  // * Se agregan complementos al html
-  productCard.classList.add('product-card', `key-${products.id}`);
-  productImages.setAttribute('src', products.image);
-  productInfo.classList.add('product-info');
-  productName.textContent = products.name;
-  productPrice.textContent = '$' + products.p;
-  productIconCart.setAttribute('src', './icons/bt_add_to_cart.svg');
+let ShowMobMenu = () => {
+  deskMenu.classList.add('inactive');
+  productShoppingCart.classList.add('inactive');
+  productDetail.classList.add('inactive');
+  mobMenu.classList.toggle('hide-menu');
+};
+burgerMenu.addEventListener('click', ShowMobMenu);
 
-  // * Se le da estructura al html generado
-  productInfoDiv.append(productName, productPrice);
-  productAddCart.appendChild(productIconCart);
-  productInfo.append(productInfoDiv, productAddCart);
-  productCard.append(productImages, productInfo);
+let ShowShoppingCart = () => {
+  mobMenu.classList.add('hide-menu');
+  deskMenu.classList.add('inactive');
+  productDetail.classList.add('inactive');
+  productShoppingCart.classList.toggle('inactive');
+};
+shoppingCart.addEventListener('click', ShowShoppingCart);
 
-  // * Agrego las cards al nuevo array creado al principio
-  toRender.push(productCard);
+let showProductDetail = (e) => {
+  mobMenu.classList.add('hide-menu');
+  deskMenu.classList.add('inactive');
+  productShoppingCart.classList.add('inactive');
+  productDetail.classList.remove('inactive');
+};
+productDetailClose.addEventListener('click', () => {
+  productDetail.classList.add('inactive');
+});
+
+// * Permite mostrar la info del producto seleccionado
+function GenerateProductDetail(event) {
+  console.log(event);
 }
 
-// * Pasamos todo el array a la vez, modificando solo una vez el DOM
-cardContainer.append(...toRender);
+// * Permite generar el listado de productos
+function renderProducts(arr) {
+  const cardContainer = document.querySelector('.cards-container');
+  let toRender = [];
+  for (let products of arr) {
+    // * creacion de elementos del html
+    const productCard = document.createElement('div'),
+      productImages = document.createElement('img'),
+      productInfo = document.createElement('div'),
+      productInfoDiv = document.createElement('div'),
+      productName = document.createElement('p'),
+      productPrice = document.createElement('p'),
+      productAddCart = document.createElement('figure'),
+      productIconCart = document.createElement('img');
+
+    // * Se agregan complementos al html
+    productCard.classList.add('product-card', `key-${products.id}`);
+    productImages.setAttribute('src', products.image);
+    productImages.addEventListener('click', showProductDetail);
+    productInfo.classList.add('product-info');
+    productName.textContent = products.name;
+    productPrice.textContent = '$' + products.price;
+    productIconCart.setAttribute('src', './icons/bt_add_to_cart.svg');
+
+    // * Se le da estructura al html generado
+    productInfoDiv.append(productName, productPrice);
+    productAddCart.appendChild(productIconCart);
+    productInfo.append(productInfoDiv, productAddCart);
+    productCard.append(productImages, productInfo);
+
+    // * Agrego las cards al nuevo array creado al principio
+    toRender.push(productCard);
+  }
+
+  // * Pasamos todo el array a la vez, modificando solo una vez el DOM
+  cardContainer.append(...toRender);
+}
+
+renderProducts(productList);
 
