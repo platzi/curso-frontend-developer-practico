@@ -103,6 +103,7 @@ nav {
   border: 1px solid var(--very-light-pink);
   border-radius: 6px;
   padding: 20px 20px 0 20px;
+  z-index: 1;
 }
 .desktop-menu ul {
   list-style: none;
@@ -138,10 +139,14 @@ nav {
 .sh-cart-detail {
   width: 360px;
   padding: 0 24px;
+  padding-bottom: 24px;
   box-sizing: border-box;
   position: absolute;
   right: 0;
   background-color: var(--white);
+  z-index: 1;
+  box-shadow: 0px 2px 5px 3px rgb(0 0 0 / 20%);
+  border-bottom-left-radius: 10px;
 }
 .title-container {
   display: flex;
@@ -212,11 +217,12 @@ nav {
 }
 /* ------------ Aside shoping cart  */
 
-/* Cards ---------- */
 .main-container {
   padding-top: 20px;
   position: relative;
 }
+
+/* Cards ---------- */
 .cards-container {
   display: grid;
   grid-template-columns: repeat(auto-fill, 240px);
@@ -224,9 +230,10 @@ nav {
   place-content: center;
 }
 .product-card {
-  width: 240px;
+  width: fit-content;
   border-radius: 20px;
-  box-shadow: 0px 0px 5px 3px rgb(0 0 0 / 30%)
+  box-shadow: 0px 2px 5px 3px rgb(0 0 0 / 20%);
+  padding: 0.1px;
 }
 .product-card:hover {
   cursor: pointer;
@@ -273,11 +280,10 @@ nav {
   right: 0;
   background-color: var(--white);
   position: absolute;
-  /* top: 0; */
-  /* bottom: 1px; */
-  /* right: 0; */
+  top: 0;
   z-index: 0;
-  
+  border-bottom-left-radius: 10px;
+  box-shadow: 0px 2px 5px 3px rgb(0 0 0 / 20%)
 }
 .product-detail-close {
   background: var(--white);
@@ -360,14 +366,17 @@ nav {
   }
   /* desktop menu  */
   
-  /* ---------- menu en mobile  */
+  /* ----------  mobile menu */
   .mobile-menu {
+    box-sizing: border-box;
+    width: 100%;
     position: absolute;
     top: 60px;
+    left: 0;
     padding: 24px;
     background-color: var(--white); 
     border: solid 1px var(--very-light-pink);
-    border-radius: 5px;
+    z-index: 1;
   }
   .mobile-menu a {
     text-decoration: none;
@@ -394,14 +403,17 @@ nav {
     font-size: var(--sm);
     color: var(--hospital-green) !important;
   }
-  /* menu en mobile ----------- */
+  /* mobile menu ----------- */
   
   /* aside shoping cart  */
   .sh-cart-detail {
     width: 100%;
-  /* aside shoping cart  */
+    border-radius: 0;
+    border-bottom: 1px solid var(--very-light-pink);
+    box-shadow: none;
   }
-
+  /* aside shoping cart  */
+  
   /* Cards display -----------  */
   .cards-container {
     grid-template-columns: repeat(auto-fill, 140px);
@@ -417,8 +429,9 @@ nav {
 
 
   /* aside product detail  */
-  .product-detail {
+  .aside-product-detail {
     width: 100%;
+    border-radius: 0;
   }
   /* aside product detail  */
 }
