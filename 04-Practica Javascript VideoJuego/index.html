@@ -9,26 +9,29 @@
 </head>
 <body>
   <div class="game-container">
-    <div class="fin-juego d-none" id="finishGame">
-      <div>😎</div>
-      <p>Tiempo: <span id="finishTime"></span></p>
-      <p>🏅 Record: <span id="record"></span></p>
+    <div class="conteo-juego" id="conteoJuego"><span class="number-conteo" id="numberConteo"></span></div>
+    <div class="fin-juego" id="finishGame">
+      <div id="estado">😎</div>
+      <p id="pTime">Tiempo: <span class="time" id="finishTime"></span></p>
+      <p id="pRecord">🏅 Record: <span id="record"></span></p>
       <p id="result"></p>
       <button class="game-restart" id="gameRestart">Jugar de nuevo</button>
     </div>
-    <canvas id="game"></canvas>
+
+    <div class="container">
+      <div class="messages">
+        <p>💕 Vidas: <span id="lives"></span></p>
+        <p>⏱ Tiempo: <span class="time" id="time"></span></p>
+      </div>
+  
+      <canvas id="game"></canvas>
+    </div>
 
     <div class="group-btn">
       <button id="up">Arriba</button>
       <button id="left">Izquierda</button>
       <button id="right">Derecha</button>
       <button id="down">Abajo</button>
-    </div>
-
-    <div class="messages">
-      <!-- TODO -->
-      <p>💕 Vidas: <span id="lives"></span></p>
-      <p>⏱ Tiempo: <span id="time"></span></p>
     </div>
   </div>
 

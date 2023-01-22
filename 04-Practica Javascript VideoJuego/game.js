@@ -1,8 +1,15 @@
 const canvas = document.querySelector('#game');
+const game = canvas.getContext('2d');
+
+const conteoJuego = document.querySelector('#conteoJuego');
+const numberConteo = document.querySelector('#numberConteo');
+
 const finishGame = document.querySelector('#finishGame');
+const estado = document.querySelector('#estado');
 const gameRestart = document.querySelector('#gameRestart');
 const finishTime = document.querySelector('#finishTime');
-const game = canvas.getContext('2d');
+const pTime = document.querySelector('#pTime');
+const pRecord = document.querySelector('#pRecord');
 
 const btnUp = document.querySelector('#up');
 const btnRight = document.querySelector('#right');
@@ -72,12 +79,7 @@ function startGame() {
     return;
   }
 
-  if(!timeStart) {
-    timeStart = Date.now();
-    timeInterval = setInterval(showTime, 100)
 
-    showRecord();
-  }
 
   const mapRows = mapNivel.trim().split('\n');
   const mapRowCol = mapRows.map(row => row.trim().split(''));
@@ -178,23 +180,24 @@ function levelFail() {
     level = 0;
     lives = 3;
     timeStart = undefined;
+    modalFinish();
+    estado.innerHTML = 'GAME OVER 🤬';
+    pTime.classList.add('d-none');
+    pRecord.classList.add('d-none');
   }
 
   playerPosition.x = undefined;
   playerPosition.y = undefined;
+
   startGame();
 }
 
 function modalFinish() {
   finishGame.classList.add('active');
-  
-  gameRestart.addEventListener('keydown', (e) => {
-    if(e.key == 'Space') {
-      location.reload();
-      console.log(e);
-    }
+  gameRestart.addEventListener('click', () => {
+    location.reload();
     finishGame.classList.remove('active');
-  })
+  });
 }
 
 function gameWin() {
@@ -214,8 +217,12 @@ function recordWin() {
     if(recordTime >= playerTime) {
       localStorage.setItem('record_time', playerTime);
       pResult.innerHTML = 'NUEVO RECORD!!';
+      estado.innerHTML = '😎';
+      finishTime.innerHTML = playerTime;
     } else {
       pResult.innerHTML = 'No superaste el Record';
+      finishTime.innerHTML = playerTime;
+      estado.innerHTML = '😫';
     }
   } else {
     localStorage.setItem('record_time', playerTime);
@@ -232,9 +239,7 @@ function gameOver() {
 
 function showLives() {
   const heartsArray = Array(lives).fill(emojis['HEART']);
-
   spanLives.innerHTML = '';
-
   heartsArray.forEach(heart => spanLives.append(heart));
 }
 
@@ -246,9 +251,34 @@ function showRecord() {
   spanRecord.innerHTML = localStorage.getItem('record_time');
 }
 
+// Conteo antes de iniciar el juego
+let conteoAtras = 3;
+let i = setInterval(function () {
+  numberConteo.innerHTML = conteoAtras;
+  conteoAtras--;
+  if(conteoAtras < 0) {
+    clearInterval(i);
+    conteoJuego.classList.add('d-none');
+    tiempoYa();
+    
+    /* Al colocar la escucha de window acá,
+    se bloque la funcionalidad de las teclas hasta
+    que termine el conteo. Una vez finalizado el conteo
+    comienza a funcionar la acción de las teclas. */ 
+    window.addEventListener('keydown', moveByKeys);
+  }
+}, 1500);
+
+function tiempoYa () {
+  if(!timeStart) {
+    timeStart = Date.now();
+    timeInterval = setInterval(showTime, 100)
+    showRecord();
+  }
+}
+
 ///////////// Movimientos de con sus respectivas TECLAS
 
-window.addEventListener('keydown', moveByKeys);
 btnUp.addEventListener('click', moveUp);
 btnRight.addEventListener('click', moveRight);
 btnDown.addEventListener('click', moveDown);
