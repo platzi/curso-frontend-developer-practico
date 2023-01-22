@@ -9,46 +9,52 @@ const shoppingCar = document.querySelector(".product-detail")
 
 const cardsContainer = document.querySelector(".cards-container")
 
+const productDetail = document.querySelector(".product-detail-secondScreen")
+
+const productDetailClose = document.querySelector(".product-detail-close")
+
+
 menuEmail.addEventListener("click", toggleMenu); 
 menuHamIcon.addEventListener("click", toggleMenuMobile)
 menuCarIcon.addEventListener("click", toggleShoppingCar)
+productDetailClose.addEventListener("click", closeProductoDetail)
 
 function toggleMenu(){
 
-    const isShoppingCarClose = shoppingCar.classList.contains("inactive"); 
-
-    if(!isShoppingCarClose){
-        desktopMenu.classList.remove("inactive")
-        shoppingCar.classList.add("inactive")
-    } else{
-        desktopMenu.classList.toggle("inactive")
-    }
+    productDetail.classList.add("inactive")
+    shoppingCar.classList.add("inactive")
+    desktopMenu.classList.toggle("inactive")
 }
 
 function toggleMenuMobile(){
 
-    const isShoppingCarClose = shoppingCar.classList.contains("inactive"); 
-
-    if(!isShoppingCarClose){
-        mobileMenu.classList.remove("inactive")
-        shoppingCar.classList.add("inactive")
-    } else{
-        mobileMenu.classList.toggle("inactive")
-    }
+    productDetail.classList.add("inactive")
+    shoppingCar.classList.add("inactive")
+    mobileMenu.classList.toggle("inactive")
 }
 
 function toggleShoppingCar(){
-    const isMobileMenuClose = mobileMenu.classList.contains("inactive"); 
 
-    if(!isMobileMenuClose){
-        mobileMenu.classList.add("inactive")
-        shoppingCar.classList.remove("inactive")
-    } else{
-        shoppingCar.classList.toggle("inactive")
-    }
+    mobileMenu.classList.add("inactive")
+    desktopMenu.classList.add("inactive")
+    productDetail.classList.add("inactive")
+    shoppingCar.classList.toggle("inactive")
+    
 }
 
-const productList = []
+function openProductDetail(){
+
+    mobileMenu.classList.add("inactive")
+    desktopMenu.classList.add("inactive")
+    shoppingCar.classList.add("inactive")
+    productDetail.classList.remove("inactive")
+
+}
+
+function closeProductoDetail(){
+    productDetail.classList.add("inactive")
+}
+productList = []
 
 productList.push({
     name: "Bike",
@@ -81,6 +87,7 @@ function renderProducts(arr){
     
         const productImg = document.createElement("img")
         productImg.setAttribute("src", product.image)
+        productImg.addEventListener("click", openProductDetail )
     
         const productInfo = document.createElement("div")
         productInfo.classList.add("product-info")
