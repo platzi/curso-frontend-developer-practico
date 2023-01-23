@@ -54,22 +54,22 @@ const productList = [];
 productList.push({
     name: 'Bike',
     price: 900,
-    image: 'https://images.pexels.com/photos/276517/pexels-photo-276517.jpeg?auto=compress&cs=tinysrgb&dpr=2&h=650&w=94'
+    image: 'https://http2.mlstatic.com/D_NQ_NP_934713-MLA52319351109_112022-O.webp'
 })
 productList.push({
     name: 'Pantalla',
     price: 1220,
-    image: 'https://images.pexels.com/photos/276517/pexels-photo-276517.jpeg?auto=compress&cs=tinysrgb&dpr=2&h=650&w=94'
+    image: 'https://cdn.shopify.com/s/files/1/2283/5833/products/b9842dd02331658457f4209c9b4bef09c2b2f48b_1000x.jpg?v=1660320906'
 })
 productList.push({
     name: 'Notebook',
     price: 1350,
-    image: 'https://images.pexels.com/photos/276517/pexels-photo-276517.jpeg?auto=compress&cs=tinysrgb&dpr=2&h=650&w=94'
+    image: 'https://images.start.com.ar/FA506IHRB-HN083W.jpg'
 })
 productList.push({
     name: 'Bed',
     price: 1000,
-    image: 'https://images.pexels.com/photos/276517/pexels-photo-276517.jpeg?auto=compress&cs=tinysrgb&dpr=2&h=650&w=94'
+    image: 'https://sommiercenter.com/media/catalog/product/cache/bd479d23586f2a1f84f4498ddc686c07/d/i/diama_130_normal.jpg'
 })
 
 function renderProducts(productList) {
@@ -111,3 +111,5 @@ function renderProducts(productList) {
         cardContainer.appendChild(productCard);
     }
 }
+
+renderProducts(productList);
