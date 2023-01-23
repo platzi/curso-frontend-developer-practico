@@ -1,5 +1,4 @@
 // Desktop Menu
-
 const nav_email = document.querySelector('.navbar-email');
 const desktop_menu = document.querySelector('.desktop-menu');
 
@@ -16,7 +15,6 @@ nav_email.addEventListener('click', () => {
 });
 
 // Mobile Menu
-
 const menu_icon = document.querySelector('.menu');
 const menu_mobile = document.querySelector('.mobile-menu');
 
@@ -34,7 +32,6 @@ menu_icon.addEventListener('click', () => {
 
 
 // Shopping cart Menu
-
 const cart_icon = document.querySelector('.navbar-shopping-cart');
 const my_order = document.querySelector('.my-order');
 
