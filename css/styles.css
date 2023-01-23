@@ -329,9 +329,7 @@ aside {
 .product-detail-close {
   cursor: pointer;
 }
-.product-detail-close:hover {
-  cursor: pointer;
-}
+
 
 #product-detail .product-info > img:nth-child(2) {
   width: 100%;

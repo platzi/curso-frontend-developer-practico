@@ -239,9 +239,11 @@ function filterProducts(filter){
        //console.log(productItem.category);
     
         if (productItem.category === category ) {
+          aside.classList.add('inactive');
           productDetailContainer.classList.add("inactive");
           darkenScreen.classList.add("inactive");
           mobileMenu.classList.add('inactive');
+          
           
           return productItem;
         }
@@ -272,6 +274,7 @@ navEmail.addEventListener('click',()=>{
       }
       const active = desktopMenu.classList.contains('inactive');
       darkScreen(active);
+      desktopMenu.classList.toggle('inactive');
 });
 
 /*Desplegar menu mobil*/
@@ -314,8 +317,14 @@ productDetailContainer.classList.add('inactive');
 });
 
 // al momento de dawr click en cualquier parte, cerrar lo que este activo en el momento: bien sea dark screen, o alguna de las otras funciones
-window.addEventListener('click',()=>{
-  
+darkenScreen.addEventListener('click',()=>{
+  if(!aside.classList.contains('inactive') || !desktopMenu.classList.contains('inactive') ||  !mobileMenu.classList.contains('inactive') || !productDetailContainer.classList.contains('inactive')){
+    aside.classList.add('inactive')
+    desktopMenu.classList.add('inactive')
+    mobilMenu.classList.add('inactive')
+    productDetailContainer.classList.add('inactive')
+  }
+  darkenScreen.classList.add('inactive')
 });
 
 //function order product
