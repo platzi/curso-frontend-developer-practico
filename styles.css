@@ -189,6 +189,7 @@ nav {
 /* Shopping Cart  */
 
 .product-detail {
+    background-color: var(--white);
     width: 360px;
     padding: 0 24px 24px;
     box-sizing: border-box;
