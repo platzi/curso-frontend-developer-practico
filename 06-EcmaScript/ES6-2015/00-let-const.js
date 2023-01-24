@@ -18,9 +18,9 @@ console.log(animal);
 
 const fruits = () => {
   if(true) {
-    var fruit1 = 'Apple';
-    let fruit2 = 'Banana';
-    const fruit3 = 'Kiwi';
+    var fruit1 = 'Apple'; // Function Scope
+    let fruit2 = 'Banana'; // Block Scope
+    const fruit3 = 'Kiwi'; // Block Scope
   }
   console.log(fruit1);
   console.log(fruit2);
