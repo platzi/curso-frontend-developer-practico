@@ -5,40 +5,48 @@ const desktopMenu=document.querySelector(".desktop-menu");
 const mobileMenu=document.querySelector(".mobile-menu")
 const shoppingCartContainer=document.querySelector("#shoppingCartContainer")
 const cardContainer=document.querySelector(".cards-container")
+const ProductDetailAside=document.querySelector("#productDetail")
+const btnCloseProductDetailAside=document.querySelector(".product-detail-close img")
 
 btnEmail.addEventListener("click",toggleDesktopMenu);
 btnBurg.addEventListener("click",toggleMobileMenu);
 btnCarrito.addEventListener("click",toggleAside);
+btnCloseProductDetailAside.addEventListener("click",closeProductDetailAside)
+
 
 function toggleDesktopMenu(){
     desktopMenu.classList.toggle("inactive");
     shoppingCartContainer.classList.add("inactive")
+    closeProductDetailAside()
+    
     console.log("me tocaste")
 }
 function toggleMobileMenu(){
     mobileMenu.classList.toggle("inactive")
     shoppingCartContainer.classList.add("inactive")
+    closeProductDetailAside()
     console.log("tocaste la hamburguesa")
 }
 function toggleAside(){
     desktopMenu.classList.add("inactive")
     mobileMenu.classList.add("inactive")
     shoppingCartContainer.classList.toggle("inactive")
+    closeProductDetailAside()
     console.log("tocaste la carrito de compras")
 }
+function openProductDetailAside(){
+  ProductDetailAside.classList.remove("inactive")
+  shoppingCartContainer.classList.add("inactive")
+  desktopMenu.classList.add("inactive");
+  mobileMenu.classList.add("inactive")
 
-/* <div class="product-card">
-<img src="https://images.pexels.com/photos/276517/pexels-photo-276517.jpeg?auto=compress&cs=tinysrgb&dpr=2&h=650&w=940" alt="">
-<div class="product-info">
-  <div>
-    <p>$120,00</p>
-    <p>Bike</p>
-  </div>
-  <figure>
-    <img src="./icons/bt_add_to_cart.svg" alt="">
-  </figure>
-</div>
-</div> */
+}
+function closeProductDetailAside(){
+  ProductDetailAside.classList.add("inactive")
+}
+
+
+
 
 const listaProductos=[];
 listaProductos.push({name:"celular",price:300,img:"https://images.fravega.com/f1000/491d28e113b36fb06f6a9bcdf65f74e8.jpg"})
@@ -52,6 +60,7 @@ function renderProductos(arr){
         productCard.classList.add("product-card");//se le agrega la clase 
         let imgProduct=document.createElement("img");//se crea el elemento img
         imgProduct.setAttribute("src",product.img);//se le agrega el atributo src para enlazarse con su arr
+        imgProduct.addEventListener("click",openProductDetailAside)
         productCard.appendChild(imgProduct);//se le agrega como hijo a el div productCar
         let productInfo=document.createElement("div");//se crea el div que contendra la informacion del producto
         productInfo.classList.add("product-info");//se le agrega la clase
