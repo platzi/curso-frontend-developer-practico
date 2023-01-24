@@ -380,6 +380,9 @@ aside {
   justify-content: center;
 }
 
+.productImg {
+  cursor: pointer;
+}
 
 
 
