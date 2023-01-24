@@ -234,6 +234,9 @@ nav {
   align-items: center;
   margin-top: 12px;
 }
+.main-container .product-info > div {
+  width: 70%;
+}
 .main-container .product-info figure {
   margin: 0;
 }
@@ -242,6 +245,9 @@ nav {
   height: 35px;
 }
 .main-container .product-info div p:nth-child(1) {
+  overflow: hidden;
+  text-overflow: ellipsis;
+  white-space: nowrap;
   font-weight: bold;
   font-size: var(--md);
   margin-top: 0;
@@ -286,19 +292,19 @@ nav {
 #productDetail .product-info {
   margin: 24px 24px 0 24px;
 }
-#productDetail .product-info p:nth-child(1) {
+#productDetail .product-info .product-name {
   font-weight: bold;
   font-size: var(--md);
   margin-top: 0;
   margin-bottom: 4px;
 }
-#productDetail .product-info p:nth-child(2) {
+#productDetail .product-info .product-price {
   color: var(--very-light-pink);
   font-size: var(--md);
   margin-top: 0;
   margin-bottom: 36px;
 }
-#productDetail .product-info p:nth-child(3) {
+#productDetail .product-info .product-description {
   color: var(--very-light-pink);
   font-size: var(--sm);
   margin-top: 0;
