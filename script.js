@@ -6,15 +6,24 @@ const carritoMenu= document.querySelector('.navbar-shopping-cart')
 const carrito= document.querySelector('#carrito')
 const cardsContainer= document.querySelector('.cards-container')
 const carritoCompras= document.getElementById('carrito')
+const detallesProductos= document.getElementById('detallesProducto')
+const cerrarDetalles= document.querySelector('.product-detail-close')
 
 
 menuEmail.addEventListener('click',toggleDesktopMenu)
 burgerMenu.addEventListener('click',toggleMobileMenu)
 carritoMenu.addEventListener('click',togglecarritoMenu)
+cerrarDetalles.addEventListener('click',closeDetalles)
 
 function toggleDesktopMenu()
 {
     const carritoOpen= !carritoCompras.classList.contains('inactive')
+    const detallesProductosOpen= !detallesProductos.classList.contains('inactive')
+
+    if(detallesProductosOpen)
+    {
+    detallesProductos.classList.add('inactive')
+    }
 
     if(carritoOpen)
     {
@@ -27,6 +36,12 @@ function toggleDesktopMenu()
 function toggleMobileMenu () {
 
     const carritoOpen= !carritoCompras.classList.contains('inactive')
+    const detallesProductosOpen= !detallesProductos.classList.contains('inactive')
+
+    if(detallesProductosOpen)
+    {
+    detallesProductos.classList.add('inactive')
+    }
 
     if(carritoOpen)
     {
@@ -41,6 +56,12 @@ function togglecarritoMenu () {
 
     const mobileMenuOpen= !mobileMenu.classList.contains('inactive')
     const desktopMenuOpen= !desktopMenu.classList.contains('inactive')
+    const detallesProductosOpen= !detallesProductos.classList.contains('inactive')
+
+    if(detallesProductosOpen)
+    {
+    detallesProductos.classList.add('inactive')
+    }
 
     if(desktopMenuOpen)
     {
@@ -90,6 +111,7 @@ function renderProducts(productArray) {
       // product= {name, price, image} -> product.image
       const productImg = document.createElement('img');
       productImg.setAttribute('src', product.imagen);
+      productImg.addEventListener('click',openDetalles)
     
       const productInfo = document.createElement('div');
       productInfo.classList.add('product-info');
@@ -119,5 +141,33 @@ function renderProducts(productArray) {
       cardsContainer.appendChild(productCard);
     }
   }
-  
+  function openDetalles(){
+
+    const carritoOpen= !carritoCompras.classList.contains('inactive')
+    const mobileMenuOpen= !mobileMenu.classList.contains('inactive')
+    const desktopMenuOpen= !desktopMenu.classList.contains('inactive')
+    if(desktopMenuOpen)
+    {
+        desktopMenu.classList.add('inactive')
+    }
+    if(mobileMenuOpen)
+    {
+        mobileMenu.classList.add('inactive')
+    }
+
+    if(carritoOpen)
+    {
+        carritoCompras.classList.add('inactive')
+    }
+
+    detallesProductos.classList.remove('inactive')
+
+  }
+
+  function closeDetalles(){
+
+    detallesProductos.classList.add('inactive')
+
+  }
+
   renderProducts(productArray);
