@@ -3,7 +3,7 @@ const menuDesktop = document.querySelector('.desktop-menu');
 const botonMemuMB = document.querySelector('.menu');
 const menumobile = document.querySelector('.mobile-menu');
 const iconCarrito = document.querySelector('.navbar-shopping-cart');
-const BarraCarrito = document.querySelector('.product-detail');
+const BarraCarrito = document.querySelector('#carrito');
 const cardsContainer = document.querySelector('.cards-container');
 //fin de variables
 // Inicio de menus desplegables
