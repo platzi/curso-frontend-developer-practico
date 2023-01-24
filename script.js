@@ -4,11 +4,12 @@ const burgerMenu= document.querySelector('.menu')
 const mobileMenu= document.querySelector('.mobile-menu')
 const carritoMenu= document.querySelector('.navbar-shopping-cart')
 const carrito= document.querySelector('.product-detail')
+const cardsContainer= document.querySelector('.cards-container')
+
 
 menuEmail.addEventListener('click',toggleDesktopMenu)
 burgerMenu.addEventListener('click',toggleMobileMenu)
 carritoMenu.addEventListener('click',togglecarritoMenu)
-
 
 function toggleDesktopMenu()
 {
@@ -53,46 +54,82 @@ function togglecarritoMenu () {
     carrito.classList.toggle('inactive')
  }
 
-//Mucho mas sencillo 😃
+const productArray=[];
+productArray.push({
+    imagen: 'https://bikestore.com.mx/blog/wp-content/uploads/2021/02/CuEIl0HWcAATXt0-1024x683.jpg',
+    precio: 1000,
+    nombre: 'Bici'
+});
+productArray.push({
+    imagen:'https://i1.wp.com/tiempomotor.com/wp-content/uploads/2022/10/Audi_R8_GT_V10_1.jpg?fit=1200%2C800&ssl=1',
+    precio: 3000,
+    nombre: 'Audi R8 Coupe'
+});
+productArray.push({
+    imagen:'https://http2.mlstatic.com/D_NQ_NP_993409-MLA42848505907_072020-O.jpg',
+    precio: 180,
+    nombre: 'Creatina'
+});
+productArray.push({
+    imagen:'https://cdn.batitienda.com/baticloud/images/product_picture_eef3a35b214a486392255b45100332bb_637994452194733378_0_l.webp',
+    precio: 200,
+    nombre: 'Proteina'
+});
+productArray.push({
+    imagen:'https://ramenparados.com/wp-content/uploads/2016/09/app3_sobrecubierta_DB_COLOR_BU_1_esp-300x482.jpg',
+    precio:500,
+    nombre:'Manga Dragon Ball Z'
+})
 
-//const menu = document.querySelector('.desktop-menu');
-//const navEmail = document.querySelector('.nav-email');
-//const menuMobile = document.querySelector('.mobile-menu');
-//const IconHam = document.querySelector('.menu');
-///* checkout-shopping-cart */
-//const cart = document.querySelector('.shopping-car');
-//const aside = document.querySelector('.section-container');
-///* defined inactive-stated */
-//const mobileClosed = menuMobile.classList.contains('inactive');
-//const asideClosed = aside.classList.contains('inactive');
-//const menuClosed = menu.classList.contains('inactive');
+//<!--div class="product-card">
+//          <img src="https://images.pexels.com/photos/276517/pexels-photo-276517.jpeg?auto=compress&cs=tinysrgb&dpr=2&h=650&w=940" alt="">
+//          <div class="product-info">
+//            <div>
+//              <p>$120,00</p>
+//              <p>Bike</p>
+//            </div>
+//            <figure>
+//              <img src="./icons/bt_add_to_cart.svg" alt="">
+//            </figure>
+//          </div>
+//        </div>--> 
 //
-//
-//navEmail.addEventListener('click',block);
-//IconHam.addEventListener('click',blockMobile);
-//cart.addEventListener('click',blockCart);
-//
-//
-//function block()
-//{
-//    menu.classList.toggle('inactive');
-//    aside.classList.add('inactive');
-//}
-//
-//
-//function blockMobile()
-//{
-//    menuMobile.classList.toggle('inactive');
-//     aside.classList.add('inactive');
-//        console.log(mobileClosed);
-//}
-//
-//function blockCart()
-//{
-//    aside.classList.toggle('inactive');
-//    menuMobile.classList.add('inactive');
-//    menu.classList.add('inactive');
-//    console.log(asideClosed);
-//
-//}
-//
+function renderProducts(productArray) {
+    for (product of productArray) {
+      const productCard = document.createElement('div');
+      productCard.classList.add('product-card');
+    
+      // product= {name, price, image} -> product.image
+      const productImg = document.createElement('img');
+      productImg.setAttribute('src', product.imagen);
+    
+      const productInfo = document.createElement('div');
+      productInfo.classList.add('product-info');
+    
+      const productInfoDiv = document.createElement('div');
+    
+      const productPrice = document.createElement('p');
+      productPrice.innerText = '$' + product.precio;
+      const productName = document.createElement('p');
+      productName.innerText = product.nombre;
+    
+      productInfoDiv.appendChild(productPrice);
+      productInfoDiv.appendChild(productName);
+    
+      const productInfoFigure = document.createElement('figure');
+      const productImgCart = document.createElement('img');
+      productImgCart.setAttribute('src', './icons/bt_add_to_cart.svg');
+    
+      productInfoFigure.appendChild(productImgCart);
+    
+      productInfo.appendChild(productInfoDiv);
+      productInfo.appendChild(productInfoFigure);
+    
+      productCard.appendChild(productImg);
+      productCard.appendChild(productInfo);
+    
+      cardsContainer.appendChild(productCard);
+    }
+  }
+  
+  renderProducts(productArray);
