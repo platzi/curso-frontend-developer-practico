@@ -3,7 +3,7 @@ const btnBurg=document.querySelector(".menu");
 const btnCarrito=document.querySelector(".navbar-shopping-cart");
 const desktopMenu=document.querySelector(".desktop-menu");
 const mobileMenu=document.querySelector(".mobile-menu")
-const aside=document.querySelector(".product-detail")
+const shoppingCartContainer=document.querySelector("#shoppingCartContainer")
 const cardContainer=document.querySelector(".cards-container")
 
 btnEmail.addEventListener("click",toggleDesktopMenu);
@@ -12,18 +12,18 @@ btnCarrito.addEventListener("click",toggleAside);
 
 function toggleDesktopMenu(){
     desktopMenu.classList.toggle("inactive");
-    aside.classList.add("inactive")
+    shoppingCartContainer.classList.add("inactive")
     console.log("me tocaste")
 }
 function toggleMobileMenu(){
     mobileMenu.classList.toggle("inactive")
-    aside.classList.add("inactive")
+    shoppingCartContainer.classList.add("inactive")
     console.log("tocaste la hamburguesa")
 }
 function toggleAside(){
     desktopMenu.classList.add("inactive")
     mobileMenu.classList.add("inactive")
-    aside.classList.toggle("inactive")
+    shoppingCartContainer.classList.toggle("inactive")
     console.log("tocaste la carrito de compras")
 }
 
