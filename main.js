@@ -27,6 +27,10 @@ menu_icon.addEventListener('click', () => {
         my_order.classList.add('inactive') 
     }
 
+    if (!product_detail_container.classList.contains('inactive')) { 
+        product_detail_container.classList.add('inactive') 
+    }
+
     menu_mobile.classList.toggle('inactive');
 })
 
@@ -43,13 +47,32 @@ cart_icon.addEventListener('click', () => {
     if (!menu_mobile.classList.contains('inactive')) { 
         menu_mobile.classList.add('inactive') 
     }
+
+    if (!product_detail_container.classList.contains('inactive')) { 
+        product_detail_container.classList.add('inactive') 
+    }
     
     my_order.classList.toggle('inactive');
 })
 
+// Detalle de productos
+const product_detail_container = document.querySelector('#product-detail');
+const product_detail_close = document.querySelector('#product-detail-close');
+product_detail_close.addEventListener('click', closeProductDetailAside);
+
+function openProductDetailAside() {
+    if (!my_order.classList.contains('inactive')) { 
+        my_order.classList.add('inactive') 
+    }
+
+    product_detail_container.classList.remove('inactive');
+}
+
+function closeProductDetailAside() {
+    product_detail_container.classList.add('inactive');
+}
+
 // Productos
-
-
 const productList = [];
 productList.push({
     name: 'Bike',
@@ -81,6 +104,7 @@ function renderProducts(productList) {
     
         const imgCard = document.createElement('img');
         imgCard.setAttribute('src', product.image);
+        imgCard.addEventListener('click', openProductDetailAside);
     
         const productInfo = document.createElement('div');
         productInfo.classList.add('product-info');
