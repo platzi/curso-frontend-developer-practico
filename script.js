@@ -3,8 +3,8 @@ const desktopMenu= document.querySelector('.desktop-menu')
 const burgerMenu= document.querySelector('.menu')
 const mobileMenu= document.querySelector('.mobile-menu')
 const carritoMenu= document.querySelector('.navbar-shopping-cart')
-const carrito= document.querySelector('.product-detail')
 const cardsContainer= document.querySelector('.cards-container')
+const carritoCompras= document.getElementById('carrito')
 
 
 menuEmail.addEventListener('click',toggleDesktopMenu)
@@ -13,11 +13,11 @@ carritoMenu.addEventListener('click',togglecarritoMenu)
 
 function toggleDesktopMenu()
 {
-    const carritoOpen= !carrito.classList.contains('inactive')
+    const carritoOpen= !carritoCompras.classList.contains('inactive')
 
     if(carritoOpen)
     {
-    carrito.classList.add('inactive')
+        carritoCompras.classList.add('inactive')
     }
 
     desktopMenu.classList.toggle('inactive');
@@ -25,11 +25,11 @@ function toggleDesktopMenu()
 
 function toggleMobileMenu () {
 
-    const carritoOpen= !carrito.classList.contains('inactive')
+    const carritoOpen= !carritoCompras.classList.contains('inactive')
 
     if(carritoOpen)
     {
-    carrito.classList.add('inactive')
+    carritoCompras.classList.add('inactive')
     }
 
     mobileMenu.classList.toggle('inactive')
@@ -48,10 +48,10 @@ function togglecarritoMenu () {
 
     if(mobileMenuOpen)
     {
-    carrito.classList.add('inactive')
+    carritoCompras.classList.add('inactive')
     }
 
-    carrito.classList.toggle('inactive')
+    carritoCompras.classList.toggle('inactive')
  }
 
 const productArray=[];
@@ -81,19 +81,6 @@ productArray.push({
     nombre:'Manga Dragon Ball Z'
 })
 
-//<!--div class="product-card">
-//          <img src="https://images.pexels.com/photos/276517/pexels-photo-276517.jpeg?auto=compress&cs=tinysrgb&dpr=2&h=650&w=940" alt="">
-//          <div class="product-info">
-//            <div>
-//              <p>$120,00</p>
-//              <p>Bike</p>
-//            </div>
-//            <figure>
-//              <img src="./icons/bt_add_to_cart.svg" alt="">
-//            </figure>
-//          </div>
-//        </div>--> 
-//
 function renderProducts(productArray) {
     for (product of productArray) {
       const productCard = document.createElement('div');
