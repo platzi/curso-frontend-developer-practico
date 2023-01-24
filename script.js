@@ -3,7 +3,7 @@ const desktopMenu= document.querySelector('.desktop-menu')
 const burgerMenu= document.querySelector('.menu')
 const mobileMenu= document.querySelector('.mobile-menu')
 const carritoMenu= document.querySelector('.navbar-shopping-cart')
-const carrito= document.querySelector('.product-detail')
+const carrito= document.querySelector('#carrito')
 const cardsContainer= document.querySelector('.cards-container')
 
 
