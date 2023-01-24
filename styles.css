@@ -131,8 +131,10 @@
 
   .mobile-menu {
     background-color: var(--white);
-    position:absolute;
-    top:60px;
+    position: absolute;
+    top: 60px;
+    left: 0;
+    width: 100%;
     padding: 24px;
   }
   .mobile-menu a {
@@ -166,10 +168,16 @@
   aside {
     background-color: var(--white);
     width: 360px;
+<<<<<<< HEAD
     
+=======
+>>>>>>> 91d2decf34da75a8834d83abfb4bfcd70e7ace86
     box-sizing: border-box;
     position: absolute;
     right: 0;
+  }
+  #carrito{
+    padding: 0 24px;
   }
   .title-container {
     display: flex;
@@ -286,7 +294,11 @@
     color: var(--very-light-pink);
   }
 
+<<<<<<< HEAD
   /* detalles productos*/
+=======
+  /* Detalles */
+>>>>>>> 91d2decf34da75a8834d83abfb4bfcd70e7ace86
 
   .product-detail-close {
     background: var(--white);
@@ -302,12 +314,17 @@
   .product-detail-close:hover {
     cursor: pointer;
   }
+<<<<<<< HEAD
   #productDetail > img:nth-child(2) {
+=======
+  #detallesProducto > img:nth-child(2) {
+>>>>>>> 91d2decf34da75a8834d83abfb4bfcd70e7ace86
     width: 100%;
     height: 360px;
     object-fit: cover;
     border-radius: 0 0 20px 20px;
   }
+<<<<<<< HEAD
   #productDetail .product-info {
     margin: 24px 24px 0 24px;
   }
@@ -318,12 +335,28 @@
     margin-bottom: 4px;
   }
   #productDetail .product-info p:nth-child(2) {
+=======
+  #detallesProducto.product-info {
+    margin: 24px 24px 0 24px;
+  }
+  #detallesProducto .product-info p:nth-child(1) {
+    font-weight: bold;
+    font-size: var(--md);
+    
+    margin-bottom: 4px;
+  }
+  #detallesProducto .product-info p:nth-child(2) {
+>>>>>>> 91d2decf34da75a8834d83abfb4bfcd70e7ace86
     color: var(--very-light-pink);
     font-size: var(--md);
     margin-top: 0;
     margin-bottom: 36px;
   }
+<<<<<<< HEAD
   #productDetail .product-info p:nth-child(3) {
+=======
+  #detallesProducto .product-info p:nth-child(3) {
+>>>>>>> 91d2decf34da75a8834d83abfb4bfcd70e7ace86
     color: var(--very-light-pink);
     font-size: var(--sm);
     margin-top: 0;
@@ -359,8 +392,9 @@
     .desktop-menu{
       display: none;
     }
-    .product-detail {
+    aside {
       width: 100%;
+      padding: 52px;
   }
   .cards-container {
     grid-template-columns: repeat(auto-fill, 140px);

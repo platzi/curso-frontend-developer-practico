@@ -3,6 +3,10 @@ const desktopMenu= document.querySelector('.desktop-menu')
 const burgerMenu= document.querySelector('.menu')
 const mobileMenu= document.querySelector('.mobile-menu')
 const carritoMenu= document.querySelector('.navbar-shopping-cart')
+<<<<<<< HEAD
+=======
+const carrito= document.querySelector('#carrito')
+>>>>>>> 91d2decf34da75a8834d83abfb4bfcd70e7ace86
 const cardsContainer= document.querySelector('.cards-container')
 const carritoCompras= document.getElementById('carrito')
 
