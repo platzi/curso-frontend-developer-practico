@@ -156,6 +156,8 @@ shoppingCartIcon.addEventListener("click", toggleCartDetail);
 	function toggleMobileMenu(){
 		const isCartDetailClosed= shoppingCartDetail.classList.contains("inactive")
 		console.log(isCartDetailClosed)
+		console.log(!isCartDetailClosed)
+
 
 		if(!isCartDetailClosed){
 			shoppingCartDetail.classList.add("inactive")
@@ -177,5 +179,97 @@ shoppingCartIcon.addEventListener("click", toggleCartDetail);
 		menuDesktop.classList.toggle("inactive");
 	}
 
+/* Product List (componente 6)*/
+
+const productList = [];
+
+productList.push({
+	name: "Bike",
+	precio: 120, 
+	imagen: "https://images.pexels.com/photos/276517/pexels-photo-276517.jpeg?auto=compress&cs=tinysrgb&dpr=2&h=650&w=940",
+});
+
+productList.push({
+	name: "Keyboard",
+	precio: 200, 
+	imagen: "https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcQvHMHgpVn5rWojE5bD_qJDhb_oF6MUIPOKdw&usqp=CAU",
+});
+
+productList.push({
+	name: "Laptop",
+	precio: 2500, 
+	imagen: "https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcQxfq-x6ilpy-sHAu_qm3-NXIYkLGcP_w9peg&usqp=CAU",
+});
+
+productList.push({
+	name: "Speaker",
+	precio: 300, 
+	imagen: "https://media.pitchfork.com/photos/60ba7b0442b81a6a8412188a/4:3/w_1064,h_798,c_limit/indoor%20bluetooth%20header%20copy.png",
+});
+
+productList.push({
+	name: "Desk",
+	precio: 1300, 
+	imagen: "https://www.whalenfurniture.com/wp-content/uploads/2021/07/SPLS-LTCGD-LEET-Onyx-Gaming-Desk-LS-Hero.jpg",
+});
+
+productList.push({
+	name: "Headphones",
+	precio: 800, 
+	imagen: "https://www.travelandleisure.com/thmb/iYbb8D0du50s8ypCQmgxaXa1YZY=/1500x0/filters:no_upscale():max_bytes(150000):strip_icc()/the-best-kids-headphones-for-travel-tout-AMZN-HDPHN0722-133714e0e4b34ab2bd0c7a6a3d38687f.jpg",
+});
+
+function crearListProducts(array){
+	for (product of array){
+		//crear elemento html y almacena en variable (el contenedor del producto)
+		const productCard = document.createElement("div");
+		//agregar atributo a ese elemento html (en este caso, una clase)
+		productCard.setAttribute("class", "product-card");
+		// anexarlo a un elemento HTML nativo
+		const cardsContainer = document.querySelector(".cards-container")
+		cardsContainer.append(productCard);
 	
+		//crear elemento html (la imagen del producto)
+		const img = document.createElement("img");
+		//agregar atributo src
+		img.setAttribute("src", product.imagen)
+		// anexarlo a elemento HTML div (class="product-card")
+		productCard.append(img);
+	
+		//crear el contenedor de la información del producto
+		const productInfo = document.createElement("div");
+		productInfo.setAttribute("class","product-info");
+		productCard.append(productInfo);
+	
+		//crear contenedor <div> dentro de contenedor de la información del producto
+		const freeDiv= document.createElement("div");
+		productInfo.append(freeDiv);
+	
+		// crear elemento <p> (precio del producto)
+		const priceProduct = document.createElement("p");
+		// agregar contenido al elemento <p>
+		freeDiv.append(priceProduct)
+		priceProduct.innerHTML="$" + product.precio
+	
+		// crear elemento <p> (nombre del producto)
+		const nameProduct = document.createElement("p");
+		// agregar contenido al elemento <p>
+		freeDiv.append(nameProduct)
+		nameProduct.innerHTML=product.name
+		
+		// crear elemento <figure> (nombre del producto)
+		const Figure= document.createElement("figure");
+		productInfo.append(Figure);
+	
+		// crear elemento <img> para el ícono de carrito
+		const iconAddCar= document.createElement("img");
+		iconAddCar.setAttribute("src","./icons/bt_add_to_cart.svg");
+		Figure.append(iconAddCar);
+	}
+}
+
+crearListProducts(productList);
+
+
+
 	
