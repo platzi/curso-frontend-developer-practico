@@ -157,6 +157,7 @@
     box-sizing: border-box;
     position: absolute;
     right: 5px;
+   
     top:65px;
     padding: 10px;
     border: 3px solid black;
@@ -337,7 +338,7 @@
   }
   @media (max-width: 640px) {
     #product-detail {
-      width: 100%;
+    width: 97%;
     }
   }
   @media (max-width: 640px) {
