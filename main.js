@@ -32,10 +32,10 @@ const productList = [
   },
   {
     id: 5,
-    name: 'Seat',
-    price: 300,
-    image: 'https://m.media-amazon.com/images/I/61e+sZ9rgNL._AC_SL1500_.jpg',
-    description: 'Lorem ipsum dolor sit amet consectetur adipisicing elit. Soluta quaerat perferendis atque tempore tenetur, facilis architecto facere'
+    name: 'Jordan x UNION Playera',
+    price: 1299,
+    image: 'https://static.nike.com/a/images/w_640,c_limit/b64bb07e-2807-4ae1-b77f-4a9476f00ddd/fecha-de-lanzamiento-de-la-colecci%C3%B3n-de-prendas-y-accesorios-jordan-x-union.png',
+    description: 'Esta playera es ideal para combinar gracias a sus gráficos y un parche tejido que apoya a Jordan y UNION.'
   },
   {
     id: 6,
@@ -46,24 +46,31 @@ const productList = [
   },
   {
     id: 7,
-    name: 'Sunglasses',
-    price: 800,
-    image: 'https://cdn.siroko.com/s/files/1/1220/6874/products/gafas-siroko-tech-k3s-london-lateral/1200x/crop_center.jpg?v=1635209602',
-    description: 'Lorem ipsum dolor sit amet consectetur adipisicing elit. Soluta quaerat perferendis atque tempore tenetur, facilis architecto facere'
+    name: 'AJKO 1 Low x UNION White',
+    price: 3699,
+    image: 'https://static.nike.com/a/images/t_prod_ss/w_640,c_limit,f_auto/2fc7378c-8b90-445b-a2ba-e94de9e7f58d/fecha-de-lanzamiento-del-ajko-1-low-x-union-white-do8912-101.jpg',
+    description: 'Mírate en el espejo, es increíble. Regresa a la era de los radiocasetes, el denim con acabado lavado con ácido y el traje Flight original, el primer AJKO 1 Low te conecta al estilo fuera de la cancha de los 80.'
   },
   {
     id: 8,
-    name: 'Sunglasses',
-    price: 600,
-    image: 'https://cdn.siroko.com/s/files/1/1220/6874/products/siroko-tech-k3s-clearfog-lente-antiniebla-frontal/1200x/crop_center.jpg?v=1635209603',
-    description: 'Lorem ipsum dolor sit amet consectetur adipisicing elit. Soluta quaerat perferendis atque tempore tenetur, facilis architecto facere'
+    name: 'Air Force 1 Low x Premium Goods para mujer The Sophia',
+    price: 3599,
+    image: 'https://static.nike.com/a/images/t_prod_ss/w_640,c_limit,f_auto/a48ae694-f7df-400d-bd02-3446e2886693/fecha-de-lanzamiento-del-air-force-1-low-premium-goods-the-sophia-para-mujer-dv2957-001.jpg',
+    description: 'El siguiente paso es tuyo en el Air Force 1 x Premium Goods "Sophia". Inspirado en el amor de Jennifer Ford por las joyas, así como en su trabajo en el pasado con ellas, este calzado reinventa el diseño icónico desde la perspectiva del lujo de alta calidad.'
   },
   {
     id: 9,
-    name: 'Bicycle seat bag',
-    price: 876,
-    image: 'https://m.media-amazon.com/images/I/81k2Gmal+VL._AC_SL1500_.jpg',
-    description: 'Lorem ipsum dolor sit amet consectetur adipisicing elit. Soluta quaerat perferendis atque tempore tenetur, facilis architecto facere'
+    name: 'Air Jordan 2 para mujer Sunset Haze',
+    price: 4899,
+    image: 'https://static.nike.com/a/images/t_prod_ss/w_640,c_limit,f_auto/7397bad5-aad0-41b7-8544-b9f92c199032/fecha-de-lanzamiento-del-air-jordan-2-sunset-haze-para-mujer-dx4400-118.jpg',
+    description: '¿Buscas un clásico de uso diario que pueda completar un atuendo o aportar estilo con facilidad? Este AJ2 combina tonos neutros elegantes con detalles sutiles (el color puesta de sol neblina en la suela y el ribete destaca de maravilla) para que cuentes con un calzado sofisticado y listo para todo.'
+  },
+  {
+    id: 10,
+    name: 'Dunk Low El año del conejo',
+    price: 3199,
+    image: 'https://static.nike.com/a/images/t_prod_ss/w_640,c_limit,f_auto/489eade7-34d8-40e4-a5d0-865c83b9133f/fecha-de-lanzamiento-del-dunk-low-year-of-the-rabbit-fd4203-161.jpg',
+    description: 'Oh, dulce nostalgia. Inspirada en el AF1 "Year of the Rabbit" de 2011 con temática de dulces, esta colección Dunk está espolvoreada con regalos llamativos que aluden a ciudades representativas de China.'
   }
 ];
 
@@ -123,7 +130,7 @@ function GenerateProductDetail(event) {
     if (article.image === urlImages) {
       imageProductDetail.setAttribute('src', article.image);
       nameProductDetail.textContent = article.name;
-      priceProductDetail.textContent = article.price;
+      priceProductDetail.textContent = priceFormatted(article.price);
       descProductDetail.textContent = article.description;
     }
   });
@@ -150,12 +157,9 @@ function renderProducts(arr) {
     productImages.addEventListener('click', showProductDetail);
     productInfo.classList.add('product-info');
     productName.textContent = products.name;
-    const priceFormatted = products.price.toLocaleString('es-MX', {
-      style: 'currency',
-      currency: 'MXN'
-    });
-    productPrice.textContent = priceFormatted;
+    productPrice.textContent = priceFormatted(products.price);
     productIconCart.setAttribute('src', './icons/bt_add_to_cart.svg');
+    productIconCart.setAttribute('value', products.id);
 
     // * Se le da estructura al html generado
     productInfoDiv.append(productName, productPrice);
@@ -173,3 +177,18 @@ function renderProducts(arr) {
 
 renderProducts(productList);
 
+// * Permite darle formato al precio
+function priceFormatted(price) {
+  let addPriceFormatted = price.toLocaleString('es-MX', {
+    style: 'currency',
+    currency: 'MXN'
+  });
+  return addPriceFormatted;
+}
+
+//* Permite agregar una lista de atributos
+function AddListAttr(element, attrs) {
+  for (let key in attrs) {
+    element.setAttribute(key, attrs[key]);
+  }
+}
