@@ -123,8 +123,9 @@ function productList(el) {
 
 cardsContainer.addEventListener("click", (e) => {
   e.stopPropagation();
-  if(e.target.id){
-    addToCart()
+  const id = e.target.id;
+  if(id){
+    addToCart(id);
   }
 });
 
