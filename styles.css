@@ -151,10 +151,11 @@ nav {
   font-size: var(--sm);
   color: var(--hospital-green) !important;
 }
+/* aside product-detail */
 
 .product-detail {
   width: 360px;
-  padding: 24px;
+  padding: 0 24px;
   box-sizing: border-box;
   position: absolute;
   right: 0;
@@ -239,10 +240,9 @@ nav {
   .desktop-menu {
     display: none;
   }
-  @media (max-width: 640px) {
-    .product-detail {
-      width: 100%;
-    }
+  .product-detail {
+    width: 100%;
+  }
 }
 @media (min-width: 641px) {
   .mobile-menu {
