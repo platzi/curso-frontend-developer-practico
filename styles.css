@@ -232,10 +232,11 @@ aside {
 /* CARD CONTAINER */
 .cards-container {
   display: grid;
-  grid-template-columns: repeat(auto-fill, 240px);
-  gap: 26px;
+  grid-template-columns: repeat(auto-fill, 300px);
+  gap: 3rem;
   place-content: center;
-  margin-top: 30px;
+  /* margin-top: 30px; */
+  padding: 2rem;
 }
 .product-card {
   width: 240px;

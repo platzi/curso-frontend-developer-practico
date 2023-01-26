@@ -81,12 +81,7 @@ productList.push({
   image:
     "https://tse4.mm.bing.net/th?id=OIP.7_B-e_I_pzjIMbAn652tuQHaHa&pid=Api&P=0",
 });
-productList.push({
-  name: "Electric Bike",
-  price: 400,
-  image:
-    "https://www.mundomotero.com/wp-content/uploads/2017/10/scooter-electrico-KTM-E-SPEED-1800x1200.jpg",
-});
+
 productList.push({
   name: "Bicicle",
   price: 120,
@@ -105,12 +100,7 @@ productList.push({
   image:
     "https://tse4.mm.bing.net/th?id=OIP.7_B-e_I_pzjIMbAn652tuQHaHa&pid=Api&P=0",
 });
-productList.push({
-  name: "Electric Bike",
-  price: 400,
-  image:
-    "https://www.mundomotero.com/wp-content/uploads/2017/10/scooter-electrico-KTM-E-SPEED-1800x1200.jpg",
-});
+
 
 function renderProducts(arr) {
   for (product of arr) {
