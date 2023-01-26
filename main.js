@@ -12,7 +12,8 @@ menuEmail.addEventListener("click", toggleDesktopMenu);
 menuHamIcon.addEventListener("click", toggleMobileMenu);
 menuCarritoIcon.addEventListener("click", toggleCarrito);
 // productDetailContainer.addEventListener('click', openProductDetailAside);
-productDetailCloseIcon.addEventListener('click', closeProductDetailAside)
+productDetailCloseIcon.addEventListener('click', closeProductDetailAside);
+
 
 function toggleDesktopMenu() {
   const isAsideClosed = shoppingCartContainer.classList.contains("inactive");
@@ -137,6 +138,7 @@ function renderProducts(arr) {
     const figureImg = document.createElement("img");
     figureImg.setAttribute("src", "./icons/bt_add_to_cart.svg");
     figureImg.setAttribute("alt", product.name);
+    figureImg.addEventListener('click', addNumberToShoppingCart)
 
     productInfoFigure.appendChild(figureImg);
 
@@ -150,6 +152,10 @@ function renderProducts(arr) {
     productCard.appendChild(productInfo);
 
     cardsContainer.appendChild(productCard);
+
+    function addNumberToShoppingCart(){
+        1        
+    }
   }
 }
 renderProducts(productList);
