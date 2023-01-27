@@ -153,6 +153,7 @@
   }
   .title-container {
     display: flex;
+    margin-bottom: 20px;
   }
   .title-container img {
     transform: rotate(180deg);
@@ -227,7 +228,6 @@
 
   .mobile-menu--open {
     display: block;
-    height: 100%;
   }
 
   @media (max-width: 640px) {
@@ -309,6 +309,7 @@
     height: 240px;
     border-radius: 20px;
     object-fit: cover;
+    cursor: pointer;
   }
   .product-card  .product-info {
     display: flex;
@@ -342,7 +343,7 @@
     position: absolute;
     right: 0;
     background-color: var(--white);
-    /* display: none; */
+    display: none;
   }
   .product-detail--open {
     display: block;
