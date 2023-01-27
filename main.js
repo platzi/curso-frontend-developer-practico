@@ -5,7 +5,7 @@ const burgerMenu = document.querySelector('.menu');
 const mobileMenu = document.querySelector('.mobile-menu');
 
 const menuCart = document.querySelector('.navbar-shopping-cart');
-const productDetailMenu = document.querySelector('.product-detail');
+const shoppingCartDetailMenu = document.querySelector('.shopping-cart-detail');
 
 // 
 navEmail.addEventListener('click', toggleDesktopMenu);
@@ -14,16 +14,16 @@ menuCart.addEventListener('click', toggleProductDetailMenu);
 
 function toggleDesktopMenu() {
     desktopMenu.classList.toggle('inactive');
-    productDetailMenu.classList.add('inactive'); 
+    shoppingCartDetailMenu.classList.add('inactive'); 
 }
 
 function toggleMobileMenu() {
     mobileMenu.classList.toggle('inactive');   
-    productDetailMenu.classList.add('inactive'); 
+    shoppingCartDetailMenu.classList.add('inactive'); 
 }
 
 function toggleProductDetailMenu() {
-    productDetailMenu.classList.toggle('inactive');
+    shoppingCartDetailMenu.classList.toggle('inactive');
     mobileMenu.classList.add('inactive');
     desktopMenu.classList.add('inactive');   
 
@@ -93,7 +93,7 @@ function renderProduct(arr){
     
         // div - product-info
         const productInfo = document.createElement('div');
-        productInfo.classList.add('product-info');
+        productInfo.classList.add('product-detail-info');
     
         // div of product info
         const prodcutInfoDiv = document.createElement('div');
@@ -139,7 +139,7 @@ renderProduct(productList);
 // // Manera de usar funcion en addEventListener
 // navEmail.addEventListener("click", function(){toggleElement(desktopMenu)});
 // burgerMenu.addEventListener("click", function(){toggleElement(mobileMenu)});
-// menuCart.addEventListener("click", function(){toggleElement(productDetailMenu)});
+// menuCart.addEventListener("click", function(){toggleElement(shoppingCartDetailMenu)});
 
 // function toggleElement(elemento){
 //     elemento.classList.toggle("inactive");
