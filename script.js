@@ -7,7 +7,7 @@ const menuIcon = document.querySelector(".menu")
 const email = document.querySelector(".navbar-email")
 
 const shopButton = document.querySelector(".navbar-shopping-cart")
-const shopMenu = document.querySelector(".product-detail")
+const shopMenu = document.querySelector("#shoppingCartContainer")
 
 email.addEventListener("click", toggleDesktopMenu)
 menuIcon.addEventListener("click",toggleMobileMenu)
