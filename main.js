@@ -190,11 +190,10 @@ productList.push({
 //Aplicamos el for a cada elemento del productList
 function renderProducts(array){
 
-    indexControl = -1;
+    
     for (product of array) {
         
-        //Para emparejar con detailCard
-        indexControl += 1;
+        
         
         
         //ELEMENTOS LISTA DE PRODUCTOS
@@ -204,8 +203,7 @@ function renderProducts(array){
         productCard.classList.add('product-card');
         
 
-        //Controlamos el .dataset.index
-        productCard.setAttribute("data-index", indexControl);
+        
 
         
 
@@ -222,6 +220,8 @@ function renderProducts(array){
         //Asignamos evento click a la imagen
         productImg.addEventListener('click', openProductDetail);
 
+        
+        
 
 
     
@@ -272,95 +272,6 @@ function renderProducts(array){
 
 renderProducts(productList);
 
-
-const detailContainer = document.querySelector('.detail-container');
-
-function createDetailCards(array){
-    
-    indexControl = -1;
-    for (product of array) {        
-        
-        indexControl += 1;
-
-        //ASIDE
-        const detailCard = document.createElement('aside');
-        detailCard.classList.add('inactive');
-        detailCard.id = "productDetail";
-        //Completo
-
-
-
-        //CONTROL EMPAREJAMIENTO
-        detailCard.setAttribute("data-index", indexControl);
-
-
-        //PARTE 1
-        const detailCloseContainer = document.createElement('div');
-        detailCloseContainer.classList.add('product-detail-close');
-
-        const detailCloseIcon = document.createElement('img');
-        detailCloseIcon.setAttribute('src', "./icons/icon_close.png");
-        detailCloseIcon.setAttribute('alt', "close");
-
-        //Completo
-        detailCloseContainer.appendChild(detailCloseIcon);
-
-
-
-
-        //PARTE 2
-        const detailProductImg = document.createElement('img');
-        detailProductImg.setAttribute('src', product.image);
-        
-
-
-
-        //PARTE 3
-        const detailInfo = document.createElement('div');
-        detailInfo.classList.add('product-info');
-
-        //Precio
-        const detailPrice = document.createElement('p');
-        detailPrice.innerText = product.price;
-        detailInfo.appendChild(detailPrice);
-
-        //Name
-        const detailName = document.createElement('p');
-        detailName.innerText = product.name;
-        detailInfo.appendChild(detailName);
-        
-        //Description
-        const detailDescription = document.createElement('p');
-        detailDescription.innerText = product.description;
-        detailInfo.appendChild(detailDescription);
-        
-        //Button;////////////////////////////////
-        const detailButton = document.createElement('button');
-        detailButton.classList.add('primary-button');
-        detailButton.classList.add('add-to-cart-button');
-        
-
-        detailButton.innerHTML = '<img src="./icons/bt_add_to_cart.svg" alt="add to cart"> Add to cart';
-
-        detailInfo.appendChild(detailButton);
-        /////////////////////////////////////////////////////
-
-
-        //INTODUCIMOS PARTE 1, 2 y 3
-        detailCard.appendChild(detailCloseContainer);
-        detailCard.appendChild(detailProductImg);
-        detailCard.appendChild(detailInfo);
-
-        //Metemos tarjeta en el html
-        detailContainer.appendChild(detailCard);
-    }
-}
-
-createDetailCards(productList);
-
-
-
-function eventClickProd_Detail(){}
 
 
 
