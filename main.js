@@ -4,14 +4,14 @@ const desktopMenu = document.querySelector('.desktop-menu');
 const mobileMenu = document.querySelector('.mobile-menu');
 const menu = document.querySelector('.menu');
 const buttonCartShopping = document.querySelector('.navbar-shopping-cart');
-const cartShopping = document.querySelector('.product-detail');
+const cartShopping = document.querySelector('.purchase-detail');
 const cardsContainer = document.querySelector('.cards-container');
 const productsList = [];
 
 
 // Funciones 🌎🟢
 function closeCartShopping () {
-    let isCartShoppingOpen = cartShopping.classList.contains('product-detail--open');
+    let isCartShoppingOpen = cartShopping.classList.contains('purchase-detail--open');
     if (isCartShoppingOpen) { 
         cartShopping.classList.toggle('product-detail--open');
     }
@@ -25,7 +25,7 @@ function openAndCloseMenuMobile () {
     closeCartShopping();
 }
 function openAndCloseCartShopping () {
-    cartShopping.classList.toggle('product-detail--open');
+    cartShopping.classList.toggle('purchase-detail--open');
 
     let isDesktopMenuOpen = desktopMenu.classList.contains('desktop-menu--open');
     let isMobileMenuOpen = mobileMenu.classList.contains('mobile-menu--open');
