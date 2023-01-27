@@ -7,10 +7,15 @@ const mobileMenu = document.querySelector('.mobile-menu');
 const menuCart = document.querySelector('.navbar-shopping-cart');
 const shoppingCartDetailMenu = document.querySelector('.shopping-cart-detail');
 
+const ProductDetailCard = document.querySelector('.product-detail');
+const productDetailCardCloseBtn = document.querySelector('.product-detail-close');
+
 // 
 navEmail.addEventListener('click', toggleDesktopMenu);
 burgerMenu.addEventListener('click', toggleMobileMenu);
-menuCart.addEventListener('click', toggleProductDetailMenu);
+menuCart.addEventListener('click', toggleShoppingCartDetailMenu);
+productDetailCardCloseBtn.addEventListener('click', closeProductDetailCard);
+
 
 function toggleDesktopMenu() {
     desktopMenu.classList.toggle('inactive');
@@ -22,17 +27,29 @@ function toggleMobileMenu() {
     shoppingCartDetailMenu.classList.add('inactive'); 
 }
 
-function toggleProductDetailMenu() {
+function toggleShoppingCartDetailMenu() {
     shoppingCartDetailMenu.classList.toggle('inactive');
     mobileMenu.classList.add('inactive');
-    desktopMenu.classList.add('inactive');   
-
+    desktopMenu.classList.add('inactive');  
+    ProductDetailCard.classList.add('inactive'); 
 }
 
-//----------------------------------------------------------------
+function openProductDetailCard(){
+    ProductDetailCard.classList.remove('inactive');
+    shoppingCartDetailMenu.classList.add('inactive'); 
+    desktopMenu.classList.add('inactive');
+}
 
+function closeProductDetailCard(){
+    ProductDetailCard.classList.add('inactive');
+}
+
+
+
+//----------------------------------------------------------------
 const cardContainer = document.querySelector('.cards-container');
 
+//Array Product List
 const productList = [];
 productList.push({
     name: 'Bike',
@@ -78,9 +95,9 @@ productList.push ({
     name:'Bicycle seat bag',
     price: 876,
     image: 'https://m.media-amazon.com/images/I/81k2Gmal+VL._AC_SL1500_.jpg'
-}); 
+});
 
-
+//Array Product List
 function renderProduct(arr){
     for (product of arr) {
         // div - product-card
@@ -129,6 +146,9 @@ function renderProduct(arr){
     
         // insert productCard in cardContainer
         cardContainer.appendChild(productCard);
+
+        // addEventListener for productCard
+        productCard.addEventListener('click', openProductDetailCard);
     }
 
 }
@@ -136,6 +156,13 @@ function renderProduct(arr){
 renderProduct(productList);
 
 
+
+// Run it initially
+handleDeviceChange(smallDevice);
+
+
+
+//----------------------------------------------------------------
 // // Manera de usar funcion en addEventListener
 // navEmail.addEventListener("click", function(){toggleElement(desktopMenu)});
 // burgerMenu.addEventListener("click", function(){toggleElement(mobileMenu)});

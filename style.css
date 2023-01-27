@@ -104,6 +104,7 @@ nav {
 /* Desktop Menu */
 .desktop-menu {
     position: absolute;
+    z-index: 1000;
     top: 60px;
     right: 60px;
     background: var(--white);
@@ -150,6 +151,7 @@ nav {
 /* Mobile Menu */
 .mobile-menu {
     position: fixed;
+    z-index: 1000;
     padding-left: 24px;
     top: 61px;
     left: 0;
@@ -286,8 +288,9 @@ nav {
 /* Product Detail */
 .product-detail {
     width: 360px;
+    height: 100%;
     padding-bottom: 24px;
-    position: absolute;
+    position: fixed;
     right: 0;
     background: var(--white);
 }
