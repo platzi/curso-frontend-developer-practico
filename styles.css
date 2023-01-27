@@ -286,6 +286,10 @@
     color: var(--very-light-pink);
   }
 
+  #productDetail {
+    padding: 0 10px;
+  }
+
   .product-detail-close {
     background: var(--white);
     width: 14px;
@@ -358,7 +362,7 @@
     .desktop-menu {
         display: none;
     }
-    .product-detail {
+    aside {
         width: 100%;
     }
     .cards-container {

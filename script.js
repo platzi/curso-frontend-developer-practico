@@ -9,23 +9,50 @@ const email = document.querySelector(".navbar-email")
 const shopButton = document.querySelector(".navbar-shopping-cart")
 const shopMenu = document.querySelector("#shoppingCartContainer")
 
+const productDetail = document.querySelector("#productDetail")
+const productDetailsCloseButton = document.querySelector(".product-detail-close")
+
 email.addEventListener("click", toggleDesktopMenu)
 menuIcon.addEventListener("click",toggleMobileMenu)
 shopButton.addEventListener("click", toggleShopMenu)
+productDetailsCloseButton.addEventListener("click",closeProductDetail)
 
 function toggleDesktopMenu(event){
+    productDetail.classList.add("inactive")
+    shopMenu.classList.add("inactive")
     desktopMenu.classList.toggle("inactive")
 }
 
 function toggleMobileMenu(event) {
     shopMenu.classList.add("inactive")
+    productDetail.classList.add("inactive")
     mobileMenu.classList.toggle("inactive")
 }
 
 function toggleShopMenu(event){
     mobileMenu.classList.add("inactive")
     desktopMenu.classList.add("inactive")
+    productDetail.classList.add("inactive")
     shopMenu.classList.toggle("inactive")
+}
+
+function openProductDetail(event){
+    mobileMenu.classList.add("inactive")
+    desktopMenu.classList.add("inactive")
+    shopMenu.classList.add("inactive")
+    productDetail.classList.remove("inactive")
+
+    const img = document.querySelector("#productDetail img:nth-child(2)")
+    const price = document.querySelector("#productDetail .product-info p:nth-child(1)")
+    const name = document.querySelector("#productDetail .product-info p:nth-child(2)")
+
+    img.setAttribute("src", event.target.src);
+    //Need to set the price and name
+    price.innerText = event.target.nextElementSibling.innerText
+}
+
+function closeProductDetail(event){
+    productDetail.classList.add("inactive")
 }
 
 const productList = []
@@ -105,6 +132,7 @@ function loadItems(array){
         productInfo.append(productInfoDiv,productInfoFigure);
         element.append(img,productInfo)
         itemContainer.append(element)
+        img.addEventListener("click",openProductDetail)
     }
 }
 
