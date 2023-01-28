@@ -9,9 +9,13 @@ const shoppingCartContainer = document.querySelector('#shoppingCartContainer');
 
 const cardsContainer = document.querySelector('.cards-container');
 
+const productDetailContainer = document.querySelector('#productDetail');
+const productDetailCloseIcon = document.querySelector('.product-detail-close');
+
 menuEmail.addEventListener('click', toggleDesktopMenu);
 menuHamIcon.addEventListener('click', toggleMobileMenu);
 menuCarritoIcon.addEventListener('click', toggleCarritoAside);
+productDetailCloseIcon.addEventListener('click', closeProductDetailAside);
 
 function toggleDesktopMenu(){
   const isAsideCarritoClosed = shoppingCartContainer.classList.contains('inactive'); //asideCarrito esta cerrado
@@ -20,6 +24,8 @@ function toggleDesktopMenu(){
   }
 
   desktopMenu.classList.toggle('inactive');
+
+  closeProductDetailAside();
 }
 
 function toggleMobileMenu(){
@@ -29,11 +35,14 @@ function toggleMobileMenu(){
   }
 
   mobileMenu.classList.toggle('inactive');
+
+  closeProductDetailAside(); //si el product detail esta abierto, hay que cerrarlo y como trabajamos el aside con add, podemos llamar a la funcion para cerrarlo
 }
 
 function toggleCarritoAside(){
   const isDesktopMenuClosed = desktopMenu.classList.contains('inactive');
   const isMobileMenuClosed = mobileMenu.classList.contains('inactive');
+  const isProductDetailClosed = productDetailContainer.classList.contains('inactive');
 
   if(!isDesktopMenuClosed){ //si el desktopMenu esta abierto, hay que cerrarlo
     desktopMenu.classList.add('inactive');
@@ -43,10 +52,24 @@ function toggleCarritoAside(){
     mobileMenu.classList.add('inactive');
   }
 
+  if(!isProductDetailClosed){ //si el product detail esta abierto, hay que cerrarlo
+    productDetailContainer.classList.add('inactive');
+  }
+
   shoppingCartContainer.classList.toggle('inactive');
 
 }
 
+
+function openProductDetailAside(){
+  shoppingCartContainer.classList.add('inactive'); //Como trabajamos el aside con add, podemos hacer esto
+  desktopMenu.classList.add('inactive'); 
+  productDetailContainer.classList.remove('inactive');
+}
+
+function closeProductDetailAside(){
+  productDetailContainer.classList.add('inactive');
+}
 
 const productList = [];
 productList.push({
@@ -75,7 +98,10 @@ function renderProducts(arr){
     const productImg = document.createElement('img'); //Creamos una imagen
     // product = {name, price, image} -> product.image
     productImg.setAttribute('src', product.image); //Modificamos el atributo src de la imagen recien creada y le mandamos el .image del objeto que se encuentra en el arreglo
-  
+    
+    productImg.addEventListener('click', openProductDetailAside);//Evento para abrir el aside de product detail
+
+
     const productInfo = document.createElement('div'); //Creamos el siguiente div
     productInfo.classList.add('product-info'); //Le anadimos la clase product-info
   
