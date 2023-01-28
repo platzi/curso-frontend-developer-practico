@@ -5,7 +5,7 @@ menuEmail.addEventListener('click', toggleDesktopMenue)
 
 function toggleDesktopMenue(){
 
-    //console.log('click')
+    console.log('click')
 
     desktoMenu.classList.toggle('inactive');
 
