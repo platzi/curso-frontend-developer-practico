@@ -124,8 +124,11 @@
   .mobile-menu {
     padding-left: 24px;
     top:61px;
+    left:-15px;
+    width: 100%;
+    height: 400px;
     position:absolute;
-
+    background: val(--white);
   }
   
   .mobile-menu a {
@@ -133,19 +136,22 @@
     text-decoration: none;
     color: var(--black);
     font-weight: bold;
-    /* margin-bottom: 24px; */
+    background: var(--white);
+    padding-bottom: 24px; 
   }
   .mobile-menu ul {
-    padding: 0;
-    margin: 24px 0 0;
+    padding: 24px 0 0;
+    margin: 0 0 0;
     list-style: none;
     background: var(--white);
   }
   .mobile-menu ul:nth-child(1) {
     border-bottom: 1px solid var(--very-light-pink);
+    background: var(--white);
   }
   .mobile-menu ul li {
-    margin-bottom: 24px;
+    padding-bottom: 18px;
+    background: var(--white);
   }
   .email {
     font-size: var(--sm);
@@ -291,6 +297,79 @@
     margin-top: 20px;
   }
 
+
+
+
+  .product-description {
+    width: 360px;
+    padding-bottom: 24px;
+    position: absolute;
+    right: 1px;;
+    top:62px;
+    
+  }
+  .product-description-close {
+    background: var(--white);
+    width: 40px;
+    height: 40px;
+    position: absolute;
+    left: 24px;
+    z-index: 2;
+    border-radius: 50%;
+  }
+  .product-description-close img{
+    position:relative;
+    left:12px;
+    top:10px;
+
+  }
+  .product-description-close:hover {
+    cursor: pointer;
+  }
+  .product-description > img:nth-child(2) {
+    width: 100%;
+    height: 360px;
+    object-fit: cover;
+    border-radius: 0 0 20px 20px;
+  }
+  .product-description-info {
+    margin: 24px 24px 0 24px;
+  }
+  .product-description-info p:nth-child(1) {
+    font-weight: bold;
+    font-size: var(--md);
+    margin-top: 0;
+    margin-bottom: 4px;
+  }
+  .product-description-info p:nth-child(2) {
+    color: var(--very-light-pink);
+    font-size: var(--md);
+    margin-top: 0;
+    margin-bottom: 36px;
+  }
+  .product-description-info p:nth-child(3) {
+    color: var(--very-light-pink);
+    font-size: var(--sm);
+    margin-top: 0;
+    margin-bottom: 36px;
+  }
+  .primary-button {
+    background-color: var(--hospital-green);
+    border-radius: 8px;
+    border: none;
+    color: var(--white);
+    width: 100%;
+    cursor: pointer;
+    font-size: var(--md);
+    font-weight: bold;
+    height: 50px;
+  }
+  .add-to-cart-button {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+  }
+
   @media (max-width: 640px) {
     .menu {
       display: block;
@@ -316,6 +395,9 @@
     .product-card img {
       width: 140px;
       height: 140px;
+    }
+    .product-description {
+      width: 100%;
     }
   }
   @media ( min-width: 641px){
