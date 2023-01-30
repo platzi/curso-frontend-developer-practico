@@ -3,16 +3,18 @@ const desktopMenu = document.querySelector('.desktop-menu')
 const menuHamIcon = document.querySelector('.menu')
 const mobileMenu = document.querySelector('.mobile-menu')
 const menuCarIcon = document.querySelector('.navbar-shopping-cart')
-const aside = document.querySelector('.product-detail')
+const productDetailCloseIcon = document.querySelector('.product-detail-close')
+const shoppingCartContainer = document.querySelector('#shoppingCartContainer')
+const productDetailContainer = document.querySelector('#productDetail')
 const cardsContainer = document.querySelector('.cards-container')
 
 
 menuEmail.addEventListener('click', ()=>{
 
-    const isAsideClose = aside.classList.contains('inactive') //preguntando si tiene la clase entonces esta cerrado
+    const isAsideClose = shoppingCartContainer.classList.contains('inactive') //preguntando si tiene la clase entonces esta cerrado
 
     if (!isAsideClose) {
-        aside.classList.add('inactive')
+        shoppingCartContainer.classList.add('inactive')
     }
 
     desktopMenu.classList.toggle('inactive')
@@ -20,10 +22,15 @@ menuEmail.addEventListener('click', ()=>{
 
 menuHamIcon.addEventListener('click', ()=>{
 
-    const isAsideClose = aside.classList.contains('inactive') //preguntando si tiene la clase entonces esta cerrado
+    const isAsideClose = shoppingCartContainer.classList.contains('inactive') //preguntando si tiene la clase entonces esta cerrado
 
     if (!isAsideClose) {
-        aside.classList.add('inactive')
+        shoppingCartContainer.classList.add('inactive')
+    }
+
+    const isProductDetailClose = productDetailContainer.classList.contains('inactive') //preguntando si tiene la clase entonces esta cerrado
+    if (!isProductDetailClose) {
+        productDetailContainer.classList.add('inactive')
     }
 
     mobileMenu.classList.toggle('inactive')
@@ -40,8 +47,20 @@ menuCarIcon.addEventListener('click', ()=>{
     else if(!isDesktopMenu){
         desktopMenu.classList.add('inactive')
     }
+
+
+    const isProductDetailClose = productDetailContainer.classList.contains('inactive') //preguntando si tiene la clase entonces esta cerrado
+    if (!isProductDetailClose) {
+        productDetailContainer.classList.add('inactive')
+    }
     
-    aside.classList.toggle('inactive')
+    
+    shoppingCartContainer.classList.toggle('inactive')
+
+})
+
+productDetailCloseIcon.addEventListener('click', ()=>{
+    productDetailContainer.classList.add('inactive')
 
 })
 
@@ -81,6 +100,12 @@ const rednerProducts = (arr)=>{
     
         const productImg = document.createElement('img')
         productImg.setAttribute('src', product.img)
+        productImg.addEventListener('click', ()=>{
+
+            shoppingCartContainer.classList.add('inactive')
+            productDetailContainer.classList.remove('inactive')
+        })
+            
     
         const productInfo = document.createElement('div')
         productInfo.classList.add('product-info')
