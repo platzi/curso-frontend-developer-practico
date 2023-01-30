@@ -123,6 +123,7 @@ nav {
 
 /*Mobile menu */
 .mobile-menu {
+  background-color: var(--white);
   padding: 24px;
   position: absolute;
   top: 60px;
@@ -239,6 +240,7 @@ nav {
     display: none;
   }
   .product-detail {
+    background-color: var(--white);
     width: 100%;
   }
   .desktop-menu {
