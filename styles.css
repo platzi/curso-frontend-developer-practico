@@ -362,6 +362,9 @@
     .desktop-menu{
         display: none;
     }
+    aside {
+        width: 100%;
+    }
     .product-detail {
         width: 100%;
       }
@@ -381,4 +384,5 @@
     .mobile-menu{
         display: none;
     }
+  
   }
