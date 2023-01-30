@@ -4,7 +4,7 @@ const mobileMenuToggle = document.querySelector("#mobile-menu-toggle");
 const shoppingCartToggle = document.querySelector("#shopping-cart-toggle");
 const desktopMenu = document.querySelector("#desktop-menu");
 const mobileMenu = document.querySelector("#mobile-menu");
-const productDetails = document.querySelector("#product-details");
+const shoppingCart = document.querySelector("#shopping-cart");
 
 function toggleElement(element, toggleButton, otherElementToHide){
     toggleButton.addEventListener("click", () => {
@@ -18,8 +18,8 @@ function toggleElement(element, toggleButton, otherElementToHide){
 }
 
 toggleElement(desktopMenu, desktopMenuToggle);
-toggleElement(mobileMenu, mobileMenuToggle, productDetails);
-toggleElement(productDetails, shoppingCartToggle, mobileMenu);
+toggleElement(mobileMenu, mobileMenuToggle, shoppingCart);
+toggleElement(shoppingCart, shoppingCartToggle, mobileMenu);
 
 // Product grid
 class Product {
