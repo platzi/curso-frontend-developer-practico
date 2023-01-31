@@ -5,21 +5,40 @@ const shoppingCartToggle = document.querySelector("#shopping-cart-toggle");
 const desktopMenu = document.querySelector("#desktop-menu");
 const mobileMenu = document.querySelector("#mobile-menu");
 const shoppingCart = document.querySelector("#shopping-cart");
+const productDetailContainer = document.querySelector("#product-detail");
 
-function toggleElement(element, toggleButton, otherElementToHide){
+function toggleElement(element, toggleButton, otherElementsToHide){
     toggleButton.addEventListener("click", () => {
         element.classList.toggle("inactive");
-        if (otherElementToHide){
+        if (otherElementsToHide){
             if (!element.classList.contains("inactive")){
-                otherElementToHide.classList.add("inactive");
+                otherElementsToHide.forEach(other => {
+                    other.classList.add("inactive");
+                })
             }
         }
     })
 }
 
 toggleElement(desktopMenu, desktopMenuToggle);
-toggleElement(mobileMenu, mobileMenuToggle, shoppingCart);
-toggleElement(shoppingCart, shoppingCartToggle, mobileMenu);
+toggleElement(mobileMenu, mobileMenuToggle, [shoppingCart, productDetailContainer]);
+toggleElement(shoppingCart, shoppingCartToggle, [mobileMenu, productDetailContainer]);
+
+//Product detail toggle
+
+function toggleProductDetail(){
+    productDetailContainer.classList.remove("inactive");
+    shoppingCart.classList.add("inactive");
+    mobileMenu.classList.add("inactive");
+
+    const productDetailCloseButton = document.querySelector("#product-detail-close");
+    productDetailCloseButton.addEventListener("click", () => {
+        productDetailContainer.classList.add("inactive");
+    })
+}
+
+
+
 
 // Product grid
 class Product {
@@ -44,6 +63,7 @@ productList.forEach((product) => {
     let image = document.createElement("img");
     image.setAttribute("src", product.image);
     image.setAttribute("alt", `Image of ${product.name}`);
+    image.addEventListener("click", toggleProductDetail);
 
     let info = document.createElement("div");
     info.classList.add("product-info");
@@ -69,5 +89,5 @@ productList.forEach((product) => {
     productCard.append(container);
 
     const cardsContainer = document.querySelector(".cards-container");
-    cardsContainer.append(productCard)
+    cardsContainer.append(productCard);
 })

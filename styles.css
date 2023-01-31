@@ -291,6 +291,9 @@ aside.product-detail{
     flex-direction: column;
     justify-content: space-between;
 }
+aside.shopping-cart{
+    padding: 0 12px;
+}
 .product-detail-close {
     background: var(--white);
     width: 14px;
@@ -381,12 +384,12 @@ aside.product-detail{
     }
     .product-detail {
         width: 100%;
-      }
+    }
 }
 
 /* Integration */
 .inactive{
-    display: none;
+    display: none !important;
 }
 #desktop-menu-toggle, #mobile-menu-toggle{
     cursor: pointer;
