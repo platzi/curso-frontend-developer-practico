@@ -5,7 +5,7 @@ const desktopMenu = document.querySelector('.desktop-menu');
 const iconMenuResponsi = document.querySelector('.menu');
 const mobileMenu = document.querySelector('.mobile-menu');
 const iconCarShop = document.querySelector('.navbar-shopping-cart');
-const detalleCarrito = document.querySelector('.product-detail');
+const detalleCarrito = document.querySelector('#shoping-car');
 const exterior = document.querySelector('.modal');
 // esta variable es para crear la modificación del HTML
 const cardsContainer = document.querySelector('.cards-container');
@@ -169,5 +169,7 @@ mostrarHtml.innerHTML += pantalla;
 }};
 
 otroMetodo(listaProductos);
+
+
 
 
