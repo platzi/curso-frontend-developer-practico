@@ -23,6 +23,8 @@ nav {
   justify-content: space-between;
   padding: 0 24px;
   border-bottom: 1px solid var(--very-light-pink);
+
+  user-select:none;
 }
 .menu {
   display: none;
@@ -67,6 +69,7 @@ nav {
 }
 .navbar-shopping-cart {
   position: relative;
+  cursor: pointer;
 }
 .navbar-shopping-cart div {
   width: 16px;
@@ -93,8 +96,11 @@ nav {
   width: 100px;
   height: auto;
   border: 1px solid var(--very-light-pink);
-  border-radius: 6px;
+  border-radius: 0px 0px 6px 6px;
   padding: 20px 20px 0 20px;
+  box-shadow: 5px 5px 10px var(--very-light-pink);
+
+  user-select:none;
 }
 .desktop-menu ul {
   list-style: none;
@@ -182,10 +188,15 @@ aside {
 .title-container img {
   transform: rotate(180deg);
   margin-right: 14px;
+
+  cursor: pointer;
+  user-select:none;
 }
 .title {
   font-size: var(--lg);
   font-weight: bold;
+
+  user-select:none;
 }
 .order {
   display: grid;
@@ -204,6 +215,8 @@ aside {
 .order p span:nth-child(1) {
   font-size: var(--md);
   font-weight: bold;
+
+  user-select: none;
 }
 .order p:nth-child(2) {
   text-align: end;
@@ -224,7 +237,14 @@ aside {
   height: 70px;
   border-radius: 20px;
   object-fit: cover;
+
+  user-select:none;
 }
+.shopping-cart-close-icon{
+  cursor: pointer;
+  user-select: none;
+}
+
 .shopping-cart p:nth-child(2) {
   color: var(--very-light-pink);
 }
@@ -242,6 +262,8 @@ aside {
   font-size: var(--md);
   font-weight: bold;
   height: 50px;
+
+  user-select:none;
 }
 
 /*ProductDetail (aside)*/
@@ -257,6 +279,7 @@ aside {
   border-radius: 50%;
 }
 .product-detail-close:hover {
+  background: rgba(255, 255, 255, 0.733);
   cursor: pointer;
 }
 #productDetail > img:nth-child(2) {
@@ -264,6 +287,8 @@ aside {
   height: 360px;
   object-fit: cover;
   border-radius: 0 0 20px 20px;
+
+  user-select: none;
 }
 #productDetail .product-info {
   margin: 24px 24px 0 24px;
@@ -296,6 +321,8 @@ aside {
   font-size: var(--md);
   font-weight: bold;
   height: 50px;
+
+  user-select:none;
 }
 .add-to-cart-button {
   display: flex;
@@ -322,6 +349,9 @@ aside {
   height: 240px;
   border-radius: 20px;
   object-fit: cover;
+  
+  cursor: pointer;
+  user-select:none;
 }
 .product-card .product-info {
   display: flex;
