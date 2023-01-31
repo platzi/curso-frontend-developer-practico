@@ -8,72 +8,11 @@ const productDetailContainer = document.querySelector('#productDetail');
 const productDetailCloseIcon = document.querySelector('.product-detail-close');
 const cardsContainer = document.querySelector('.cards-container');
 
-
-const toggleDesktopMenu = () => {
-
-  desktopMenu.classList.toggle('inactive');
-
-  if (!shoppingCardContainer.classList.contains('inactive')) {
-    shoppingCardContainer.classList.toggle('inactive');
-  }
-
-  if (!productDetailContainer.classList.contains('inactive')) {
-    productDetailContainer.classList.add('inactive');
-  }
-
-}
-
-const toggleMobileMenu = () => {
-
-  mobileMenu.classList.toggle('inactive');
-
-  if (!shoppingCardContainer.classList.contains('inactive')) {
-    shoppingCardContainer.classList.toggle('inactive');
-  }
-
-  if (!productDetailContainer.classList.contains('inactive')) {
-    productDetailContainer.classList.add('inactive');
-  }
-
-}
-
-const toggleShoppingCartMenu = () => {
-
-  shoppingCardContainer.classList.toggle('inactive');
-
-  if (!mobileMenu.classList.contains('inactive')) {
-    mobileMenu.classList.toggle('inactive');
-
-  }
-
-  if (!desktopMenu.classList.contains('inactive')) {
-    desktopMenu.classList.toggle('inactive');
-  }
-
-  if (!productDetailContainer.classList.contains('inactive')) {
-    productDetailContainer.classList.add('inactive');
-  }
-
-}
-
-const openProductDetailAsaid = () => {
-  productDetailContainer.classList.remove('inactive');
-
-  if (!desktopMenu.classList.contains('inactive')) {
-    desktopMenu.classList.toggle('inactive');
-  }
-
-  if (!mobileMenu.classList.contains('inactive')) {
-    mobileMenu.classList.toggle('inactive');
-  }
+// Product selected
+const productImgSelected = document.querySelector('#productImg');
+const productInfoSelected = document.querySelector('#productInfo')
 
 
-}
-
-const closeProductDetailAside = () => {
-  productDetailContainer.classList.add('inactive');
-
-}
 
 const productList = [{
   name: 'Lenovo Laptop Ideapad 3 2022',
@@ -131,16 +70,88 @@ const productList = [{
 ];
 
 
+const toggleDesktopMenu = () => {
+
+  desktopMenu.classList.toggle('inactive');
+
+  if (!shoppingCardContainer.classList.contains('inactive')) {
+    shoppingCardContainer.classList.toggle('inactive');
+  }
+
+  if (!productDetailContainer.classList.contains('inactive')) {
+    productDetailContainer.classList.add('inactive');
+  }
+
+}
+
+const toggleMobileMenu = () => {
+
+  mobileMenu.classList.toggle('inactive');
+
+  if (!shoppingCardContainer.classList.contains('inactive')) {
+    shoppingCardContainer.classList.toggle('inactive');
+  }
+
+  if (!productDetailContainer.classList.contains('inactive')) {
+    productDetailContainer.classList.add('inactive');
+  }
+
+}
+
+const toggleShoppingCartMenu = () => {
+
+  shoppingCardContainer.classList.toggle('inactive');
+
+  if (!mobileMenu.classList.contains('inactive')) {
+    mobileMenu.classList.toggle('inactive');
+
+  }
+
+  if (!desktopMenu.classList.contains('inactive')) {
+    desktopMenu.classList.toggle('inactive');
+  }
+
+  if (!productDetailContainer.classList.contains('inactive')) {
+    productDetailContainer.classList.add('inactive');
+  }
+
+}
+
+const openProductDetailAsaid = (e) => {
+  productDetailContainer.classList.remove('inactive');
+
+  productImgSelected.setAttribute('src', e.path[0].currentSrc)
+  productInfoSelected.innerText = e.path[1].innerText
+
+
+  if (!desktopMenu.classList.contains('inactive')) {
+    desktopMenu.classList.toggle('inactive');
+  }
+
+  if (!mobileMenu.classList.contains('inactive')) {
+    mobileMenu.classList.toggle('inactive');
+  }
+
+}
+
+const closeProductDetailAside = () => {
+  productDetailContainer.classList.add('inactive');
+
+}
+
+
+
+
 const productRender = (arr) => {
 
-  for (product of arr) {
+  arr.forEach(product => {
 
     const productCard = document.createElement('div');
     productCard.classList.add('product-card');
 
     const productImg = document.createElement('img');
     productImg.setAttribute('src', product.image);
-    productImg.addEventListener('click', openProductDetailAsaid)
+    productImg.addEventListener('click', openProductDetailAsaid);
 
     const productInfo = document.createElement('div');
     productInfo.classList.add('product-info');
@@ -160,17 +171,16 @@ const productRender = (arr) => {
     const productImgCart = document.createElement('img');
     productImgCart.setAttribute('src', './icons/bt_add_to_cart.svg');
 
-
+    //Product List Render
     productInfoFigure.appendChild(productImgCart);
-
     productInfo.appendChild(productInfoDiv);
     productInfo.appendChild(productInfoFigure);
-
     productCard.appendChild(productImg);
     productCard.appendChild(productInfo);
-
     cardsContainer.appendChild(productCard);
-  }
+
+  });
+
 
 }
 
