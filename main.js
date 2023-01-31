@@ -8,6 +8,8 @@ const mobileMenu = document.querySelector(".mobile-menu");
 const cartNavIcon = document.querySelector(".navbar-shopping-cart");
 const orderResumeAside = document.querySelector(".order-resume-aside");
 
+const cardsContainer = document.querySelector(".cards-container");
+
 menuEmail.addEventListener("click", toggleDesktopMenu);
 menuFlecha.addEventListener("click", toggleDesktopMenu);
 
@@ -50,3 +52,69 @@ function toggleOrderResumeAside(){
 
     orderResumeAside.classList.toggle("inactive");
 }
+
+const productList = [];
+
+productList.push({
+    name: "Chaqueta",
+    price: 200,
+    img: "https://images.pexels.com/photos/276517/pexels-photo-276517.jpeg?auto=compress&cs=tinysrgb&dpr=2&h=650&w=940"
+});
+
+productList.push({
+    name: "PC",
+    price: 500,
+    img: "https://images.pexels.com/photos/276517/pexels-photo-276517.jpeg?auto=compress&cs=tinysrgb&dpr=2&h=650&w=940"
+});
+
+productList.push({
+    name: "Telefono",
+    price: 350,
+    img: "https://images.pexels.com/photos/276517/pexels-photo-276517.jpeg?auto=compress&cs=tinysrgb&dpr=2&h=650&w=940"
+});
+
+productList.push({
+    name: "Gorra",
+    price: 350,
+    img: "https://images.pexels.com/photos/276517/pexels-photo-276517.jpeg?auto=compress&cs=tinysrgb&dpr=2&h=650&w=940"
+});
+
+function renderProducts(productList){
+    for(product of productList){
+        const productCard = document.createElement("div");
+        productCard.classList.add("product-card");
+    
+        //product = {name, price, img}
+        const productImg = document.createElement("img");
+        productImg.setAttribute("src",product.img);
+    
+        const productInfo = document.createElement("div");
+        productInfo.classList.add("product-info");
+    
+        const productInfoDiv = document.createElement("div");
+        const productPrice = document.createElement("p");
+        productPrice.innerText = "$ " + product.price;
+        const productName = document.createElement("p");
+        productName.innerText = product.name;
+    
+        const productInfoFigure = document.createElement("figure");
+        const figureImg = document.createElement("img");
+        figureImg.setAttribute("src", "./icons/bt_add_to_cart.svg");
+    
+        //Estructurar el "HTML"
+    
+        productInfoDiv.append(productPrice, productName);
+    
+        productInfoFigure.appendChild(figureImg);
+    
+        productInfo.append(productInfoDiv, productInfoFigure);
+    
+        productCard.append(productImg, productInfo);
+    
+        cardsContainer.appendChild(productCard);
+    
+        console.log("Funcionando");
+    }
+}
+
+renderProducts(productList);
