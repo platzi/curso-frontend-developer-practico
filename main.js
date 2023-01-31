@@ -89,7 +89,43 @@ const productList = [{
   name: 'Cartucho de tinta original HP 67XL negro de alto rendimiento',
   price: 40,
   image: "https://m.media-amazon.com/images/I/71dncPbANKL._AC_SX425_.jpg"
+},
+{
+  name: 'Home Basic. Set de 4 frascos con cuchara de cerámica, Turquoise',
+  price: 42.70,
+  image: "https://m.media-amazon.com/images/I/51qwQ0-ancL._AC_SX425_PIbundle-2,TopRight,0,0_SH20_.jpg"
+},
+{
+  name: 'Silla de oficina ejecutiva ',
+  price: 124.20,
+  image: "https://m.media-amazon.com/images/I/61athkWqQML._AC_SX679_.jpg"
+},
+{
+  name: 'Hamilton Beach Sandwich de desayuno dual con temporizador',
+  price: 46.99,
+  image: "https://m.media-amazon.com/images/I/81ky0potEEL._AC_SX679_.jpg"
+},
+{
+  name: 'Carrito de cocina, color gris',
+  price: 191.99,
+  image: "https://m.media-amazon.com/images/I/61nt5DlyTuL._AC_SX679_.jpg"
+},
+{
+  name: 'EastPoint Sports Connect4 Hoops Arcade',
+  price: 149.99,
+  image: "https://m.media-amazon.com/images/I/81lh2r3j5xL._AC_SX569_.jpg"
+},
+{
+  name: 'Carhartt Men Base Force Midweight Classic Crew',
+  price: 33.73,
+  image: "https://m.media-amazon.com/images/I/61Z7P60TgwL._AC_UX522_.jpg"
+},
+{
+  name: 'Essentials Camisa tejida sin mangas para mujer',
+  price: 13.90,
+  image: "https://m.media-amazon.com/images/I/91DEict0-FL._AC_UY500_.jpg"
 }
+
 
 
 ];
