@@ -12,10 +12,13 @@ const shoppingCartContainer = document.querySelector("#shoppingCartContainer") /
 
 const cardsContainer = document.querySelector(".cards-container");
 
+const productDetailContainer = document.querySelector("#productDetail")
+const productDetailCloseIcon = document.querySelector(".product-detail-close");
+
 menuEmail.addEventListener("click", toggleDesktopMenu);
 menuIcon.addEventListener("click", toggleMobileMenu);
 menuCarritoIcon.addEventListener("click", toggleCarritoAside);
-
+productDetailCloseIcon.addEventListener("click", closeProductDetailAside);
 /**
  * Funciones par desplegar menus
  */
@@ -35,6 +38,7 @@ function toggleMobileMenu(){
     if(isAsideOpen){
         shoppingCartContainer.classList.add("inactive");
     }
+    closeProductDetailAside();
     mobileMenu.classList.toggle("inactive");
 }
 
@@ -42,7 +46,7 @@ function toggleMobileMenu(){
 function toggleCarritoAside(){
     const isMobileMenuOpen = !mobileMenu.classList.contains("inactive");
     const isDesktopMenuOpen = !desktopMenu.classList.contains("inactive");
-
+    const isProductDetailContainerOpen = !productDetailContainer.classList.contains("inactive");
     //Si mobile esta open lo cerramos.
     if(isMobileMenuOpen){
         mobileMenu.classList.add("inactive");
@@ -52,9 +56,23 @@ function toggleCarritoAside(){
         desktopMenu.classList.add("inactive");
     }
 
+    if(isProductDetailContainerOpen){
+        productDetailContainer.classList.add("inactive");
+    }
+
     shoppingCartContainer.classList.toggle("inactive");
 }
 
+//Mostrar detalles del producto
+function openProductDetailAside(){
+    shoppingCartContainer.classList.add("inactive");
+    productDetailContainer.classList.remove("inactive");
+}
+
+//Cerrar detalles dedl producto
+function closeProductDetailAside(){
+    productDetailContainer.classList.add("inactive");
+}
 /**
  * Agarran elemento como si lo hubieramos tráido desde el backend
  */
@@ -102,7 +120,9 @@ function renderProducts(arr){
     
         const productImg = document.createElement("img");
         productImg.setAttribute("src", product.image);
-    
+        productImg.addEventListener("click", openProductDetailAside);
+
+
         const productInfo = document.createElement("div");
         productInfo.classList.add("product-info");
     
