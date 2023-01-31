@@ -4,6 +4,8 @@ const menuHamburger = document.querySelector('.menu');
 const mobileMenu = document.querySelector('.mobile-menu');
 const shoppingCart = document.querySelector('.navbar-shopping-cart');
 const shoppingCardContainer = document.querySelector('#shoppingCardContainer');
+const productDetailContainer = document.querySelector('#productDetail');
+const productDetailCloseIcon = document.querySelector('.product-detail-close');
 const cardsContainer = document.querySelector('.cards-container');
 
 
@@ -13,6 +15,10 @@ const toggleDesktopMenu = () => {
 
   if (!shoppingCardContainer.classList.contains('inactive')) {
     shoppingCardContainer.classList.toggle('inactive');
+  }
+
+  if (!productDetailContainer.classList.contains('inactive')) {
+    productDetailContainer.classList.add('inactive');
   }
 
 }
@@ -25,6 +31,10 @@ const toggleMobileMenu = () => {
     shoppingCardContainer.classList.toggle('inactive');
   }
 
+  if (!productDetailContainer.classList.contains('inactive')) {
+    productDetailContainer.classList.add('inactive');
+  }
+
 }
 
 const toggleShoppingCartMenu = () => {
@@ -33,11 +43,35 @@ const toggleShoppingCartMenu = () => {
 
   if (!mobileMenu.classList.contains('inactive')) {
     mobileMenu.classList.toggle('inactive');
+
   }
 
   if (!desktopMenu.classList.contains('inactive')) {
     desktopMenu.classList.toggle('inactive');
   }
+
+  if (!productDetailContainer.classList.contains('inactive')) {
+    productDetailContainer.classList.add('inactive');
+  }
+
+}
+
+const openProductDetailAsaid = () => {
+  productDetailContainer.classList.remove('inactive');
+
+  if (!desktopMenu.classList.contains('inactive')) {
+    desktopMenu.classList.toggle('inactive');
+  }
+
+  if (!mobileMenu.classList.contains('inactive')) {
+    mobileMenu.classList.toggle('inactive');
+  }
+
+
+}
+
+const closeProductDetailAside = () => {
+  productDetailContainer.classList.add('inactive');
 
 }
 
@@ -70,6 +104,7 @@ const productRender = (arr) => {
 
     const productImg = document.createElement('img');
     productImg.setAttribute('src', product.image);
+    productImg.addEventListener('click', openProductDetailAsaid)
 
     const productInfo = document.createElement('div');
     productInfo.classList.add('product-info');
@@ -106,5 +141,6 @@ const productRender = (arr) => {
 navEmail.addEventListener('click', toggleDesktopMenu);
 menuHamburger.addEventListener('click', toggleMobileMenu);
 shoppingCart.addEventListener('click', toggleShoppingCartMenu);
+productDetailCloseIcon.addEventListener('click', closeProductDetailAside)
 
 productRender(productList);
