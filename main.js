@@ -37,9 +37,6 @@ function toggleProductDetail(){
     })
 }
 
-
-
-
 // Product grid
 class Product {
     constructor(name, price, image){
