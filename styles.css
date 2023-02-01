@@ -263,7 +263,7 @@ nav {
   object-fit: cover;
   border-radius: 0 0 20px 20px;
 }
-#productDetail {
+#productDetail .product-info{
   margin: 24px 24px 0 24px;
 }
 #productDetail p:nth-child(1) {
@@ -301,7 +301,7 @@ nav {
   justify-content: center;
 }
 
-/*Product Detail*/
+/*Product List*/
 .cards-container {
   display: grid;
   grid-template-columns: repeat(auto-fill, 240px);
@@ -358,6 +358,9 @@ nav {
     display: none;
   }
   .product-detail {
+    width: 100%;
+  }
+  aside {
     width: 100%;
   }
   .cards-container {
