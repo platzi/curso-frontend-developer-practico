@@ -2,16 +2,17 @@ const menuEmail = document.querySelector('.navbar-email');
 const desktopMenu = document.querySelector('.desktop-menu');
 const menuHamIcon = document.querySelector('.menu');
 const menuCarritoIcon = document.querySelector('.navbar-shopping-cart');
+const productDetailsCloseIcon = document.querySelector('.product-details-close');
 const mobileMenu = document.querySelector('.mobile-menu');
 const aside = document.querySelector('.product-detail');
 const cardContainer = document.querySelector('.cards-container');
-
+const productDetails = document.querySelector('#productDetail');
 
 
 menuEmail.addEventListener('click', toggleDesktopMenu);
 menuHamIcon.addEventListener('click', toggleMobileMenu);
 menuCarritoIcon.addEventListener('click', toggleCarritoAside);
-
+productDetailsCloseIcon.addEventListener('click', closeProductDetailAside);
 
 
 function toggleDesktopMenu() {
@@ -41,6 +42,14 @@ function toggleCarritoAside() {
     aside.classList.toggle('inactive'); 
 }
 
+function openProductDetailAside() {
+    productDetails.classList.remove('inactive');
+}
+
+function closeProductDetailAside() {
+    productDetails.classList.add('inactive');
+}
+
 const productList = [];
 productList.push({
     name: 'Bike',
@@ -66,7 +75,7 @@ function renderProducts(arr) {
          //PRODUCT = {NAME, PRICE, IMAGE} --> product.image
         const productImg = document.createElement('img');
         productImg.setAttribute('src', product.image);
-        
+        productImg.addEventListener('click', openProductDetailAside);
      
         const productInfo = document.createElement('div');
         productInfo.classList.add('product-info');
