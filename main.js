@@ -5,7 +5,7 @@ const desktopMenu = document.querySelector(".desktop-menu")
 const menuHamIcon = document.querySelector(".menu")
 const mobileMenu = document.querySelector(".mobile-menu")
 const shoppingCartMenu = document.querySelector(".navbar-shopping-cart")
-const aside = document.querySelector(".product-detail")
+const shoppingCartContainer = document.querySelector("#shoppingCartContainer")
 const cardsContainer = document.querySelector(".cards-container") 
 
 menuEmail.addEventListener("click", toggleDesktopMenu)
@@ -15,11 +15,11 @@ shoppingCartMenu.addEventListener("click", toggleShoppingCartAside)
 // The next functions are created to show or hide certain cards of the code, and while doing, closing or opening other elements
 function toggleDesktopMenu() {
     // Creating constants in order to represent when the tags are closed
-    const isAsideClosed = aside.classList.contains("inactive")
+    const isAsideClosed = shoppingCartContainer.classList.contains("inactive")
     
     // If the tag "is not" (!) closed... then its open, so please close it
     if(!isAsideClosed) {
-        aside.classList.add("inactive")
+        shoppingCartContainer.classList.add("inactive")
     }
     
     // ".toggle" allows me to remove or set the class "inactive"
@@ -27,10 +27,10 @@ function toggleDesktopMenu() {
 }
 
 function toggleMobileMenu() { 
-    const isAsideClosed = aside.classList.contains("inactive")
+    const isAsideClosed = shoppingCartContainer.classList.contains("inactive")
     
     if(!isAsideClosed) {
-        aside.classList.add("inactive")
+        shoppingCartContainer.classList.add("inactive")
     }
     
     mobileMenu.classList.toggle("inactive")
@@ -44,7 +44,7 @@ function toggleShoppingCartAside() {
         mobileMenu.classList.add("inactive")
     }
     
-    aside.classList.toggle("inactive");
+    shoppingCartContainer.classList.toggle("inactive");
 
     if(!isDesktopMenuClosed) {
         desktopMenu.classList.add("inactive")
