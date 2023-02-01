@@ -4,7 +4,8 @@
     --black: #000000;
     --very-light-pink: #C7C7C7;
     --text-input-field: #F7F7F7;
-    --hospital-green: #ACD9B2;
+    --red-fav: #ACD9B2;
+    --red-fav: rgb(255, 32, 32);
     --sm: 14px;
     --md: 16px;
     --lg: 18px;
@@ -57,8 +58,8 @@
   }
   .navbar-left ul li a:hover,
   .navbar-right ul li a:hover {
-    border: 1px solid var(--hospital-green);
-    color: var(--hospital-green);
+    border: 1px solid var(--red-fav);
+    color: var(--red-fav);
   }
   .navbar-email {
     color: var(--very-light-pink);
@@ -71,7 +72,7 @@
   .navbar-shopping-cart div {
     width: 16px;
     height: 16px;
-    background-color: var(--hospital-green);
+    background-color: var(--red-fav);
     border-radius: 50%;
     font-size: var(--sm);
     font-weight: bold;
@@ -114,7 +115,7 @@
     border-top: 1px solid var(--very-light-pink);
   }
   .desktop-menu ul li:last-child a {
-    color: var(--hospital-green);
+    color: var(--red-fav);
     font-size: var(--sm);
   }
   .desktop-menu ul li a {
@@ -124,7 +125,7 @@
     display: inline-block;
   }
   .desktop-menu ul li a:hover{
-    background-color: var(--hospital-green);
+    background-color: var(--red-fav);
   }
 
   /*menuo para movil*/
@@ -158,11 +159,11 @@
   }
   .sign-out {
     font-size: var(--sm);
-    color: var(--hospital-green) !important;
+    color: var(--red-fav) !important;
   }
 
 
-  .product-detail {
+  .product-shoping {
     width: 360px;
     padding: 0 24px;
     background-color: var(--white);
@@ -227,7 +228,7 @@
     font-weight: bold;
   }
   .primary-button {
-    background-color: var(--hospital-green);
+    background-color: var(--red-fav);
     border-radius: 8px;
     border: none;
     color: var(--white);
@@ -280,6 +281,81 @@
     margin-bottom: 0;
     color: var(--very-light-pink);
   }
+  /*estos son los estilos de las cartas de informacion que aparecen al seleccionar algun elemnto del menu  */
+  .product-dropdown {
+    width: 400px;
+    border: 20px solid var(--white);
+    background-color: var(--white);
+    
+    padding-bottom: 24px;
+    position: absolute;
+    right: 50%;
+  }
+  .product-dropdown-close {
+    background: var(--white);
+    width: 14px;
+    height: 14px;
+    position: absolute;
+    top: 24px;
+    left: 24px;
+    z-index: 2;
+    padding: 12px;
+    border-radius: 50%;
+    
+  }
+  .product-dropdown-close:hover {
+    cursor: pointer;
+  }
+  .product-dropdown > img:nth-child(2) {
+    width: 100%;
+    height: 360px;
+    object-fit: cover;
+    border-radius: 0 0 20px 20px;
+  }
+  .product-dropdown-info {
+    margin: 24px 24px 0 24px;
+  }
+  .product-dropdown-info p:nth-child(1) {
+    font-weight: bold;
+    font-size: var(--md);
+    margin-top: 0;
+    margin-bottom: 4px;
+  }
+  .product-dropdown-info p:nth-child(2) {
+    color: var(--very-light-pink);
+    font-size: var(--md);
+    margin-top: 0;
+    margin-bottom: 36px;
+  }
+  .product-dropdown-info p:nth-child(3) {
+    color: var(--very-light-pink);
+    font-size: var(--sm);
+    margin-top: 0;
+    margin-bottom: 36px;
+  }
+  .primary-button-dropdown {
+    background-color: var(--hospital-green);
+    border-radius: 8px;
+    border: none;
+    color: var(--white);
+    width: 100%;
+    cursor: pointer;
+    font-size: var(--md);
+    font-weight: bold;
+    height: 50px;
+  }
+  .add-to-cart-button {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+  }
+
+    /*estos son los estilos de las cartas de informacion que aparecen al seleccionar algun elemnto del menu  */
+ @media (max-width: 640px) {
+    .product-dropdown {
+      width: 100%;
+    }
+  }
   /*esta es la media queris de la seccion contenedora de las crtas de prodcutos*/
   @media (max-width: 640px) {
     .cards-container {
@@ -304,7 +380,7 @@
     .navbar-email {
       display: none;
     }
-    .product-detail {
+    .product-shoping {
       width: 100%;
     }
   }

@@ -6,36 +6,40 @@ const menuEmail = document.querySelector('.navbar-email');
 const desktopMenu = document.querySelector('.desktop-menu');
 
 const shopingCar = document.querySelector('.navbar-shopping-cart');
-const productDetail = document.querySelector('.product-detail');
+const productShoping = document.querySelector('.product-shoping');
 
 const cardsContainer = document.querySelector('.cards-container');
+
+
 
 menu.addEventListener('click', toogleMobileMenu);
 
 function toogleMobileMenu(){
     mobileMenu.classList.toggle('inactive');
-    productDetail.classList.add('inactive');
+    productShoping.classList.add('inactive');
 }
 
 menuEmail.addEventListener('click', toggleDesktopMenu);
 
 function toggleDesktopMenu(){
     desktopMenu.classList.toggle('inactive');
-    productDetail.classList.add('inactive');
+    productShoping.classList.add('inactive');
 
 }
 
 shopingCar.addEventListener('click', toggleShopingCar);
 
 function toggleShopingCar(){
-    productDetail.classList.toggle('inactive');
+    productShoping.classList.toggle('inactive');
     mobileMenu.classList.add('inactive');
 }
+
+
 
 const productList = [];
 productList.push({
     name:'bike',
-    price: 200,
+    price:  200,
     image: 'https://images.pexels.com/photos/276517/pexels-photo-276517.jpeg?auto=compress&cs=tinysrgb&dpr=2&h=650&w=940" alt="">',
 });
 productList.push({
@@ -69,7 +73,7 @@ for(product of productList){
     
 
     const productPrice = document.createElement('p');
-    productPrice.innerText = '$' + product.Price;
+    productPrice.innerText = '$' + product.price;
     const productName = document.createElement('p');
     productName.innerText = product.name;
 
@@ -84,3 +88,12 @@ for(product of productList){
     productCard.append(ProductImg, productInfo);
     cardsContainer.append(productCard);
 }   
+
+
+const productInfoCard = document.querySelector('.product-card');
+const productDropdown = document.querySelector('.product-dropdown');
+productInfoCard.addEventListener('click', toggleProductDropdown);
+function toggleProductDropdown(){
+    productDropdown.classList.toggle('inactive');
+
+}
