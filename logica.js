@@ -1,20 +1,27 @@
 // declarar las variables
-
+const exitGEneral = document.querySelector('.modal');
 const iconAccount = document.querySelector('.navbar-email');
 const desktopMenu = document.querySelector('.desktop-menu');
 const iconMenuResponsi = document.querySelector('.menu');
 const mobileMenu = document.querySelector('.mobile-menu');
 const iconCarShop = document.querySelector('.navbar-shopping-cart');
 const detalleCarrito = document.querySelector('#shoping-car');
-const exterior = document.querySelector('.modal');
+const aumento = document.querySelector('#muestra-aumentada');
 // esta variable es para crear la modificación del HTML
 const cardsContainer = document.querySelector('.cards-container');
+const closeWindow = document.querySelector('.product-detail-close');
+
+
 
 // crear los eventos 
 
 iconAccount.addEventListener('click', toggledesktopMenu );
 iconMenuResponsi.addEventListener('click', toggleMobilMenu );
 iconCarShop.addEventListener('click', shopingCar);
+cardsContainer.addEventListener('click', aumentarImagen);
+closeWindow.addEventListener('click', closeImage);
+
+
 
 
 /*el metodo toggle es para que se active o desactive con el click
@@ -24,23 +31,34 @@ iconCarShop.addEventListener('click', shopingCar);
 
     
 function toggledesktopMenu () {
+    aumento.classList.add('inactive');
     detalleCarrito.classList.add('inactive');
     desktopMenu.classList.toggle('inactive');
 };
 
 function toggleMobilMenu () {
+    aumento.classList.add('inactive');
     detalleCarrito.classList.add('inactive');
     mobileMenu.classList.toggle('inactive');
 };
 
 function shopingCar () {
+    aumento.classList.add('inactive');
     mobileMenu.classList.add('inactive');
     detalleCarrito.classList.toggle('inactive');
 };
 
-window.addEventListener('click', function (e) {
-    console.log(e.target);
-    });
+function aumentarImagen () {
+    mobileMenu.classList.add('inactive');
+    detalleCarrito.classList.add('inactive');
+    desktopMenu.classList.add('inactive');
+    aumento.classList.toggle('inactive');
+};
+
+function closeImage () {
+    aumento.classList.add('inactive');
+};    
+
 
 // Prinicipios de codigo para las consultas de la API
 
@@ -145,7 +163,6 @@ for (product of arreglo) {
 
 Esto es para tener un referente del elemento HTML a crear para despues proyectarlo en el HTML principal */
 //};
-
 //renderizarBusqueda(listaProductos);
 
 function otroMetodo (arr) {
@@ -166,9 +183,14 @@ function otroMetodo (arr) {
 
 const mostrarHtml = document.querySelector('.cards-container');
 mostrarHtml.innerHTML += pantalla;
+
+//CONSULTAR DE COMO PODEMOS HACER QUE DENTRO DE ESTE METODO PODAMOS ESCUCHAR EVENTOS PARA PODER USARLOS DIRECTAMENTE EN LA INTERACCION CON EL MISMO 
 }};
 
 otroMetodo(listaProductos);
+
+
+
 
 
 
