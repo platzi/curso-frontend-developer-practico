@@ -17,6 +17,7 @@ menu.addEventListener('click', toogleMobileMenu);
 function toogleMobileMenu(){
     mobileMenu.classList.toggle('inactive');
     productShoping.classList.add('inactive');
+    productDropdown.classList.add('inactive');
 }
 
 menuEmail.addEventListener('click', toggleDesktopMenu);
@@ -24,6 +25,7 @@ menuEmail.addEventListener('click', toggleDesktopMenu);
 function toggleDesktopMenu(){
     desktopMenu.classList.toggle('inactive');
     productShoping.classList.add('inactive');
+    productDropdown.classList.add('inactive');
 
 }
 
@@ -32,6 +34,7 @@ shopingCar.addEventListener('click', toggleShopingCar);
 function toggleShopingCar(){
     productShoping.classList.toggle('inactive');
     mobileMenu.classList.add('inactive');
+    productDropdown.classList.add('inactive');
 }
 
 
@@ -99,6 +102,9 @@ openProductInfoCard.addEventListener('click', openProductDropdown);
 function openProductDropdown(){
     console.log('paso');
     productDropdown.classList.remove('inactive');
+    productShoping.classList.add('inactive');
+    mobileMenu.classList.add('inactive');
+    desktopMenu.classList.add('inactive');
 }
 closeDropdown.addEventListener('click', DropdownWindowClose);
 function DropdownWindowClose(){
