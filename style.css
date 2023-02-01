@@ -286,7 +286,7 @@
     width: 400px;
     border: 20px solid var(--white);
     background-color: var(--white);
-    
+  
     padding-bottom: 24px;
     position: absolute;
     right: 50%;
@@ -334,7 +334,7 @@
     margin-bottom: 36px;
   }
   .primary-button-dropdown {
-    background-color: var(--hospital-green);
+    background-color: var(--red-fav);
     border-radius: 8px;
     border: none;
     color: var(--white);

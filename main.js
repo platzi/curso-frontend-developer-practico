@@ -63,6 +63,7 @@ for(product of productList){
     productCard.classList.add('product-card');
     
     const ProductImg = document.createElement('img');
+    
     ProductImg.setAttribute('src', product.image);
 
     const productInfo = document.createElement('div');
@@ -90,10 +91,17 @@ for(product of productList){
 }   
 
 
-const productInfoCard = document.querySelector('.product-card');
+const openProductInfoCard = document.querySelector('.product-card');
 const productDropdown = document.querySelector('.product-dropdown');
-productInfoCard.addEventListener('click', toggleProductDropdown);
-function toggleProductDropdown(){
-    productDropdown.classList.toggle('inactive');
+const closeDropdown = document.querySelector('.product-dropdown-close');
 
+openProductInfoCard.addEventListener('click', openProductDropdown);
+function openProductDropdown(){
+    console.log('paso');
+    productDropdown.classList.remove('inactive');
+}
+closeDropdown.addEventListener('click', DropdownWindowClose);
+function DropdownWindowClose(){
+    console.log('');
+    productDropdown.classList.add('inactive'); 
 }
