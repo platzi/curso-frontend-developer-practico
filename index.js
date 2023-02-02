@@ -15,7 +15,7 @@ menuHamburger.addEventListener("click", toggleMobileMenu)
 
 // Menu minicart
 const miniartIcon = document.querySelector(".navbar-shopping-cart")
-const asideMinicart = document.querySelector(".product-detail")
+const asideMinicart = document.querySelector("#shoppingCartContainer")
 
 miniartIcon.addEventListener("click", toggleMenuMinicart)
 
