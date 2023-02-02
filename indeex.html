@@ -24,16 +24,19 @@
                     <a href="/">All</a>
                 </li>
                 <li>
-                    <a href="/">Clothes</a>
+                    <a href="/">Decor</a>
                 </li>
                 <li>
-                    <a href="/">Electronics</a>
+                    <a href="/">Armchairs</a>
                 </li>
                 <li>
-                    <a href="/">Furnitures</a>
+                    <a href="/">Lamps</a>
                 </li>
                 <li>
-                    <a href="/">Toys</a>
+                    <a href="/">Mirrors</a>
+                </li>
+                <li>
+                    <a href="/">Tables</a>
                 </li>
                 <li>
                     <a href="/">Others</a>
@@ -44,9 +47,9 @@
         <div class="navbar-right">
             <ul>
                 <li class="navbar-email">platzi@example.com</li>
-                <li class="navbar-shopping-cart">
+                <li class="navbar-shopping-cart" id="cart"> <!-- id para hacer dinamico el carrito en la barra de nav-->
                     <img src="./icons/icon_shopping_cart.svg" alt="shopping cart">
-                    <div>2</div>
+                    <div id="count">0</div> <!-- id para hacer dinamico el carrito-->
                 </li>
             </ul>
         </div>
@@ -54,15 +57,15 @@
         <div class="desktop-menu inactive">
             <ul>
                 <li>
-                    <a href="/" class="title">My orders</a>
+                    <a href="/" class="title">My Orders</a>
                 </li>
 
                 <li>
-                    <a href="/">My account</a>
+                    <a href="/">My Account</a>
                 </li>
 
                 <li>
-                    <a href="/">Sign out</a>
+                    <a href="/">Sign Out</a>
                 </li>
             </ul>
         </div>
@@ -75,16 +78,19 @@
                     <a href="/">All</a>
                 </li>
                 <li>
-                    <a href="/">Clothes</a>
+                    <a href="/">Decor</a>
                 </li>
                 <li>
-                    <a href="/">Electronics</a>
+                    <a href="/">Armchairs</a>
                 </li>
                 <li>
-                    <a href="/">Furnitures</a>
+                    <a href="/">Lamps</a>
                 </li>
                 <li>
-                    <a href="/">Toys</a>
+                    <a href="/">Mirrors</a>
+                </li>
+                <li>
+                    <a href="/">Tables</a>
                 </li>
                 <li>
                     <a href="/">Other</a>
@@ -93,10 +99,10 @@
 
             <ul>
                 <li>
-                    <a href="/">My orders</a>
+                    <a href="/">My Orders</a>
                 </li>
                 <li>
-                    <a href="/">My account</a>
+                    <a href="/">My Account</a>
                 </li>
             </ul>
 
@@ -105,7 +111,7 @@
                     <a href="/" class="email">platzi@example.com</a>
                 </li>
                 <li>
-                    <a href="/" class="sign-out">Sign out</a>
+                    <a href="/" class="sign-out">Sign Out</a>
                 </li>
             </ul>
         </div>
@@ -113,51 +119,12 @@
     <aside class="product-detail inactive">
         <div class="title-container">
             <img src="./icons/flechita.svg" alt="arrow">
-            <p class="title">My order</p>
+            <p class="title">My Order</p>
         </div>
 
         <div class="my-order-content">
-            <div class="shopping-cart">
-                <figure>
-                    <img src="https://images.pexels.com/photos/276517/pexels-photo-276517.jpeg?auto=compress&cs=tinysrgb&dpr=2&h=650&w=940"
-                        alt="bike">
-                </figure>
-                <p>Bike</p>
-                <p>$30,00</p>
-                <img src="./icons/icon_close.png" alt="close">
-            </div>
 
-            <div class="shopping-cart">
-                <figure>
-                    <img src="https://images.pexels.com/photos/276517/pexels-photo-276517.jpeg?auto=compress&cs=tinysrgb&dpr=2&h=650&w=940"
-                        alt="bike">
-                </figure>
-                <p>Bike</p>
-                <p>$30,00</p>
-                <img src="./icons/icon_close.png" alt="close">
-            </div>
 
-            <div class="shopping-cart">
-                <figure>
-                    <img src="https://images.pexels.com/photos/276517/pexels-photo-276517.jpeg?auto=compress&cs=tinysrgb&dpr=2&h=650&w=940"
-                        alt="bike">
-                </figure>
-                <p>Bike</p>
-                <p>$30,00</p>
-                <img src="./icons/icon_close.png" alt="close">
-            </div>
-
-            <div class="order">
-                <p>
-                    <span>Total</span>
-                </p>
-                <p>$560.00</p>
-            </div>
-
-            <button class="primary-button">
-                Checkout
-            </button>
-        </div>
         </div>
     </aside>
     <aside id="productDetail" class="product-details inactive">
