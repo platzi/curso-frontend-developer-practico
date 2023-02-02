@@ -1,22 +1,33 @@
+
+const screen_blackground_productDetails=document.querySelector('.background-show-product')
+
 const menuEmail=document.querySelector('.navbar-email')
 const desktopMenu = document.querySelector('.desktop-menu');
 const menuHamburger = document.querySelector('.menu');
 const movilMenu=document.querySelector('.mobile-menu')
 const movilCarritoIcon=document.querySelector('.navbar-shopping-cart')
-const asideProductsCarrito=document.querySelector('.product-detail')
+const asideProductsCarrito=document.querySelector('#shooping_cart_container')
 const container_cards=document.querySelector('.cards-container')
+const product_details_info=document.querySelector('#productDetail')
+const buttonClosed_product_details=document.querySelector('.product-detail-close')
 
 menuHamburger.addEventListener('click',toggleMobileMenu)
 menuEmail.addEventListener('click',toggleshowdesktop)
 movilCarritoIcon.addEventListener('click',toggleCarritoAside)
+buttonClosed_product_details.addEventListener('click',closed_product_detail)
 //se hace click en EMAIL, se ejecuta la función y esta ejecuta 
 //la funcion .classList.toggle, que quita o agrega la class .INACTIVE
+
+const image_product_detail=document.querySelector('#img_product_detail')
+const price_product_detail=document.querySelector('#price_product_detail')
+const name_product_detail=document.querySelector('#name_product_detail')
 
 function toggleshowdesktop(){
     desktopMenu.classList.toggle('inactive')//TOGGLE es metodo de CLASSLIST
 //si la clase .INACTIVE no existe la AÑADE (TRUE), si existe la ELIMINA (FALSE) en .DESKTOP-MENU
 //POR DEFECTO LA CLASE .INACTIVE ESTÁ PUESTA EN .DESKTOP-MENU
     asideProductsCarrito.classList.add('inactive')
+    product_details_info.classList.add('inactive')
 
 }
 function toggleMobileMenu(){
@@ -27,6 +38,7 @@ function toggleMobileMenu(){
         asideProductsCarrito.classList.add('inactive')//se agrega y se OCULTA(display: none)
     }
     movilMenu.classList.toggle('inactive')
+    closed_product_detail()
 
 /* OTRA FORMA
 function toggleMobileMenu() {
@@ -35,6 +47,7 @@ function toggleMobileMenu() {
 }
 */    
 }
+//INTERCAMBIO ENTRE MENU HAMBURGER Y CARRITO_CART
 function toggleCarritoAside(){//POR DEFECTO TRU CONTAINS
     const isMovilMenuClosed= movilMenu.classList.contains('inactive')//TRUE, ESTA OCULTO(display none)
 
@@ -47,50 +60,68 @@ function toggleCarritoAside(){//POR DEFECTO TRU CONTAINS
     asideProductsCarrito.classList.toggle('inactive')//SI EXISTE se elimina, NO EXISTE se agrega
 
     desktopMenu.classList.add('inactive')
+    closed_product_detail()
 /* OTRA FORMA
 function toggleCarritoAside() {
   movilMenu.classList.add("inactive");
   asideProductsCarrito.classList.toggle("inactive");
 }
 */
+}
+function show_product_detail(event) {
+    console.log(event.target)
+    product_details_info.classList.remove('inactive')
+    screen_blackground_productDetails.classList.remove('inactive')
+    asideProductsCarrito.classList.add('inactive')
+    desktopMenu.classList.add('inactive')
+    image_product_detail.setAttribute('src',event.target.src)//obtiene src de cada item de array
+    price_product_detail.innerText=event.target.nextSibling.innerText
+    //(setAttribute():Establece un nuevo valor para un atributo, si no existe SE CREA.
+    //event.target: Obtiene el elemento que origino el evento (IMG), y cambiar valor  
+    //nextElementSibling: devuelve en el siguiente ELEMENTO HTML, EL TEXTO
+}
+function closed_product_detail() {
+    product_details_info.classList.add('inactive')
+    screen_blackground_productDetails.classList.add('inactive')
 
 }
 
+function counter_products_cart() {
+}
 
-//SE AGREGARÁ MANUALMENTE
 const productList=[]
 productList.push({
-    name:'Bike',
-    price:120,
-    image:'https://images.pexels.com/photos/276517/pexels-photo-276517.jpeg?auto=compress&cs=tinysrgb&dpr=2&h=650&w=940'
+    name:'Smart Watch',
+    price:100,
+    image:'./images/image1.jpg'
 })
 productList.push({
-    name:'Bike',
-    price:120,
-    image:'https://images.pexels.com/photos/276517/pexels-photo-276517.jpeg?auto=compress&cs=tinysrgb&dpr=2&h=650&w=940'
+    name:'Mobile',
+    price:320,
+    image:'./images/image2.jpg'
 
 })
 productList.push({
-    name:'Bike',
-    price:120,
-    image:'https://images.pexels.com/photos/276517/pexels-photo-276517.jpeg?auto=compress&cs=tinysrgb&dpr=2&h=650&w=940'
+    name:'TV',
+    price:400,
+    image:'./images/image3.jpg'
 
 })
 productList.push({
-    name:'Bike',
-    price:120,
-    image:'https://images.pexels.com/photos/276517/pexels-photo-276517.jpeg?auto=compress&cs=tinysrgb&dpr=2&h=650&w=940'
+    name:'Laptop',
+    price:500,
+    image:'./images/image4.jpg'
 })
 productList.push({
-    name:'Bike',
-    price:120,
-    image:'https://images.pexels.com/photos/276517/pexels-photo-276517.jpeg?auto=compress&cs=tinysrgb&dpr=2&h=650&w=940'
+    name:'Car',
+    price:900,
+    image:'./images/image5.jpg'
 
 })
 productList.push({
-    name:'Bike',
-    price:120,
-    image:'https://images.pexels.com/photos/276517/pexels-photo-276517.jpeg?auto=compress&cs=tinysrgb&dpr=2&h=650&w=940'
+    name:'Motorcycle',
+    price:850,
+    image:'./images/image6.jpg'
 
 })
 
@@ -98,7 +129,7 @@ productList.push({
 //for in: imprime su numero de posicion
 //PARA ORGANIZACION(ORDEN) SE CREARA UNA FUNCION, QUE PERMITIRA ENVIAR UN ARRAY CUALQUIERA
 function renderProducts(arr) {
-    for (const product of productList) {
+    for (const product of arr) {
         const card_product=document.createElement('div')
         card_product.className='product-card'
     
@@ -107,6 +138,8 @@ function renderProducts(arr) {
         //haciendo que cada PRODUCT tenga su imagen establecida en el ARRAY DE OBJETOS
         const image_product=document.createElement('img')
         image_product.setAttribute('src',product.image)
+        image_product.addEventListener('click',show_product_detail)
+        image_product.style.cursor='pointer'
     
         const product_info=document.createElement('div')
         product_info.className='product-info'
@@ -121,6 +154,7 @@ function renderProducts(arr) {
         
         const product_icon_cart=document.createElement('img')
         product_icon_cart.setAttribute('src','./icons/bt_add_to_cart.svg')
+        product_icon_cart.style.cursor='pointer'
     
         const product_figure_icon=document.createElement('figure')
     
@@ -134,3 +168,6 @@ function renderProducts(arr) {
 }
 
 renderProducts(productList)
+
+
+

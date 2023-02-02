@@ -12,6 +12,13 @@ body {
   margin: 0;
   font-family: "Quicksand", sans-serif;
 }
+.background-show-product{
+  width: 100%;
+  height: calc(100%);
+  position: fixed;
+  top: 60px;
+  background-color: rgba(0, 0, 0, 0.5);
+}
 
 /**################### NAVBAR DESKTOP MENU ##########################*/
 
@@ -63,7 +70,9 @@ nav {
 }
 .navbar-shopping-cart {
   position: relative;
+  cursor: pointer;
 }
+
 .navbar-shopping-cart div {
   width: 16px;
   height: 16px;
@@ -127,9 +136,14 @@ nav {
 /**################### NAVBAR MOBILE SHOW MENU ##########################*/
 
 .mobile-menu {
-  padding: 24px;
+  /*padding: 0 24px; Agrega 48px a los lados. ES DECIR WIDTH:100% +48px, GENERA SCROLL*/
+  padding-left: 24px;/*padding derecho INNECESARIO*/
   position: absolute;
   top: 60px;
+  background-color: white;
+  left: 0;
+  height: calc(100% - 61px);;
+  width: calc(100% - 24px);/*ambos lados seria -48px*/
 }
 .mobile-menu a {
   text-decoration: none;
@@ -157,14 +171,16 @@ nav {
   color: var(--hospital-green) !important;
 }
 
-/*##################  ASIDE - PRODUCT DETAIL ###########################*/
-.product-detail {
+/*##################  ASIDE - SHOPPINH CART ORDER ###########################*/
+
+#shooping_cart_container{
+  padding: 0 24px;
   width: 360px;
-  padding: 24px;
   background-color: white;
   box-sizing: border-box;
   position: absolute;
   right: 0;
+
 }
 .title-container {
   display: flex;
@@ -234,6 +250,81 @@ nav {
   height: 50px;
 }
 
+/*############################# PRODUCT DETAILS #################################*/
+.product-detail-close {
+  background: var(--white);
+  width: 14px;
+  height: 14px;
+  position: absolute;
+  top: 24px;
+  left: 24px;
+  z-index: 2;
+  padding: 12px;
+  border-radius: 50%;
+}
+.product-detail-close:hover {
+  cursor: pointer;
+}
+#productDetail{
+    width: 360px;
+    box-sizing: border-box;
+    background-color: white;
+    position: absolute;/**en relacion a su contenedor  */
+    right: 0;
+    top: 50%;
+    left: 50%;
+    /*top y left,con respecto al container(BODY)
+    CENTRARON solo la esquina superior del ASIDE
+    transform: mueve 50% con respecto al propio ASIDE a la esquierda y hacia arriba*/
+    transform: translate(-50%,-50%);
+    border-radius: 15px;
+}
+
+#productDetail > img:nth-child(2) {
+  width: 100%;
+  height: 360px;
+  object-fit: cover;/*la imagen mantendra su aspecto con relacion al tamaño establecido*/
+  border-radius: 15px;
+}
+.product-info {
+  margin: 24px 24px 0 24px;
+}
+#productDetail .product-info p:nth-child(1) {
+  font-weight: bold;
+  font-size: var(--md);
+  margin-top: 0;
+  margin-bottom: 4px;
+}
+#productDetail .product-info p:nth-child(2) {
+  color: var(--very-light-pink);
+  font-size: var(--md);
+  margin-top: 0;
+  margin-bottom: 36px;
+}
+#productDetail .product-info p:nth-child(3) {
+  color: var(--very-light-pink);
+  font-size: var(--sm);
+  margin-top: 0;
+  margin-bottom: 36px;
+}
+.primary-button {
+  background-color: var(--hospital-green);
+  border-radius: 8px;
+  border: none;
+  color: var(--white);
+  width: 100%;
+  cursor: pointer;
+  font-size: var(--md);
+  font-weight: bold;
+  height: 50px;
+  margin-bottom: 15px;
+}
+.add-to-cart-button {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+}
+
 /*######################## LISTA DE PRODUCTOS #################*/
 .cards-container {
   display: grid;
@@ -251,26 +342,26 @@ nav {
   border-radius: 20px;
   object-fit: cover;
 }
-.product-info {
+.product-card .product-info {
   display: flex;
   justify-content: space-between;
   align-items: center;
   margin-top: 12px;
 }
-.product-info figure {
+.product-card .product-info figure {
   margin: 0;
 }
-.product-info figure img {
+.product-card .product-info figure img {
   width: 35px;
   height: 35px;
 }
-.product-info div p:nth-child(1) {
+.product-card .product-info div p:nth-child(1) {
   font-weight: bold;
   font-size: var(--md);
   margin-top: 0;
   margin-bottom: 4px;
 }
-.product-info div p:nth-child(2) {
+.product-card .product-info div p:nth-child(2) {
   font-size: var(--sm);
   margin-top: 0;
   margin-bottom: 0;
@@ -294,7 +385,7 @@ nav {
     display: none;
   }
 
-  .product-detail {
+  aside {
     width: 100%;
   }
 
