@@ -358,7 +358,7 @@ aside {
     display: none;
   }
 
-  .product-detail {
+  #productDetail {
     width: 100%;
   }
 

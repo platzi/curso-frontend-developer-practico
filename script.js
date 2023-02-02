@@ -4,11 +4,15 @@ const burgerpMenuIcon = document.querySelector(".menu");
 const mobileMenu = document.querySelector(".mobile-menu");
 const cartShoppingMenu = document.querySelector(".navbar-shopping-cart");
 const shoppingCartContainer = document.querySelector("#shoppingCartContainer");
+const productDetailClosedIcon = document.querySelector(".product-detail-close");
+const productDetailContainer = document.querySelector("#productDetail");
+
 const cardsContainer = document.querySelector(".cards-container");
 
 menuEmail.addEventListener("click", toggleDesktopMenu);
 burgerpMenuIcon.addEventListener("click", toggleMobileMenu);
 cartShoppingMenu.addEventListener("click", toggleCartShoppingMenu);
+productDetailClosedIcon.addEventListener("click", closeProductDetailAside);
 
 function toggleDesktopMenu() {
   const isAsideClosed = shoppingCartContainer.classList.contains("inactive");
@@ -25,23 +29,38 @@ function toggleMobileMenu() {
     // para abrir el menu mobil tenemos que ocultar el aside si estaba abierto y darle click al menu mobile para abrirlo.
     shoppingCartContainer.classList.add("inactive");
   }
+  closeProductDetailAside(); // -> Al abrir el burguer menu se cierra el product detail.
   mobileMenu.classList.toggle("inactive");
 }
 
 function toggleCartShoppingMenu() {
   const isMobileMenuClosed = mobileMenu.classList.contains("inactive");
+  const isProductDetailClosed =
+    productDetailContainer.classList.contains("inactive");
   const isdesktopMenuClosed = desktopMenu.classList.contains("inactive");
 
   if (!isMobileMenuClosed) {
     // para abrir el carrito de compras(aside) tenemos que ocultar el menu mobil si estaba abierto y darle click al carrito de compras.
     mobileMenu.classList.add("inactive");
+  } else if (!isProductDetailClosed) {
+    productDetailContainer.classList.add("inactive");
   } else if (!isdesktopMenuClosed) {
     desktopMenu.classList.add("inactive");
   }
   shoppingCartContainer.classList.toggle("inactive");
 }
 
-// Products List
+// Función para remover el inactive del Product Detail
+function openProductDetailAside() {
+  shoppingCartContainer.classList.add("inactive"); // -> Al abrir el carrito, luego abrir el container detail y volver a clickear en el carrito este se abre porque el metodo le esta indicando que al abrir el detail se cierre el carrito con inactive.
+  productDetailContainer.classList.remove("inactive");
+}
+
+function closeProductDetailAside() {
+  productDetailContainer.classList.add("inactive");
+}
+
+// Dinamic Products List
 
 let productsList = [];
 productsList.push({
@@ -90,6 +109,7 @@ function renderProducts(arr) {
     // product = {name, price, image} -> product.image
     const productImg = document.createElement("img");
     productImg.setAttribute("src", product.image);
+    productImg.addEventListener("click", openProductDetailAside); // -> Escuchar el evento del click y llamar la funcion que quita el inactive del Product Detail.
 
     const productInfo = document.createElement("div");
     productInfo.classList.add("product-info");
