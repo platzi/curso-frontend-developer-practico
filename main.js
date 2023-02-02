@@ -3,7 +3,7 @@ const desktopMenu = document.querySelector('.desktop-menu');
 const burguerMenu = document.querySelector('.menu');
 const menuCarritoIcon = document.querySelector('.navbar-shopping-cart');
 const mobileMenu = document.querySelector('.mobile-menu');
-const aside = document.querySelector('.product-detail');
+const shoppingCartContainer = document.querySelector('#shoppingCartContainer');
 const cardsContainer = document.querySelector('.cards-container');
 
 
@@ -14,19 +14,19 @@ menuCarritoIcon.addEventListener('click', toggleCarritoAside);
 
 
 function toggleDesktopMenu () {
-  const isAsideClose = aside.classList.contains('inactive');
+  const isAsideClose = shoppingCartContainer.classList.contains('inactive');
 
   if (!isAsideClose) {
-    aside.classList.add('inactive');
+    shoppingCartContainer.classList.add('inactive');
   }
   desktopMenu.classList.toggle('inactive')
 };
 
 function toggleMobileMenu () {
-  const isAsideClose = aside.classList.contains('inactive');
+  const isAsideClose = shoppingCartContainer.classList.contains('inactive');
 
   if (!isAsideClose) {
-    aside.classList.add('inactive');
+    shoppingCartContainer.classList.add('inactive');
   }
 
   mobileMenu.classList.toggle('inactive')
@@ -39,7 +39,7 @@ function toggleCarritoAside () {
       mobileMenu.classList.add('inactive');
     }
 
-    aside.classList.toggle('inactive')
+    shoppingCartContainer.classList.toggle('inactive')
   };  
 
 
