@@ -85,6 +85,7 @@ function showProductList(productLists){
         const imgProdut=document.createElement('img');
         imgProdut.classList.add('product-card-image');
         imgProdut.src=image;
+        imgProdut.addEventListener('click',showDetailProduct);
 
         const productInfoContainer=document.createElement('div');
         productInfoContainer.classList.add('product-info');
@@ -117,6 +118,10 @@ function showProductList(productLists){
         mainContainerCards.appendChild(productContainer);
     });
 
+}
+
+function showDetailProduct(){
+    console.log("Estoy haciendo click para poder ver los detalles de los productos");
 }
 
 showProductList(productList);

@@ -251,6 +251,7 @@
     width: 240px;
     height: 240px;
     border-radius: 20px;
+    cursor: pointer;
     object-fit: cover;
   }
   .product-info {
