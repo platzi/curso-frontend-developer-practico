@@ -72,14 +72,14 @@ productList.push({
 
 productList.push({
     name: 'Computer',
-    price: 120,
-    image: 'https://images.pexels.com/photos/276517/pexels-photo-276517.jpeg?auto=compress&cs=tinysrgb&dpr=2&h=650&w=940'
+    price: 1400,
+    image: 'http://www.unbosque.edu.co/sites/default/files/2020-07/computadores_0.jpg'
 })
 
 productList.push({
     name: 'Phone',
-    price: 120,
-    image: 'https://images.pexels.com/photos/276517/pexels-photo-276517.jpeg?auto=compress&cs=tinysrgb&dpr=2&h=650&w=940'
+    price: 130,
+    image: 'https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcRD4QVdAPWBTMCZsoiYcw_-dMzgdmJ0am4kHw&usqp=CAU'
 })
 
 function rederProducts(productList){
