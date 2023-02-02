@@ -387,6 +387,9 @@ nav {
     width: 140px;
     height: 140px;
   }
+  #productDetail {
+    width: 90%;
+  }
 }
 
 @media (min-width: 641px) {
