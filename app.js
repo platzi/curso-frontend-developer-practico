@@ -14,11 +14,20 @@
 
 menu.addEventListener('click', togglemobiledesktop);
 function togglemobiledesktop(){
+   const isAsideClosed = productDetail.classList.contains('inactive');
+
+  if (!isAsideClosed) {
+    productDetail.classList.add('inactive');
+  }
     mobilemenu.classList.toggle('inactive')
  }
 
  menuCarritoIcon.addEventListener('click', tagglecarritomenu);
-
  function tagglecarritomenu(){
+   const isMenuclosed = mobilemenu.classList.contains('inactive');
+
+   if(!isMenuclosed){
+      mobilemenu.classList.add('inactive')
+   }
     productDetail.classList.toggle('inactive')
  }
