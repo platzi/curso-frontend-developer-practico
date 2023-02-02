@@ -1,15 +1,18 @@
 const navEmail = document.querySelector('.navbar-email');
 const deskMenu = document.querySelector('.desktop-menu');
 const iconHambur = document.querySelector('.menu');
+const productDateilIconClosed = document.querySelector('.product-detail-close');
 const mobileMenu = document.querySelector('.mobile-menu');
 const CarritoMenu = document.querySelector('.navbar-shopping-cart');
-const aside = document.querySelector('.product-detail');
+const shoppingCartContainer = document.querySelector('#shoppingCartContainer');
 const cardsContainer = document.querySelector('.cards-container');
-
+const productDetailContainer = document.getElementById('productDetail')
 
 navEmail.addEventListener('click', toggleDestopMenu); //para mostrar el munisito XD
 iconHambur.addEventListener('click', toggleMobileMenu);
-CarritoMenu.addEventListener('click', toggleCarritoAside)
+CarritoMenu.addEventListener('click', toggleCarritoAside);
+productDateilIconClosed.addEventListener('click',closeProductDetailAside);
+
 
 
 //1eraFunction
@@ -18,12 +21,18 @@ function toggleDestopMenu(){
   
   deskMenu.classList.toggle('inactive');
   //En esta funcion si el aside esta abierto, mientras se ejecuta esya fucntion, hay que cerrarlo(el mobile me menu)
-  const isAsideClosed = aside.classList.contains('inactive');
+  const isAsideClosed = shoppingCartContainer.classList.contains('inactive');
   mobileMenu.classList.toggle('inactive');
 
  if(!isAsideClosed){
-    aside.classList.add('inactive');  
+    shoppingCartContainer.classList.add('inactive');  
   }
+  const isProductDetailClosed = productDetailContainer.classList.contains('inactive')
+
+  if(!isProductDetailClosed){
+    productDetailContainer.classList.add('inactive');
+  }
+
 
 
 }
@@ -31,11 +40,16 @@ function toggleDestopMenu(){
 //2daFunction
 function toggleMobileMenu(){
   //En esta funcion si el aside esta abierto, mientras se ejecuta esya fucntion, hay que cerrarlo(el mobile me menu)
-  const isAsideClosed = aside.classList.contains('inactive');
+  const isAsideClosed = shoppingCartContainer.classList.contains('inactive');
   mobileMenu.classList.toggle('inactive');
 
  if(!isAsideClosed){
-    aside.classList.add('inactive');  
+    shoppingCartContainer.classList.add('inactive');  
+  }
+  const isProductDetailClosed = productDetailContainer.classList.contains('inactive')
+
+  if(!isProductDetailClosed){
+    productDetailContainer.classList.add('inactive');
   }
 
 
@@ -46,41 +60,67 @@ function toggleMobileMenu(){
 function toggleCarritoAside(){
    //En esta funcion si el mobileMenu esta abierto, mientras se ejecuta esya fucntion, hay que cerrarlo(el mobileMenu menu)
   const isMobileClosed = mobileMenu.classList.contains('inactive');
-   aside.classList.toggle('inactive');
+   shoppingCartContainer.classList.toggle('inactive');
 
     if(!isMobileClosed){
     mobileMenu.classList.add('inactive');  
     //Ademas si esta abierto el menu deskMenu se cerrara al iniciarce etsa function
-    const desktopMenuClosed = deskMenu.classList.contains('inactive');
-
-    if(!desktopMenuClosed){
-      deskMenu.classList.add('inactive');
-    }
-    
+   
+   const desktopMenuClosed = deskMenu.classList.contains('inactive');
+   
+  if(!desktopMenuClosed){
+    deskMenu.classList.add('inactive');
   }
+  
+  }
+
+
+  //creamos la const para agg el metodo de cierre cuando se abra el carrito y este se cierre
+  const isProductDetailClosed = productDetailContainer.classList.contains('inactive')
+
+  if(!isProductDetailClosed){
+    productDetailContainer.classList.add('inactive');
+  }
+
+
+
+
+}
+
+
+function openProducOneAside(){
+  shoppingCartContainer.classList.add('inactive');
+
+  productDetailContainer.classList.remove('inactive')
+}
+
+function closeProductDetailAside(){
+  productDetailContainer.classList.add('inactive')
 }
 
 const productList = [];
 productList.push({
-  name:'Cerveza',
-  price: 120,
+  name:'Producto X',
+  price: 35,
   img: './icons/PtoFlash-1eraImg.png'
 });
 productList.push({
-  name:'Coffee',
-  price: 120,
+  name:'Producto X',
+  price: 35,
   img: './icons/PtoFlash-1eraImg.png'
 });
 productList.push({
-  name:'Cocteles',
-  price: 120,
+  name:'Producto X',
+  price: 35,
   img: './icons/PtoFlash-1eraImg.png'
 });
 productList.push({
-  name:'Comida',
-  price: 120,
+  name:'Producto X',
+  price: 35,
   img: './icons/PtoFlash-1eraImg.png'
 })
+
+
 
 function renderFunction (abc){
   
@@ -88,12 +128,16 @@ for(product of productList){
 
   const productCard = document.createElement('div');
   productCard.classList.add('product-card');
+  
 
   const productImg = document.createElement('img');
-  //product = {name, price y image}
   productImg.setAttribute('src',product.img);
+  productImg.addEventListener('click',openProducOneAside)
+
   const productInfo = document.createElement('div');
   productInfo.classList.add('product-info');
+
+
 
 
 
