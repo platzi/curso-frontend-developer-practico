@@ -91,6 +91,12 @@ function cambiarImgPorProducto(productIndex){
     const productDescription = document.createElement('p');
     productDescription.innerText = selectedProduct.description;
 
+    const productBuy = document.createElement('p');
+    productBuy.innerText = selectedProduct.buyNow;
+
+    const productBuys = document.createElement('p');
+    productBuys.innerText = selectedProduct.buyNow2;
+
     const productImage = document.createElement('img');
     productImage.setAttribute('src', selectedProduct.image);
 
@@ -109,6 +115,8 @@ function cambiarImgPorProducto(productIndex){
     productInfo.appendChild(productPrice);
     productInfo.appendChild(productName);
     productInfo.appendChild(productDescription);
+    productInfo.appendChild(productBuy);
+    productInfo.appendChild(productBuys);
     cambioImgPorProducto.appendChild(productInfo);
     cambioImgPorProducto.appendChild(addToCardButton);
 
@@ -122,94 +130,147 @@ function cleanProductDetailAside() {
 
 const productList = [];
 productList.push({
-    name: 'Marco de madera MOD. Antell',
-    price: 490,
-    description: 'texto',
+    name: 'Marco MOD. Antell',
+    price: ' 490 MXN.',
+    description: 'El toque fresco perfecto para tu espacio. Marco de madera, con fondo metalico y herrajes dorados.',
+    buyNow: 'Elige planes de 6, 12 o 18 meses.',
+    buyNow2: ' Aplica en compras con Tickets mayores a $ 1,800 MXN.',
     image:"https://images.pexels.com/photos/4207785/pexels-photo-4207785.jpeg?auto=compress&cs=tinysrgb&w=1260&h=750&dpr=2",
 });
 productList.push({
     name: 'Sillon MOD. Tavari Color Gris',
-    price: 12100,
+    price: ' 5,100 MXN.',
+    description: '¡Honra el pasado con estilo! El respaldo capitoneado del sillón Veintisiete le da ese aire vintage que combinará perfectamente con tu casa o departamento. La mezcla de su tapizado y la madera de sus patas lo hacen tan cómodo y único que tus invitados quedarán enamorados.',
+    buyNow: 'Elige planes de 6, 12 o 18 meses.',
+    buyNow2: ' Aplica en compras con Tickets mayores a $ 1,800 MXN.',
     image:"https://images.pexels.com/photos/6707630/pexels-photo-6707630.jpeg?auto=compress&cs=tinysrgb&w=1260&h=750&dpr=2",
 });
 productList.push({
     name: 'Florero decorativo MOD. Mooon Stone ',
-    price: 634,
+    price: ' 344 MXN.',
+    description: 'La pieza que estabas buscando y no puede faltar en tu decoración. Perfecta para los que les gusta lo único, el florero doble es la pieza que estabas soñando.',
+    buyNow: 'Elige planes de 6, 12 o 18 meses.',
+    buyNow2: ' Aplica en compras con Tickets mayores a $ 1,800 MXN.',
     image:'https://images.pexels.com/photos/8251592/pexels-photo-8251592.jpeg?auto=compress&cs=tinysrgb&w=1260&h=750&dpr=2"',
 });
 productList.push({
-    name: 'Perchero MOD. Sierra',
-    price: 900,
+    name: 'Perchero MOD. Lena',
+    price: ' 900 MXN.',
+    description: '¡Un toque único de estilo! El perchero de pie Lena cuenta con ese look natural propio del estilo escandinavo. Sus líneas rectas lo vuelven una estructura muy firme y segura, sin dejar de ser muy estético para completar tu decoración.',
+    buyNow: 'Elige planes de 6, 12 o 18 meses.',
+    buyNow2: ' Aplica en compras con Tickets mayores a $ 1,800 MXN.',
     image:"https://images.pexels.com/photos/4210317/pexels-photo-4210317.jpeg?auto=compress&cs=tinysrgb&w=1260&h=750&dpr=2",
 });
 productList.push({
     name: 'Busto MOD. Asia paradisso',
-    price: 1400,
+    price: ' 1,400 MXN.',
+    description: 'Toda decoración necesita esa pieza interesante y que llame la atención. Lógralo con la figura tin. Luce como ninguna otra figura de decoración.',
+    buyNow: 'Elige planes de 6, 12 o 18 meses.',
+    buyNow2: ' Aplica en compras con Tickets mayores a $ 1,800 MXN.',
     image:"https://images.pexels.com/photos/4203101/pexels-photo-4203101.jpeg?auto=compress&cs=tinysrgb&w=1260&h=750&dpr=2",
 });
 productList.push({
-    name: 'Sillon MOD. Alessandrina Color Esmeralda ',
-    price: 16340,
+    name: 'Sillon MOD. Yura  Color Esmeralda ',
+    price: ' 6,999 MXN.',
+    description: 'Haz que tu espacio sea único y agrega color en cualquier habitación con el sillón Yura color verde, asiento tapizado en 100% poliéster tipo terciopelo y patas metálicas de color dorado. Inclúyelo en tu espacio y dará ese toque de elegancia y confort que estás buscando. Encuentra todo lo que necesitas en Tamarindo y sigue armando tu espacio como a ti te gusta.',
+    buyNow: 'Elige planes de 6, 12 o 18 meses.',
+    buyNow2: ' Aplica en compras con Tickets mayores a $ 1,800 MXN.',
     image:"https://images.pexels.com/photos/6373660/pexels-photo-6373660.jpeg?auto=compress&cs=tinysrgb&w=1260&h=750&dpr=2",
 });
 productList.push({
-    name: 'Candelero De Vidrio Blanco Con Marco De Latón MOD. Queensland',
-    price: 540,
+    name: 'Lampara De Vidrio Blanco Con Marco De Latón MOD. Queensland',
+    price: ' 540 MXN.',
+    description: '¡Una opción perfecta para iluminar tus espacios! La lámpara colgante dorada tiene una imagen increíble para darle más vida a tu decoración',
+    buyNow: 'Elige planes de 6, 12 o 18 meses.',
+    buyNow2: ' Aplica en compras con Tickets mayores a $ 1,800 MXN.',
     image:"https://images.pexels.com/photos/6186511/pexels-photo-6186511.jpeg?auto=compress&cs=tinysrgb&w=1600",
 });
 productList.push({
-    name: 'Sillon MOD. Klein',
-    price: 11400,
+    name: 'Sillon MOD. Rig',
+    price: ' 6,400 MXN.',
+    description: '¡Color y gran diseño vintage! El sillón Rig juega muy bien con sus elementos para crear una estructura del estilo vintage que alegrará tu decoración. Su capitoneado y patas de madera sólida combinan muy bien en un asiento muy cómodo.',
+    buyNow: 'Elige planes de 6, 12 o 18 meses.',
+    buyNow2: ' Aplica en compras con Tickets mayores a $ 1,800 MXN.',
     image:"https://images.pexels.com/photos/3965512/pexels-photo-3965512.jpeg?auto=compress&cs=tinysrgb&w=1600",
 });
 productList.push({
     name: 'Juego silla y mesa de madera strell MOD. Luxith ',
-    price: 10100,
+    price: ' 8,100 MXN.',
+    description: 'De solo verlo ya sabes que tiene estilo, personalidad, pero también luce divertido. No dudes en tenerlo en tu espacio.',
+    buyNow: 'Elige planes de 6, 12 o 18 meses.',
+    buyNow2: ' Aplica en compras con Tickets mayores a $ 1,800 MXN.',
     image:"https://images.pexels.com/photos/6368951/pexels-photo-6368951.jpeg",
 });
 productList.push({
-    name: 'Sillon Gris MOD. Especially ',
-    price: 21900,
+    name: 'Sillon Gris MOD. Lav ',
+    price: ' 9,000 MXN.',
+    description: 'Si buscas algo discreto, pero increíblemente cómodo ¡el sofá Lav es para ti! Decídete por su tapizado con apariencia de lino que da frescura, y su respaldo con cojines acolchonados que te abrazarán para quitar la tensión de un día pesado de trabajo. El estilo contemporáneo armoniza perfectamente con una sala sencilla. ¡Un sofá esencial para descansar!',
+    buyNow: 'Elige planes de 6, 12 o 18 meses.',
+    buyNow2: ' Aplica en compras con Tickets mayores a $ 1,800 MXN.',
     image:"https://images.pexels.com/photos/4846432/pexels-photo-4846432.jpeg?auto=compress&cs=tinysrgb&w=1260&h=750&dpr=2",
 });
 productList.push({
-    name: 'Mesa de centro MOD. Marmolee ',
-    price: 1600,
+    name: 'Mesa de centro MOD. Stan ',
+    price: ' 3,000 MXN.',
+    description: '¡Dale el toque hogareño a tu sala! La sencillez de la mesa de centro Stan demuestra que menos, es más. Su estilo escandinavo aprovecha su acabado con chapa de nogal para dar esa sensación de calor de hogar. Será un gran complemento.',
+    buyNow: 'Elige planes de 6, 12 o 18 meses.',
+    buyNow2: ' Aplica en compras con Tickets mayores a $ 1,800 MXN.',
     image:"https://images.pexels.com/photos/6621078/pexels-photo-6621078.jpeg?auto=compress&cs=tinysrgb&w=1260&h=750&dpr=2",
 });
 productList.push({
-    name: 'Sillon doble MOD. SkyLove ',
-    price: 20000,
+    name: 'Sillon doble MOD. Veintiséis',
+    price: ' 5,400 MXN.',
+    description: 'Un sillón cómodo, sencillo y versátil. ¡Increíble! El sillón Veintiséis tiene todas las características para aprovechar al máximo el espacio de tu sala, departamento u oficina, aportando estilo. El asiento tapizado con apariencia y tacto de lino y sus patas de acero inoxidable le dan, al mismo tiempo, frescura y durabilidad.',
+    buyNow: 'Elige planes de 6, 12 o 18 meses.',
+    buyNow2: ' Aplica en compras con Tickets mayores a $ 1,800 MXN.',
     image:"https://images.pexels.com/photos/7018400/pexels-photo-7018400.jpeg?auto=compress&cs=tinysrgb&w=1260&h=750&dpr=2",
 });
 productList.push({
-    name: 'Sillon individual MOD. SunKiss',
-    price: 11540,
+    name: 'Sillon individual MOD. Drul',
+    price: ' 7,500 MXN.',
+    description: 'El sillón Drul luce increíble, divertido, y muy cómodo. Agrégalo a tu espacio y siente como se transforma. Su mecanismo giratorio la vuelven muy especial. Para los que les gusta lo diferente.',
+    buyNow: 'Elige planes de 6, 12 o 18 meses.',
+    buyNow2: ' Aplica en compras con Tickets mayores a $ 1,800 MXN.',
     image:"https://images.pexels.com/photos/5490306/pexels-photo-5490306.jpeg?auto=compress&cs=tinysrgb&w=1260&h=750&dpr=2",
 });
 productList.push({
     name: 'Marco Fotografico MOD. Klints',
-    price: 900,
+    price: ' 500 MXN.',
+    description: 'El portarretrato ideal es el que le da más vida a tus fotos. Elije el modelo perfecto para ti de nuesta amplia colección de accesorios para enmarcar tus recuerdos.',
+    buyNow: 'Elige planes de 6, 12 o 18 meses.',
+    buyNow2: ' Aplica en compras con Tickets mayores a $ 1,800 MXN.',
     image:"https://images.pexels.com/photos/7318973/pexels-photo-7318973.jpeg?auto=compress&cs=tinysrgb&w=1260&h=750&dpr=2",
 });
 productList.push({
-    name: 'Biombo de madera Gris y Negro MOD. Lilith ',
-    price: 4000,
+    name: 'Biombo de madera Gris y Negro MOD. Esri ',
+    price: ' 2,000 MXN.',
+    description: 'Todo espacio luce más amplio con un buen biombo decorativo. Con el modelo Esri tendrás estilo y una pieza increíble que todos amarán.',
+    buyNow: 'Elige planes de 6, 12 o 18 meses.',
+    buyNow2: ' Aplica en compras con Tickets mayores a $ 1,800 MXN.',
     image:"https://images.pexels.com/photos/6186514/pexels-photo-6186514.jpeg?auto=compress&cs=tinysrgb&w=1260&h=750&dpr=2",
 });
 productList.push({
     name: 'Juego de Cuadro y banca MOD. Magic Woods ',
-    price: 3900,
+    price: ' 3,150 MXN.',
+    description: '¡Estilo y comodidad como nunca lo habías pensado! tiene un natural diseño contemporáneo con una estructura de madera, que además de resistente, es muy decorativa, hará que se convierta en tu lugar preferido.',
+    buyNow: 'Elige planes de 6, 12 o 18 meses.',
+    buyNow2: ' Aplica en compras con Tickets mayores a $ 1,800. MXN.',
     image:"https://images.pexels.com/photos/4993081/pexels-photo-4993081.jpeg",
 });
 productList.push({
-    name: 'Espejo Grande MOD. Sheeld ',
-    price: 4200,
+    name: 'Espejo Grande MOD. Lev ',
+    price: ' 1,100 MXN.',
+    description: '¡El complemento perfecto para reflejar tu estilo único! El espejo con marco LEV tiene un diseño escandinavo que explota en luz y energía. Su toque de nogal en color gris le da una imagen especial que querrás tener.',
+    buyNow: 'Elige planes de 6, 12 o 18 meses.',
+    buyNow2: ' Aplica en compras con Tickets mayores a $ 1,800 MXN.',
     image:"https://images.pexels.com/photos/8888147/pexels-photo-8888147.jpeg?auto=compress&cs=tinysrgb&w=1260&h=750&dpr=2",
 });
 productList.push({
     name: 'Lampara MOD. Quest ',
-    price: 2000,
+    price: ' 900 MXN.',
+    description: 'Una lámpara de mesa con una personalidad diferente para ti. Su diseño combina la madera con detalles de metal para darle una imagen natural, llena de vida y perfecta para tu espacio.',
+    buyNow: 'Elige planes de 6, 12 o 18 meses.',
+    buyNow2: ' Aplica en compras con Tickets mayores a $ 1,800 MXN.',
     image:"https://images.pexels.com/photos/12908581/pexels-photo-12908581.jpeg?auto=compress&cs=tinysrgb&w=1260&h=750&dpr=2",
 });
 
