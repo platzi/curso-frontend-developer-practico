@@ -28,6 +28,15 @@ nav {
   padding: 0 24px;
   border-bottom: 1px solid var(--very-light-pink);
   background: var(--white);
+  position: fixed;
+  top: 0;
+  width: 100%;
+  box-sizing: border-box;
+  z-index: 10;
+}
+
+.main-container {
+  transform: translate(0px, 60px);
 }
 
 .menu {
@@ -190,6 +199,9 @@ aside {
   background: var(--white);
   border-radius: 0 15px;
   box-shadow: -5px 5px 9px 1px rgb(0 0 0 / 30%);
+  position: fixed;
+  z-index: 10;
+  top: 61px;
 }
 
 /* Shopping Cart */
@@ -267,7 +279,7 @@ aside {
 #productDetail {
   width: 360px;
   padding-bottom: 24px;
-  position: absolute;
+  position: fixed;
   right: 0;
 }
 .product-detail-close {
