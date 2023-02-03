@@ -94,7 +94,7 @@ function showProductList(productLists){
         const priceProduct=document.createElement('p');
         priceProduct.classList.add('product-info-price');
         priceProduct.innerText="$"+price+",00";
-        const nameProduct=document.querySelector('p');
+        const nameProduct=document.createElement('p');
         nameProduct.classList.add('product-info-name');
         nameProduct.innerText=name;
         priceNameContainer.appendChild(priceProduct);

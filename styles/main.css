@@ -130,7 +130,10 @@
 
   .mobile-menu {
     position: absolute;
+    width: 100%;
+    height: 100vh;
     top: 62px;
+    left: 0;
     padding: 14px;
     background-color: var(--white);
   }
@@ -160,10 +163,10 @@
     color: var(--hospital-green) !important;
   }
 
-  /*Detail shopping cart*/
+  /* Aside Detail shopping cart*/
   .product-detail {
     width: 360px;
-    padding: 2px 24px;
+    padding: 12px 24px;
     box-sizing: border-box;
     position: absolute;
     right: 0;
@@ -175,8 +178,10 @@
   .title-container img {
     transform: rotate(180deg);
     margin-right: 14px;
+    margin-bottom: 12px;
   }
   .title {
+    margin-top: 9.2px;
     font-size: var(--lg);
     font-weight: bold;
   }
@@ -225,6 +230,7 @@
     font-size: var(--md);
     font-weight: bold;
   }
+
   .primary-button {
     background-color: var(--hospital-green);
     border-radius: 8px;
@@ -236,6 +242,7 @@
     font-weight: bold;
     height: 50px;
   }
+
   /* cards that contains details all of productos */
   .cards-container {
     display: grid;
