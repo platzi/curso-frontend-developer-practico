@@ -390,7 +390,8 @@ aside {
     width: 140px;
     height: 140px;
   }
-  aside {
+  aside,
+  #productDetail {
     width: 100%;
   }
 
