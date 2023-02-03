@@ -120,10 +120,10 @@
   }
 /*Menu en mobile*/
 .mobile-menu {
-  background-color: v(--white);
+  background-color:white;
   position: absolute;
   top: 60px;
-  left: o;
+  left:0;
   width: 100%;
   padding: 24px;
 }
