@@ -7,15 +7,15 @@ const mobileMenu = document.querySelector(".mobile-menu")
 const shoppingCartMenu = document.querySelector(".navbar-shopping-cart")
 const shoppingCartContainer = document.querySelector("#shoppingCartContainer")
 const productDetailContainer = document.querySelector("#productDetail")
-const cardsContainer = document.querySelector(".cards-container") 
 const productDetailCloseIcon = document.querySelector(".product-detail-big-close")
+const cardsContainer = document.querySelector(".cards-container") 
 
 menuEmail.addEventListener("click", toggleDesktopMenu)
 menuHamIcon.addEventListener("click", toggleMobileMenu)
 shoppingCartMenu.addEventListener("click", toggleShoppingCartAside)
 productDetailCloseIcon.addEventListener("click", closeProductDetailAside)
 
-// The next functions are created to show or hide certain cards of the code, and while doing, closing or opening other elements
+// The next functions are created to show or hide certain cards of the code, and while doing so, closing or opening other elements
 function toggleDesktopMenu() {
     // Creating constants in order to represent when the tags are closed
     const isAsideClosed = shoppingCartContainer.classList.contains("inactive")
@@ -27,6 +27,9 @@ function toggleDesktopMenu() {
     
     // ".toggle" allows me to remove or set the class "inactive"
     desktopMenu.classList.toggle("inactive")
+    
+    // Close the product detail container
+    productDetailContainer.classList.add("inactive")
 }
 
 function toggleMobileMenu() { 
@@ -64,6 +67,7 @@ function toggleShoppingCartAside() {
 
 function openProductDetailAside() {
     shoppingCartContainer.classList.add("inactive")
+    desktopMenu.classList.add("inactive")
 
     productDetailContainer.classList.remove("inactive")
 }
@@ -72,7 +76,7 @@ function closeProductDetailAside() {
     productDetailContainer.classList.add("inactive")
 }
 
-// Array created with the products to be shown, so that is not necessary to have them in HTML:
+// Array created with the products to be shown, so that is not necessary to have them in HTML. Ideally, this must be loaded from a database, but for this course it´s going to be done in this way:
 const productList = []
 productList.push({
     name: "Bike",
@@ -119,7 +123,7 @@ productList.push({
 
 // Function for creating a card
 function renderProducts(arr) {
-    // Iterating through the array to manipulate the DOM
+    // Iterating through each object of the array, in order to manipulate the DOM
     for (product of productList) {
         // console.log(product.name)
         const productCard = document.createElement("div");
