@@ -20,8 +20,14 @@ const asideMinicart = document.querySelector("#shoppingCartContainer")
 miniartIcon.addEventListener("click", toggleMenuMinicart)
 
 
+// Product detail selector
+const productDetailContainer = document.querySelector("#productDetail")
+const productDetailCloseIcon = document.querySelector(".product-detail-close")
 
-// Toggle active/inactive functions
+productDetailCloseIcon.addEventListener("click", closeProductDetailAside)
+
+
+// ------------------------------- Toggle active/inactive functions ---------------------------------
 
 function toggleDesktopMenu () {
     const isAsideMinicartClosed = asideMinicart.classList.contains("inactive")
@@ -35,21 +41,20 @@ function toggleDesktopMenu () {
 
 
 // Toggle menu mobile only when mobile and when burguer Menu is clicked
-
 function toggleMobileMenu() {
     const isAsideMinicartClosed = asideMinicart.classList.contains("inactive")
 
     if(!isAsideMinicartClosed){
         asideMinicart.classList.add("inactive")
     }
+
+    closeProductDetailAside()
     
     menuMobile.classList.toggle("inactive")
 }
 
 
 // Toggle minicart
-
-
 function toggleMenuMinicart() {
 
     const isMobileMenuClosed = menuMobile.classList.contains("inactive")
@@ -58,12 +63,32 @@ function toggleMenuMinicart() {
         menuMobile.classList.add("inactive")
     }
 
+    const isProductDetailClosed = productDetailContainer.classList.contains("inactive")
+
+    if(!isProductDetailClosed){
+        productDetailContainer.classList.add("inactive")
+    }
+
+    
     asideMinicart.classList.toggle("inactive")
 
 }
 
+// Open and close product details
+function openProductDetailAside (){
 
-// Product list section
+    asideMinicart.classList.add("inactive")
+
+    productDetailContainer.classList.remove("inactive")
+}
+
+function closeProductDetailAside (){
+    productDetailContainer.classList.add("inactive")
+}
+
+
+
+// ------------------------------------------ Product list section ------------------------------------------
 
 const productList = []
 
@@ -92,37 +117,41 @@ productList.push(
 
 const cardContainer = document.querySelector(".cards-container")
 
-for(let product of productList) {
-    productCard = document.createElement("div")
-    productCard.classList.add("product-card")
-
-    const img = document.createElement("img")
-    img.setAttribute("src", product.imageSrc)
-
-    const productInfo = document.createElement("div")
-    productInfo.classList.add("product-info")
-
-    const productInfoDiv = document.createElement("div");
-
-    const productPrice = document.createElement("p")
-    productPrice.innerText = `$${product.price}`
-
-
-    const productName = document.createElement("p")
-    productName.innerText = product.name
-
-
-    const productInfoFigure = document.createElement("figure")
-    const imgMinicart = document.createElement("img")
-    imgMinicart.setAttribute("src", "./icons/bt_add_to_cart.svg")
-
-    productCard.appendChild(img);
-    productCard.appendChild(productInfo);
-    productInfo.appendChild(productInfoDiv)
-    productInfoDiv.append(productPrice, productName)
-    productInfoFigure.appendChild(imgMinicart)
-    productInfo.appendChild(productInfoFigure)
-
-    cardContainer.append(productCard)
-
+function renderCards(){
+    for(let product of productList) {
+        productCard = document.createElement("div")
+        productCard.classList.add("product-card")
+    
+        const img = document.createElement("img")
+        img.setAttribute("src", product.imageSrc)
+        img.addEventListener("click", openProductDetailAside)
+    
+        const productInfo = document.createElement("div")
+        productInfo.classList.add("product-info")
+    
+        const productInfoDiv = document.createElement("div");
+    
+        const productPrice = document.createElement("p")
+        productPrice.innerText = `$${product.price}`
+    
+    
+        const productName = document.createElement("p")
+        productName.innerText = product.name
+    
+    
+        const productInfoFigure = document.createElement("figure")
+        const imgMinicart = document.createElement("img")
+        imgMinicart.setAttribute("src", "./icons/bt_add_to_cart.svg")
+    
+        productCard.appendChild(img);
+        productCard.appendChild(productInfo);
+        productInfo.appendChild(productInfoDiv)
+        productInfoDiv.append(productPrice, productName)
+        productInfoFigure.appendChild(imgMinicart)
+        productInfo.appendChild(productInfoFigure)
+    
+        cardContainer.append(productCard)
+    }
 }
+
+renderCards()

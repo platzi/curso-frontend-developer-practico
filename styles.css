@@ -11,6 +11,7 @@
 body {
     margin: 0;
     font-family: "Quicksand", sans-serif;
+    height: 100vh;
 }
 
 /* Navbar general */
@@ -247,7 +248,7 @@ aside {
     grid-template-columns: repeat(auto-fill, 240px);
     gap: 26px;
     place-content: center;
-    margin-top: 30px;
+    padding-top: 30px;
 }
 .product-card {
     width: 240px;
@@ -257,6 +258,7 @@ aside {
     height: 240px;
     border-radius: 20px;
     object-fit: cover;
+    cursor: pointer;
 }
 .product-card .product-info {
     display: flex;
@@ -347,6 +349,7 @@ aside {
 @media (max-width: 640px) {
     .menu {
         display: block;
+        cursor: pointer;
     }
     .navbar-left ul {
         display: none;
