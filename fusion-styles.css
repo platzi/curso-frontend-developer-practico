@@ -400,9 +400,8 @@ aside {
 		display: none;
 	}
 	aside {
-    width: 80%;
-		left: 0;
-  }
+		width: 100%;
+	 }
 	
 	.cards-container {
 		grid-template-columns: repeat(auto-fill, 140px);
