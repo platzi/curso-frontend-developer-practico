@@ -5,7 +5,7 @@ const menuHamburgeIcon=document.querySelector('.menuHamburger');
 const mobileMenu=document.querySelector('.mobile-menu');
 
 const shoppingCartIcon=document.querySelector('.navbar-shoppingCart-icon')
-const detailShoppingCart=document.querySelector('.product-detail');
+const detailShoppingCart=document.querySelector('#shoppingCartContainer');
 
 const mainContainerCards=document.querySelector('.cards-container');
 

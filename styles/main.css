@@ -163,15 +163,18 @@
     color: var(--hospital-green) !important;
   }
 
-  /* Aside Detail shopping cart*/
-  .product-detail {
+  /* Aside Detail shopping cart y product detail*/
+  aside {
     width: 360px;
-    padding: 12px 24px;
     box-sizing: border-box;
     position: absolute;
     right: 0;
     background-color: var(--white);
   }
+  #shoppingCartContainer{
+    padding: 12px 24px;
+  }
+    /* estilos para el aside de shopping cart */
   .title-container {
     display: flex;
   }
@@ -242,6 +245,58 @@
     font-weight: bold;
     height: 50px;
   }
+  aside .primary-button{
+    margin-bottom: 26px;
+  }
+
+  /* estilos para el aside de product detail */
+  .product-detail-close {
+    background: var(--white);
+    width: 14px;
+    height: 14px;
+    position: absolute;
+    top: 24px;
+    left: 24px;
+    z-index: 2;
+    padding: 12px;
+    border-radius: 50%;
+  }
+  .product-detail-close:hover {
+    cursor: pointer;
+  }
+  #productDetailContainer > img:nth-child(2) {
+    width: 100%;
+    height: 360px;
+    object-fit: cover;
+    border-radius: 0 0 20px 20px;
+  }
+  #productDetailContainer .product-info {
+    margin: 24px 24px 0 24px;
+  }
+  #productDetailContainer .product-info p:nth-child(1) {
+    font-weight: bold;
+    font-size: var(--md);
+    margin-top: 0;
+    margin-bottom: 4px;
+  }
+  #productDetailContainer .product-info p:nth-child(2) {
+    color: var(--very-light-pink);
+    font-size: var(--md);
+    margin-top: 0;
+    margin-bottom: 36px;
+  }
+  #productDetailContainer .product-info p:nth-child(3) {
+    color: var(--very-light-pink);
+    font-size: var(--sm);
+    margin-top: 0;
+    margin-bottom: 36px;
+  }
+  .add-to-cart-button {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+  }
+
 
   /* cards that contains details all of productos */
   .cards-container {
@@ -261,7 +316,7 @@
     cursor: pointer;
     object-fit: cover;
   }
-  .product-info {
+  .product-card .product-info {
     display: flex;
     justify-content: space-between;
     align-items: center;
@@ -302,8 +357,10 @@
     .desktop-menu{
       display: none;
     }
-    .product-detail {
+    aside {
       width: 100%;
+      height: 100vh;
+      
     }
     .cards-container {
       grid-template-columns: repeat(auto-fill, 140px);
