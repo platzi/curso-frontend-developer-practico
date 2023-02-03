@@ -257,6 +257,7 @@ function crearListProducts(array){
 		// agregar contenido al elemento <p>
 		freeDiv.append(priceProduct)
 		priceProduct.innerHTML="$" + product.precio
+		console.log(priceProduct.innerHTML);
 	
 		// crear elemento <p> (nombre del producto)
 		const nameProduct = document.createElement("p");
@@ -339,6 +340,77 @@ function crearProductDetail(array){
 
 crearProductDetail(productList)
 
+/* Crear carrito de compra desde JS*/
+
+function crearCart(array){
+	for(productPurchase of array){
+		//crear elemento html <div> como contenedor de un producto del carrito
+			const productContainer = document.createElement("div");
+			productContainer.setAttribute("class","shopping-cart ");
+			const orderContent = document.querySelector(".my-order-content");
+			orderContent.append(productContainer);
+			console.log(productContainer);
+
+		//crear elemento html <figure> como contenedor de imagen de producto del carrito
+			const figureProduct = document.createElement("figure");
+			productContainer.append(figureProduct);	
+
+		//crear elemento html <img> para imagen de producto del carrito
+			const imageProductCart = document.createElement("img");
+			imageProductCart.setAttribute("src", productPurchase.imagen);
+			figureProduct.append(imageProductCart);
+
+		//crear elemento html <p> para nombre de producto
+			const nameProductPurchase = document.createElement("p");
+			productContainer.append(nameProductPurchase);
+			nameProductPurchase.innerHTML=productPurchase.name;
+
+		//crear elemento html <p> para precio de producto
+			const priceProductPurchase = document.createElement("p");
+			productContainer.append(priceProductPurchase);
+			priceProductPurchase.innerHTML="$"+productPurchase.precio;
+			console.log(priceProductPurchase);
+
+		//crear elemento html <img> para precio de producto icono X
+			const iconEraseProduct = document.createElement("img");
+			iconEraseProduct.setAttribute("src","./icons/icon_close.png")
+			productContainer.append(iconEraseProduct);
+
+	};
+	//Volvemos a crear la variable que estaba dentro del ciclo FOR para que no salga error
+		const orderContent = document.querySelector(".my-order-content");
+
+	//crear elemento html <div> como contenedor de suma a pagar
+		const orderContainer = document.createElement("div");
+		orderContainer.setAttribute("class", "order");
+		orderContent.append(orderContainer);
+
+	//crear elemento html <p> como contenedor de <span>
+		const totalContent = document.createElement("p");
+		orderContainer.append(totalContent);		
+
+	//crear elemento html <span> 
+		const spanTotal = document.createElement("span");
+		totalContent.append(spanTotal);
+		spanTotal.innerHTML= "Total";
+
+	//crear elemento html <p> para el monto a pagar por Orden
+		const totalPayment = document.createElement("p");
+		orderContainer.append(totalPayment);
+		totalPayment.innerHTML= "$"+" "+"5220";
+
+	//crear elemento html <button> como contenedor de suma a pagar
+		const buttonCart = document.createElement("button");
+		buttonCart.setAttribute("class", "primary-button");
+		orderContent.append(buttonCart);
+		buttonCart.innerHTML= "Checkout";
+};
+
+crearCart(productList);
+
+
+
+
 
 
 //Elemento que aparece y desaparece (aside)
@@ -355,8 +427,6 @@ const productDetail5 = document.querySelector(".productDetail-container aside:nt
 console.log(productDetail5); 
 const productDetail6 = document.querySelector(".productDetail-container aside:nth-child(6)");
 console.log(productDetail6); 
-
-
 
 //variables para los escuchadores de evento (una por cada imagen)
 

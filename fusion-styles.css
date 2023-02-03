@@ -21,6 +21,10 @@ body {
 	display: none;
 }
 
+div .inactiveInner{
+	display: none;
+}
+
 nav {
 	display: flex;
 	justify-content: space-between;
