@@ -146,3 +146,7 @@ function renderProducts(arr) {
 }
 
 renderProducts(productsList);
+
+console.group();
+
+console.groupEnd();
