@@ -160,6 +160,11 @@ function renderProducts(arr) {
         productCard.appendChild(productInfo);
     
         cardsContainer.appendChild(productCard)
+
+        // Clicking on a card to view its details
+        productCard.addEventListener("click", function (e) {
+            console.log("a click was made")
+          });
     }
 }
 
