@@ -1,7 +1,8 @@
 /*General variables*/
 const carShopIcon = document.querySelector(".navbar-shopping-cart");
-const carShopView = document.querySelector(".product-detail");
-const body = document.querySelector("body");
+const carShopView = document.querySelector("#shoppingCartContainer");
+const productDetailContainer = document.querySelector('#productDetail')
+const productDetailClose = document.querySelector('.product-detail-close')
 /*Desktop Menu*/
 const navEmail = document.querySelector(".navbar-email");
 const desktopMenu = document.querySelector(".desktop-menu");
@@ -13,17 +14,31 @@ carShopIcon.addEventListener("click", () => {
   carShopView.classList.toggle("activeCarShop");
   mobileMenu.classList.remove("activeMobile");
   desktopMenu.classList.remove("activeDesktop");
+  productDetailContainer.classList.remove("activeProductDetail");
 });
 
 navEmail.addEventListener("click", () => {
   desktopMenu.classList.toggle("activeDesktop");
   carShopView.classList.remove("activeCarShop");
+  productDetailContainer.classList.remove("activeProductDetail")
 });
 
 burguerMenu.addEventListener("click", () => {
   mobileMenu.classList.toggle("activeMobile");
   carShopView.classList.remove("activeCarShop");
+  productDetailContainer.classList.remove("activeProductDetail")
 });
+
+function openProductDetailAside(){
+  productDetailContainer.classList.add("activeProductDetail")
+  carShopView.classList.remove("activeCarShop");
+  desktopMenu.classList.remove("activeDesktop");
+  mobileMenu.classList.remove("activeMobile");
+}
+function closeProductDetailAside(){
+  productDetailContainer.classList.remove("activeProductDetail")
+}
+productDetailClose.addEventListener('click',closeProductDetailAside)
 
 const productList = [];
 
@@ -45,6 +60,51 @@ productList.push({
   price: 320,
   name: "gloves",
 });
+productList.push({
+  Image:
+    "https://images.pexels.com/photos/276517/pexels-photo-276517.jpeg?auto=compress&cs=tinysrgb&dpr=2&h=650&w=940",
+  price: 320,
+  name: "gloves",
+});
+
+productList.push({
+  Image:
+    "https://images.pexels.com/photos/276517/pexels-photo-276517.jpeg?auto=compress&cs=tinysrgb&dpr=2&h=650&w=940",
+  price: 320,
+  name: "gloves",
+});
+
+productList.push({
+  Image:
+    "https://images.pexels.com/photos/276517/pexels-photo-276517.jpeg?auto=compress&cs=tinysrgb&dpr=2&h=650&w=940",
+  price: 320,
+  name: "gloves",
+});
+
+productList.push({
+  Image:
+    "https://images.pexels.com/photos/276517/pexels-photo-276517.jpeg?auto=compress&cs=tinysrgb&dpr=2&h=650&w=940",
+  price: 320,
+  name: "gloves",
+});
+
+productList.push({
+  Image:
+    "https://images.pexels.com/photos/276517/pexels-photo-276517.jpeg?auto=compress&cs=tinysrgb&dpr=2&h=650&w=940",
+  price: 320,
+  name: "gloves",
+});
+
+productList.push({
+  Image:
+    "https://images.pexels.com/photos/276517/pexels-photo-276517.jpeg?auto=compress&cs=tinysrgb&dpr=2&h=650&w=940",
+  price: 320,
+  name: "gloves",
+});
+
+
+
+
 
 for (const products of productList) {
 
@@ -53,6 +113,7 @@ for (const products of productList) {
 
   const productImg = document.createElement("img");
   productImg.setAttribute("src", products.Image);
+  productImg.addEventListener('click',openProductDetailAside)
 
   const productInfo = document.createElement("div");
   productInfo.classList.add("product-info");
@@ -84,7 +145,3 @@ for (const products of productList) {
 
   cardContainer.appendChild(productCard);
 }
-/*
-<!-- 
-       -->
-      */
