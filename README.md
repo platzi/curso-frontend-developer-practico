@@ -3,7 +3,7 @@ Este archivo tratará de puntos importantes a mi parecer del proyecto trabajado.
 
 ## Fusión del menú en desktop (18)
 
-- **HTML: ** En el index.html agregamos la clase 'inactive' al 'desktop-menu'.
+- **HTML:**  En el index.html agregamos la clase 'inactive' al 'desktop-menu'.
 
 - **CSS:** En el styles.css al 'navbar-email' le sumamos la linea 'cursor: pointer', la cual sirve para al momento de uno poner el cursor frente al elemento navbar-email, este se ponga con la manita tipica de la manita. También se agrego otro selector llamado '.inactive' la cual viene del creado en index.html, entre las llaves del mismo se coloco 'display: none', permitiendo que el navbar-email desaparezca de la pantalla.
 
@@ -43,7 +43,7 @@ function toggleDesktopMenu(){
 ------------
 
 ## Fusión del menú en mobile (19)
-- **HTML:**sume al index.html el div con la clase 'mobile-menu' del archivo clase8.html, esto lo hice seguido del div con la clase 'desktop-menu' de mi index, posteriormente le sumo la clase 'inactive' a mi div 'mobile-menu', esto para que posteriormente con css pueda hacerlo desaparecer en desktop y ya con js hacer que aparezca y desaparezca a voluntad. En resumen queda: 
+- **HTML:**  Sume al index.html el div con la clase 'mobile-menu' del archivo clase8.html, esto lo hice seguido del div con la clase 'desktop-menu' de mi index, posteriormente le sumo la clase 'inactive' a mi div 'mobile-menu', esto para que posteriormente con css pueda hacerlo desaparecer en desktop y ya con js hacer que aparezca y desaparezca a voluntad. En resumen queda: 
 
 ```html
 <div class="mobile-menu inactive">
@@ -91,7 +91,7 @@ function toggleMobileMenu(){
 
 ## Carrito de compras (20)
 
-- **HTML:** Al index.html se le agrego el contenido html del archivo "clase 13" en la cual se encuentra el "carrito". La única modificación realizada es en el 'aside' donde se le sumo la clase 'inactive'. La modificación queda:
+- **HTML:**  Al index.html se le agrego el contenido html del archivo "clase 13" en la cual se encuentra el "carrito". La única modificación realizada es en el 'aside' donde se le sumo la clase 'inactive'. La modificación queda:
 
 
 ```html
