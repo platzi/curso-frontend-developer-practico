@@ -80,6 +80,9 @@
     justify-content: center;
     align-items: center;
   }
+  .close-product{
+    cursor: pointer;
+  }
 
 /*Menu en desktop*/
   .desktop-menu {
@@ -255,7 +258,58 @@
     height: 50px;
   }
 
+/*Lista de Productos*/
+.cards-container {
+  display: grid;
+  grid-template-columns: repeat(auto-fill, 240px);
+  gap: 26px;
+  margin: 1.25rem 0px;
+  place-content: center;
+}
+.product-card {
+  width: 240px;
+}
+.product-card img {
+  width: 240px;
+  height: 240px;
+  border-radius: 20px;
+  object-fit: cover;
+}
+.product-info {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  margin-top: 12px;
+}
+.product-info figure {
+  margin: 0;
+}
+.product-info figure img {
+  width: 35px;
+  height: 35px;
+}
+.product-info div p:nth-child(1) {
+  font-weight: bold;
+  font-size: var(--md);
+  margin-top: 0;
+  margin-bottom: 4px;
+}
+.product-info div p:nth-child(2) {
+  font-size: var(--sm);
+  margin-top: 0;
+  margin-bottom: 0;
+  color: var(--very-light-pink);
+}
+
   @media (max-width: 640px) {
+    .product-detail{
+      transform: translateY(-600px);
+      transition: .6s ease-out;
+    }
+    .product-detail.activeCarShop{
+      transform: translateY(0);
+      transition: .6s ease-in-out;
+    }
     .menu {
       display: block;
     }
@@ -270,6 +324,16 @@
     }
     .product-detail {
         width: 100%;
+      }
+      .cards-container {
+        grid-template-columns: repeat(auto-fill, 140px);
+      }
+      .product-card {
+        width: 140px;
+      }
+      .product-card img {
+        width: 140px;
+        height: 140px;
       }
   }
   @media (min-width:641px) {
