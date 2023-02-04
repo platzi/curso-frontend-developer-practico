@@ -82,3 +82,81 @@ function toggleMobileMenu(){
     menuMobile.classList.toggle('inactive');
 }
 ```
+
+
+------------
+
+
+------------
+
+## Carrito de compras (20)
+
+- **HTML:** Al index.html se le agrego el contenido html del archivo "clase 13" en la cual se encuentra el "carrito". La única modificación realizada es en el 'aside' donde se le sumo la clase 'inactive'. La modificación queda:
+
+
+```html
+<aside class="product-detail inactive">
+	...
+</aside>
+```
+
+
+- **CSS:** En cuanto al styles.css, al '.mobile-menu' se le sumo un `background-color: var(--white);` para que el fondo del mismo deje de ser transparente. También se le agrego tras los estilos del "Menú en mobile", los estilos del "Aside (product detail y carrito)" de la "clase 13", en cuanto al '.product-detail' se le agregó `background-color: var(--white);`. Además en el '@media (max-width: 640px)' se colocó `.product-detail {width: 100%; }` .
+
+
+```css
+.product-detail {
+  background-color: var(--white);
+	...
+}
+...
+@media (max-width: 640px) {
+	...
+	.product-detail {
+    width: 100%;
+  }
+}
+```
+
+
+- **JS:** Respecto al main.js, se creo una constante nueva (menuCarritoIcon) señalando al icono del carrito mediante a su clase '.navbar-shopping-cart' y otra de nombre "aside" utilizando la clase '.product-detail'. Ahora utilizando la primera constante y el `.addEventListener` señalo que usaré el evento 'click' y una función de nombre 'toggleCarritoAside'. Se creo la función anterior nombrada la cual se encarga de hacer aparecer el carrito y desapareciendo los otros menus los cuales se consiguio gracias a un if para preguntar el estado de los otros menus y añadir la clase 'inactive' que permite poner el 'display none' a ellos, funciones similares y con el mismo proposito se llevo a cabo en las funciones toggleDesktopMenu y toggleMobileMenu. Las programaciones nuevas y modificadas se verán a continuación:
+
+```javascript
+const menuCarritoIcon = document.querySelector('.navbar-shopping-cart');
+const aside = document.querySelector('.product-detail');
+
+menuCarritoIcon.addEventListener('click',toggleCarritoAside);
+
+function toggleDesktopMenu(){
+    const isAsideClosed = aside.classList.contains('inactive');
+    
+    if(!isAsideClosed){
+        aside.classList.add('inactive');
+    }
+    DesktopMenu.classList.toggle('inactive');
+}
+
+function toggleMobileMenu(){
+    const isAsideClosed = aside.classList.contains('inactive');
+    
+    if(!isAsideClosed){
+        aside.classList.add('inactive');
+    }
+    menuMobile.classList.toggle('inactive');
+}
+
+
+function toggleCarritoAside(){
+    const isMenuMobileClosed = menuMobile.classList.contains('inactive');
+    const isDesktopMenuClosed = DesktopMenu.classList.contains('inactive');
+    
+    if(!isMenuMobileClosed){
+        menuMobile.classList.add('inactive');
+    }
+
+    if(!isDesktopMenuClosed){
+        DesktopMenu.classList.add('inactive');
+    }
+    aside.classList.toggle('inactive');
+}
+```
