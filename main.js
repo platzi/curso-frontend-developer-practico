@@ -98,7 +98,10 @@ function closeProductDetailAside(){
   productDetailContainer.classList.add('inactive')
 }
 
+//Img de los productos a fines
+
 const productList = [];
+
 productList.push({
   name:'Producto X',
   price: 35,
@@ -107,66 +110,93 @@ productList.push({
 productList.push({
   name:'Producto X',
   price: 35,
-  img: './icons/PtoFlash-1eraImg.png'
+  img: './icons/WhatsApp Image 2023-02-03 at 11.53.01 PM.jpeg'
 });
 productList.push({
   name:'Producto X',
   price: 35,
-  img: './icons/PtoFlash-1eraImg.png'
+  img: './icons/WhatsApp Image 2023-02-03 at 11.54.22 PM (1).jpeg'
+});
+
+productList.push({
+  name:'Producto X',
+  price: 35,
+  img: './icons/WhatsApp Image 2023-02-03 at 11.54.22 PM (3).jpeg'
+});
+
+productList.push({
+  name:'Producto X',
+  price: 35,
+  img: './icons/WhatsApp Image 2023-02-03 at 11.54.22 PM (4).jpeg'
+});
+
+productList.push({
+  name:'Producto X',
+  price: 35,
+  img: './icons/WhatsApp Image 2023-02-03 at 11.54.22 PM.jpeg'
 });
 productList.push({
   name:'Producto X',
   price: 35,
-  img: './icons/PtoFlash-1eraImg.png'
-})
+  img: './icons/WhatsApp Image 2023-02-03 at 11.54.23 PM (1).jpeg'
+});
+
+productList.push({
+  name:'Producto X',
+  price: 35,
+  img: './icons/WhatsApp Image 2023-02-03 at 11.54.23 PM.jpeg'
+});
+
+
+
 
 
 
 function renderFunction (abc){
-  
-for(product of productList){
-
-  const productCard = document.createElement('div');
-  productCard.classList.add('product-card');
-  
-
-  const productImg = document.createElement('img');
-  productImg.setAttribute('src',product.img);
-  productImg.addEventListener('click',openProducOneAside)
-
-  const productInfo = document.createElement('div');
-  productInfo.classList.add('product-info');
-
-
-
-
-
-  const productInfoDiv = document.createElement('div');
-
-  const productPrice = document.createElement('p');
-  productPrice.innerText = '$' + product.price;
-  const productName = document.createElement('p');
-  productName.innerText = product.name;
-
-  productInfoDiv.appendChild(productPrice);
-  productInfoDiv.appendChild(productName);
-
-
-  const productInfoFigure = document.createElement('Figure');
-  const productImgCart = document.createElement('img');
-  productImgCart.src ='./icons/bt_add_to_cart.svg';
-
- productInfoFigure.appendChild(productImgCart);
-
- productInfo.appendChild(productInfoDiv);
- productInfo.appendChild(productInfoFigure);
-
- productCard.appendChild(productImg);
- productCard.appendChild(productInfo);
-
- cardsContainer.appendChild(productCard);
- 
-
-}
+for(i=0;i<100;i++){
+    for(product of productList){
+    
+      const productCard = document.createElement('div');
+      productCard.classList.add('product-card');
+      
+    
+      const productImg = document.createElement('img');
+      productImg.setAttribute('src',product.img);
+      productImg.addEventListener('click',openProducOneAside)
+    
+      const productInfo = document.createElement('div');
+      productInfo.classList.add('product-info');
+    
+    
+    
+    
+    
+      const productInfoDiv = document.createElement('div');
+    
+      const productPrice = document.createElement('p');
+      productPrice.innerText = '$' + product.price;
+      const productName = document.createElement('p');
+      productName.innerText = product.name;
+    
+      productInfoDiv.appendChild(productPrice);
+      productInfoDiv.appendChild(productName);
+    
+    
+      const productInfoFigure = document.createElement('Figure');
+      const productImgCart = document.createElement('img');
+      productImgCart.src ='./icons/bt_add_to_cart.svg';
+    
+     productInfoFigure.appendChild(productImgCart);
+    
+     productInfo.appendChild(productInfoDiv);
+     productInfo.appendChild(productInfoFigure);
+    
+     productCard.appendChild(productImg);
+     productCard.appendChild(productInfo);
+    
+     cardsContainer.appendChild(productCard);
+     
+    
+    }}
 }
 renderFunction(productList);
