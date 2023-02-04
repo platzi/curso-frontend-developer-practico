@@ -132,7 +132,7 @@ function renderProducts(arr) {
         const productImg = document.createElement("img");
         productImg.setAttribute("src", product.image)
         productImg.addEventListener("click", openProductDetailAside)
-
+    
         const productInfo = document.createElement("div");
         productInfo.classList.add("product-info");
     
@@ -163,5 +163,5 @@ function renderProducts(arr) {
     }
 }
 
-// Iterating the array through the function created for this purpose
+// // Iterating the array through the function created for this purpose
 renderProducts(productList);

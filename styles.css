@@ -172,13 +172,15 @@ aside {
     position: absolute;
     right: 0;
     top: 60px;
-    /* cursor: pointer; */
+    padding-bottom: 24px;
+    border-radius: 12px;
+    box-shadow: 0 0 10px rgba(0, 0, 0, 0.2);
 }
 
 
 /* Styles for shopping cart */
 #shoppingCartContainer {
-    padding: 0 24px;
+    padding: 24px;
 }
 
 .title-container {
