@@ -160,3 +160,136 @@ function toggleCarritoAside(){
     aside.classList.toggle('inactive');
 }
 ```
+
+
+------------
+
+
+------------
+
+## Lista de productos: HTML a partir de arrays (21)
+
+- **HTML:** Ahora el archivo index.html coloco el contenido del body de la clase13.html, la section y su div hijo, pero mel contenido dentro del div hijo no lo colocare, solo dejo un div product-card comentado para ver que deberia estar allí, esto a raíz de que en dicho lugar colocaré ese contenido replicado para varios productos por medio de JavaScript. Las lineas del index.html son:
+
+
+```html
+<section class="main-container">
+    <div class="cards-container">
+
+      <!-- <div class="product-card">
+        <img src="https://images.pexels.com/photos/276517/pexels-photo-276517.jpeg?auto=compress&cs=tinysrgb&dpr=2&h=650&w=940" alt="">
+        <div class="product-info">
+          <div>
+            <p>$120,00</p>
+            <p>Bike</p>
+          </div>
+          <figure>
+            <img src="./icons/bt_add_to_cart.svg" alt="">
+          </figure>
+        </div>
+      </div> -->
+
+    </div>
+</section>
+```
+
+
+- **CSS:** En el styles.css solo coloque el contenido de la etiqueta de styles del clase6.html debajo de los del 'Aside', en cuanto a los primeros estilos '.cards-container' sume un `margin-top: 20px` para conseguir que no se vea subpuesto la lista con el 'navbar'. Otra cosa que se hizo fue colocar los contenidos del '@media (max-width: 640px)'  del clase6.html dentro de la del styles.css. 
+
+```css
+.cards-container {
+	...
+	margin-top: 20px;
+}
+...
+@media (max-width: 640px) {
+	...
+	.cards-container {
+	grid-template-columns: repeat(auto-fill, 140px);
+	}
+	.product-card {
+	width: 140px;
+	}
+	.product-card img {
+	width: 140px;
+	height: 140px;
+	}
+}
+```
+
+
+- **JS:** Ya en el main.js se creo la constante 'cardsContainer' en seguida de la de aside. Posteriormente cree un la lista formada por objetos los cuales fueron 3 que contienen las caracteristicas name, price e image, estas serán las que se muestran en el centro de la página. Seguido se coloco en comentarios las mismas lineas comentadas en el index.html para saber como llevar a cabo su creacion en el main.js. Ahora realizo la creación de una funcion la cual utilizo `product of productList` la cual indica primero el nombre que utilizare de manera general para los elementos de la lista/array a recorrer (product) y seguido un "of" que continua con el nombre de la lista/array (productList), (en caso de no usar "of" y utilizar "in", en lugar de devolver los elementos de la lista/array, daría sus posiciones), dentro de la función se crea en orden los elementos de afuera hacia adentro mediante constantes nombradas por su utilidad/función usando el `document.createElement();` donde entre parentesis se escribe entre comillas el elemento deseado, después se crean con el nombre de la constante usada para el elemento creado seguido de  `.classList.add();` donde entre los parentesis entre comillas simples el nombre de la clase deseada, asi con todos los elementos a usar, con la imagen para agregar su atributo src y el valor del mismo se uso `elemento.setAttribute('src',valor);` donde primero va el nombre del elemento hecho constante con el setAttribute para sumarle atributos donde primero va el mismo que en este caso es src y separado de una coma se coloca su valo. Una vez creado todos los elementos con sus atributos y/o clases se van colocando uno dentro de otro segun corresponda de manera de cebolla pero inversa, para lo anterior se pueden usar 2 formas, el `elemento.appendChild(cosa);` el cual en 'elemento' se coloca el nombre del elemento que contendra el que se ponga en 'cosa', esto puede ser algo tedioso si se desea agregar varias cosas en el elemento, en dicho caso se puede realizar la segunda manera, esta consiste en usar `elemento.append(cosa1, cosa2);` lo anterior permite que separado por cosas (,) coloque las cosas a ingresar dnetro de 'elemento' de esta forma ahorramos mas lineas y hacemos mas entendible nuestro archivo. El profe a diferencia de todo lo anterior encerro en una funcion a toda la programacion del for para conseguir reutilizarla segun le convenga ya que eso es lo que se realiza verdaderamente en la industria. La  programación ya contada antes es la siguiente:
+
+
+```javascript
+...
+const cardsContainer = document.querySelector('.cards-container');
+...
+const productList = [];
+productList.push({
+    name: 'Bike',
+    price: 120,
+    image: 'https://images.pexels.com/photos/276517/pexels-photo-276517.jpeg?auto=compress&cs=tinysrgb&dpr=2&h=650&w=940'
+});
+productList.push({
+    name: 'Pantalla',
+    price: 220,
+    image: 'https://images.pexels.com/photos/331788/pexels-photo-331788.jpeg?auto=compress&cs=tinysrgb&w=1260&h=750&dpr=1'
+});
+productList.push({
+    name: 'Compu',
+    price: 620,
+    image: 'https://media.istockphoto.com/id/1314343964/es/foto/unidad-de-sistema-de-gama-alta-para-el-primer-plano-de-la-computadora-de-juego.jpg?s=2048x2048&w=is&k=20&c=4ZfOgrUzagfHV0jGwuxoA_3IPZldmI9eqG3aBX-P0_Q='
+});
+
+/* <div class="product-card">
+    <img src="https://images.pexels.com/photos/276517/pexels-photo-276517.jpeg?auto=compress&cs=tinysrgb&dpr=2&h=650&w=940" alt=""/>
+    <div class="product-info">
+        <div>
+            <p>$120,00</p>
+            <p>Bike</p>
+        </div>
+        <figure>
+            <img src="./icons/bt_add_to_cart.svg" alt="">
+        </figure>
+    </div>
+</div> */
+
+for(product of productList){ //of recorre elemento a elemento de la lista
+                             //in recorre los indices
+    const productCard = document.createElement('div');
+    productCard.classList.add('product-card');
+
+    // product= {name, price, image} -> product.image
+    const productImg = document.createElement('img');
+    productImg.setAttribute('src', product.image);
+
+    const productInfo = document.createElement('div');
+    productInfo.classList.add('product-info');
+
+    const productInfoDiv = document.createElement('div');
+
+    const productPrice = document.createElement('p');
+    productPrice.innerText = '$' + product.price;
+    const productName = document.createElement('p');
+    productName.innerText = product.name;
+
+    productInfoDiv.appendChild(productPrice);
+    productInfoDiv.appendChild(productName);
+
+    const productInfoFigure = document.createElement('figure');
+    const productImgCart = document.createElement('img');
+    productImgCart.setAttribute('src', './icons/bt_add_to_cart.svg');
+
+    productInfoFigure.appendChild(productImgCart);
+
+    productInfo.appendChild(productInfoDiv);
+    productInfo.appendChild(productInfoFigure);
+
+    productCard.appendChild(productImg);
+    productCard.appendChild(productInfo);
+
+    cardsContainer.appendChild(productCard);
+}
+```
+
