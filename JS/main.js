@@ -6,6 +6,10 @@ const mobileMenu=document.querySelector('.mobile-menu');
 
 const shoppingCartIcon=document.querySelector('.navbar-shoppingCart-icon')
 const detailShoppingCart=document.querySelector('#shoppingCartContainer');
+const detailProduct=document.querySelector('#productDetailContainer');
+
+const btnCloseDetailProduct=document.querySelector('.product-detail-close');
+btnCloseDetailProduct.addEventListener('click',closeDetailProduct);
 
 const mainContainerCards=document.querySelector('.cards-container');
 
@@ -28,6 +32,7 @@ function toogleDesktopMenu(){
     if(!isdetailShoppingCartClosed){
         detailShoppingCart.classList.add('inactive');
     }
+    closeDetailProduct();
     desktopMenu.classList.toggle('inactive');
 
 }
@@ -41,11 +46,15 @@ function toogleMobileMenu(){
 function toogleShoppingCart(){
     const isMenuMobileClosed=mobileMenu.classList.contains('inactive');
     const isMenuDesktopClosed=desktopMenu.classList.contains('inactive');
+    const isProductDetailClosed=detailProduct.classList.contains('inactive');
     if(!isMenuMobileClosed){
         mobileMenu.classList.add('inactive');
     }
     if(!isMenuDesktopClosed){
         desktopMenu.classList.add('inactive');
+    }
+    if(!isProductDetailClosed){
+        detailProduct.classList.add('inactive');
     }
     detailShoppingCart.classList.toggle('inactive');
 }
@@ -121,7 +130,19 @@ function showProductList(productLists){
 }
 
 function showDetailProduct(){
-    console.log("Estoy haciendo click para poder ver los detalles de los productos");
+    const isdetailShoppingCartClosed=detailShoppingCart.classList.contains('inactive');
+    const isMenuDesktopClosed=desktopMenu.classList.contains('inactive');
+    if(!isMenuDesktopClosed){
+        desktopMenu.classList.add('inactive');
+    }
+    if(!isdetailShoppingCartClosed){
+        detailShoppingCart.classList.add('inactive');
+    }
+    detailProduct.classList.remove('inactive');
+}
+
+function closeDetailProduct(){
+    detailProduct.classList.add('inactive');
 }
 
 showProductList(productList);
