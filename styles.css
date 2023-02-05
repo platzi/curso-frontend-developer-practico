@@ -12,6 +12,8 @@
   body {
     margin: 0;
     font-family: 'Quicksand', sans-serif;
+    background: linear-gradient(180.8deg, rgba(43, 14, 202, 0.596) 16.69%, rgb(16, 12, 222));
+    background-repeat: no-repeat;
   }
   .inactive {
     display: none;
@@ -138,7 +140,6 @@
     left: 0;
     width: calc(100% - 24px);
     padding-left: 24px;
-
   }
   .mobile-menu a {
     text-decoration: none;
@@ -334,7 +335,6 @@
     display: grid;
     grid-template-columns: repeat(auto-fill, 240px);
     gap: 26px;
-    background: linear-gradient(180.8deg, rgb(5, 3, 3) 16.69%, rgb(16, 12, 222));
     place-content: center;
     padding: 20px 0 20px;
   }
