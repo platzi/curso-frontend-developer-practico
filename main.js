@@ -6,13 +6,12 @@ const desktopMenu = document.querySelector('.desktop-menu');
 const mobileMenu = document.querySelector('.mobile-menu');
 const shoppingCartContainer = document.querySelector('#shoppingCartContainer');
 const productDetailContainer = document.querySelector('#productDetail');
-const shoppingCartImg = document.querySelector('.product-detail--img');
 const cardsContainer = document.querySelector('.cards-container');
 
 menuEmail.addEventListener('click', toggleDesktopMenu);
 iconMenu.addEventListener('click', toggleMobileMenu);
 shoppingCartIcon.addEventListener('click', toggleShoppingCartAside);
-shoppingCartImg.addEventListener('click', toggleShoppingCartAside);
+
 
 function toggleDesktopMenu() {    
     mobileMenu.classList.add('inactive');
@@ -33,6 +32,7 @@ function toggleShoppingCartAside (){
     mobileMenu.classList.add('inactive');
     desktopMenu.classList.add('inactive');
     productDetailContainer.classList.add('inactive');
+    renderShoppingCart();
     shoppingCartContainer.classList.toggle('inactive');
 }
 
@@ -108,61 +108,61 @@ var productList = [];
 
 productList.push({
     id: 1,
+    name: 'motorcycle',
+    price: 11000,
+    Image: './images/image1.jpeg',
+    description: 'Amazing motorcycle'
+});
+productList.push({
+    id: 2,
     name: 'Console PS5',
     price: 560,
     Image: './images/image2.jpg',
     description: 'Amazing PS5'
 });
 productList.push({
-    id: 2,
+    id: 3,
     name: 'Monitor',
     price: 420,
     Image: './images/image3.jpg',
     description: 'Amazing Monitor'
 });
 productList.push({
-    id: 3,
+    id: 4,
     name: 'Computer',
     price: 1200,
     Image: './images/image4.jpg',
     description: 'Amazing Computer'
 });
 productList.push({
-    id: 4,
+    id: 5,
     name: 'IPhone 14 Pro',
     price: 1100,
     Image: './images/image5.jpg',
     description: 'Amazing IPhone 14 Pro'
 });
 productList.push({
-    id: 5,
+    id: 6,
     name: 'Samsung Galaxy S22',
     price: 700,
     Image: './images/image6.jpg',
     description: 'Amazing Samsung Galaxy S22'
 });
 productList.push({
-    id: 6,
+    id: 7,
     name: 'Beats Headphones',
     price: 300,
     Image: './images/image7.jpg',
     description: 'Amazing Headphones'
 });
 productList.push({
-    id: 7,
+    id: 8,
     name: 'Mouse Viper',
     price: 60,
     Image: './images/image8.jpeg',
     description: 'Amazing Mouse'
 });
 
-productList.push({
-    id: 8,
-    name: 'motorcycle',
-    price: 11000,
-    Image: './images/image1.jpeg',
-    description: 'Amazing motorcycle'
-});
 
 //product list
 function renderProducts(arr) {
@@ -212,4 +212,71 @@ function renderProducts(arr) {
 
 renderProducts(productList);
 
-// product detail
+//shoppingCart
+function renderShoppingCart() {
+    shoppingCartContainer.innerHTML = '';
+
+    const titleContainer = document.createElement('div');
+    titleContainer.classList.add('title-container');
+    const titleImg = document.createElement('img');
+    titleImg.setAttribute('src', './icons/flechita.svg');
+    titleImg.classList.add('product-detail--img');
+    titleImg.addEventListener('click', toggleShoppingCartAside);
+    const titleText = document.createElement('p');
+    titleText.classList.add('title');
+    titleText.innerText = 'My order';
+    titleContainer.appendChild(titleImg);
+    titleContainer.appendChild(titleText);
+
+    const orderContent = document.createElement('div');
+    orderContent.classList.add('my-order-content');
+    for (product of productList) {
+        
+        const cartDiv = document.createElement('div');
+        cartDiv.classList.add('shopping-cart');
+
+        const cartFigure = document.createElement('figure');
+        const cartImg = document.createElement('img');
+        cartImg.setAttribute('src', product.Image);
+        cartFigure.appendChild(cartImg);
+
+        const cartItemName = document.createElement('p');
+        cartItemName.innerText = product.name; 
+        
+        const cartItemPrice = document.createElement('p');
+        cartItemPrice.innerText = '$ ' + product.price; 
+
+        const DeleteItem = document.createElement('img');
+        DeleteItem.setAttribute('src', './icons/icon_close.png');
+        DeleteItem.classList.add('delete-product');
+
+        cartDiv.appendChild(cartFigure);
+        cartDiv.appendChild(cartItemName);
+        cartDiv.appendChild(cartItemPrice);
+        cartDiv.appendChild(DeleteItem);
+
+        orderContent.appendChild(cartDiv);
+    }
+    const totalCart = document.createElement('div');
+    totalCart.classList.add('order');
+
+    const totalText = document.createElement('p');
+    const totalTextSpan = document.createElement('span');
+    totalTextSpan.innerText = 'Total';
+    totalText.appendChild(totalTextSpan);
+
+    const totalPaying = document.createElement('p');
+    totalPaying.innerText = '$ ' + product.price;
+
+    totalCart.appendChild(totalText);
+    totalCart.appendChild(totalPaying);
+
+    const primaryButton = document.createElement('button');
+    primaryButton.classList.add('primary-button');
+    primaryButton.innerText = 'Checkout';
+
+    shoppingCartContainer.appendChild(titleContainer);
+    shoppingCartContainer.appendChild(orderContent);
+    shoppingCartContainer.appendChild(totalCart);
+    shoppingCartContainer.appendChild(primaryButton);
+}
