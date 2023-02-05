@@ -380,3 +380,63 @@ function toggleCarritoAside(){
     shoppingCartContainer.classList.toggle('inactive');
 }
 ```
+
+------------
+
+
+------------
+
+## Interacción entre todos los componentes (23)
+
+- **HTML:** El index.html no fue modificado.
+
+- **CSS:** En el styles.css no se toco nada.
+
+- **JS:** Pero en el main.js si se modificaron/agregaron cosas, se crearon constantes nuevas y se retocaron las funciones con eventos para que cuando se abra algun menu o detalle de productos estos se muestren solos y el resto se cierre (de estar abierto), también se encerro en una funcion al for creado la clase pasada para que pueda ser reutilizado en un futuro de querer. El código es el siguiente:
+
+
+```javascript
+const productDetailCloseIcon = document.querySelector('.product-detail-close');
+const productDetailContainer = document.querySelector('#productDetail');
+productDetailCloseIcon.addEventListener('click', closeProductDetailAside);
+
+function toggleDesktopMenu(){
+    ...
+    closeProductDetailAside();
+    ...
+}
+
+function toggleMobileMenu(){
+    ...
+    closeProductDetailAside();
+    ...
+}
+
+function toggleCarritoAside(){
+    ...
+    const isProductDetailClosed = productDetailContainer.classList.contains('inactive');
+    if(!isProductDetailClosed){
+        productDetailContainer.classList.add('inactive');
+    }
+	...
+}
+
+function openProductDetailAside (){
+    DesktopMenu.classList.add('inactive');
+    shoppingCartContainer.classList.add('inactive');
+    productDetailContainer.classList.remove('inactive');
+}
+
+function closeProductDetailAside (){
+    productDetailContainer.classList.add('inactive');
+}
+
+function renderProducts(arr){
+    for(product of arr){
+	...
+	productImg.addEventListener('click',openProductDetailAside);
+	...
+	}
+}
+renderProducts(productList);
+```
