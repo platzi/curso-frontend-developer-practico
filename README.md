@@ -293,3 +293,90 @@ for(product of productList){ //of recorre elemento a elemento de la lista
 }
 ```
 
+------------
+
+
+------------
+
+## Detalles de un producto (22)
+
+- **HTML:** En el index.html se agregó el contenido html de la clase12 pero hubo conflictos con otro aside que se encontraba ya en el index, es por eso que se tuvo que eliminar completamente la clase "product-detail" de los 2 aside que habia en el archivo, siendo reemplazados por id distintas, a la primera la nombre "shoppingCartContainer" mientras que la segunda "productDetail" a la segunda ya que corresponde a la clase12 perdio toda class entonses le sume la "inactive" para que desaparezca como varios elementos que solo deben aparecer si se trata de un evento que se activo. Las lineas nuevas del index.html son:
+
+```html
+<aside id="shoppingCartContainer" class="inactive">
+	...
+</aside>
+...
+<aside id="productDetail" class="inactive">
+    ...
+</aside>
+```
+
+- **CSS:** Ahora en el style.css se modifico las propiedades del ".mobile-menu" ya que se elimino el `padding: 24px;`, se agrego `left: 0;`, `right: 0;`, un `width: calc(100%-24px);` (calc() sirve para hacer calculos básicos) y `padding-left de 24px`. También se cambio por "aside" el "product-detail" del "Aside (product detail y carrito)", a su vez se elimino el padding. De allí agrego una propiedad con el name de "#shoppingCartContainer" en la cual agrego el `padding: 0 24px;`. Posteriormente sumo tras las propiedades del "/* ShoppingCart */", las del "/* ProductDetail */" (clase12) donde cambiaria las apariciones del ".product-detail" por "#productDetail". Además se agrego antes de los ".product-info p:nt...." el "#productDetail". Ya en las propiedaades del "/* Product List */" se agrego antes de cada ".product-info" el ".product-card". Y en el media se cambio la propiedad ".product-detail" por "aside". Los cambios se muestran a continuación:
+
+```css
+/* Menu en mobile */
+.mobile-menu {
+  ...
+  left: 0;
+  right: 0;
+  width: calc(100%-24px);
+  padding-left: 24px;
+}
+
+/* Aside (product detail y carrito) */
+aside { ... }
+
+/* ShoppingCart */
+#shoppingCartContainer {
+  padding: 0 24px;
+}
+
+/* ProductDetail */
+...
+#productDetail > img:nth-child(2) { ... }
+...
+#productDetail .product-info p:nth-child(1) { ... }
+#productDetail .product-info p:nth-child(2) { ... }
+#productDetail .product-info p:nth-child(3) { ... }
+
+/* Product List */
+...
+.product-card .product-info { ... }
+.product-card .product-info figure { ... }
+.product-card .product-info figure img { ... }
+.product-card .product-info div p:nth-child(1) { ... }
+.product-card .product-info div p:nth-child(2) { ... }
+
+@media (max-width: 640px) {
+	...
+	aside { ... }
+}
+```
+
+- **JS:** main.js se le modifico la constante "aside" por "shoppingCartContainer" y obviamente la class por el id, tras el cambio del nombre de la constante se tuvo que cambiar en cada lugar que aparecia y nada mas. Las lineas nuevas quedan así: 
+
+```javascript
+const shoppingCartContainer = document.querySelector('#shoppingCartContainer');
+
+function toggleDesktopMenu(){
+    const isAsideClosed = shoppingCartContainer.classList.contains('inactive');
+    if(!isAsideClosed){
+        shoppingCartContainer.classList.add('inactive');
+    }
+    ...
+}
+
+function toggleMobileMenu(){
+    const isAsideClosed = shoppingCartContainer.classList.contains('inactive');
+    if(!isAsideClosed){
+        shoppingCartContainer.classList.add('inactive');
+    }
+    ...
+}
+
+function toggleCarritoAside(){
+    ...
+    shoppingCartContainer.classList.toggle('inactive');
+}
+```
