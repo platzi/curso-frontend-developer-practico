@@ -3,7 +3,7 @@ const desktopMenu = document.querySelector('.desktop-menu');
 const menuBurguerIcon = document.querySelector('.menu')
 const mobileMenu = document.querySelector('.mobile-menu')
 const menuCarritoIcon = document.querySelector('.navbar-shopping-cart');
-const asideCarritoDetail = document.querySelector('.product-detail');
+const shoppingCartContainer = document.querySelector('#shoppingCartContainer');
 const cardsContainer = document.querySelector('.cards-container');
 
 menuEmail.addEventListener('click', toggleDesktopMenu);
@@ -12,10 +12,10 @@ menuCarritoIcon.addEventListener('click', toggleCarritoAside);
 
 function toggleDesktopMenu() {
     // quita o poner la clase inactive con un togle o palanca
-    const isAsideCarritoClosed = asideCarritoDetail.classList.contains('inactive');
+    const isAsideCarritoClosed = shoppingCartContainer.classList.contains('inactive');
 
     if (!isAsideCarritoClosed){
-        asideCarritoDetail.classList.add('inactive');
+        shoppingCartContainer.classList.add('inactive');
     }
     //toggle
     desktopMenu.classList.toggle('inactive');
@@ -23,9 +23,9 @@ function toggleDesktopMenu() {
 
 function toggleMobileMenu(){
     // Quita o pone la clase .mobile-menu con un toggle o palanca
-    const isAsideCarritoClosed = asideCarritoDetail.classList.contains('inactive');
+    const isAsideCarritoClosed = shoppingCartContainer.classList.contains('inactive');
     if (!isAsideCarritoClosed) {
-        asideCarritoDetail.classList.add('inactive');
+        shoppingCartContainer.classList.add('inactive');
     }
     //toggle
     mobileMenu.classList.toggle('inactive');
@@ -42,9 +42,11 @@ function toggleCarritoAside(){
         desktopMenu.classList.add('inactive');
     }
     //toggle
-    asideCarritoDetail.classList.toggle('inactive');
+    shoppingCartContainer.classList.toggle('inactive');
 
 }
+
+
 
 /**
  * Se crea valores que vendran luego desde una base de datos. Hardcodeamos
@@ -100,6 +102,8 @@ function renderProduct(arr){
         /*Se añade un elemento img y su src a partir del objeto product.name */
         const productImg = document.createElement('img');
         productImg.setAttribute('src', product.Image);
+        /*Se crea evento que escuche el click sobre la imagen */
+        productImg.addEventListener('click', openProductDetailAside)
     
         /*Se añade un div y dentro una clase 'product-info' */
         const productInfo = document.createElement('div');
