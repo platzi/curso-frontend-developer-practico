@@ -10,7 +10,18 @@
 
 navEmail.addEventListener('click', toggledesktopmenu);
 function toggledesktopmenu(){
-    desktopMenu.classList.toggle('inactive')
+    
+    const isAsideClosed = aside.classList.contains('inactive');
+
+  if (!isAsideClosed) {
+    aside.classList.add('inactive');
+  }
+  const isProductDetailClose = productoDetail.classList.contains('inactive');
+
+   if(!isProductDetailClose){
+      productoDetail.classList.add('inactive')
+   }
+   desktopMenu.classList.toggle('inactive')
 }
 
 menuIcon.addEventListener('click', togglemobiledesktop);
@@ -36,9 +47,7 @@ function tagglecarritomenu(){
    if(!isMenuclosed){
       mobilemenu.classList.add('inactive')
    }
-
-
-    const isProductDetailClose = productoDetail.classList.contains('inactive');
+   const isProductDetailClose = productoDetail.classList.contains('inactive');
 
    if(!isProductDetailClose){
       productoDetail.classList.add('inactive')
@@ -55,13 +64,58 @@ const productList = [];
  productList.push({
    name: "Tv",
    price: 500,
-   imagen: "https://images.pexels.com/photos/276517/pexels-photo-276517.jpeg?auto=compress&cs=tinysrgb&dpr=2&h=650&w=940",
+   imagen: "https://cloudfront-us-east-1.images.arcpublishing.com/infobae/N3DJIK3Y75BBJL6KVGJYRQVTJQ.webp",
  })
  productList.push({
    name: "Tablet",
    price: 400,
-   imagen: "https://images.pexels.com/photos/276517/pexels-photo-276517.jpeg?auto=compress&cs=tinysrgb&dpr=2&h=650&w=940",
+   imagen: "https://cdn.computerhoy.com/sites/navi.axelspringer.es/public/media/image/2020/09/samsung-galaxy-tab-s7-analisis-opinion-2058415.jpg",
  })
+ productList.push({
+  name: "Tablet",
+  price: 400,
+  imagen: "https://images.pexels.com/photos/276517/pexels-photo-276517.jpeg?auto=compress&cs=tinysrgb&dpr=2&h=650&w=940",
+})
+productList.push({
+  name: "Tablet",
+  price: 400,
+  imagen: "https://images.pexels.com/photos/276517/pexels-photo-276517.jpeg?auto=compress&cs=tinysrgb&dpr=2&h=650&w=940",
+})
+productList.push({
+  name: "Tablet",
+  price: 400,
+  imagen: "https://images.pexels.com/photos/276517/pexels-photo-276517.jpeg?auto=compress&cs=tinysrgb&dpr=2&h=650&w=940",
+})
+productList.push({
+  name: "Tablet",
+  price: 400,
+  imagen: "https://images.pexels.com/photos/276517/pexels-photo-276517.jpeg?auto=compress&cs=tinysrgb&dpr=2&h=650&w=940",
+})
+productList.push({
+  name: "Tablet",
+  price: 400,
+  imagen: "https://images.pexels.com/photos/276517/pexels-photo-276517.jpeg?auto=compress&cs=tinysrgb&dpr=2&h=650&w=940",
+})
+productList.push({
+  name: "Tablet",
+  price: 400,
+  imagen: "https://images.pexels.com/photos/276517/pexels-photo-276517.jpeg?auto=compress&cs=tinysrgb&dpr=2&h=650&w=940",
+})
+productList.push({
+  name: "Tablet",
+  price: 400,
+  imagen: "https://images.pexels.com/photos/276517/pexels-photo-276517.jpeg?auto=compress&cs=tinysrgb&dpr=2&h=650&w=940",
+})
+productList.push({
+  name: "Tablet",
+  price: 400,
+  imagen: "https://images.pexels.com/photos/276517/pexels-photo-276517.jpeg?auto=compress&cs=tinysrgb&dpr=2&h=650&w=940",
+})
+productList.push({
+  name: "Tablet",
+  price: 400,
+  imagen: "https://images.pexels.com/photos/276517/pexels-photo-276517.jpeg?auto=compress&cs=tinysrgb&dpr=2&h=650&w=940",
+})
 
 for (product of productList){
     const productCard = document.createElement('div');
