@@ -70,6 +70,8 @@ function openProductDetailAside() {
     desktopMenu.classList.add("inactive")
 
     productDetailContainer.classList.remove("inactive")
+    // detailContainer.classList.remove("inactive")
+    // productDetail[2].classList.remove("inactive")
 }
 
 function closeProductDetailAside() {
@@ -162,11 +164,73 @@ function renderProducts(arr) {
         cardsContainer.appendChild(productCard)
 
         // Clicking on a card to view its details
-        productCard.addEventListener("click", function (e) {
-            console.log("a click was made")
-          });
+        // productCard.addEventListener("click", function (e) {
+        //     console.log("a click was made")
+        //   });
+        // const btnPressed = () => {
+        //     console.log("se hizo click")
+        // } 
+
+        // const productPressed = (e) => {
+        //     console.log("a click was made on " + e.target.src)
+        //     console.log("the next element to the image is " + e.target.nextElementSibling)
+        // } 
+
+        // productImg.addEventListener("click", productPressed)
     }
 }
 
 // // Iterating the array through the function created for this purpose
 renderProducts(productList);
+
+
+// Creating a detailed card when a product is clicked and 
+// Following this alternative: https://platzi.com/tutoriales/3271-javascript-practico/22433-paso-a-paso-como-crear-un-descriptor-de-producto-variable-de-una-tienda-web-para-que-se-adapte-a-cada-producto/
+
+// The previous requires this one, which is not practical at all:
+// https://platzi.com/tutoriales/3271-javascript-practico/22434-paso-a-paso-como-darle-interaccion-a-las-cards-de-detalle-de-producto-con-javascript/
+// function creatingProductDetail (array) {
+//     for(card of array){
+//         const productDetail = document.createElement("aside")
+//         productDetail.setAttribute("id", "productDetail")
+//         productDetail.setAttribute("class", "product-detail inactive")
+
+//         const detailContainer = document.querySelector(".productDetail-container")
+//         detailContainer.append(productDetail)
+
+//         const closeCard = document.createElement("div")
+//         closeCard.setAttribute("class", "product-detail-close")
+//         productDetail.append(closeCard)
+
+//         const iconX = document.createElement("img")
+//         iconX.setAttribute("src", "./icons/icon_close.png")
+//         closeCard.append(iconX)
+
+//         const imgDetailProduct = document.createElement("img")
+//         imgDetailProduct.setAttribute("src", card.image)
+//         productDetail.append(imgDetailProduct)
+
+//         const productInfoDetail = document.createElement("div")
+//         productInfoDetail.setAttribute("class", "product-info")
+//         productDetail.append(productInfoDetail)
+
+//         const priceProductInfo = document.createElement("p")
+//         productInfoDetail.append(priceProductInfo)
+//         priceProductInfo.innerText = "$" + card.price
+
+//         const nameProductInfo = document.createElement("p")
+//         productInfoDetail.append(nameProductInfo)
+//         nameProductInfo.innerText = card.name
+
+//         const buttonDetail = document.createElement("button")
+//         buttonDetail.setAttribute("class", "primary-button add-to-cart-button")
+//         productInfoDetail.append(buttonDetail)
+//         buttonDetail.innerText = "Add to cart"
+
+//         const iconAddCartInfo = document.createElement("img")
+//         iconAddCartInfo.setAttribute("src", "./icons/bt_add_to_cart.svg")
+//         buttonDetail.append(iconAddCartInfo)
+//     }
+// }
+
+// creatingProductDetail(productList)
