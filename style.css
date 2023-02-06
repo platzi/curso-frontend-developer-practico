@@ -330,6 +330,7 @@
   }
   .product-info1 {
     margin: 24px 24px 0 24px;
+    background-color: #FFFFFF;
   }
   .product-info1 p:nth-child(1) {
     font-weight: bold;

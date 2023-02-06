@@ -5,6 +5,7 @@
  const menuCarritoIcon = document.querySelector('.iconocarrito')
  const aside = document.querySelector('.product-detail')
  const cardsContainer = document.querySelector('.cards-container');
+ const productoDetail = document.querySelector('.product-detail2')
  
 
 navEmail.addEventListener('click', toggledesktopmenu);
@@ -19,6 +20,12 @@ function togglemobiledesktop(){
   if (!isAsideClosed) {
     aside.classList.add('inactive');
   }
+  const isProductDetailClose = productoDetail.classList.contains('inactive');
+
+   if(!isProductDetailClose){
+      productoDetail.classList.add('inactive')
+   }
+
     mobilemenu.classList.toggle('inactive')
  }
 
@@ -28,6 +35,13 @@ function tagglecarritomenu(){
 
    if(!isMenuclosed){
       mobilemenu.classList.add('inactive')
+   }
+
+
+    const isProductDetailClose = productoDetail.classList.contains('inactive');
+
+   if(!isProductDetailClose){
+      productoDetail.classList.add('inactive')
    }
     aside.classList.toggle('inactive')
  }
@@ -55,6 +69,15 @@ for (product of productList){
 
    const img = document.createElement('img');
    img.setAttribute('src', product.imagen)
+   img.addEventListener('click', openproductdetail)
+   function openproductdetail(){
+    productoDetail.classList.toggle('inactive')
+   }
+   const closeProductDetail = document.querySelector('.product-detail-close')
+   closeProductDetail.addEventListener('click', cerrarproducto)
+   function cerrarproducto(){
+    productoDetail.classList.add('inactive')
+   }
 
    const productPrice = document.createElement('p');
    productPrice.innerText = '$' + product.price;
@@ -73,7 +96,7 @@ for (product of productList){
    productImgCard.setAttribute('src', './icons/bt_add_to_cart.svg')
 
    productInfoFigure.appendChild(productImgCard);
-   productInfoDiv.append(productName, productPrice)
+   productInfoDiv.append(productPrice, productName)
    productInfo.append(productInfoDiv, productInfoFigure)
    productCard.append(img, productInfo)
 
