@@ -13,7 +13,7 @@ const cardsContainer = document.querySelector(".cards-container")
 menuEmail.addEventListener("click", toggleDesktopMenu)
 menuHamIcon.addEventListener("click", toggleMobileMenu)
 shoppingCartMenu.addEventListener("click", toggleShoppingCartAside)
-productDetailCloseIcon.addEventListener("click", closeProductDetailAside)
+// productDetailCloseIcon.addEventListener("click", closeProductDetailAside)
 
 // The next functions are created to show or hide certain cards of the code, and while doing so, closing or opening other elements
 function toggleDesktopMenu() {
@@ -69,13 +69,14 @@ function openProductDetailAside() {
     shoppingCartContainer.classList.add("inactive")
     desktopMenu.classList.add("inactive")
 
-    productDetailContainer.classList.remove("inactive")
-    // detailContainer.classList.remove("inactive")
+    // productDetailContainer.classList.remove("inactive")
+    detailContainer.classList.remove("inactive")
     // productDetail[2].classList.remove("inactive")
 }
 
 function closeProductDetailAside() {
-    productDetailContainer.classList.add("inactive")
+    // productDetailContainer.classList.add("inactive")
+    detailContainer.classList.add("inactive")
 }
 
 // Array created with the products to be shown, so that is not necessary to have them in HTML. Ideally, this must be loaded from a database, but for this course it´s going to be done in this way:
@@ -189,48 +190,48 @@ renderProducts(productList);
 
 // The previous requires this one, which is not practical at all:
 // https://platzi.com/tutoriales/3271-javascript-practico/22434-paso-a-paso-como-darle-interaccion-a-las-cards-de-detalle-de-producto-con-javascript/
-// function creatingProductDetail (array) {
-//     for(card of array){
-//         const productDetail = document.createElement("aside")
-//         productDetail.setAttribute("id", "productDetail")
-//         productDetail.setAttribute("class", "product-detail inactive")
+function creatingProductDetail (array) {
+    for(card of array){
+        const productDetail = document.createElement("aside")
+        productDetail.setAttribute("id", "productDetail")
+        productDetail.setAttribute("class", "product-detail inactive")
 
-//         const detailContainer = document.querySelector(".productDetail-container")
-//         detailContainer.append(productDetail)
+        const detailContainer = document.querySelector(".productDetail-container")
+        detailContainer.append(productDetail)
 
-//         const closeCard = document.createElement("div")
-//         closeCard.setAttribute("class", "product-detail-close")
-//         productDetail.append(closeCard)
+        const closeCard = document.createElement("div")
+        closeCard.setAttribute("class", "product-detail-close")
+        productDetail.append(closeCard)
 
-//         const iconX = document.createElement("img")
-//         iconX.setAttribute("src", "./icons/icon_close.png")
-//         closeCard.append(iconX)
+        const iconX = document.createElement("img")
+        iconX.setAttribute("src", "./icons/icon_close.png")
+        closeCard.append(iconX)
 
-//         const imgDetailProduct = document.createElement("img")
-//         imgDetailProduct.setAttribute("src", card.image)
-//         productDetail.append(imgDetailProduct)
+        const imgDetailProduct = document.createElement("img")
+        imgDetailProduct.setAttribute("src", card.image)
+        productDetail.append(imgDetailProduct)
 
-//         const productInfoDetail = document.createElement("div")
-//         productInfoDetail.setAttribute("class", "product-info")
-//         productDetail.append(productInfoDetail)
+        const productInfoDetail = document.createElement("div")
+        productInfoDetail.setAttribute("class", "product-info")
+        productDetail.append(productInfoDetail)
 
-//         const priceProductInfo = document.createElement("p")
-//         productInfoDetail.append(priceProductInfo)
-//         priceProductInfo.innerText = "$" + card.price
+        const priceProductInfo = document.createElement("p")
+        productInfoDetail.append(priceProductInfo)
+        priceProductInfo.innerText = "$" + card.price
 
-//         const nameProductInfo = document.createElement("p")
-//         productInfoDetail.append(nameProductInfo)
-//         nameProductInfo.innerText = card.name
+        const nameProductInfo = document.createElement("p")
+        productInfoDetail.append(nameProductInfo)
+        nameProductInfo.innerText = card.name
 
-//         const buttonDetail = document.createElement("button")
-//         buttonDetail.setAttribute("class", "primary-button add-to-cart-button")
-//         productInfoDetail.append(buttonDetail)
-//         buttonDetail.innerText = "Add to cart"
+        const buttonDetail = document.createElement("button")
+        buttonDetail.setAttribute("class", "primary-button add-to-cart-button")
+        productInfoDetail.append(buttonDetail)
+        buttonDetail.innerText = "Add to cart"
 
-//         const iconAddCartInfo = document.createElement("img")
-//         iconAddCartInfo.setAttribute("src", "./icons/bt_add_to_cart.svg")
-//         buttonDetail.append(iconAddCartInfo)
-//     }
-// }
+        const iconAddCartInfo = document.createElement("img")
+        iconAddCartInfo.setAttribute("src", "./icons/bt_add_to_cart.svg")
+        buttonDetail.append(iconAddCartInfo)
+    }
+}
 
-// creatingProductDetail(productList)
+creatingProductDetail(productList)
