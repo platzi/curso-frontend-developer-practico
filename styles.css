@@ -80,6 +80,7 @@
     justify-content: center;
     align-items: center;
   }
+  /*Desktop Menu*/
   .desktop-menu {
     position: absolute;
     top: 61px;
@@ -161,4 +162,13 @@
     .navbar-email {
       display: none;
     }
+    .desktop-menu{
+      display: none;
+    }
   }
+  
+@media(min-width: 641px){
+  .mobile-menu {
+    display: none;
+  }
+}
