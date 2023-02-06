@@ -1,0 +1,49 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+    <style>
+        .container{
+            display: flex;
+            gap: 30px;
+        }
+        .element{
+            box-sizing: border-box;
+            width: 100px;
+        }
+        .element img{
+            object-fit: cover;
+            width: 100%;
+        }
+    </style>
+</head>
+<body>
+    <section class="container">
+        <div class="element">
+            <img src="https://images.pexels.com/photos/12300775/pexels-photo-12300775.jpeg?auto=compress&cs=tinysrgb&w=1260&h=750&dpr=1" alt="">
+            <p>Buda locochón</p>
+        </div>
+        <div class="element">
+            <img src="https://images.pexels.com/photos/12300775/pexels-photo-12300775.jpeg?auto=compress&cs=tinysrgb&w=1260&h=750&dpr=1" alt="">
+            <p>Buda locochón</p>
+        </div>
+        <div class="elementNew element"></div>
+    </section>
+    <script>
+        const element = document.querySelector('.element');
+        const elementNew = document.querySelector('.elementNew');
+
+        let img = document.createElement('img');
+        img.setAttribute('src', 'https://images.pexels.com/photos/12300775/pexels-photo-12300775.jpeg?auto=compress&cs=tinysrgb&w=1260&h=750&dpr=1')
+
+        elementNew.appendChild(img);
+        
+
+
+
+    </script>
+</body>
+</html>
