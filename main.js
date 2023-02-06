@@ -13,7 +13,7 @@ const cardsContainer = document.querySelector(".cards-container")
 menuEmail.addEventListener("click", toggleDesktopMenu)
 menuHamIcon.addEventListener("click", toggleMobileMenu)
 shoppingCartMenu.addEventListener("click", toggleShoppingCartAside)
-// productDetailCloseIcon.addEventListener("click", closeProductDetailAside)
+productDetailCloseIcon.addEventListener("click", closeProductDetailAside)
 
 // The next functions are created to show or hide certain cards of the code, and while doing so, closing or opening other elements
 function toggleDesktopMenu() {
@@ -65,18 +65,29 @@ function toggleShoppingCartAside() {
     }
 }
 
-function openProductDetailAside() {
+function openProductDetailAside(e) {
     shoppingCartContainer.classList.add("inactive")
     desktopMenu.classList.add("inactive")
-
-    // productDetailContainer.classList.remove("inactive")
-    detailContainer.classList.remove("inactive")
-    // productDetail[2].classList.remove("inactive")
+    productDetailContainer.classList.remove("inactive")
+    
+    // Changing the information to be shown in the detail card:
+    const productImg = document.querySelector('#img_product');
+    productImg.src = e.target.src
+    
+    const productPrice = document.querySelector('#product_price');
+    productPrice.innerText = e.target.nextElementSibling.firstChild.children[0].innerText
+    
+    const productName = document.querySelector('#product_name');
+    productName.innerText = e.target.nextElementSibling.firstChild.children[1].innerText
+    
+    const descripProd = document.querySelector('#product_description');
+    descripProd.classList.remove("inactive")
+    descripProd.innerText = e.target.nextElementSibling.firstChild.children[2].innerText
 }
 
+
 function closeProductDetailAside() {
-    // productDetailContainer.classList.add("inactive")
-    detailContainer.classList.add("inactive")
+    productDetailContainer.classList.add("inactive")
 }
 
 // Array created with the products to be shown, so that is not necessary to have them in HTML. Ideally, this must be loaded from a database, but for this course it´s going to be done in this way:
@@ -84,43 +95,50 @@ const productList = []
 productList.push({
     name: "Bike",
     price: 120,
-    image: "https://images.pexels.com/photos/276517/pexels-photo-276517.jpeg?auto=compress&cs=tinysrgb&dpr=2&h=650&w=940"
+    image: "https://images.pexels.com/photos/276517/pexels-photo-276517.jpeg?auto=compress&cs=tinysrgb&dpr=2&h=650&w=940",
+    description: "With its practical position, this bike also fulfills a decorative function, add your hall or workspace."
 });
 
 productList.push({
     name: "Screen",
     price: 310,
-    image: "https://images.pexels.com/photos/5861325/pexels-photo-5861325.jpeg?auto=compress&cs=tinysrgb&w=1260&h=750&dpr=1"
+    image: "https://images.pexels.com/photos/5861325/pexels-photo-5861325.jpeg?auto=compress&cs=tinysrgb&w=1260&h=750&dpr=1",
+    description: "The perfect screen to split your code and the visualization of the results."
 });
 
 productList.push({
     name: "Computer",
     price: 2400,
-    image: "https://images.pexels.com/photos/259091/pexels-photo-259091.jpeg?auto=compress&cs=tinysrgb&w=600&lazy=load"
+    image: "https://images.pexels.com/photos/259091/pexels-photo-259091.jpeg?auto=compress&cs=tinysrgb&w=600&lazy=load",
+    description: "Practical and powerful at the same time. The perfect fit when working outside your station."
 });
 
 productList.push({
     name: "Stationery",
     price: 80,
-    image: "https://images.pexels.com/photos/7718747/pexels-photo-7718747.jpeg?auto=compress&cs=tinysrgb&w=1260&h=750&dpr=1"
+    image: "https://images.pexels.com/photos/7718747/pexels-photo-7718747.jpeg?auto=compress&cs=tinysrgb&w=1260&h=750&dpr=1",
+    description: "Never miss an idea, a date or special task to be done in the future. Also you´ll have a way to express yourself and inspire"
 });
 
 productList.push({
     name: "Lamp",
     price: 437,
-    image: "https://images.pexels.com/photos/6029034/pexels-photo-6029034.jpeg?auto=compress&cs=tinysrgb&w=1260&h=750&dpr=1"
+    image: "https://images.pexels.com/photos/6029034/pexels-photo-6029034.jpeg?auto=compress&cs=tinysrgb&w=1260&h=750&dpr=1",
+    description: "Fancy and healthy light when working off the desk, reading a book or simply drinking a beverage."
 });
 
 productList.push({
     name: "Bench",
     price: 689,
-    image: "https://images.pexels.com/photos/4559954/pexels-photo-4559954.jpeg?auto=compress&cs=tinysrgb&w=1260&h=750&dpr=1"
+    image: "https://images.pexels.com/photos/4559954/pexels-photo-4559954.jpeg?auto=compress&cs=tinysrgb&w=1260&h=750&dpr=1",
+    description: "Furniture that resists the elements, allows to share with others and decorate outer spaces."
 });
 
 productList.push({
     name: "Armchair",
     price: 550,
-    image: "https://images.pexels.com/photos/5749125/pexels-photo-5749125.jpeg?auto=compress&cs=tinysrgb&w=1260&h=750&dpr=1"
+    image: "https://images.pexels.com/photos/5749125/pexels-photo-5749125.jpeg?auto=compress&cs=tinysrgb&w=1260&h=750&dpr=1",
+    description: "With this comfortable armchair you´ll never have back pain and will be able to relax when getting away your desktop."
 });
 
 
@@ -135,6 +153,11 @@ function renderProducts(arr) {
         const productImg = document.createElement("img");
         productImg.setAttribute("src", product.image)
         productImg.addEventListener("click", openProductDetailAside)
+
+        // The event will be used to create a bigger card when the product is clicked:
+        productImg.addEventListener("click", (e) => {
+            openProductDetailAside(e)
+        })
     
         const productInfo = document.createElement("div");
         productInfo.classList.add("product-info");
@@ -146,9 +169,15 @@ function renderProducts(arr) {
     
         const productName = document.createElement("p");
         productName.innerText = product.name;
-    
+
+        const productDescription = document.createElement("p");
+        productDescription.innerText = product.description;
+        // The description will be shown only in the detail card:
+        productDescription.classList.add("inactive");
+        
         productInfoDiv.appendChild(productPrice)
         productInfoDiv.appendChild(productName)
+        productInfoDiv.appendChild(productDescription)
     
         const productInfoFigure = document.createElement("figure");
         const productImgCart = document.createElement("img");
@@ -164,17 +193,12 @@ function renderProducts(arr) {
     
         cardsContainer.appendChild(productCard)
 
-        // Clicking on a card to view its details
-        // productCard.addEventListener("click", function (e) {
-        //     console.log("a click was made")
-        //   });
-        // const btnPressed = () => {
-        //     console.log("se hizo click")
-        // } 
-
+        // Understanding how the "target", "nextElementSibling" and "firstChild" properties work:
         // const productPressed = (e) => {
         //     console.log("a click was made on " + e.target.src)
         //     console.log("the next element to the image is " + e.target.nextElementSibling)
+        //     console.log("within the previous element, there are other elements. This is the first one: " + e.target.nextElementSibling.firstChild.children[0].textContent)
+        //     console.log("and this is the second one: " + e.target.nextElementSibling.firstChild.children[1].textContent)
         // } 
 
         // productImg.addEventListener("click", productPressed)
@@ -183,55 +207,3 @@ function renderProducts(arr) {
 
 // // Iterating the array through the function created for this purpose
 renderProducts(productList);
-
-
-// Creating a detailed card when a product is clicked and 
-// Following this alternative: https://platzi.com/tutoriales/3271-javascript-practico/22433-paso-a-paso-como-crear-un-descriptor-de-producto-variable-de-una-tienda-web-para-que-se-adapte-a-cada-producto/
-
-// The previous requires this one, which is not practical at all:
-// https://platzi.com/tutoriales/3271-javascript-practico/22434-paso-a-paso-como-darle-interaccion-a-las-cards-de-detalle-de-producto-con-javascript/
-function creatingProductDetail (array) {
-    for(card of array){
-        const productDetail = document.createElement("aside")
-        productDetail.setAttribute("id", "productDetail")
-        productDetail.setAttribute("class", "product-detail inactive")
-
-        const detailContainer = document.querySelector(".productDetail-container")
-        detailContainer.append(productDetail)
-
-        const closeCard = document.createElement("div")
-        closeCard.setAttribute("class", "product-detail-close")
-        productDetail.append(closeCard)
-
-        const iconX = document.createElement("img")
-        iconX.setAttribute("src", "./icons/icon_close.png")
-        closeCard.append(iconX)
-
-        const imgDetailProduct = document.createElement("img")
-        imgDetailProduct.setAttribute("src", card.image)
-        productDetail.append(imgDetailProduct)
-
-        const productInfoDetail = document.createElement("div")
-        productInfoDetail.setAttribute("class", "product-info")
-        productDetail.append(productInfoDetail)
-
-        const priceProductInfo = document.createElement("p")
-        productInfoDetail.append(priceProductInfo)
-        priceProductInfo.innerText = "$" + card.price
-
-        const nameProductInfo = document.createElement("p")
-        productInfoDetail.append(nameProductInfo)
-        nameProductInfo.innerText = card.name
-
-        const buttonDetail = document.createElement("button")
-        buttonDetail.setAttribute("class", "primary-button add-to-cart-button")
-        productInfoDetail.append(buttonDetail)
-        buttonDetail.innerText = "Add to cart"
-
-        const iconAddCartInfo = document.createElement("img")
-        iconAddCartInfo.setAttribute("src", "./icons/bt_add_to_cart.svg")
-        buttonDetail.append(iconAddCartInfo)
-    }
-}
-
-creatingProductDetail(productList)
