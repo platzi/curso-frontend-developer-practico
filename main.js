@@ -68,6 +68,7 @@ function toggleShoppingCartAside() {
 function openProductDetailAside(e) {
     shoppingCartContainer.classList.add("inactive")
     desktopMenu.classList.add("inactive")
+    mobileMenu.classList.add("inactive")
     productDetailContainer.classList.remove("inactive")
     
     // Changing the information to be shown in the detail card:
