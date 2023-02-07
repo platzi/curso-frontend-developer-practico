@@ -8,7 +8,7 @@ const mobileMenu = document.querySelector('.mobile-menu');
 
 // #03# var Desplegar menu carrito de compras al dar click al icono 
 const menuCarritoIcon = document.querySelector('.navbar-shopping-cart');
-const aside = document.querySelector('.product-detail');
+const shoppingCartContainer = document.querySelector('#shoppingCartContainer');
 // #04# var lista de productos 
 const cardsContainer = document.querySelector('.cards-container');
 
@@ -17,11 +17,11 @@ const cardsContainer = document.querySelector('.cards-container');
 menuEmail.addEventListener('click', toggleDesktopMenu);
 
 function toggleDesktopMenu() {
-    const isAsideClosed = aside.classList.contains('inactive');
+    const isAsideClosed = shoppingCartContainer.classList.contains('inactive');
    
     // En caso de que el menu mobile y el carrito de compras se encuentren los dos abiertos en la vista de mobile y no se solapen el uno con el otro se puede aplicar el siguiente codigo
     if (!isAsideClosed) {
-        aside.classList.add('inactive');
+        shoppingCartContainer.classList.add('inactive');
     }
 
     // al ejecutar la funcion classList.toggle va a quitar o colocar la clase inactive dependiendo del evento click a*adido anteriormente
@@ -35,11 +35,11 @@ console.log('js funcionando');
 burgerIcon.addEventListener('click', toggleMobileMenu);
 
 function toggleMobileMenu() {
-    const isAsideClosed = aside.classList.contains('inactive');
+    const isAsideClosed = shoppingCartContainer.classList.contains('inactive');
    
     // En caso de que el menu mobile y el carrito de compras se encuentren los dos abiertos en la vista de mobile y no se solapen el uno con el otro se puede aplicar el siguiente codigo
     if (!isAsideClosed) {
-        aside.classList.add('inactive');
+        shoppingCartContainer.classList.add('inactive');
     }
 
 
@@ -64,7 +64,7 @@ function toggleCarritoAside() {
         desktopMenu.classList.add('inactive');
     }
     
-    aside.classList.toggle('inactive'); 
+    shoppingCartContainer.classList.toggle('inactive'); 
 }
 
 
