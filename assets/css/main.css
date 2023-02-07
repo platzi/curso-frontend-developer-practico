@@ -95,6 +95,7 @@ nav {
   border: 1px solid var(--very-light-pink);
   border-radius: 6px;
   padding: 20px 20px 0 20px;
+  z-index: 9999;
 }
 .desktop-menu ul {
   list-style: none;
@@ -128,6 +129,9 @@ nav {
   padding: 24px;
   position: absolute;
   top: 60px;
+  background: #fff;
+  width: 90%;
+  left: 0px;
 }
 .mobile-menu a {
   text-decoration: none;
@@ -164,6 +168,8 @@ nav {
   position: absolute;
   right: 0;
   background-color: var(--white);
+  z-index: 9999;
+  padding-bottom: 10px; 
 }
 .title-container {
   display: flex;
@@ -293,11 +299,20 @@ nav {
 .product-detail-close:hover {
   cursor: pointer;
 }
+#product-detail__view{
+  z-index: 9999;
+  left: 50%;
+  transform: translate(-50%);
+  top: 15%;
+  padding: 0;
+  padding-bottom: 10px;
+  border-radius: 8px;
+}
 #product-detail__view > img:nth-child(2) {
   width: 100%;
   height: 360px;
   object-fit: cover;
-  border-radius: 0 0 20px 20px;
+  border-radius: 8px;
 }
 #product-detail__view .product-info {
   margin: 24px 24px 0 24px;
@@ -339,6 +354,23 @@ nav {
   justify-content: center;
 }
 
+.main-container{
+  height: 100vh;
+}
+.main-container.active{
+  position: relative;
+}
+
+.main-container.active:before{
+  position: absolute;
+  content: '';
+  background: #00000073;
+  z-index: 999;
+  top: -20px;
+  left: 0;
+  right: 0;
+  bottom: 0;
+}
 
 @media (max-width: 640px) {
   .menu {
