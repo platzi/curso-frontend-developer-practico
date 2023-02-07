@@ -20,6 +20,8 @@ body {
 
 /* Navbar */
 nav {
+  position: relative;
+  background: #fff;
   display: flex;
   justify-content: space-between;
   padding: 0 24px;
@@ -357,19 +359,13 @@ nav {
 .main-container{
   height: 100vh;
 }
-.main-container.active{
-  position: relative;
-}
 
-.main-container.active:before{
-  position: absolute;
-  content: '';
-  background: #00000073;
-  z-index: 999;
-  top: -20px;
-  left: 0;
-  right: 0;
-  bottom: 0;
+.mask{
+  width: 100%;
+  height: calc(100%);
+  position: fixed;
+  top: 0;
+  background-color: rgba(0, 0, 0, 0.5);
 }
 
 @media (max-width: 640px) {
