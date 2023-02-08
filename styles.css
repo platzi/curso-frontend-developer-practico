@@ -140,13 +140,14 @@ nav {
 /*manu en mobile*/
 
 .mobile-menu {
+  background-color: var(--white);
   padding: 24px;
   position: absolute;
   top: 60px;
 }
 
 .mobile-menu a {
-
+  
   text-decoration: none;
   color: var(--black);
   font-weight: bold;
@@ -177,8 +178,9 @@ nav {
   color: var(--hospital-green) !important;
 }
 
-/* carrito de compras*/
+/* Aside carrito de compras*/
 .product-detail {
+  background-color: var(--white);
   width: 360px;
   padding: 0 24px;
   box-sizing: border-box;
