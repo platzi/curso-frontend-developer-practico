@@ -150,6 +150,7 @@ nav {
 /* Menú en mobile */
 
 .mobile-menu {
+  background-color: var(--white);
     padding: 24px;
     position: absolute;
     top: 60px;
@@ -195,6 +196,7 @@ nav {
     box-sizing: border-box;
     position: absolute;
     right: 0;
+    background-color: var(--white);
   }
   .title-container {
     display: flex;
