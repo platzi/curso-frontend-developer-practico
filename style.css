@@ -2,7 +2,7 @@
 :root {
   --white: #ffffff;
   --black: #000000;
-  --very-light-pink: #c7c7c7;
+  --very-light-pink: #767373;
   --text-input-field: #f7f7f7;
   --hospital-green: #73d27f;
   --red-price: #e91d11;
@@ -34,6 +34,9 @@ nav {
   justify-content: space-between;
   padding: 0 24px;
   border-bottom: 1px solid var(--very-light-pink);
+  position: sticky;
+  top: 0;
+  background-color: var(--white);
 }
 
 .logo {
@@ -177,7 +180,7 @@ nav {
 }
 .shopping-cart {
   display: grid;
-  grid-template-columns: auto 1fr auto auto;
+  grid-template-columns: auto 1fr auto auto auto;
   gap: 16px;
   margin-bottom: 24px;
   align-items: center;
@@ -229,6 +232,10 @@ nav {
   object-fit: cover;
   box-shadow: -3px 2px 7px 1px #b3b3b3;
   cursor: pointer;
+}
+.main-container {
+  padding: 20px 0;
+  background-color: rgb(245, 245, 245);
 }
 .main-container .product-info {
   display: flex;

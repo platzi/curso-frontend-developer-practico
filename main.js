@@ -71,8 +71,45 @@ const productList = [
     price: 3199,
     image: 'https://static.nike.com/a/images/t_prod_ss/w_640,c_limit,f_auto/489eade7-34d8-40e4-a5d0-865c83b9133f/fecha-de-lanzamiento-del-dunk-low-year-of-the-rabbit-fd4203-161.jpg',
     description: 'Oh, dulce nostalgia. Inspirada en el AF1 "Year of the Rabbit" de 2011 con temática de dulces, esta colección Dunk está espolvoreada con regalos llamativos que aluden a ciudades representativas de China.'
+  },
+  {
+    id: 11,
+    name: 'Dunk Low El año del conejo',
+    price: 3199,
+    image: 'https://static.nike.com/a/images/t_prod_ss/w_640,c_limit,f_auto/489eade7-34d8-40e4-a5d0-865c83b9133f/fecha-de-lanzamiento-del-dunk-low-year-of-the-rabbit-fd4203-161.jpg',
+    description: 'Oh, dulce nostalgia. Inspirada en el AF1 "Year of the Rabbit" de 2011 con temática de dulces, esta colección Dunk está espolvoreada con regalos llamativos que aluden a ciudades representativas de China.'
+  },
+  {
+    id: 12,
+    name: 'Air Jordan 2 para mujer Sunset Haze',
+    price: 4899,
+    image: 'https://static.nike.com/a/images/t_prod_ss/w_640,c_limit,f_auto/7397bad5-aad0-41b7-8544-b9f92c199032/fecha-de-lanzamiento-del-air-jordan-2-sunset-haze-para-mujer-dx4400-118.jpg',
+    description: '¿Buscas un clásico de uso diario que pueda completar un atuendo o aportar estilo con facilidad? Este AJ2 combina tonos neutros elegantes con detalles sutiles (el color puesta de sol neblina en la suela y el ribete destaca de maravilla) para que cuentes con un calzado sofisticado y listo para todo.'
+  },
+  {
+    id: 13,
+    name: 'Air Force 1 Low x Premium Goods para mujer The Sophia',
+    price: 3599,
+    image: 'https://static.nike.com/a/images/t_prod_ss/w_640,c_limit,f_auto/a48ae694-f7df-400d-bd02-3446e2886693/fecha-de-lanzamiento-del-air-force-1-low-premium-goods-the-sophia-para-mujer-dv2957-001.jpg',
+    description: 'El siguiente paso es tuyo en el Air Force 1 x Premium Goods "Sophia". Inspirado en el amor de Jennifer Ford por las joyas, así como en su trabajo en el pasado con ellas, este calzado reinventa el diseño icónico desde la perspectiva del lujo de alta calidad.'
+  },
+  {
+    id: 14,
+    name: 'AJKO 1 Low x UNION White',
+    price: 3699,
+    image: 'https://static.nike.com/a/images/t_prod_ss/w_640,c_limit,f_auto/2fc7378c-8b90-445b-a2ba-e94de9e7f58d/fecha-de-lanzamiento-del-ajko-1-low-x-union-white-do8912-101.jpg',
+    description: 'Mírate en el espejo, es increíble. Regresa a la era de los radiocasetes, el denim con acabado lavado con ácido y el traje Flight original, el primer AJKO 1 Low te conecta al estilo fuera de la cancha de los 80.'
+  },
+  {
+    id: 15,
+    name: 'Tennis Montain Bike',
+    price: 2200,
+    image: 'https://assets.adidas.com/images/h_840,f_auto,q_auto,fl_lossy,c_fill,g_auto/8ea578f6c07847fca2d0ac85011d7f1f_9366/Tenis_para_Mountain_Bike_Five_Ten_Freerider_Negro_FW2835_01_standard.jpg',
+    description: 'Lorem ipsum dolor sit amet consectetur adipisicing elit. Soluta quaerat perferendis atque tempore tenetur, facilis architecto facere'
   }
 ];
+
+let listShoppingCart = [];
 
 let navEmail = document.querySelector('.navbar-email'),
   deskMenu = document.querySelector('.desktop-menu'),
@@ -136,6 +173,26 @@ function GenerateProductDetail(event) {
   });
 }
 
+// * Permite agregar el producto al carrito de compras
+function addProductToShoppingCart(event) {
+  let identifyProduct = event.target.attributes.value.value;
+  let productToShopping = {
+    id: identifyProduct,
+    name: productList[identifyProduct - 1].name,
+    image: productList[identifyProduct - 1].image,
+    price: productList[identifyProduct - 1].price,
+    pricetotal: productList[identifyProduct - 1].price,
+    quantity: 1
+  }
+
+  let content = validateProductToAddToShoppingCart(identifyProduct);
+  if (content === false) {
+    listShoppingCart.push(productToShopping);
+  }
+
+  console.log(listShoppingCart);
+}
+
 // * Permite generar el listado de productos
 function renderProducts(arr) {
   const cardContainer = document.querySelector('.cards-container');
@@ -153,13 +210,23 @@ function renderProducts(arr) {
 
     // * Se agregan complementos al html
     productCard.classList.add('product-card', `key-${products.id}`);
-    productImages.setAttribute('src', products.image);
     productImages.addEventListener('click', showProductDetail);
+    AddListAttr(productImages, {
+      'src': products.image,
+      'alt': products.name,
+      'title': products.name,
+      'with': '240',
+      'height': '240'
+    });
+
     productInfo.classList.add('product-info');
     productName.textContent = products.name;
     productPrice.textContent = priceFormatted(products.price);
-    productIconCart.setAttribute('src', './icons/bt_add_to_cart.svg');
-    productIconCart.setAttribute('value', products.id);
+    AddListAttr(productIconCart, {
+      'src': './icons/bt_add_to_cart.svg',
+      'value': products.id
+    });
+    productIconCart.addEventListener('click', addProductToShoppingCart);
 
     // * Se le da estructura al html generado
     productInfoDiv.append(productName, productPrice);
@@ -176,6 +243,67 @@ function renderProducts(arr) {
 }
 
 renderProducts(productList);
+
+// * Permite generar listado de productos que se encuentran en el carrito
+function renderProductsShoppingCart(array) {
+  const shoppingCartContent = document.querySelector('.shopping-cart-content'),
+    shoppingCartTotalToPay = document.querySelector('.order-total-to-pay');
+
+  let toRender = [];
+  for (let products of array) {
+    // * Creacion de elementos html
+    const productShoppingCard = document.createElement('div'),
+      productShoppingFigure = document.createElement('figure'),
+      prodcutShoppingImage = document.createElement('img'),
+      productShoppingName = document.createElement('p'),
+      productShoppingQuantity = document.createElement('p'),
+      productShoppingPrice = document.createElement('p'),
+      productShoppingIcon = document.createElement('img');
+
+    //* Se agregan complementos al HTML
+    productShoppingCard.classList.add('shopping-cart', `key-${products.id}`);
+    AddListAttr(prodcutShoppingImage, {
+      'src': products.image,
+      'alt': product.name,
+      'width': 70,
+      'height': 70
+    });
+    productShoppingName.textContent = products.name;
+    productShoppingQuantity = products.quantity;
+    productShoppingPrice.textContent = products.price;
+
+
+  }
+
+}
+
+
+//* validamos que el producto no exista en el carrito de compras para agregarlo
+function validateProductToAddToShoppingCart(identifyProduct) {
+  let productToAdd = false;
+  if (listShoppingCart.length > 0) {
+    listShoppingCart.find(product => {
+      if (product.id === identifyProduct) {
+        let baseprice = product.price,
+          incrementQuantity = product.quantity + 1,
+          totalToPay = updateTotalandQuantityProduct(incrementQuantity, baseprice);
+        product.quantity = incrementQuantity;
+        product.pricetotal = totalToPay;
+        productToAdd = true;
+      } else {
+        productToAdd = false;
+      }
+    });
+  }
+
+  return productToAdd;
+}
+
+//* Realiza suma de total a pagar por un producto
+function updateTotalandQuantityProduct(quantity, price) {
+  let total = quantity * price;
+  return total;
+}
 
 // * Permite darle formato al precio
 function priceFormatted(price) {
