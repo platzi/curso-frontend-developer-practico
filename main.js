@@ -81,7 +81,7 @@ function renderProducts(arr) {
   for (product of arr) {
     const productCard = document.createElement('div');
     productCard.classList.add('product-card');
-  
+    
     // product= {name, price, image} -> product.image
     const productImg = document.createElement('img');
     productImg.setAttribute('src', product.image);
