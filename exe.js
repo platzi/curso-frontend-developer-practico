@@ -8,4 +8,9 @@ function toggleDesktopMenu() {
     console.log("asd");
 }
 
+const mobileicon = document.querySelector('.menu');
+const mobilemenu = document.querySelector(".mobile-menu");
 
+mobileicon.addEventListener("click",()=>{
+    mobilemenu.toggleAttribute("hidden")
+});
