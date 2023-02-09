@@ -62,10 +62,10 @@ nav {
   color: var(--very-light-pink);
   font-size: var(--sm);
   margin-right: 12px;
+  cursor: pointer;
 }
 #email-arrow-menu {
-  margin-right: 20px;
-  cursor: pointer;
+  margin-right: 8px;
 }
 .arrow-down {
   transform: rotate(90deg);
@@ -131,6 +131,48 @@ nav {
   display: inline-block;
 }
 
+.mobile-menu {
+  background: var(--white);
+  position: absolute;
+  top: 62px;
+  padding: 24px;
+
+}
+.mobile-menu a {
+  text-decoration: none;
+  color: var(--black);
+  font-weight: bold;
+  /* margin-bottom: 24px; */
+}
+.mobile-menu ul {
+  padding: 0;
+  margin: 24px 0 0;
+  list-style: none;
+}
+.mobile-menu ul:nth-child(1) {
+  border-bottom: 1px solid var(--very-light-pink);
+  /* linea separadora */
+}
+.mobile-menu ul li {
+  margin-bottom: 24px;
+}
+.email {
+  font-size: var(--sm);
+  font-weight: 300 !important;
+  /* solo usar en estos casos estrictamente necesario */
+}
+.sign-out {
+  font-size: var(--sm);
+  color: var(--hospital-green) !important;
+}
+/* Reto separacion final */
+.mobile-menu ul:last-child {
+  position: absolute;
+  /* asegurar que el padre no sea static para
+  que se posicione a partir de este */
+  bottom: 4px;
+}
+
 @media (max-width: 800px) {
   .menu {
     display: block;
@@ -139,6 +181,15 @@ nav {
     display: none;
   }
   .navbar-email {
+    display: none;
+  }
+  .desktop-menu{
+    display: none;
+  }
+}
+
+@media (min-width: 801px){
+  .mobile-menu{
     display: none;
   }
 }
