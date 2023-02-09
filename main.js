@@ -4,6 +4,8 @@ const menuCarritoIcon = document.querySelector(".navbar-shopping-cart");
 const desktopMenu = document.querySelector(".desktop-menu");
 const mobileMenu = document.querySelector(".mobile-menu");
 const shoppingCardContainer = document.querySelector("#shoppingCardContainer");
+const productDetailContainer = document.querySelector("#productDetail");
+
 const cardsContainer = document.querySelector(".cards-container");
 menuEmail.addEventListener("click", toggleDesktopMenu);
 menuHamIcon.addEventListener("click", toggleMobileMenu);
@@ -52,14 +54,22 @@ function renderProducts(arr) {
 		const productCard = document.createElement("div");
 		productCard.classList.add("product-card");
 		const productImg = document.createElement("img");
+
 		productImg.setAttribute("src", product.image);
 		const productInfo = document.createElement("div");
+		productImg.addEventListener("click", openProductDetailAside);
+		function openProductDetailAside() {
+			productDetailContainer.classList.remove("inactive");
+		}
+
 		productInfo.classList.add("product-info");
 		const productInfoDiv = document.createElement("div");
+
 		const productPrice = document.createElement("p");
 		productPrice.innerText = "$" + product.price;
 		const productName = document.createElement("p");
 		productName.innerText = product.name;
+
 		productInfoDiv.appendChild(productPrice);
 		productInfoDiv.appendChild(productName);
 		const productInfoFigure = document.createElement("figure");
