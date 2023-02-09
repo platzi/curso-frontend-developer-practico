@@ -5,7 +5,7 @@ const carritoMenu = document.querySelector(".navbar-shopping-cart");
 
 const burgerMob = document.querySelector(".menu");
 const mobMenu = document.querySelector(".mobile-menu");
-const aside = document.querySelector(".product-detail");
+const shoppingCartContainer = document.querySelector("#shoppingCartContainer");
 const cardsContainer = document.querySelector(".cards-container");
 
 // Agregamos evento click a funcion
@@ -16,19 +16,19 @@ carritoMenu.addEventListener("click", toggleCarritoMenu);
 
 // Funciones con las cuales intereactuaran los clicks
 function toggleDesktopMenu() {
-  aside.classList.add("inactive"); //Agrega la clase "inactive" al elemento
+  shoppingCartContainer.classList.add("inactive"); //Agrega la clase "inactive" al elemento
   desktopMenu.classList.toggle("inactive"); //Agrega el cambio de un estado a otro del elemento
 }
 
 function toggleMobileMenu() {
-  aside.classList.add("inactive");
+  shoppingCartContainer.classList.add("inactive");
   mobMenu.classList.toggle("inactive");
 }
 
 function toggleCarritoMenu() {
   mobMenu.classList.add("inactive");
   desktopMenu.classList.add("inactive");
-  aside.classList.toggle("inactive");
+  shoppingCartContainer.classList.toggle("inactive");
 }
 
 //Creamos lista de productos "vacia"
