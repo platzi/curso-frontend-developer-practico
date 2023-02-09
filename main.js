@@ -280,23 +280,18 @@ function renderProductsShoppingCart(array) {
 
 //* validamos que el producto no exista en el carrito de compras para agregarlo
 function validateProductToAddToShoppingCart(identifyProduct) {
-  let productToAdd = false;
-  if (listShoppingCart.length > 0) {
-    listShoppingCart.find(product => {
-      if (product.id === identifyProduct) {
-        let baseprice = product.price,
-          incrementQuantity = product.quantity + 1,
-          totalToPay = updateTotalandQuantityProduct(incrementQuantity, baseprice);
-        product.quantity = incrementQuantity;
-        product.pricetotal = totalToPay;
-        productToAdd = true;
-      } else {
-        productToAdd = false;
-      }
-    });
-  }
-
-  return productToAdd;
+  let productFound = false;
+  listShoppingCart.forEach(product => {
+    if (product.id == identifyProduct) {
+      productFound = true;
+      let basePrice = product.price,
+        incrementQuantity = product.quantity + 1,
+        totalPay = updateTotalandQuantityProduct(incrementQuantity, basePrice);
+      product.quantity = incrementQuantity;
+      product.pricetotal = totalPay;
+    }
+  });
+  return productFound;
 }
 
 //* Realiza suma de total a pagar por un producto
