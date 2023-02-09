@@ -95,7 +95,7 @@ nav {
 }
 
 /* Aside(product detail y carrito) */
-.product-detail {
+aside {
 	background-color: var(--white);
 	width: 360px;
 	padding: 0 24px;
@@ -188,7 +188,7 @@ nav {
 		display: none;
 	}
 
-	.product-detail {
+	aside {
 		width: 100%;
 	}
 	.cards-container {
