@@ -293,7 +293,7 @@ aside {
   margin-top: 0;
   margin-bottom: 36px;
 }
-.primary-button {
+/* .primary-button {
   background-color: var(--hospital-green);
   border-radius: 8px;
   border: none;
@@ -303,7 +303,7 @@ aside {
   font-size: var(--md);
   font-weight: bold;
   height: 50px;
-}
+} */
 .add-to-cart-button {
   display: flex;
   align-items: center;
