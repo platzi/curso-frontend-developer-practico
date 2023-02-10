@@ -18,12 +18,18 @@ mobileicon.addEventListener("click",()=>{
     if (!shoppingmenu.hasAttribute("hidden")) {  
         shoppingmenu.toggleAttribute("hidden");
     } 
+    if (!productDetails.hasAttribute("hidden")) {
+        productDetails.toggleAttribute("hidden");
+    }
     mobilemenu.toggleAttribute("hidden");
 });
 
 shoppingicon.addEventListener("click", ()=>{
     if (!mobilemenu.hasAttribute("hidden")) {
         mobilemenu.toggleAttribute("hidden");
+    }
+    if (!productDetails.hasAttribute("hidden")) {
+        productDetails.toggleAttribute("hidden");
     }
     shoppingmenu.toggleAttribute("hidden");
      
@@ -100,4 +106,41 @@ for (const product of productList) {
     const cardsConteiner = document.querySelector(".cards-container");
     cardsConteiner.appendChild(produdctCard);
 
+    img.addEventListener("click", ()=>{
+        renderDetails(product);
+    });
+
+
 }
+const productDetails = document.querySelector(".product-details");
+
+function renderDetails(product) {
+    if (!shoppingmenu.hasAttribute("hidden")) {  
+        shoppingmenu.toggleAttribute("hidden");
+    } 
+    if (productDetails.hasAttribute("hidden")) { 
+        productDetails.toggleAttribute("hidden");
+    }
+
+    const namepro = document.getElementById("name");
+    namepro.innerText = product.name;
+
+    const pricepro = document.getElementById("price");
+    pricepro.innerText = "$"+ product.price;
+
+    const imgpro = document.getElementById("productimg");
+    imgpro.src = product.img;
+
+    console.log(product);
+    
+}
+
+
+
+const productDetailsClose = document.querySelector(".product-details-close");
+productDetailsClose.addEventListener("click", ()=>{
+    if (!productDetails.hasAttribute("hidden")) {
+        productDetails.toggleAttribute("hidden");
+    }
+});
+    
