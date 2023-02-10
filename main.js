@@ -10,9 +10,8 @@ const mobileMenu = document.querySelector('.mobile-menu');
 
 // Variable para Menu carrito de compras
 const menuCarIcon = document.querySelector('.navbar-shopping-cart');
-const aside = document.querySelector('.product-detail');
-const cardsContainer = document.querySelector('.cards-container')
-
+const shoppingCartContainer= document.querySelector('#shoppingCartContainer');
+const cardsContainer = document.querySelector('.cards-container');
 //Eventos
 
 //Desktop
@@ -30,9 +29,9 @@ menuCarIcon.addEventListener('click', togleCarritoAside);
 //Desktop
 function toggleDesktopMenu() {
 
-    const isAsideClosed = aside.classList.contains('inactive');
+    const isAsideClosed = shoppingCartContainer.classList.contains('inactive');
     if (!isAsideClosed) {
-        aside.classList.add('inactive');
+        shoppingCartContainer.classList.add('inactive');
     }
     desktopMenu.classList.toggle('inactive');
 
@@ -41,10 +40,10 @@ function toggleDesktopMenu() {
 //Mobil
 function toggleMobilMenu() {
 
-    const isAsideClosed = aside.classList.contains('inactive');
+    const isAsideClosed =shoppingCartContainer.classList.contains('inactive');
 
     if (!isAsideClosed) {
-        aside.classList.add('inactive');
+        shoppingCartContainer.classList.add('inactive');
     }
     mobileMenu.classList.toggle('inactive');
 }
@@ -62,7 +61,7 @@ function togleCarritoAside() {
         desktopMenu.classList.add('inactive');//oculta los nodos Desktop
     }
 
-    aside.classList.toggle('inactive');
+    shoppingCartContainer.classList.toggle('inactive');
 }
 
 
@@ -121,13 +120,13 @@ function renderProducts(arr) {
         productInfoFigure.appendChild(productImgCart);
 
         //forma corta 
-        productInfo.append(productInfoDiv,productInfoFigure);
+        productInfo.append(productInfoDiv, productInfoFigure);
 
         // productInfo.appendChild(productInfoDiv);
         // productInfo.appendChild(productInfoFigure);
 
         //forma corta 
-        productCard.append(productImg,productCard);
+        productCard.append(productImg, productInfo);
         // productCard.appendChild(productImg);
         // productCard.appendChild(productInfo);
 
