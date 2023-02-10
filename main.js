@@ -89,9 +89,9 @@ function closeProductDetailAside(){
 const productList = [];//array 
 //objetos
 productList.push({
-    name: 'Bike',
+    name: 'Computador Portatil',
     price: 120,
-    image: 'https://images.pexels.com/photos/276517/pexels-photo-276517.jpeg?auto=compress&cs=tinysrgb&dpr=2&h=650&w=940',
+    image: 'https://img.freepik.com/psd-gratis/maqueta-portatil-aislada_1310-1458.jpg?w=740&t=st=1676056456~exp=1676057056~hmac=9a717a990a8782fb6ff5085af537712ca0a53aab31cc21bcf794afca297bb863',
 });
 productList.push({
     name: 'Pantalla',
@@ -99,10 +99,36 @@ productList.push({
     image: 'https://images.pexels.com/photos/276517/pexels-photo-276517.jpeg?auto=compress&cs=tinysrgb&dpr=2&h=650&w=940',
 });
 productList.push({
-    name: 'Compu',
+    name: 'Teclado',
     price: 620,
-    image: 'https://images.pexels.com/photos/276517/pexels-photo-276517.jpeg?auto=compress&cs=tinysrgb&dpr=2&h=650&w=940',
+    image: 'https://img.freepik.com/foto-gratis/boton-teclado_1203-9150.jpg?w=740&t=st=1676057057~exp=1676057657~hmac=3bd66a06fe639ee7360f6de08e27b3a86447c74ffbc5d2172bc4d3f62e4d0510',
 });
+productList.push({
+    name: 'smartphone',
+    price: 300,
+    image: 'https://images.pexels.com/photos/3934704/pexels-photo-3934704.jpeg?auto=compress&cs=tinysrgb&w=1260&h=750&dpr=1',
+});
+productList.push({
+    name: 'Audífonos',
+    price: 220,
+    image: 'https://images.pexels.com/photos/14935011/pexels-photo-14935011.jpeg',
+});
+productList.push({
+    name: 'Guitarra',
+    price: 620,
+    image: 'https://images.pexels.com/photos/3428498/pexels-photo-3428498.jpeg?auto=compress&cs=tinysrgb&w=1260&h=750&dpr=1',
+});
+productList.push({
+    name: 'Saxofón',
+    price: 620,
+    image: 'https://images.pexels.com/photos/12457442/pexels-photo-12457442.jpeg?auto=compress&cs=tinysrgb&w=1260&h=750&dpr=1',
+});
+productList.push({
+    name: 'Tablet',
+    price: 620,
+    image: 'https://images.pexels.com/photos/1334597/pexels-photo-1334597.jpeg?auto=compress&cs=tinysrgb&w=1260&h=750&dpr=1',
+});
+
 
 //Crear Maquetacion HTML
 
