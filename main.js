@@ -6,29 +6,43 @@ const carritoMenu = document.querySelector(".navbar-shopping-cart");
 const burgerMob = document.querySelector(".menu");
 const mobMenu = document.querySelector(".mobile-menu");
 const shoppingCartContainer = document.querySelector("#shoppingCartContainer");
+const productDetailContainer = document.querySelector("#product-detail");
 const cardsContainer = document.querySelector(".cards-container");
-
-// Agregamos evento click a funcion
+const closeDetail = document.querySelector(".product-detail-close");
 
 menuEmail.addEventListener("click", toggleDesktopMenu);
 burgerMob.addEventListener("click", toggleMobileMenu);
 carritoMenu.addEventListener("click", toggleCarritoMenu);
+closeDetail.addEventListener("click", closeDetailProduct);
 
 // Funciones con las cuales intereactuaran los clicks
 function toggleDesktopMenu() {
+  productDetailContainer.classList.add("inactive");
   shoppingCartContainer.classList.add("inactive"); //Agrega la clase "inactive" al elemento
   desktopMenu.classList.toggle("inactive"); //Agrega el cambio de un estado a otro del elemento
 }
 
 function toggleMobileMenu() {
+  productDetailContainer.classList.add("inactive");
   shoppingCartContainer.classList.add("inactive");
   mobMenu.classList.toggle("inactive");
 }
 
 function toggleCarritoMenu() {
+  productDetailContainer.classList.add("inactive");
   mobMenu.classList.add("inactive");
   desktopMenu.classList.add("inactive");
   shoppingCartContainer.classList.toggle("inactive");
+}
+function openDetailProduct() {
+  mobMenu.classList.add("inactive");
+  desktopMenu.classList.add("inactive");
+  shoppingCartContainer.classList.add("inactive");
+  productDetailContainer.classList.remove("inactive");
+}
+
+function closeDetailProduct() {
+  productDetailContainer.classList.add("inactive");
 }
 
 //Creamos lista de productos "vacia"
@@ -82,6 +96,7 @@ function renderProducts(arr) {
 
     //Modificamos el src de la etiqueta img creada y almacenado en la constante
     img.setAttribute("src", product.image);
+    img.addEventListener("click", openDetailProduct);
 
     // Creamos una etiqueta div y almacenamos en una constante
     const productInfo = document.createElement("div");
