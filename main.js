@@ -56,22 +56,35 @@ function closeProducDetailAside()
 }
 
 
-const productList = [];
-productList.push({
-  name: 'Bike', 
-  price: 399,
-  image: 'https://images.pexels.com/photos/276517/pexels-photo-276517.jpeg?auto=compress&cs=tinysrgb&dpr=2&h=650&w=940',
-});
-productList.push({
-  name: 'Laptop - HP', 
-  price: 2255,
-  image: 'https://http2.mlstatic.com/D_NQ_NP_906217-MPE53641734281_022023-O.webp',
-});
-productList.push({
-  name: 'Consola Playstation 5', 
-  price: 3249,
-  image: 'https://http2.mlstatic.com/D_NQ_NP_701578-MPE53672957563_022023-O.webp',
-});
+const productList = [
+  {
+    name: 'Bike', 
+    price: 399,
+    image: 'https://images.pexels.com/photos/276517/pexels-photo-276517.jpeg?auto=compress&cs=tinysrgb&dpr=2&h=650&w=940',
+  },
+  {
+    name: 'Laptop - HP', 
+    price: 2255,
+    image: 'https://http2.mlstatic.com/D_NQ_NP_906217-MPE53641734281_022023-O.webp',
+  },
+  {
+    name: 'Consola Playstation 5', 
+    price: 3249,
+    image: 'https://http2.mlstatic.com/D_NQ_NP_701578-MPE53672957563_022023-O.webp',
+  },
+  {
+    name: 'Celular Xiaomi', 
+    price: 1299,
+    image: 'https://http2.mlstatic.com/D_NQ_NP_839606-MPE53689823176_022023-O.webp',
+  },
+  {
+    name: 'Celular iPhone 11', 
+    price: 2089,
+    image: 'https://http2.mlstatic.com/D_NQ_NP_971592-MPE46928623765_072021-O.webp',
+  },
+];
+
+
 
 
 
