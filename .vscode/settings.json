@@ -1,0 +1,8 @@
+{
+    "conventionalCommits.scopes": [
+        "maquetacion"
+    ],
+    "githubPullRequests.ignoredPullRequestBranches": [
+        "main"
+    ]
+}
