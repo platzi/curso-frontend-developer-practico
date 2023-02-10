@@ -12,6 +12,11 @@ const mobileMenu = document.querySelector('.mobile-menu');
 const menuCarIcon = document.querySelector('.navbar-shopping-cart');
 const shoppingCartContainer= document.querySelector('#shoppingCartContainer');
 const cardsContainer = document.querySelector('.cards-container');
+
+const productDetailContainer=document.querySelector('#productDetail');
+const productDetailCloseIcon=document.querySelector('.product-detail-close');
+
+
 //Eventos
 
 //Desktop
@@ -23,7 +28,7 @@ menuHamIcon.addEventListener('click', toggleMobilMenu);
 //carrito
 menuCarIcon.addEventListener('click', togleCarritoAside);
 
-
+productDetailCloseIcon.addEventListener('click', closeProductDetailAside);
 //funciones
 
 //Desktop
@@ -46,24 +51,40 @@ function toggleMobilMenu() {
         shoppingCartContainer.classList.add('inactive');
     }
     mobileMenu.classList.toggle('inactive');
+
+    closeProductDetailAside();
 }
 
+//funciones 
 //icon cart
 function togleCarritoAside() {
     //Declaración de variables 
     const ismobileMenuClosed = mobileMenu.classList.contains('inactive');
     const ismenuDesktopClosed = desktopMenu.classList.contains('inactive');
-
+    const isProductDeatilClosed=productDetailContainer.classList.contains('inactive');
+    
     if (!ismobileMenuClosed) {
         mobileMenu.classList.add('inactive'); //oculta los nodos mobil
     }
     if (!ismenuDesktopClosed) {
         desktopMenu.classList.add('inactive');//oculta los nodos Desktop
     }
+    if(!isProductDeatilClosed){
+        productDetailContainer.classList.add('inactive');//oculta el nodo de detalle producto
+    }
 
     shoppingCartContainer.classList.toggle('inactive');
 }
 
+function openProductDetailAside(){
+    shoppingCartContainer.classList.add('inactive');
+    productDetailContainer.classList.remove('inactive');
+
+}
+
+function closeProductDetailAside(){
+    productDetailContainer.classList.add('inactive');
+}
 
 const productList = [];//array 
 //objetos
@@ -92,8 +113,8 @@ function renderProducts(arr) {
 
         // product= {name, price, image} -> product.image
         const productImg = document.createElement('img');//Crea el elemento de IMG
-        productImg.setAttribute('src', product.image);//Añade  el atributo src  y luego su valor de la imagen que esta 
-        //en la lista de productList 
+        productImg.setAttribute('src', product.image);//Añade  el atributo src  y luego su valor de la imagen que esta en la lista de productList 
+        productImg.addEventListener('click',openProductDetailAside);
 
         const productInfo = document.createElement('div');//Crea el contenedor DIV
         productInfo.classList.add('product-info'); //Añade la clase product-info al contenedor 
