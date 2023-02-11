@@ -2,30 +2,45 @@ const navEmail = document.querySelector('.navbar-email');
 const desktopMenu = document.querySelector('.desktop-menu');
 const menuIcon = document.querySelector('.menu');
 const mobileMenu = document.querySelector('.mobile-menu');
-const shoppingCart = document.querySelector('.navbar-shopping-cart');
-const asideProduct = document.querySelector('.product-detail');
+const menuCarritoIcon = document.querySelector('.navbar-shopping-cart');
+const shoppingCartContainer = document.querySelector('#shoppingCartContainer');
 const cardsContainer = document.querySelector('.cards-container');
 
 menuIcon.addEventListener('click', toggleMobileMenu);
 
-shoppingCart.addEventListener('click', toggleProducts);
+menuCarritoIcon.addEventListener('click', toggleProducts);
 
 navEmail.addEventListener('click', toggleDesktopMenu);
 
-function toggleDesktopMenu(){
-    asideProduct.classList.add('inactive');
+function toggleDesktopMenu () {
+
+    const isDesktopMenuClosed = desktopMenu.classList.contains('inactive');
+    if (isDesktopMenuClosed) {
+        shoppingCartContainer.classList.add('inactive');
+    }
     desktopMenu.classList.toggle('inactive');
+
 }
 
-function toggleMobileMenu(){
-    asideProduct.classList.add('inactive');
+function toggleMobileMenu () {
+
+    const isMobileMenuClosed = mobileMenu.classList.contains('inactive');
+    if (isMobileMenuClosed) { 
+        shoppingCartContainer.classList.add('inactive');
+    }
     mobileMenu.classList.toggle('inactive');
+
 }
 
-function toggleProducts(){
-    desktopMenu.classList.add('inactive');
-    mobileMenu.classList.add('inactive');
-    asideProduct.classList.toggle('inactive');
+function toggleProducts () {
+
+    const isShoppingCartClosed = shoppingCartContainer.classList.contains('inactive');
+    if (isShoppingCartClosed) {
+        mobileMenu.classList.add('inactive');
+        desktopMenu.classList.add('inactive');
+    }
+    shoppingCartContainer.classList.toggle('inactive');
+
 }
 
 const productList = [];
@@ -47,7 +62,7 @@ productList.push({
     image: 'https://images.pexels.com/photos/276517/pexels-photo-276517.jpeg?auto=compress&cs=tinysrgb&dpr=2&h=650&w=940'
 })
 
-function renderProducts (arr){
+function renderProducts (arr) {
     for (product of arr){
 
         const productCard = document.createElement('div');
