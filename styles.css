@@ -151,9 +151,11 @@ nav {
 
 .mobile-menu {
   background-color: var(--white);
-    padding: 24px;
-    position: absolute;
-    top: 60px;
+  padding: 24px;
+  position: absolute;
+  top: 60px;
+  left: 0;
+  width: 100%;
 }
 
 .mobile-menu a {
