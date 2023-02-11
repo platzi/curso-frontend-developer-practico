@@ -180,7 +180,7 @@ nav {
 
 /* Aside (Product detail y carrito)*/
 
-.product-detail {
+aside {
   background-color: var(--white);
   width: 360px;
   padding: 0 24px;
@@ -271,7 +271,7 @@ nav {
 
 /* Product List */
 .cards-container {
-  margin-top: 25px;
+  margin-top: 30px;
   display: grid;
   grid-template-columns: repeat(auto-fill, 240px);
   gap: 26px;
@@ -336,7 +336,7 @@ nav {
     display: none;
   }
 
-  .product-detail {
+  aside {
     width: 100%;
   }
 
