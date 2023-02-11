@@ -5,12 +5,12 @@ const desktopMenu = document.querySelector(".desktop-menu");
 email.addEventListener("click", ToggleDesktopMenu);
 
 function ToggleDesktopMenu() {
-  const isAsideClosed = !asideMenu.classList.contains("inactive");
+  const isCartClosed = !cartMenu.classList.contains("oculto-menu-cart");
 
-  if (isAsideClosed) {
-    asideMenu.classList.add("ocultoMenuCart");
+  if (isCartClosed) {
+    cartMenu.classList.add("oculto-menu-cart");
   }
-  desktopMenu.classList.toggle("ocultoMenuDesktop");
+  desktopMenu.classList.toggle("oculto-menu-desktop");
 }
 
 // Burguer Menu
@@ -21,33 +21,68 @@ const mobileMenu = document.querySelector(".mobile-menu");
 burguerIcon.addEventListener("click", ToggleMobileMenu);
 
 function ToggleMobileMenu() {
-  const isAsideClosed = !asideMenu.classList.contains("inactive");
+  const isCartClosed = !cartMenu.classList.contains("oculto-menu-cart");
 
-  if (isAsideClosed) {
-    asideMenu.classList.add("ocultoMenuCart");
+  if (isCartClosed) {
+    cartMenu.classList.add("oculto-menu-cart");
   }
-  mobileMenu.classList.toggle("ocultoMenuMobile");
+  mobileMenu.classList.toggle("oculto-menu-mobile");
 }
 
 // Cart Menu
 
 const cartIcon = document.querySelector(".navbar-shopping-cart");
-const asideMenu = document.querySelector(".product-detail");
+const cartMenu = document.querySelector(".product-cart");
 
 cartIcon.addEventListener("click", ToggleCartMenu);
 
 function ToggleCartMenu() {
-  const isMobileClosed = !mobileMenu.classList.contains("ocultoMenuMobile");
-  const isDesktopClosed = !desktopMenu.classList.contains("ocultoMenuDesktop");
+  const isMobileClosed = !mobileMenu.classList.contains("oculto-menu-mobile");
+  const isDesktopClosed = !desktopMenu.classList.contains(
+    "oculto-menu-desktop"
+  );
 
   if (isMobileClosed) {
-    mobileMenu.classList.add("ocultoMenuMobile");
+    mobileMenu.classList.add("oculto-menu-mobile");
   } else if (isDesktopClosed) {
-    desktopMenu.classList.add("ocultoMenuDesktop");
+    desktopMenu.classList.add("oculto-menu-desktop");
   }
 
-  asideMenu.classList.toggle("ocultoMenuCart");
+  cartMenu.classList.toggle("oculto-menu-cart");
 }
+// Product Menu
+
+// window.addEventListener("load", cargaProductos);
+
+// function cargaProductos() {
+
+//   const tarjetas = document.querySelectorAll(".product-card");
+//   const productMenu = document.querySelector(".product-detail");
+
+//   console.log(tarjetas);
+
+
+//   tarjetas.forEach()
+
+
+//   function ToggleProductMenu() {
+//     const isMobileClosed = !mobileMenu.classList.contains("oculto-menu-mobile");
+//     const isDesktopClosed = !desktopMenu.classList.contains(
+//       "oculto-menu-desktop"
+//     );
+//     const isCartClosed = !asideMenu.classList.contains("oculto-menu-cart");
+
+//     if (isMobileClosed) {
+//       mobileMenu.classList.add("oculto-menu-mobile");
+//     } else if (isDesktopClosed) {
+//       desktopMenu.classList.add("oculto-menu-desktop");
+//     } else if (isCartClosed) {
+//       cartMenu.classList.add("oculto-menu-cart");
+//     }
+
+//     productMenu.classList.toggle("oculto-menu-product");
+//   }
+// }
 
 productList = [];
 
@@ -105,11 +140,7 @@ productList.push({
 
 const contenedorCartas = document.querySelector(".cards-container"); //Declaramos el contenedor principal del producto
 
-
 listarProductos(productList);
-
-
-
 
 function listarProductos(array) {
   for (product of array) {
