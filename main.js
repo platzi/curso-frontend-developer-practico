@@ -5,28 +5,44 @@ const menuMobileMenu = document.querySelector('.menu')
 const mobileMenu = document.querySelector('.mobile-menu');
 
 const menuCarritoIcon = document.querySelector('.navbar-shopping-cart');
-const menuProductDetail = document.querySelector('.product-detail');
+const shoppingCarContainer = document.querySelector('#shoppingCarContainer');
+
+const productDetailContainer = document.querySelector('#productDetail');
+const productDetailClose = document.querySelector('.product-detail-close');
 
 const cardsContainer = document.querySelector('.cards-container');
 
 menuEmail.addEventListener('click',toggleDesktopMenu);
 menuMobileMenu.addEventListener('click',toggleMobileMenu);
 menuCarritoIcon.addEventListener('click',toggleIconCarMenu);
+productDetailClose.addEventListener('click',closeProductDetailAside);
 
 function toggleDesktopMenu(){
     desktopMenu.classList.toggle('inactive');
-    menuProductDetail.classList.add('inactive');
+    shoppingCarContainer.classList.add('inactive');
+    productDetailContainer.classList.add('inactive');
 }
 
 function toggleMobileMenu(){
     mobileMenu.classList.toggle('inactive');
-    menuProductDetail.classList.add('inactive');
+    shoppingCarContainer.classList.add('inactive');
+    productDetailContainer.classList.add('inactive');
 }
 
 function toggleIconCarMenu(){
-    menuProductDetail.classList.toggle('inactive');
+    shoppingCarContainer.classList.toggle('inactive');
     desktopMenu.classList.add('inactive');
     mobileMenu.classList.add('inactive');
+    productDetailContainer.classList.add('inactive');
+} 
+
+function openProductDetailAside(){
+    productDetailContainer.classList.remove('inactive');
+    desktopMenu.classList.add('inactive');
+}
+
+function closeProductDetailAside(){
+    productDetailContainer.classList.add('inactive');
 }
 
 const productList = [];
@@ -58,6 +74,8 @@ function renderProducts(arrays){
     
         const prodImg = document.createElement('img');
         prodImg.setAttribute('src',product.image);
+
+        prodImg.addEventListener('click',openProductDetailAside);
     
         const productInfo = document.createElement('div');
         productInfo.classList.add('product-info');
@@ -84,18 +102,3 @@ function renderProducts(arrays){
 }
 
 renderProducts (productList);
-
-/*
-    <div class="product-card">
-        <img src="https://images.pexels.com/photos/276517/pexels-photo-276517.jpeg?auto=compress&cs=tinysrgb&dpr=2&h=650&w=940" alt="">
-        <div class="product-info">
-          <div>
-            <p>$120,00</p>
-            <p>Bike</p>
-          </div>
-          <figure>
-            <img src="./icons/bt_add_to_cart.svg" alt="">
-          </figure>
-        </div>
-    </div> 
-*/
