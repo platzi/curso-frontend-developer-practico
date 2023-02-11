@@ -144,6 +144,8 @@ nav {
   background-color: var(--white);
   position: absolute;
   top: 60px;
+  left: 0;
+  width: 100%;
   padding: 24px;
 }
 
@@ -190,6 +192,10 @@ aside {
 }
 
 /* ShoppingCart */
+
+#shoppingCartContainer {
+  padding: 0 24px;
+}
 
 .title-container {
   display: flex;
