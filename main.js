@@ -109,6 +109,7 @@ const productList = [
   }
 ];
 
+// # productos agregados al carrito
 let listShoppingCart = [];
 
 let navEmail = document.querySelector('.navbar-email'),
@@ -163,14 +164,14 @@ function GenerateProductDetail(event) {
     nameProductDetail = document.querySelector('#productDetail .product-info .product-name'),
     priceProductDetail = document.querySelector('#productDetail .product-info .product-price'),
     descProductDetail = document.querySelector('#productDetail .product-info .product-description');
-  productList.find(article => {
-    if (article.image === urlImages) {
-      imageProductDetail.setAttribute('src', article.image);
-      nameProductDetail.textContent = article.name;
-      priceProductDetail.textContent = priceFormatted(article.price);
-      descProductDetail.textContent = article.description;
-    }
-  });
+
+  const foundProduct = productList.find(article => article.image === urlImages);
+  if (typeof foundProduct === "object") {
+    imageProductDetail.setAttribute('src', foundProduct.image);
+    nameProductDetail.textContent = foundProduct.name;
+    priceProductDetail.textContent = priceFormatted(foundProduct.price);
+    descProductDetail.textContent = foundProduct.description;
+  }
 }
 
 // * Permite agregar el producto al carrito de compras
@@ -189,8 +190,9 @@ function addProductToShoppingCart(event) {
   if (content === false) {
     listShoppingCart.push(productToShopping);
   }
-
-  console.log(listShoppingCart);
+  renderProductsShoppingCart(listShoppingCart);
+  updateTotalToPayAndQuantityOfProducts();
+  //console.log(listShoppingCart);
 }
 
 // * Permite generar el listado de productos
@@ -199,7 +201,7 @@ function renderProducts(arr) {
   let toRender = [];
   for (let products of arr) {
     // * creacion de elementos del html
-    const productCard = document.createElement('div'),
+    let productCard = document.createElement('div'),
       productImages = document.createElement('img'),
       productInfo = document.createElement('div'),
       productInfoDiv = document.createElement('div'),
@@ -246,15 +248,15 @@ renderProducts(productList);
 
 // * Permite generar listado de productos que se encuentran en el carrito
 function renderProductsShoppingCart(array) {
-  const shoppingCartContent = document.querySelector('.shopping-cart-content'),
-    shoppingCartTotalToPay = document.querySelector('.order-total-to-pay');
+  cleanShoppingCart();
+  const shoppingCartContent = document.querySelector('.shopping-cart-content');
 
   let toRender = [];
   for (let products of array) {
     // * Creacion de elementos html
-    const productShoppingCard = document.createElement('div'),
+    let productShoppingCard = document.createElement('div'),
       productShoppingFigure = document.createElement('figure'),
-      prodcutShoppingImage = document.createElement('img'),
+      productShoppingImage = document.createElement('img'),
       productShoppingName = document.createElement('p'),
       productShoppingQuantity = document.createElement('p'),
       productShoppingPrice = document.createElement('p'),
@@ -262,21 +264,35 @@ function renderProductsShoppingCart(array) {
 
     //* Se agregan complementos al HTML
     productShoppingCard.classList.add('shopping-cart', `key-${products.id}`);
-    AddListAttr(prodcutShoppingImage, {
+    AddListAttr(productShoppingImage, {
       'src': products.image,
-      'alt': product.name,
+      'alt': products.name,
       'width': 70,
       'height': 70
     });
+    productShoppingName.classList.add('product-name', 'mb-0');
     productShoppingName.textContent = products.name;
-    productShoppingQuantity = products.quantity;
-    productShoppingPrice.textContent = products.price;
+    productShoppingQuantity.classList.add('product-quantity');
+    productShoppingQuantity.textContent = products.quantity;
+    productShoppingPrice.classList.add('product-price', 'mb-0');
+    productShoppingPrice.textContent = priceFormatted(products.pricetotal);
+    AddListAttr(productShoppingIcon, {
+      'src': './icons/icon_close.png',
+      'alt': 'Close'
+    });
 
+    //*Se le da estructura al html Generado
+    productShoppingFigure.append(productShoppingImage);
+    productShoppingCard.append(
+      productShoppingFigure, productShoppingQuantity, productShoppingName, productShoppingPrice, productShoppingIcon
+    );
 
+    toRender.push(productShoppingCard);
   }
 
+  //* Se agrega estructura al array creado, modificando solo una vez el DOM
+  shoppingCartContent.append(...toRender);
 }
-
 
 //* validamos que el producto no exista en el carrito de compras para agregarlo
 function validateProductToAddToShoppingCart(identifyProduct) {
@@ -294,10 +310,37 @@ function validateProductToAddToShoppingCart(identifyProduct) {
   return productFound;
 }
 
+// * Permite actualizar total a pagar y conteno de productos agregados al carrito
+function updateTotalToPayAndQuantityOfProducts() {
+  let shoppingCartTotalToPay = document.querySelector('.order-total-to-pay'),
+    badgeOfQuantityProducts = document.querySelector('.navbar-shopping-cart .badge');
+
+  shoppingCartTotalToPay.textContent = priceFormatted(getTotalToPayment());
+  badgeOfQuantityProducts.textContent = getCountTotalProductsToShoppingCart();
+}
+
 //* Realiza suma de total a pagar por un producto
 function updateTotalandQuantityProduct(quantity, price) {
   let total = quantity * price;
   return total;
+}
+
+//* Realiza suma de total a pagar de los productos agregados al carrito
+function getTotalToPayment() {
+  let totalToPay = 0;
+  listShoppingCart.forEach(product => {
+    totalToPay += product.pricetotal;
+  });
+  return totalToPay;
+}
+
+//* Realiza conteo total de productos agregados al carrito
+function getCountTotalProductsToShoppingCart() {
+  let countProducts = 0;
+  listShoppingCart.forEach(product => {
+    countProducts += product.quantity;
+  });
+  return countProducts;
 }
 
 // * Permite darle formato al precio
@@ -314,4 +357,12 @@ function AddListAttr(element, attrs) {
   for (let key in attrs) {
     element.setAttribute(key, attrs[key]);
   }
+}
+
+//* Permite vaciar el carrito cada que se agrega un producto
+function cleanShoppingCart() {
+  let cleanShoppinCart = document.querySelectorAll('.shopping-cart');
+  cleanShoppinCart.forEach(product => {
+    product.remove();
+  });
 }
