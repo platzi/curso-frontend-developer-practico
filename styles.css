@@ -132,9 +132,10 @@ nav {
   background-color: var(--white);
   position: absolute;
   top: 60px;
-  padding: 24px;
+  /* padding: 24px; */
+  padding-left: 24px;
   left: 0;
-  width: 100%;
+  width: calc(100% - 24px) ;
 }
 .mobile-menu a {
   text-decoration: none;

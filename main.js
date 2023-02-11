@@ -7,13 +7,17 @@ const mobileMenu = document.querySelector('.mobile-menu');
 const shoppingCartIcon = document.querySelector('.navbar-shopping-cart');
 const shoppingCartContainer = document.querySelector('#shoppingCartContainer');
 const cardsContainer = document.querySelector('.cards-container');
+const productDetailContainer = document.querySelector("#productDetail");
+const productDetailCloseIcon = document.querySelector(".product-detail-close");
 
 menuEmail.addEventListener('click', toggleDesktopMenu);
 burgerMenuIcon.addEventListener('click', toggleMobileMenu);
 shoppingCartIcon.addEventListener('click', toogleshoppingCartAside);
+productDetailCloseIcon.addEventListener('click',closeProductDetail);
 
 function toggleDesktopMenu(){
     shoppingCartContainer.classList.add('inactive');
+    productDetailContainer.classList.add('inactive');
     // The commented section was the challenge in the class and I did it in that way
 
     // if (desktopMenu.classList.contains('inactive')){
@@ -27,14 +31,38 @@ function toggleDesktopMenu(){
 }
 
 function toggleMobileMenu(){
+    // closing all open menus
     shoppingCartContainer.classList.add('inactive');
+    productDetailContainer.classList.add('inactive');
+
+    //Opening mobile menu
     mobileMenu.classList.toggle('inactive');
 }
 
 function toogleshoppingCartAside(){
+    // closing all open menus
     desktopMenu.classList.add('inactive');
     mobileMenu.classList.add('inactive');
+    productDetailContainer.classList.add('inactive');
+
+    // Opening Shopping Cart
     shoppingCartContainer.classList.toggle('inactive');
+}
+
+function openProductDetail(){
+
+    // closing all open menus
+    desktopMenu.classList.add('inactive');
+    mobileMenu.classList.add('inactive');
+    productDetailContainer.classList.add('inactive');
+    shoppingCartContainer.classList.add('inactive');
+
+    // Opening Product Detail
+    productDetailContainer.classList.remove('inactive');
+}
+
+function closeProductDetail(){
+    productDetailContainer.classList.add('inactive');
 }
 
 const productList = [];
@@ -75,7 +103,7 @@ productList.push({
 });
 
 
-function renderProducts(arr){
+function renderProducts(arr) {
     for (product of productList){
         const productCard = document.createElement('div');
         productCard.classList.add('product-card');
@@ -83,6 +111,7 @@ function renderProducts(arr){
         // product = {name, price, image} -> product.image
         const productImg = document.createElement('img');
         productImg.setAttribute('src', product.image);
+        productImg.addEventListener('click', openProductDetail);
     
         const productInfo = document.createElement('div');
         productInfo.classList.add('product-info');
