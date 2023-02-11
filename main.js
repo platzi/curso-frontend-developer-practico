@@ -1,14 +1,17 @@
 const menuEmail = document.querySelector('.navbar-email');
 const menuHamIcon = document.querySelector('.menu');
 const menuCarritoIcon = document.querySelector('.navbar-shopping-cart');
+const productDetailIcon = document.querySelector('.product-detail-close');
 const desktopMenu = document.querySelector('.desktop-menu');
 const mobileMenu = document.querySelector('.mobile-menu');
 const shoppingCartContainer = document.querySelector('#shoppingCartContainer');
 const cardsContainer = document.querySelector('.cards-container');
+const productDetail = document.querySelector('#productDetail')
 
 menuEmail.addEventListener('click', toggleDesktopMenu);
 menuHamIcon.addEventListener('click', toggleMobileMenu);
 menuCarritoIcon.addEventListener('click', toggleCarritoAside);
+productDetailIcon.addEventListener('click',closeProductDetailAside);
 
 function toggleDesktopMenu() {
   const isAsideClosed = shoppingCartContainer.classList.contains('inactive');
@@ -22,6 +25,13 @@ function toggleDesktopMenu() {
 
 function toggleMobileMenu() {
   const isAsideClosed = shoppingCartContainer.classList.contains('inactive');
+  
+  const isProductDetailClosed = productDetail.classList.contains('inactive');
+
+  if(!isProductDetailClosed) {
+    productDetail.classList.add('inactive');
+  }
+
 
   if (!isAsideClosed) {
     shoppingCartContainer.classList.add('inactive'); 
@@ -36,9 +46,26 @@ function toggleCarritoAside() {
   if (!isMobileMenuClosed) {
     mobileMenu.classList.add('inactive'); 
   }
+
+  const isProductDetailClosed = productDetail.classList.contains('inactive');
+
+  if(!isProductDetailClosed) {
+    productDetail.classList.add('inactive');
+  }
   
   shoppingCartContainer.classList.toggle('inactive');
 }
+
+function closeProductDetailAside() {
+  productDetail.classList.add('inactive');
+}
+
+function openProductDetail() {
+    shoppingCartContainer.classList.add('inactive');
+    productDetail.classList.remove('inactive');
+}
+
+
 
 const productList = [];
 productList.push({
@@ -82,6 +109,10 @@ for (item of productList) {
 
       const img = document.createElement('img');
       img.setAttribute('src',item.image);
+
+      img.addEventListener('click',() => {
+        openProductDetail();
+      });
 
       productCard.appendChild(img);
 

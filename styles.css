@@ -256,6 +256,12 @@
     }
 
     /* product detail */
+    #productDetail {
+      transform: translateX(-40vw);
+      background-color: var(--white);
+      box-shadow: 0 10px 5px 2px black;
+      padding: 5px;
+    }
     .product-detail-close {
       background: var(--white);
       width: 14px;
