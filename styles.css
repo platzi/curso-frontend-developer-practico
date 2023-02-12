@@ -279,14 +279,14 @@ aside {
 
 /* Product Detail */
 
-product-detail-close {
+.product-detail-close {
   background: var(--white);
   width: 14px;
   height: 14px;
   position: absolute;
-  top: 24px;
+  top: 1px;
   left: 24px;
-  z-index: 2;
+  z-index: 1;
   padding: 12px;
   border-radius: 50%;
 }
