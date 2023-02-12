@@ -1,14 +1,18 @@
 const menuEmail = document.querySelector(".navbar-email");
 const desktopMenu = document.querySelector(".desktop-menu");
 const menuHamIcon = document.querySelector(".menu");
+const productDetailCloseIcon = document.querySelector(".product-detail-close");
+
 const mobileMenu = document.querySelector(".mobile-menu");
 const menuCarIcon = document.querySelector(".navbar-shopping-cart");
 const shoppingCartContainer = document.querySelector("#shoppingCartContainer");
 const cardsContainer = document.querySelector(".cards-container");
+const productDetailContainer = document.querySelector("#productDetail");
 
 menuEmail.addEventListener("click", toggleDesktopMenu);
 menuHamIcon.addEventListener("click", toggleMobilepMenu);
 menuCarIcon.addEventListener("click", toggleCarAside);
+productDetailCloseIcon.addEventListener("click", closeDetailAside);
 
 function toggleDesktopMenu() {
   const isAsideClosed = shoppingCartContainer.classList.contains("inactive");
@@ -25,8 +29,10 @@ function toggleMobilepMenu() {
   if (!isAsideClosed) {
     shoppingCartContainer.classList.add("inactive");
   }
+  closeDetailAside()
   mobileMenu.classList.toggle("inactive");
 }
+
 
 function toggleCarAside() {
   const isMobileMenuClosed = mobileMenu.classList.contains("inactive");
@@ -34,10 +40,42 @@ function toggleCarAside() {
   if (!isMobileMenuClosed) {
     mobileMenu.classList.add("inactive");
   }
+
+  const isProductDetailClosed =
+    productDetailContainer.classList.contains("inactive");
+  if (!isProductDetailClosed) {
+    productDetailContainer.classList.add("inactive");
+  }
   shoppingCartContainer.classList.toggle("inactive");
 }
 
+function openDetailAside() {
+  shoppingCartContainer.classList.add("inactive");
+  productDetailContainer.classList.remove("inactive");
+}
+function closeDetailAside() {
+  productDetailContainer.classList.add("inactive");
+}
+
 const productList = [];
+productList.push({
+  name: `Bike`,
+  price: 120,
+  image:
+    "https://images.pexels.com/photos/276517/pexels-photo-276517.jpeg?auto=compress&cs=tinysrgb&dpr=2&h=650&w=940",
+});
+productList.push({
+  name: `Jeans`,
+  price: 20,
+  image:
+    "https://images.pexels.com/photos/276517/pexels-photo-276517.jpeg?auto=compress&cs=tinysrgb&dpr=2&h=650&w=940",
+});
+productList.push({
+  name: `Pencil`,
+  price: 2,
+  image:
+    "https://images.pexels.com/photos/276517/pexels-photo-276517.jpeg?auto=compress&cs=tinysrgb&dpr=2&h=650&w=940",
+});
 productList.push({
   name: `Bike`,
   price: 120,
@@ -65,6 +103,7 @@ function renderProducts(arr) {
     //Product = {name, price, image} -> product.image
     const productImg = document.createElement("img");
     productImg.setAttribute("src", product.image);
+    productImg.addEventListener("click", openDetailAside);
 
     const productInfo = document.createElement("div");
     productInfo.classList.add("product-info");
@@ -96,3 +135,4 @@ function renderProducts(arr) {
   }
 }
 renderProducts(productList);
+
