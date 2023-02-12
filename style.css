@@ -340,6 +340,8 @@ aside {
 /* Main Container */
 .main-container{
   position: relative;
+  top: 70px;
+
   z-index: 0;
 }
 .cards-container {
@@ -356,6 +358,8 @@ aside {
   height: 240px;
   border-radius: 20px;
   object-fit: cover;
+
+  cursor: pointer;
 }
 .product-info {
   display: flex;
