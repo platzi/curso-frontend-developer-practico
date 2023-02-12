@@ -6,10 +6,14 @@ email.addEventListener("click", ToggleDesktopMenu);
 
 function ToggleDesktopMenu() {
   const isCartClosed = !cartMenu.classList.contains("oculto-menu-cart");
+  const isProductClosed = !productMenu.classList.contains("oculto-menu-cart");
 
   if (isCartClosed) {
     cartMenu.classList.add("oculto-menu-cart");
+  }else if (isProductClosed) {
+    productMenu.classList.add("oculto-menu-product");
   }
+
   desktopMenu.classList.toggle("oculto-menu-desktop");
 }
 
@@ -22,10 +26,16 @@ burguerIcon.addEventListener("click", ToggleMobileMenu);
 
 function ToggleMobileMenu() {
   const isCartClosed = !cartMenu.classList.contains("oculto-menu-cart");
+  const isProductClosed = !productMenu.classList.contains("oculto-menu-cart");
+
 
   if (isCartClosed) {
     cartMenu.classList.add("oculto-menu-cart");
+  }else if (isProductClosed) {
+    productMenu.classList.add("oculto-menu-product");
   }
+
+
   mobileMenu.classList.toggle("oculto-menu-mobile");
 }
 
@@ -38,51 +48,52 @@ cartIcon.addEventListener("click", ToggleCartMenu);
 
 function ToggleCartMenu() {
   const isMobileClosed = !mobileMenu.classList.contains("oculto-menu-mobile");
-  const isDesktopClosed = !desktopMenu.classList.contains(
-    "oculto-menu-desktop"
-  );
+  const isDesktopClosed = !desktopMenu.classList.contains("oculto-menu-desktop");
+  const isProductClosed = !productMenu.classList.contains("oculto-menu-cart");
 
   if (isMobileClosed) {
     mobileMenu.classList.add("oculto-menu-mobile");
   } else if (isDesktopClosed) {
     desktopMenu.classList.add("oculto-menu-desktop");
+  }else if (isProductClosed) {
+    productMenu.classList.add("oculto-menu-product");
   }
+
 
   cartMenu.classList.toggle("oculto-menu-cart");
 }
-// Product Menu
+//Product Menu
 
-// window.addEventListener("load", cargaProductos);
+const productMenu = document.querySelector(".product-detail");
+const closeProduct = document.querySelector('.product-detail-close');
 
-// function cargaProductos() {
+closeProduct.addEventListener("click", CloseProductMenu);
 
-//   const tarjetas = document.querySelectorAll(".product-card");
-//   const productMenu = document.querySelector(".product-detail");
+function CloseProductMenu(){
 
-//   console.log(tarjetas);
-
-
-//   tarjetas.forEach()
+productMenu.classList.add("oculto-menu-product");
+}
 
 
-//   function ToggleProductMenu() {
-//     const isMobileClosed = !mobileMenu.classList.contains("oculto-menu-mobile");
-//     const isDesktopClosed = !desktopMenu.classList.contains(
-//       "oculto-menu-desktop"
-//     );
-//     const isCartClosed = !asideMenu.classList.contains("oculto-menu-cart");
+function OpenProductMenu() {
+  console.log("click");
+  const isMobileClosed = !mobileMenu.classList.contains("oculto-menu-mobile");
+  const isDesktopClosed = !desktopMenu.classList.contains("oculto-menu-desktop");
+  const isCartClosed = !cartMenu.classList.contains("oculto-menu-cart");
 
-//     if (isMobileClosed) {
-//       mobileMenu.classList.add("oculto-menu-mobile");
-//     } else if (isDesktopClosed) {
-//       desktopMenu.classList.add("oculto-menu-desktop");
-//     } else if (isCartClosed) {
-//       cartMenu.classList.add("oculto-menu-cart");
-//     }
+  if (isMobileClosed) {
+    mobileMenu.classList.add("oculto-menu-mobile");
+  } else if (isDesktopClosed) {
+    desktopMenu.classList.add("oculto-menu-desktop");
+  } else if (isCartClosed) {
+    cartMenu.classList.add("oculto-menu-cart");
+  }
+  
+  
 
-//     productMenu.classList.toggle("oculto-menu-product");
-//   }
-// }
+  productMenu.classList.remove("oculto-menu-product");
+}
+
 
 productList = [];
 
@@ -138,18 +149,20 @@ productList.push({
   image: "https://m.media-amazon.com/images/I/81k2Gmal+VL._AC_SL1500_.jpg",
 });
 
-const contenedorCartas = document.querySelector(".cards-container"); //Declaramos el contenedor principal del producto
 
-listarProductos(productList);
+
 
 function listarProductos(array) {
+  const contenedorCartas = document.querySelector(".cards-container"); //Declaramos el contenedor principal del producto
   for (product of array) {
     const divProductos = document.createElement("div"); // Creamos el div principal del producto y le agregamos una Class
     divProductos.classList.add("product-card");
 
-    const imgProducto = document.createElement("img"); // Creamos la imagen del producto y le agregamos su src
+    const imgProducto = document.createElement('img'); // Creamos la imagen del producto y le agregamos su src
     imgProducto.setAttribute("src", product.image);
-    imgProducto.setAttribute("alt", "");
+    imgProducto.addEventListener("click", OpenProductMenu);
+
+  
     const divInfo = document.createElement("div"); // Creamos el div de la infromación del producto y le agregamos una Class
     divInfo.classList.add("product-info");
 
@@ -172,3 +185,5 @@ function listarProductos(array) {
     contenedorCartas.appendChild(divProductos);
   }
 }
+
+listarProductos(productList);

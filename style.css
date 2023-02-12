@@ -19,12 +19,16 @@ nav {
   display: flex;
   justify-content: space-between;
 
+  position: fixed;
+  top: 0;
+
+  width: calc(100vw - 48px);
   padding: 0 24px;
   border-bottom: 1px solid var(--very-light-pink);
 
   background-color: var(--white);
 
-  z-index: 0;
+  z-index: 2;
 }
 .menu {
   display: none;
@@ -101,7 +105,7 @@ nav {
   padding: 20px 20px 0 20px;
   background-color: var(--white);
   transition: 0.8s;
-  z-index: -1;
+  z-index: 1;
 }
 .desktop-menu ul {
   list-style: none;
@@ -136,14 +140,14 @@ nav {
 /* Menú Mobile */
 
 .mobile-menu {
-  width: 100%;
+  width: calc(100% - 48px);
   position: absolute;
   top: 61px;
   padding: 24px;
   left: 0;
 
   background-color: var(--white);
-  transition: 0.5s;
+  transition: 1s;
 }
 .mobile-menu a {
   text-decoration: none;
@@ -171,7 +175,7 @@ nav {
   color: var(--hospital-green) !important;
 }
 .oculto-menu-mobile{
-  transform: translateX(-200px);
+  transform: translateX(calc(-100% - 48px));
 }
 
 
@@ -187,7 +191,7 @@ aside {
 
   background-color: var(--white);
   transition: 0.5s;
-  z-index: -1;
+  z-index: 1;
 }
 .title-container {
   display: flex;
@@ -336,7 +340,7 @@ aside {
 /* Main Container */
 .main-container{
   position: relative;
-  z-index: -2;
+  z-index: 0;
 }
 .cards-container {
   display: grid;
