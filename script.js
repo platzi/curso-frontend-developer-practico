@@ -1,3 +1,4 @@
+                        //VARIABLES GENERALES
 // #01# var desplegar menu al dar click al email
 const menuEmail = document.querySelector('.navbar-email');
 const desktopMenu = document.querySelector('.desktop-menu');
@@ -11,6 +12,8 @@ const menuCarritoIcon = document.querySelector('.navbar-shopping-cart');
 const shoppingCartContainer = document.querySelector('#shoppingCartContainer');
 // #04# var lista de productos 
 const cardsContainer = document.querySelector('.cards-container');
+const productDetailContainer = document.querySelector('#productDetail');
+const productDetailCloseIcon = document.querySelector('.product-detail-close');
 
 
 // #01# desplegar menu al dar click al email
@@ -18,10 +21,14 @@ menuEmail.addEventListener('click', toggleDesktopMenu);
 
 function toggleDesktopMenu() {
     const isAsideClosed = shoppingCartContainer.classList.contains('inactive');
+    const isProductDetailClosed = productDetailContainer.classList.contains('inactive');
    
     // En caso de que el menu mobile y el carrito de compras se encuentren los dos abiertos en la vista de mobile y no se solapen el uno con el otro se puede aplicar el siguiente codigo
     if (!isAsideClosed) {
         shoppingCartContainer.classList.add('inactive');
+    }
+    else if(!isProductDetailClosed) {
+        productDetailContainer.classList.add('inactive');
     }
 
     // al ejecutar la funcion classList.toggle va a quitar o colocar la clase inactive dependiendo del evento click a*adido anteriormente
@@ -36,10 +43,13 @@ burgerIcon.addEventListener('click', toggleMobileMenu);
 
 function toggleMobileMenu() {
     const isAsideClosed = shoppingCartContainer.classList.contains('inactive');
-   
+    const isProductDetailClosed = productDetailContainer.classList.contains('inactive');
     // En caso de que el menu mobile y el carrito de compras se encuentren los dos abiertos en la vista de mobile y no se solapen el uno con el otro se puede aplicar el siguiente codigo
     if (!isAsideClosed) {
         shoppingCartContainer.classList.add('inactive');
+    }
+    else if (!isProductDetailClosed) {
+        productDetailContainer.classList.add('inactive');
     }
 
 
@@ -55,13 +65,19 @@ menuCarritoIcon.addEventListener('click', toggleCarritoAside);
 function toggleCarritoAside() {
     const isMobileMenuClosed = mobileMenu.classList.contains('inactive');
     const isDesktopMenuClosed = desktopMenu.classList.contains('inactive');
+    // NOTA:esta variable lo que esta preguntando al productDetailContainer si tiene la clase inactive
+    const isProductDetailClosed = productDetailContainer.classList.contains('inactive');
     // En caso de que el menu mobile y el carrito de compras se encuentren los dos abiertos en la vista de mobile y no se solapen el uno con el otro se puede aplicar el siguiente codigo
+
         // si el mobileMenu esta open, hay que cerrarlo 
     if (!isMobileMenuClosed) {
         mobileMenu.classList.add('inactive');
     }
     else if (!isDesktopMenuClosed) {
         desktopMenu.classList.add('inactive');
+    }
+    else if (!isProductDetailClosed) {
+        productDetailContainer.classList.add('inactive');
     }
     
     shoppingCartContainer.classList.toggle('inactive'); 
@@ -70,6 +86,25 @@ function toggleCarritoAside() {
 
 
 // #04# lista de productos 
+
+        // La funcion openProductDetailAside (funcion general) esta siendo llamada desde otra funcion la cual es renderProducts a travez de un escuchador de eventos de la variable productImg
+function openProductDetailAside() {
+    // para remover la clase inactive usamos la propiedad remove
+    productDetailContainer.classList.remove('inactive');
+    // Para cerrar el carrito de compras aplicamos solo esto ya que no estamos usando toggle
+    shoppingCartContainer.classList.add('inactive');
+    desktopMenu.classList.add('inactive');
+    mobileMenu.classList.add('inactive');
+}
+        
+productDetailCloseIcon.addEventListener('click', closeProductDetailAside);
+function closeProductDetailAside() {
+    productDetailContainer.classList.add('inactive');
+}
+
+
+
+
 const productList = []; 
         // dentro del Array vamos a agregar un objeto
 productList.push({
@@ -155,10 +190,13 @@ function renderProducts(arr) {
             productCard.classList.add('product-card');
             
         
-            //para mdificar su propiedad src usamos  el siguiente codigo
-            //product = {name, price, image} -> product.image
+            
+            
             const productImg = document.createElement('img');
+            //product = {name, price, image} -> product.image
+            //para mdificar su propiedad src usamos  el siguiente codigo
             productImg.setAttribute('src', product.image);
+            productImg.addEventListener('click', openProductDetailAside);
         
         
             const productInfo = document.createElement('div');
