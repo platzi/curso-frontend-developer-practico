@@ -54,7 +54,7 @@ const listaProductos = [];
 listaProductos.push({
     name: "Bike",
     precio: 120,
-    imagen: "https://images.pexels.com/photos/276517/pexels-photo-276517.jpeg?auto=compress&cs=tinysrgb&dpr=2&h=650&w=940",
+    imagen: "Fotos/Chulis (1).jpeg",
 });
 listaProductos.push({
     name: "Kibini",
