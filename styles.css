@@ -136,7 +136,7 @@ nav {
   text-decoration: none;
   color: var(--black);
   font-weight: bold;
-  /* margin-bottom: 24px; */
+  margin-bottom: 24px;
 }
 .mobile-menu ul {
   padding: 0;
@@ -158,7 +158,7 @@ nav {
   color: var(--hospital-green) !important;
 }
 /*Estilo del aside*/
-.aside {
+aside {
   background-color: var(--white);
   width: 360px;
   box-sizing: border-box;
@@ -168,7 +168,7 @@ nav {
 #shoppingCartContainer {
   padding:  0 24px;
 }
-#productDetail-close {
+.product-detail-close {
   background: var(--white);
   width: 14px;
   height: 14px;
@@ -179,7 +179,7 @@ nav {
   padding: 12px;
   border-radius: 50%;
 }
-#productDetail-close:hover {
+.product-detail-close:hover {
   cursor: pointer;
 }
 #productDetail > img:nth-child(2) {
@@ -188,22 +188,22 @@ nav {
   object-fit: cover;
   border-radius: 0 0 20px 20px;
 }
-.product-card .product-info {
+#product-card .product-info {
   margin: 24px 24px 0 24px;
 }
-.product-card .product-info p:nth-child(1) {
-  font-weight: bold;
+#product-card .product-info p:nth-child(1) {
   font-size: var(--md);
   margin-top: 0;
-  margin-bottom: 4px;
+  margin-bottom: 1px;
 }
-.product-card .product-info p:nth-child(2) {
+#product-card .product-info p:nth-child(2) {
   color: var(--very-light-pink);
+  font-weight: bold;
   font-size: var(--md);
   margin-top: 0;
   margin-bottom: 36px;
 }
-.product-card .product-info p:nth-child(3) {
+#product-card .product-info p:nth-child(3) {
   color: var(--very-light-pink);
   font-size: var(--sm);
   margin-top: 0;
@@ -296,16 +296,16 @@ nav {
 .cards-container {
   display: grid;
   grid-template-columns: repeat(auto-fill, 240px);
-  gap: 26px;
+  gap: 15px;
   place-content: center;
-  margin-top: 20px;
+  margin-top: 15px;
 }
 .product-card {
   width: 240px;
 }
 .product-card img {
-  width: 240px;
-  height: 240px;
+  width: 100%;
+  height: 220px;
   border-radius: 20px;
   object-fit: cover;
 }
@@ -323,16 +323,17 @@ nav {
   height: 35px;
 }
 .product-card .product-info div p:nth-child(1) {
-  font-weight: bold;
-  font-size: var(--md);
-  margin-top: 0;
-  margin-bottom: 4px;
-}
-.product-card .product-info div p:nth-child(2) {
   font-size: var(--sm);
   margin-top: 0;
-  margin-bottom: 0;
+  margin-bottom: 4px;
   color: var(--very-light-pink);
+
+}
+.product-card .product-info div p:nth-child(2) {
+  font-size: var(--md);
+  font-weight: bold;
+  margin-top: 0;
+  margin-bottom: 0;
 }
 @media (max-width: 640px) {
   .menu {

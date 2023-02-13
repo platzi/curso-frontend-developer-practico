@@ -52,19 +52,54 @@ function closeopenProductDetail (){
 
 const listaProductos = [];
 listaProductos.push({
-    name: "Bike",
-    precio: 120,
+    name: "Chuli Classic",
+    precio: 3,
     imagen: "Fotos/Chulis (1).jpeg",
 });
 listaProductos.push({
-    name: "Kibini",
-    precio: 7,
-    imagen: "https://images.pexels.com/photos/276517/pexels-photo-276517.jpeg?auto=compress&cs=tinysrgb&dpr=2&h=650&w=940",
+    name: "Chuli Guitarrista",
+    precio: 5,
+    imagen: "Fotos/Chulis (2).jpeg",
 });
 listaProductos.push({
-    name: "Pla",
-    precio: 1223,
-    imagen: "https://images.pexels.com/photos/276517/pexels-photo-276517.jpeg?auto=compress&cs=tinysrgb&dpr=2&h=650&w=940",
+    name: "Chuliando",
+    precio: 10,
+    imagen: "Fotos/Chulis (4).jpeg",
+});
+listaProductos.push({
+    name: "Chuli Magic",
+    precio: 25,
+    imagen: "Fotos/Chulis (7).jpeg",
+});
+listaProductos.push({
+    name: "Chuli Simple",
+    precio: 50,
+    imagen: "Fotos/Chulis (14).jpeg",
+});
+listaProductos.push({
+    name: "Chuli Gavilan",
+    precio: 55,
+    imagen: "Fotos/Chulis (12).jpeg",
+});
+listaProductos.push({
+    name: "Chuli Recargado",
+    precio: 100,
+    imagen: "Fotos/Chulis (23).jpeg",
+});
+listaProductos.push({
+    name: "Chulo",
+    precio: 1,
+    imagen: "Fotos/Chulis (19).jpeg",
+});
+listaProductos.push({
+    name: "Chuli Barrial",
+    precio: 75,
+    imagen: "Fotos/Chulis (5).jpeg",
+});
+listaProductos.push({
+    name: "Chuli Veraniego",
+    precio: 65,
+    imagen: "Fotos/Chulis (10).jpeg",
 });
 
 for (producto of listaProductos){
@@ -82,7 +117,7 @@ for (producto of listaProductos){
     const productInfoDiv = document.createElement("div");
 
     const productprecio = document.createElement("p");
-    productprecio.innerText = "$" + producto.precio;
+    productprecio.innerText = producto.precio + " Siestas";
 
     const productName = document.createElement("p");
     productName.innerText = producto.name;
