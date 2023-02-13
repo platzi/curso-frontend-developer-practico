@@ -6,7 +6,7 @@ const mobileMenu = document.querySelector(".mobile-menu");
 const menuCarrito = document.querySelector(".navbar-shopping-cart");
 const shoppingCartContainer = document.querySelector("#shoppingCartContainer");
 const cardContainer = document.querySelector(".cards-container");
-const productDetailContainer = document.querySelector ("#productDetail");
+const productDetailContainer = document.querySelector ("#product-detail");
 const isProductDetailClosed = productDetailContainer.classList.contains("inactive");
 
 menuEMail.addEventListener("click",toogleDesktopMenu);
