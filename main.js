@@ -24,7 +24,7 @@ function toogleMobileMenu(){
     desktopMenu.classList.add('inactive');
     asideShoppingCar.classList.add('inactive');
     productDetailContainer.classList.add('inactive');
-    
+
     mobileMenu.classList.toggle('inactive');
 }
 
@@ -102,6 +102,7 @@ function renderProducts(productList){
         productInfoDiv.appendChild(productPrice);
     
         productInfo.appendChild(productInfoDiv);
+        productInfo.appendChild(productInfoFigure);
     
         productCard.appendChild(img);
         productCard.appendChild(productInfo);
