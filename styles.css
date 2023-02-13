@@ -143,8 +143,8 @@
     position: absolute;
     top: 60px;
     left: 0;
-    width: 100%;
-    padding: 24px;
+    width: calc(100% - 24px);
+    padding-left: 24px;
   }
   .mobile-menu a {
     text-decoration: none;
