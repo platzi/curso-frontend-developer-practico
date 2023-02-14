@@ -64,6 +64,9 @@ nav {
   margin-right: 12px;
   user-select: none;
 }
+.navbar-email:hover {
+  color: var(--hospital-green);
+}
 .navbar-shopping-cart {
   position: relative;
 }
