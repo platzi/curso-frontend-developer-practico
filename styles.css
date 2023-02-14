@@ -133,7 +133,7 @@ nav {
   background: var(--white);
   position: absolute;
   top: 61px;
-  left: 0;
+  left: 351px;
   padding-left: 24px;
   border-bottom-right-radius: 20px;
   width: calc(100% - 24px);
@@ -365,8 +365,11 @@ aside {
     display: none;
   }
 
-  .product-detail {
-    width: 100%;
+  #productDetail {
+    width: 100vw;
+  }
+  #productDetail > .product-info {
+    padding: 20px;
   }
 
   .cards-container {
