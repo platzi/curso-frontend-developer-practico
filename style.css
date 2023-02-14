@@ -122,7 +122,7 @@ nav {
   display: inline-block;
 }
 
-/* Menu en mobile */
+/* Menu  mobile */
 .mobile-menu {
   background-color: var(--white);
   position: absolute;
@@ -167,7 +167,7 @@ aside {
   right: 0;
 }
 
-/* ShoppingCart */
+/* Shopping Cart */
 #shoppingCartContainer {
   padding: 0 24px;
 }
@@ -239,7 +239,7 @@ aside {
   height: 50px;
 }
 
-/* ProductDetail */
+/* Product Detail */
 .product-detail-close {
   background: var(--white);
   width: 14px;
