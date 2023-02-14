@@ -166,7 +166,7 @@ nav {
     color: var(--hospital-green) !important;
 }
 
-.product-detail {
+.shopping-cart-detail {
     background-color: var(--white);
     width: 360px;
     padding: 0 24px;
@@ -231,6 +231,107 @@ nav {
     font-size: var(--md);
     font-weight: bold;
 }
+
+.main-container{
+    box-sizing: border-box;
+    width: 100%;
+}
+
+.main-container .cards-container {
+    margin-top: 20px;
+    display: grid;
+    grid-template-columns: repeat(auto-fill, 240px);
+    gap: 26px;
+    place-content: center;
+}
+.main-container .product-card {
+    width: 240px;
+}
+.main-container .product-card img {
+    width: 240px;
+    height: 240px;
+    border-radius: 20px;
+    object-fit: cover;
+}
+.main-container .product-info {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    margin-top: 12px;
+}
+.main-container .product-info figure {
+    margin: 0;
+}
+.main-container .product-info figure img {
+    width: 35px;
+    height: 35px;
+}
+.main-container .product-info div p:nth-child(1) {
+    font-weight: bold;
+    font-size: var(--md);
+    margin-top: 0;
+    margin-bottom: 4px;
+}
+.main-container .product-info div p:nth-child(2) {
+    font-size: var(--sm);
+    margin-top: 0;
+    margin-bottom: 0;
+    color: var(--very-light-pink);
+}
+
+.product-detail {
+    width: 360px;
+    height: auto;
+    padding-bottom: 24px;
+    background-color: var(--white);
+    box-sizing: border-box;
+    position: absolute;
+    right: 0;
+    border-left: 1px solid var(--very-light-pink);
+}
+.product-detail-close {
+    background: var(--white);
+    width: 14px;
+    height: 14px;
+    position: absolute;
+    top: 24px;
+    left: 24px;
+    z-index: 2;
+    padding: 12px;
+    border-radius: 50%;
+    border: 1px solid var(--black);
+    display: flex;
+}
+.product-detail-close:hover {
+    cursor: pointer;
+}
+.product-detail > img:nth-child(2) {
+    width: 100%;
+    height: 360px;
+    object-fit: cover;
+    border-radius: 0 0 20px 20px;
+}
+.product-info {
+    margin: 24px 24px 0 24px;
+}
+.product-info p:nth-child(1) {
+    font-weight: bold;
+    font-size: var(--md);
+    margin-top: 0;
+    margin-bottom: 4px;
+}
+.product-info p:nth-child(2) {
+    color: var(--very-light-pink);
+    font-size: var(--md);
+    margin-top: 0;
+    margin-bottom: 36px;
+}
+.product-info p:nth-child(3) {
+    color: var(--very-light-pink);
+    font-size: var(--sm);
+    margin-top: 0;
+    margin-bottom: 36px;
+}
 .primary-button {
     background-color: var(--hospital-green);
     border-radius: 8px;
@@ -242,58 +343,19 @@ nav {
     font-weight: bold;
     height: 50px;
 }
-
-.main-container{
-    box-sizing: border-box;
-    width: 100%;
-}
-
-.cards-container {
-    margin-top: 20px;
-    display: grid;
-    grid-template-columns: repeat(auto-fill, 240px);
-    gap: 26px;
-    place-content: center;
-}
-.product-card {
-    width: 240px;
-}
-.product-card img {
-    width: 240px;
-    height: 240px;
-    border-radius: 20px;
-    object-fit: cover;
-}
-.product-info {
+.add-to-cart-button {
     display: flex;
-    justify-content: space-between;
     align-items: center;
-    margin-top: 12px;
+    justify-content: center;
 }
-.product-info figure {
-    margin: 0;
-}
-.product-info figure img {
-    width: 35px;
-    height: 35px;
-}
-.product-info div p:nth-child(1) {
-    font-weight: bold;
-    font-size: var(--md);
-    margin-top: 0;
-    margin-bottom: 4px;
-}
-.product-info div p:nth-child(2) {
-    font-size: var(--sm);
-    margin-top: 0;
-    margin-bottom: 0;
-    color: var(--very-light-pink);
-}
+
+
+
 
 
 @media (max-width: 780px) {
     
-    .product-detail {
+    .shopping-cart-detail {
         width: 100%;
     }
     .menu {
@@ -318,13 +380,16 @@ nav {
         width: 140px;
         height: 140px;
     }
+    .product-detail {
+        width: 100%;
+    }
 }
 
 @media (min-width: 780px) {
     .mobile-menu{
         display: none;
     }
-    .product-detail {
+    .shopping-cart-detail {
         border-left: 1px solid var(--very-light-pink);
         height: calc(100vh - 61px)
     }

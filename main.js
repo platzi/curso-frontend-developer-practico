@@ -5,10 +5,19 @@ const MobileNavMenuBurguer = document.querySelector('.menu')
 const mobileMenu = document.querySelector('.mobile-menu')
 
 const shoppingCarButton = document.querySelector('.navbar-shopping-cart')
-const myOrderPanel = document.querySelector('.product-detail')
+const myOrderPanel = document.querySelector('.shopping-cart-detail')
 
 const mainSection = document.querySelector('.main-container')
 const cardsContainer = document.querySelector('.cards-container')
+
+const productDetailsPanel = document.querySelector('.product-detail')
+
+const productImageElement = document.querySelector('#product-image')
+const productNameElement = document.querySelector('#product-name')
+const productPriceElement = document.querySelector('#product-price')
+
+const closeProductDetailsButton = document.querySelector('.product-detail-close')
+
 
 const productList = []
 
@@ -55,6 +64,8 @@ productList.push ({
 desktopNavEmail.addEventListener('click', toggleDesktopMenu)
 MobileNavMenuBurguer.addEventListener('click', toggleMobileMenu)
 shoppingCarButton.addEventListener('click', toggleMyOrderPanel)
+closeProductDetailsButton.addEventListener('click', closeProductViewDatails)
+
 
 function toggleDesktopMenu() {
     desktopMenu.classList.toggle('inactive');
@@ -64,7 +75,7 @@ function toggleMobileMenu() {
     if(!myOrderPanel.classList.contains('inactive')){
         toggleMyOrderPanel()
     }
-    mobileMenu.classList.toggle('inactive');
+    mobileMenu.classList.toggle('inactive')
 }
 
 function toggleMyOrderPanel() {
@@ -72,36 +83,78 @@ function toggleMyOrderPanel() {
         toggleMobileMenu()
     }
     
-    if (mainSection.style.width == "calc(100% - 360px)") {
-        mainSection.style.width = "100%"
-    }else{
-        mainSection.style.width = "calc(100% - 360px)"
+    if (!productDetailsPanel.classList.contains('inactive')) {
+        productDetailsPanel.classList.add('inactive');
     }
-    myOrderPanel.classList.toggle('inactive');
+    
+    if (myOrderPanel.classList.contains('inactive')) {
+        myOrderPanel.classList.remove('inactive')
+        mainSection.style.width = "calc(100% - 360px)"
+    } else{
+        myOrderPanel.classList.add('inactive')
+        mainSection.style.width = "100%"
+    }
 }
 
-function renderProducts(productList){
-
-    for (const product of productList) {
+function openProductViewDatails(){
     
+    let selectedProductImage = this.children[0].src
+    
+    if (!myOrderPanel.classList.contains('inactive')) {
+        myOrderPanel.classList.add('inactive');
+    }
+    
+    if (!desktopMenu.classList.contains('inactive')) {
+        desktopMenu.classList.add('inactive');
+    }
+    
+    for (const producto of productList) {
+        if(producto.image === selectedProductImage){
+            
+            productNameElement.innerText = producto.name
+            productPriceElement.innerText = "$ " + producto.price
+            productImageElement.src = producto.image
+            
+        }
+    }
+    
+    if (productDetailsPanel.classList.contains('inactive')) {
+        productDetailsPanel.classList.remove('inactive')
+        mainSection.style.width = "calc(100% - 360px)"
+    }
+    
+}
+
+function closeProductViewDatails(){
+    productDetailsPanel.classList.add('inactive')
+    mainSection.style.width = "100%"
+}
+
+
+
+function renderProducts(productList){
+    
+    for (const product of productList) {
+        
         const productCard = document.createElement('div')
         productCard.classList.add('product-card')
-    
+        productCard.addEventListener('click', openProductViewDatails)
+        
         const productImage = document.createElement('img')
         productImage.setAttribute('src', product.image)
-    
+        
         const productCardInfo = document.createElement('div')
         productCardInfo.classList.add('product-info')
-    
+        
         const productCardText = document.createElement('div')
-    
+        
         const productCardPrice = document.createElement('p')
         productCardPrice.innerText = '$' + product.price
         const productCardName = document.createElement('p')
         productCardName.innerText = product.name
-    
+        
         const productCardButton = document.createElement('figure')
-    
+        
         const productAddButtonImage = document.createElement('img')
         productAddButtonImage.setAttribute('src', './icons/bt_add_to_cart.svg')
         
@@ -111,8 +164,8 @@ function renderProducts(productList){
         productCard.append(productImage, productCardInfo)
         
         cardsContainer.prepend(productCard)
-    
-    
+        
+        
     }
 }
 
