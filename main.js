@@ -3,7 +3,9 @@ const desktopMenu = document.querySelector('.desktop-menu');
 const hamburgerMenu = document.querySelector('.menu');
 const mobileMenu = document.querySelector('.mobile-menu');
 const carShoppingIcon = document.querySelector('.navbar-shopping-cart');
+const productDetailCloseIcon = document.querySelector('.product-detail-close');
 const shoppingCartContainer = document.querySelector('#shoppingCartContainer');
+const productDetailContainer = document.querySelector('#productDetail');
 const cardsContainer = document.querySelector('.cards-container');
 
 
@@ -28,6 +30,8 @@ function toggleMobileMenu() {
         shoppingCartContainer.classList.add('inactive');
     }
 
+    closeProductDetailAside()
+
     mobileMenu.classList.toggle('inactive');
 }
 
@@ -44,8 +48,30 @@ function toggleShoppingCar() {
         desktopMenu.classList.add('inactive');
     }
 
-    shoppingCartContainer.classList.toggle('inactive');
+    const isProductDetailClose = productDetailContainer.classList.contains('.inactive');
 
+    if (!isProductDetailClose) {
+        productDetailContainer.classList.add('inactive');
+    }
+
+    shoppingCartContainer.classList.toggle('inactive');
+}
+
+// Product Detail Aside
+function openProductDetailAside(event) {
+    shoppingCartContainer.classList.add('inactive');
+
+    const productDetailImg = document.querySelector('#productDetailImg');
+    const productDetailPrice = document.querySelector('#productDetailPrice');
+    productDetailImg.setAttribute('src', event.target.src);
+    productDetailPrice.innerText = event.target.nextElementSibling.innerText;
+
+    productDetailContainer.classList.remove('inactive');
+}
+
+productDetailCloseIcon.addEventListener('click', closeProductDetailAside);
+function closeProductDetailAside() {
+    productDetailContainer.classList.add('inactive');
 }
 
 
@@ -59,7 +85,7 @@ productList.push({
 productList.push({
     name: 'Screen',
     price: 450,
-    image: 'https://images.pexels.com/photos/276517/pexels-photo-276517.jpeg?auto=compress&cs=tinysrgb&dpr=2&h=650&w=940'
+    image: 'https://images.pexels.com/photos/6316063/pexels-photo-6316063.jpeg?auto=compress&cs=tinysrgb&w=1260&h=750&dpr=1'
 });
 productList.push({
     name: 'Portatil',
@@ -76,6 +102,7 @@ function renderProducts(arr) {
         // product-card img
         const productImg = document.createElement('img');
         productImg.setAttribute('src', product.image);
+        productImg.addEventListener('click', openProductDetailAside);
     
         //  product-info
         const productInfo = document.createElement('div');

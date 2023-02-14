@@ -134,9 +134,9 @@ nav {
   position: absolute;
   top: 61px;
   left: 0;
-  padding: 24px;
+  padding-left: 24px;
   border-bottom-right-radius: 20px;
-  width: 100%;
+  width: calc(100% - 24px);
 }
 .mobile-menu a {
   text-decoration: none;
