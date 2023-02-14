@@ -316,9 +316,6 @@ aside {
   margin-top: 12px;
 }
 .product-card .product-info figure {
-  position: relative;
-  left: 12em;
-  bottom: 2em;  
   margin: 0;
 }
 .product-card .product-info figure img {
