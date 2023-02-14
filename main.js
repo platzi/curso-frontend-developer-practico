@@ -1,3 +1,4 @@
+const main = document.querySelector(".main");
 const navEmail = document.querySelector(".navbar-email");
 const DesktopMenu = document.querySelector(".desktop-menu");
 const menuHamMenu = document.querySelector(".menu");
@@ -8,12 +9,28 @@ const asideMenuCarrito = document.querySelector(".product-detail");
 const cardsContainer = document.querySelector(".cards-container");
 const productDetailsContainer = document.querySelector(".product-detail2");
 
-
-
 navEmail.addEventListener('click', toggleDesktopMenu);
 menuHamMenu.addEventListener('click', toggleMobileMenu);
 menuCarrito.addEventListener('click', toggleCarritoAside);
 DetailsContainerClosedIcon.addEventListener('click', closeProductDetailsAside);
+
+function toggleCarritoAside() {
+    let isMobileMenuClosed = mobileMenu.classList.contains('inactive');
+    let isDesktopmenuClosed = DesktopMenu.classList.contains('inactive')
+
+    if(!isDesktopmenuClosed) {
+        DesktopMenu.classList.add("inactive");
+    }
+
+    if(!isMobileMenuClosed) {
+        mobileMenu.classList.add("inactive");
+        menuHamMenu.classList.remove("transform");
+    }
+
+    main.classList.toggle("filter");
+    asideMenuCarrito.classList.toggle("inactive");
+    productDetailsContainer.classList.add("inactive");
+}
 
 function toggleDesktopMenu () {
     let isAsideCarrito = asideMenuCarrito.classList.contains("inactive");
@@ -35,23 +52,6 @@ function toggleMobileMenu() {
 
     menuHamMenu.classList.toggle("transform");
     mobileMenu.classList.toggle("inactive");
-    productDetailsContainer.classList.add("inactive");
-}
-
-function toggleCarritoAside() {
-    let isMobileMenuClosed = mobileMenu.classList.contains('inactive');
-    let isDesktopmenuClosed = DesktopMenu.classList.contains('inactive')
-
-    if(!isDesktopmenuClosed) {
-        DesktopMenu.classList.add("inactive");
-    }
-
-    if(!isMobileMenuClosed) {
-        mobileMenu.classList.add("inactive");
-        menuHamMenu.classList.remove("transform");
-    }
-
-    asideMenuCarrito.classList.toggle("inactive");
     productDetailsContainer.classList.add("inactive");
 }
 
@@ -166,7 +166,6 @@ productList.push({
         </div>
       </div>
 */
-
 
 function renderProducts (arr) {
     for (product of arr) {
