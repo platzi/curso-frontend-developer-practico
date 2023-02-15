@@ -20,6 +20,7 @@ menuCarritoIcon.addEventListener("click", toogleCarritoAside);
 function toogleCarritoAside(){
     mobileMenu.classList.add("inactive")
     aside.classList.toggle("inactive")
+    descktopMenu.classList.add("inactive")
 }
 
 
@@ -119,6 +120,7 @@ function showProduct(arr){
     
         let imgProduct = document.createElement("img");
         imgProduct.setAttribute("src", product.image);
+        imgProduct.addEventListener("click", console.log )
     
         let infoProduct = document.createElement("div");
         infoProduct.classList.add("product-info");
