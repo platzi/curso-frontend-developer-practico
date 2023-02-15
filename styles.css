@@ -281,7 +281,7 @@ display: none;
     color: var(--very-light-pink);
   }
   
-  @media (max-width: 640px) {
+  @media (max-width: 730px) {
     .menu {
       display: block;
       cursor: pointer;
@@ -314,7 +314,7 @@ display: none;
     
   }
 
-  @media (min-width: 641px){
+  @media (min-width: 731px){
     .mobile-menu {
     display: none;
     }
