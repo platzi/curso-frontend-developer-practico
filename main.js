@@ -5,7 +5,7 @@ const burguerButton = document.querySelector(".menu")
 
 const mobileMenu = document.querySelector(".mobile-menu")
 const menuCarritoIcon = document.querySelector(".navbar-shopping-cart")
-const aside = document.querySelector(".product-detail")
+const aside = document.querySelector("#shopingCartContainer")
 
 let cardContainer = document.querySelector(".cards-container");
 
@@ -91,10 +91,10 @@ productList.push ({
 
 let showAll = document.querySelector(".todos");
 
-showAll.addEventListener("click", activarProductos)
+/* showAll.addEventListener("click", activarProductos) */
 
 
-function activarProductos(){
+/* function activarProductos(){
 
 
     let activado = 0
@@ -108,7 +108,7 @@ function activarProductos(){
         cardContainer.classList.toggle("inactive")
         activado = 1;
     }
-}
+} */
 
 
 function showProduct(arr){
@@ -155,4 +155,7 @@ function showProduct(arr){
         
     }
 }
+
+
+showProduct(productList)
 
