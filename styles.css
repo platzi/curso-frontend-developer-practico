@@ -133,7 +133,7 @@ nav {
   background: var(--white);
   position: absolute;
   top: 61px;
-  left: 351px;
+  left: 0;
   padding-left: 24px;
   border-bottom-right-radius: 20px;
   width: calc(100% - 24px);
