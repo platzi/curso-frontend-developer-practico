@@ -275,7 +275,7 @@ aside {
     height: 50px;
 }
 
-/*PRoduct Detail especificos*/
+/*Product Detail especificos*/
 
 .product-detail-close {
     background: var(--white);
@@ -298,7 +298,7 @@ aside {
     border-radius: 0 0 20px 20px;
   }
   #product-detail {
-    margin: 24px 24px 0 24px;
+    margin: 10px 24px 0 24px;
   }
   #product-detail p:nth-child(1) {
     font-weight: bold;
@@ -401,9 +401,9 @@ aside {
         width: 140px;
         height: 140px;
     }
-}
-
-@media (max-width: 640px) {
+    #shoppingCartContainer {
+        width: 100%;
+    }
     .menu {
         display: block;
     }
@@ -421,7 +421,7 @@ aside {
     }
 
     aside {
-        width: 100%;
+        width: auto;
     }
 }
 
