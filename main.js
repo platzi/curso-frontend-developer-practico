@@ -14,9 +14,23 @@ function toggleDesktopMenu(){
 }
 
 function toggleMobileMenu(){
+    const isAsideClosed = aside.classList.contains('inactive')
+
+    if(!isAsideClosed){
+        aside.classList.add('inactive')
+    }
     MobileMenu.classList.toggle('inactive')
 }
 
 function toggleCarritoAside(){
-    aside.classList.toggle('inactive')
+const isMobileMenuClosed =  MobileMenu.classList.contains('inactive')
+const isDesktopMenu = DesktopMenu.classList.contains('inactive')
+
+if (!isMobileMenuClosed){
+    MobileMenu.classList.add('inactive')
+}
+if (!isDesktopMenu){
+    DesktopMenu.classList.add('inactive')
+}
+aside.classList.toggle('inactive')
 }
