@@ -6,8 +6,11 @@ const burguerButton = document.querySelector(".menu")
 const mobileMenu = document.querySelector(".mobile-menu")
 const menuCarritoIcon = document.querySelector(".navbar-shopping-cart")
 const aside = document.querySelector("#shopingCartContainer")
+const asideDetail = document.querySelector("#productDetailContainer")
+const detailClose = document.querySelector(".product-detail-close")
 
 let cardContainer = document.querySelector(".cards-container");
+
 
 
 menuEmail.addEventListener("click" , toogleDesktopMenu)
@@ -16,29 +19,7 @@ burguerButton.addEventListener("click", tooglemobileMenu);
 
 menuCarritoIcon.addEventListener("click", toogleCarritoAside);
 
-
-function toogleCarritoAside(){
-    mobileMenu.classList.add("inactive")
-    aside.classList.toggle("inactive")
-    descktopMenu.classList.add("inactive")
-}
-
-
-function tooglemobileMenu(){
-    mobileMenu.classList.toggle("inactive")
-    aside.classList.add("inactive")
-}
-
-function toogleDesktopMenu(){
-    /* el toogle permite quitar o poner el elemento, si esta lo quitara. y si no esta lo colocara */
-    descktopMenu.classList.toggle("inactive")
-
-    aside.classList.add("inactive")
-}
-
-
-
-
+detailClose.addEventListener("click", cerrarDetalles)
 
 
 let productList = []
@@ -120,7 +101,9 @@ function showProduct(arr){
     
         let imgProduct = document.createElement("img");
         imgProduct.setAttribute("src", product.image);
-        imgProduct.addEventListener("click", console.log )
+        imgProduct.addEventListener("click", mostrarDetalles )
+
+
     
         let infoProduct = document.createElement("div");
         infoProduct.classList.add("product-info");
@@ -157,6 +140,35 @@ function showProduct(arr){
         
     }
 }
+
+
+function mostrarDetalles(){
+    asideDetail.classList.remove("inactive")
+}
+
+function cerrarDetalles(){
+    asideDetail.classList.add("inactive");
+}
+
+function toogleCarritoAside(){
+    mobileMenu.classList.add("inactive")
+    aside.classList.toggle("inactive")
+    descktopMenu.classList.add("inactive")
+}
+
+
+function tooglemobileMenu(){
+    mobileMenu.classList.toggle("inactive")
+    aside.classList.add("inactive")
+}
+
+function toogleDesktopMenu(){
+    /* el toogle permite quitar o poner el elemento, si esta lo quitara. y si no esta lo colocara */
+    descktopMenu.classList.toggle("inactive")
+
+    aside.classList.add("inactive")
+}
+
 
 
 showProduct(productList)
