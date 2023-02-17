@@ -1,9 +1,16 @@
 const MenuEmail=document.querySelector('.navbar-email');
 const desktopMenu=document.querySelector('.desktop-menu');
+const menuHamIcon=document.querySelector('.menu');
+const mobileMenu=document.querySelector('.mobile-menu');
 
 MenuEmail.addEventListener('click', toggleDesktopMenu );
+menuHamIcon.addEventListener('click', toggleMobilepMenu );
 
 
 function toggleDesktopMenu(){
     desktopMenu.classList.toggle('inactive');    
+}
+
+function toggleMobilepMenu(){
+    mobileMenu.classList.toggle('inactive');    
 }
