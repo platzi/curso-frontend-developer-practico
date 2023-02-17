@@ -4,4 +4,4 @@ introduciendo funcionalidades
 - menu mobile 
 
 # para visualizar la web
-https://estebanadarico.github.io/curso-frontend-developer-practico/
+https://estebanadarico.github.io/curso-frontend-developer-practico/index.html
