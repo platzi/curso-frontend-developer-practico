@@ -40,5 +40,5 @@ function toggleAside(){
         mobileMenu.classList.add('inactive');
     }
     
-    
+    //
 }
