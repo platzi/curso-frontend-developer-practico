@@ -383,6 +383,10 @@ aside {
   aside {
     width: 100%;
   }
+
+  #productDetail {
+    margin: 0;
+  }
 }
 
 @media (min-width: 641px) {
