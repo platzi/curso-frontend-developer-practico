@@ -4,7 +4,7 @@ const menuhambur = document.querySelector('.menu');
 const MobileMenu = document.querySelector('.mobile-menu');
 const menuCarritoIcon = document.querySelector('.navbar-shopping-cart');
 const aside = document.querySelector('.product-detail');
-const cardsContainer = document.querySelector('.cards-container')
+const cardsContainer = document.querySelector('.cards-container');
 
 menuEmail.addEventListener('click', toggleDesktopMenu);
 menuhambur.addEventListener('click', toggleMobileMenu);
@@ -47,19 +47,16 @@ productList.push ({
     price: 120,
     image: 'https://images.pexels.com/photos/276517/pexels-photo-276517.jpeg?auto=compress&cs=tinysrgb&dpr=2&h=650&w=940',
 })
-
 productList.push ({
     name: 'Pantalla',
     price: 220,
     image: 'https://images.pexels.com/photos/276517/pexels-photo-276517.jpeg?auto=compress&cs=tinysrgb&dpr=2&h=650&w=940',
 })
-
 productList.push ({
     name: 'Computador',
     price: 3000,
     image: 'https://images.pexels.com/photos/276517/pexels-photo-276517.jpeg?auto=compress&cs=tinysrgb&dpr=2&h=650&w=940',
 })
-
 productList.push({
     name: "Mause",
     price: 79,
@@ -118,4 +115,3 @@ function renderProductos(array){
 };
 
 renderProductos(productList);
-
