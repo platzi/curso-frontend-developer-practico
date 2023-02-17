@@ -4,6 +4,8 @@ const hamburgerIcon = document.querySelector('.menu');
 const mobileMenu = document.querySelector('.mobile-menu');
 const menuCarritoIcon = document.querySelector('.navbar-shopping-cart');
 const shoppingCartContainer = document.querySelector('#shoppingCartContainer');
+const productDetailContainer = document.querySelector('#productDetail');
+const productDetailCloseIcon = document.querySelector(".product-detail-close");
 
 
 navbarEmail.addEventListener('click', toggleDesktopMenu);
@@ -31,6 +33,8 @@ function toggleMobileMenu(){
         shoppingCartContainer.classList.add('inactive');
     }
 
+    closeProductDetailAside();
+    
     mobileMenu.classList.toggle('inactive');
 }
 
@@ -44,15 +48,23 @@ function toggleCarritoAside(){
     //al usar la version mobile se entrecruzan el menuhamburguesa y el aside de items. Toca usar un condicional
     //para que no suceda este comportamiento.
     const isMobileMenuOpenClosed = mobileMenu.classList.contains('inactive');
-    const isDesktopMenuClosed = desktopMenu.classList.contains('inactive');
-    
+     
 
     if(!isMobileMenuOpenClosed){
         mobileMenu.classList.add('inactive');
     }
 
+    const isDesktopMenuClosed = desktopMenu.classList.contains('inactive');
+    
     if(!isDesktopMenuClosed){
         desktopMenu.classList.add('inactive');
+    }
+
+    const isProductDetailClosed = productDetailContainer.classList.contains('inactive');
+
+    if(!isProductDetailClosed){
+        productDetailContainer.classList.add('inactive');
+    
     }
     
     shoppingCartContainer.classList.toggle('inactive');
@@ -110,6 +122,9 @@ function renderProducts(arr){
      
         const productImg = document.createElement('img');
         productImg.setAttribute('src', product.imagen);
+
+        //se le puede generar eventos a los elementos creados desde JS
+        productImg.addEventListener("click", openProductDetailAside);
         
         const productInfo = document.createElement('div');
         productInfo.classList.add('product-info');
@@ -143,6 +158,22 @@ function renderProducts(arr){
         cardsContainer.appendChild(productCard);
      
      }
+}
+
+function openProductDetailAside(){
+   shoppingCartContainer.classList.add('inactive');
+   
+
+    productDetailContainer.classList.remove('inactive');
+
+    
+    
+}
+
+productDetailCloseIcon.addEventListener('click', closeProductDetailAside);
+
+function closeProductDetailAside(){
+    productDetailContainer.classList.add('inactive');
 }
 
 renderProducts(productlist);
