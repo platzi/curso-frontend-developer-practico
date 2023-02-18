@@ -3,24 +3,24 @@ const desktopMenu = document.querySelector(".desktop-menu")
 const mobileMenu = document.querySelector(".mobile-menu")
 const burguerIcon = document.querySelector(".menu")
 const shoppinCartIcon = document.querySelector(".navbar-shopping-cart")
-const aside = document.querySelector(".product-detail")
+const shoppingCartContainer = document.querySelector("#shoppingCartContainer")
 const cardsContainer = document.querySelector(".cards-container")
 
 menuEmail.addEventListener("click", toggleDesktopMenu)
 burguerIcon.addEventListener("click", toggleMobileMenu)
-shoppinCartIcon.addEventListener("click", toggleAside)
+shoppinCartIcon.addEventListener("click", toggleshoppingCartContainer)
 
 function toggleDesktopMenu(){
     desktopMenu.classList.toggle("ver")
-    aside.classList.add("ver")
+    shoppingCartContainer.classList.add("ver")
 }
 
 function toggleMobileMenu(){
     mobileMenu.classList.toggle("ver")
-    aside.classList.add("ver")
+    shoppingCartContainer.classList.add("ver")
 }
-function toggleAside(){
-    aside.classList.toggle("ver")
+function toggleshoppingCartContainer(){
+    shoppingCartContainer.classList.toggle("ver")
     mobileMenu.classList.add("ver")
     desktopMenu.classList.add("ver")
 }
