@@ -4,7 +4,7 @@ const menuEmail = $('.navbar-email');
 const desktopMenu = $('.desktop-menu');
 const BurgerMenu = $('.menu'); 
 const mobileMenu = $('.mobile-menu');
-const ShoppingMenu = $('.product-detail');
+const ShoppingMenu = $('.shopping-menu');
 const ShoppingCart = $('.navbar-shopping-cart');
 const cardscontainer = $('.cards-container')
 
