@@ -89,7 +89,7 @@ producList.push({
 producList.push({
     name: 'GitHub',
     price: 420,
-    image: 'https://rockcontent.com/es/wp-content/uploads/sites/3/2020/07/qu%C3%A9-es-git-hub-y-c%C3%B3mo-funciona-1024x576.jpg',
+    image: 'https://cdn.sanity.io/images/599r6htc/localized/d3eae461b3bee98395fcef5a49c6b41f2147a62f-2120x1000.png?w=1060&q=75&fit=max&auto=format&dpr=1.5',
 });
 
 
