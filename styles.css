@@ -68,7 +68,10 @@
     
   }
   .navbar-email:hover {
-    color: var(--hospital-green)
+    border: 1px solid var(--hospital-green);
+    color: var(--hospital-green);
+    border-radius: 8px;
+    padding: 8px;
   }
   .navbar-shopping-cart {
     cursor: pointer;

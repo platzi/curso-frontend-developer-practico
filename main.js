@@ -7,7 +7,8 @@ const mobileMenu = $('.mobile-menu');
 const ShoppingMenu = $('.shopping-menu');
 const ShoppingCart = $('.navbar-shopping-cart');
 const cardscontainer = $('.cards-container')
-
+const productDetail = $('.product-detail')
+const productDetailCloser = $('.product-detail-close')
 
 //Function para el desktop menu
 menuEmail.addEventListener('click', toggleDesktopMenu);
@@ -27,12 +28,13 @@ BurgerMenu.addEventListener('click', toggleMobileMenu)
 
 function toggleMobileMenu() {
     const isShoppingMenuClose = ShoppingMenu.classList.contains('inactive');
-   
-    if (!isShoppingMenuClose) {
+     if (!isShoppingMenuClose) {
         ShoppingMenu.classList.add('inactive')
     }
-
-
+    const isProductDetailClose = productDetail.classList.contains('inactive');
+     if (!isProductDetailClose) {
+    productDetail.classList.add('inactive')
+    }
 
     mobileMenu.classList.toggle('inactive') ;
     
@@ -43,21 +45,37 @@ ShoppingCart.addEventListener('click', toggleProductCart)
 
 function toggleProductCart() {
    const isMobileMenuClose = mobileMenu.classList.contains('inactive');
-   
-if (!isMobileMenuClose) {
+    if (!isMobileMenuClose) {
     mobileMenu.classList.add('inactive')
-}
+    }
+
+const isProductDetailClose = productDetail.classList.contains('inactive');
+    if (!isProductDetailClose) {
+    productDetail.classList.add('inactive')
+    }
 
 const isdesktopMenuClose = desktopMenu.classList.contains('inactive');
-   
-if (!isdesktopMenuClose) {
+    if (!isdesktopMenuClose) {
     desktopMenu.classList.add('inactive')
-}
+    }
 
  ShoppingMenu.classList.toggle('inactive') ;
     
  
+}   
+
+// Function para product detail menu and closer
+
+function openProductDetail() {
+   ShoppingMenu.classList.add('inactive')
+   mobileMenu.classList.add('inactive')
+    productDetail.classList.remove('inactive')
 }
+
+function CloseProductDetail() {
+    productDetail.classList.add('inactive')
+}
+productDetailCloser.addEventListener('click', CloseProductDetail);
 
 //Products list
 
@@ -87,6 +105,9 @@ for (product of productlist) {
 
     const productimg = document.createElement('img');
     productimg.setAttribute('src', product.Image);
+    productimg.addEventListener('click', openProductDetail);
+
+
 
     const productInfo = document.createElement('div')
     productInfo.classList.add('product-info');
