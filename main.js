@@ -5,8 +5,10 @@ const burguerMenu = document.querySelector('.menu')
 const mobileMenu = document.querySelector('.mobile-menu')
 //shopping cart
 const shoppingBasket = document.querySelector('.navbar-shopping-cart')
-const productDetail = document.querySelector('#shopping-cart-container')
-
+const productsOrdered = document.querySelector('#shopping-cart-container')
+//product detail
+const productDetail = document.querySelector('#product-detail')
+const closeProductDetail = document.querySelector('.product-detail-close')
 //products
 const products = [
     {
@@ -58,19 +60,26 @@ const products = [
 
 //Eventos
 menuEmail.addEventListener('click', function(){
+    const isProductOrderedOpen = !productsOrdered.classList.contains('inactive')
     const isProductDetailOpen = !productDetail.classList.contains('inactive')
     desktopMenu.classList.toggle('inactive')
-    //hide product detail when click on desktopmenu
+    //hide components when click on desktopmenu
+    if (isProductOrderedOpen) {
+        productsOrdered.classList.add('inactive')
+    }
     if (isProductDetailOpen) {
         productDetail.classList.add('inactive')
     }
-
 })
 // mobile menu
 burguerMenu.addEventListener('click', function(){
+    const isProductOrderedOpen = !productsOrdered.classList.contains('inactive')
     const isProductDetailOpen = !productDetail.classList.contains('inactive')
     mobileMenu.classList.toggle('inactive')
-    //hide product detail when click on mobile menu
+    //hide components when click on mobile menu
+    if (isProductOrderedOpen) {
+        productsOrdered.classList.add('inactive')
+    }
     if (isProductDetailOpen) {
         productDetail.classList.add('inactive')
     }
@@ -79,14 +88,22 @@ burguerMenu.addEventListener('click', function(){
 shoppingBasket.addEventListener('click', function(){
     const isDesktopMenuOpen = !desktopMenu.classList.contains('inactive')
     const isMobileMenuOpen = !mobileMenu.classList.contains('inactive')
-    productDetail.classList.toggle('inactive')
-    //hide desktopmenul when click on product detail
+    const isProductDetailOpen = !productDetail.classList.contains('inactive')
+    productsOrdered.classList.toggle('inactive')
+    //hide components when click on product detail
     if (isDesktopMenuOpen) {
         desktopMenu.classList.add('inactive')
     }
     if (isMobileMenuOpen) {
         mobileMenu.classList.add('inactive')
     }
+    if (isProductDetailOpen) {
+        productDetail.classList.add('inactive')
+    }
+})
+// close product detail
+closeProductDetail.addEventListener('click',function() {
+    productDetail.classList.add('inactive')
 })
 
 function renderProducts(arr = undefined){
@@ -116,6 +133,25 @@ function renderProducts(arr = undefined){
         figure.appendChild(addCartImg)
         productInfo.append(div, figure)
         productCard.append(productImg, productInfo)
+        //open productDetail 
+        productImg.addEventListener("click",function(){
+            const isDesktopMenuOpen = !desktopMenu.classList.contains('inactive')
+            const isMobileMenuOpen = !mobileMenu.classList.contains('inactive')
+            const isProductOrderedOpen = !productsOrdered.classList.contains('inactive')
+
+            productDetail.classList.remove("inactive")
+
+            //hide components when click on product detail
+            if (isDesktopMenuOpen) {
+                desktopMenu.classList.add('inactive')
+            }
+            if (isMobileMenuOpen) {
+                mobileMenu.classList.add('inactive')
+            }
+            if (isProductOrderedOpen) {
+                productsOrdered.classList.add('inactive')
+            }
+        })
         //append to the father container
         cardsContainer.appendChild(productCard)
     }
