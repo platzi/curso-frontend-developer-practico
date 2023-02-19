@@ -6,28 +6,47 @@ const shoppingcartNavbar = document.querySelector(".navbar-shopping-cart");
 const productDetail = document.querySelector(".product-detail")
 const cardsContainer = document.querySelector(".cards-container")
 const productDetailDescription = document.querySelector(".product-detail-description");
+const productDetailClose = document.querySelector(".product-detail-description-close");
 
 emailNavbar.addEventListener("click", desktopMenuToggle);
+menu.addEventListener("click", mobileMenuToggle);
+shoppingcartNavbar.addEventListener("click", productDetailToggle);
+productDetailClose.addEventListener("click", productDetailDescriptionClose);
+
+
+
 function desktopMenuToggle(){
   desktopMenu.classList.toggle("inactive");
   mobileMenu.classList.add("inactive");
   productDetail.classList.add("inactive");
+  productDetailDescription.classList.add("inactive")
 }
 
-menu.addEventListener("click", mobileMenuToggle);
+
+
 function mobileMenuToggle(){
 mobileMenu.classList.toggle("inactive");
 productDetail.classList.add("inactive");
 desktopMenu.classList.add("inactive");
+productDetailDescription.classList.add("inactive")
 }
 
-shoppingcartNavbar.addEventListener("click", productDetailToggle)
+
+
 
 function productDetailToggle(){
   productDetail.classList.toggle("inactive");
   mobileMenu.classList.add("inactive");
   desktopMenu.classList.add("inactive");
+  productDetailDescription.classList.add("inactive")
 }
+
+
+function productDetailDescriptionClose(){
+  productDetailDescription.classList.add("inactive")
+}
+
+
 
 const productList = [];
 
@@ -66,19 +85,20 @@ productList.push({
 
 for(product of productList){
 const productCard = document.createElement("div");
-productCard.classList.add("product-card");
 const productImage = document.createElement("img");
-productImage.setAttribute("src", product.image);
 const productInfo = document.createElement("div");
-productInfo.classList.add("product-info");
 const productInfoDiv = document.createElement("div");
 const productPrice = document.createElement("p");
-productPrice.innerText = "$ "+ product.price;
 const productName = document.createElement("p");
-productName.innerText = product.name;
 const figure = document.createElement("figure");
 const imgIconCart = document.createElement("img");
+productCard.classList.add("product-card");
+productImage.setAttribute("src", product.image);
+productInfo.classList.add("product-info");
+productPrice.innerText = "$ "+ product.price;
+productName.innerText = product.name;
 imgIconCart.setAttribute("src", "./icons/bt_add_to_cart.svg")
+
 
 cardsContainer.appendChild(productCard);
 productCard.appendChild(productImage);
@@ -88,6 +108,16 @@ productInfoDiv.appendChild(productPrice);
 productInfoDiv.appendChild(productName);
 productInfo.appendChild(figure);
 figure.appendChild(imgIconCart);
+
+productImage.addEventListener("click", productDetailDescriptionRemove);
+
+function productDetailDescriptionRemove(){
+  productDetailDescription.classList.remove("inactive")
+  productDetail.classList.add("inactive");
+  mobileMenu.classList.add("inactive");
+  desktopMenu.classList.add("inactive");
+};
+
 };
  /*<section class="main-container">
 <div class="cards-container">
