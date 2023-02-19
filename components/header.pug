@@ -1,0 +1,46 @@
+header
+	nav
+		img(src="./icons/icon_menu.svg", alt="menu").burguerMenu
+		div.nav-left
+			img(src="./logos/logo_yard_sale.svg", alt="logo").logo
+			ul 
+				each itemNav in nameNav 
+					li
+						a(href="/")=itemNav
+		div.nav-right
+			div.desktop-nemu
+				div.container-market 
+					h2 My MarketPlace
+					div.navbar-email
+						each itemNav in otherNameNav
+							if itemNav === "platzi@example.com"
+							else
+								li
+									a(href="/")=itemNav
+				div.navbar-shopping-cart 
+					img(src="", alt="")
+					div 0
+			div.mobile-menu
+				ul 
+					each itemNav in nameNav 
+						li
+							a(href="/")=itemNav
+				ul
+					each itemNav in otherNameNav
+						li
+							if itemNav === "platzi@example.com"
+								a(href="/").email=itemNav
+							else if itemNav === "Sign out"
+								a(href="/").sign-out=itemNav
+							else 
+								a(href="/")=itemNav
+	aside.shopping-cart-conatiner
+		div.title-container
+			img(src="", alt="arrow")
+			p.title My order
+		section.my-order-content
+		div.order
+			p Total
+			p.total-product-cost $
+		div
+			p.primary-button Checkout 
