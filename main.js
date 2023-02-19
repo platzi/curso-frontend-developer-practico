@@ -4,7 +4,7 @@ const desktopMenu = document.querySelector('.desktop-menu');
 const burguerMenu = document.querySelector('.menu');
 const mobileMenu = document.querySelector('.mobile-menu');
 const menuCarIcon = document.querySelector('.navbar-shopping-cart')
-const aside = document.querySelector('.product-detail');
+const shoppingCartContainer = document.querySelector('#shoppingCartContainer');
 const cardsContainer = document.querySelector('.cards-container');
 // events
 menuEmail.addEventListener('click', toggleDesktopMenu);
@@ -14,29 +14,29 @@ menuCarIcon.addEventListener('click', toggleAside);
 // functions
 function toggleDesktopMenu(){
    
-    const asideClose = aside.classList.contains('inactive')
+    const asideClose = shoppingCartContainer.classList.contains('inactive')
 
     if(!asideClose){
-        aside.classList.add('inactive');
+        shoppingCartContainer.classList.add('inactive');
     } 
     
     desktopMenu.classList.toggle('inactive');
 }
 
 function toggleMobileMenu(){
-    const asideClose = aside.classList.contains('inactive')
+    const asideClose = shoppingCartContainer.classList.contains('inactive')
 
     mobileMenu.classList.toggle('inactive');
 
     if(!asideClose){
-        aside.classList.add('inactive');
+        shoppingCartContainer.classList.add('inactive');
     }
 }
 
 function toggleAside(){
     const mobileMenuClose= mobileMenu.classList.contains('inactive');
 
-    aside.classList.toggle('inactive');
+    shoppingCartContainer.classList.toggle('inactive');
 
     if(!mobileMenuClose){
         mobileMenu.classList.add('inactive');
@@ -65,7 +65,6 @@ const productList = [];
         image: "https://images.pexels.com/photos/276517/pexels-photo-276517.jpeg?auto=compress&cs=tinysrgb&dpr=2&h=650&w=940"
     })
 
-  
 function renderProducts(arr){
     for (product of arr){
     const productCard = document.createElement('div');
