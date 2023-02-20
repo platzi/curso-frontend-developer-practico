@@ -5,24 +5,40 @@ const burguerIcon = document.querySelector(".menu")
 const shoppinCartIcon = document.querySelector(".navbar-shopping-cart")
 const shoppingCartContainer = document.querySelector("#shoppingCartContainer")
 const cardsContainer = document.querySelector(".cards-container")
+const productDetailContainer = document.querySelector("#productDetail")
+const productDetailClose = document.querySelector(".product-detail-close")
 
 menuEmail.addEventListener("click", toggleDesktopMenu)
 burguerIcon.addEventListener("click", toggleMobileMenu)
 shoppinCartIcon.addEventListener("click", toggleshoppingCartContainer)
+productDetailClose.addEventListener("click", closeProductDetail)
 
 function toggleDesktopMenu(){
     desktopMenu.classList.toggle("ver")
     shoppingCartContainer.classList.add("ver")
+    productDetailContainer.classList.add("ver")
 }
 
 function toggleMobileMenu(){
     mobileMenu.classList.toggle("ver")
     shoppingCartContainer.classList.add("ver")
+    productDetailContainer.classList.add("ver")
 }
 function toggleshoppingCartContainer(){
     shoppingCartContainer.classList.toggle("ver")
     mobileMenu.classList.add("ver")
     desktopMenu.classList.add("ver")
+    productDetailContainer.classList.add("ver")
+}
+
+function openProductDetailAside(){
+    productDetailContainer.classList.remove("ver")
+    mobileMenu.classList.add("ver")
+    desktopMenu.classList.add("ver")
+    shoppingCartContainer.classList.add("ver")
+}
+function closeProductDetail(){
+    productDetailContainer.classList.add("ver")
 }
 
 const productList = []
@@ -54,6 +70,7 @@ function renderProducts(arr) {
     
         const productImg = document.createElement("img")
         productImg.setAttribute("src", product.image)
+        productImg.addEventListener("click", openProductDetailAside)
     
         const productInfo = document.createElement("div")
         productInfo.classList.add("product-info")
