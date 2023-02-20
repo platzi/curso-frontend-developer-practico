@@ -414,6 +414,14 @@
       height: 140px;
     }
 
+
+    #productDetailContainer{
+
+      width: 100%;
+      height: 100%;
+
+    }
+
   }
 
   @media (min-width: 641px) {

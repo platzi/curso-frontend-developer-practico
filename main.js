@@ -249,6 +249,8 @@ function toogleCarritoAside(){
 function tooglemobileMenu(){
     mobileMenu.classList.toggle("inactive")
     aside.classList.add("inactive")
+    asideDetail.classList.add("inactive");
+
 }
 
 function toogleDesktopMenu(){
