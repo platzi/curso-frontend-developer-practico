@@ -48,11 +48,14 @@
     border: 1px solid var(--white);
     padding: 8px;
     border-radius: 8px;
+    transition: 0.3s;
   }
   .navbar-left ul li a:hover,
   .navbar-right ul li a:hover {
     border: 1px solid var(--hospital-green);
     color: var(--hospital-green);
+    padding: 10px 16px;
+    border-radius: 12px;
   }
   .navbar-email {
     color: var(--very-light-pink);
