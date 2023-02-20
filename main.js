@@ -131,6 +131,7 @@ function showProduct(arr){
         let imgProduct = document.createElement("img");
         imgProduct.setAttribute("src", product.image);
         imgProduct.classList.add(product.id)
+        producto.classList.add(product.id)
         /* Funcion mostrar detalles */
         imgProduct.addEventListener("click", detectarArticulo)
 
@@ -251,6 +252,7 @@ function toogleDesktopMenu(){
     descktopMenu.classList.toggle("inactive")
 
     aside.classList.add("inactive")
+    asideDetail.classList.add("inactive")
 }
 
 

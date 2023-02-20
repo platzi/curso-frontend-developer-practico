@@ -1,0 +1,65 @@
+[33mcommit 8f7466d1f8972a00d0143f1eb95affe1dbb22b09[m[33m ([m[1;36mHEAD -> [m[1;32mmain[m[33m, [m[1;31morigin/main[m[33m, [m[1;31morigin/HEAD[m[33m)[m
+Author: SERGIO7900 <sergionavarro742@gmail.com>
+Date:   Sun Feb 19 17:54:37 2023 -0300
+
+    creanndo algoritmo para que muestre el articulo al cual el usuario dio click y lo muestre en los detalles
+
+[33mcommit 5c3daae10e5b8e19a4142788c05ac0a565d86e7f[m
+Author: SERGIO7900 <sergionavarro742@gmail.com>
+Date:   Wed Feb 15 21:03:24 2023 -0300
+
+    agregando las funcioens clikc que muestran el aside de detalles de productos
+
+[33mcommit addaa559a68c5c0e983895ce38d3bd9b8d531105[m
+Author: SERGIO7900 <sergionavarro742@gmail.com>
+Date:   Wed Feb 15 00:51:25 2023 -0300
+
+    reparando conflictos de menu desplegable
+
+[33mcommit 44611df865f6b75cc20d1f42ae6d979d3fdd95e5[m
+Author: SERGIO7900 <sergionavarro742@gmail.com>
+Date:   Wed Feb 15 00:17:04 2023 -0300
+
+    agregando el aside de detalles del producto y dandole los estilos para evitar conflictos con el otro aside
+
+[33mcommit f2b280ec3afb864a382b27451ede506662a68f50[m
+Author: SERGIO7900 <sergionavarro742@gmail.com>
+Date:   Mon Feb 13 21:36:21 2023 -0300
+
+    Creando la lista de procductos con JavaScript y Arrays
+
+[33mcommit bc1b14d60025be0c96f7449810067269e382d18e[m
+Author: SERGIO7900 <sergionavarro742@gmail.com>
+Date:   Tue Feb 7 23:38:21 2023 -0300
+
+    agregando el archivo css principal con los diseños de los menus
+
+[33mcommit 6d1bcd7013db0e38dadc6593864762235c0309d4[m
+Author: SERGIO7900 <sergionavarro742@gmail.com>
+Date:   Tue Feb 7 23:37:11 2023 -0300
+
+    agregando el menu desktop
+
+[33mcommit 1d9a007ea2979e33700fc41cb9e702d8ea60f8aa[m
+Author: SERGIO7900 <sergionavarro742@gmail.com>
+Date:   Tue Feb 7 23:36:38 2023 -0300
+
+    agregando el archivo de js pricipal
+
+[33mcommit 4774124de4c723d46d6a22da4c93c03f7be9e7bd[m
+Author: Juan David Castro <me@juandc.co>
+Date:   Fri Aug 6 10:22:19 2021 -0500
+
+    Add files via upload
+
+[33mcommit 84bc21bb1cb013e03a0c6d694b632aeec8a77977[m
+Author: Juan David Castro <me@juandc.co>
+Date:   Thu Aug 5 16:50:27 2021 -0500
+
+    Add files via upload
+
+[33mcommit 06d2ccd2293a68614a14db757d1dc3477403e89f[m
+Author: Juan David Castro <me@juandc.co>
+Date:   Mon Aug 2 22:38:03 2021 -0500
+
+    Initial commit
