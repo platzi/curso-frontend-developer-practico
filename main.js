@@ -2,16 +2,20 @@ const menuEmail = document.querySelector('.navbar-email');
 const DeskTopMenu = document.querySelector('.desktop-menu');
 const MenuCarritoIcon = document.querySelector('.navbar-shopping-cart');
 const menuHamIcon = document.querySelector('.menu');
+const productDetailCloseIcon = document.querySelector('.product-detail-close');
 const mobileMenu = document.querySelector('.mobile-menu');
 const shoppingCartContainer= document.querySelector('#shoppingCartContainer');
+const productDetailContainer = document.querySelector('#productDetail');
 const cardsContainer = document.querySelector('.cards-container');
 
 menuEmail.addEventListener('click',toggleDeskTopMenu);
 menuHamIcon.addEventListener('click',toggleMobileMenu);
 MenuCarritoIcon.addEventListener('click',toggleCarritoshoppingCartContainer);
+productDetailCloseIcon.addEventListener('click', closeProductDetailAside);
+
 
 function toggleDeskTopMenu(){
-DeskTopMenu.classList.toggle('inactive');
+    DeskTopMenu.classList.toggle('inactive');
 }
 
 function toggleMobileMenu(){
@@ -19,18 +23,36 @@ function toggleMobileMenu(){
     if(!idAsideClosed){
         shoppingCartContainer.classList.add('inactive');
     }
+    closeProductDetailAside();
     mobileMenu.classList.toggle('inactive');
 }
 
 function toggleCarritoshoppingCartContainer(){
     const ismobileMenuClosed = mobileMenu.classList.contains('inactive');
-    
-if(!ismobileMenuClosed){
+    if(!ismobileMenuClosed){
     //abrir el aside
     mobileMenu.classList.add('inactive')
+    }
+
+    const isproductDetailClosed = productDetailContainer.classList.contains('inactive');    
+    if(!isproductDetailClosed){
     
+    productDetailContainer.classList.add('inactive')  
+    }
+    shoppingCartContainer.classList.toggle('inactive');
 }
-shoppingCartContainer.classList.toggle('inactive');
+
+//abre la ventana del detalle del producto
+function openProductDetailAside (){
+
+    shoppingCartContainer.classList.add('inactive');
+    productDetailContainer.classList.remove('inactive');
+}
+
+
+//nos cierra la ventana del detalle de producto
+function closeProductDetailAside (){
+    productDetailContainer.classList.add('inactive');
 }
 
 const producList= [];
@@ -77,6 +99,7 @@ function renderProducts(arr){
         // product= {name,price, image}--> product.image
         const productImg = document.createElement('img');
         productImg.setAttribute('src',product.image);
+        productImg.addEventListener('click' , openProductDetailAside );
      
         const productInfo = document.createElement('div');
         productInfo.classList.add('product-info');
