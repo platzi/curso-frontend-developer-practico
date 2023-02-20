@@ -229,6 +229,8 @@ function argegarDetalles(list){
 }
 function mostrarDetalles(){
     asideDetail.classList.remove("inactive")
+    descktopMenu.classList.add("inactive")
+    aside.classList.add("inactive")
 }
 
 function cerrarDetalles(){
@@ -239,6 +241,8 @@ function toogleCarritoAside(){
     mobileMenu.classList.add("inactive")
     aside.classList.toggle("inactive")
     descktopMenu.classList.add("inactive")
+    asideDetail.classList.add("inactive");
+
 }
 
 
