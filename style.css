@@ -163,7 +163,10 @@
   #soppingCartContainer{
     padding: 0 24px 24px 24px;
   }
-
+  #productDetail{
+    margin: 0 10px 10px 0;
+    padding: 10px;
+  }
   .product-detail-close {
     position: absolute;
     border-radius: 50%;
@@ -181,7 +184,7 @@
     width: 100%;
     height: 360px;
     object-fit: cover;
-    border-radius: 0 0 0 20px;
+    border-radius: 20px;
   }
   #productDetail .product-info {
     margin: 24px 24px 0 24px;
