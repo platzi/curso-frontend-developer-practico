@@ -9,9 +9,16 @@ const productDetail = document.querySelector(".product-detail");
 
 const cardsContainer = document.querySelector('.cards-container');
 
-menuEmail.addEventListener("click", showDesktopMenu);
+const ProductDetailExtra = document.querySelector('.product-detail-extra'); 
+
+const ProductDetailExtraClose = document.querySelector('.product-detail-extra-close');
+
+menuEmail.addEventListener("click", toggleDesktopMenu);
 menuHamIcon.addEventListener("click", toggleMobileMenu);
 shoppingCart.addEventListener("click", toggleCarritoMenu);
+
+ProductDetailExtraClose.addEventListener("click", closeProductDetailExtra);
+
 
 function toggleCarritoMenu() {
   const isMobileMenuClose = mobileMenu.classList.contains("inactive");
@@ -25,7 +32,7 @@ function toggleCarritoMenu() {
   productDetail.classList.toggle("inactive");
 }
 
-function showDesktopMenu() {
+function toggleDesktopMenu() {
   const isProductDetailClosed = productDetail.classList.contains("inactive");
 
   if (!isProductDetailClosed) {
@@ -45,6 +52,15 @@ function toggleMobileMenu() {
   }
 
   mobileMenu.classList.toggle("inactive");
+}
+
+function OpenProductDetailExtra(){
+  ProductDetailExtra.classList.remove('inactive');
+
+}
+
+function closeProductDetailExtra (){
+  ProductDetailExtra.classList.add('inactive');
 }
 
 const productList = [];
@@ -87,6 +103,7 @@ for (product of productList){
  //se añade la img del producto a vender y despues de le añade como atributo 
  const img = document.createElement('img');
  img.setAttribute('src', product.image);
+ img.addEventListener('click', OpenProductDetailExtra);
 
  //Añadimos un div que es el pruduct-info
  const productInfo = document.createElement('div');
