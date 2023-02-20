@@ -346,10 +346,6 @@ aside {
   color: var(--very-light-pink);
 }
 
-@media (max-width: 640px) {
-  .product-detail {
-    width: 100%;
-  }
 
 @media (max-width: 640px) {
   .menu {
@@ -370,9 +366,6 @@ aside {
   .product-card img {
     width: 140px;
     height: 140px;
-  }
-  .product-detail {
-    width: 100%;
   }
 }
 
