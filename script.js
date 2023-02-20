@@ -6,7 +6,11 @@ const menuEmail = document.querySelector('.navbar-email');
 const desktopMenu = document.querySelector('.desktop-menu')
 
 const menuCartIcon = document.querySelector('.navbar-shopping-cart');
+
+const productDetailCloseIcon = document.querySelector('.product-detail-close')
+
 const shoppingCartContainer = document.querySelector('#shoppingCartContainer');
+const productDetailContainer = document.querySelector('#productDetail');
 const cardsContainer = document.querySelector('.cards-container');
 
 
@@ -17,6 +21,7 @@ const toggleMobileMenu = () => {
         shoppingCartContainer.classList.toggle('inactive');
     }
     
+    closeProductDetailAside ()
     mobileMenu.classList.toggle('inactive');
    
 }
@@ -36,12 +41,28 @@ const toggleCartAside = () => {
         mobileMenu.classList.add('inactive');
     }
     
+    const isProductDetailClosed = productDetailContainer.classList.contains('inactive');
+    
+    if (!isProductDetailClosed) {
+        productDetailContainer.classList.add('inactive');
+    }
+
     shoppingCartContainer.classList.toggle('inactive');
+}
+
+const openProductDetailAside = () => {
+    shoppingCartContainer.classList.add('inactive');
+
+    productDetailContainer.classList.remove('inactive');
+}
+const closeProductDetailAside = () => {
+    productDetailContainer.classList.add('inactive');
 }
 
 menuEmail.addEventListener('click', toggleDesktopMenu);
 menuHamIcon.addEventListener('click', toggleMobileMenu);
 menuCartIcon.addEventListener('click', toggleCartAside);
+productDetailCloseIcon.addEventListener('click', closeProductDetailAside);
 
 const productList = [];
 
@@ -67,6 +88,8 @@ productList.push(
     },
 );
 
+
+
 const renderProducts= (productList) =>{
     for(let product of productList) {
         const productCard = document.createElement('div');
@@ -74,6 +97,7 @@ const renderProducts= (productList) =>{
     
         const productImg = document.createElement('img');
         productImg.setAttribute('src', product.image);
+        productImg.addEventListener('click', openProductDetailAside)
     
         const productInfo = document.createElement('div');
         productInfo.classList.add('product-info');
