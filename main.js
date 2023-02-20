@@ -252,7 +252,7 @@ function toogleDesktopMenu(){
     descktopMenu.classList.toggle("inactive")
 
     aside.classList.add("inactive")
-    asideDetail.classList.add("inactive")
+    asideDetail.classList.add("inactive");
 }
 
 
