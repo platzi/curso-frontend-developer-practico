@@ -117,7 +117,7 @@
   </nav>
 
   <!-- Aside shopping cart -->
-  <aside class="product-detail inactive">
+  <aside id="shoppingCartContainer" class=" inactive">
     <div class="title-container">
       <img src="./icons/flechita.svg" alt="arrow">
       <p class="title">My order</p>
@@ -162,7 +162,23 @@
         Checkout
       </button>
     </div>
-  </div>
+  </aside>
+
+  <!-- Aside product detail -->
+  <aside id="productDetail" class="inactive">
+    <div class="product-detail-close">
+      <img src="./icons/icon_close.png" alt="close">
+    </div>
+    <img id="productDetail-image" src="" alt="">
+    <div class="product-info">
+      <p id="productDetail-price"></p>
+      <p id="productDetail-name"></p>
+      <p id="productDetail-description"></p>
+      <button class="primary-button add-to-cart-button">
+        <img src="./icons/bt_add_to_cart.svg" alt="add to cart">
+        Add to cart
+      </button>
+    </div>
   </aside>
 
   <!-- Produc list -->
