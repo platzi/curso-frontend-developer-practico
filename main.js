@@ -5,11 +5,13 @@ const mobileMenu = document.querySelector('.mobile-menu');
 const menuCarritoIcon = document.querySelector('.navbar-shopping-cart');
 const carrito = document.querySelector('.carrito');
 const cardsContainer = document.querySelector('.cards-container');
-
+const productDetailConteiner = document.querySelector('.product-detail');
+const productDetailCloseIcon = document.querySelector('.product-detail-close');
 
 menuEmail.addEventListener('click', toggleDesKtopMenu);
 menuHamIcon.addEventListener('click', toggleMobileMenu);
 menuCarritoIcon.addEventListener('click', toggleCarritoAside);
+productDetailCloseIcon.addEventListener('click', closeProductDetail);
 
 function toggleDesKtopMenu(){
     const isCarritoClosed = menuCarritoIcon.classList.contains('inactive');
@@ -17,26 +19,33 @@ function toggleDesKtopMenu(){
     if(!isCarritoClosed){
         carrito.classList.add('inactive');
     }
+    closeProductDetail();
     desktopMenu.classList.toggle('inactive');
 }
 
 function toggleMobileMenu(){
     const isCarritoClosed = menuCarritoIcon.classList.contains('inactive');
+    
     if(!isCarritoClosed){
         carrito.classList.add('inactive');
     }
+    closeProductDetail();
     mobileMenu.classList.toggle('inactive');
 }
 
 function toggleCarritoAside(){
     const isMobileMenuClosed = mobileMenu.classList.contains('inactive');
     const isDesktopMenuClosed = desktopMenu.classList.contains('inactive');
+    const isProductDetailClosed = productDetailConteiner.classList.contains('inactive');
    
     if(!isMobileMenuClosed){
         mobileMenu.classList.add('inactive');
     }
     if(!isDesktopMenuClosed){
         desktopMenu.classList.add('inactive');
+    }
+    if(!isProductDetailClosed){
+        productDetailConteiner.classList.add('inactive');
     }
     carrito.classList.toggle('inactive');
 }
@@ -80,6 +89,7 @@ function renderProducts(arr){
     
         const productImg = document.createElement('img');
         productImg.setAttribute('src', product.image);
+        productImg.addEventListener('click', openProductDetail);
     
         const productInfo = document.createElement('div');
         productInfo.classList.add('product-info');
@@ -112,3 +122,14 @@ function renderProducts(arr){
 }
 
 renderProducts(productList);
+
+function openProductDetail(){
+    carrito.classList.add('inactive');
+    mobileMenu.classList.add('inactive');
+    desktopMenu.classList.add('inactive');
+    productDetailConteiner.classList.remove('inactive');
+}
+
+function closeProductDetail(){
+    productDetailConteiner.classList.add('inactive');
+}
