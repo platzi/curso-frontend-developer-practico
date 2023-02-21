@@ -359,6 +359,9 @@ aside {
     width: 140px;
     height: 140px;
   }
+  #productdetail {
+    width: 100%;
+  }
 }
 @media (min-width: 641px) {
   .mobile-menu {

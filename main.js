@@ -1,15 +1,22 @@
 const menuemail = document.querySelector(`.navbar-email`);
 const menuhamicon = document.querySelector(`.menu`);
 const menucarritoicon = document.querySelector(`.navbar-shopping-cart`);
+
+const productDetailCloseIcon = document.querySelector(`.product-detail-close`);
+
 const desktopmenu = document.querySelector(`.desktop-menu`);
 const mobilemenu = document.querySelector(`.mobile-menu`);
 const shoppingcartcontainer = document.querySelector(`#shoppingcartcontainer`);
+
+const productdetailcontainer = document.querySelector(`#productdetail`);
+
 const cardscontainer = document.querySelector(`.cards-container`);
 //.....
 
 menuemail.addEventListener(`click`, toggledesktopmanu);
 menuhamicon.addEventListener(`click`, togglemobilemenu);
 menucarritoicon.addEventListener(`click`, togglecarritoaside);
+productDetailCloseIcon.addEventListener(`click`, closeProductDetailAside);
 
 //....
 function toggledesktopmanu() {
@@ -29,16 +36,31 @@ function togglemobilemenu() {
   if (!isasideclosed) {
     shoppingcartcontainer.classList.add(`inactive`);
   }
+  closeProductDetailAside();
 }
 
 function togglecarritoaside() {
-  shoppingcartcontainer.classList.toggle(`inactive`);
-
   const ismobilemenuclosed = mobilemenu.classList.contains(`inactive`);
 
   if (!ismobilemenuclosed) {
     mobilemenu.classList.add(`inactive`);
   }
+  const isProductDetailClosed =
+    productdetailcontainer.classList.contains(`inactive`);
+
+  if (!isProductDetailClosed) {
+    productdetailcontainer.classList.add(`inactive`);
+  }
+
+  shoppingcartcontainer.classList.toggle(`inactive`);
+}
+
+function openProductDetailAside() {
+  shoppingcartcontainer.classList.add(`inactive`);
+  productdetailcontainer.classList.remove(`inactive`);
+}
+function closeProductDetailAside() {
+  productdetailcontainer.classList.add(`inactive`);
 }
 
 const productlist = [];
@@ -67,6 +89,7 @@ function renderproducts(arr) {
 
     const productimg = document.createElement(`img`);
     productimg.setAttribute(`src`, product.Image);
+    productimg.addEventListener(`click`, openProductDetailAside);
 
     const productinfo = document.createElement(`div`);
     productinfo.classList.add(`product-info`);
