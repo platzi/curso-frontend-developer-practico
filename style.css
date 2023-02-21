@@ -1,3 +1,6 @@
+*{
+  box-sizing: border-box;
+}
 :root {
     --white: #FFFFFF;
     --black: #000000;
@@ -119,15 +122,18 @@ nav {
     display: inline-block;
 }
 .mobile-menu {
-    padding: 24px;
-    position: absolute;
-    top: 60px;
+  position: absolute;
+  background-color: var(--white);
+  top: 61px;
+  left: 0;
+  width: calc(100% - 24px);
+  padding-left: 24px;
 }
 .mobile-menu a {
     text-decoration: none;
     color: var(--black);
     font-weight: bold;
-    background-color: var(--white);
+    
 /* margin-bottom: 24px; */
 }
 .mobile-menu ul {
@@ -361,6 +367,9 @@ aside {
       .product-card img {
         width: 140px;
         height: 140px;
+    }
+    aside {
+      width: 100%;
     }
 }
 
