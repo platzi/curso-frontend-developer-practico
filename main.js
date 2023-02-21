@@ -11,6 +11,8 @@ const detailClose = document.querySelector(".product-detail-close")
 const infoProductDetail = document.querySelector(".product-info-detail")
 const imgD = document.querySelector(".imgDetail")
 
+const fondoDark = document.querySelector(".dark-bg");
+
 let btnAdd = document.querySelector("#add");
 btnAdd.addEventListener("click", alerta);
 
@@ -247,6 +249,8 @@ function mostrarDetalles(){
     asideDetail.classList.remove("inactive")
     descktopMenu.classList.add("inactive")
     aside.classList.add("inactive")
+
+    fondoDark.style.display = "grid"
 }
 
 
@@ -256,6 +260,8 @@ let idProduct;
 function cerrarDetalles(){
     asideDetail.classList.add("inactive");
     btnAdd.classList.remove(idProduct)
+    fondoDark.style.display = "none"
+
 }
 
 function toogleCarritoAside(){
