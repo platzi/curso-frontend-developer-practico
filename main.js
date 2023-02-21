@@ -2,33 +2,36 @@ const menuEmail = document.querySelector('.navbar-email');
 const desktopMenu = document.querySelector('.desktop-menu')
 const menuHamIcon = document.querySelector('.menu')
 const menuCarritoIcon = document.querySelector('.navbar-shopping-cart')
+const productDetailCloseIcon = document.querySelector('.product-detail-close')
 const mobileMenu = document.querySelector('.mobile-menu')
-const aside = document.querySelector('.product-detail')
+const shoppingCartContainer = document.querySelector('#shoppingCartContainer')
+const ProductDetailContainer = document.querySelector('#productDetail')
 const cardsContainer = document.querySelector('.cards-container')
 
 menuEmail.addEventListener('click', toggleDesktopMenu)
 menuHamIcon.addEventListener('click', toggleMobileMenu)
-menuCarritoIcon.addEventListener('click', toggleCarritoAside)
+menuCarritoIcon.addEventListener('click', toggleCarritoshoppingCartContainer)
+productDetailCloseIcon.addEventListener('click', closeProductDetailAside)
 
 function toggleDesktopMenu() {
-    const isAsideClose = aside.classList.contains('inactive')
+    const isshoppingCartContainerClose = shoppingCartContainer.classList.contains('inactive')
 
-    if (!isAsideClose){
-        aside.classList.add('inactive')
+    if (!isshoppingCartContainerClose){
+        shoppingCartContainer.classList.add('inactive')
     }
     desktopMenu.classList.toggle('inactive')
 }
 
 function toggleMobileMenu() {
-    const isAsideClose = aside.classList.contains('inactive')
+    const isshoppingCartContainerClose = shoppingCartContainer.classList.contains('inactive')
 
-    if (!isAsideClose){
-        aside.classList.add('inactive')
+    if (!isshoppingCartContainerClose){
+        shoppingCartContainer.classList.add('inactive')
     }
-    
+    closeProductDetailAside();
     mobileMenu.classList.toggle('inactive')
 }
-function toggleCarritoAside() {
+function toggleCarritoshoppingCartContainer() {
     const isMobileMenuClosed = mobileMenu.classList.contains('inactive')
     
     if(!isMobileMenuClosed){
@@ -37,31 +40,57 @@ function toggleCarritoAside() {
         desktopMenu.classList.add('inactive')
     }
 
-    aside.classList.toggle('inactive')
+    const isProductDetailClosed = ProductDetailContainer.classList.contains('inactive')
+    
+    if(!isProductDetailClosed){
+        ProductDetailContainer.classList.add('inactive')
+    }
+
+    shoppingCartContainer.classList.toggle('inactive')
+}
+
+function openProductDetailAside(){
+    shoppingCartContainer.classList.add('inactive')
+    ProductDetailContainer.classList.remove('inactive')
+}
+function closeProductDetailAside(){
+    ProductDetailContainer.classList.add('inactive')
 }
 
 const productList = [];
 productList.push({
-    name: 'bike',
+    name: 'Computadora',
     price: 120,
-    image: 'https://images.pexels.com/photos/276517/pexels-photo-276517.jpeg?auto=compress&cs=tinysrgb&dpr=2&h=650&w=940'
+    image: 'https://www.apple.com/newsroom/images/product/mac/standard/Apple_MacBook-Pro_14-16-inch_10182021_big.jpg.large.jpg'
 
 })
 productList.push({
-    name: 'bike',
+    name: 'Reloj',
     price: 120,
-    image: 'https://images.pexels.com/photos/276517/pexels-photo-276517.jpeg?auto=compress&cs=tinysrgb&dpr=2&h=650&w=940'
+    image: 'https://cdn.shopify.com/s/files/1/1868/1491/products/rolex-datejust-41mm-2-tones-full-honeycomb-baguette-montre-or-tons-bijoux-medusa-homme-quebec-canada-571_5000x.jpg?v=1634873190'
 
 })
 productList.push({
-    name: 'televisor',
+    name: 'Zapatilla',
     price: 120,
-    image: 'https://images.pexels.com/photos/276517/pexels-photo-276517.jpeg?auto=compress&cs=tinysrgb&dpr=2&h=650&w=940'
+    image: 'https://static3.abc.es/media/summum/2019/02/01/gucci-kV0F--510x287@abc.jpg'
 })
 productList.push({
-    name: 'carro',
+    name: 'Pulsera',
     price: 120,
-    image: 'https://images.pexels.com/photos/276517/pexels-photo-276517.jpeg?auto=compress&cs=tinysrgb&dpr=2&h=650&w=940'
+    image: 'https://www.versace.com/dw/image/v2/ABAO_PRD/on/demandware.static/-/Sites-ver-master-catalog/default/dw2c5f2410/original/90_DG06996-DJMT_KOT_20_MedusaChainBracelet-Bracelets-versace-online-store_10_1.jpg?sw=748&sh=1050&sm=fit'
+
+})
+productList.push({
+    name: 'Oso de Regalo',
+    price: 120,
+    image: 'https://img.freepik.com/fotos-premium/oso-peluche-juguete-da-regalos-sobre-fondo-blanco_295789-715.jpg?w=740'
+
+})
+productList.push({
+    name: 'Carro',
+    price: 120,
+    image: 'https://2.blogs.elcomercio.pe/entrelared/wp-content/uploads/sites/304/2020/02/aston-martin.jpg'
 
 })
  function renderProducts (arr){
@@ -71,6 +100,7 @@ productList.push({
     
         const productImg = document.createElement('img');
         productImg.setAttribute('src',product.image);
+        productImg.addEventListener('click',openProductDetailAside);
         // product = {name, price , image}-> product.image
     
         const productInfo = document.createElement('div');
