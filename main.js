@@ -11,6 +11,13 @@ const detailClose = document.querySelector(".product-detail-close")
 const infoProductDetail = document.querySelector(".product-info-detail")
 const imgD = document.querySelector(".imgDetail")
 
+let btnAdd = document.querySelector("#add");
+btnAdd.addEventListener("click", alerta);
+
+function alerta(){
+    alert("Articulo agregado")
+}
+
 
 const precioD = document.querySelector(".precio")
 const nombreD = document.querySelector(".nombre")
@@ -131,7 +138,6 @@ function showProduct(arr){
         let imgProduct = document.createElement("img");
         imgProduct.setAttribute("src", product.image);
         imgProduct.classList.add(product.id)
-        producto.classList.add(product.id)
         /* Funcion mostrar detalles */
         imgProduct.addEventListener("click", detectarArticulo)
 
@@ -208,6 +214,8 @@ function detectarArticulo(e){
       </button>
     </div> */
 
+
+
 function argegarDetalles(list){
 
 
@@ -220,6 +228,12 @@ function argegarDetalles(list){
 
         imgD.setAttribute("src", productList[list].image)
 
+    idProduct = productList[list].id;
+
+    btnAdd.classList.add(productList[list].id)
+
+
+
 
         mostrarDetalles()
 
@@ -227,14 +241,21 @@ function argegarDetalles(list){
         
     
 }
+
+
 function mostrarDetalles(){
     asideDetail.classList.remove("inactive")
     descktopMenu.classList.add("inactive")
     aside.classList.add("inactive")
 }
 
+
+/* variable que almacena el id del producto seleccionado*/
+let idProduct;
+
 function cerrarDetalles(){
     asideDetail.classList.add("inactive");
+    btnAdd.classList.remove(idProduct)
 }
 
 function toogleCarritoAside(){
