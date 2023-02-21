@@ -177,9 +177,9 @@
 /* ORDENES */
 
 
-  aside {
-    width: 360px;
-    padding:  0 24px 24px 24px;
+  #shopingCartContainer {
+    width: 400px;
+    padding:  24px 24px 24px 24px;
     box-sizing: border-box;
     position: absolute;
     right: 0;
@@ -262,6 +262,25 @@
 
 
   /* Detalles de producto */
+
+  .dark-bg{
+    background: #00000042 ;
+    width: 100%;
+    height: 100%;
+    position: absolute;
+    z-index: 1;
+    display: grid;
+    place-items: center;
+  }
+
+  .dark-bg aside{
+    width: 400px;
+    padding:  24px 24px 24px 24px;
+    box-sizing: border-box;
+    position: absolute;
+    background: var(--white);
+    border-radius: 20px;
+  }
 
   .product-detail-close {
     background: var(--white);
