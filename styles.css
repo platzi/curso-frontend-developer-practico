@@ -121,6 +121,8 @@ nav {
   background-color: var(--white);
   position: absolute;
   top: 60px;
+  left: 0;
+  width: 100%;
   padding: 24px;
 }
 .mobile-menu a {
@@ -152,12 +154,15 @@ nav {
 aside {
   background-color: var(--white);
   width: 360px;
-  padding: 0 24px;
   box-sizing: border-box;
   position: absolute;
   right: 0;
 }
 /* shoppincart*/
+
+#shopoingCartcontainer {
+  padding: 0 24px;
+}
 
 .title-container {
   display: flex;
@@ -247,22 +252,22 @@ aside {
   object-fit: cover;
   border-radius: 0 0 20px 20px;
 }
-#productdetail.product-info {
+#productdetail .product-info {
   margin: 24px 24px 0 24px;
 }
-#productdetail.product-info p:nth-child(1) {
+#productdetail .product-info p:nth-child(1) {
   font-weight: bold;
   font-size: var(--md);
   margin-top: 0;
   margin-bottom: 4px;
 }
-#productdetail.product-info p:nth-child(2) {
+#productdetail .product-info p:nth-child(2) {
   color: var(--very-light-pink);
   font-size: var(--md);
   margin-top: 0;
   margin-bottom: 36px;
 }
-#productdetail.product-info p:nth-child(3) {
+#productdetail .product-info p:nth-child(3) {
   color: var(--very-light-pink);
   font-size: var(--sm);
   margin-top: 0;
