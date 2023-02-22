@@ -7,6 +7,9 @@ const mobileMenu = document.querySelector('.mobile-menu');
 const aside = document.querySelector('.product-detail');
 const asideCard = document.querySelector('.product-detail-card');
 const cardsContainer = document.querySelector('.cards-container');
+const imagen = document.querySelector('#infoImages');
+const priceProduct = document.querySelector('#price');
+// const descriptionProduct = document.querySelector('#description');
 
 menuEmail.addEventListener('click', toggleDesktopMenu);
 menuHamIcon.addEventListener('click', toggleMobileMenu);
@@ -63,8 +66,11 @@ function toggleCarritoAside() {
     aside.classList.toggle('inactive');
 };
 
-function openProductDetailCard() {
+function openProductDetailCard(event) {
     asideCard.classList.remove('inactive');
+    imagen.setAttribute('src', event.target.src);
+    priceProduct.innerText = event.target.nextElementSibling.innerText;
+    // descriptionProduct.innerText = event.target.nextElementSibling.innerText;
 };
 
 function closeProductDetailAsite() {
@@ -89,13 +95,13 @@ productList.push({
     name: 'Pantalla',
     price: 220,
     image: 'https://images.pexels.com/photos/2251206/pexels-photo-2251206.jpeg?auto=compress&cs=tinysrgb&w=1260&h=750&dpr=2',
-    description: 'With its practical position, this bike also fulfills a decorative function, add your hall or workspace.',
+    description: 'this Tv also fulfills a decorative function, add your hall or workspace.',
 });
 productList.push({
     name: 'Compu',
     price: 620,
     image: 'https://images.pexels.com/photos/2047905/pexels-photo-2047905.jpeg?auto=compress&cs=tinysrgb&w=1260&h=750&dpr=2',
-    description: 'With its practical position, this bike also fulfills a decorative function, add your hall or workspace.',
+    description: 'this Laptop can help you to increase your skills in Programation at Platzi.',
 });
 productList.push({
     name: 'Bike',
@@ -107,13 +113,13 @@ productList.push({
     name: 'Pantalla',
     price: 220,
     image: 'https://images.pexels.com/photos/2251206/pexels-photo-2251206.jpeg?auto=compress&cs=tinysrgb&w=1260&h=750&dpr=2',
-    description: 'With its practical position, this bike also fulfills a decorative function, add your hall or workspace.',
+    description: 'this Tv also fulfills a decorative function, add your hall or workspace.',
 });
 productList.push({
     name: 'Compu',
     price: 620,
     image: 'https://images.pexels.com/photos/2047905/pexels-photo-2047905.jpeg?auto=compress&cs=tinysrgb&w=1260&h=750&dpr=2',
-    description: 'With its practical position, this bike also fulfills a decorative function, add your hall or workspace.',
+    description: 'this Laptop can help you to increase your skills in Programation at Platzi.',
 });
 productList.push({
     name: 'Bike',
@@ -125,13 +131,13 @@ productList.push({
     name: 'Pantalla',
     price: 220,
     image: 'https://images.pexels.com/photos/2251206/pexels-photo-2251206.jpeg?auto=compress&cs=tinysrgb&w=1260&h=750&dpr=2',
-    description: 'With its practical position, this bike also fulfills a decorative function, add your hall or workspace.',
+    description: 'this Tv also fulfills a decorative function, add your hall or workspace.',
 });
 productList.push({
     name: 'Compu',
     price: 620,
     image: 'https://images.pexels.com/photos/2047905/pexels-photo-2047905.jpeg?auto=compress&cs=tinysrgb&w=1260&h=750&dpr=2',
-    description: 'With its practical position, this bike also fulfills a decorative function, add your hall or workspace.',
+    description: 'this Laptop can help you to increase your skills in Programation at Platzi.',
 });
 productList.push({
     name: 'Bike',
@@ -143,13 +149,13 @@ productList.push({
     name: 'Pantalla',
     price: 220,
     image: 'https://images.pexels.com/photos/2251206/pexels-photo-2251206.jpeg?auto=compress&cs=tinysrgb&w=1260&h=750&dpr=2',
-    description: 'With its practical position, this bike also fulfills a decorative function, add your hall or workspace.',
+    description: 'this Tv also fulfills a decorative function, add your hall or workspace.',
 });
 productList.push({
     name: 'Compu',
     price: 620,
     image: 'https://images.pexels.com/photos/2047905/pexels-photo-2047905.jpeg?auto=compress&cs=tinysrgb&w=1260&h=750&dpr=2',
-    description: 'With its practical position, this bike also fulfills a decorative function, add your hall or workspace.',
+    description: 'this Laptop can help you to increase your skills in Programation at Platzi.',
 });
 productList.push({
     name: 'Bike',
@@ -161,13 +167,13 @@ productList.push({
     name: 'Pantalla',
     price: 220,
     image: 'https://images.pexels.com/photos/2251206/pexels-photo-2251206.jpeg?auto=compress&cs=tinysrgb&w=1260&h=750&dpr=2',
-    description: 'With its practical position, this bike also fulfills a decorative function, add your hall or workspace.',
+    description: 'this Tv also fulfills a decorative function, add your hall or workspace.',
 });
 productList.push({
     name: 'Compu',
     price: 620,
     image: 'https://images.pexels.com/photos/2047905/pexels-photo-2047905.jpeg?auto=compress&cs=tinysrgb&w=1260&h=750&dpr=2',
-    description: 'With its practical position, this bike also fulfills a decorative function, add your hall or workspace.',
+    description: 'this Laptop can help you to increase your skills in Programation at Platzi.',
 });
 productList.push({
     name: 'Bike',
@@ -179,13 +185,13 @@ productList.push({
     name: 'Pantalla',
     price: 220,
     image: 'https://images.pexels.com/photos/2251206/pexels-photo-2251206.jpeg?auto=compress&cs=tinysrgb&w=1260&h=750&dpr=2',
-    description: 'With its practical position, this bike also fulfills a decorative function, add your hall or workspace.',
+    description: 'this Tv also fulfills a decorative function, add your hall or workspace.',
 });
 productList.push({
     name: 'Compu',
     price: 620,
     image: 'https://images.pexels.com/photos/2047905/pexels-photo-2047905.jpeg?auto=compress&cs=tinysrgb&w=1260&h=750&dpr=2',
-    description: 'With its practical position, this bike also fulfills a decorative function, add your hall or workspace.',
+    description: 'this Laptop can help you to increase your skills in Programation at Platzi.',
 });
 productList.push({
     name: 'Bike',
@@ -197,13 +203,13 @@ productList.push({
     name: 'Pantalla',
     price: 220,
     image: 'https://images.pexels.com/photos/2251206/pexels-photo-2251206.jpeg?auto=compress&cs=tinysrgb&w=1260&h=750&dpr=2',
-    description: 'With its practical position, this bike also fulfills a decorative function, add your hall or workspace.',
+    description: 'this Tv also fulfills a decorative function, add your hall or workspace.',
 });
 productList.push({
     name: 'Compu',
     price: 620,
     image: 'https://images.pexels.com/photos/2047905/pexels-photo-2047905.jpeg?auto=compress&cs=tinysrgb&w=1260&h=750&dpr=2',
-    description: 'With its practical position, this bike also fulfills a decorative function, add your hall or workspace.',
+    description: 'this Laptop can help you to increase your skills in Programation at Platzi.',
 });
 productList.push({
     name: 'Bike',
@@ -215,14 +221,16 @@ productList.push({
     name: 'Pantalla',
     price: 220,
     image: 'https://images.pexels.com/photos/2251206/pexels-photo-2251206.jpeg?auto=compress&cs=tinysrgb&w=1260&h=750&dpr=2',
-    description: 'With its practical position, this bike also fulfills a decorative function, add your hall or workspace.',
+    description: 'this Tv also fulfills a decorative function, add your hall or workspace.',
 });
 productList.push({
     name: 'Compu',
     price: 620,
     image: 'https://images.pexels.com/photos/2047905/pexels-photo-2047905.jpeg?auto=compress&cs=tinysrgb&w=1260&h=750&dpr=2',
-    description: 'With its practical position, this bike also fulfills a decorative function, add your hall or workspace.',
+    description: 'this Laptop can help you to increase your skills in Programation at Platzi.',
 });
+
+
 
 
 function renderProducts(arr){
@@ -233,6 +241,7 @@ function renderProducts(arr){
         // product = {name, price, image} -> product.image
         const imgProduct = document.createElement('img');
         imgProduct.setAttribute('src', product.image);
+        imgProduct.setAttribute('id', 'imagen');
         imgProduct.addEventListener('click', openProductDetailCard);
 
         const productInfo = document.createElement('div');
@@ -243,7 +252,9 @@ function renderProducts(arr){
         const productPrice = document.createElement('p');
         productPrice.innerText = '$' + product.price;
         const productName = document.createElement('p');
-        productName.innerText = product.name;  
+        productName.innerText = product.name; 
+        // const productDescription = document.createElement('p');
+        // productDescription.innerText = product.description;  
 
         productInfoDiv.appendChild(productPrice);
         productInfoDiv.appendChild(productName);
