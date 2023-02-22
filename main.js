@@ -7,6 +7,10 @@ const bottonHamMobileMenu = document.querySelector('.menu');
 const navbarShoppingCart = document.querySelector('.navbar-shopping-cart');
 const productDetail = document.querySelector('.product-detail');
 
+const productDetail2 = document.querySelector('.product-detail2')
+
+const botonProductDetail2Close = document.querySelector('.product-detail2-close');
+
 const cardsContainer = document.querySelector('.cards-container');
 navbarEmail.addEventListener('click', ()=>{
     desktopMenu.classList.toggle('showActive')
@@ -21,6 +25,8 @@ navbarShoppingCart.addEventListener('click', () => {
     productDetail.classList.toggle('showActive');
     desplegableMobileMenu.classList.add('showActive')
 })
+
+
 
 
 // ------- AGREGANDO PRODUCTOS ----------
@@ -50,6 +56,12 @@ productList.push({
     image: 'https://www.venex.com.ar/products_images/1659379310_1656441054_ew.jpg'
 })
 
+function closeProductDetail(){
+    productDetail.classList.add('showActive');
+}
+function openProductDetail2(){
+    productDetail2.classList.remove('showActive');
+}
 
 
 function productsRender(arr){
@@ -59,6 +71,9 @@ function productsRender(arr){
 
         const productImg = document.createElement('img');
         productImg.setAttribute('src', products.image);
+        productImg.addEventListener('click', openProductDetail2);
+     
+
 
         const productInfo = document.createElement('div');
         productInfo.classList.add('product-info');
@@ -71,6 +86,9 @@ function productsRender(arr){
         const productFigure = document.createElement('figure');
         const productFigureImg = document.createElement('img');
         productFigureImg.setAttribute('src', "./icons/bt_add_to_cart.svg");
+
+
+
 
         productName.innerText = products.name;
         productInfoDiv.appendChild(productPrice);
@@ -90,3 +108,8 @@ function productsRender(arr){
 }
 
 productsRender(productList);
+
+botonProductDetail2Close.addEventListener('click', ()=>{
+    productDetail2.classList.add('showActive');
+    
+});

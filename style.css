@@ -103,6 +103,7 @@
     border-radius: 6px;
     padding: 20px 20px 0 20px;
     transition: 0.5s;
+
   }
   .desktop-menu ul {
     list-style: none;
@@ -143,7 +144,8 @@
       position: absolute;
       top: 60px;
       left: -1px;
-      background-color: #C7C7C7;
+      background-color: #ffffff;
+      box-shadow: 5px 5px 10px gray;
     }
     .mobile-menu a { 
       text-decoration: none;
@@ -175,6 +177,7 @@
 
   
   .product-detail {
+    background-color: #ffffff;
     position: absolute;
     top: 50px;
     width: 360px;
@@ -182,6 +185,7 @@
     box-sizing: border-box;
     position: absolute;
     right: 0;
+    box-shadow: 3px 2px 19px gray;
   }
   .title-container {
     display: flex;
@@ -311,6 +315,82 @@
       height: 140px;
     }
   }
+
+/* //////////// CLASE 12 / DETALLE PRODUCTOS /////////// */
+
+
+.product-detail2 {
+  position: absolute;
+  top: 60px;
+  background-color: var(--white);
+  width: 360px;
+  padding-bottom: 24px;
+  position: absolute;
+  right: 0;
+  box-shadow: 5px 5px 10px gray;
+}
+.product-detail2-close {
+  background: var(--white);
+  width: 14px;
+  height: 14px;
+  position: absolute;
+  top: 24px;
+  left: 24px;
+  z-index: 2;
+  padding: 12px;
+  border-radius: 50%;
+}
+.product-detail2-close:hover {
+  cursor: pointer;
+}
+.product-detail2 > img:nth-child(2) {
+  width: 100%;
+  height: 360px;
+  object-fit: cover;
+  border-radius: 0 0 20px 20px;
+}
+.product-info2 {
+  margin: 24px 24px 0 24px;
+}
+.product-info2 p:nth-child(1) {
+  font-weight: bold;
+  font-size: var(--md);
+  margin-top: 0;
+  margin-bottom: 4px;
+}
+.product-info2 p:nth-child(2) {
+  color: var(--very-light-pink);
+  font-size: var(--md);
+  margin-top: 0;
+  margin-bottom: 36px;
+}
+.product-info2 p:nth-child(3) {
+  color: var(--very-light-pink);
+  font-size: var(--sm);
+  margin-top: 0;
+  margin-bottom: 36px;
+}
+.primary-button {
+  background-color: var(--hospital-green);
+  border-radius: 8px;
+  border: none;
+  color: var(--white);
+  width: 100%;
+  cursor: pointer;
+  font-size: var(--md);
+  font-weight: bold;
+  height: 50px;
+}
+.add-to-cart-button {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+}
+@media (max-width: 640px) {
+  .product-detail2 {
+    width: 100%;
+  }
+}
 /* //// media querys //////// */
     @media (max-width: 640px) {
         .menu {
