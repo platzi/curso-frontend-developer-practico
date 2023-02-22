@@ -1,3 +1,4 @@
+/* ESTILOS GENERALES */
 :root {
     --white: #FFFFFF;
     --black: #000000;
@@ -80,9 +81,10 @@ nav {
 .inactive{
     display: none;
 }
+
+/* BARRA DE EMAIL */
 .desktop-menu {
         position: absolute;
-        background-color: var(--white);
         top: 60.2px;
         right: 57px;
         width: 100px;
@@ -117,8 +119,38 @@ nav {
         margin-bottom: 20px;
         display: inline-block;
     }
-
-
+/* MOBILE MENU */
+.mobile-menu {
+    position: absolute;
+    left: 0;
+    top: 60.2px;
+    padding: 24px;
+    }
+    .mobile-menu a {
+    text-decoration: none;
+    color: var(--black);
+    font-weight: bold;
+    /* margin-bottom: 24px; */
+    }
+    .mobile-menu ul {
+    padding: 0;
+    margin: 24px 0 0;
+    list-style: none;
+    }
+    .mobile-menu ul:nth-child(1) {
+    border-bottom: 1px solid var(--very-light-pink);
+    }
+    .mobile-menu ul li {
+    margin-bottom: 24px;
+    }
+    .email {
+    font-size: var(--sm);
+    font-weight: 300 !important;
+    }
+    .sign-out {
+    font-size: var(--sm);
+    color: var(--hospital-green) !important;
+    }
 
 
 
@@ -140,4 +172,12 @@ nav {
 .navbar-email {
     display: none;
 }
+.desktop-menu{
+    display: none;
+}
+}
+@media (min-width: 641px){
+    .mobile-menu{
+        display: none;
+    }
 }
