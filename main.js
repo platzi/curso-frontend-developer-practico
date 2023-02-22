@@ -3,8 +3,10 @@ const desktopMenu = document.querySelector('.desktop-menu');
 const menuBurguer = document.querySelector('.menu');
 const mobileMenu = document.querySelector('.mobile-menu');
 const shoppingCarIcon = document.querySelector('.navbar-shopping-cart');
-const productDetail = document.querySelector('.product-detail');
+const shoppingCarContainer = document.querySelector('#shoppingCarContainer');
+const productDetailContainer = document.querySelector('#productDetail');
 const cardsContainer =document.querySelector('.cards-container');
+const closeProductDetail = document.querySelector('.product-detail-close');
 
 menuEmail.addEventListener('click', toggleDesktopMenu); //Escuchamos el evento click sobre el email y llamamos a la función toogleDesktopMenu cuando ocurra
 menuBurguer.addEventListener('click', toggleMobileMenu); // Escuchamos el evento click sobre el burgerIcon y llamamos a la función toogleMobileMenu cuando ocurra
@@ -15,7 +17,7 @@ function toggleDesktopMenu(){
     Toogle agrega o quita la clase dependiendo de si la tiene o no
     Add agrega sí o sí la clase, así forzamos que si estaba abierto un menú lo cierre para no sobre poner*/
     desktopMenu.classList.toggle('inactive');
-    productDetail.classList.add('inactive');
+    shoppingCarContainer.classList.add('inactive');
 }
 
 function toggleMobileMenu(){
@@ -23,16 +25,18 @@ function toggleMobileMenu(){
     Toogle agrega o quita la clase dependiendo de si la tiene o no
     Add agrega sí o sí la clase, así forzamos que si estaba abierto un menú lo cierre para no sobre poner*/
     mobileMenu.classList.toggle('inactive');
-    productDetail.classList.add('inactive');
+    shoppingCarContainer.classList.add('inactive');
+    productDetailContainer.classList.add('inactive');
 }
 
 function toggleMenuShopping(){
     /*Agregamos la clase inactive que en css pone un display:none para mostrar/ocultar los menus
     Toogle agrega o quita la clase dependiendo de si la tiene o no
     Add agrega sí o sí la clase, así forzamos que si estaba abierto un menú lo cierre para no sobre poner*/
-    productDetail.classList.toggle('inactive');
+    shoppingCarContainer.classList.toggle('inactive');
     mobileMenu.classList.add('inactive');
     desktopMenu.classList.add('inactive');
+    productDetailContainer.classList.add('inactive');
 }
 
 
@@ -111,6 +115,18 @@ productList.push({
       image: 'https://images.pexels.com/photos/209695/pexels-photo-209695.jpeg?auto=compress&cs=tinysrgb&w=1260&h=750&dpr=1',
     });
 
+function openProductDetailAside() {
+productDetailContainer.classList.remove('inactive');
+shoppingCarContainer.classList.add('inactive');
+mobileMenu.classList.add('inactive');
+}
+
+closeProductDetail.addEventListener('click', closeDetailOfProducto);
+
+function closeDetailOfProducto(){
+  productDetailContainer.classList.add('inactive');
+}
+
 function renderProducts(arr) {
   for (product of arr) {
     const productCard = document.createElement('div');
@@ -119,6 +135,7 @@ function renderProducts(arr) {
     // product= {name, price, image} -> product.image
     const productImg = document.createElement('img');
     productImg.setAttribute('src', product.image);
+    productImg.addEventListener('click', openProductDetailAside);
   
     const productInfo = document.createElement('div');
     productInfo.classList.add('product-info');
@@ -159,22 +176,22 @@ renderProducts(productList);
 
 function toggleDesktopMenu(){
     desktopMenu.classList.toggle('inactive');
-    if(!productDetail.classList.contains('inactive')){
-        productDetail.classList.add('inactive');
+    if(!shoppingCarContainer.classList.contains('inactive')){
+        shoppingCarContainer.classList.add('inactive');
     }
     
 }
 
 function toggleMobileMenu(){
     mobileMenu.classList.toggle('inactive');
-    if(!productDetail.classList.contains('inactive')){
-        productDetail.classList.add('inactive');
+    if(!shoppingCarContainer.classList.contains('inactive')){
+        shoppingCarContainer.classList.add('inactive');
     }
 
 }
 
 function toggleMenuShopping(){
-    productDetail.classList.toggle('inactive');
+    shoppingCarContainer.classList.toggle('inactive');
     if (!mobileMenu.classList.contains('inactive')){
         mobileMenu.classList.add('inactive');
     }
