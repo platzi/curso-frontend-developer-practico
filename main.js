@@ -5,10 +5,13 @@ const mobileMenu = document.querySelector(".mobile-menu");
 const menuCart = document.querySelector(".navbar-shopping-cart");
 const shoppingCartContainer = document.querySelector("#shoppingCartContainer");
 const cardsContainer = document.querySelector(".cards-container");
+const productDetailContainer = document.querySelector("#productDetail");
+const productDetailCloseIcon = document.querySelector(".product-detail-close");
 
 menuMail.addEventListener("click", toggleMenuDesktop);
 menuHam.addEventListener("click", toggleMenuMobile);
 menuCart.addEventListener("click", toggleMenuCart);
+productDetailCloseIcon.addEventListener("click", closeProductDetailAside);
 
 function toggleMenuDesktop() {
   const isAsideCartClosed =
@@ -29,12 +32,20 @@ function toggleMenuMobile() {
     shoppingCartContainer.classList.add("inactive");
   }
 
+  closeProductDetailAside();
+
   mobileMenu.classList.toggle("inactive");
 }
 
 function toggleMenuCart() {
   const isMobileMenuClose = mobileMenu.classList.contains("inactive");
   const isDesktopMenuClosed = desktopMenu.classList.contains("inactive");
+  const isProductDetailClosed =
+    productDetailContainer.classList.contains("inactive");
+
+  if (!isProductDetailClosed) {
+    productDetailContainer.classList.add("inactive");
+  }
 
   if (!isMobileMenuClose) {
     mobileMenu.classList.add("inactive");
@@ -44,6 +55,15 @@ function toggleMenuCart() {
   }
 
   shoppingCartContainer.classList.toggle("inactive");
+}
+
+function openProductDetailAside() {
+  shoppingCartContainer.classList.add("inactive");
+  productDetailContainer.classList.remove("inactive");
+}
+
+function closeProductDetailAside() {
+  productDetailContainer.classList.add("inactive");
 }
 
 const productList = [];
@@ -74,6 +94,7 @@ function renderProducts(arr) {
     // product= {name, price, image} -> product.image
     const productImg = document.createElement("img");
     productImg.setAttribute("src", product.image);
+    productImg.addEventListener("click", openProductDetailAside);
 
     const productInfo = document.createElement("div");
     productInfo.classList.add("product-info");
