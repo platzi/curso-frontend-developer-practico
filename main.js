@@ -29,7 +29,7 @@ burguerMenu.addEventListener('click', toggleMobileMenu);
 function toggleMobileMenu() {
   const isAsideOpen = !aside.classList.contains('inactive');
   if(isAsideOpen) {
-    aside.classList.toggle('inactive');
+    aside.classList.add('inactive');
   }
 
   mobileMenu.classList.toggle('inactive');
