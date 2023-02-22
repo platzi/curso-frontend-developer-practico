@@ -84,6 +84,7 @@ nav {
 
 /* BARRA DE EMAIL */
 .desktop-menu {
+        background-color: var(--white);
         position: absolute;
         top: 60.2px;
         right: 57px;

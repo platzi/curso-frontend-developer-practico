@@ -68,8 +68,48 @@ productList.push({
     image: 'https://www.pngitem.com/pimgs/m/2-25960_lamborghini-png-image-lamborghini-gallardo-lp560-4-transparent.png'
 }
 )
-
-
+productList.push({
+    name:'Avión de papel',
+    price: 5400000,
+    image: 'https://media.istockphoto.com/id/515788110/es/foto/avi%C3%B3n-de-papel-flying.jpg?s=612x612&w=0&k=20&c=wNklOHtZwBnI6ymzk4NWmKJIeyEPXsEeeFBp-1Ga7Wk='
+}
+)
+productList.push({
+    name:'Camello táctico',
+    price: 540000000,
+    image: 'https://leteonoticias.files.wordpress.com/2021/02/camellotactico.jpg'
+}
+)
+productList.push({
+    name:'Camello táctico',
+    price: 540000000,
+    image: 'https://leteonoticias.files.wordpress.com/2021/02/camellotactico.jpg'
+}
+)
+productList.push({
+    name:'Camello táctico',
+    price: 540000000,
+    image: 'https://leteonoticias.files.wordpress.com/2021/02/camellotactico.jpg'
+}
+)
+productList.push({
+    name:'Camello táctico',
+    price: 540000000,
+    image: 'https://leteonoticias.files.wordpress.com/2021/02/camellotactico.jpg'
+}
+)
+productList.push({
+    name:'Camello táctico',
+    price: 540000000,
+    image: 'https://leteonoticias.files.wordpress.com/2021/02/camellotactico.jpg'
+}
+)
+productList.push({
+    name:'Camello táctico',
+    price: 540000000,
+    image: 'https://leteonoticias.files.wordpress.com/2021/02/camellotactico.jpg'
+}
+)
 {/* 
 <div class="cards-container">
     
@@ -89,39 +129,43 @@ productList.push({
 */
 }
 
-for (product of productList){
-    const productCard = document.createElement('div');
-    productCard.classList.add('product-card');
+
+function renderProducts(arr){
+    for (product of arr){
+        const productCard = document.createElement('div');
+        productCard.classList.add('product-card');
+        
+        const productImg=document.createElement('img');
+        productImg.setAttribute('src', product.image);
     
-    const productImg=document.createElement('img');
-    productImg.setAttribute('src', product.image);
-
-    const productInfo=document.createElement('div');
-    productInfo.classList.add('product-info');
-
-    const infoDiv=document.createElement('div')
+        const productInfo=document.createElement('div');
+        productInfo.classList.add('product-info');
     
-    const productPrice=document.createElement('p')
-    productPrice.innerText = '$' + product.price
-    const productName=document.createElement('p')
-    productName.innerText = product.name
+        const infoDiv=document.createElement('div')
+        
+        const productPrice=document.createElement('p')
+        productPrice.innerText = '$' + product.price
+        const productName=document.createElement('p')
+        productName.innerText = product.name
+        
+        infoDiv.appendChild(productPrice)
+        infoDiv.appendChild(productName)
     
-    infoDiv.appendChild(productPrice)
-    infoDiv.appendChild(productName)
-
-
-    const productFigure=document.createElement('figure')
-    const productImgFigure=document.createElement('img')
-    productImgFigure.setAttribute('src', './icons/bt_add_to_cart.svg')
     
-    productFigure.appendChild(productImgFigure)
-
-    productInfo.appendChild(infoDiv)
-    productInfo.appendChild(productFigure)
-
-    productCard.appendChild(productImg)
-    productCard.appendChild(productInfo)
-
-    cardsContainer.appendChild(productCard)
-
+        const productFigure=document.createElement('figure')
+        const productImgFigure=document.createElement('img')
+        productImgFigure.setAttribute('src', './icons/bt_add_to_cart.svg')
+        
+        productFigure.appendChild(productImgFigure)
+    
+        productInfo.appendChild(infoDiv)
+        productInfo.appendChild(productFigure)
+    
+        productCard.appendChild(productImg)
+        productCard.appendChild(productInfo)
+    
+        cardsContainer.appendChild(productCard)
+    
+    }
 }
+renderProducts(productList)
