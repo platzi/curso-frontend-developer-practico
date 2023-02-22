@@ -259,6 +259,7 @@ nav {
 /* PRODUCT CONTAINER */
 
 .cards-container {
+  margin: 40px 10px;
   display: grid;
   grid-template-columns: repeat(auto-fill, 240px);
   gap: 26px;
