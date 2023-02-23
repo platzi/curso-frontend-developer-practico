@@ -1,38 +1,45 @@
-const menuEmail         = document.querySelector('.navbar-email');
-const desktoMenu        = document.querySelector('.desktop-menu');
-const mobileMenu        = document.querySelector('.mobile-menu');
-const burguerMenuIcon   = document.querySelector('.menu');
-const menuCarritoIcon   = document.querySelector('.navbar-shopping-cart');
-const producDetailAside = document.querySelector('.product-detail');
-const cardContainer     = document.querySelector('.cards-container'); 
+const menuEmail             = document.querySelector('.navbar-email');
+const desktoMenu            = document.querySelector('.desktop-menu');
+const mobileMenu            = document.querySelector('.mobile-menu');
+const burguerMenuIcon       = document.querySelector('.menu');
+const menuCarritoIcon       = document.querySelector('.navbar-shopping-cart');
+const shoppingCartContainer = document.querySelector("#shoppingCartContainer");
+const producDetailContainer = document.querySelector("#productDetail");
+const produDetailCloseIcon  = document.querySelector(".product-detail-close");
+const cardContainer         = document.querySelector('.cards-container'); 
 
-menuEmail.addEventListener       ('click', toggleDesktopMenu );
-burguerMenuIcon.addEventListener ('click', toggleMobileMenu  );
-menuCarritoIcon.addEventListener ('click', toggleCarritoAside);
+menuEmail.addEventListener            ('click', toggleDesktopMenu );
+burguerMenuIcon.addEventListener      ('click', toggleMobileMenu  );
+menuCarritoIcon.addEventListener      ('click', toggleCarritoAside);
+produDetailCloseIcon.addEventListener ('click', closeProductDetailsAside);
 
 function toggleDesktopMenu() { 
-    const isAsideMenuClosed = producDetailAside.classList.contains('inactive');
-    if (!isAsideMenuClosed) { producDetailAside.classList.add('inactive'); } 
+    shoppingCartContainer.classList.add('inactive');
     desktoMenu.classList.toggle('inactive'); 
-
+    producDetailContainer.classList.add('inactive');
 }
 
 function toggleMobileMenu() {
-    const isAsideMenuClosed = producDetailAside.classList.contains('inactive');
-    if (!isAsideMenuClosed) { producDetailAside.classList.add('inactive'); }
+    producDetailContainer.classList.add('inactive');
+    shoppingCartContainer.classList.add('inactive');
     mobileMenu.classList.toggle('inactive');
 }
 
 function toggleCarritoAside() { 
-    //const isDesktopMenuClose = desktoMenu.classList.contains('inactive');
-    //const isMobileMenuClosed = mobileMenu.classList.contains('inactive');
     mobileMenu.classList.add('inactive');
     desktoMenu.classList.add('inactive');
+    producDetailContainer.classList.add('inactive');
+    shoppingCartContainer.classList.toggle('inactive');
+}
 
-    // if (!isMobileMenuClosed) { mobileMenu.classList.add('inactive'); }
-    // if (!isDesktopMenuClose) { desktoMenu.classList.add('inactive'); }
-    
-    producDetailAside.classList.toggle('inactive');
+function openProductDetailsAside() {
+    desktoMenu.classList.add('inactive');
+    shoppingCartContainer.classList.add('inactive');
+    producDetailContainer.classList.remove('inactive');
+}
+
+function closeProductDetailsAside() {
+    producDetailContainer.classList.add('inactive');
 }
 
 const productList = [];
@@ -62,10 +69,11 @@ function renderProducts(arr) {
     
         const img = document.createElement('img');
         img.setAttribute('src', product.image);
-    
+        img.addEventListener('click', openProductDetailsAside);
+
         const productInfo = document.createElement('div');
         productInfo.classList.add('product-info');
-    
+
         const productInfoDiv = document.createElement('div');
     
         const productPrice = document.createElement('p');
@@ -81,7 +89,6 @@ function renderProducts(arr) {
         const productImgCartIcon = document.createElement('img');
         productImgCartIcon.setAttribute('src', './icons/bt_add_to_cart.svg');
     
-        //Ahora nos devolvemos agregando los hijos a sus padres
         productInfoFigure.appendChild(productImgCartIcon);
     
         productInfo.append(productInfoDiv,productInfoFigure);
