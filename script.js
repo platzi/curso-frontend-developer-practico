@@ -4,11 +4,14 @@ const menuCarritoIcon= document.querySelector('.navbar-shopping-cart');
 const menuHamIcon= document.querySelector('.menu');
 const mobileMenu= document.querySelector('.mobile-menu');
 const shoppingCartContainer = document.querySelector('#shoppingCartContainer');
+const productDetailContainer = document.querySelector('#productDetail');
+const productDetailClose = document.querySelector('.product-detail-close');
 const cardContainer = document.querySelector('.cards-container');
 
 navEmail.addEventListener('click', toggleDesktopMenu);
 menuHamIcon.addEventListener('click', toggleMobileMenu);
 menuCarritoIcon.addEventListener('click', toggleCarritoAside);
+productDetailClose.addEventListener('click',closeProductDetailAside);
 
 function toggleDesktopMenu(){
     const isCarrritoAsideClosed = shoppingCartContainer.classList.contains('inactive');
@@ -31,6 +34,8 @@ function toggleMobileMenu(){
 
     mobileMenu.classList.toggle('inactive');
 
+    closeProductDetailAside();
+
 }
 
 function toggleCarritoAside(){
@@ -47,6 +52,24 @@ function toggleCarritoAside(){
     }
 
     shoppingCartContainer.classList.toggle('inactive');
+
+    const isProductDetailClosed  = productDetailContainer.classList.contains('inactive');
+
+    if(!isProductDetailClosed){
+        productDetailContainer.classList.add('inactive');
+    }
+}
+
+function openProductDetailAside(){
+    shoppingCartContainer.classList.add('inactive');
+
+    //el .remove es para que quite la clase inactive
+    productDetailContainer.classList.remove('inactive');
+
+}
+
+function closeProductDetailAside(){
+    productDetailContainer.classList.add('inactive');
 }
 
 const productList = [];
@@ -95,6 +118,10 @@ function renderProducts(array){
         const productImg = document.createElement('img');
         // product = {name, price ,image} -> product.image
         productImg.setAttribute('src', product.image);
+
+        //Crear un evento, para que al tocar la imagen, abra #productDetail
+        productImg.addEventListener('click',openProductDetailAside);
+
     
         //Creando un div
         const productInfo = document.createElement('div');
