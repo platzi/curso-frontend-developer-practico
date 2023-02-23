@@ -64,37 +64,31 @@ productList.push({
 
 function renderProducts(arr) {
     for (product of arr) {
-        const productCard = document.createElement('div');
+        const productCard    = document.createElement('div');
+        const productInfo    = document.createElement('div');
+        const productInfoDiv = document.createElement('div');
+
+        const img                = document.createElement('img');
+        const productImgCartIcon = document.createElement('img');
+
+        const productPrice      = document.createElement('p');
+        const productName       = document.createElement('p');
+        const productInfoFigure = document.createElement('figure');
+
         productCard.classList.add('product-card');
-    
-        const img = document.createElement('img');
         img.setAttribute('src', product.image);
         img.addEventListener('click', openProductDetailsAside);
 
-        const productInfo = document.createElement('div');
         productInfo.classList.add('product-info');
-
-        const productInfoDiv = document.createElement('div');
-    
-        const productPrice = document.createElement('p');
         productPrice.innerText = '$' + product.price;
-    
-        const productName  = document.createElement('p');
-        productName.innerText = product.name;
-    
+        productName.innerText  = product.name;
         productInfoDiv.append(productPrice, productName);
-    
-        const productInfoFigure = document.createElement('figure');
-    
-        const productImgCartIcon = document.createElement('img');
         productImgCartIcon.setAttribute('src', './icons/bt_add_to_cart.svg');
     
         productInfoFigure.appendChild(productImgCartIcon);
-    
         productInfo.append(productInfoDiv,productInfoFigure);
-    
         productCard.append(img, productInfo);
-    
+        
         cardContainer.appendChild(productCard);
     }
 }
