@@ -173,12 +173,14 @@
     padding-right: 24px;
     padding-left: 24px;
   }
+
   .title-container {
     display: flex;
   }
   .title-container img {
     transform: rotate(180deg);
     margin-right: 14px;
+    cursor: pointer;
   }
   .title {
     font-size: var(--lg);
@@ -222,6 +224,11 @@
     border-radius: 20px;
     object-fit: cover;
   }
+
+  .shopping-cart .remove-product{
+    cursor: pointer;
+  }
+
   .shopping-cart p:nth-child(2) {
     color: var(--very-light-pink);
   }
@@ -324,6 +331,7 @@
     height: 240px;
     border-radius: 20px;
     object-fit: cover;
+    cursor: pointer;
   }
   .product-card .product-info {
     display: flex;

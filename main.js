@@ -12,10 +12,13 @@ const cardsContainer = document.querySelector(".cards-container");
 const productDetailCloseIcon = document.querySelector(".product-detail-close");
 const productDetail = document.querySelector(".product-detail")
 
+const goBackShoppingCart = document.querySelector(".go-back");
+
 menuEmail.addEventListener("click", toggleDesktopMenu);
 burgerMenu.addEventListener("click", toggleMobileMenu);
 menuCartIcon.addEventListener("click", toggleShoppingDetail);
 productDetailCloseIcon.addEventListener("click",closeProductDetail);
+goBackShoppingCart.addEventListener("click", closeShoppingDetail)
 
 function toggleDesktopMenu() {
   shoppingCart.classList.add("inactive");
@@ -34,6 +37,10 @@ function toggleShoppingDetail() {
   desktopMenu.classList.add("inactive");
   shoppingCart.classList.toggle("inactive");
   productDetail.classList.add("inactive");
+}
+
+function closeShoppingDetail() {
+  shoppingCart.classList.add("inactive");
 }
 
 function closeProductDetail(){
