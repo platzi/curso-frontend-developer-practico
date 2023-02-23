@@ -20,128 +20,81 @@ mobileMenuLogo.addEventListener('click', toogleMobileMenu);
 shoppingCartMenu.addEventListener('click', toggleShoppingCartContainer);
 productDetailCloseIcon.addEventListener('click', closeProductDetailAside);
 
-// Funciones que se ejecutan con evento ---------------
 
-function toggleDesktopMenu(){
-const isAsideClosed = shoppingCartContainer.classList.contains('inactive');
-const isProductDetailClosed = productDetailContainer.classList.contains('inactive');
-
-
-    if(!isAsideClosed){
-        shoppingCartContainer.classList.toggle('inactive');
-    } 
-    if (!isProductDetailClosed){
-        productDetailContainer.classList.add('inactive');
-    }
-
-    desktopMenu.classList.toggle('inactive');
-}
-
-function toogleMobileMenu(){
-    const isAsideClosed = shoppingCartContainer.classList.contains('inactive');
-    const isProductDetailClosed = productDetailContainer.classList.contains('inactive');
-
-    if(!isAsideClosed){
-        shoppingCartContainer.classList.toggle('inactive');
-    } 
-    if (!isProductDetailClosed){
-        productDetailContainer.classList.add('inactive');
-    }
-
-    mobileMenu.classList.toggle('inactive');
-}
-
-function toggleShoppingCartContainer(){
-    const isMobileMenuClosed = mobileMenu.classList.contains('inactive');
-    const isDesktopMenuClosed = desktopMenu.classList.contains('inactive');
-    const isProductDetailClosed = productDetailContainer.classList.contains('inactive');
-
-    if(!isMobileMenuClosed){
-        mobileMenu.classList.toggle('inactive');
-    } 
-
-    if(!isDesktopMenuClosed){
-        desktopMenu.classList.toggle('inactive');
-    } 
-
-    if (!isProductDetailClosed){
-        productDetailContainer.classList.add('inactive');
-    }
-
-    shoppingCartContainer.classList.toggle('inactive');
-}
-
-function openProductDetailAside(){
-    const isAsideClosed = shoppingCartContainer.classList.contains('inactive');
-    const isDesktopMenuClosed = desktopMenu.classList.contains('inactive');
-    
-
-    if(!isDesktopMenuClosed){
-        desktopMenu.classList.toggle('inactive');
-    }
-    if(!isAsideClosed){
-        shoppingCartContainer.classList.toggle('inactive');
-    } 
-
-    productDetailContainer.classList.remove('inactive');
-}
-
-function closeProductDetailAside(){
-    productDetailContainer.classList.add('inactive');
-}
 
 // Agregandos productos a la lista de productos-------------------------
 
 const productList = [];
 productList.push({
+    id: 0,
     name: 'Bike',
     price: 120,
-    image: 'https://images.pexels.com/photos/276517/pexels-photo-276517.jpeg?auto=compress&cs=tinysrgb&dpr=2&h=650&w=940'
+    image: 'https://images.pexels.com/photos/276517/pexels-photo-276517.jpeg?auto=compress&cs=tinysrgb&dpr=2&h=650&w=940',
+    description: 'Esta bicicleta tiene una movilidad increible, puedes llegar a diferentes lugares en muy poco tiempo, viajar por el mundo mientras eres saludable'
 });
 
 productList.push({
+    id: 1,
     name: 'Pantalla',
     price: 220,
-    image: 'https://i.pinimg.com/564x/3f/c3/9e/3fc39e45e3e14d467ca6155e9ef562aa.jpg'
+    image: 'https://i.pinimg.com/564x/3f/c3/9e/3fc39e45e3e14d467ca6155e9ef562aa.jpg',
+    description: 'Este televisor sirve para ver cosas increíbles, películas increíbles, series increíble, partidos increíblos. La pantalla es increíble'
 });
 
 productList.push({
+    id: 2,
     name: 'Computador',
     price: 650,
-    image: 'https://i.pinimg.com/564x/37/71/45/377145b6e7b4fbd9b939f78720a8d4cd.jpg'
+    image: 'https://i.pinimg.com/564x/37/71/45/377145b6e7b4fbd9b939f78720a8d4cd.jpg',
+    description: 'Este computador te sirve para hacer cosas increíbles, manejar programas increíbles, jugar videojuegos increíbles y programar cosas increíbles'
 });
+
 productList.push({
+    id: 3,
     name: 'Bike',
     price: 120,
-    image: 'https://images.pexels.com/photos/276517/pexels-photo-276517.jpeg?auto=compress&cs=tinysrgb&dpr=2&h=650&w=940'
+    image: 'https://images.pexels.com/photos/276517/pexels-photo-276517.jpeg?auto=compress&cs=tinysrgb&dpr=2&h=650&w=940',
+    description: 'Esta bicicleta tiene una movilidad increible, puedes llegar a diferentes lugares en muy poco tiempo, viajar por el mundo mientras eres saludable'
 });
 
 productList.push({
+    id: 4,
     name: 'Pantalla',
     price: 220,
-    image: 'https://i.pinimg.com/564x/3f/c3/9e/3fc39e45e3e14d467ca6155e9ef562aa.jpg'
+    image: 'https://i.pinimg.com/564x/3f/c3/9e/3fc39e45e3e14d467ca6155e9ef562aa.jpg',
+    description: 'Este televisor sirve para ver cosas increíbles, películas increíbles, series increíble, partidos increíblos. La pantalla es increíble'
 });
 
 productList.push({
+    id: 5,
     name: 'Computador',
     price: 620,
-    image: 'https://i.pinimg.com/564x/37/71/45/377145b6e7b4fbd9b939f78720a8d4cd.jpg'
+    image: 'https://i.pinimg.com/564x/37/71/45/377145b6e7b4fbd9b939f78720a8d4cd.jpg',
+    description: 'Este computador te sirve para hacer cosas increíbles, manejar programas increíbles, jugar videojuegos increíbles y programar cosas increíbles'
 });
 
 // Maquetando la lista de productos ------------------------
 
 function renderProducts(arr){
 
+    let i = 0;
+    var imagenesProductis = []
+
     for (product of arr){   
 
         const productCard = document.createElement('div');
         productCard.classList.add('product-card');
+        
         cardsContainer.appendChild(productCard);
     
         const productImg = document.createElement('img');
         productImg.setAttribute('src', product.image);
+        productImg.classList.add(String(i));
+        console.log(productImg.className);
+        i++;
         productCard.appendChild(productImg);
         productImg.addEventListener('click', openProductDetailAside);
+        console.log(i)
     
         const productInfo = document.createElement('div');
         productInfo.classList.add('product-info');
@@ -171,3 +124,75 @@ function renderProducts(arr){
 }
 
 renderProducts(productList);
+
+// Funciones que se ejecutan con evento ---------------
+
+function toggleDesktopMenu(){
+    const isAsideClosed = shoppingCartContainer.classList.contains('inactive');
+    const isProductDetailClosed = productDetailContainer.classList.contains('inactive');
+    
+    
+        if(!isAsideClosed){
+            shoppingCartContainer.classList.toggle('inactive');
+        } 
+        if (!isProductDetailClosed){
+            productDetailContainer.classList.add('inactive');
+        }
+    
+        desktopMenu.classList.toggle('inactive');
+    }
+    
+    function toogleMobileMenu(){
+        const isAsideClosed = shoppingCartContainer.classList.contains('inactive');
+        const isProductDetailClosed = productDetailContainer.classList.contains('inactive');
+    
+        if(!isAsideClosed){
+            shoppingCartContainer.classList.toggle('inactive');
+        } 
+        if (!isProductDetailClosed){
+            productDetailContainer.classList.add('inactive');
+        }
+    
+        mobileMenu.classList.toggle('inactive');
+    }
+    
+    function toggleShoppingCartContainer(){
+        const isMobileMenuClosed = mobileMenu.classList.contains('inactive');
+        const isDesktopMenuClosed = desktopMenu.classList.contains('inactive');
+        const isProductDetailClosed = productDetailContainer.classList.contains('inactive');
+    
+        if(!isMobileMenuClosed){
+            mobileMenu.classList.toggle('inactive');
+        } 
+    
+        if(!isDesktopMenuClosed){
+            desktopMenu.classList.toggle('inactive');
+        } 
+    
+        if (!isProductDetailClosed){
+            productDetailContainer.classList.add('inactive');
+        }
+    
+        shoppingCartContainer.classList.toggle('inactive');
+    }
+    
+    function openProductDetailAside(){
+        const isAsideClosed = shoppingCartContainer.classList.contains('inactive');
+        const isDesktopMenuClosed = desktopMenu.classList.contains('inactive');
+        
+    
+        if(!isDesktopMenuClosed){
+            desktopMenu.classList.toggle('inactive');
+        }
+        if(!isAsideClosed){
+            shoppingCartContainer.classList.toggle('inactive');
+        } 
+    
+        
+    
+        productDetailContainer.classList.remove('inactive');
+    }
+    
+    function closeProductDetailAside(){
+        productDetailContainer.classList.add('inactive');
+    }
