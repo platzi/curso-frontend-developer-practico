@@ -151,6 +151,8 @@ nav {
     position: absolute;
     top: 60px;
     background-color: var(--white);
+    width: 100%;
+    left: 0;
 }
 
 .mobile-menu a {
@@ -440,6 +442,9 @@ nav {
         width: 140px;
         height: 140px;
     }
+    .product-detail-box {
+        width: 100%;
+      }
 }
 
 @media (min-width: 641px) {
