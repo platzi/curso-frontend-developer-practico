@@ -303,8 +303,9 @@ aside {
   display: grid;
   grid-template-columns: repeat(auto-fill, 240px);
   gap: 26px;
-  place-content: center;
+  place-content: initial;
   margin-top: 20px;
+  margin-left: 20px;
 }
 .product-card {
   width: 240px;
@@ -354,11 +355,16 @@ aside {
   .desktop-menu {
     display: none;
   }
-  .product-detail {
+  #shoppingCartContainer {
+    width: 100%;
+  }
+  #productDetail {
     width: 100%;
   }
   .cards-container {
     grid-template-columns: repeat(auto-fill, 140px);
+    place-content: baseline center; /* start space-evenly; */
+    margin-left: 0;
   }
   .product-card {
     width: 140px;
