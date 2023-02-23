@@ -5,7 +5,7 @@ const menuEmail = document.querySelector(".navbar-email");
 const desktopMenu = document.querySelector(".desktop-menu");
 const burguerIcon = document.querySelector(".menu");
 const mobileMenu = document.querySelector(".mobile-menu");
-const menuCarrito = document.querySelector(".product-detail");
+const menuCarrito = document.querySelector(".product-detail-cart");
 const menuCarritoIcon = document.querySelector(".navbar-shopping-cart");
 
 const interactiveElements = document.querySelectorAll(".interactive");
@@ -56,7 +56,7 @@ function renderProducts(arr) {
         productCard.classList.add("product-card")
         productCard.innerHTML = `
             <img src="${product.image}" alt="${product.name}">
-            <div class="product-info">
+            <div class="product-card-info">
             <div>
                 <p>$${product.price}</p>
                 <p>${product.name}</p>
