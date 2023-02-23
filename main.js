@@ -6,6 +6,8 @@ const mobileMenuLogo = document.querySelector('.menu'); //Mobile menu Logo
 const mobileMenu = document.querySelector('.mobile-menu'); //Mobile menu
 const shoppingCartMenu = document.querySelector('.navbar-shopping-cart'); //Navbar shopping cart
 const shoppingCartContainer = document.querySelector('#shoppingCartContainer') //Aside product order
+const productDetailContainer = document.querySelector('#productDetail') //Aside product order
+const productDetailCloseIcon = document.querySelector('.product-detail-close'); //Close product detail icon
 const cardsContainer = document.querySelector('.cards-container') //Aside product order
 
 // Asignando funciones a eventos-------------------------
@@ -15,26 +17,36 @@ menuEmail.addEventListener('click', toggleDesktopMenu);
 //Clicking menu on the mobile version
 mobileMenuLogo.addEventListener('click', toogleMobileMenu);
 //Clicking shopping cart
-shoppingCartMenu.addEventListener('click', toggleShoppingCartContainer)
+shoppingCartMenu.addEventListener('click', toggleShoppingCartContainer);
+productDetailCloseIcon.addEventListener('click', closeProductDetailAside);
 
 // Funciones que se ejecutan con evento ---------------
 
 function toggleDesktopMenu(){
 const isAsideClosed = shoppingCartContainer.classList.contains('inactive');
+const isProductDetailClosed = productDetailContainer.classList.contains('inactive');
+
 
     if(!isAsideClosed){
         shoppingCartContainer.classList.toggle('inactive');
     } 
+    if (!isProductDetailClosed){
+        productDetailContainer.classList.add('inactive');
+    }
 
     desktopMenu.classList.toggle('inactive');
 }
 
 function toogleMobileMenu(){
     const isAsideClosed = shoppingCartContainer.classList.contains('inactive');
+    const isProductDetailClosed = productDetailContainer.classList.contains('inactive');
 
     if(!isAsideClosed){
         shoppingCartContainer.classList.toggle('inactive');
     } 
+    if (!isProductDetailClosed){
+        productDetailContainer.classList.add('inactive');
+    }
 
     mobileMenu.classList.toggle('inactive');
 }
@@ -42,6 +54,7 @@ function toogleMobileMenu(){
 function toggleShoppingCartContainer(){
     const isMobileMenuClosed = mobileMenu.classList.contains('inactive');
     const isDesktopMenuClosed = desktopMenu.classList.contains('inactive');
+    const isProductDetailClosed = productDetailContainer.classList.contains('inactive');
 
     if(!isMobileMenuClosed){
         mobileMenu.classList.toggle('inactive');
@@ -51,7 +64,30 @@ function toggleShoppingCartContainer(){
         desktopMenu.classList.toggle('inactive');
     } 
 
+    if (!isProductDetailClosed){
+        productDetailContainer.classList.add('inactive');
+    }
+
     shoppingCartContainer.classList.toggle('inactive');
+}
+
+function openProductDetailAside(){
+    const isAsideClosed = shoppingCartContainer.classList.contains('inactive');
+    const isDesktopMenuClosed = desktopMenu.classList.contains('inactive');
+    
+
+    if(!isDesktopMenuClosed){
+        desktopMenu.classList.toggle('inactive');
+    }
+    if(!isAsideClosed){
+        shoppingCartContainer.classList.toggle('inactive');
+    } 
+
+    productDetailContainer.classList.remove('inactive');
+}
+
+function closeProductDetailAside(){
+    productDetailContainer.classList.add('inactive');
 }
 
 // Agregandos productos a la lista de productos-------------------------
@@ -71,7 +107,7 @@ productList.push({
 
 productList.push({
     name: 'Computador',
-    price: 620,
+    price: 650,
     image: 'https://i.pinimg.com/564x/37/71/45/377145b6e7b4fbd9b939f78720a8d4cd.jpg'
 });
 productList.push({
@@ -105,6 +141,7 @@ function renderProducts(arr){
         const productImg = document.createElement('img');
         productImg.setAttribute('src', product.image);
         productCard.appendChild(productImg);
+        productImg.addEventListener('click', openProductDetailAside);
     
         const productInfo = document.createElement('div');
         productInfo.classList.add('product-info');
