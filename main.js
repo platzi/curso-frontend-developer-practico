@@ -5,7 +5,7 @@ const desktopMenu = document.querySelector('.desktop-menu'); // Desktop menu
 const mobileMenuLogo = document.querySelector('.menu'); //Mobile menu Logo
 const mobileMenu = document.querySelector('.mobile-menu'); //Mobile menu
 const shoppingCartMenu = document.querySelector('.navbar-shopping-cart'); //Navbar shopping cart
-const asideOrder = document.querySelector('.product-detail') //Aside product order
+const shoppingCartContainer = document.querySelector('#shoppingCartContainer') //Aside product order
 const cardsContainer = document.querySelector('.cards-container') //Aside product order
 
 // Asignando funciones a eventos-------------------------
@@ -15,31 +15,31 @@ menuEmail.addEventListener('click', toggleDesktopMenu);
 //Clicking menu on the mobile version
 mobileMenuLogo.addEventListener('click', toogleMobileMenu);
 //Clicking shopping cart
-shoppingCartMenu.addEventListener('click', toggleAsideOrder)
+shoppingCartMenu.addEventListener('click', toggleShoppingCartContainer)
 
 // Funciones que se ejecutan con evento ---------------
 
 function toggleDesktopMenu(){
-const isAsideClosed = asideOrder.classList.contains('inactive');
+const isAsideClosed = shoppingCartContainer.classList.contains('inactive');
 
     if(!isAsideClosed){
-        asideOrder.classList.toggle('inactive');
+        shoppingCartContainer.classList.toggle('inactive');
     } 
 
     desktopMenu.classList.toggle('inactive');
 }
 
 function toogleMobileMenu(){
-    const isAsideClosed = asideOrder.classList.contains('inactive');
+    const isAsideClosed = shoppingCartContainer.classList.contains('inactive');
 
     if(!isAsideClosed){
-        asideOrder.classList.toggle('inactive');
+        shoppingCartContainer.classList.toggle('inactive');
     } 
 
     mobileMenu.classList.toggle('inactive');
 }
 
-function toggleAsideOrder(){
+function toggleShoppingCartContainer(){
     const isMobileMenuClosed = mobileMenu.classList.contains('inactive');
     const isDesktopMenuClosed = desktopMenu.classList.contains('inactive');
 
@@ -51,7 +51,7 @@ function toggleAsideOrder(){
         desktopMenu.classList.toggle('inactive');
     } 
 
-    asideOrder.classList.toggle('inactive');
+    shoppingCartContainer.classList.toggle('inactive');
 }
 
 // Agregandos productos a la lista de productos-------------------------
