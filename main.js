@@ -51,13 +51,11 @@ productList.push ({
    price: 120.00 ,
    image: "https://images.pexels.com/photos/276517/pexels-photo-276517.jpeg?auto=compress&cs=tinysrgb&dpr=2&h=650&w=940",
 })
-
 productList.push ({
    name:'Nintendo Switch',
    price: 300.00 ,
    image: "https://images.pexels.com/photos/4523030/pexels-photo-4523030.jpeg?auto=compress&cs=tinysrgb&w=1260&h=750&dpr=1",
 })
-
 productList.push ({
    name:'TV',
    price: 1696.99 ,
@@ -68,13 +66,11 @@ productList.push ({
    price: 120.00 ,
    image: "https://images.pexels.com/photos/276517/pexels-photo-276517.jpeg?auto=compress&cs=tinysrgb&dpr=2&h=650&w=940",
 })
-
 productList.push ({
    name:'Nintendo Switch',
    price: 300.00 ,
    image: "https://images.pexels.com/photos/4523030/pexels-photo-4523030.jpeg?auto=compress&cs=tinysrgb&w=1260&h=750&dpr=1",
 })
-
 productList.push ({
    name:'TV',
    price: 1696.99 ,
@@ -85,13 +81,11 @@ productList.push ({
    price: 120.00 ,
    image: "https://images.pexels.com/photos/276517/pexels-photo-276517.jpeg?auto=compress&cs=tinysrgb&dpr=2&h=650&w=940",
 })
-
 productList.push ({
    name:'Nintendo Switch',
    price: 300.00 ,
    image: "https://images.pexels.com/photos/4523030/pexels-photo-4523030.jpeg?auto=compress&cs=tinysrgb&w=1260&h=750&dpr=1",
 })
-
 productList.push ({
    name:'TV',
    price: 1696.99 ,
@@ -102,13 +96,11 @@ productList.push ({
    price: 120.00 ,
    image: "https://images.pexels.com/photos/276517/pexels-photo-276517.jpeg?auto=compress&cs=tinysrgb&dpr=2&h=650&w=940",
 })
-
 productList.push ({
    name:'Nintendo Switch',
    price: 300.00 ,
    image: "https://images.pexels.com/photos/4523030/pexels-photo-4523030.jpeg?auto=compress&cs=tinysrgb&w=1260&h=750&dpr=1",
 })
-
 productList.push ({
    name:'TV',
    price: 1696.99 ,
@@ -119,13 +111,11 @@ productList.push ({
    price: 120.00 ,
    image: "https://images.pexels.com/photos/276517/pexels-photo-276517.jpeg?auto=compress&cs=tinysrgb&dpr=2&h=650&w=940",
 })
-
 productList.push ({
    name:'Nintendo Switch',
    price: 300.00 ,
    image: "https://images.pexels.com/photos/4523030/pexels-photo-4523030.jpeg?auto=compress&cs=tinysrgb&w=1260&h=750&dpr=1",
 })
-
 productList.push ({
    name:'TV',
    price: 1696.99 ,
