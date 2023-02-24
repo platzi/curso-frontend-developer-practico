@@ -78,7 +78,7 @@ productList.push({
 function renderProducts(arr){
 
     let i = 0;
-    var imagenesProductis = []
+    var imagenesProducts = []
 
     for (product of arr){   
 
@@ -87,14 +87,12 @@ function renderProducts(arr){
         
         cardsContainer.appendChild(productCard);
     
-        const productImg = document.createElement('img');
-        productImg.setAttribute('src', product.image);
-        productImg.classList.add(String(i));
-        console.log(productImg.className);
+        imagenesProducts[i] = document.createElement('img');
+        imagenesProducts[i].setAttribute('src', product.image);
+        imagenesProducts[i].classList.add(String(i));
+        
+        productCard.appendChild(imagenesProducts[i]);
         i++;
-        productCard.appendChild(productImg);
-        productImg.addEventListener('click', openProductDetailAside);
-        console.log(i)
     
         const productInfo = document.createElement('div');
         productInfo.classList.add('product-info');
@@ -120,6 +118,10 @@ function renderProducts(arr){
         
         
         }
+
+    imagenesProducts.forEach( imagen => {
+        imagen.addEventListener('click', () => {openProductDetailAside(imagen.className)});
+    })
 
 }
 
@@ -176,7 +178,8 @@ function toggleDesktopMenu(){
         shoppingCartContainer.classList.toggle('inactive');
     }
     
-    function openProductDetailAside(){
+    function openProductDetailAside(idProduct){
+
         const isAsideClosed = shoppingCartContainer.classList.contains('inactive');
         const isDesktopMenuClosed = desktopMenu.classList.contains('inactive');
         
@@ -189,6 +192,17 @@ function toggleDesktopMenu(){
         } 
     
         
+        // -- Modificación del product deatil container ---
+        idProduct = parseInt(idProduct);
+
+        //Cambiando imagen
+        productDetailContainer.childNodes[3].setAttribute('src', productList[idProduct].image)
+
+        //Cambiando textos
+        productDetailContainer.childNodes[5].childNodes[1].innerText = `$${productList[idProduct].price}`
+        productDetailContainer.childNodes[5].childNodes[3].innerText = productList[idProduct].name
+        productDetailContainer.childNodes[5].childNodes[5].innerText = productList[idProduct].description
+        //-------
     
         productDetailContainer.classList.remove('inactive');
     }
