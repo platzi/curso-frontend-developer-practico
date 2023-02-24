@@ -2,9 +2,11 @@ const navbarEmail = document.querySelector('.navbar-email');
 const desktopMenu = document.querySelector('.desktop-menu');
 const menuCarritoIcon = document.querySelector('.navbar-shopping-cart');
 const burgerMenu = document.querySelector('.menu');
+const productDetailCloseIcon = document.querySelector('.product-detail-close')
 const mobileMenu = document.querySelector('.mobile-menu');
 const shoppingCartContainer = document.querySelector('#shoppingCartContainer');
 const cardsContainer = document.querySelector('.cards-container')
+const productDetailContainer = document.querySelector('#productDetail')
 
 // desplegar desktopMenu al hacer click a navbarEmai
 navbarEmail.addEventListener('click', toggleDesktopMenu);
@@ -12,6 +14,8 @@ navbarEmail.addEventListener('click', toggleDesktopMenu);
 burgerMenu.addEventListener('click', toggleMobilepMenu);
 // aside
 menuCarritoIcon.addEventListener('click', togglemenuCarritoIcon);
+
+productDetailCloseIcon.addEventListener('click', closeProductDetailAside);
 
 function toggleDesktopMenu(event){
     const isAsideClosed = shoppingCartContainer.classList.contains('inactive');
@@ -26,7 +30,8 @@ function toggleMobilepMenu(){
     if(!isAsideClosed){
         shoppingCartContainer.classList.add('inactive')
     } 
-
+    closeProductDetailAside();
+    
     mobileMenu.classList.toggle('inactive')
 }
 
@@ -38,6 +43,25 @@ function togglemenuCarritoIcon(){
     } 
     desktopMenu.classList.add('inactive')    
     shoppingCartContainer.classList.toggle('inactive');
+
+    const isProductDetailClosed = productDetailContainer.classList.contains('inactive');
+
+    if(!isProductDetailClosed){
+        productDetailContainer.classList.add('inactive')
+    } 
+    desktopMenu.classList.add('inactive')   
+}
+
+function openProductDetailAside(){
+    // preguntar si el shoppingCart estaba abierto
+    shoppingCartContainer.classList.add('inactive');
+    // removemos la clase inactive para que aparezca y se mantenga activo
+    productDetailContainer.classList.remove('inactive')
+}
+
+
+function closeProductDetailAside(){
+    productDetailContainer.classList.add('inactive')
 }
 
 const productList = [];
@@ -81,6 +105,7 @@ function Product(name, price, image){
 
         const productImg = document.createElement('img');
         productImg.setAttribute('src', product.image);
+        productImg.addEventListener("click", openProductDetailAside);
 
         const productInfo = document.createElement('div');
         productInfo.classList.add('product-info');
