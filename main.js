@@ -8,8 +8,10 @@ const shoppingCartMenu = document.querySelector('.navbar-shopping-cart'); //Navb
 const shoppingCartContainer = document.querySelector('#shoppingCartContainer') //Aside product order
 const productDetailContainer = document.querySelector('#productDetail') //Aside product order
 const productDetailCloseIcon = document.querySelector('.product-detail-close'); //Close product detail icon
-const cardsContainer = document.querySelector('.cards-container') //Aside product order
+const cardsContainer = document.querySelector('.cards-container'); //Aside product order
 
+const orderContent = document.querySelector('.my-order-content');  //Shopping cart products
+console.log(orderContent.childNodes);
 // Asignando funciones a eventos-------------------------
 
 //Clicking email on the navbar
@@ -102,7 +104,8 @@ productList.push({
 function renderProducts(arr){
 
     let i = 0;
-    var imagenesProducts = []
+    var imagenesProducts = [];
+    var addToCartButton = [];
 
     for (product of arr){   
 
@@ -114,9 +117,8 @@ function renderProducts(arr){
         imagenesProducts[i] = document.createElement('img');
         imagenesProducts[i].setAttribute('src', product.image);
         imagenesProducts[i].classList.add(String(i));
-        
         productCard.appendChild(imagenesProducts[i]);
-        i++;
+        
     
         const productInfo = document.createElement('div');
         productInfo.classList.add('product-info');
@@ -136,15 +138,24 @@ function renderProducts(arr){
         const productInfoFigure = document.createElement('figure')
         productInfo.appendChild(productInfoFigure);
     
-        const productImgCart = document.createElement('img');
-        productImgCart.setAttribute('src', "./icons/bt_add_to_cart.svg");
-        productInfoFigure.appendChild(productImgCart);
+        addToCartButton[i] = document.createElement('img');
+        addToCartButton[i].setAttribute('src', "./icons/bt_add_to_cart.svg");
+        addToCartButton[i].classList.add(String(i));
+        productInfoFigure.appendChild(addToCartButton[i]);
         
-        
+        i++;
         }
+
+    //Clicking image function
 
     imagenesProducts.forEach( imagen => {
         imagen.addEventListener('click', () => {openProductDetailAside(imagen.className)});
+    })
+
+    //Clicking add to cart function
+
+    addToCartButton.forEach( carButton => {
+        carButton.addEventListener('click', () => {addProductToCart(carButton.className)});
     })
 
 }
@@ -233,4 +244,8 @@ function toggleDesktopMenu(){
     
     function closeProductDetailAside(){
         productDetailContainer.classList.add('inactive');
+    }
+
+    function addProductToCart(idButton){
+        console.log(idButton);
     }
