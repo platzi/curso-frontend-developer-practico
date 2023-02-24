@@ -12,6 +12,8 @@ const cardsContainer = document.querySelector('.cards-container'); //Aside produ
 
 const orderContent = document.querySelector('.my-order-content');  //Shopping cart products
 console.log(orderContent.childNodes);
+const shoppingCartCounter = document.querySelector('.shopping-cart-counter'); //Products added counter
+shoppingCartCounter.innerText = 0;
 // Asignando funciones a eventos-------------------------
 
 //Clicking email on the navbar
@@ -270,28 +272,28 @@ function addProductToCart(idButton){
     //orderContent.appendChild(shoppingCartDiv);
     orderContent.insertBefore(shoppingCartDiv, orderContent.firstChild);
     
-   const figureOrder = document.createElement('figure');
-   shoppingCartDiv.appendChild(figureOrder);
-   
-   const imageOrder = document.createElement('img');
-   imageOrder.setAttribute('src', productList[idButton].image);
-   figureOrder.appendChild(imageOrder);
+    const figureOrder = document.createElement('figure');
+    shoppingCartDiv.appendChild(figureOrder);
+    
+    const imageOrder = document.createElement('img');
+    imageOrder.setAttribute('src', productList[idButton].image);
+    figureOrder.appendChild(imageOrder);
 
-   const orderProductName = document.createElement('p');
-   orderProductName.innerText = productList[idButton].name;
-   shoppingCartDiv.appendChild(orderProductName);
+    const orderProductName = document.createElement('p');
+    orderProductName.innerText = productList[idButton].name;
+    shoppingCartDiv.appendChild(orderProductName);
 
-   const orderProductPrice = document.createElement('p'); 
-   orderProductPrice.innerText = `$${productList[idButton].price}`;
-   shoppingCartDiv.appendChild(orderProductPrice);
+    const orderProductPrice = document.createElement('p'); 
+    orderProductPrice.innerText = `$${productList[idButton].price}`;
+    shoppingCartDiv.appendChild(orderProductPrice);
 
-   deleteOrderProductButtons[deleteOrderProductIterator] = document.createElement('img');
-   deleteOrderProductButtons[deleteOrderProductIterator].setAttribute('src', "./icons/icon_close.png");
-   deleteOrderProductButtons[deleteOrderProductIterator].style.cursor = 'pointer';
-   shoppingCartDiv.appendChild(deleteOrderProductButtons[deleteOrderProductIterator]);
-   
-   deleteOrderProductButtons[deleteOrderProductIterator].classList.add(String(deleteOrderProductIterator))
-   
+    deleteOrderProductButtons[deleteOrderProductIterator] = document.createElement('img');
+    deleteOrderProductButtons[deleteOrderProductIterator].setAttribute('src', "./icons/icon_close.png");
+    deleteOrderProductButtons[deleteOrderProductIterator].style.cursor = 'pointer';
+    shoppingCartDiv.appendChild(deleteOrderProductButtons[deleteOrderProductIterator]);
+    
+    deleteOrderProductButtons[deleteOrderProductIterator].classList.add(String(deleteOrderProductIterator))
+    
 
    // Calling each deleting order product function
     deleteOrderProductButtons.forEach( deletedProduct => {
@@ -300,17 +302,20 @@ function addProductToCart(idButton){
 
     
 })
+    
     deleteOrderProductIterator++;
+    shoppingCartCounter.innerText++;
 }
 
 
 
 function deleteOrderProduct(deletingId){
-    console.log(deletingId);
     const elementToDelete = document.querySelector(`.shoppingCartDiv${deletingId}`);
-    console.log(elementToDelete)
+    
     elementToDelete.remove();
-    elementToDelete.remove
+    
     deleteOrderProductIterator--;
+    shoppingCartCounter.innerText--;
     deleteOrderProductButtons.pop(1)
+
 }
