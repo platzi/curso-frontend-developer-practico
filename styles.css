@@ -64,6 +64,7 @@ nav {
 }
 .navbar-shopping-cart {
 	position: relative;
+	cursor: pointer;
 }
 .navbar-shopping-cart div {
 	width: 16px;
@@ -93,8 +94,9 @@ nav {
 	background: var(--white);
 	width: 100px;
 	height: auto;
-	border: 1px solid var(--very-light-pink);
-	border-radius: 6px;
+	border-top: none;
+	border-bottom-left-radius: 8px;
+	border-bottom-right-radius: 8px;
 	padding: 20px 20px 0 20px;
 }
 .desktop-menu ul {
@@ -176,7 +178,9 @@ aside {
 
 /* shopping cart */
 #shoppingCartContainer {
-	padding: 0 24px;
+	padding: 10px 24px;
+	border-bottom-left-radius: 8px;
+	border-bottom-right-radius: 8px;
 }
 .title-container {
 	display: flex;
@@ -351,6 +355,9 @@ aside {
 	}
 	.desktop-menu {
 		display: none;
+	}
+	#shoppingCartContainer {
+		width: 100%;
 	}
 	/* card container */
 	.cards-container {
