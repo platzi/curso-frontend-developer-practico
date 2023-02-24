@@ -6,7 +6,7 @@ const mobileMenu = document.querySelector('.mobile-menu');
 const shoppingCartContainer = document.querySelector('#shoppingCartContainer');
 const productDetailContainer = document.querySelector('#productDetail');
 const cardsContainer = document.querySelector('.cards-container');
-const productDetailCloseIcon = document.querySelector('.product-detail-close')
+const productDetailCloseIcon = document.querySelector('.product-detail-close');
 
 menuEmail.addEventListener('click', toggleDesktopMenu);
 menuHamIcon.addEventListener('click', toggleMobileMenu);
@@ -66,19 +66,19 @@ const productArray = [];
 productArray.push({
     name: 'Bike',
     price: 120000,
-    Image: 'https://images.pexels.com/photos/276517/pexels-photo-276517.jpeg?auto=compress&cs=tinysrgb&dpr=2&h=650&w=940'
+    Image: 'https://cdn.pixabay.com/photo/2016/11/18/12/49/bicycle-1834265_1280.jpg'
 });
 
 productArray.push({
     name: 'motorcicle',
     price: 1800000,
-    Image: 'https://images.pexels.com/photos/276517/pexels-photo-276517.jpeg?auto=compress&cs=tinysrgb&dpr=2&h=650&w=940'
+    Image: 'https://cdn.pixabay.com/photo/2015/08/27/09/06/bike-909690_1280.jpg'
 });
 
 productArray.push({
     name: 'Electric bike',
     price: 1000000,
-    Image: 'https://images.pexels.com/photos/276517/pexels-photo-276517.jpeg?auto=compress&cs=tinysrgb&dpr=2&h=650&w=940'
+    Image: 'https://cdn.pixabay.com/photo/2020/05/13/14/30/electric-bike-5167701_1280.jpg'
 });
 
 function renderProducts(Array){
@@ -120,5 +120,4 @@ function renderProducts(Array){
     }
 }
 renderProducts(productArray);
-
 console.log('JS funcionando');
