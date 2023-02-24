@@ -11,76 +11,50 @@ const cardsContainer = document.querySelector(".cards-container");
 
 const ProductDetailExtra = document.querySelector(".product-detail-extra");
 
-const ProductDetailExtraCloseButton = document.querySelector(
-  ".product-detail-extra-close"
-);
+const ProductDetailExtraCloseButton = document.querySelector(".product-detail-extra-close");
 
+//Events Listeners
 menuEmail.addEventListener("click", toggleDesktopMenu);
 menuHamIcon.addEventListener("click", toggleMobileMenu);
 shoppingCart.addEventListener("click", toggleCarritoMenu);
+ProductDetailExtraCloseButton.addEventListener("click",closeProductDetailExtra);
 
-ProductDetailExtraCloseButton.addEventListener("click", closeProductDetailExtra);
+//Funciones para ahorrar codigo al abrir y cerrar pestañas
+function cerrarPestañas(pestaña) {
+  const pestañaClose = pestaña.classList.contains("inactive");
 
+  if (!pestañaClose) {
+    pestaña.classList.add("inactive");
+  }
+}
+
+//Funciones que abren y cierran ventanas
 function toggleCarritoMenu() {
+  cerrarPestañas(mobileMenu);
+  cerrarPestañas(ProductDetailExtra);
+  cerrarPestañas(deskopMenu);
 
-  const isMobileMenuClose = mobileMenu.classList.contains("inactive");
-  const isProductDetailExtraClosed = ProductDetailExtra.classList.contains("inactive");
-
-
-  //Si el menu de mobil esta abierto, cierralo
-  if (!isMobileMenuClose) {
-    //Cerrando menu
-    mobileMenu.classList.add("inactive");
-  }
-  if(!isProductDetailExtraClosed){
-    ProductDetailExtra.classList.add("inactive");
-  }
   //El carro de compras aparece si o si al final de esta funcion
   productDetail.classList.toggle("inactive");
 }
 
 function toggleDesktopMenu() {
-  const isProductDetailClosed = productDetail.classList.contains("inactive");
-  const isProductDetailExtraClosed = ProductDetailExtra.classList.contains("inactive");
-
-
-  if (!isProductDetailClosed) {
-    productDetail.classList.add("inactive");
-  }
-  if(!isProductDetailExtraClosed){
-    ProductDetailExtra.classList.add("inactive");
-  }
+  cerrarPestañas(productDetail);
+  cerrarPestañas(ProductDetailExtra);
 
   deskopMenu.classList.toggle("inactive");
 }
 
 function toggleMobileMenu() {
-  const isProductDetailMenuClose = productDetail.classList.contains("inactive");
-  const isProductDetailExtraClosed = ProductDetailExtra.classList.contains("inactive");
-
-
-  //Si el carro de compras esta open, hay que cerrarlo
-  if (!isProductDetailMenuClose) {
-    //cerrando el product detail
-    productDetail.classList.add("inactive");
-  }
-  if(!isProductDetailExtraClosed){
-    ProductDetailExtra.classList.add("inactive");
-  }
+  cerrarPestañas(productDetail);
+  cerrarPestañas(ProductDetailExtra);
 
   mobileMenu.classList.toggle("inactive");
 }
 
 function OpenProductDetailExtra() {
-  const isCloseProductDetail = productDetail.classList.contains("inactive");
-  const isCloseDesktopMenu = deskopMenu.classList.contains("inactive");
-
-  if (!isCloseDesktopMenu) {
-    deskopMenu.classList.add("inactive");
-  }
-  if (!isCloseProductDetail) {
-    productDetail.classList.add("inactive");
-  }
+  cerrarPestañas(productDetail);
+  cerrarPestañas(deskopMenu);
 
   ProductDetailExtra.classList.remove("inactive");
 }
@@ -88,6 +62,8 @@ function OpenProductDetailExtra() {
 function closeProductDetailExtra() {
   ProductDetailExtra.classList.add("inactive");
 }
+
+
 
 const productList = [];
 productList.push({
@@ -109,19 +85,6 @@ productList.push({
     "https://images.pexels.com/photos/276517/pexels-photo-276517.jpeg?auto=compress&cs=tinysrgb&dpr=2&h=650&w=940",
 });
 
-/*
-  <div class="product-card">
-    <img src="https://images.pexels.com/photos/276517/pexels-photo-276517.jpeg?auto=compress&cs=tinysrgb&dpr=2&h=650&w=940" alt="">
-    <div class="product-info">
-      <div>
-        <p>$120,00</p>
-        <p>Bike</p>
-      </div>
-      <figure>
-        <img src="./icons/bt_add_to_cart.svg" alt="">
-      </figure>
-    </div>
-  </div> */
 
 //se va a hacer una iteracion dependiendo cuantos productos tenga nuestro array
 for (product of productList) {
@@ -170,3 +133,5 @@ for (product of productList) {
 
   cardsContainer.appendChild(productCard);
 }
+
+
