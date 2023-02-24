@@ -73,6 +73,30 @@ productList.push({
     description: 'Este computador te sirve para hacer cosas increíbles, manejar programas increíbles, jugar videojuegos increíbles y programar cosas increíbles'
 });
 
+productList.push({
+    id: 6,
+    name: 'Bike',
+    price: 120,
+    image: 'https://images.pexels.com/photos/276517/pexels-photo-276517.jpeg?auto=compress&cs=tinysrgb&dpr=2&h=650&w=940',
+    description: 'Esta bicicleta tiene una movilidad increible, puedes llegar a diferentes lugares en muy poco tiempo, viajar por el mundo mientras eres saludable'
+});
+
+productList.push({
+    id: 7,
+    name: 'Pantalla',
+    price: 220,
+    image: 'https://i.pinimg.com/564x/3f/c3/9e/3fc39e45e3e14d467ca6155e9ef562aa.jpg',
+    description: 'Este televisor sirve para ver cosas increíbles, películas increíbles, series increíble, partidos increíblos. La pantalla es increíble'
+});
+
+productList.push({
+    id: 8,
+    name: 'Computador',
+    price: 620,
+    image: 'https://i.pinimg.com/564x/37/71/45/377145b6e7b4fbd9b939f78720a8d4cd.jpg',
+    description: 'Este computador te sirve para hacer cosas increíbles, manejar programas increíbles, jugar videojuegos increíbles y programar cosas increíbles'
+});
+
 // Maquetando la lista de productos ------------------------
 
 function renderProducts(arr){
