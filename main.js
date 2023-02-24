@@ -14,6 +14,17 @@ const orderContent = document.querySelector('.my-order-content');  //Shopping ca
 console.log(orderContent.childNodes);
 const shoppingCartCounter = document.querySelector('.shopping-cart-counter'); //Products added counter
 shoppingCartCounter.innerText = 0;
+
+//Total order price
+const orderTotal = document.querySelector('.order');
+console.log(orderTotal.childNodes)
+let totalPrice = 0;
+orderTotal.childNodes[3].innerText = `$${totalPrice}`;
+
+//Closing shopping cart variable
+const closingShoppingCart = document.querySelector('.title-container').childNodes[1];
+closingShoppingCart.style.cursor = 'pointer';
+
 // Asignando funciones a eventos-------------------------
 
 //Clicking email on the navbar
@@ -22,9 +33,9 @@ menuEmail.addEventListener('click', toggleDesktopMenu);
 mobileMenuLogo.addEventListener('click', toogleMobileMenu);
 //Clicking shopping cart
 shoppingCartMenu.addEventListener('click', toggleShoppingCartContainer);
+closingShoppingCart.addEventListener('click', toggleShoppingCartContainer);
+//Closing detail aside
 productDetailCloseIcon.addEventListener('click', closeProductDetailAside);
-
-
 
 // Agregandos productos a la lista de productos-------------------------
 
@@ -250,17 +261,8 @@ function toggleDesktopMenu(){
         productDetailContainer.classList.add('inactive');
     }
 
-/* <div class="shopping-cart">
-        <figure>
-          <img src="https://images.pexels.com/photos/276517/pexels-photo-276517.jpeg?auto=compress&cs=tinysrgb&dpr=2&h=650&w=940" alt="bike">
-        </figure>
-        <p>Bike</p>
-        <p>$30,00</p>
-        <img src="./icons/icon_close.png" alt="close">
-      </div>  */
-
-deleteOrderProductIterator = 0;
-deleteOrderProductButtons = [];
+let deleteOrderProductIterator = 0;
+let deleteOrderProductButtons = [];
 
 function addProductToCart(idButton){
     
@@ -285,6 +287,11 @@ function addProductToCart(idButton){
 
     const orderProductPrice = document.createElement('p'); 
     orderProductPrice.innerText = `$${productList[idButton].price}`;
+
+    //Updating total price
+    totalPrice +=productList[idButton].price ;
+    orderTotal.childNodes[3].innerText = `$${totalPrice}`;
+
     shoppingCartDiv.appendChild(orderProductPrice);
 
     deleteOrderProductButtons[deleteOrderProductIterator] = document.createElement('img');
@@ -312,8 +319,17 @@ function addProductToCart(idButton){
 function deleteOrderProduct(deletingId){
     const elementToDelete = document.querySelector(`.shoppingCartDiv${deletingId}`);
     
+    let elementPrice = elementToDelete.childNodes[2].innerText;
+    elementPrice = Array.from(elementPrice);
+    elementPrice.shift();
+    elementPrice = parseInt(elementPrice.join(''));
+
+    //Updating total price
+    totalPrice -= elementPrice ;
+    orderTotal.childNodes[3].innerText = `$${totalPrice}`;
+
     elementToDelete.remove();
-    
+
     deleteOrderProductIterator--;
     shoppingCartCounter.innerText--;
     deleteOrderProductButtons.pop(1)
