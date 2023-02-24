@@ -3,7 +3,7 @@ const desktopMenu = document.querySelector('.desktop-menu');
 const menuCarritoIcon = document.querySelector('.navbar-shopping-cart');
 const burgerMenu = document.querySelector('.menu');
 const mobileMenu = document.querySelector('.mobile-menu');
-const asideProduct = document.querySelector('.product-detail');
+const shoppingCartContainer = document.querySelector('#shoppingCartContainer');
 const cardsContainer = document.querySelector('.cards-container')
 
 // desplegar desktopMenu al hacer click a navbarEmai
@@ -14,17 +14,17 @@ burgerMenu.addEventListener('click', toggleMobilepMenu);
 menuCarritoIcon.addEventListener('click', togglemenuCarritoIcon);
 
 function toggleDesktopMenu(event){
-    const isAsideClosed = asideProduct.classList.contains('inactive');
+    const isAsideClosed = shoppingCartContainer.classList.contains('inactive');
     if(!isAsideClosed){
-        asideProduct.classList.add('inactive')
+        shoppingCartContainer.classList.add('inactive')
     } 
     desktopMenu.classList.toggle('inactive')
 }
 
 function toggleMobilepMenu(){
-    const isAsideClosed = asideProduct.classList.contains('inactive');
+    const isAsideClosed = shoppingCartContainer.classList.contains('inactive');
     if(!isAsideClosed){
-        asideProduct.classList.add('inactive')
+        shoppingCartContainer.classList.add('inactive')
     } 
 
     mobileMenu.classList.toggle('inactive')
@@ -37,7 +37,7 @@ function togglemenuCarritoIcon(){
         mobileMenu.classList.add('inactive')
     } 
     desktopMenu.classList.add('inactive')    
-    asideProduct.classList.toggle('inactive');
+    shoppingCartContainer.classList.toggle('inactive');
 }
 
 const productList = [];
@@ -64,7 +64,7 @@ function Product(name, price, image){
     const toys = [];    
     const others = [];
 
-    for(i = 0; i < 30; i++ ){
+    for(i = 0; i < 5; i++ ){
         // bike
         let bike = productList.push(new Product('Bike', 120, 'https://images.pexels.com/photos/276517/pexels-photo-276517.jpeg?auto=compress&cs=tinysrgb&dpr=2&h=650&w=940'));
         // tv Retro
