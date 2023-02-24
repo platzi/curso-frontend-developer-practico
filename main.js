@@ -116,6 +116,7 @@ function renderProducts(arr){
     
         imagenesProducts[i] = document.createElement('img');
         imagenesProducts[i].setAttribute('src', product.image);
+        imagenesProducts[i].style.cursor = 'pointer';
         imagenesProducts[i].classList.add(String(i));
         productCard.appendChild(imagenesProducts[i]);
         
@@ -140,6 +141,7 @@ function renderProducts(arr){
     
         addToCartButton[i] = document.createElement('img');
         addToCartButton[i].setAttribute('src', "./icons/bt_add_to_cart.svg");
+        addToCartButton[i].style.cursor = 'pointer';
         addToCartButton[i].classList.add(String(i));
         productInfoFigure.appendChild(addToCartButton[i]);
         
@@ -246,6 +248,69 @@ function toggleDesktopMenu(){
         productDetailContainer.classList.add('inactive');
     }
 
-    function addProductToCart(idButton){
-        console.log(idButton);
-    }
+/* <div class="shopping-cart">
+        <figure>
+          <img src="https://images.pexels.com/photos/276517/pexels-photo-276517.jpeg?auto=compress&cs=tinysrgb&dpr=2&h=650&w=940" alt="bike">
+        </figure>
+        <p>Bike</p>
+        <p>$30,00</p>
+        <img src="./icons/icon_close.png" alt="close">
+      </div>  */
+
+deleteOrderProductIterator = 0;
+deleteOrderProductButtons = [];
+
+function addProductToCart(idButton){
+    
+    idButton = parseInt(idButton);
+
+    const shoppingCartDiv = document.createElement('div');
+    shoppingCartDiv.classList.add('shopping-cart');
+    shoppingCartDiv.classList.add(`shoppingCartDiv${deleteOrderProductIterator}`);
+    //orderContent.appendChild(shoppingCartDiv);
+    orderContent.insertBefore(shoppingCartDiv, orderContent.firstChild);
+    
+   const figureOrder = document.createElement('figure');
+   shoppingCartDiv.appendChild(figureOrder);
+   
+   const imageOrder = document.createElement('img');
+   imageOrder.setAttribute('src', productList[idButton].image);
+   figureOrder.appendChild(imageOrder);
+
+   const orderProductName = document.createElement('p');
+   orderProductName.innerText = productList[idButton].name;
+   shoppingCartDiv.appendChild(orderProductName);
+
+   const orderProductPrice = document.createElement('p'); 
+   orderProductPrice.innerText = `$${productList[idButton].price}`;
+   shoppingCartDiv.appendChild(orderProductPrice);
+
+   deleteOrderProductButtons[deleteOrderProductIterator] = document.createElement('img');
+   deleteOrderProductButtons[deleteOrderProductIterator].setAttribute('src', "./icons/icon_close.png");
+   deleteOrderProductButtons[deleteOrderProductIterator].style.cursor = 'pointer';
+   shoppingCartDiv.appendChild(deleteOrderProductButtons[deleteOrderProductIterator]);
+   
+   deleteOrderProductButtons[deleteOrderProductIterator].classList.add(String(deleteOrderProductIterator))
+   
+
+   // Calling each deleting order product function
+    deleteOrderProductButtons.forEach( deletedProduct => {
+    if (String(deleteOrderProductIterator) == deletedProduct.className){
+    deletedProduct.addEventListener('click', () => {deleteOrderProduct(deletedProduct.className)})};
+
+    
+})
+    deleteOrderProductIterator++;
+}
+
+
+
+function deleteOrderProduct(deletingId){
+    console.log(deletingId);
+    const elementToDelete = document.querySelector(`.shoppingCartDiv${deletingId}`);
+    console.log(elementToDelete)
+    elementToDelete.remove();
+    elementToDelete.remove
+    deleteOrderProductIterator--;
+    deleteOrderProductButtons.pop(1)
+}
