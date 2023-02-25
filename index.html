@@ -5,12 +5,13 @@
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>RiszMarket</title>
+    <link rel="stylesheet" href="/css/principal.css">
   </head>
   <body> 
     <header>
-      <nav><img class="burguerMenu" src="./icons/icon_menu.svg" alt="menu">
+      <nav class="nav"><img class="burguerMenu" src="./icons/icon_menu.svg" alt="menu">
         <div class="nav-left"><img class="logo" src="./logos/logo_yard_sale.svg" alt="logo">
-          <ul> 
+          <ul class="nav-left__list">
             <li><a href="/">All</a></li>
             <li><a href="/">Clothes</a></li>
             <li><a href="/">Electronics</a></li>
@@ -19,21 +20,22 @@
           </ul>
         </div>
         <div class="nav-right">
-          <div class="desktop-nemu">
-            <div class="container-market"> 
+          <div class="desktop-menu">
+            <div class="desktop-menu__market"> 
               <h2>My MarketPlace</h2>
-              <div class="navbar-email">
+              <div class="navbar-email inactive">
                 <li><a href="/">My orders</a></li>
                 <li><a href="/">My account</a></li>
                 <li><a href="/">Sign out</a></li>
               </div>
             </div>
-            <div class="navbar-shopping-cart"> <img src="" alt="">
-              <div>0</div>
+            <div class="desktop-menu__shopping-cart"> <img src="/icons/icon_shopping_cart.svg" alt="">
+              <div class="counter-product">0</div>
             </div>
           </div>
-          <div class="mobile-menu">
-            <ul> 
+          <div class="mobile-menu inactive">
+            <ul>
+              <li><a>categories </a></li>
               <li><a href="/">All</a></li>
               <li><a href="/">Clothes</a></li>
               <li><a href="/">Electronics</a></li>
@@ -53,54 +55,51 @@
           </div>
         </div>
       </nav>
-      <aside class="shopping-cart-conatiner">
-        <div class="title-container"><img src="" alt="arrow">
-          <p class="title">My order</p>
+      <aside class="shopping-cart inactive">
+        <div class="title-contain"><img src="/icons/flechita.svg" alt="arrow">
+          <p class="tittle">My order</p>
         </div>
         <section class="my-order-content"></section>
         <div class="order">
           <p>Total</p>
           <p class="total-product-cost">$</p>
         </div>
-        <div>
+        <div class="boton">
           <p class="primary-button">Checkout </p>
         </div>
       </aside>
     </header>
     <main class="main-container">
       <section class="cards-container"></section>
-      <section class="detail-item-select"></section>
+      <section class="detail--item inactive">
+        <div class="detail--item-info"> 
+          <div class="detail--item-info__close"> </div><img class="detail--item-info__image" src="" alt="">
+          <div class="detail--item-info__price-name">
+            <p class="window-item__price">645</p>
+            <p class="window-item__name">fdsf</p>
+          </div>
+          <p class="detail--item-info__detail">Lorem ipsum dolor sit, amet consectetur adipisicing elit. Libero, vitae asperiores sunt qui soluta facere a ad distinctio ut, excepturi tempora. Cumque similique numquam excepturi, expedita suscipit adipisci veniam reiciendis. Lorem ipsum dolor sit amet, consectetur adipisicing elit. Ex rerum alias excepturi eveniet modi quis ducimus, quisquam, iusto earum a enim totam ipsa qui, dolorum doloremque magnam at quod ratione!</p>
+          <div class="detail--item-info__boton"><img src="" alt="">
+            <p>Add to cart</p>
+          </div>
+        </div>
+      </section>
     </main>
     <footer> 
-      <div><img src="/icons/asfdas" alt=""><img src="/icons/afdsa" alt=""><img src="/icons/dsafd" alt="">
+      <div class="footer--icon"><img src="/icons/" alt=""><img src="/icons/" alt=""><img src="/icons/" alt="">
       </div>
-      <div>
+      <div class="footer--li">
         <li>Home</li>
         <li>Services</li>
         <li>About</li>
         <li>Terms</li>
         <li>Privacy Policy</li>
       </div>
-      <div>
+      <div class="footer--end">
         <p>AllRight Reserved 2023</p>
       </div>
     </footer>
-    <section>
-      <div class="close-add"> </div>
-      <div class="block-add-new-itens">
-        <h2>Agregar un nuevo producto a la lista</h2>
-        <form action="" method="get" id="form-container">
-          <label for="name-of-iten">Nombre del producto</label>
-          <input class="name-of-iten" type="text">
-          <label for="price-of-iten"> Precio del producto</label>
-          <input class="price-of-iten" type="number">
-          <label for="url-of-img-iten">Url del Producto</label>
-          <input class="url-of-img-iten" type="url">
-          <label for="description-of-img-iten">Descripcion del producto</label>
-          <input class="description-of-img-iten" type="text">
-          <input type="submit">
-        </form>
-      </div>
-    </section>
   </body>
+  <script src="objects.js"> </script>
+  <script src="scriptUpdate.js"> </script>
 </html>

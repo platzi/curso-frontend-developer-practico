@@ -1,0 +1,72 @@
+.main-container {
+  width: 100%;
+  min-height: 90vh;
+  display: grid;
+  grid-template-columns: 1fr;
+  .cards-container {
+    width: 100%;
+    height: 100%;
+    display: grid;
+    grid-template-columns: repeat(auto-fit, minmax(180px, 1fr));
+    @include media(tablet){
+      grid-template-columns: repeat(auto-fit, minmax(260px, 1fr));
+    }
+    .chopping-cart {
+      width: 180px;
+      height: 210px;
+      display: flex;
+      flex-direction: column;
+      align-items: center;
+      justify-content: center;
+      margin: 15px;
+      border: solid 3px get-opacity($color-secondary, .9);
+      border-radius: 15px;
+      @include media(tablet){
+        width: 250px;
+        height: 300px;
+      }
+      &:hover {
+      border: solid 3px get-opacity($color-dark, .3);
+
+      }
+      img {
+        height: 60%;
+        width: 80%;
+        object-fit: contain;
+        border-radius: 10%;
+      }
+      .product-info {
+        display: flex;
+        justify-content: space-between;
+        align-items: center;
+        width: 90%;
+        margin-top: 5px;
+        padding: 5px;
+        border: solid 3px $color-secondary;
+        border-radius:5px;
+        background-color: get-opacity($color-primary, .3);
+        figure {
+          margin-bottom: 0;
+          .add-product-shopping-cart{
+            height: 35px;
+            width: 35px;
+            cursor: pointer;
+            &:hover {
+              transform: scale(1.1);
+            }
+          }
+        }
+        div {
+          p {
+            margin-bottom: 0;
+            text-transform: uppercase;
+            @include font-size(12px);
+            @include media(tablet){
+              @include font-size(18px)
+            }
+          }
+        }
+      }
+    }
+  }
+}

@@ -1,27 +1,28 @@
 header
-	nav
-		img(src="./icons/icon_menu.svg", alt="menu").burguerMenu
+	nav.nav
+		img(src="./icons/"+ contentImage[2], alt="menu").burguerMenu
 		div.nav-left
-			img(src="./logos/logo_yard_sale.svg", alt="logo").logo
-			ul 
+			img(src="./logos/" + contentImage[0], alt="logo").logo
+			ul.nav-left__list
 				each itemNav in nameNav 
 					li
 						a(href="/")=itemNav
 		div.nav-right
-			div.desktop-nemu
-				div.container-market 
+			div.desktop-menu
+				div.desktop-menu__market 
 					h2 My MarketPlace
-					div.navbar-email
+					div.navbar-email.inactive
 						each itemNav in otherNameNav
 							if itemNav === "platzi@example.com"
 							else
 								li
 									a(href="/")=itemNav
-				div.navbar-shopping-cart 
-					img(src="", alt="")
-					div 0
-			div.mobile-menu
-				ul 
+				div.desktop-menu__shopping-cart 
+					img(src="/icons/"+ contentImage[1], alt="")
+					div.counter-product 0
+			div.mobile-menu.inactive
+				ul
+					li: a categories 
 					each itemNav in nameNav 
 						li
 							a(href="/")=itemNav
@@ -34,13 +35,13 @@ header
 								a(href="/").sign-out=itemNav
 							else 
 								a(href="/")=itemNav
-	aside.shopping-cart-conatiner
-		div.title-container
-			img(src="", alt="arrow")
-			p.title My order
+	aside.shopping-cart.inactive
+		div.title-contain
+			img(src="/icons/flechita.svg", alt="arrow")
+			p.tittle My order
 		section.my-order-content
 		div.order
 			p Total
 			p.total-product-cost $
-		div
+		div.boton
 			p.primary-button Checkout 
