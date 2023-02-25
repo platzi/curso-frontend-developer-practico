@@ -47,17 +47,17 @@ function toggleCarritoAside() {
 
 const productList = []
 productList.push({
-    name: 'Bike',
+    name: 'Bicicleta',
     price: 120,
     image: 'https://images.pexels.com/photos/276517/pexels-photo-276517.jpeg?auto=compress&cs=tinysrgb&dpr=2&h=650&w=940',
 })
 productList.push({
-    name: 'Pantalla',
+    name: 'Televisor',
     price: 220,
     image: 'https://images.pexels.com/photos/6316063/pexels-photo-6316063.jpeg?auto=compress&cs=tinysrgb&w=1260&h=750&dpr=1',
 })
 productList.push({
-    name: 'Compu',
+    name: 'Portatil',
     price: 620,
     image: 'https://images.pexels.com/photos/5793953/pexels-photo-5793953.jpeg?auto=compress&cs=tinysrgb&w=1260&h=750&dpr=1',
 });
@@ -82,8 +82,7 @@ function renderProducts (arr) {
         const productName = document.createElement('p');
         productName.innerText = product.name;
         
-        productInfoDiv.appendChild(productPrice);
-        productInfoDiv.appendChild(productName);
+        productInfoDiv.append(productPrice, productName);
         
         const productInfoFigure = document.createElement('figure');
         const productImgCart = document.createElement('img');
@@ -91,14 +90,12 @@ function renderProducts (arr) {
     
         productInfoFigure.appendChild(productImgCart);
         
-        productInfo.appendChild(productInfoDiv);
-        productInfo.appendChild(productInfoFigure);
+        productInfo.append(productInfoDiv, productInfoFigure);
         
     
-        productCard.appendChild(productImg);
-        productCard.appendChild(productInfo);
+        productCard.append(productImg, productInfo);
     
-       cardsContainer.appendChild(productCard); 
+        cardsContainer.appendChild(productCard); 
     }
 }
 
