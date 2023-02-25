@@ -5,7 +5,7 @@ const desktopMenu = $('.desktop-menu');
 const hamburgerIcon = $('.menu');
 const menuCarritoIcon = $('.navbar-shopping-cart');
 const mobileMenu = $('.mobile-menu');
-const aside = $('.product-detail');
+const shoppingCartContainer = $('.product-detail');
 const cardsContainer = $('.cards-container');
 
 menuEmail.addEventListener('click', toggleDesktopMenu);
@@ -13,20 +13,20 @@ hamburgerIcon.addEventListener('click', toggleMobileMenu);
 menuCarritoIcon.addEventListener('click', toggleCarritoAside);
 
 function toggleDesktopMenu(){
-    aside.classList.contains('inactive') ? true : aside.classList.add('inactive');
+    shoppingCartContainer.classList.contains('inactive') ? true : shoppingCartContainer.classList.add('inactive');
     desktopMenu.classList.toggle('inactive');
     
 }
 
 function toggleMobileMenu() {
-    aside.classList.contains('inactive') ? true : aside.classList.add('inactive');
+    shoppingCartContainer.classList.contains('inactive') ? true : shoppingCartContainer.classList.add('inactive');
     mobileMenu.classList.toggle('inactive');
     
 }
 function toggleCarritoAside() {
     desktopMenu.classList.contains('inactive') ? true : desktopMenu.classList.add('inactive');
     mobileMenu.classList.contains('inactive') ? true : mobileMenu.classList.add('inactive');
-    aside.classList.toggle('inactive');
+    shoppingCartContainer.classList.toggle('inactive');
 
 }
 
