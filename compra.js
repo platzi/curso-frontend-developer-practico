@@ -1,22 +1,14 @@
-// const productList1 = []
-// productList.push({
-//     name: "Bike",
-//     precio: 120,
-//     img:"https://images.pexels.com/photos/276517/pexels-photo-276517.jpeg?auto=compress&cs=tinysrgb&dpr=2&h=650&w=940"
-// })
-// productList.push({
-//     name: "Pantalla",
-//     precio: 220,
-//     img:"https://images.pexels.com/photos/276517/pexels-photo-276517.jpeg?auto=compress&cs=tinysrgb&dpr=2&h=650&w=940"
-// })
-// productList.push({
-//     name: "Computadora",
-//     precio: 420,
-//     img:"https://images.pexels.com/photos/276517/pexels-photo-276517.jpeg?auto=compress&cs=tinysrgb&dpr=2&h=650&w=940"
-// })
-console.log(productList);
+const numeroCarrito = document.querySelector(".carrito")
+numeroCarrito.innerText= 0 
+var sumaPrecios = 0
 const botonesCompra = document.querySelectorAll("img.botonCompra")
-console.log(botonesCompra);
+
+const orderContent = document.querySelector(".my-order-content")
+
+const ordenProducts = document.createElement("div")
+ordenProducts.setAttribute("class", "products")
+
+orderContent.appendChild(ordenProducts)
 
 for (const boton of botonesCompra) {
     boton.addEventListener("click",
@@ -28,29 +20,71 @@ for (const boton of botonesCompra) {
             const p1ShoppingCard = document.createElement("p")
             const p2ShoppingCard = document.createElement("p")
             const img2ShoppingCard = document.createElement("img")
-            const orderContent = document.querySelector(".my-order-content")
 
             let productEncontrado = productList.find(function (e) {
                 return boton.target.id === e.name
             })
+            numeroCarrito.innerText++
             divShoppingCard.setAttribute("class", "shopping-cart")
-            img2ShoppingCard.setAttribute("src","./icons/icon_close.png" )
-            img2ShoppingCard.setAttribute("alt","close" )
+            img2ShoppingCard.setAttribute("src", "./icons/icon_close.png")
+            img2ShoppingCard.setAttribute("alt", "close")
+            img2ShoppingCard.setAttribute("class", "borrar")
+            img2ShoppingCard.addEventListener("click", borrarProducto)
             p2ShoppingCard.innerText = "$" + productEncontrado.precio
             p1ShoppingCard.innerText = productEncontrado.name
             img1ShoppingCard.setAttribute("src", productEncontrado.img)
-            img1ShoppingCard.setAttribute("alt",productEncontrado.name )
+            img1ShoppingCard.setAttribute("alt", productEncontrado.name)
 
-            console.log(productEncontrado);
             divShoppingCard.appendChild(figureShoppingCard)
             figureShoppingCard.appendChild(img1ShoppingCard)
             divShoppingCard.appendChild(p1ShoppingCard)
             divShoppingCard.appendChild(p2ShoppingCard)
             divShoppingCard.appendChild(img2ShoppingCard)
-            orderContent.appendChild(divShoppingCard)
+            ordenProducts.appendChild(divShoppingCard)
 
 
+            function borrarProducto() {
+                ordenProducts.removeChild(divShoppingCard)
+                const precioProducto = productEncontrado.precio
+                sumaPrecios -= precioProducto
+                p2Order.innerText = "$" + sumaPrecios
+                numeroCarrito.innerText--
+
+            }
+            console.log(productEncontrado.precio);
+            sumaPrecios += productEncontrado.precio
+            console.log(sumaPrecios);
+
+            const existenProductos = document.getElementsByClassName("products")
+            if (existenProductos.length < 0) {
+                console.log("esta vacio");
+            } else {
+                console.log("tendria q cambiar el precio");
+                p2Order.innerText = "$" + sumaPrecios
+            }
         }
     )
-}
 
+}
+const classOrder = document.createElement("div")
+const p1Order = document.createElement("p")
+const spanOrder = document.createElement("span")
+const p2Order = document.createElement("p")
+
+classOrder.setAttribute("class", "order")
+spanOrder.innerText = "Total"
+//productEncontrado.precio
+orderContent.appendChild(classOrder)
+classOrder.appendChild(p1Order)
+p1Order.appendChild(spanOrder)
+classOrder.appendChild(p2Order)
+
+
+// const productCard = document.querySelector(".product-card")
+// productCard.addEventListener("click", funcion)
+
+// function funcion() {
+//     console.log(
+//         "si"
+//     );
+// }

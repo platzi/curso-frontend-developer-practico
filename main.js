@@ -5,11 +5,15 @@ const mobileMenu = document.querySelector(".mobile-menu")
 const navCarrito = document.querySelector(".product-detail")
 const cartMenu = document.querySelector(".navbar-shopping-cart")
 const cardsContainer = document.querySelector(".cards-container")
+const productInfoInicio = document.querySelector(".info-product")
+// const productInfoInicio = document.querySelector(".product-detail-info")
+
 
 
 navEmail.addEventListener("click", toggleDesktopMenu) 
 menuHamIcon.addEventListener("click", toggleMobileMenu) 
 cartMenu.addEventListener("click", toggleCartMenu) 
+
 
 function toggleDesktopMenu() {
     desktopMenu.classList.toggle("inactive")
@@ -31,6 +35,9 @@ function toggleCartMenu() {
     }
 }
 
+// function toggleProduct() {
+
+// }
 
 
 const productList = []
@@ -58,6 +65,7 @@ function renderProducts(arr) {
     
     const productImg = document.createElement("img")
     productImg.setAttribute("src", product.img)
+    productImg.setAttribute("class", "img-product")
     
     const productInfo = document.createElement("div")
     productInfo.classList.add("product-info")
@@ -89,11 +97,28 @@ function renderProducts(arr) {
     productCard.appendChild(productInfo)
     
     cardsContainer.appendChild(productCard)
-    
-    
+
+
+
+productCard.addEventListener("click", funcion)
+
+function funcion() {
+    productInfoInicio.classList.toggle("inactive")
+    if(navCarrito.className === "product-detail") {
+        navCarrito.classList.toggle("inactive")
+    }
+    if (desktopMenu.className === "desktop-menu") {
+        desktopMenu.classList.toggle("inactive")
+    }
+    console.log(
+        "si"
+    );
+}
 }
 }
 
 renderProducts(productList)
+
+
 
 // apreto en product figure y tiene q ir al carritp
