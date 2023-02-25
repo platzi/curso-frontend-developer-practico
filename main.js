@@ -14,7 +14,11 @@ carritoMenu.addEventListener('click', toggleCarritoMenu);
 
 
 function toggleDesktopMenu() {
-    
+    const isAsideClosed = aside.classList.contains('inactive');
+
+    if(!isAsideClosed){
+        aside.classList.add('inactive')
+    }
     desktopMenu.classList.toggle('inactive');
 }
 
