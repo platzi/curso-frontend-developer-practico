@@ -13,12 +13,22 @@
     margin: 0;
     font-family: 'Quicksand', sans-serif;
   }
+  /* !scrollebar */
+  .stop-scrolling {
+    height: 100%;
+    overflow: hidden;
+  }
 /* navbar (general) */
   nav {
     display: flex;
     justify-content: space-between;
     padding: 0 24px;
     border-bottom: 1px solid var(--very-light-pink);
+    position: fixed;
+    background-color: var(--white);
+    width: 100%;
+    top: 0;
+    z-index: 1;
   }
   .menu {
     display: none;
@@ -40,6 +50,10 @@
   }
   .navbar-left ul {
     margin-left: 12px;
+  }
+
+  .navbar-right{
+    padding-right: 46px;
   }
   .navbar-left ul li a,
   .navbar-right ul li a {
@@ -132,7 +146,7 @@
   /* mobile menu */
   .mobile-menu {
     background-color: var(--white);
-    position: absolute;
+    position: fixed;
     top: 60px;
     padding: 24px;
     left: 0;
@@ -178,6 +192,11 @@
 
   #shoppingCartContainer{
     padding: 0 24px;
+    z-index: 1;
+    top: 61px;
+    position: fixed;
+    height: 490px;
+    border-radius: 0 0 0 16px;
   }
 
   .title-container {
@@ -250,6 +269,13 @@
 
   /* ProductDetail */
 
+  #productDetail{
+    position: fixed;
+    top: 61px;
+    z-index: 1;
+    height: 100%;
+  }
+
   .product-detail-close {
     background: var(--white);
     width: 14px;
@@ -314,6 +340,9 @@
     gap: 26px;
     place-content: center;
     margin-top: 20px;
+    position: relative;
+    top: 64px;
+    z-index: 0.3;
   }
   .product-card {
     width: 240px;
