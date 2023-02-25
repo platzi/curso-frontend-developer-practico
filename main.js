@@ -3,12 +3,17 @@ document.querySelector(selector);
 
 const menuEmail = s_('.navbar-email');
 const desktopMenu = s_('.desktop-menu');
+const menuHamIcon = s_('.menu');
+const mobileMenu = s_('.mobile-menu');
 
-menuEmail.addEventListener('click', toggleDesktopoMenu);
+menuEmail.addEventListener('click', toggleDesktopMenu);
+menuHamIcon.addEventListener('click', toggleMobileMenu);
 
-function toggleDesktopoMenu() {
-    console.log('click')
+
+function toggleDesktopMenu() {
     desktopMenu.classList.toggle('inactive');
 }
 
-console.log('JS funcionando')
+function toggleMobileMenu() {
+    mobileMenu.classList.toggle('inactive');
+}
