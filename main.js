@@ -5,12 +5,14 @@ const mobileMenu = document.querySelector('.mobile-menu');
 const menuCarritoIcon = document.querySelector('.navbar-shopping-cart');
 const shoppingCarContainer = document.querySelector('#shoppingCarContainer');
 const cardContainer = document.querySelector('.cards-container')
+const productDetailContainer = document.querySelector('#productDetail')
+const productDetailCloseIcon = document.querySelector('.product-detail-close')
 
 
 navMenuImail.addEventListener('click',toggleDesktopMenu)
 menuHamIcon.addEventListener('click',togglemenu)
 menuCarritoIcon.addEventListener('click',toggleCarritoCompras)
-
+productDetailCloseIcon.addEventListener('click',closeProductDetailAside)
 
 function toggleDesktopMenu(){
     const isAsideClosed = shoppingCarContainer.classList.contains('inactive');
@@ -27,6 +29,9 @@ function togglemenu(){
     if(!isAsideClosed){
         shoppingCarContainer.classList.add('inactive');
     }
+
+    closeProductDetailAside();
+
     mobileMenu.classList.toggle('inactive');
 
 }
@@ -34,16 +39,31 @@ function togglemenu(){
 function toggleCarritoCompras(){
     const isMobileMenuClosed = mobileMenu.classList.contains('inactive');
     const isDesktopMenuClosed = desktopMenu.classList.contains('inactive');
-
+    
     if(!isMobileMenuClosed ){
         mobileMenu.classList.add('inactive');   
     }
     if(!isDesktopMenuClosed){
         desktopMenu.classList.add('inactive');
     }
+
+    const isproductDetailContainerClosed=productDetailContainer.classList.contains('inactive');
+    if(!isproductDetailContainerClosed){
+        productDetailContainer.classList.add('inactive');
+    }
     shoppingCarContainer.classList.toggle('inactive');
 
 }
+
+function openProductDetailAside(){
+   shoppingCarContainer.classList.add('inactive')
+   productDetailContainer.classList.remove('inactive')
+}
+
+function closeProductDetailAside(){
+    productDetailContainer.classList.add('inactive')
+}
+
   
 const productList =[];
 productList.push({
@@ -84,10 +104,11 @@ function renderProduct(arr){
         const productCard = document.createElement('div');
         productCard.classList.add('product-card');
     
+         //Nuestro producto contiene {name,precio,imagen}, por lo cual debemos agregar la imagen a product.imagen
         const productImg = document.createElement('img');
-        //Nuestro producto contiene {name,precio,imagen}, por lo cual debemos agregar la imagen a product.imagen
         productImg.setAttribute('src', product.imagen);
-    
+        productImg.addEventListener('click',openProductDetailAside);
+        
          const productInfo = document.createElement('div');
          productInfo.classList.add('product-info');
     
