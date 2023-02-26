@@ -8,19 +8,20 @@ const orderContent = document.querySelector(".my-order-content")
 const ordenProducts = document.createElement("div")
 ordenProducts.setAttribute("class", "products")
 
+
 orderContent.appendChild(ordenProducts)
 
 for (const boton of botonesCompra) {
-    boton.addEventListener("click",
-        function agregarAlCarrito(boton) {
-            console.log(boton.target.id);
+    boton.addEventListener("click", agregarAlCarrito)
+    function agregarAlCarrito(boton) {
+    console.log(boton.target.id);
             const divShoppingCard = document.createElement("div")
             const figureShoppingCard = document.createElement("figure")
             const img1ShoppingCard = document.createElement("img")
             const p1ShoppingCard = document.createElement("p")
             const p2ShoppingCard = document.createElement("p")
             const img2ShoppingCard = document.createElement("img")
-
+            
             let productEncontrado = productList.find(function (e) {
                 return boton.target.id === e.name
             })
@@ -34,27 +35,27 @@ for (const boton of botonesCompra) {
             p1ShoppingCard.innerText = productEncontrado.name
             img1ShoppingCard.setAttribute("src", productEncontrado.img)
             img1ShoppingCard.setAttribute("alt", productEncontrado.name)
-
+            
             divShoppingCard.appendChild(figureShoppingCard)
             figureShoppingCard.appendChild(img1ShoppingCard)
             divShoppingCard.appendChild(p1ShoppingCard)
             divShoppingCard.appendChild(p2ShoppingCard)
             divShoppingCard.appendChild(img2ShoppingCard)
             ordenProducts.appendChild(divShoppingCard)
-
-
+            
+            
             function borrarProducto() {
                 ordenProducts.removeChild(divShoppingCard)
                 const precioProducto = productEncontrado.precio
                 sumaPrecios -= precioProducto
                 p2Order.innerText = "$" + sumaPrecios
                 numeroCarrito.innerText--
-
+                
             }
             console.log(productEncontrado.precio);
             sumaPrecios += productEncontrado.precio
             console.log(sumaPrecios);
-
+            
             const existenProductos = document.getElementsByClassName("products")
             if (existenProductos.length < 0) {
                 console.log("esta vacio");
@@ -62,10 +63,10 @@ for (const boton of botonesCompra) {
                 console.log("tendria q cambiar el precio");
                 p2Order.innerText = "$" + sumaPrecios
             }
-        }
-    )
 
-}
+            }
+    
+    }
 const classOrder = document.createElement("div")
 const p1Order = document.createElement("p")
 const spanOrder = document.createElement("span")
@@ -80,11 +81,12 @@ p1Order.appendChild(spanOrder)
 classOrder.appendChild(p2Order)
 
 
+
 // const productCard = document.querySelector(".product-card")
 // productCard.addEventListener("click", funcion)
 
 // function funcion() {
-//     console.log(
-//         "si"
-//     );
-// }
+    //     console.log(
+        //         "si"
+        //     );
+        // }
