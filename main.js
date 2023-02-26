@@ -4,30 +4,63 @@ const menuEmail = $('.navbar-email');
 const desktopMenu = $('.desktop-menu');
 const hamburgerIcon = $('.menu');
 const menuCarritoIcon = $('.navbar-shopping-cart');
+const productDetailCloseIcon = $('.product-detail-secondary-close');
 const mobileMenu = $('.mobile-menu');
 const shoppingCartContainer = $('.product-detail');
+const productDetailContainer = $('.product-detail-secondary');
 const cardsContainer = $('.cards-container');
 
 menuEmail.addEventListener('click', toggleDesktopMenu);
 hamburgerIcon.addEventListener('click', toggleMobileMenu);
 menuCarritoIcon.addEventListener('click', toggleCarritoAside);
+productDetailCloseIcon.addEventListener('click', closeProductDetailAside);
+
+const windowsList = [];
+
+windowsList.push(shoppingCartContainer);
+windowsList.push(desktopMenu);
+windowsList.push(mobileMenu);
+windowsList.push(productDetailContainer);
 
 function toggleDesktopMenu(){
-    shoppingCartContainer.classList.contains('inactive') ? true : shoppingCartContainer.classList.add('inactive');
+    // shoppingCartContainer.classList.contains('inactive') ? true : shoppingCartContainer.classList.add('inactive');
+    closeSuperImposeWindow(desktopMenu, windowsList);
     desktopMenu.classList.toggle('inactive');
     
 }
 
 function toggleMobileMenu() {
-    shoppingCartContainer.classList.contains('inactive') ? true : shoppingCartContainer.classList.add('inactive');
+    // shoppingCartContainer.classList.contains('inactive') ? true : shoppingCartContainer.classList.add('inactive');
+    closeSuperImposeWindow(mobileMenu, windowsList);
     mobileMenu.classList.toggle('inactive');
     
 }
 function toggleCarritoAside() {
-    desktopMenu.classList.contains('inactive') ? true : desktopMenu.classList.add('inactive');
-    mobileMenu.classList.contains('inactive') ? true : mobileMenu.classList.add('inactive');
+    // desktopMenu.classList.contains('inactive') ? true : desktopMenu.classList.add('inactive');
+    // mobileMenu.classList.contains('inactive') ? true : mobileMenu.classList.add('inactive');
+    closeSuperImposeWindow(shoppingCartContainer, windowsList);
     shoppingCartContainer.classList.toggle('inactive');
 
+}
+
+function openProductDetailAside() {
+    closeSuperImposeWindow(productDetailContainer, windowsList);
+    productDetailContainer.classList.remove('inactive');
+    
+}
+
+function closeProductDetailAside() {
+    
+    productDetailContainer.classList.add('inactive');
+}
+
+function closeSuperImposeWindow(element, array) {
+    // Aqui verificamos cual de los que hay en la lista geenro la llamada
+    for (item of array) {
+        item == element ? true
+            // con el ternario cuando no es el que genero la llamada verifico si esta cerrado sino le inserto la clase inactive
+            : item.classList.contains('inactive') ? true : item.classList.add('inactive');
+    }
 }
 
 const productList = [];
@@ -90,8 +123,8 @@ function renderProducts(arr) {
         productCard.classList.add('product-card');
     
         const productImg = document.createElement('img');
-        // img.src = product.image;
         productImg.setAttribute('src', product.image);
+        productImg.addEventListener('click',openProductDetailAside);
     
         const productInfo = document.createElement('div');
         productInfo.classList.add('product-info');
