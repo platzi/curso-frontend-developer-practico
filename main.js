@@ -76,7 +76,7 @@ function Product(name, price, image){
     this.name = name
     this. price = price
     this.image = image
-}
+};
     
     // productList.push(new Product('Bike', 120, 'https://images.pexels.com/photos/276517/pexels-photo-276517.jpeg?auto=compress&cs=tinysrgb&dpr=2&h=650&w=940'));
     // productList.push(new Product('TV Retro', 220, 'https://images.pexels.com/photos/333984/pexels-photo-333984.jpeg?auto=compress&cs=tinysrgb&w=1260&h=750&dpr=1'));
