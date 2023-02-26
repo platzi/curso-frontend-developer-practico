@@ -22,6 +22,7 @@ function toggleDesktopMenu(event){
     if(!isAsideClosed){
         shoppingCartContainer.classList.add('inactive')
     } 
+    closeProductDetailAside();
     desktopMenu.classList.toggle('inactive')
 }
 
@@ -30,16 +31,10 @@ function toggleMobilepMenu(){
     if(!isAsideClosed){
         shoppingCartContainer.classList.add('inactive')
     } 
-    // stop scrollbar in mobile-menu
-    if (mobileMenu.classList.contains('inactive')){
-    document.body.classList.add('stop-scrolling');
-    } else{
-    document.body.classList.remove('stop-scrolling');
-    }
     closeProductDetailAside();
-    mobileMenu.classList.toggle('inactive')   
+    
+    mobileMenu.classList.toggle('inactive')
 }
-
 
 function togglemenuCarritoIcon(){
     const isMenuMobileClosed = mobileMenu.classList.contains('inactive');
@@ -62,13 +57,12 @@ function openProductDetailAside(){
     // preguntar si el shoppingCart estaba abierto
     shoppingCartContainer.classList.add('inactive');
     // removemos la clase inactive para que aparezca y se mantenga activo
-    productDetailContainer.classList.remove('inactive');
+    productDetailContainer.classList.remove('inactive')
 }
 
 
 function closeProductDetailAside(){
-    desktopMenu.classList.add('inactive');
-    productDetailContainer.classList.add('inactive');
+    productDetailContainer.classList.add('inactive')
 }
 
 const productList = [];
@@ -83,7 +77,7 @@ function Product(name, price, image){
     this.name = name
     this. price = price
     this.image = image
-}
+};
     
     // productList.push(new Product('Bike', 120, 'https://images.pexels.com/photos/276517/pexels-photo-276517.jpeg?auto=compress&cs=tinysrgb&dpr=2&h=650&w=940'));
     // productList.push(new Product('TV Retro', 220, 'https://images.pexels.com/photos/333984/pexels-photo-333984.jpeg?auto=compress&cs=tinysrgb&w=1260&h=750&dpr=1'));
