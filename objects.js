@@ -55,7 +55,6 @@ class CreataItem{
         contentDelete.addEventListener('click', ()=>{this.delete()})
         contentSelect.append(contentImg, contentName, contentPrice, contentDelete)
         selectProduct.appendChild(contentSelect)
-
         sumaPrice()
     }
     delete(){
@@ -63,24 +62,11 @@ class CreataItem{
         selectProduct.remove()
         sumaPrice() 
     }
-    desploy(){
-        /*const detailItem = document.querySelector(".detail-item-select")
-        const itemImage = document.querySelector(".window-item__image")
-        const itemPrice = document.querySelector(".window-item__price ")
-        const itemName = document.querySelector(".window-item__name")
-        const itemDetail = document.querySelector(".window.item__detail")
-        navbarEmail.classList.add("inactive")
-        mobileMenu.classList.add("inactive")
-        shoppingCartContainer.classList.add("inactive")
-        detailItem.classList.remove("inactive")
-        itemPrice.innerText = this.price
-        itemName.innerText = this.name
-        itemDetail.innerText = this.content
-        itemImage.setAttribute("src", this.image)*/
-    }
+
     showDeatil(){
         document.querySelector('.shopping-cart').classList.add('inactive')
         document.querySelector('.navbar-email').classList.add('inactive')
+        document.querySelector('.detail--item-info__boton').addEventListener("click", ()=>{this.addList()})
 
         const showSide = document.querySelector('.main-container')
         const detail = document.querySelector('.detail--item')
@@ -95,7 +81,7 @@ class CreataItem{
         nameItem.innerText = this.name
         contentItem.innerText = this.content
         imageItem.src = this.image
-        console.log(imageItem.src)
+
     }
 }
 const obj1 = new CreataItem({

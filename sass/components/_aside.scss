@@ -1,11 +1,15 @@
 .detail--item {
   align-self: baseline;
   justify-self: flex-end;
-  height: 690px;
-  width: 500px;
+  height: 500px;
+  width: 300px;
   border: solid 4px $color-primary;
-  background-color: get-opacity($color-primary, .3);
+  background-color: $color-extra;
   border-bottom-left-radius: 25px;
+  @include media(tablet){
+    height: 690px;
+    width: 500px;
+  }
     &-info {
       display: flex;
       justify-content: center;

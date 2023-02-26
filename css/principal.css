@@ -584,11 +584,17 @@ header .nav-right .desktop-menu__shopping-cart .counter-product {
   -ms-flex-item-align: baseline;
       align-self: baseline;
   justify-self: flex-end;
-  height: 690px;
-  width: 500px;
+  height: 500px;
+  width: 300px;
   border: solid 4px rgb(83, 139, 212);
-  background-color: rgba(83, 139, 212, 0.3);
+  background-color: rgb(211, 211, 211);
   border-bottom-left-radius: 25px;
+}
+@media only screen and (min-width: 768px) {
+  .detail--item {
+    height: 690px;
+    width: 500px;
+  }
 }
 .detail--item-info {
   display: -webkit-box;
