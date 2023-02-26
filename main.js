@@ -3,24 +3,28 @@ const DesktopMenu = document.querySelector('.desktop-menu');
 const MenuDesplegableHam = document.querySelector('.menu')
 const mobileMenu = document.querySelector('.mobile-menu')
 const menuCarritoIcon = document.querySelector('.navbar-shopping-cart')
-const aside = document.querySelector('.product-detail')
+const shoppingCartContainer = document.querySelector('#shoppingCartContainer')
 const cardsContainer = document.querySelector('.cards-container')
+const productDetailContainer = document.querySelector ('#productDetail')
+const productDetailCloseIcon = document.querySelector('.product-detail-close')
 
 
 const toggleMenuHam = () => { 
-const IsAsideClose = aside.classList.contains('inactive')
-if (!IsAsideClose){ 
-aside.classList.add('inactive')
+const IsshoppingCartContainerClose = shoppingCartContainer.classList.contains('inactive')
+if (!IsshoppingCartContainerClose){ 
+shoppingCartContainer.classList.add('inactive')
 }
+productDetailContainer.classList.add('inactive')
 mobileMenu.classList.toggle('inactive')
 } 
 
 
 
+
 const toggleDesktopMenu = () => { 
-const IsAsideClose = aside.classList.contains('inactive')
-if(!IsAsideClose) 
-aside.classList.add('inactive')
+const IsshoppingCartContainerClose = shoppingCartContainer.classList.contains('inactive')
+if(!IsshoppingCartContainerClose) 
+shoppingCartContainer.classList.add('inactive')
 DesktopMenu.classList.toggle('inactive')
 }
 
@@ -28,14 +32,29 @@ DesktopMenu.classList.toggle('inactive')
 
 const toggleMenuCarrito = () => { 
 const IsMobileMenuClosed = mobileMenu.classList.contains('inactive')
+const IsProductDetailClosed = productDetailContainer.classList.contains('inactive')
 const IsDesktopMenuClosed = DesktopMenu.classList.contains('inactive')
+
+if(!IsProductDetailClosed){
+    productDetailContainer.classList.add('inactive') 
+}
+
 if (!IsDesktopMenuClosed) { 
     DesktopMenu.classList.add('inactive')
 }
 if (!IsMobileMenuClosed){ 
  mobileMenu.classList.add('inactive')
 }
-aside.classList.toggle('inactive'); 
+shoppingCartContainer.classList.toggle('inactive'); 
+}
+
+
+const openProductDetailAside = () =>  { 
+    productDetailContainer.classList.remove('inactive')
+}
+
+const CloseIcon = () => { 
+    productDetailContainer.classList.add('inactive')
 }
 
 
@@ -64,6 +83,7 @@ productCard.classList.add('product-card');
 
 const productImg = document.createElement('img');
 productImg.setAttribute('src', product.image);
+productImg.addEventListener('click', openProductDetailAside)
 
 const productInfo =   document.createElement('div');
 productInfo.classList.add('product-info');
@@ -153,6 +173,7 @@ renderProductos(productList)
 navbarEmail.addEventListener('click', toggleDesktopMenu);
 MenuDesplegableHam.addEventListener('click', toggleMenuHam);
 menuCarritoIcon.addEventListener('click', toggleMenuCarrito);
+productDetailCloseIcon.addEventListener('click', CloseIcon)
 /*
 Primero, se crea una constante llamada navbarEmail que utiliza el método querySelector para buscar en el documento HTML un elemento que tenga la clase navbar-email.
 
