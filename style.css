@@ -122,6 +122,7 @@
 
   .mobile-menu {
     padding: 24px;
+    background-color: #FFFFFF;
   }
   .mobile-menu a {
     text-decoration: none;
@@ -189,6 +190,7 @@
     box-sizing: border-box;
     position: absolute;
     right: 0;
+    background-color: #FFFFFF;
   }
   .title-container {
     display: flex;
