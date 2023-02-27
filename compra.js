@@ -14,7 +14,6 @@ orderContent.appendChild(ordenProducts)
 for (const boton of botonesCompra) {
     boton.addEventListener("click", agregarAlCarrito)
     function agregarAlCarrito(boton) {
-    console.log(boton.target.id);
             const divShoppingCard = document.createElement("div")
             const figureShoppingCard = document.createElement("figure")
             const img1ShoppingCard = document.createElement("img")
@@ -52,15 +51,15 @@ for (const boton of botonesCompra) {
                 numeroCarrito.innerText--
                 
             }
-            console.log(productEncontrado.precio);
+   
             sumaPrecios += productEncontrado.precio
-            console.log(sumaPrecios);
+
             
             const existenProductos = document.getElementsByClassName("products")
             if (existenProductos.length < 0) {
-                console.log("esta vacio");
+
             } else {
-                console.log("tendria q cambiar el precio");
+             
                 p2Order.innerText = "$" + sumaPrecios
             }
 
@@ -74,19 +73,10 @@ const p2Order = document.createElement("p")
 
 classOrder.setAttribute("class", "order")
 spanOrder.innerText = "Total"
-//productEncontrado.precio
+
 orderContent.appendChild(classOrder)
 classOrder.appendChild(p1Order)
 p1Order.appendChild(spanOrder)
 classOrder.appendChild(p2Order)
 
 
-
-// const productCard = document.querySelector(".product-card")
-// productCard.addEventListener("click", funcion)
-
-// function funcion() {
-    //     console.log(
-        //         "si"
-        //     );
-        // }

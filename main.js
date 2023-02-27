@@ -7,7 +7,7 @@ const cartMenu = document.querySelector(".navbar-shopping-cart")
 const cardsContainer = document.querySelector(".cards-container")
 const productInfoInicio = document.querySelector(".info-product")
 const selectorInfoProduct = document.querySelector("main-container")
-// const productInfoInicio = document.querySelector(".product-detail-info")
+
 
 
 
@@ -18,7 +18,7 @@ cartMenu.addEventListener("click", toggleCartMenu)
 
 function toggleDesktopMenu() {
     desktopMenu.classList.toggle("inactive")
-    // para q el otro se cierre
+
     if (navCarrito.className === "product-detail") {
         navCarrito.classList.toggle("inactive")
     }
@@ -30,16 +30,13 @@ function toggleMobileMenu() {
 
 function toggleCartMenu() {
     navCarrito.classList.toggle("inactive")
-    // para q el otro se cierre
+
     if (desktopMenu.className === "desktop-menu") {
         desktopMenu.classList.toggle("inactive")
     }
 }
 
-// function toggleProduct() {
-    
-    // }
-    
+
     
     const productList = []
     productList.push({
@@ -88,7 +85,7 @@ function toggleCartMenu() {
     productimgCart.setAttribute("class", "botonCompra")
     productimgCart.setAttribute("id", product.name)
     
-    //console.log(productimgCart);
+
     
     productInfoFigure.appendChild(productimgCart)
     
@@ -103,29 +100,27 @@ function toggleCartMenu() {
     
     
     productImg.addEventListener("click", funcion)
-    console.log(productImg);
+
     
     
 }
 function funcion(imgClickeado) {
     let productClickInfo = productList.find((producto) => producto.name === imgClickeado.target.id)
-    console.log(productClickInfo);
+
     productInfoInicio.classList.toggle("inactive")
-    console.log(productInfoInicio.className);
+
     if(navCarrito.className === "product-detail") {
         navCarrito.classList.toggle("inactive")
     }
     if (desktopMenu.className === "desktop-menu") {
         desktopMenu.classList.toggle("inactive")
-        console.log("deberia eliminarlo");
+
     }
-    console.log(
-        "si"
-        );
+
         const asideborrar = document.querySelector(".product-detail-asideinfo")
-        console.log("ESTE ES EL ASIDE ANRTES DE EDITARLO", asideborrar);
+   
         if (asideborrar) {
-            console.log("EXISTE LO VOY A EDITAR");
+
             const img2InfoProductsEditar = document.querySelector(".img2Info")
             img2InfoProductsEditar.setAttribute("src", productClickInfo.img)
             img2InfoProductsEditar.setAttribute("alt", productClickInfo.name)
@@ -141,7 +136,7 @@ function funcion(imgClickeado) {
             
         } else {
             
-            console.log("SEE ESTA EJECUTANDO");
+
             const asideInfoProduct = document.createElement("aside")
             asideInfoProduct.setAttribute("class", "product-detail-asideinfo")
             
@@ -165,7 +160,6 @@ function funcion(imgClickeado) {
             p1InfoProduct.setAttribute("class", "p1info")
             p1InfoProduct.innerText= "$" + productClickInfo.precio
             
-            console.log(productClickInfo.precio);
             
             const p2InfoProduct = document.createElement("p")
             p2InfoProduct.setAttribute("class", "p2Info")
@@ -185,16 +179,11 @@ function funcion(imgClickeado) {
             img1InfoProduct.addEventListener("click", cerrar)
             
             function cerrar() {
-                console.log("se tiene q cerraer");
+
                 productInfoInicio.classList.toggle("inactive")
             }
 
-            // botonInfoProduct.addEventListener("click", agregaralCarritoInfo)
 
-            // function agregaralCarritoInfo() {
-            //     console.log("si aca etsoyu")
-            // }
-            
             
             productInfoInicio.appendChild(asideInfoProduct)
             asideInfoProduct.appendChild(div2InfoProduct)
@@ -206,6 +195,7 @@ function funcion(imgClickeado) {
             div3InfoProduct.appendChild(p3InfoProduct)
             div3InfoProduct.appendChild(botonInfoProduct)
             botonInfoProduct.appendChild(img3InfoProduct)
+            
             
         }
 
