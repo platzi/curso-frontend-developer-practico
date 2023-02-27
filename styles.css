@@ -96,6 +96,15 @@ nav {
     align-items: center;
 }
 
+/* Fade-in */
+
+.fade-element{
+    position: fixed;
+    width: 100%;
+    height: calc(100%);
+    background-color: rgba(0, 0, 0, 0.5);
+}
+
 /* Menu en desktop */
 .desktop-menu {
     position: absolute;
@@ -107,6 +116,7 @@ nav {
     border: 1px solid var(--very-light-pink);
     border-radius: 6px;
     padding: 20px 20px 0 20px;
+    z-index: 2;
 }
 
 .desktop-menu ul {
@@ -149,6 +159,7 @@ nav {
     width: calc(100% - 48px);
     padding: 24px;
     background-color: var(--white);
+    z-index: 2;
 }
 
 .mobile-menu a {
@@ -191,6 +202,7 @@ nav {
     position: absolute;
     right: 0;
     background-color: var(--white);
+    border-radius: 8px;
 }
 
 .title-container {
@@ -262,6 +274,7 @@ nav {
 }
 
 .primary-button {
+    margin-bottom: 20px;
     background-color: var(--hospital-green);
     border-radius: 8px;
     border: none;
@@ -308,6 +321,7 @@ nav {
 .product-info figure img {
     width: 35px;
     height: 35px;
+    cursor: pointer;
 }
 
 .product-info div p:nth-child(1) {

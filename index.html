@@ -114,6 +114,8 @@
         </div>
     </nav>
 
+    <div class="fade-element inactive"></div>
+
     <aside class="product-detail inactive">
         <div class="title-container">
             <img src="./icons/flechita.svg" alt="arrow">
@@ -131,37 +133,17 @@
                 <img src="./icons/icon_close.png" alt="close">
             </div>
 
-            <div class="shopping-cart">
-                <figure>
-                    <img src="https://images.pexels.com/photos/276517/pexels-photo-276517.jpeg?auto=compress&cs=tinysrgb&dpr=2&h=650&w=940"
-                        alt="bike">
-                </figure>
-                <p>Bike</p>
-                <p>$30,00</p>
-                <img src="./icons/icon_close.png" alt="close">
-            </div>
-
-            <div class="shopping-cart">
-                <figure>
-                    <img src="https://images.pexels.com/photos/276517/pexels-photo-276517.jpeg?auto=compress&cs=tinysrgb&dpr=2&h=650&w=940"
-                        alt="bike">
-                </figure>
-                <p>Bike</p>
-                <p>$30,00</p>
-                <img src="./icons/icon_close.png" alt="close">
-            </div>
-
-            <div class="order">
-                <p>
-                    <span>Total</span>
-                </p>
-                <p>$560.00</p>
-            </div>
-
-            <button class="primary-button">
-                Checkout
-            </button>
         </div>
+        <div class="order">
+            <p>
+                <span>Total</span>
+            </p>
+            <p>$560.00</p>
+        </div>
+        
+        <button class="primary-button">
+            Checkout
+        </button>
         </div>
     </aside>
 
@@ -169,11 +151,12 @@
         <div class="product-detail-secondary-close">
             <img src="./icons/icon_close.png" alt="close">
         </div>
-        <img src="https://images.pexels.com/photos/276517/pexels-photo-276517.jpeg?auto=compress&cs=tinysrgb&dpr=2&h=650&w=940"
+        <img id="close-img_product"
+            src="https://images.pexels.com/photos/276517/pexels-photo-276517.jpeg?auto=compress&cs=tinysrgb&dpr=2&h=650&w=940"
             alt="bike">
         <div class="product-info-secondary">
-            <p>$35,00</p>
-            <p>Bike</p>
+            <p id="close-price_product">$35,00</p>
+            <p id="close-name_product">Bike</p>
             <p>With its practical position, this bike also fulfills a decorative function, add your hall or workspace.
             </p>
             <button class="primary-button add-to-cart-button">
