@@ -1,32 +1,38 @@
 const menuEmail = document.querySelector('.navbar-email');
 const desktopMenu = document.querySelector('.desktop-menu');
-const menuHamIcon = document.querySelector('.menu')
+const menuHamIcon = document.querySelector('.menu');
+const productDetailCloseIcon = document.querySelector('.product-detail-close');
 const mobileMenu = document.querySelector('.mobile-menu')
 const menuCarritoIcon = document.querySelector('.navbar-shopping-cart');
-const productDetailAside = document.querySelector('#shoppingCartContainer');
-const cardConteiner = document.querySelector ('.cards-container');
+const shoppingCartContainer = document.querySelector('#shoppingCartContainer');
+const cardContainer = document.querySelector ('.cards-container');
+const productDetailContainer = document.querySelector('#productDetail');
 
 menuEmail.addEventListener('click', toggleDesktopMenu);
 menuHamIcon.addEventListener('click',toggleMobileMenu);
 menuCarritoIcon.addEventListener('click',toggleProductDetailAside);
+productDetailCloseIcon.addEventListener('click',closeProductDetail);
 
 function toggleDesktopMenu(){
 
-    const isAsideClosed =  productDetailAside.classList.contains('inactive');
+    const isAsideClosed =  shoppingCartContainer.classList.contains('inactive');
 
     if(!isAsideClosed){
-        productDetailAside.classList.add('inactive');
+        shoppingCartContainer.classList.add('inactive');
     }
+    closeProductDetail ();
 
     desktopMenu.classList.toggle('inactive');
 };
 
 function toggleMobileMenu(){
-    const isAsideClosed =  productDetailAside.classList.contains('inactive');
+    const isAsideClosed =  shoppingCartContainer.classList.contains('inactive');
 
     if(!isAsideClosed){
-        productDetailAside.classList.add('inactive');
+        shoppingCartContainer.classList.add('inactive');
     }
+
+    closeProductDetail ();
 
     mobileMenu.classList.toggle('inactive');    
     
@@ -46,12 +52,26 @@ function toggleProductDetailAside(){
         mobileMenu.classList.add('inactive');
     }
 
-    productDetailAside.classList.toggle('inactive');
+    closeProductDetail ();
 
+    shoppingCartContainer.classList.toggle('inactive');
+
+};
+
+function openProductDetailAside (){
+    productDetailContainer.classList.remove('inactive');
+    shoppingCartContainer.classList.add('inactive');
+    desktopMenu.classList.add('inactive');
+    mobileMenu.classList.add ('inactive');
+};
+
+function closeProductDetail (){
+    productDetailContainer.classList.add('inactive');
 };
 
 const productList = [];
 
+//array de productos---------------------------
 productList.push({
     name: 'bike',
     price:120,
@@ -70,6 +90,8 @@ productList.push({
     image: 'https://www.sincable.mx/wp-content/uploads/2020/04/0-Raton-gamer-Dario-Lo-Presti-61562952_m.jpg',
 });
 
+//----------------------------------------------
+
 
 
 function renderProducts(arr){
@@ -82,6 +104,7 @@ function renderProducts(arr){
 
     const productImg = document.createElement('img');
     productImg.setAttribute ('src',product.image);
+    productImg.addEventListener('click', openProductDetailAside);
 
     const productInfo = document.createElement ('div');
     productInfo.classList.add('product-info');
@@ -106,7 +129,7 @@ function renderProducts(arr){
     productCard.appendChild(productImg);
     productCard.appendChild(productInfo);
 
-    cardConteiner.appendChild(productCard);
+    cardContainer.appendChild(productCard);
 
 };
 
