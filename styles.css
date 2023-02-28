@@ -81,7 +81,11 @@ nav {
     cursor: pointer;
 }
 
-.navbar-shopping-cart div {
+.cart-item-div_flex{
+    display: flex;
+}
+
+.cartItemsDiv {
     width: 16px;
     height: 16px;
     background-color: var(--hospital-green);
@@ -91,7 +95,7 @@ nav {
     position: absolute;
     top: -6px;
     right: -3px;
-    display: flex;
+    
     justify-content: center;
     align-items: center;
 }
@@ -271,6 +275,16 @@ nav {
 .shopping-cart p:nth-child(3) {
     font-size: var(--md);
     font-weight: bold;
+}
+
+.shopping-cart--close-img{
+    width: 10px;
+    height: 10px;
+    padding: 5px;
+    border: 1px solid var(--black);
+    border-radius: 30px;
+    color: var(--white);
+    cursor: pointer;
 }
 
 .primary-button {
