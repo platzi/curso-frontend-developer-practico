@@ -1,18 +1,18 @@
 const menuEmail = document.querySelector('.navbar-email');
 const desktop = document.querySelector('.desktop-menu');
 const menuCarritoIcon = document.querySelector(".navbar-shopping-cart");
-const aside = document.querySelector(".product-detail");
+const shoppingCartContainer = document.querySelector("#shoppingCartContainer");
 const burguerMenu = document.querySelector('.menu');
 const mobileMenu = document.querySelector('.mobile-menu');
 const cardsContainer = document.querySelector('.cards-container');
 
 //toggleDesktopMenu
 menuEmail.addEventListener('click',()=>{
-    const isAsideClosed = aside.classList.contains('inactive');
-
+  const isShoppingCartClosed = shoppingCartContainer.classList.contains('inactive');
+  
     // si queremos abir el desktop y el aside esta abierto, cerramos el aside
-    if(!isAsideClosed){
-       aside.classList.add('inactive') 
+    if(!isShoppingCartClosed){
+       shoppingCartContainer.classList.add('inactive') 
     }
 
     desktop.classList.toggle('inactive');
@@ -21,11 +21,11 @@ menuEmail.addEventListener('click',()=>{
 
 //toggleMenuMobile
 burguerMenu.addEventListener('click',()=>{
-    const isAsideClosed = aside.classList.contains('inactive');
+    const isShoppingCartClosed = shoppingCartContainer.classList.contains('inactive');
 
     // si queremos abir el menu mobile y el aside esta abierto, cerramos el aside
-    if(!isAsideClosed){
-       aside.classList.add('inactive') 
+    if(!isShoppingCartClosed){
+       shoppingCartContainer.classList.add('inactive') 
     }
 
 
@@ -48,7 +48,7 @@ menuCarritoIcon.addEventListener('click',()=>{
         desktop.classList.add('inactive') 
     }
    
-        aside.classList.toggle('inactive')
+        shoppingCartContainer.classList.toggle('inactive')
 
     
 });
