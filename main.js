@@ -1,57 +1,48 @@
 const menuEmail = document.querySelector('.navbar-email');
 const desktop = document.querySelector('.desktop-menu');
+const productDetailCloseIcon = document.querySelector('.product-detail-close');
 const menuCarritoIcon = document.querySelector(".navbar-shopping-cart");
 const shoppingCartContainer = document.querySelector("#shoppingCartContainer");
+const productDetailContainer = document.querySelector("#product-detail");
 const burguerMenu = document.querySelector('.menu');
 const mobileMenu = document.querySelector('.mobile-menu');
 const cardsContainer = document.querySelector('.cards-container');
 
 //toggleDesktopMenu
 menuEmail.addEventListener('click',()=>{
-  const isShoppingCartClosed = shoppingCartContainer.classList.contains('inactive');
-  
-    // si queremos abir el desktop y el aside esta abierto, cerramos el aside
-    if(!isShoppingCartClosed){
-       shoppingCartContainer.classList.add('inactive') 
-    }
-
-    desktop.classList.toggle('inactive');
+  desktop.classList.toggle('inactive');
+  shoppingCartContainer.classList.add('inactive'); 
+   
 });
 
 
 //toggleMenuMobile
 burguerMenu.addEventListener('click',()=>{
-    const isShoppingCartClosed = shoppingCartContainer.classList.contains('inactive');
-
-    // si queremos abir el menu mobile y el aside esta abierto, cerramos el aside
-    if(!isShoppingCartClosed){
-       shoppingCartContainer.classList.add('inactive') 
-    }
-
-
     mobileMenu.classList.toggle('inactive');
-});
-
-
-//togleAside-carrito
-menuCarritoIcon.addEventListener('click',()=>{
-    const isMobileMenuClosed = mobileMenu.classList.contains('inactive');
-    const isDesktopClosed = desktop.classList.contains('inactive');
-    
-    // si queremos abrir el carrito/aside y el menu mobile esta abierto, cerramos el menu mobile
-        if(!isMobileMenuClosed){
-            mobileMenu.classList.add('inactive') 
-        }
-
-    // si queremos abrir el carrito/aside y el desktop esta abierto, cerramos el desktop
-    if(!isDesktopClosed){
-        desktop.classList.add('inactive') 
-    }
-   
-        shoppingCartContainer.classList.toggle('inactive')
-
+    shoppingCartContainer.classList.add('inactive');
     
 });
+
+
+//togleAside-carrito-shoppingcart
+menuCarritoIcon.addEventListener("click",()=>{
+  shoppingCartContainer.classList.toggle('inactive');
+  mobileMenu.classList.add('inactive') ;
+  desktop.classList.add('inactive');
+    
+    
+});
+
+//abrir product-detail
+function openProductDetail(){
+  productDetailContainer.classList.remove('inactive');
+}
+//cerrar product-detail
+productDetailCloseIcon.addEventListener('click',()=>{
+  productDetailContainer.classList.add('inactive');
+})
+
+
 
 const productList = [];
 // metodo push, agrega al array
@@ -93,6 +84,8 @@ function renderProducts(arr){
 
     const productImg = document.createElement('img');
     productImg.setAttribute('src', product.img);
+    productImg.addEventListener('click',openProductDetail)
+    
 
     const productInfo = document.createElement('div');
     productInfo.classList.add('product-info');
