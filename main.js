@@ -5,23 +5,28 @@ const contraibleMenu = document.querySelector('.menu');
 const mobileMenu = document.querySelector('.mobile-menu');
 
 const carshop = document.querySelector('.navbar-shopping-cart');
-const carContainer = document.querySelector('.product-detail');
+const shoppingCarContainer= document.querySelector('#shoppingCarContainer');
+const productDetail = document.querySelector("#productDetail"); 
+const productDetailCloseIcon = document.querySelector('.product-detail-close');
 const cardsContainer = document.querySelector('.cards-container');
 
 menuEmail.addEventListener('click', toggleDesktopMenu); /* tercero: señalamos la propiedad con que vamos a usar en este caso click y señalamos la funcion que queremos ejecutar */
 contraibleMenu.addEventListener('click', toggleMobileMenu);
 carshop.addEventListener('click', toggleProductDetail);
+productDetailCloseIcon.addEventListener('click', closeProductDetailAside);
 
 /* cuarto: creamos la funcion que vamos a ejecutar dependiendo de la accion que realice */
 function toggleDesktopMenu() {
 
-    carContainer.classList.add('inactive');
+    //productDetail.classList.add('inactive');
+    shoppingCarContainer.classList.add('inactive'); 
     desktopMenu.classList.toggle('inactive');//com el classList.toggle() se activa o se desactiva el objeto desktop-menu
 }
 
 function toggleMobileMenu(){
 
-    carContainer.classList.add('inactive');
+    productDetail.classList.add('inactive');
+    shoppingCarContainer.classList.add('inactive');
     mobileMenu.classList.toggle('inactive');
 }
 
@@ -29,8 +34,22 @@ function toggleProductDetail() {
 
     mobileMenu.classList.add('inactive');
     desktopMenu.classList.add('inactive');
-    carContainer.classList.toggle('inactive');
+    productDetail.classList.add('inactive');
+    shoppingCarContainer.classList.toggle('inactive');
+     
 
+}
+
+function openProductDetailAside(){
+
+    shoppingCarContainer.classList.add('inactive');
+    mobileMenu.classList.add('inactive');
+    productDetail.classList.remove('inactive');
+
+}
+
+function closeProductDetailAside() {
+  productDetail.classList.add('inactive');
 }
 
 const productList = [];
@@ -58,6 +77,8 @@ function renderProducts(arr){
 
     const productImg = document.createElement('img');
     productImg.setAttribute('src', producto.image);
+    productImg.addEventListener('click', openProductDetailAside);
+  
 
     
 
