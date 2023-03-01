@@ -3,28 +3,46 @@ const desktopMenu = document.querySelector(".desktop-menu");
 const mobileMenu = document.querySelector(".mobile-menu");
 const menu = document.querySelector(".menu");
 const shoppingCart = document.querySelector(".navbar-shopping-cart");
-const productDetail = document.querySelector(".product-detail");
+const shoppingCartContainer = document.querySelector("#shoppingCartContainer");
+const productDetail = document.querySelector("#product-detail");
+const productDetailClose = document.querySelector(".product-detail-close");
 
 email.addEventListener("click", toggleDesktopMenu);
 menu.addEventListener("click", toggleMobileMenu);
-shoppingCart.addEventListener("click", toggleProductDetail);
+shoppingCart.addEventListener("click", toggleshoppingCartContainer);
+productDetailClose.addEventListener("click", closeProductDetail);
 
 function toggleDesktopMenu(){
     isMobileMenuOpen();
-    isProductDetailOpen();
+    isshoppingCartContainerOpen();
+    closeProductDetail();
     desktopMenu.classList.toggle("inactive");
 }
 
 function toggleMobileMenu(){
-    isProductDetailOpen();
+    isshoppingCartContainerOpen();
     isDesktopMenuOpen();
+    closeProductDetail();
     mobileMenu.classList.toggle("inactive");
 }
 
-function toggleProductDetail(){
+function toggleshoppingCartContainer(){
     isMobileMenuOpen();
     isDesktopMenuOpen();
-    productDetail.classList.toggle("inactive");
+    closeProductDetail();
+    shoppingCartContainer.classList.toggle("inactive");
+}
+
+function openProductDetail(){
+    isshoppingCartContainerOpen();
+    isMobileMenuOpen();
+    isDesktopMenuOpen();
+    productDetail.classList.remove("inactive");
+
+}
+
+function closeProductDetail(){
+    productDetail.classList.add("inactive");
 }
 
 // Comprobar si el menú mobile esta abierto
@@ -47,7 +65,17 @@ function isDesktopMenuOpen(){
     }
 }
 
-// Comprobar si el ProductDetail esta abierto
+// Comprobar si el shoppingCartContainer esta abierto
+
+function isshoppingCartContainerOpen(){
+    const isshoppingCartContainerOpen = shoppingCartContainer.classList.contains("inactive");
+
+    if(!isshoppingCartContainerOpen){
+        return shoppingCartContainer.classList.add("inactive");
+    }
+}
+
+// Comprobar si el product detail esta abierto
 
 function isProductDetailOpen(){
     const isProductDetailOpen = productDetail.classList.contains("inactive");
@@ -57,7 +85,27 @@ function isProductDetailOpen(){
     }
 }
 
+
+
 const producList = [];
+
+producList.push({
+    name: "Bike",
+    price: 120.0,
+    image: "https://images.pexels.com/photos/276517/pexels-photo-276517.jpeg?auto=compress&cs=tinysrgb&dpr=2&h=650&w=940"
+});
+
+producList.push({
+    name: "Pantalla",
+    price: 320.0,
+    image: "https://images.pexels.com/photos/276517/pexels-photo-276517.jpeg?auto=compress&cs=tinysrgb&dpr=2&h=650&w=940"
+});
+
+producList.push({
+    name: "Computador portatil",
+    price: 1320.0,
+    image: "https://images.pexels.com/photos/276517/pexels-photo-276517.jpeg?auto=compress&cs=tinysrgb&dpr=2&h=650&w=940"
+});
 
 producList.push({
     name: "Bike",
@@ -104,6 +152,7 @@ function renderProducts(arra){
 
         productCard.append(imgProduct);
         imgProduct.setAttribute("src", product.image);
+        imgProduct.addEventListener("click", openProductDetail);
 
         productCard.append(productInfo);
         productInfo.append(div);
@@ -121,4 +170,3 @@ function renderProducts(arra){
 }
 
 renderProducts(producList);
-
