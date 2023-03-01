@@ -3,29 +3,32 @@ const desktopMenu = document.querySelector('.desktop-menu');
 const menuHamIcon = document.querySelector('.menu');
 const mobileMenu = document.querySelector('.mobile-menu');
 const menuCarritoIcon = document.querySelector('.navbar-shopping-cart');
-const aside = document.querySelector('.product-detail');
+const shoppingCartContainer = document.querySelector('#shoppingCartContainer');
 const cardsContainer = document.querySelector('.cards-container');
+/* Constante para listas de productos */
+const template = document.getElementById('product-template').content;
+const fragment = document.createDocumentFragment();
 
 
 function toggleDesktopMenu() {
   /* Variable para saber si carrito stá activo */
-  const isCarritoAsideClosed = aside.classList.contains('inactive');
+  const isCarritoAsideClosed = shoppingCartContainer.classList.contains('inactive');
 
   desktopMenu.classList.toggle('inactive');
 
   /* ¿Menú carrito desplegado? */
-  (!isCarritoAsideClosed) ? aside.classList.add('inactive'): false;
+  (!isCarritoAsideClosed) ? shoppingCartContainer.classList.add('inactive'): false;
 
 }
 
 function toggleMobileMenu() {
   /* Variable para saber si carrito está activo */
-  const isCarritoAsideClosed = aside.classList.contains('inactive');
+  const isCarritoAsideClosed = shoppingCartContainer.classList.contains('inactive');
 
   mobileMenu.classList.toggle('inactive');
 
   /* ¿Menú carrito desplegado? */
-  (!isCarritoAsideClosed) ? aside.classList.add('inactive'): false;
+  (!isCarritoAsideClosed) ? shoppingCartContainer.classList.add('inactive'): false;
 
 }
 
@@ -36,7 +39,7 @@ function toggleCarritoAside() {
   /* Variable para saber si desktop menu está activo */
   const isDesktopMenu = desktopMenu.classList.contains('inactive');
 
-  aside.classList.toggle('inactive');
+  shoppingCartContainer.classList.toggle('inactive');
 
   /* ¿Menú hamburguesa desplegado? */
   (!isMobileMenuClosed) ? mobileMenu.classList.add('inactive'): false;
@@ -64,12 +67,12 @@ productList.push({
   price: 1120,
   image: 'https://images.pexels.com/photos/276517/pexels-photo-276517.jpeg?auto=compress&cs=tinysrgb&dpr=2&h=650&w=940'
 });
-/* productList.push({
+productList.push({
   name: 'Computadora',
   price: 2120,
   image: 'https://images.pexels.com/photos/276517/pexels-photo-276517.jpeg?auto=compress&cs=tinysrgb&dpr=2&h=650&w=940'
-}); */
-/* productList.push({
+});
+productList.push({
   name: 'Bike',
   price: 120,
   image: 'https://images.pexels.com/photos/276517/pexels-photo-276517.jpeg?auto=compress&cs=tinysrgb&dpr=2&h=650&w=940'
@@ -83,7 +86,7 @@ productList.push({
   name: 'Computadora',
   price: 2120,
   image: 'https://images.pexels.com/photos/276517/pexels-photo-276517.jpeg?auto=compress&cs=tinysrgb&dpr=2&h=650&w=940'
-});  */
+});  
 
 /*
 for (const product of productList) {
@@ -114,22 +117,16 @@ cardsContainer.appendChild(productCard);
 */
 
 
-const template = document.getElementById('product-template').content;
-const fragment = document.createDocumentFragment();
 
-productList.forEach((Element) => {
-  
+productList.forEach((Element) => lista(Element))
+
+
+function lista(Element) {
   template.querySelector('.product-info div p').textContent = Element.price;
   template.querySelector('.product-info div p:nth-of-type(2)').textContent = Element.name;
-  
-
   const clone = template.cloneNode(true);
-  fragment.appendChild(clone); 
- 
-  
-
-})
-
+  fragment.appendChild(clone);
+}
 
 cardsContainer.appendChild(fragment);
 
