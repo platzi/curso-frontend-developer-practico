@@ -131,6 +131,7 @@ nav {
     position: absolute;
     top: 60px;
     left: 0;
+    background: var(--white);
     width: 100%;
     padding: 24px;
 }
