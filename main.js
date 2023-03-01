@@ -3,7 +3,7 @@ const desktopMenu = document.querySelector('.desktop-menu')
 const menuBtnMobileIcon = document.querySelector('.menu')
 const mobileMenu = document.querySelector('.mobile-menu')
 const menuBtnCarritoIcon = document.querySelector('.navbar-shopping-cart')
-const aside = document.querySelector('.product-detail')
+const shoppingCartContainer = document.querySelector('#shoppingCartContainer')
 const cardsContainer = document.querySelector('.cards-container')
 
 //* Event Listeners
@@ -16,12 +16,12 @@ function toggleDesktopMenu(){
     desktopMenu.classList.toggle('inactive')
 }
 function toggleMobileMenu(){
-    aside.classList.add('inactive')
+    shoppingCartContainer.classList.add('inactive')
     mobileMenu.classList.toggle('inactive')
 }
 function toggleCarritoAside(){
     mobileMenu.classList.add('inactive')
-    aside.classList.toggle('inactive')
+    shoppingCartContainer.classList.toggle('inactive')
 }
 //Creando la estructura de los productos e insertandolos en el HTML
 function renderProducts(arrayProducts){
@@ -66,7 +66,7 @@ function renderProducts(arrayProducts){
     }
 }
 
-//Lista de productos
+//*Lista de productos
 const productList = []
 productList.push({
     name: 'Bike',
