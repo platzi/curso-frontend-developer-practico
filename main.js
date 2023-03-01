@@ -3,7 +3,7 @@ const desktopMenu = document.querySelector('.desktop-menu');
 const menuHamIcon = document.querySelector('.menu');
 const mobileMenu = document.querySelector('.mobile-menu');
 const menuCarritoIcon = document.querySelector('.navbar-shopping-cart');
-const aside = document.querySelector('.product-detail');
+const shoppingCartContainer = document.querySelector('#shoppingCartContainer');
 const cardsContainer = document.querySelector('.cards-container');
 
 menuEmail.addEventListener('click',toggledesktopMenu);
@@ -12,18 +12,18 @@ menuCarritoIcon.addEventListener('click',toggleCarritoAside);
 
 
 function toggledesktopMenu(){
-  const IsAsideClosed = aside.classList.contains('inactive')
+  const IsAsideClosed = shoppingCartContainer.classList.contains('inactive')
   if (!IsAsideClosed){
-    aside.classList.add('inactive')
+    shoppingCartContainer.classList.add('inactive')
   }
 
   desktopMenu.classList.toggle('inactive');
 }
 
 function toggleMobileMenu(){
-  const IsAsideClosed = aside.classList.contains('inactive')
+  const IsAsideClosed = shoppingCartContainer.classList.contains('inactive')
   if (!IsAsideClosed){
-    aside.classList.add('inactive')
+    shoppingCartContainer.classList.add('inactive')
   }
   mobileMenu.classList.toggle('inactive');
 }
@@ -34,7 +34,7 @@ function toggleCarritoAside(){
   if (!isMobileMenuClosed){
     mobileMenu.classList.add('inactive')
   }
-  aside.classList.toggle('inactive');
+  shoppingCartContainer.classList.toggle('inactive');
 }
 
 const ProductList = [];
@@ -47,6 +47,11 @@ ProductList.push({
 ProductList.push({
   Name: 'pantalla',
   price: 220,
+  image: 'https://images.pexels.com/photos/276517/pexels-photo-276517.jpeg?auto=compress&cs=tinysrgb&dpr=2&h=650&w=940'
+});
+ProductList.push({
+  Name: 'computador',
+  price: 620,
   image: 'https://images.pexels.com/photos/276517/pexels-photo-276517.jpeg?auto=compress&cs=tinysrgb&dpr=2&h=650&w=940'
 });
 ProductList.push({
@@ -82,18 +87,17 @@ for (product of ProductList){
 
   /* con cada uno de los parrafos debo crearlos de adentro hacia afuera  */
 
- 
+  productInfoFigure.appendChild(productImgCart); // 1
 
-  productInfoFigure.appendChild(productImgCart);
-  productInfoDiv.appendChild(productPrice)
-  productInfoDiv.appendChild(productName)
+  productInfoDiv.appendChild(productPrice) //2
+  productInfoDiv.appendChild(productName)//3
 
-  productinfo.appendChild(productInfoDiv);
-  productinfo.appendChild(productInfoFigure);
+  productinfo.appendChild(productInfoDiv);//4
+  productinfo.appendChild(productInfoFigure);//5
 
-  productcard.appendChild(ProductImg);
-  productcard.appendChild(productinfo);
+  productcard.appendChild(ProductImg);//6
+  productcard.appendChild(productinfo);//7
 
-  cardsContainer.appendChild(productcard);
+  cardsContainer.appendChild(productcard);//8
 
 }
