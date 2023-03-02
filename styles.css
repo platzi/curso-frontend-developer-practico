@@ -173,8 +173,9 @@
   }
 
   /******* Aside ShoppingCart Styles ***********/
-  #shopingCartContainer{
-    padding: 0 24px;
+  #shoppingCartContainer{
+    padding: 0 24px 24px 24px;
+    border-radius: 20px;
   }
 
   .title-container {
