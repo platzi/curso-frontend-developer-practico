@@ -384,6 +384,9 @@
             width: 140px;
             height: 140px;
           }
+          Aside {
+            width: 100%;
+          }
   }
 
   @media (min-width: 641px) {
