@@ -3,12 +3,15 @@ const desktopMenu = document.querySelector('.desktop-menu');
 const menuHamIcon = document.querySelector('.menu');
 const mobileMenu = document.querySelector('.mobile-menu');
 const menuCarIcon = document.querySelector('.navbar-shopping-cart');
+const productDetailCloseIcon = document.querySelector('.product-detail-close');
 const shoppingCartContainer = document.querySelector('#shoppingCartContainer');
-const cardsContainer = document.querySelector('.cards-container')
+const productDetailContainer = document.querySelector('#productDetail');
+const cardsContainer = document.querySelector('.cards-container');
 
 menuEmail.addEventListener('click', toggleDesktopMenu);
 menuHamIcon.addEventListener('click',toggleMobileMenu);
 menuCarIcon.addEventListener('click',toggleCarritoAside);
+productDetailCloseIcon.addEventListener('click', closeProductDetailAside);
 
 function toggleDesktopMenu() {
     const isAsideClosed = shoppingCartContainer.classList.contains('inactive');
@@ -23,8 +26,10 @@ function toggleMobileMenu() {
 const isAsideClosed = shoppingCartContainer.classList.contains('inactive');
 
 if(!isAsideClosed){
-    shoppingCartContainer.classList.add('inactive');
+    shoppingCartContainer.classList.add('inactive');//cierre el carrito de compras
 }
+
+closeProductDetailAside();//cierre el detalle de producto
 
 mobileMenu.classList.toggle('inactive');
 }
@@ -33,6 +38,7 @@ function toggleCarritoAside() {
 const isMobileMenuClosed = mobileMenu.classList.contains('inactive');
 const isDesktopMenuClosed = desktopMenu.classList.contains('inactive');
 
+
 if(!isMobileMenuClosed){
     mobileMenu.classList.add('inactive');
 }
@@ -40,10 +46,24 @@ else if(!isDesktopMenuClosed){
     desktopMenu.classList.add('inactive');
 }
 
+const isProductDetailClosed = productDetailContainer.classList.contains('inactive');
+
+if(!isProductDetailClosed){
+    productDetailContainer.classList.add('inactive');
+}
 shoppingCartContainer.classList.toggle('inactive');
 }
 
-const productList = [];
+function openProductDetailAside(){
+    shoppingCartContainer.classList.add('inactive');
+    productDetailContainer.classList.remove('inactive');
+}
+
+function closeProductDetailAside() {
+    productDetailContainer.classList.add('inactive');
+}
+
+const productList = [];//creamos el array
 productList.push({
     name:'Bike',
     price: 120,
@@ -78,6 +98,7 @@ for (product of productList) { //para cada producto del productList
 
     const productImg = document.createElement('img');//creamos una constante con una img
     productImg.setAttribute('src', product.image);//le decimos que src sera igual a el image del array
+    productImg.addEventListener('click', openProductDetailAside);//Cuando de click en img, pase la funcion open
 
     const productInfo = document.createElement('div');//creamos otro div
     productInfo.classList.add('product-info');//le agregamos la clase product-info
