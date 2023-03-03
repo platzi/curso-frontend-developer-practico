@@ -3,10 +3,16 @@ const cardsContainer = document.querySelector(".cards-container")
 //accionables
 const menuEmail = document.querySelector(".navbar-email");
 const desktopMenu = document.querySelector(".desktop-menu");
+
 const burguerIcon = document.querySelector(".menu");
 const mobileMenu = document.querySelector(".mobile-menu");
+
 const menuCarrito = document.querySelector(".product-detail-cart");
 const menuCarritoIcon = document.querySelector(".navbar-shopping-cart");
+
+const productDetailAside = document.querySelector(".product-detail")
+const imgProductCards = document.getElementsByClassName("product-card-img")
+const buttonCloseProductDetailAside = document.querySelector(".product-detail-close")
 
 const interactiveElements = document.querySelectorAll(".interactive");
 console.log(interactiveElements);
@@ -17,12 +23,13 @@ menuEmail.addEventListener("click", ()=> {blockOrNone(desktopMenu)});
 burguerIcon.addEventListener("click", ()=> {blockOrNone(mobileMenu)});
 menuCarritoIcon.addEventListener("click", ()=> {blockOrNone(menuCarrito)});
 
+// main functions
 function blockOrNone(element) {//https://platzi.com/comentario/3856000/
     if (element.classList.contains("inactive") === true) {
         displayNoneAll()
         element.classList.remove("inactive")
     } else {
-        displayNoneAll()
+        //displayNoneAll()
         element.classList.add("inactive")
     }
 }
@@ -33,7 +40,7 @@ function displayNoneAll() {
         }
     })
 }
-
+// products
 class Product {
     constructor(name, price, image){
         this.name = name,
@@ -55,7 +62,7 @@ function renderProducts(arr) {
         const productCard = document.createElement("div")
         productCard.classList.add("product-card")
         productCard.innerHTML = `
-            <img src="${product.image}" alt="${product.name}">
+            <img src="${product.image}" alt="${product.name}" class="product-card-img">
             <div class="product-card-info">
             <div>
                 <p>$${product.price}</p>
@@ -70,3 +77,20 @@ function renderProducts(arr) {
     }
 }
 renderProducts(productList);
+//
+function openProductDetailAside(array){
+    for (let index = 0; index < array.length; index++) {
+        imgProductCards[index].addEventListener("click", ()=> {
+            displayNoneAll()
+            productDetailAside.classList.remove("inactive")
+        })
+    }
+}
+openProductDetailAside(imgProductCards)
+function closeProductDetailAside(){
+    buttonCloseProductDetailAside.addEventListener("click", ()=> {
+        productDetailAside.classList.add("inactive")
+    })
+}
+closeProductDetailAside()
+console.log(imgProductCards);
