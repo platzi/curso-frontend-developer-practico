@@ -314,6 +314,10 @@ aside {
   #productDetail .product-info {
     margin: 24px 24px 0 24px;
   }
+  #productDetail {
+    box-shadow: rgba(0, 0, 0, 0.25) 0px 50px 100px -20px, rgba(0, 0, 0, 0.7) 0px 30px 60px -30px;
+    height: 100%;
+  }
   #productDetail .product-info p:nth-child(1) {
     font-weight: bold;
     font-size: var(--md);
