@@ -9,45 +9,15 @@ const shoppingCartContainer = document.querySelector('#shoppingCartContainer');
 const cardsContainer = document.querySelector('.cards-container');
 const productDetailContainer = document.querySelector("#productDetail");
 const productDetailCloseIcon = document.querySelector(".product-detail-close");
+const productsShoppingCartContainer = document.querySelector('.my-order-content');
+
 
 menuEmail.addEventListener('click', toggleDesktopMenu);
 burgerMenuIcon.addEventListener('click', toggleMobileMenu);
 shoppingCartIcon.addEventListener('click', toogleshoppingCartAside);
 productDetailCloseIcon.addEventListener('click',closeProductDetail);
 
-function toggleDesktopMenu(){
-    shoppingCartContainer.classList.add('inactive');
-    productDetailContainer.classList.add('inactive');
-    // The commented section was the challenge in the class and I did it in that way
-
-    // if (desktopMenu.classList.contains('inactive')){
-    //     desktopMenu.classList.remove('inactive');
-    // } else {
-    //     desktopMenu.classList.add('inactive');
-    // }
-
-    //The teacher method:
-    desktopMenu.classList.toggle('inactive');
-}
-
-function toggleMobileMenu(){
-    // closing all open menus
-    shoppingCartContainer.classList.add('inactive');
-    productDetailContainer.classList.add('inactive');
-
-    //Opening mobile menu
-    mobileMenu.classList.toggle('inactive');
-}
-
-function toogleshoppingCartAside(){
-    // closing all open menus
-    desktopMenu.classList.add('inactive');
-    mobileMenu.classList.add('inactive');
-    productDetailContainer.classList.add('inactive');
-
-    // Opening Shopping Cart
-    shoppingCartContainer.classList.toggle('inactive');
-}
+// Array to save the shopping cart products added
 
 
 const productList = [];
@@ -87,6 +57,45 @@ productList.push({
     image: 'https://i.etsystatic.com/37183910/r/il/82ccfd/4450133782/il_fullxfull.4450133782_kgla.jpg'
 });
 
+// List to save products added
+let shoppingCartProducts = [];
+
+
+function toggleDesktopMenu(){
+    shoppingCartContainer.classList.add('inactive');
+    productDetailContainer.classList.add('inactive');
+    // The commented section was the challenge in the class and I did it in that way
+
+    // if (desktopMenu.classList.contains('inactive')){
+    //     desktopMenu.classList.remove('inactive');
+    // } else {
+    //     desktopMenu.classList.add('inactive');
+    // }
+
+    //The teacher method:
+    desktopMenu.classList.toggle('inactive');
+}
+
+function toggleMobileMenu(){
+    // closing all open menus
+    shoppingCartContainer.classList.add('inactive');
+    productDetailContainer.classList.add('inactive');
+
+    //Opening mobile menu
+    mobileMenu.classList.toggle('inactive');
+}
+
+function toogleshoppingCartAside(){
+    // closing all open menus
+    desktopMenu.classList.add('inactive');
+    mobileMenu.classList.add('inactive');
+    productDetailContainer.classList.add('inactive');
+
+    // Adds products added and Opening Shopping Cart'
+    productsShoppingCartContainer.innerHTML = "";
+    renderProductsShoppingCart(shoppingCartProducts);
+    shoppingCartContainer.classList.toggle('inactive');
+}
 
 function openProductDetail(product){
 
@@ -117,9 +126,7 @@ function closeProductDetail(){
 }
 function renderProducts(arr) {
     for (let product = 0; product < productList.length; product++){
-    // let counterArray = 0;
     // for (product of productList){
-        // counterArray += 1;
         const productCard = document.createElement('div');
         productCard.classList.add('product-card');
     
@@ -127,7 +134,6 @@ function renderProducts(arr) {
         const productImg = document.createElement('img');
         productImg.setAttribute('src', productList[product].image);
         productImg.addEventListener('click', function(){
-            // console.log(productList[product]);
         openProductDetail(productList[product]);
         });
     
@@ -147,6 +153,14 @@ function renderProducts(arr) {
         const addToCart = document.createElement('figure');
         const imgAddToCart = document.createElement('img');
         imgAddToCart.setAttribute('src', './icons/bt_add_to_cart.svg');
+
+        // When the user clicks on the cart button, it adds it to the shoppingCartProducts array
+        addToCart.addEventListener('click', function(){
+            const selectedProduct = productList[product];
+            selectedProduct.amount = 1;
+            shoppingCartProducts.push(selectedProduct);
+        });
+
     
         addToCart.appendChild(imgAddToCart); // .appendChils allows to add just one element
     
@@ -160,3 +174,43 @@ function renderProducts(arr) {
 }
 
 renderProducts(productList);
+
+
+function renderProductsShoppingCart(arr) {
+    for (let product = 0; product < arr.length; product++){
+
+        // Card that holds each product
+        const productCard = document.createElement('div');
+        productCard.classList.add('shopping-cart');
+    
+        // Figure to place the product image
+        const productImgContainer = document.createElement('figure');
+        const productImg = document.createElement('img');
+        productImg.setAttribute('src', arr[product].image);
+    
+        // p to place name and price
+        const productPrice = document.createElement('p');
+        productPrice.innerText = '$' + arr[product].price;
+        const productName = document.createElement('p');
+        productName.innerText = arr[product].name;
+
+        // Close icon
+        const closeButton = document.createElement('img');
+        closeButton.setAttribute('src', './icons/icon_close.png');
+
+        // Add Event Listener to add to shopping list
+        closeButton.addEventListener('click', function(){
+            openProductDetail(arr[product]);
+        });
+
+        // Append image to figure
+        productImgContainer.appendChild(productImg);
+
+        
+        // Append to main product card
+        productCard.append(productImgContainer,productName,productPrice,closeButton);
+    
+        productsShoppingCartContainer.appendChild(productCard);
+    }
+   
+}
