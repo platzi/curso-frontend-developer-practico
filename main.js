@@ -96,19 +96,18 @@ function toogleshoppingCartAside(){
     productDetailContainer.classList.add('inactive');
 
     // Adds products added and Opening Shopping Cart'
-    productsShoppingCartContainer.innerHTML = "";
     renderProductsShoppingCart(shoppingCartProducts);
 
 
     // Multiply the amount to pay
 
 
-    // Reduce function avoid me the need to use a for loop
-    const totalAmount = shoppingCartProducts.reduce((acc, obj) => acc + obj.price * obj.amount, 0);
+    // // .reduce function avoid me the need to use a for loop (acc) = accumulator. Zero is the initial value.
+    // const totalAmount = shoppingCartProducts.reduce((acc, obj) => acc + obj.price * obj.amount, 0);
 
-    payTotal.innerText = '$' +totalAmount;
+    // payTotal.innerText = '$' +totalAmount;
     
-
+    showProductsAmount()
     shoppingCartContainer.classList.toggle('inactive');
 }
 
@@ -231,10 +230,21 @@ function renderProductsShoppingCart(arr) {
         const closeButton = document.createElement('img');
         closeButton.setAttribute('src', './icons/icon_close.png');
 
-        // Add Event Listener to add to shopping list
+        // Add Event Listener to remove from shopping list
+
         closeButton.addEventListener('click', function(){
-            openProductDetail(arr[product]);
+            const index = shoppingCartProducts.findIndex(item => item.name === arr[product].name);
+            if (index !== -1){
+                if (shoppingCartProducts[index].amount > 1){
+                    shoppingCartProducts[index].amount -= 1;
+                } else {
+                    shoppingCartProducts.splice(index, 1);
+                }
+            }
+
+            showProductsAmount();
         });
+
 
         // Append image to figure
         productImgContainer.appendChild(productImg);
@@ -249,6 +259,12 @@ function renderProductsShoppingCart(arr) {
 }
 
 function showProductsAmount(){
+    productsShoppingCartContainer.innerHTML = "";
+    // .reduce function avoid me the need to use a for loop (acc) = accumulator. Zero is the initial value.
+    const totalAmount = shoppingCartProducts.reduce((acc, obj) => acc + obj.price * obj.amount, 0);
+
+    payTotal.innerText = '$' +totalAmount;
+
     if (shoppingCartProducts.length>0){
         productsAmountNumber.classList.toggle('inactive');
 
@@ -258,6 +274,9 @@ function showProductsAmount(){
         }, 0);
         productsAmountNumber.innerText =productsAmountsum;
     } else{
+        productsAmountNumber.innerText ="";
         productsAmountNumber.classList.toggle('inactive');
     }
+    renderProductsShoppingCart(shoppingCartProducts);
 }
+
