@@ -10,7 +10,7 @@ const cardsContainer = document.querySelector('.cards-container');
 const productDetailContainer = document.querySelector("#productDetail");
 const productDetailCloseIcon = document.querySelector(".product-detail-close");
 const productsShoppingCartContainer = document.querySelector('.my-order-content');
-
+const payTotal = document.querySelector('.pay-total');
 
 menuEmail.addEventListener('click', toggleDesktopMenu);
 burgerMenuIcon.addEventListener('click', toggleMobileMenu);
@@ -94,6 +94,16 @@ function toogleshoppingCartAside(){
     // Adds products added and Opening Shopping Cart'
     productsShoppingCartContainer.innerHTML = "";
     renderProductsShoppingCart(shoppingCartProducts);
+
+
+    // Multiply the amount to pay
+    let totalAmount=0;
+    for(let i=0; i<shoppingCartProducts.length; i++){
+        totalAmount +=  shoppingCartProducts[i].amount*shoppingCartProducts[i].price;
+    }
+    payTotal.innerText = '$' +totalAmount;
+    
+
     shoppingCartContainer.classList.toggle('inactive');
 }
 
