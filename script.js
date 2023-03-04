@@ -139,19 +139,3 @@ function renderImg(array){
 
 renderImg(productList);
 //MANIPULACION MAIN(FIN)
-
-/*
-Aplicamos nuevas acciones y actividades al proyecto inicial
-
-Añadí tres nuevos archivos: el index.html, style.css y script.js. El objetivo principal fue fusionarlos para que de esa forma los archivos puedan trabajar en conjunto y generar nuevas interacciones y así el usuario pueda sentirse mas cómodo al momento de usar esta pagina.
-
-Archivos que fusionamos en el index.html:
-- Clase 6
-- Clase 7
-- Clase 8
-- Clase 11
-- Clase 12
-- Clase 13
-
-Los styles de cada archivo HTML se unieron en uno solo archivo style.css
-*/
