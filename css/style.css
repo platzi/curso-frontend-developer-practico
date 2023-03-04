@@ -247,6 +247,8 @@
   /* product-detail */
   #product-detail{
     right: 24px;
+    top: 68px;
+    background: none;
   }
   .product-detail-close {
     background: var(--white);
@@ -309,7 +311,7 @@
 
   /* section product list */
   .cards-container {
-    margin-top: 16px;
+    margin: 16px 36px;
     display: grid;
     grid-template-columns: repeat(auto-fill, 240px);
     gap: 26px;
