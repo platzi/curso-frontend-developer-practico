@@ -163,7 +163,8 @@ function GenerateProductDetail(event) {
     imageProductDetail = document.querySelector('#productDetail img'),
     nameProductDetail = document.querySelector('#productDetail .product-info .product-name'),
     priceProductDetail = document.querySelector('#productDetail .product-info .product-price'),
-    descProductDetail = document.querySelector('#productDetail .product-info .product-description');
+    descProductDetail = document.querySelector('#productDetail .product-info .product-description'),
+    buttonProductDetail = document.querySelector('.product-info .add-to-cart-button');
 
   const foundProduct = productList.find(article => article.image === urlImages);
   if (typeof foundProduct === "object") {
@@ -171,12 +172,13 @@ function GenerateProductDetail(event) {
     nameProductDetail.textContent = foundProduct.name;
     priceProductDetail.textContent = priceFormatted(foundProduct.price);
     descProductDetail.textContent = foundProduct.description;
+    buttonProductDetail.setAttribute('value', foundProduct.id);
+    buttonProductDetail.addEventListener('click', getValueFromNamedNodeMap);
   }
 }
 
 // * Permite agregar el producto al carrito de compras
-function addProductToShoppingCart(event) {
-  let identifyProduct = event.target.attributes.value.value;
+function addProductToShoppingCart(identifyProduct) {
   let productToShopping = {
     id: identifyProduct,
     name: productList[identifyProduct - 1].name,
@@ -192,7 +194,6 @@ function addProductToShoppingCart(event) {
   }
   renderProductsShoppingCart(listShoppingCart);
   updateTotalToPayAndQuantityOfProducts();
-  //console.log(listShoppingCart);
 }
 
 // * Permite generar el listado de productos
@@ -226,9 +227,9 @@ function renderProducts(arr) {
     productPrice.textContent = priceFormatted(products.price);
     AddListAttr(productIconCart, {
       'src': './icons/bt_add_to_cart.svg',
-      'value': products.id
+      'data-value': products.id
     });
-    productIconCart.addEventListener('click', addProductToShoppingCart);
+    productIconCart.addEventListener('click', getValueFromNamedNodeMap);
 
     // * Se le da estructura al html generado
     productInfoDiv.append(productName, productPrice);
@@ -365,4 +366,24 @@ function cleanShoppingCart() {
   cleanShoppinCart.forEach(product => {
     product.remove();
   });
+}
+
+/*
+* Permite que el NamedNodeMap generado mediante el evento de un click 
+* contenga el valor esperado para la funcion del agregar productos al carrito
+*/
+function getValueFromNamedNodeMap(event) {
+  debugger
+  const attrMap = event.target.attributes;
+  let attrToSend = "";
+  switch (true) {
+    case attrMap.getNamedItem("value") !== null:
+      attrToSend = attrMap.getNamedItem("value").value;
+      break;
+    default:
+      attrToSend = attrMap.getNamedItem("data-value").value;
+      break;
+  }
+
+  addProductToShoppingCart(attrToSend);
 }

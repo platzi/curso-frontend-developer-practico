@@ -168,6 +168,9 @@ nav {
   display: inline-block;
 }
 /**Carrito de compras*/
+#productShoppingCart {
+  position: fixed !important;
+}
 .shopping-cart-content {
   max-height: 280px;
   overflow-x: hidden;
@@ -358,6 +361,9 @@ nav {
   display: flex;
   align-items: center;
   justify-content: center;
+}
+.add-to-cart-button img {
+  pointer-events: none;
 }
 /** Media query tablet-Pc*/
 @media (min-width: 768px) {
