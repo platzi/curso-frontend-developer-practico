@@ -11,6 +11,10 @@ const productDetailContainer = document.querySelector("#productDetail");
 const productDetailCloseIcon = document.querySelector(".product-detail-close");
 const productsShoppingCartContainer = document.querySelector('.my-order-content');
 const payTotal = document.querySelector('.pay-total');
+const productsAmount = document.querySelector('.navbar-shopping-cart');
+const productsAmountNumber = document.createElement('div');
+productsAmount.appendChild(productsAmountNumber);
+productsAmountNumber.classList.add('inactive');
 
 menuEmail.addEventListener('click', toggleDesktopMenu);
 burgerMenuIcon.addEventListener('click', toggleMobileMenu);
@@ -97,10 +101,11 @@ function toogleshoppingCartAside(){
 
 
     // Multiply the amount to pay
-    let totalAmount=0;
-    for(let i=0; i<shoppingCartProducts.length; i++){
-        totalAmount +=  shoppingCartProducts[i].amount*shoppingCartProducts[i].price;
-    }
+
+
+    // Reduce function avoid me the need to use a for loop
+    const totalAmount = shoppingCartProducts.reduce((acc, obj) => acc + obj.price * obj.amount, 0);
+
     payTotal.innerText = '$' +totalAmount;
     
 
@@ -128,7 +133,6 @@ function openProductDetail(product){
 
     const productName = document.querySelector('.product-name');
     productName.innerText = product.name;
-    console.log(product.name);
 }
 
 function closeProductDetail(){
@@ -172,6 +176,7 @@ function renderProducts(arr) {
         // });
 
         addToCart.addEventListener('click', function(){
+            // findIndex help me to find if inside of shoppingCartProducts is already the item, if yes, it sums it to the same item
             const selectedProduct = productList[product];
             const index = shoppingCartProducts.findIndex(item => item.name === selectedProduct.name);
             if (index !== -1) {
@@ -181,6 +186,9 @@ function renderProducts(arr) {
                 shoppingCartProducts.push(selectedProduct);
             }
         });
+        addToCart.addEventListener('click',function(){
+            showProductsAmount();
+        })
 
     
         addToCart.appendChild(imgAddToCart); // .appendChils allows to add just one element
@@ -238,4 +246,18 @@ function renderProductsShoppingCart(arr) {
         productsShoppingCartContainer.appendChild(productCard);
     }
    
+}
+
+function showProductsAmount(){
+    if (shoppingCartProducts.length>0){
+        productsAmountNumber.classList.toggle('inactive');
+
+        // Reduce help me to sum all the objects property amount
+        const productsAmountsum = shoppingCartProducts.reduce((accumulator, currentObject) => {
+            return accumulator + currentObject.amount;
+        }, 0);
+        productsAmountNumber.innerText =productsAmountsum;
+    } else{
+        productsAmountNumber.classList.toggle('inactive');
+    }
 }
