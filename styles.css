@@ -17,7 +17,7 @@
     display: none;
   }
 
-  /* Estilos Navbar (general) */
+  /* Estilos Navbar en general (barra) */
   nav {
     display: flex;
     justify-content: space-between;
@@ -84,7 +84,7 @@
     align-items: center;
   }
 
-  /* Estilos del Desktop Menu */
+  /* Estilos del Desktop Menu (barra) */
   .desktop-menu {
     position: absolute;
     top: 60px;
@@ -123,7 +123,7 @@
     display: inline-block;
   }
 
-  /* Estilos del Mobile Menu */
+  /* Estilos del Mobile Men (barra) */
   .mobile-menu {
     position: absolute;
     left: 0;
@@ -172,7 +172,7 @@
     background: var(--white);
   }
 
-  /* Estilos del Shoping Cart */
+  /* Estilos del Shoping Cart (aside)*/
   #cartDetail {
     padding: 24px;
   }
@@ -244,7 +244,7 @@
     height: 50px;
   }
 
-  /* Estilos del Product Detail */
+  /* Estilos del Product Detail (aside)*/
   #productDetail {
     padding-bottom: 24px;
   }
@@ -306,7 +306,7 @@
     justify-content: center;
   }
 
-  /* Estilos del Product List */
+  /* Estilos del Product List (contenido)*/
   .cards-container {
     display: grid;
     grid-template-columns: repeat(auto-fill, 240px);
@@ -322,6 +322,7 @@
     height: 240px;
     border-radius: 20px;
     object-fit: cover;
+    cursor: pointer;
   }
   .product-card .product-info {
     display: flex;
