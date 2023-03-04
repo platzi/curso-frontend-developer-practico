@@ -155,10 +155,21 @@ function renderProducts(arr) {
         imgAddToCart.setAttribute('src', './icons/bt_add_to_cart.svg');
 
         // When the user clicks on the cart button, it adds it to the shoppingCartProducts array
+        // addToCart.addEventListener('click', function(){
+        //     const selectedProduct = productList[product];
+        //     selectedProduct.amount = 1;
+        //     shoppingCartProducts.push(selectedProduct);
+        // });
+
         addToCart.addEventListener('click', function(){
             const selectedProduct = productList[product];
-            selectedProduct.amount = 1;
-            shoppingCartProducts.push(selectedProduct);
+            const index = shoppingCartProducts.findIndex(item => item.name === selectedProduct.name);
+            if (index !== -1) {
+                shoppingCartProducts[index].amount += 1;
+            } else {
+                selectedProduct.amount = 1;
+                shoppingCartProducts.push(selectedProduct);
+            }
         });
 
     
@@ -190,10 +201,14 @@ function renderProductsShoppingCart(arr) {
     
         // p to place name and price
         const productPrice = document.createElement('p');
-        productPrice.innerText = '$' + arr[product].price;
+        productPrice.innerText = '$' + arr[product].price*arr[product].amount;
         const productName = document.createElement('p');
-        productName.innerText = arr[product].name;
 
+        if (arr[product].amount>1){
+            productName.innerText = `${arr[product].name} (x${arr[product].amount})`;
+        } else{
+            productName.innerText = arr[product].name;
+        }
         // Close icon
         const closeButton = document.createElement('img');
         closeButton.setAttribute('src', './icons/icon_close.png');
