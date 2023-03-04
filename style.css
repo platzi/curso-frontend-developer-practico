@@ -132,6 +132,8 @@ nav {
     position: absolute;
     left: 0;
     top: 61px;
+    width: 90%;
+    height: 100%;
     background-color: var(--white);
     padding: 24px;
 }
@@ -249,6 +251,7 @@ nav {
     gap: 26px;
     place-content: center;
     margin: 20px 0;
+    padding-left: 16px;
 }
 .product-card {
     width: 240px;
@@ -285,6 +288,81 @@ nav {
 } 
 /*OBJETOS MAIN CONTEINER(FIN)*/
 
+/*ASIDE ELEMENTOS(INICIO)*/
+.product-detail-definition {
+    width: 360px;
+    padding-bottom: 24px;
+    position: absolute;
+    right: 0;
+    background-color: var(--white);
+    top: 0;
+    margin-top: 60px;
+}
+.product-detail-close {
+    background: var(--white);
+    width: 10px;
+    height: 10px;
+    position: absolute;
+    top: 10px;
+    left: 10px;
+    z-index: 2;
+    padding: 10px;
+    border-radius: 50%;
+    cursor: pointer;
+}
+.product-detail-close img{
+    position: relative;
+    bottom: 4px;
+    right: 2px;
+}
+.product-detail-definition > img:nth-child(2) {
+    width: 100%;
+    object-fit: cover;
+    border-radius: 0 0 20px 20px;
+}
+.product-info-element {
+    margin: 0 12px;
+    display: grid;
+    place-items: center;
+    text-align: center;
+    gap: 10px;
+}
+.product-info-element p:nth-child(1) {
+    font-weight: bold;
+    font-size: var(--lg);
+    margin-top: 4px;
+    margin-bottom: 4px;
+}
+.product-info-element p:nth-child(2) {
+    font-weight: bold;
+    font-size: var(--md);
+    margin-top: 0;
+    margin-bottom: 10px;
+}
+.product-info-element p:nth-child(3) {
+    color: var(--very-light-pink);
+    font-size: var(--sm);
+    margin-top: 0;
+    margin-bottom: 10px;
+}
+.primary-button {
+    background-color: var(--hospital-green);
+    border-radius: 8px;
+    border: none;
+    color: var(--white);
+    width: 100%;
+    cursor: pointer;
+    font-size: var(--md);
+    font-weight: bold;
+    height: 50px;
+}
+.add-to-cart-button {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+}
+/*ASIDE ELEMENTOS(FIN)*/
+
 /*RESPONSIVE DESING*/
 @media (max-width: 740px){
     .navbar-left ul li:last-child{
@@ -309,7 +387,7 @@ nav {
     .desktop-menu{
         display: none;
     }
-    .product-detail {
+    .product-detail, .product-detail-definition {
         width: 100%;
     }
     .cards-container {

@@ -6,37 +6,60 @@ const iconMenu = document.querySelector('.menu');
 const shoppingMenu = document.querySelector('.product-detail');
 const shoppingCart = document.querySelector('.navbar-shopping-cart')
 const cardConteiner = document.querySelector('.cards-container');
+const productDetailContainer = document.querySelector('.product-detail-definition');
+const closedBtn = document.querySelector('.product-detail-close');
 
 menuEmail.addEventListener('click', toggleDesktopMenu);
 iconMenu.addEventListener('click', toggleMobileMenu);
 shoppingCart.addEventListener('click', toggleShoppingCart);
+closedBtn.addEventListener('click', closedProductDetail);
 
 function toggleDesktopMenu(){
     const isShoppingCartClosed = shoppingCart.classList.contains('inactive');
+    const isProductDetailContainerClosed = productDetailContainer.classList.contains('inactive');
 
     if(!isShoppingCartClosed){
         shoppingMenu.classList.add('inactive');
     }
+    if(!isProductDetailContainerClosed){
+        productDetailContainer.classList.add('inactive');
+    }
+
     desktopMenu.classList.toggle('inactive');
 }
 function toggleMobileMenu(){
     const isShoppingCartClosed = shoppingMenu.classList.contains('inactive');
+    const isProductDetailContainerClosed = productDetailContainer.classList.contains('inactive');
 
     if(!isShoppingCartClosed){
         shoppingMenu.classList.add('inactive');
+    }
+    if(!isProductDetailContainerClosed){
+        productDetailContainer.classList.add('inactive');
     }
     mobileMenu.classList.toggle('inactive');
 }
 function toggleShoppingCart(){
     const isMenuMobileClosed = mobileMenu.classList.contains('inactive');
     const isMenuDesktopClosed = desktopMenu.classList.contains('inactive');
+    const isProductDetailContainerClosed = productDetailContainer.classList.contains('inactive');
 
     if(!isMenuMobileClosed){
         mobileMenu.classList.add('inactive');
     } else if(!isMenuDesktopClosed){
         desktopMenu.classList.add('inactive');
+    } else if(!isProductDetailContainerClosed){
+        productDetailContainer.classList.add('inactive');
     }
+
     shoppingMenu.classList.toggle('inactive');
+}
+function openProductDetail(){
+    shoppingMenu.classList.add('inactive');
+    productDetailContainer.classList.remove('inactive');
+}
+function closedProductDetail(){
+    productDetailContainer.classList.add('inactive');
 }
 //MANIPULACION NAV-BAR (FIN)
 
@@ -58,6 +81,21 @@ productList.push({
     price: 250,
     imagen: "https://images.pexels.com/photos/276517/pexels-photo-276517.jpeg?auto=compress&cs=tinysrgb&dpr=2&h=650&w=940"
 })
+productList.push({
+    name: "Tablet",
+    price: 290,
+    imagen: "https://images.pexels.com/photos/276517/pexels-photo-276517.jpeg?auto=compress&cs=tinysrgb&dpr=2&h=650&w=940"
+})
+productList.push({
+    name: "Headphones",
+    price: 100,
+    imagen: "https://images.pexels.com/photos/276517/pexels-photo-276517.jpeg?auto=compress&cs=tinysrgb&dpr=2&h=650&w=940"
+})
+productList.push({
+    name: "Bike",
+    price: 150,
+    imagen: "https://images.pexels.com/photos/276517/pexels-photo-276517.jpeg?auto=compress&cs=tinysrgb&dpr=2&h=650&w=940"
+})
 
 function renderImg(array){
     for(product of array){
@@ -67,6 +105,7 @@ function renderImg(array){
         //DIV IMAGEN 
         const productImg = document.createElement('img');
         productImg.setAttribute('src', product.imagen);
+        productImg.addEventListener('click', openProductDetail);
         //DIV INFORMACION PRINCIPAL
         const productInfo  = document.createElement('div');
         productInfo.classList.add('product-info');
