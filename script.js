@@ -67,29 +67,29 @@ function closedProductDetail(){
 const productList = [];
 
 productList.push({
-    name: 'Screen',
+    name: 'Second Screen',
     price: 120,
-    imagen: "https://images.pexels.com/photos/276517/pexels-photo-276517.jpeg?auto=compress&cs=tinysrgb&dpr=2&h=650&w=940" 
+    imagen: "./Img/second-screen.jpg" 
 })
 productList.push({
     name: "Cumputer",
     price: 300,
-    imagen: "https://images.pexels.com/photos/276517/pexels-photo-276517.jpeg?auto=compress&cs=tinysrgb&dpr=2&h=650&w=940"
+    imagen: "./Img/computer.jpg"
 })
 productList.push({
     name: "Phone",
     price: 250,
-    imagen: "https://images.pexels.com/photos/276517/pexels-photo-276517.jpeg?auto=compress&cs=tinysrgb&dpr=2&h=650&w=940"
+    imagen: "./Img/cellphone.jpg"
 })
 productList.push({
     name: "Tablet",
     price: 290,
-    imagen: "https://images.pexels.com/photos/276517/pexels-photo-276517.jpeg?auto=compress&cs=tinysrgb&dpr=2&h=650&w=940"
+    imagen: "./Img/tablet.jpg"
 })
 productList.push({
     name: "Headphones",
     price: 100,
-    imagen: "https://images.pexels.com/photos/276517/pexels-photo-276517.jpeg?auto=compress&cs=tinysrgb&dpr=2&h=650&w=940"
+    imagen: "./Img/headphones.jpg"
 })
 productList.push({
     name: "Bike",
@@ -139,3 +139,19 @@ function renderImg(array){
 
 renderImg(productList);
 //MANIPULACION MAIN(FIN)
+
+/*
+Aplicamos nuevas acciones y actividades al proyecto inicial
+
+Añadí tres nuevos archivos: el index.html, style.css y script.js. El objetivo principal fue fusionarlos para que de esa forma los archivos puedan trabajar en conjunto y generar nuevas interacciones y así el usuario pueda sentirse mas cómodo al momento de usar esta pagina.
+
+Archivos que fusionamos en el index.html:
+- Clase 6
+- Clase 7
+- Clase 8
+- Clase 11
+- Clase 12
+- Clase 13
+
+Los styles de cada archivo HTML se unieron en uno solo archivo style.css
+*/

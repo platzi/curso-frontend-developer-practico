@@ -258,6 +258,7 @@ nav {
 }
 .product-card img {
     width: 100%;
+    height: 190px;
     border-radius: 15px;
     object-fit: cover;
 }
