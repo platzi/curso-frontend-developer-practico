@@ -105,6 +105,25 @@ productList.push ({
 };
 meterElementosArray();
 
+/*
+Agregue los archivos index.htm, styles.css y main.js para fusionar todos los componentes de la vista principal.
+
+Agregue los archivos index.htm, styles.css y main.js para fusionar todos los componentes de la vista principal.
+
+Use los archicos /componentes 👍  :
+-Clase 11 (menu general)
+-Clase 7 (menu desktop)
+-Clase 8 (menu mobile)
+-Clase 13 (carrito de compras)
+-Clase 6 (lista de productos)
+-Clase 12 (detalles de cada producto)
+
+Gracias a la fusion los usuarios pueden utilizar el menu de navegacion de todos los componentes, funsiona en mobile, desktop, con el carrito de compras y los detalles de un producto, ademas de renderizar la lista de productos a partir de un array (hardcodeado).
+
+Todos los componentes se probaron.
+
+*/
+
 //Maqutamos html para renderizar productos
 function renderProducts (arr){
 for (let product of arr){
