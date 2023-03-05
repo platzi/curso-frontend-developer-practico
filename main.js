@@ -4,20 +4,20 @@ const menuHamIcon = document.querySelector('.menu');
 const menuCarritoIcon = document.querySelector('.navbar-shopping-cart');
 const desktopMenu = document.querySelector('.desktop-menu');
 const mobileMenu = document.querySelector('.mobile-menu');
-const aside = document.querySelector('.product-detail');
+const shoppingCartContainer = document.querySelector('#shoppingCartContainer');
 
 const cardsContainer = document.querySelector('.cards-container');
 
 
 menuEmail.addEventListener('click', toggleDesktopMenu);
 menuHamIcon.addEventListener('click', toggleMobileMenu);/*Escuchar su evento de click */
-menuCarritoIcon.addEventListener('click', toggleCarritoAside);
+menuCarritoIcon.addEventListener('click', toggleCarritoshoppingCartContainer);
 
 function toggleDesktopMenu(){
-    const isAsideClosed = aside.classList.contains('inactive');
+    const isshoppingCartContainerClosed = shoppingCartContainer.classList.contains('inactive');
 
-    if(!isAsideClosed){//si el carrito esta abierto
-        aside.classList.add('inactive'); //cierra el carrito
+    if(!isshoppingCartContainerClosed){//si el carrito esta abierto
+        shoppingCartContainer.classList.add('inactive'); //cierra el carrito
     }
     //abreo o cierra el DesktopMenu
     desktopMenu.classList.toggle('inactive'); /*Quita o pone la clase independiente si ya la tiene o no */
@@ -25,33 +25,33 @@ function toggleDesktopMenu(){
     /*Otra posible solucion para todos: agregar inactivos todo y añadir toggle solo a 1*/ 
     /*
     mobileMenu.classList.add('inactive');
-    aside.classList.add('inactive');
+    shoppingCartContainer.classList.add('inactive');
     desktopMenu.classList.toggle('inactive');
  */
 
 }
 
 function toggleMobileMenu(){ //si abrimos el menu -- cerramos el carrito si estaba abierto
-    const isAsideClosed=aside.classList.contains('inactive');
-    if(!isAsideClosed){//si el carrito esta abierto
-        aside.classList.add('inactive'); //cierra el carrito
+    const isshoppingCartContainerClosed=shoppingCartContainer.classList.contains('inactive');
+    if(!isshoppingCartContainerClosed){//si el carrito esta abierto
+        shoppingCartContainer.classList.add('inactive'); //cierra el carrito
     }
      //abreo o cierra el mobileMenu
     mobileMenu.classList.toggle('inactive');
 }
 
-function toggleCarritoAside(){
+function toggleCarritoshoppingCartContainer(){
     const isMobileMenuClosed = mobileMenu.classList.contains('inactive');
     const  isdesktopMenuClosed =  desktopMenu.classList.contains('inactive');
 
-    //aside.classList.toggle('inactive');
+    //shoppingCartContainer.classList.toggle('inactive');
     if(!isMobileMenuClosed){ //si el mobileMenu esta abierto
         mobileMenu.classList.add('inactive'); //cierra el mobileMenu
     }else if(!isdesktopMenuClosed){ //si el desktopMenu esta abierto
         desktopMenu.classList.add('inactive');
     }
      //abreo o cierra el carrito
-    aside.classList.toggle('inactive');
+    shoppingCartContainer.classList.toggle('inactive');
 }
 
 //Craeacion de array
