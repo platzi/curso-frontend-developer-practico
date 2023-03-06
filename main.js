@@ -10,7 +10,7 @@ const menumobile = document.querySelector('.mobile-menu');
 
 const shopingcaricon = document.querySelector('.navbar-shopping-cart');
 
-const asideproductdetail = document.querySelector('.product-detail');
+const shoppingCartContainer = document.querySelector('#shoppingCartContainer');
 const cardContainer = document.querySelector('.cards-container');
 
 ///  Funtionals actions
@@ -25,10 +25,10 @@ shopingcaricon.addEventListener('click', toggleshopingcar);
 // Esta función alterna la clase 'inactive' al elemento "desktopMenu" el cual aparece o desaparece el menu.
 function toggleDestokMenu() {
 
-    const isasideshopingcarclosed = asideproductdetail.classList.contains('inactive');
+    const isasideshopingcarclosed = shoppingCartContainer.classList.contains('inactive');
 
     if (!isasideshopingcarclosed) {
-        asideproductdetail.classList.add('inactive');
+        shoppingCartContainer.classList.add('inactive');
     }
 
     desktopMenu.classList.toggle('inactive');
@@ -36,10 +36,10 @@ function toggleDestokMenu() {
 }
 
 function togglemobilMenu() {
-    const isasideshopingcarclosed = asideproductdetail.classList.contains('inactive');
+    const isasideshopingcarclosed = shoppingCartContainer.classList.contains('inactive');
     // ! este simbolo significa negacion  si isasideshopingcarclosed = false  entoces agrego la clase inactive.
     if (!isasideshopingcarclosed) {
-        asideproductdetail.classList.add('inactive');
+        shoppingCartContainer.classList.add('inactive');
     }
     menumobile.classList.toggle('inactive');
 }
@@ -52,7 +52,7 @@ function toggleshopingcar() {
         menumobile.classList.add('inactive');
     }
 
-    asideproductdetail.classList.toggle('inactive');
+    shoppingCartContainer.classList.toggle('inactive');
 }
 
 const productList = [];
