@@ -120,7 +120,7 @@ function renderProducts(arr){
     
         const productInfoFigure = document.createElement('figure');
         const imgFig = document.createElement('img');
-        imgFig.setAttribute('src', '../icons/bt_add_to_cart.svg')
+        imgFig.setAttribute('src', './icons/bt_add_to_cart.svg')
         
         
         
