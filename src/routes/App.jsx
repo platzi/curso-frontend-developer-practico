@@ -6,6 +6,8 @@ import Layout from "../containers/Layout";
 import Login from "../containers/Login";
 import CreateNewPassword from "../containers/CreateNewPassword";
 import RecoveryPassword from "../containers/RecoveryPassword";
+import SingUp from "../containers/SingUp";
+import MyAccount from "../containers/MyAccount";
 import "../styles/global.css";
 
 const App = () => {
@@ -15,6 +17,8 @@ const App = () => {
         <Routes>
           <Route exact path="/" element={<Home />} />
           <Route exact path="login" element={<Login />} />
+          <Route exact path="new-acc" element={<SingUp />} />
+          <Route exact path="my-acc" element={<MyAccount />} />
           <Route
             exact
             path="/create-new-psswd"
