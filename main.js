@@ -3,35 +3,35 @@ const menuHamIcon = document.querySelector('.menu');
 const menuCarritoIcon = document.querySelector('.navbar-shopping-cart');
 const desktopMenu = document.querySelector('.desktop-menu');
 const mobileMenu = document.querySelector('.mobile-menu');
-const aside = document.querySelector('.product-detail')
+const shoppingCartContainer = document.querySelector('#shoppingCartContainer')
 const cardsContainer = document.querySelector('.cards-container')
 
 menuEmail.addEventListener('click', toggleDesktopMenu);
 menuHamIcon.addEventListener('click', toggleMobileMenu);
-menuCarritoIcon.addEventListener('click', toggleCarritoAside);
+menuCarritoIcon.addEventListener('click', toggleCarritoshoppingCartContainer);
 
 
 function toggleDesktopMenu(){
-    const isAsideClosed = aside.classList.contains('inactive');
+    const isshoppingCartContainerClosed = shoppingCartContainer.classList.contains('inactive');
 
-    if(!isAsideClosed){
-        aside.classList.add('inactive')
+    if(!isshoppingCartContainerClosed){
+        shoppingCartContainer.classList.add('inactive')
     }
 
     desktopMenu.classList.toggle('inactive');
 }
 
 function toggleMobileMenu(){
-    const isAsideClosed = aside.classList.contains('inactive');
+    const isshoppingCartContainerClosed = shoppingCartContainer.classList.contains('inactive');
 
-    if(!isAsideClosed){
-        aside.classList.add('inactive')
+    if(!isshoppingCartContainerClosed){
+        shoppingCartContainer.classList.add('inactive')
     }
 
     mobileMenu.classList.toggle('inactive');   
 }
 
-function toggleCarritoAside(){
+function toggleCarritoshoppingCartContainer(){
 
     const isMobileMenuClosed = mobileMenu.classList.contains('inactive');
 
@@ -39,7 +39,7 @@ function toggleCarritoAside(){
         mobileMenu.classList.add('inactive')
     }
 
-    aside.classList.toggle('inactive');
+    shoppingCartContainer.classList.toggle('inactive');
 }
 
 const productList = [];
@@ -49,7 +49,7 @@ productList.push({
     image: 'https:images.pexels.com/photos/276517/pexels-photo-276517.jpeg?auto=compress&cs=tinysrgb&dpr=2&h=650&w=940',
 });
 productList.push({
-    name: 'Pantalla',
+    name: 'Monitor',
     price: 220,
     image: 'https://www.digitalavmagazine.com/wp-content/uploads/2020/03/samsung-t55-a.jpg',
 });
