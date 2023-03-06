@@ -19,7 +19,7 @@ productDetailCloseIcon.addEventListener('click', closeProductDetailAside);
 function toggleDesktopMenu(){
     const isAsideClosed = shoppingCartContainer.classList.contains('inactive');
 
-    if(!isAsideClosed){//Si el carrito esta abierto
+    if(!isAsideClosed){//si el carrito esta abierto
         shoppingCartContainer.classList.add('inactive'); //cierra el carrito
     }
 
@@ -33,7 +33,9 @@ function toggleDesktopMenu(){
     mobileMenu.classList.add('inactive');
     shoppingCartContainer.classList.add('inactive');
     desktopMenu.classList.toggle('inactive');
- */ 
+ */
+
+ 
 }
 
 function toggleMobileMenu(){ //si abrimos el menu -- cerramos el carrito si estaba abierto
@@ -68,7 +70,7 @@ function toggleCarritoAside(){
 
 function openProductDetailAside(){ //que tengamos abierto nuestro product detail vamos a cerrar los demas(carrito)
     shoppingCartContainer.classList.add('inactive');
-    desktopMenu.classList.add('inactive'); /*Quita la ventana de desktopMenu */
+    desktopMenu.classList.add('inactive'); /*Quita la ventana desktopMenu */
 
     productDetailContainer.classList.remove('inactive'); //remove para elimine la clase inactive
 }
@@ -76,6 +78,8 @@ function openProductDetailAside(){ //que tengamos abierto nuestro product detail
 function closeProductDetailAside(){
     productDetailContainer.classList.add('inactive'); //agrega la clase inactive para que desaparezca "cierre".
 }
+
+
 
 //Craeacion de array
 const productList =[];
