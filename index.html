@@ -1,0 +1,138 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta http-equiv="X-UA-Compatible" content="IE=edge">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>YardSale - Tienda online</title>
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Quicksand:wght@300;500;700&display=swap" rel="stylesheet">
+  <link rel="stylesheet" href="./css/styles.css">
+</head>
+<body>
+  <nav>
+    <img src="./icons/icon_menu.svg" alt="menu" class="menu" id="burger-button">
+
+    <div class="navbar-left">
+      <img src="./logos/logo_yard_sale.svg" alt="logo" class="logo">
+
+      <ul>
+        <li>
+          <a href="/">All</a>
+        </li>
+        <li>
+          <a href="/">Clothes</a>
+        </li>
+        <li>
+          <a href="/">Electronics</a>
+        </li>
+        <li>
+          <a href="/">Furnitures</a>
+        </li>
+        <li>
+          <a href="/">Toys</a>
+        </li>
+        <li>
+          <a href="/">Others</a>
+        </li>
+      </ul>
+    </div>
+
+    <div class="navbar-right">
+      <ul>
+        <li class="navbar-email" id="user-menu">platzi@example.com</li>
+        <li class="navbar-shopping-cart">
+          <img src="./icons/icon_shopping_cart.svg" alt="shopping cart">
+          <div>2</div>
+        </li>
+      </ul>
+    </div>    
+  </nav>
+    <div class="desktop-menu inactive" id="desktop-menu">
+        <ul>
+        <li>
+            <a href="/" class="title">My orders</a>
+        </li>
+
+        <li>
+            <a href="/">My account</a>
+        </li>
+
+        <li>
+            <a href="/">Sign out</a>
+        </li>
+        </ul>
+    </div>
+  <div class="mobile-menu inactive">
+    <svg id="close-mobile-menu" xmlns="http://www.w3.org/2000/svg" width="16" height="16" fill="currentColor" class="bi bi-x" viewBox="0 0 16 16">
+        <path d="M4.646 4.646a.5.5 0 0 1 .708 0L8 7.293l2.646-2.647a.5.5 0 0 1 .708.708L8.707 8l2.647 2.646a.5.5 0 0 1-.708.708L8 8.707l-2.646 2.647a.5.5 0 0 1-.708-.708L7.293 8 4.646 5.354a.5.5 0 0 1 0-.708z"/>
+    </svg>
+    <ul>
+      <li>
+        <a href="/">CATEGORIES</a>
+      </li>
+      <li>
+        <a href="/">All</a>
+      </li>
+      <li>
+        <a href="/">Clothes</a>
+      </li>
+      <li>
+        <a href="/">Electronics</a>
+      </li>
+      <li>
+        <a href="/">Furnitures</a>
+      </li>
+      <li>
+        <a href="/">Toys</a>
+      </li>
+      <li>
+        <a href="/">Other</a>
+      </li>
+    </ul>
+
+    <ul>
+      <li>
+        <a href="/">My orders</a>
+      </li>
+      <li>
+        <a href="/">My account</a>
+      </li>
+    </ul>
+
+    <ul>
+      <li>
+        <a href="/" class="email">platzi@example.com</a>
+      </li>
+      <li>
+        <a href="/" class="sign-out">Sign out</a>
+      </li>
+    </ul>
+  </div>
+  <script>
+    let userMenuListener = document.querySelector("#user-menu");
+    let burgerButton = document.querySelector("#burger-button");
+    let closeMobileMenuBtn = document.querySelector("#close-mobile-menu");
+    
+    let desktopMenu = document.querySelector("#desktop-menu");
+    let mobileMenu = document.querySelector(".mobile-menu");
+
+    userMenuListener.addEventListener("click", toggleUserMenu );
+    burgerButton.addEventListener("click", toggleMobileMenu);
+    closeMobileMenuBtn.addEventListener("click", closeMobileMenu);
+
+    function toggleUserMenu(){
+        desktopMenu.classList.toggle("inactive");
+    }
+    function toggleMobileMenu(){
+        mobileMenu.classList.toggle("inactive");
+    }
+    function closeMobileMenu(){
+        mobileMenu.classList.add("inactive");
+    }
+
+
+  </script>
+</body>
+</html>
