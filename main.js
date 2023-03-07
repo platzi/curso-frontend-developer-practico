@@ -4,21 +4,21 @@ const menuHamburguesa = document.querySelector('.menu');
 const mobileMenu = document.querySelector('.mobile-menu');
 const shoppingCart = document.querySelector('.navbar-shopping-cart')
 const shoppingCartContainer = document.querySelector('#shoppingCartContainer')
-
 const cardsContainer = document.querySelector('.cards-container')
-productDetail
+const productDetailContainer = document.querySelector('#productDetail')
+const productDetailCloseIcon = document.querySelector('.product-detail-close')
 
 menuEmail.addEventListener('click', toggleDesktopMenu)
 menuHamburguesa.addEventListener('click', toggleMobileMenu)
 shoppingCart.addEventListener('click', toggleProductDetail)
-
+productDetailCloseIcon.addEventListener('click', closeProductDetailAside)
 
 function toggleDesktopMenu() {
     if (!(shoppingCartContainer.classList.contains('inactive'))){
         shoppingCartContainer.classList.toggle('inactive')
     }
     desktopMenu.classList.toggle('inactive')
-
+    closeProductDetailAside();
 
 }
 
@@ -27,21 +27,35 @@ function toggleMobileMenu() {
         shoppingCartContainer.classList.toggle('inactive')
     }
     mobileMenu.classList.toggle('inactive')
+    closeProductDetailAside();
 }
 
 function toggleProductDetail(){
     mobileMenuIsOpen = !(mobileMenu.classList.contains('inactive'))
     desktopMenuIsOpen = !(desktopMenu.classList.contains('inactive'))
-
+    isProductDetailClose = productDetailContainer.classList.contains('inactive');
     if (mobileMenuIsOpen){
         mobileMenu.classList.toggle('inactive')
     }
     if (desktopMenuIsOpen){
         desktopMenu.classList.toggle('inactive')
     }
+    if (!isProductDetailClose){
+        productDetailContainer.classList.add('inactive')
+    }
     shoppingCartContainer.classList.toggle('inactive')
 }
 
+function openProductDetailAside(){
+    productDetailContainer.classList.remove('inactive');
+    shoppingCartContainer.classList.add('inactive')
+    mobileMenu.classList.add('inactive')
+    desktopMenu.classList.add('inactive')
+}
+
+function closeProductDetailAside(){
+    productDetailContainer.classList.add('inactive');
+}
 /*
     <div class="product-card">
         <img src="https://images.pexels.com/photos/276517/pexels-photo-276517.jpeg?auto=compress&cs=tinysrgb&dpr=2&h=650&w=940" alt="">
@@ -102,6 +116,7 @@ function renderProducts(arr){
     
         const productImg = document.createElement('img');
         productImg.setAttribute('src', product.image);
+        productImg.addEventListener('click', openProductDetailAside);
     
         const productInfo = document.createElement('div');
         productInfo.classList.add('product-info');
