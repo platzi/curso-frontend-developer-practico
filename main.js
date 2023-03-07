@@ -3,7 +3,7 @@ const desktopMenu = document.querySelector(".desktop-menu");
 const BurguerMenu = document.querySelector(".menu");
 const mobileMenu = document.querySelector(".mobile-menu");
 const Carrito_icon = document.querySelector(".navbar-shopping-cart");
-const aside_carrito = document.querySelector(".product-detail");
+const shoppingCartContainer = document.querySelector("#shoppingCartContainer");
 const cards_container = document.querySelector(".cards-container");
 
 menuEmail.addEventListener("click", toggleDesktopMenu);
@@ -13,24 +13,24 @@ Carrito_icon.addEventListener("click", toggleCar);
 function toggleDesktopMenu() {
   desktopMenu.classList.toggle("inactive");
   console.log("prueba");
-  const IsCarritoClosed = aside_carrito.classList.contains("inactive");
+  const IsCarritoClosed = shoppingCartContainer.classList.contains("inactive");
 
   if (!IsCarritoClosed) {
-    aside_carrito.classList.add("inactive");
+    shoppingCartContainer.classList.add("inactive");
   }
 }
 
 function toggleMobileMenu() {
   mobileMenu.classList.toggle("inactive");
 
-  const IsCarritoClosed = aside_carrito.classList.contains("inactive");
+  const IsCarritoClosed = shoppingCartContainer.classList.contains("inactive");
   if (!IsCarritoClosed) {
-    aside_carrito.classList.add("inactive");
+    shoppingCartContainer.classList.add("inactive");
   }
 }
 
 function toggleCar() {
-  aside_carrito.classList.toggle("inactive");
+  shoppingCartContainer.classList.toggle("inactive");
   const IsMobileClosed = mobileMenu.classList.contains("inactive");
 
   if (!IsMobileClosed) {
