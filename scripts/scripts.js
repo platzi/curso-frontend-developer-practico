@@ -4,24 +4,38 @@ const menuHamIconMobile = document.querySelector(".menuHamMobile");
 const mobileMenu = document.querySelector(".mobile-menu");
 const minicarIcon = document.querySelector(".navbar-shopping-cart");
 const minicarProductDetail = document.querySelector(".product-detail");
+const minicarProductDetailPdp = document.querySelector(".product-detail-pdp");
 const cardsContainer = document.querySelector(".cards-container");
+const closeCtaImageProduct = document.querySelector('.product-detail-close-pdp')
 
 menuEmail.addEventListener("click", toggleDesktopMenu);
 menuHamIconMobile.addEventListener("click", toggleMobileMenu);
 minicarIcon.addEventListener("click", toggleMinicarIcon);
+
+closeCtaImageProduct.addEventListener("click", toggleClosePdpProduct)
+
 
 function toggleDesktopMenu() {
   minicarProductDetail.classList.add("inactive");
   mobileMenu.classList.add("inactive");
   desktopMenu.classList.toggle("inactive");
 }
+
+
 function toggleMobileMenu() {
   minicarProductDetail.classList.add("inactive");
+  minicarProductDetailPdp.classList.add("inactive");
   mobileMenu.classList.toggle("inactive");
 }
+
 function toggleMinicarIcon() {
   mobileMenu.classList.add("inactive");
   minicarProductDetail.classList.toggle("inactive");
+  minicarProductDetailPdp.classList.add("inactive");
+}
+
+function toggleClosePdpProduct(){
+    minicarProductDetailPdp.classList.add('inactive')
 }
 
 const productList = [];
@@ -52,6 +66,12 @@ function renderProducts(productCategories) {
 
     const imgProduct = document.createElement("img");
     imgProduct.setAttribute("src", product.image);
+
+    imgProduct.addEventListener("click", openPdpProduct)
+
+    function openPdpProduct() {
+        minicarProductDetailPdp.classList.remove('inactive')
+    }
 
     const productInfo = document.createElement("div");
     productInfo.classList.add("product-info");
