@@ -2,41 +2,49 @@ const menuEmail = document.querySelector(".navbar-email");
 const desktopMenu = document.querySelector(".desktop-menu");
 const mobileMenu = document.querySelector(".mobile-menu");
 const menuBurger = document.querySelector(".menu");
-const asideCarrito = document.querySelector(".product-detail");
+const shoppingCartDetail = document.querySelector(".shopping-cart-detail");
 const asideCarritoIcon = document.querySelector(".navbar-shopping-cart");
+const productDetailInfo = document.querySelector(".product-detail-info");
+const closeProductDetail = document.querySelector(".product-detail-close");
 
 
 menuEmail.addEventListener("click", toggleDesktopMenu );
 function toggleDesktopMenu (){
     desktopMenu.classList.toggle("inactive");
+    shoppingCartDetail.classList.add("inactive");
+    productDetailInfo.classList.add("inactive");
 }
 
 menuBurger.addEventListener("click", toggleMobileMenu );
 function toggleMobileMenu (){
-    asideCarrito.classList.add("inactive");
     mobileMenu.classList.toggle("inactive");
+    shoppingCartDetail.classList.add("inactive");
+    desktopMenu.classList.add("inactive");
+    productDetailInfo.classList.add("inactive");
+    
 }
 
 asideCarritoIcon.addEventListener("click", toggleCarrito);
 function toggleCarrito(){
+    shoppingCartDetail.classList.toggle("inactive");
     mobileMenu.classList.add("inactive");
-    asideCarrito.classList.toggle("inactive");
+    desktopMenu.classList.add("inactive");  
+    productDetailInfo.classList.add("inactive"); 
 }
 
-/*
-<div class="product-card">
-        <img src="https://images.pexels.com/photos/276517/pexels-photo-276517.jpeg?auto=compress&cs=tinysrgb&dpr=2&h=650&w=940" alt="">
-        <div class="product-info">
-          <div>
-            <p>$120,00</p>
-            <p>Bike</p>
-          </div>
-          <figure>
-            <img src="./icons/bt_add_to_cart.svg" alt="">
-          </figure>
-        </div>
-      </div>
-*/
+/* esta funcion se ubica al hacer click en la imagen en el ciclo For */
+function openProductInfoDetail () {
+    productDetailInfo.classList.toggle("inactive");
+    shoppingCartDetail.classList.add("inactive");
+    desktopMenu.classList.add("inactive");
+    mobileMenu.classList.add("inactive");
+}
+closeProductDetail.addEventListener("click",closeProductDetailContainer);
+function closeProductDetailContainer (){
+    productDetailInfo.classList.add("inactive");
+}
+
+
 
 
 const cardsContainer = document.querySelector(".cards-container")
@@ -64,6 +72,7 @@ for (product of productList){
 
     const productCardImg = document.createElement("img");
     productCardImg.setAttribute("src", product.image);
+    productCardImg.addEventListener("click", openProductInfoDetail);
 
     const productInfo = document.createElement("div");
     productInfo.classList.add("product-info");
