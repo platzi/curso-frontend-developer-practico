@@ -45,19 +45,19 @@ productList.push({
   name: "Bike",
   price: 120,
   image:
-    "https://images.pexels.com/photos/276517/pexels-photo-276517.jpeg?auto=compress&cs=tinysrgb&dpr=2&h=650&w=940",
+    "https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcTg8NUoUTtA1QcbWz81pc-pQv2_QDSWvwI9qQ&usqp=CAU",
 });
 productList.push({
   name: "Pantalla",
   price: 220,
   image:
-    "https://images.pexels.com/photos/276517/pexels-photo-276517.jpeg?auto=compress&cs=tinysrgb&dpr=2&h=650&w=940",
+    "https://cdn.shopify.com/s/files/1/0477/0673/4742/products/monitor-samsung-ultrawide-49-odyssey-g9-curvo-gamer-hdmi-displayport-g-sync-240hz-1ms-c49g95t-lc49g95tsslxzs-lapshop-chile-3_559x373.jpg?v=1675718570",
 });
 productList.push({
-  name: "Compu",
+  name: "Computador",
   price: 620,
   image:
-    "https://images.pexels.com/photos/276517/pexels-photo-276517.jpeg?auto=compress&cs=tinysrgb&dpr=2&h=650&w=940",
+    "https://store.storeimages.cdn-apple.com/4982/as-images.apple.com/is/mbp-spacegray-select-202206?wid=452&hei=420&fmt=jpeg&qlt=95&.v=1664497359481",
 });
 
 function renderProducts(arr) {
