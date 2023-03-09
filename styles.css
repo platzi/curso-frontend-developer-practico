@@ -239,6 +239,10 @@
 
   /* //////////////////////////////////////DETALLE DEL PRODUCTO//////////////////////////////////////////////////// */
   
+  #product-detail{
+    padding-bottom: 24px;
+  }
+
   .product-detail-close {
     background: var(--white);
     width: 14px;
@@ -369,6 +373,10 @@
     .product-card img {
       width: 140px;
       height: 140px;
+    }
+
+    #product-detail{
+      width: 100%;
     }
     /*MEDIA QWERT DETALLE DE PRODUCTO*/
     /* .product-detail {

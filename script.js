@@ -8,26 +8,42 @@ const menuCarrito = document.querySelector(".navbar-shopping-cart")
 const ordenCarrito = document.querySelector("#shopCarContainer")
 
 const cardsContainer = document.querySelector(".cards-container")
+const productDetail = document.querySelector("#product-detail")
+const closeProductDetail = document.querySelector('.product-detail-close')
+
 
 mailMenu.addEventListener("click",toggleDesktopMenu)
 menuHamb.addEventListener("click",toggleMobileMenu)
 menuCarrito.addEventListener("click",toggleCarrito)
+closeProductDetail.addEventListener("click",closeProductD)
+
 
 function toggleDesktopMenu(){
     desktopMenu.classList.toggle("inactive")
     ordenCarrito.classList.add("inactive")
+    productDetail.classList.add("inactive")
 }
 
 function toggleMobileMenu(){
-    ordenCarrito.classList.add('inactive')
     mobileMenu.classList.toggle("inactive")
+    ordenCarrito.classList.add('inactive')
+    productDetail.classList.add("inactive")
 }
 
 function toggleCarrito(){
+    ordenCarrito.classList.toggle("inactive")
     mobileMenu.classList.add("inactive")
     desktopMenu.classList.add("inactive")
-    ordenCarrito.classList.toggle("inactive")
+    productDetail.classList.add("inactive")
+
 }
+
+
+
+function closeProductD(){
+    productDetail.classList.add("inactive")
+}
+
 
 function hidenMenuD(x) {
     if (x.matches) { // If media query matches
@@ -100,7 +116,15 @@ function renderProducts(array){
     for(let product of array){
         const productCard = document.createElement('div')
         productCard.classList.add('product-card')
-    
+        productCard.addEventListener("click",openDetailProduct)
+        function openDetailProduct(){
+            productDetail.classList.remove("inactive")
+            ordenCarrito.classList.add('inactive')
+            mobileMenu.classList.add('inactive')
+            desktopMenu.classList.add('inactive')  
+            document.querySelector("#p1").innerText = product.price
+            document.querySelector("#p2").innerText = product.name
+        }
     
     
         const productImg = document.createElement('img')
@@ -136,4 +160,5 @@ function renderProducts(array){
 }
 
 renderProducts(productList)
+
 
