@@ -11,11 +11,12 @@ menuEmail.addEventListener('click', toogleDesktopMenu);
 menuHamIcon.addEventListener('click', toogleMobileMenu);
 menuTitle.addEventListener('click', toggleMenuTitle)
 
+const cardsContainer = document.querySelector('.cards-container');
+
 function toogleDesktopMenu() {
     const isProductDetailClosed = productDetail.classList.contains('inactive');
-    
+
     if (!isProductDetailClosed) {
-        console.log("entra??????' isProductDetailClosed ")
         productDetail.classList.add('inactive');
     }
 
@@ -25,10 +26,9 @@ function toogleDesktopMenu() {
 function toogleMobileMenu() {
 
     const isProductDetailClosed = productDetail.classList.contains('inactive');
-    
-    
+
+
     if (!isProductDetailClosed) {
-        console.log("entra??????' isProductDetailClosed ")
         productDetail.classList.add('inactive');
     }
 
@@ -42,14 +42,82 @@ function toggleMenuTitle() {
     const isDesktopMenuClosed = desktopMenu.classList.contains('inactive');
 
     if (!ismobileMenuClosed) {
-        console.log("entra??????' ismobileMenuClosed")
         mobileMenu.classList.add('inactive');
     }
 
     if (!isDesktopMenuClosed) {
-        console.log("entra??????' isProductDetailClosed ")
         desktopMenu.classList.add('inactive');
     }
-        
+
     productDetail.classList.toggle("inactive");
 }
+
+const productList = [];
+productList.push({
+    name: 'bike',
+    price: 120,
+    image: 'https://images.pexels.com/photos/276517/pexels-photo-276517.jpeg?auto=compress&cs=tinysrgb&dpr=2&h=650&w=940',
+});
+productList.push({
+    name: 'Screen',
+    price: 320,
+    image: 'https://images.pexels.com/photos/276517/pexels-photo-276517.jpeg?auto=compress&cs=tinysrgb&dpr=2&h=650&w=940',
+});
+productList.push({
+    name: 'Computer',
+    price: 720,
+    image: 'https://images.pexels.com/photos/276517/pexels-photo-276517.jpeg?auto=compress&cs=tinysrgb&dpr=2&h=650&w=940',
+});
+productList.push({
+    name: 'Computer',
+    price: 720,
+    image: 'https://images.pexels.com/photos/276517/pexels-photo-276517.jpeg?auto=compress&cs=tinysrgb&dpr=2&h=650&w=940',
+});
+productList.push({
+    name: 'Computer',
+    price: 720,
+    image: 'https://images.pexels.com/photos/276517/pexels-photo-276517.jpeg?auto=compress&cs=tinysrgb&dpr=2&h=650&w=940',
+});
+
+
+function renderProducts(arr) {
+    for (product of productList) {
+        const productCard = document.createElement('div');
+        productCard.classList.add('product-card');
+
+        const imageCard = document.createElement('img');
+        imageCard.setAttribute('src', product.image);
+
+        const productInfo = document.createElement('div');
+        productInfo.classList.add('product-info');
+
+        const productInfoDiv = document.createElement('div');
+        const productInfoDivPrice = document.createElement('p');
+        const productInfoDivName = document.createElement('p');
+
+        productInfoDivPrice.innerText = `$ ${product.price}`;
+        productInfoDivName.innerText = product.name;
+
+        productInfoDiv.appendChild(productInfoDivPrice);
+        productInfoDiv.appendChild(productInfoDivName);
+
+        const productInfoFigure = document.createElement('figure');
+
+        const imgFigure = document.createElement('img');
+        imgFigure.setAttribute('src', './icons/bt_add_to_cart.svg');
+
+        productInfoFigure.appendChild(imgFigure);
+
+        productInfo.appendChild(productInfoDiv);
+        productInfo.appendChild(productInfoFigure);
+
+        productCard.appendChild(productInfo);
+        productCard.appendChild(imageCard);
+
+        cardsContainer.appendChild(productCard);
+
+    }
+}
+
+renderProducts(productList);
+
