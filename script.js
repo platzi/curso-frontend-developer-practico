@@ -5,7 +5,7 @@ const menuHamb = document.querySelector(".menu")
 const mobileMenu = document.querySelector(".mobile-menu")
 
 const menuCarrito = document.querySelector(".navbar-shopping-cart")
-const ordenCarrito = document.querySelector(".product-detail")
+const ordenCarrito = document.querySelector("#shopCarContainer")
 
 const cardsContainer = document.querySelector(".cards-container")
 
