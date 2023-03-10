@@ -4,7 +4,9 @@ const menuHamIcon = document.querySelector(".menu");
 const mobileMenu = document.querySelector(".mobile-menu");
 const menuCarIcon = document.querySelector(".navbar-shopping-cart");
 const shoppingCartContainer = document.querySelector("#shoppingCartContainer");
+const productDetailContainer = document.querySelector("#productDetail");
 const cardsContainer = document.querySelector(".cards-container")
+const productDetailCloseIcon = document.querySelector(".product-detail-close")
 
 
 //codigo para navbar lado derecho-perfil usuario.
@@ -21,7 +23,6 @@ function toggleDesktopMenu() {
     desktopMenu.classList.toggle("inactive");
 }
 
-
 //codigo para icono hamburguesa lado izquierdo.
 menuHamIcon.addEventListener("click", toggleMobileMenu);
 
@@ -33,9 +34,11 @@ function toggleMobileMenu() {
         shoppingCartContainer.classList.add("inactive");
     }
 
+//cuando le demos click al icono hamburgues, cierra lo que este abierto.
+    closeProductDetailAside()
+
     mobileMenu.classList.toggle("inactive");
 }
-
 
 //codigo para el carro de compras.
 menuCarIcon.addEventListener("click", toggleCarShopping);
@@ -55,8 +58,31 @@ function toggleCarShopping() {
         desktopMenu.classList.add("inactive");
     }
 
+//si la imagen esta abierta, cierrala cuando de click en carro de compras.
+    const isProductDetailClosed = productDetailContainer.classList.contains("inactive");
+
+    if (!isProductDetailClosed) {
+        productDetailContainer.classList.add("inactive");
+    }
+
     shoppingCartContainer.classList.toggle("inactive");
 }
+
+//codigo para el click de cada imagen que queremos ver.
+function openProductDetailAside() {
+
+//este codigo shoppingCart.... abre el carro de compras y cierra la imagen.
+    shoppingCartContainer.classList.add("inactive");
+    productDetailContainer.classList.remove("inactive");
+}
+
+//codigo para cerrar la imagen previamente abierta.
+productDetailCloseIcon.addEventListener("click", closeProductDetailAside);
+
+function closeProductDetailAside() {
+    productDetailContainer.classList.add("inactive");
+}
+
 
 const productList = [];
 productList.push({
@@ -118,6 +144,7 @@ for(product of arr) {
     // product = {name, price, image} -> product.image
     const productImg = document.createElement("img");
     productImg.setAttribute("src", product.image);
+    productImg.addEventListener("click", openProductDetailAside);
 
     const productInfo = document.createElement("div");
     productInfo.classList.add("product-info");
