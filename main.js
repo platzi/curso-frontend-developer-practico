@@ -7,18 +7,29 @@ const mobileMenu = document.querySelector('.mobile-menu');
 const menuTitle = document.querySelector('.title-img');
 const productDetail = document.querySelector('.product-detail');
 
+const productDetails = document.querySelector('.product-details');
+const selectedProductCard = document.querySelector('.product-card');
+
+const ProductDetailclose = document.querySelector('.product-detail-close')
+
 menuEmail.addEventListener('click', toogleDesktopMenu);
 menuHamIcon.addEventListener('click', toogleMobileMenu);
-menuTitle.addEventListener('click', toggleMenuTitle)
+menuTitle.addEventListener('click', toggleMenuTitle);
+ProductDetailclose.addEventListener('click', closeProductDetail)
 
 const cardsContainer = document.querySelector('.cards-container');
 
 function toogleDesktopMenu() {
     const isProductDetailClosed = productDetail.classList.contains('inactive');
+    const isProductDetailsClosed = productDetails.classList.contains('inactive');
 
     if (!isProductDetailClosed) {
         productDetail.classList.add('inactive');
     }
+
+    if (!isProductDetailsClosed) {
+    productDetails.classList.add('inactive');
+}
 
     desktopMenu.classList.toggle("inactive");
 }
@@ -26,10 +37,14 @@ function toogleDesktopMenu() {
 function toogleMobileMenu() {
 
     const isProductDetailClosed = productDetail.classList.contains('inactive');
-
+    const isProductDetailsClosed = productDetails.classList.contains('inactive');
 
     if (!isProductDetailClosed) {
         productDetail.classList.add('inactive');
+    }
+
+    if (!isProductDetailsClosed) {
+        productDetails.classList.add('inactive');
     }
 
 
@@ -40,6 +55,7 @@ function toggleMenuTitle() {
     //aca quiero ver que no este abiertos los dos menus al mismo tiempo, por eso cuanto abro uno me fijo si el otro esta cerrado
     const ismobileMenuClosed = mobileMenu.classList.contains('inactive');
     const isDesktopMenuClosed = desktopMenu.classList.contains('inactive');
+    const isProductDetailsClosed = productDetails.classList.contains('inactive');
 
     if (!ismobileMenuClosed) {
         mobileMenu.classList.add('inactive');
@@ -49,8 +65,40 @@ function toggleMenuTitle() {
         desktopMenu.classList.add('inactive');
     }
 
+    if (!isProductDetailsClosed) {
+        productDetails.classList.add('inactive');
+    }
+
     productDetail.classList.toggle("inactive");
 }
+
+function openProductDetailAside() {
+
+    console.log("Entra!!")
+        //aca quiero ver que no este abiertos los dos menus al mismo tiempo, por eso cuanto abro uno me fijo si el otro esta cerrado
+        const ismobileMenuClosed = mobileMenu.classList.contains('inactive');
+        const isDesktopMenuClosed = desktopMenu.classList.contains('inactive');
+        const isproductDetailClosed = productDetail.classList.contains('inactive');
+    
+        if (!ismobileMenuClosed) {
+            mobileMenu.classList.add('inactive');
+        }
+    
+        if (!isDesktopMenuClosed) {
+            desktopMenu.classList.add('inactive');
+        }
+    
+        if (!isproductDetailClosed) {
+            productDetail.classList.add('inactive');
+        }
+    
+        productDetails.classList.remove("inactive");
+    }
+
+    function closeProductDetail() {
+        productDetails.classList.add("inactive");
+    }
+
 
 const productList = [];
 productList.push({
@@ -87,6 +135,7 @@ function renderProducts(arr) {
 
         const imageCard = document.createElement('img');
         imageCard.setAttribute('src', product.image);
+        imageCard.addEventListener('click', openProductDetailAside)
 
         const productInfo = document.createElement('div');
         productInfo.classList.add('product-info');
@@ -98,8 +147,8 @@ function renderProducts(arr) {
         productInfoDivPrice.innerText = `$ ${product.price}`;
         productInfoDivName.innerText = product.name;
 
-        productInfoDiv.appendChild(productInfoDivPrice);
         productInfoDiv.appendChild(productInfoDivName);
+        productInfoDiv.appendChild(productInfoDivPrice);
 
         const productInfoFigure = document.createElement('figure');
 
@@ -111,8 +160,8 @@ function renderProducts(arr) {
         productInfo.appendChild(productInfoDiv);
         productInfo.appendChild(productInfoFigure);
 
-        productCard.appendChild(productInfo);
         productCard.appendChild(imageCard);
+        productCard.appendChild(productInfo);
 
         cardsContainer.appendChild(productCard);
 
@@ -121,3 +170,5 @@ function renderProducts(arr) {
 
 renderProducts(productList);
 
+
+    
