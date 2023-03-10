@@ -3,8 +3,10 @@ var desktopMenu = document.querySelector('.desktop-menu');
 var menubtn = document.querySelector('.menu');
 var mobileMenu = document.querySelector('.mobile-menu');
 var menuCarritoIcon = document.querySelector('.navbar-shopping-cart');
+var productDescriptionCloseIcon = document.querySelector('.product-detail-close')
 var myOrdermenu = document.querySelector('#shoppingCartContainer');
 var cardsContainer = document.querySelector('.cards-container');
+var productDescription = document.querySelector('#productDescription')
 
 menuEmail.addEventListener('click', toggleDesktopmenu);
 function toggleDesktopmenu(){
@@ -85,6 +87,15 @@ function renderProducts(arr){
         /* Despues creamos la etiqueta imagen de nuestro producto al cual le agregamos el source y la imagen del product que esta en nuestro array*/
         var productImg = document.createElement('img');
         productImg.setAttribute('src', product.image);
+        productImg.addEventListener('click', openProductDescription)
+        function openProductDescription(){
+            productDescription.classList.remove('inactive')
+        }
+        
+        productDescriptionCloseIcon.addEventListener('click', closeProductDescription)
+        function closeProductDescription(){
+            productDescription.classList.add('inactive')
+        }
     
         /* Siguiente vamos a crear el div que tendra la clase product-info  */
         var productInfo = document.createElement('div');
