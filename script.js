@@ -3,7 +3,7 @@ const desktopMenu = document.querySelector(".desktop-menu");
 const menuHamIcon = document.querySelector(".menu");
 const mobileMenu = document.querySelector(".mobile-menu");
 const menuCarIcon = document.querySelector(".navbar-shopping-cart");
-const aside = document.querySelector(".product-detail");
+const shoppingCartContainer = document.querySelector("#shoppingCartContainer");
 const cardsContainer = document.querySelector(".cards-container")
 
 
@@ -12,10 +12,10 @@ menuEmail.addEventListener("click", toggleDesktopMenu);
 
 function toggleDesktopMenu() {
 // si carro de compras esta abierto, cierralo cuando de click al correo usuario.
-    const isAsideClosed = aside.classList.contains("inactive");
+    const isAsideClosed = shoppingCartContainer.classList.contains("inactive");
 
     if (!isAsideClosed) {
-        aside.classList.add("inactive");
+        shoppingCartContainer.classList.add("inactive");
     }
 
     desktopMenu.classList.toggle("inactive");
@@ -27,10 +27,10 @@ menuHamIcon.addEventListener("click", toggleMobileMenu);
 
 function toggleMobileMenu() {
 //si carro de compras esta abierto, cierralo cuando de click en menu hamburguesa.
-    const isAsideClosed = aside.classList.contains("inactive");
+    const isAsideClosed = shoppingCartContainer.classList.contains("inactive");
 
     if (!isAsideClosed) {
-        aside.classList.add("inactive");
+        shoppingCartContainer.classList.add("inactive");
     }
 
     mobileMenu.classList.toggle("inactive");
@@ -55,7 +55,7 @@ function toggleCarShopping() {
         desktopMenu.classList.add("inactive");
     }
 
-    aside.classList.toggle("inactive");
+    shoppingCartContainer.classList.toggle("inactive");
 }
 
 const productList = [];
@@ -137,8 +137,7 @@ for(product of arr) {
     const productImgCart = document.createElement("img");
     productImgCart.setAttribute("src", "./icons/bt_add_to_cart.svg");
 
-    productInfoFigure.appendChild(productImgCart); 
-    // aca estaba el error 
+    productInfoFigure.appendChild(productImgCart);
 
     productInfo.appendChild(productInfoDiv);
     productInfo.appendChild(productInfoFigure);
