@@ -76,27 +76,47 @@ productList.push({
 productList.push({
     name: 'Tablet',
     price: 600,
-    image: '/icons/photo-1532298229144-0ec0c57515c7.webp'
+    image: '/icons/amigurumis.jpg'
 });
 productList.push({
     name: 'Laptop',
     price: 12000,
-    image: '/icons/photo-1532298229144-0ec0c57515c7.webp'
+    image: '/icons/canon.jpg'
 });
 productList.push({
     name: 'Bike',
     price: 120,
-    image: '/icons/photo-1532298229144-0ec0c57515c7.webp'
+    image: '/icons/crochet.jpg'
 });
 productList.push({
     name: 'Tablet',
     price: 600,
-    image: '/icons/photo-1532298229144-0ec0c57515c7.webp'
+    image: '/icons/darth.jpg'
 });
 productList.push({
     name: 'Laptop',
     price: 12000,
-    image: '/icons/photo-1532298229144-0ec0c57515c7.webp'
+    image: '/icons/lego.jpg'
+});
+productList.push({
+    name: 'Laptop',
+    price: 12000,
+    image: '/icons/macbook.jpg'
+});
+productList.push({
+    name: 'Laptop',
+    price: 12000,
+    image: '/icons/pop-up.jpg'
+});
+productList.push({
+    name: 'Laptop',
+    price: 12000,
+    image: '/icons//sable.jpg'
+});
+productList.push({
+    name: 'Laptop',
+    price: 12000,
+    image: '/icons/teclado.jpg'
 });
 
 
