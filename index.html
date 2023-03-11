@@ -1,0 +1,179 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta http-equiv="X-UA-Compatible" content="IE=edge">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Quicksand:wght@300;500;700&display=swap" rel="stylesheet">
+  <link rel="stylesheet" href="./styles.css">
+  <title>YardSale: Online Store</title>
+</head>
+<body>
+  <nav>
+    <img src="./icons/icon_menu.svg" alt="menu" class="menu">
+    <div class="navbar-left">
+      <img src="./logos/logo_yard_sale.svg" alt="logo" class="logo">
+      <ul>
+        <li>
+          <a href="/">All</a>
+        </li>
+        <li>
+          <a href="/">Clothes</a>
+        </li>
+        <li>
+          <a href="/">Electronics</a>
+        </li>
+        <li>
+          <a href="/">Furnitures</a>
+        </li>
+        <li>
+          <a href="/">Toys</a>
+        </li>
+        <li>
+          <a href="/">Others</a>
+        </li>
+      </ul>
+    </div>
+    <div class="navbar-right">
+      <ul>
+        <li class="navbar-email">platzi@example.com</li>
+        <li class="navbar-shopping-cart">
+          <img src="./icons/icon_shopping_cart.svg" alt="shopping cart" class="shopping-cart-icon">
+          <div>2</div>
+        </li>
+      </ul>
+    </div>
+    <div class="desktop-menu inactive">
+      <ul>
+        <li>
+          <a href="/" class="title">My orders</a>
+        </li>
+
+        <li>
+          <a href="/">My account</a>
+        </li>
+
+        <li>
+          <a href="/">Sign out</a>
+        </li>
+      </ul>
+    </div>
+    <div class="mobile-menu oculto">
+      <ul>
+        <li>
+          <a href="/">CATEGORIES</a>
+        </li>
+        <li>
+          <a href="/">All</a>
+        </li>
+        <li>
+          <a href="/">Clothes</a>
+        </li>
+        <li>
+          <a href="/">Electronics</a>
+        </li>
+        <li>
+          <a href="/">Furnitures</a>
+        </li>
+        <li>
+          <a href="/">Toys</a>
+        </li>
+        <li>
+          <a href="/">Other</a>
+        </li>
+      </ul>
+  
+      <ul>
+        <li>
+          <a href="/">My orders</a>
+        </li>
+        <li>
+          <a href="/">My account</a>
+        </li>
+      </ul>
+  
+      <ul>
+        <li>
+          <a href="/" class="email">platzi@example.com</a>
+        </li>
+        <li>
+          <a href="/" class="sign-out">Sign out</a>
+        </li>
+      </ul>
+    </div>
+  </nav>
+  
+  <aside id="shoppingCartContainer" class="inactive">
+    <div class="title-container">
+      <img src="./icons/flechita.svg" alt="arrow">
+      <p class="title">My order</p>
+    </div>
+
+    <div class="my-order-content">
+      <div class="shopping-cart">
+        <figure>
+          <img src="https://off.road.cc/sites/default/files/styles/970wide/public/thumbnails/image/Giant_TranceX_gallery08.jpeg?itok=1us0I1LD" alt="bike">
+        </figure>
+        <p>Bike MTB Giant</p>
+        <p>$2000</p>
+        <img src="./icons/icon_close.png" alt="close">
+      </div>
+
+      <div class="shopping-cart">
+        <figure>
+          <img src="https://http2.mlstatic.com/D_NQ_NP_615410-MCO53984474300_022023-O.webp" alt="bike">
+        </figure>
+        <p>Toyota Land Cruiser</p>
+        <p>$15000</p>
+        <img src="./icons/icon_close.png" alt="close">
+      </div>
+
+      <div class="shopping-cart">
+        <figure>
+          <img src="https://ae01.alicdn.com/kf/H2d3cc0770fe945d49c65e659ee4d5496Y/Guitarra-El-ctrica-con-forma-de-ganso-envejecido-reliquia-James-Hetfield-Explore-EET-FUK-incrustaci-n.jpg_Q90.jpg_.webp" alt="bike">
+        </figure>
+        <p>ESP Guitar</p>
+        <p>$8000</p>
+        <img src="./icons/icon_close.png" alt="close">
+      </div>
+
+      <div class="order">
+        <p>
+          <span>Total</span>
+        </p>
+        <p>$25000.00</p>
+      </div>
+
+      <button class="primary-button">
+        Checkout
+      </button>
+    </div>
+  </div>
+  </aside>
+
+  <aside id="productDetail" class="inactive">
+    <div class="product-detail-close">
+      <img src="./icons/icon_close.png" alt="close">
+    </div>
+    <img src="" alt="bike" id="infoImages">
+    <div id='price' >
+        <p class="precioProducto"></p>
+        <p class=""></p>
+        <p class=""></p>
+        <button class="primary-button add-to-cart-button">
+         <img src="./icons/bt_add_to_cart.svg" alt="add to cart">
+         Add to cart
+        </button>
+    </div>
+  </aside>
+
+  <section class="main-container">
+    <div class="cards-container">
+    </div>
+  </section>
+
+  <script src="./main.js"></script>
+
+</body>
