@@ -29,6 +29,8 @@ function toggleMobilemenu(){
     }
 
     mobileMenu.classList.toggle('inactive')
+
+    
 };
 
 menuCarritoIcon.addEventListener('click', togglemyOrdermenu);
@@ -40,6 +42,13 @@ function togglemyOrdermenu(){
     }
 
     myOrdermenu.classList.toggle('inactive');
+
+        var isProdcutDescriptionClosed = productDescription.classList.contains('inactive');
+
+    if(!isProdcutDescriptionClosed){
+        productDescription.classList.add('inactive')
+    }
+    
 };
 
 /*Podemos crear lista de productos usando arrays, mira este ejemplo que aqui estamos haciendo un array, mira estos ejemplos que aqui hemos puesto tres productos usaando el .push. si te fijas en la consola estos productos nos apareceran.*/
