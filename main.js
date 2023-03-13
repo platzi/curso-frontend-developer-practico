@@ -4,6 +4,7 @@ const menuCarritoIcon = document.querySelector(".navbar-shopping-cart");
 const menuHamIcon = document.querySelector(".menu");
 const mobileMenu = document.querySelector(".mobile-menu");
 const shoppingCartContainer = document.querySelector("#shoppingCartContainer");
+const openProductDetailContainer = document.querySelector("#productDetail");
 const cardsContainer = document.querySelector(".cards-container")
 
 
@@ -46,6 +47,10 @@ function toggleCarritoAside () {
     shoppingCartContainer.classList.toggle ("inactive");
 }
 
+function openProductDetailAside () {
+    openProductDetailContainer.classList.remove("inactive")
+}
+
 const productList = [];
 productList.push({
     name: "Bike",
@@ -68,9 +73,11 @@ function renderProducts (arr) {
         const productCard = document.createElement("div");
         productCard.classList.add("product-card");
     
+        //product= {name, price, image} -> product.image
         const productImg = document.createElement("img");
         productImg.setAttribute("src", product.image);
-    
+        productImg.addEventListener("click", openProductDetailAside);
+
         const productInfo = document.createElement("div");
         productInfo.classList.add("product-info");
     
