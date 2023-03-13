@@ -66,3 +66,5 @@ function togglerBurguerMenu() {
 
   burguerMenu.classList.toggle("inactive");
 }
+
+// CAMBIO EXPERIMENTAL
