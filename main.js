@@ -7,22 +7,22 @@ let imgMobileMenu = document.querySelector(".menu");
 imgMobileMenu.addEventListener("click", mostrarMenuMobile);
 
 let carritoDeCompras = document.querySelector(".navbar-shopping-cart");
-let productDetail = document.querySelector(".product-detail");
+let orderProductDetail = document.querySelector(".order-product-detail");
 carritoDeCompras.addEventListener("click", mostrandoCarrito);
 
 let cardsContainer = document.querySelector(".cards-container");
 function mostrarMenu(){
     desktopMenu.classList.toggle("inactive");
-    productDetail.classList.add("inactive");
+    orderProductDetail.classList.add("inactive");
 }
 
 function mostrarMenuMobile(){
     mobileMenu.classList.toggle("inactive");
-    productDetail.classList.add("inactive");
+    orderProductDetail.classList.add("inactive");
 }
 
 function mostrandoCarrito(){
-    productDetail.classList.toggle("inactive");
+    orderProductDetail.classList.toggle("inactive");
     desktopMenu.classList.add("inactive");
     mobileMenu.classList.add("inactive");
     
