@@ -11,7 +11,8 @@ const cardsContainer = document.querySelector('.cards-container');
 //toggleDesktopMenu
 menuEmail.addEventListener('click',()=>{
   desktop.classList.toggle('inactive');
-  shoppingCartContainer.classList.add('inactive'); 
+  shoppingCartContainer.classList.add('inactive');
+  productDetailContainer.classList.add('inactive');
    
 });
 
@@ -20,6 +21,7 @@ menuEmail.addEventListener('click',()=>{
 burguerMenu.addEventListener('click',()=>{
     mobileMenu.classList.toggle('inactive');
     shoppingCartContainer.classList.add('inactive');
+    productDetailContainer.classList.add('inactive');
     
 });
 
@@ -29,6 +31,8 @@ menuCarritoIcon.addEventListener("click",()=>{
   shoppingCartContainer.classList.toggle('inactive');
   mobileMenu.classList.add('inactive') ;
   desktop.classList.add('inactive');
+  productDetailContainer.classList.add('inactive');
+
     
     
 });
@@ -36,6 +40,8 @@ menuCarritoIcon.addEventListener("click",()=>{
 //abrir product-detail
 function openProductDetail(){
   productDetailContainer.classList.remove('inactive');
+  shoppingCartContainer.classList.add('inactive');
+  desktop.classList.add('inactive');
 }
 //cerrar product-detail
 productDetailCloseIcon.addEventListener('click',()=>{
