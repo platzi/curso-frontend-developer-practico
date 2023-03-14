@@ -4,7 +4,7 @@ const menuHam = document.querySelector('.menu');
 const cartIcon = document.querySelector('.navbar-shopping-cart');
 const desktopMenu = document.querySelector('.desktop-menu');
 const mobileMenu = document.querySelector('.mobile-menu');
-const asideProDetail = document.querySelector('.product-detail');
+const shoppingCartContainer = document.querySelector('#shoppingCartContainer');
 const cardsContainer = document.querySelector('.cards-container');
 
 // ----- AÑADIR ESCUCHA DE EVENTOS -----
@@ -14,11 +14,11 @@ cartIcon.addEventListener('click', toggleProDetail);
 
 // ----- Cambiar clase correo desktopMeu -----
 function toggleDesktopMenu() {
-  const isProDetailClose = asideProDetail.classList.contains('inactive');
+  const isProDetailClose = shoppingCartContainer.classList.contains('inactive');
 
-  //Ocultar asideProDetail si este está abierto al abrir el menu hamburguesa
+  //Ocultar shoppingCartContainer si este está abierto al abrir el menu hamburguesa
   if (!isProDetailClose) {
-    asideProDetail.classList.add('inactive');
+    shoppingCartContainer.classList.add('inactive');
   }
 
   desktopMenu.classList.toggle('inactive'); //la clase no se le pone el punto
@@ -26,11 +26,11 @@ function toggleDesktopMenu() {
 
 // ----- Cambiar clase mobileMenu -----
 function toggleMobileMenu() {
-  const isProDetailClose = asideProDetail.classList.contains('inactive');
+  const isProDetailClose = shoppingCartContainer.classList.contains('inactive');
 
-  //Ocultar asideProDetail si este está abierto al abrir el menu hamburguesa
+  //Ocultar shoppingCartContainer si este está abierto al abrir el menu hamburguesa
   if (!isProDetailClose) {
-    asideProDetail.classList.add('inactive');
+    shoppingCartContainer.classList.add('inactive');
   }
 
   mobileMenu.classList.toggle('inactive');
@@ -43,16 +43,16 @@ function toggleProDetail() {
 
   const isDesktopMenuClose = desktopMenu.classList.contains('inactive');
 
-  //Ocultar menu hamburguesa si este está abierto al abrir el asideProDetail
+  //Ocultar menu hamburguesa si este está abierto al abrir el shoppingCartContainer
   if (!isMobileMenuClose) { //Si está abierto el menú hamburguesa (no tiene clase inactive)
     mobileMenu.classList.add('inactive') //Ocultar el menú hamburguesa (poner clase inactive)
   }
-  //Ocultar desktopMenu si este está abierto al abrir el asideProDetail
+  //Ocultar desktopMenu si este está abierto al abrir el shoppingCartContainer
   if (!isDesktopMenuClose) {
     desktopMenu.classList.add('inactive')
   }
 
-  asideProDetail.classList.toggle('inactive'); //Cambiar clase dependiendio si ya lo tiene o no
+  shoppingCartContainer.classList.toggle('inactive'); //Cambiar clase dependiendio si ya lo tiene o no
 }
 
 //----- Crear productos -----
