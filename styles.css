@@ -162,13 +162,14 @@
 
 /*detalle de productos en desktop*/
 
-.product-detail {
+#shoppingCart{
   width: 360px;
   padding-right: 24px;
   box-sizing: border-box;
   position: absolute;
   right: 0;
   background-color: var(--white);
+  border-bottom-left-radius:7px ;
 }
 .title-container {
   display: flex;
@@ -238,7 +239,8 @@
   height: 50px;
 }
 
-/*contenido*/
+/*contenido */
+
 .cards-container {
   display: grid;
   grid-template-columns: repeat(auto-fill, 240px);
@@ -283,9 +285,84 @@
 }
 
 
+/*--detalle de productos al hacer click--*/
+
+#productDetail.product-detail {
+  width: 360px;
+  position: absolute;
+  right: 8px;
+  margin: 0;
+  background-color: var(--white);
+}
+#productDetail.product-detail-close {
+  background: var(--white);
+  width: 14px;
+  height: 14px;
+  position: absolute;
+  top: 24px;
+  left: 24px;
+  z-index: 2;
+  padding: 12px;
+  border-radius: 50%;
+}
+#productDetail.product-detail-close:hover {
+  cursor: pointer;
+}
+#productDetail.product-detail > img:nth-child(2) {
+  width: 100%;
+  height: 360px;
+  object-fit: cover;
+  border-radius: 20px 0 20px 20px;
+}
+#productDetail.product-info {
+  margin: 24px 0px 0 0px;
+  display: flex;
+  flex-direction: column;
+  justify-content: space-between;
+  align-items: center;
+  align-self: center;
+}
+#productDetail.product-info p:nth-child(1) {
+  font-weight: bold;
+  font-size: var(--md);
+  margin-top: 0;
+  margin-bottom: 4px;
+  
+}
+#productDetail.product-info p:nth-child(2) {
+  color: var(--very-light-pink);
+  font-size: var(--md);
+  margin-top: 0;
+  margin-bottom: 36px;
+}
+#productDetail.product-info p:nth-child(3) {
+  color: var(--very-light-pink);
+  font-size: var(--sm);
+  margin-top: 0;
+  margin-bottom: 36px;
+  text-align: center;
+}
+#productDetail.primary-button {
+  background-color: var(--hospital-green);
+  border-radius: 8px;
+  border: none;
+  color: var(--white);
+  width: 100%;
+  cursor: pointer;
+  font-size: var(--md);
+  font-weight: bold;
+  height: 50px;
+  text-align: center;
+}
+#productDetail.add-to-cart-button {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  
+}
 
 
-
+/*--Media querys--*/
   @media (max-width: 640px) {
     .menu {
       display: block;
@@ -301,7 +378,7 @@
       display: none;
       
     }
-    .product-detail {
+   #shoppingCart{
       width: 100%;
     }
     .cards-container {
@@ -313,6 +390,9 @@
     .product-card img {
       width: 140px;
       height: 140px;
+    }
+    #productDetail.product-detail {
+      width: 100%;
     }
   }
   

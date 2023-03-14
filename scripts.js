@@ -2,21 +2,21 @@ const desktop_menu = document.querySelector('.desktop-menu');
 const menuEmail =document.querySelector('.navbar-email');
 const menu =document.querySelector('.menu');
 const menuMobil =document.querySelector('.mobile-menu');
-const aside =document.querySelector('.product-detail');
+const shoppingCart =document.getElementById('shoppingCart');
 const carrito = document.querySelector('.navbar-shopping-cart');
 const cardContainer = document.querySelector('.cards-container');
 
 
 menuEmail.addEventListener('click', toggleDesktop_menu);
 menu.addEventListener('click', toggleMobil_menu);
-carrito.addEventListener('click', toggleAside);
+carrito.addEventListener('click', toggleShoppingCart);
 
 
 function toggleDesktop_menu (){
-    closeAside = aside.classList.contains('inactive');
+    closeShoppingCart = shoppingCart.classList.contains('inactive');
     closeMenuEmail = desktop_menu.classList.contains('inactive');
-    if(!closeAside){
-       aside.classList.toggle('inactive');   
+    if(!closeShoppingCart){
+        shoppingCart.classList.toggle('inactive');   
     }
     desktop_menu.classList.toggle('inactive');    
     
@@ -24,18 +24,18 @@ function toggleDesktop_menu (){
 
 function toggleMobil_menu (){
     closeMobil = menuMobil.classList.contains('inactive');
-    closeAside = aside.classList.contains('inactive');
+    closeShoppingCart = shoppingCart.classList.contains('inactive');
     closeMenuEmail = desktop_menu.classList.contains('inactive');
 
-    if(!closeAside){
-        aside.classList.toggle('inactive');
+    if(!closeShoppingCart){
+        shoppingCart.classList.toggle('inactive');
     }
     menuMobil.classList.toggle('inactive');       
     }
 
-function toggleAside (){ 
+function toggleShoppingCart (){ 
     closeMobil = menuMobil.classList.contains('inactive');
-    closeAside = aside.classList.contains('inactive');
+    closeShoppingCart = shoppingCart.classList.contains('inactive');
     closeMenuEmail = desktop_menu.classList.contains('inactive');
    
     if(!closeMobil){
@@ -44,7 +44,7 @@ function toggleAside (){
      if(!closeMenuEmail){
             desktop_menu.classList.toggle('inactive');
          }
-        aside.classList.toggle('inactive');
+         shoppingCart.classList.toggle('inactive');
 
     }
 const productList = [];
