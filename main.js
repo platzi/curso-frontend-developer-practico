@@ -68,28 +68,62 @@ function closeProductDetailAside(){
   asideProducto.classList.add('inactive');
 }
 
-const productList = [];
-
-productList.push({
-  name: 'Guitar',
-  price: 120,
-  image: 'https://images.pexels.com/photos/276517/pexels-photo-276517.jpeg?auto=compress&cs=tinysrgb&dpr=2&h=650&w=940',
-  description: 'This guitar is a sophisticated instrument with a unique design. It is made of high quality materials and has a great sound. It is perfect for beginners and professionals alike.'
-});
-
-productList.push({
-  name: 'Guitar',
-  price: 140,
-  image: 'https://i.ibb.co/9wGxjc2/pexels-photo-92069.jpg',
-  description: 'This guitar is a sophisticated instrument with a unique design. It is made of high quality materials and has a great sound. It is perfect for beginners and professionals alike.'
-});
-
-productList.push({
-  name: 'Guitar',
-  price: 160,
-  image: 'https://i.ibb.co/9wGxjc2/pexels-photo-92069.jpg',
-  description: 'This guitar is a sophisticated instrument with a unique design. It is made of high quality materials and has a great sound. It is perfect for beginners and professionals alike.'
-});
+const productList = [
+  {
+    name: 'Guitar',
+    price: 120,
+    image: 'https://i.ibb.co/9wGxjc2/pexels-photo-92069.jpg',
+    description: 'This guitar is a sophisticated instrument with a unique design. It is made of high quality materials and has a great sound. It is perfect for beginners and professionals alike.'
+  },
+  {
+    name: 'Sunglasses',
+    price: 50,
+    image: 'https://i.ibb.co/pdzHyKz/sunglasses.jpg',
+    description: 'These stylish sunglasses provide both fashion and function with their polarized lenses and UV protection. Perfect for sunny days.'
+  },
+  {
+    name: 'Running Shoes',
+    price: 90,
+    image: 'https://i.ibb.co/W39zkCr/pexels-photo-5730956.jpg',
+    description: 'These running shoes are designed for comfort and performance, with breathable materials and durable soles. Perfect for your next workout.'
+  },
+  {
+    name: 'Leather Bag',
+    price: 180,
+    image: 'https://i.ibb.co/DgrtwsB/pexels-photo-2081199.jpg',
+    description: 'This leather bag is both stylish and practical, with plenty of compartments and a classic design. Perfect for work or travel.'
+  },
+  {
+    name: 'Wireless Earbuds',
+    price: 120,
+    image: 'https://i.ibb.co/McpBdSG/2023-03-14-131642.jpg',
+    description: 'These wireless earbuds offer high-quality sound and long battery life, with a comfortable fit and easy-to-use controls. Perfect for on-the-go listening.'
+  },
+  {
+    name: 'Smartwatch',
+    price: 250,
+    image: 'https://i.ibb.co/cQRX8qL/2023-03-14-131718.jpg',
+    description: 'This smartwatch provides a range of features including fitness tracking, messaging, and music control. Perfect for staying connected throughout the day.'
+  },
+  {
+    name: 'Wireless Speaker',
+    price: 80,
+    image: 'https://i.ibb.co/3MPGSnZ/pexels-photo-1706694.jpg',
+    description: 'This wireless speaker offers high-quality sound and a sleek design, with long battery life and easy pairing. Perfect for indoor or outdoor use.'
+  },
+  {
+    name: 'Backpack',
+    price: 70,
+    image: 'https://i.ibb.co/cgNSBLj/2023-03-14-131742.jpg',
+    description: 'This backpack is both functional and stylish, with plenty of compartments and a comfortable fit. Perfect for school or travel.'
+  },
+  {
+    name: 'Digital Camera',
+    price: 300,
+    image: 'https://i.ibb.co/rcCKt5D/2023-03-14-131811.jpg',
+    description: 'This digital camera offers high-quality images and video, with a range of features including Wi-Fi and Bluetooth connectivity. Perfect for capturing memories on the go.'
+  }
+];
 
 const productContainer = document.querySelector('.cards-container');
 

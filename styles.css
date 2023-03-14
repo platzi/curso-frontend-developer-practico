@@ -301,6 +301,7 @@
     top: 61px;
     right: 0;
     background-color: var(--white);
+    border-radius: 8px 0 0 8px;
   }
   .aside-producto-close {
     background: var(--white);
