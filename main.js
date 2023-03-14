@@ -9,6 +9,9 @@ const menuMovil = document.querySelector('.mobile-menu');
 const botonCarrito = document.querySelector('.navbar-shopping-cart');
 const menuCarrito = document.querySelector('.product-detail');
 
+const botonCloseAside = document.querySelector('#close-aside-producto');
+const asideProducto = document.querySelector('.aside-producto');
+
 navbarEmail.addEventListener('click', toggleDesktopMenu);
 botonMenuMovil.addEventListener('click', toggleMobileMenu);
 botonCarrito.addEventListener('click', toggleCarrito);
@@ -18,6 +21,9 @@ function toggleDesktopMenu(){
   if(!menuCarrito.classList.contains('inactive')){
     toggleCarrito();
   }
+  if (!asideProducto.classList.contains('inactive')){
+    toggleAsideProducto();
+  }
   desktopMenu.classList.toggle('inactive');
 }
 
@@ -25,6 +31,9 @@ function toggleMobileMenu(){
   // si el menuCarrito esta abierto, lo cierro
   if(!menuCarrito.classList.contains('inactive')){
     toggleCarrito();
+  }
+  if (!asideProducto.classList.contains('inactive')){
+    toggleAsideProducto();
   }
   menuMovil.classList.toggle('inactive');
 }
@@ -38,7 +47,20 @@ function toggleCarrito(){
   if(!desktopMenu.classList.contains('inactive')){
     toggleDesktopMenu();
   }
+  if (!asideProducto.classList.contains('inactive')){
+    toggleAsideProducto();
+  }
   menuCarrito.classList.toggle('inactive');
+}
+
+function toggleAsideProducto(){
+  if(!menuCarrito.classList.contains('inactive')){
+    toggleCarrito();
+  }
+  if(!desktopMenu.classList.contains('inactive')){
+    toggleDesktopMenu();
+  }
+  asideProducto.classList.toggle('inactive');
 }
 
 const productList = [];
@@ -91,7 +113,8 @@ function renderProducts(arr){
     const productButton = document.createElement('img');
     productButton.classList.add('product-button');
     productButton.src = './icons/bt_add_to_cart.svg';
-  
+    
+    productContainer.appendChild(productCard);
     productCard.appendChild(productImage);
     productCard.appendChild(productInfo);
     productInfo.appendChild(productData);
@@ -100,7 +123,9 @@ function renderProducts(arr){
     productInfo.appendChild(productFigure);
     productFigure.appendChild(productButton);
   
-    productContainer.appendChild(productCard);
+    productImage.addEventListener('click', function(){
+      toggleAsideProducto();
+    });
   });
   
 }
