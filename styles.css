@@ -246,6 +246,8 @@
     padding-bottom: 24px;
     position: absolute;
     right: 0;
+    top: 60px;
+    background-color: white;
   }
   .product-detail-close {
     background: var(--white);

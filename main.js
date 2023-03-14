@@ -11,21 +11,36 @@ let orderProductDetail = document.querySelector(".order-product-detail");
 carritoDeCompras.addEventListener("click", mostrandoCarrito);
 
 let cardsContainer = document.querySelector(".cards-container");
+
+let asideProductDetail = document.querySelector(".product-detail");
+let botonCerrarProductDetail = document.querySelector(".product-detail-close");
+botonCerrarProductDetail.addEventListener("click", cerrandoProductDetail);
 function mostrarMenu(){
     desktopMenu.classList.toggle("inactive");
     orderProductDetail.classList.add("inactive");
+    asideProductDetail.classList.add("inactive");
 }
 
 function mostrarMenuMobile(){
     mobileMenu.classList.toggle("inactive");
     orderProductDetail.classList.add("inactive");
+    asideProductDetail.classList.add("inactive");
 }
 
 function mostrandoCarrito(){
     orderProductDetail.classList.toggle("inactive");
     desktopMenu.classList.add("inactive");
     mobileMenu.classList.add("inactive");
-    
+    asideProductDetail.classList.add("inactive");
+}
+
+function abriendoProductDetail(){
+    asideProductDetail.classList.remove("inactive");
+    desktopMenu.classList.add("inactive");
+    orderProductDetail.classList.add("inactive");
+}
+function cerrandoProductDetail(){
+    asideProductDetail.classList.add("inactive");
 }
 
 
@@ -56,6 +71,7 @@ productList.push({
         productCard.classList.add("product-card");
         let imageProduct = document.createElement("img");
         imageProduct.setAttribute("src", producto.image);
+        imageProduct.addEventListener("click", abriendoProductDetail);
         let productInfo = document.createElement("div");
         productInfo.classList.add("product-info");
         let divContenedorAtributos = document.createElement("div");
