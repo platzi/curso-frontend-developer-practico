@@ -91,6 +91,7 @@
   }
 /*/ Desktop Menu /*/
   .desktop-menu {
+    background-color: var(--white);
     position: absolute;
     top:70px;
     right:60px;
@@ -166,8 +167,8 @@
 }
 
 
-/*/ Shopping Cart /*/
-.product-detail {
+/*/ Aside /*/
+aside {
   background-color: var(--white);
   width: 360px;
   padding: 0 24px;
@@ -175,6 +176,7 @@
   position: absolute;
   right: 0;
 }
+/*/ Shopping Cart /*/
 .title-container {
   display: flex;
 }
