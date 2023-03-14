@@ -134,11 +134,13 @@
   }
 /*/ Mobile Menu /*/
 .mobile-menu {
-  background-color: var(--white);
-  position:absolute;
-  top: 60px;
-    padding: 24px;
-}
+    position: absolute;
+    background-color: var(--white);
+    top: 61px;
+    left: 0;
+    width: calc(100% - 24px);
+    padding-left: 24px;
+  } 
 .mobile-menu ul {
   padding: 0;
   margin: 24px 0 0;
@@ -171,12 +173,14 @@
 aside {
   background-color: var(--white);
   width: 360px;
-  padding: 0 24px;
   box-sizing: border-box;
   position: absolute;
   right: 0;
 }
 /*/ Shopping Cart /*/
+#productsCart{
+  padding: 0 24px;
+}
 .title-container {
   display: flex;
 }
