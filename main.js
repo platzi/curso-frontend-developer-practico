@@ -21,15 +21,183 @@ const descrProduct = document.querySelector(".description");
 const productList = [];
 productList.push({
     name: 'Bike',
-    price: 120,
-    descr: 'Bicicleta de lo mejor',
+    price: 100,
+    descr: 'Cuenta con un cuadro de aluminio resistente y ligero, frenos de disco para mayor seguridad en cualquier tipo de terreno',
     image: 'https://images.pexels.com/photos/276517/pexels-photo-276517.jpeg?auto=compress&cs=tinysrgb&dpr=2&h=650&w=9400',
 });
 productList.push({
     name: 'Computadora Gamer',
-    price: 300,
-    descr: 'La mejor computadora utilizara para stremear',
+    price: 500,
+    descr: 'Esta computadora gamer es perfecta para aquellos que buscan una experiencia de juego de alta calidad.',
     image: 'https://expertopc.com/wp-content/uploads/poner-el-ordenador-en-la-mesa.jpg',
+});
+productList.push({
+    name: 'Mouse Gamer',
+    price: 80,
+    descr: 'Mouse Gamer tiene la mejor sensibilidad que otros',
+    image: 'https://assets.reedpopcdn.com/g502x_f9QuuM8.jpeg/BROK/thumbnail/1200x1200/quality/100/g502x_f9QuuM8.jpeg',
+});
+productList.push({
+    name: 'Guitarra ElectroAcústica',
+    price: 120,
+    descr: 'Es una excelente guitarra para empezar como principiante',
+    image: 'https://murosdeabsenta.com/wp-content/uploads/2020/12/aprender-a-tocar-la-guitarra-e1640366518607.jpg',
+});
+productList.push({
+    name: 'Piano',
+    price: 150,
+    descr: 'Este piano es una excelente opción para aquellos que buscan un instrumento de alta calidad y un sonido impresionante. Con una construcción sólida y una cuidadosa selección de materiales',
+    image: 'https://www.casioteclados.com/wp-content/uploads/2020/12/pianos-hibridos.jpg',
+});
+productList.push({
+    name: 'Violin',
+    price: 200,
+    descr: 'Este instrumento es una joya para cualquier músico que busque un violín de calidad y con un sonido excepcional.',
+    image: 'https://musicopolix.com/blog/wp-content/uploads/2022/04/tipos-de-violines-portada.jpg',
+});
+productList.push({
+    name: 'Muebles de Sala',
+    price: 400,
+    descr: 'Sofá de lujo ligero de los muebles del sofá de 3PCS',
+    image: 'https://m.media-amazon.com/images/I/41PtgQtlXtS._SL500_.jpg',
+});
+productList.push({
+    name: 'Mouse Gamer',
+    price: 150,
+    descr: 'El mejor mouse utilizado en el mercado',
+    image: 'https://assets.reedpopcdn.com/g502x_f9QuuM8.jpeg/BROK/thumbnail/1200x1200/quality/100/g502x_f9QuuM8.jpeg',
+});
+productList.push({
+    name: 'Mouse Gamer',
+    price: 150,
+    descr: 'El mejor mouse utilizado en el mercado',
+    image: 'https://assets.reedpopcdn.com/g502x_f9QuuM8.jpeg/BROK/thumbnail/1200x1200/quality/100/g502x_f9QuuM8.jpeg',
+});
+productList.push({
+    name: 'Mouse Gamer',
+    price: 150,
+    descr: 'El mejor mouse utilizado en el mercado',
+    image: 'https://assets.reedpopcdn.com/g502x_f9QuuM8.jpeg/BROK/thumbnail/1200x1200/quality/100/g502x_f9QuuM8.jpeg',
+});
+productList.push({
+    name: 'Mouse Gamer',
+    price: 150,
+    descr: 'El mejor mouse utilizado en el mercado',
+    image: 'https://assets.reedpopcdn.com/g502x_f9QuuM8.jpeg/BROK/thumbnail/1200x1200/quality/100/g502x_f9QuuM8.jpeg',
+});
+productList.push({
+    name: 'Mouse Gamer',
+    price: 150,
+    descr: 'El mejor mouse utilizado en el mercado',
+    image: 'https://assets.reedpopcdn.com/g502x_f9QuuM8.jpeg/BROK/thumbnail/1200x1200/quality/100/g502x_f9QuuM8.jpeg',
+});
+productList.push({
+    name: 'Mouse Gamer',
+    price: 150,
+    descr: 'El mejor mouse utilizado en el mercado',
+    image: 'https://assets.reedpopcdn.com/g502x_f9QuuM8.jpeg/BROK/thumbnail/1200x1200/quality/100/g502x_f9QuuM8.jpeg',
+});
+productList.push({
+    name: 'Mouse Gamer',
+    price: 150,
+    descr: 'El mejor mouse utilizado en el mercado',
+    image: 'https://assets.reedpopcdn.com/g502x_f9QuuM8.jpeg/BROK/thumbnail/1200x1200/quality/100/g502x_f9QuuM8.jpeg',
+});
+productList.push({
+    name: 'Mouse Gamer',
+    price: 150,
+    descr: 'El mejor mouse utilizado en el mercado',
+    image: 'https://assets.reedpopcdn.com/g502x_f9QuuM8.jpeg/BROK/thumbnail/1200x1200/quality/100/g502x_f9QuuM8.jpeg',
+});
+productList.push({
+    name: 'Mouse Gamer',
+    price: 150,
+    descr: 'El mejor mouse utilizado en el mercado',
+    image: 'https://assets.reedpopcdn.com/g502x_f9QuuM8.jpeg/BROK/thumbnail/1200x1200/quality/100/g502x_f9QuuM8.jpeg',
+});
+productList.push({
+    name: 'Mouse Gamer',
+    price: 150,
+    descr: 'El mejor mouse utilizado en el mercado',
+    image: 'https://assets.reedpopcdn.com/g502x_f9QuuM8.jpeg/BROK/thumbnail/1200x1200/quality/100/g502x_f9QuuM8.jpeg',
+});
+productList.push({
+    name: 'Mouse Gamer',
+    price: 150,
+    descr: 'El mejor mouse utilizado en el mercado',
+    image: 'https://assets.reedpopcdn.com/g502x_f9QuuM8.jpeg/BROK/thumbnail/1200x1200/quality/100/g502x_f9QuuM8.jpeg',
+});
+productList.push({
+    name: 'Mouse Gamer',
+    price: 150,
+    descr: 'El mejor mouse utilizado en el mercado',
+    image: 'https://assets.reedpopcdn.com/g502x_f9QuuM8.jpeg/BROK/thumbnail/1200x1200/quality/100/g502x_f9QuuM8.jpeg',
+});
+productList.push({
+    name: 'Mouse Gamer',
+    price: 150,
+    descr: 'El mejor mouse utilizado en el mercado',
+    image: 'https://assets.reedpopcdn.com/g502x_f9QuuM8.jpeg/BROK/thumbnail/1200x1200/quality/100/g502x_f9QuuM8.jpeg',
+});
+productList.push({
+    name: 'Mouse Gamer',
+    price: 150,
+    descr: 'El mejor mouse utilizado en el mercado',
+    image: 'https://assets.reedpopcdn.com/g502x_f9QuuM8.jpeg/BROK/thumbnail/1200x1200/quality/100/g502x_f9QuuM8.jpeg',
+});
+productList.push({
+    name: 'Mouse Gamer',
+    price: 150,
+    descr: 'El mejor mouse utilizado en el mercado',
+    image: 'https://assets.reedpopcdn.com/g502x_f9QuuM8.jpeg/BROK/thumbnail/1200x1200/quality/100/g502x_f9QuuM8.jpeg',
+});
+productList.push({
+    name: 'Mouse Gamer',
+    price: 150,
+    descr: 'El mejor mouse utilizado en el mercado',
+    image: 'https://assets.reedpopcdn.com/g502x_f9QuuM8.jpeg/BROK/thumbnail/1200x1200/quality/100/g502x_f9QuuM8.jpeg',
+});
+productList.push({
+    name: 'Mouse Gamer',
+    price: 150,
+    descr: 'El mejor mouse utilizado en el mercado',
+    image: 'https://assets.reedpopcdn.com/g502x_f9QuuM8.jpeg/BROK/thumbnail/1200x1200/quality/100/g502x_f9QuuM8.jpeg',
+});
+productList.push({
+    name: 'Mouse Gamer',
+    price: 150,
+    descr: 'El mejor mouse utilizado en el mercado',
+    image: 'https://assets.reedpopcdn.com/g502x_f9QuuM8.jpeg/BROK/thumbnail/1200x1200/quality/100/g502x_f9QuuM8.jpeg',
+});
+productList.push({
+    name: 'Mouse Gamer',
+    price: 150,
+    descr: 'El mejor mouse utilizado en el mercado',
+    image: 'https://assets.reedpopcdn.com/g502x_f9QuuM8.jpeg/BROK/thumbnail/1200x1200/quality/100/g502x_f9QuuM8.jpeg',
+});
+productList.push({
+    name: 'Mouse Gamer',
+    price: 150,
+    descr: 'El mejor mouse utilizado en el mercado',
+    image: 'https://assets.reedpopcdn.com/g502x_f9QuuM8.jpeg/BROK/thumbnail/1200x1200/quality/100/g502x_f9QuuM8.jpeg',
+});
+productList.push({
+    name: 'Mouse Gamer',
+    price: 150,
+    descr: 'El mejor mouse utilizado en el mercado',
+    image: 'https://assets.reedpopcdn.com/g502x_f9QuuM8.jpeg/BROK/thumbnail/1200x1200/quality/100/g502x_f9QuuM8.jpeg',
+});
+productList.push({
+    name: 'Mouse Gamer',
+    price: 150,
+    descr: 'El mejor mouse utilizado en el mercado',
+    image: 'https://assets.reedpopcdn.com/g502x_f9QuuM8.jpeg/BROK/thumbnail/1200x1200/quality/100/g502x_f9QuuM8.jpeg',
+});
+productList.push({
+    name: 'Mouse Gamer',
+    price: 150,
+    descr: 'El mejor mouse utilizado en el mercado',
+    image: 'https://assets.reedpopcdn.com/g502x_f9QuuM8.jpeg/BROK/thumbnail/1200x1200/quality/100/g502x_f9QuuM8.jpeg',
 });
 productList.push({
     name: 'Mouse Gamer',
@@ -83,6 +251,7 @@ function openProductDetails(event){
 function togglecloseproduct(){
     productDetailContainer.classList.add('inactive');
 }
+
 //Maquetacion de HTML en JS
 
 function renderProductos(arr_prod){

@@ -25,6 +25,7 @@ nav {
     justify-content: space-between;
     padding: 0 24px;
     border-bottom: 1px solid var(--very-light-pink);
+    background: linear-gradient(to right, #101010, #5B5B5B);
 }
 .menu {
     display: none;
@@ -50,15 +51,17 @@ nav {
 .navbar-left ul li a,
 .navbar-right ul li a {
     text-decoration: none;
-    color: var(--very-light-pink);
-    border: 1px solid var(--white);
+    color: white;
     padding: 8px;
     border-radius: 8px;
+    margin-left: 20px;
 }
 .navbar-left ul li a:hover,
 .navbar-right ul li a:hover {
-    border: 1px solid var(--hospital-green);
-    color: var(--hospital-green);
+    font-weight: 500;
+    color: black;
+    background: #dbfdaf;
+    box-shadow: 1px 0px 2px black;
 }
 .navbar-email {
     color: var(--very-light-pink);
@@ -66,6 +69,12 @@ nav {
     margin-right: 12px;
     cursor: pointer;
   }
+
+.navbar-email:hover{
+    font-weight: 500;
+    color: white;
+}
+
 .navbar-shopping-cart {
     position: relative;
     cursor: pointer;
@@ -174,7 +183,18 @@ aside {
     box-sizing: border-box;
     position: absolute;
     right: 0;
-  }
+}
+
+#ProductDetail{
+  padding: 20px;
+  position: fixed;
+  bottom: 0;
+  top: 70px;
+  right: 0;
+  background-color: var(--white);
+  border-radius: 10px;
+  border: 1px solid var(--very-light-pink);
+}
 
 /*Shopping Cart*/
   #shoppingcart{
@@ -269,6 +289,7 @@ aside {
     height: 240px;
     border-radius: 20px;
     object-fit: cover;
+    cursor: pointer;
   }
   .product-card .product-info {
     display: flex;
@@ -357,9 +378,25 @@ aside {
   justify-content: center;
 }
 
+footer{
+  display: flex;
+  bottom: 0px;
+  justify-content: center;
+  padding: 20px;
+  margin-top: 40px;
+  height: 100%;
+  border-bottom: 1px solid var(--very-light-pink);
+  background: linear-gradient(to right, #101010, #5B5B5B);
+}
+
+footer .logo{
+  width: 130px;
+}
+
+
 /*Media Query - Responsive*/
 
-@media (max-width: 640px) {
+@media (max-width: 870px) {
     .menu {
         display: block;
     }
@@ -387,7 +424,7 @@ aside {
     }
 }
 
-@media (min-width: 641px){
+@media (min-width: 871px){
     .mobile-menu{
         display: none;
     }
