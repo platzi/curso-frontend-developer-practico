@@ -154,7 +154,7 @@ nav {
   color: var(--hospital-green) !important;
 }
 
-/* ASIDE */
+/* ASIDE  ORDER*/
 
 .product-detail {
   width: 360px;
@@ -232,6 +232,8 @@ nav {
   height: 50px;
 }
 
+/* ASIDE PRODUCT */
+
 /* PRODUCTOS */
 .cards-container {
   display: grid;
@@ -306,6 +308,9 @@ nav {
   .product-card img {
     width: 140px;
     height: 140px;
+  }
+  .product-detail {
+    width: 100%;
   }
 }
 @media (min-width: 641px) {
