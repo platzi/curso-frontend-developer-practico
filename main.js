@@ -26,10 +26,13 @@ productDetailContainer.classList.remove('inactive');
 }
 
 function toggleDesktopMenu(){
+    const isProductDetailClosed = productDetailContainer.classList.contains('inactive');
     const isItemsOnCartClosed = itemsOnCart.classList.contains('inactive');
 
     if(!isItemsOnCartClosed){
         itemsOnCart.classList.add('inactive');
+    } else if(!isProductDetailClosed){
+        productDetailContainer.classList.add('inactive');
     }
 desktopMenu.classList.toggle('inactive');
 
