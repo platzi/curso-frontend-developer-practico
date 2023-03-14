@@ -9,12 +9,10 @@ const menuMovil = document.querySelector('.mobile-menu');
 const botonCarrito = document.querySelector('.navbar-shopping-cart');
 const menuCarrito = document.querySelector('.product-detail');
 
-const botonCloseAside = document.querySelector('#close-aside-producto');
-const asideProducto = document.querySelector('.aside-producto');
-
 navbarEmail.addEventListener('click', toggleDesktopMenu);
 botonMenuMovil.addEventListener('click', toggleMobileMenu);
 botonCarrito.addEventListener('click', toggleCarrito);
+
 
 function toggleDesktopMenu(){
   // si el menuCarrito esta abierto, lo cierro
@@ -22,7 +20,7 @@ function toggleDesktopMenu(){
     toggleCarrito();
   }
   if (!asideProducto.classList.contains('inactive')){
-    toggleAsideProducto();
+    closeProductDetailAside();
   }
   desktopMenu.classList.toggle('inactive');
 }
@@ -33,7 +31,7 @@ function toggleMobileMenu(){
     toggleCarrito();
   }
   if (!asideProducto.classList.contains('inactive')){
-    toggleAsideProducto();
+    closeProductDetailAside();
   }
   menuMovil.classList.toggle('inactive');
 }
@@ -48,39 +46,40 @@ function toggleCarrito(){
     toggleDesktopMenu();
   }
   if (!asideProducto.classList.contains('inactive')){
-    toggleAsideProducto();
+    closeProductDetailAside();
   }
   menuCarrito.classList.toggle('inactive');
 }
 
-function toggleAsideProducto(){
-  if(!menuCarrito.classList.contains('inactive')){
-    toggleCarrito();
-  }
-  if(!desktopMenu.classList.contains('inactive')){
-    toggleDesktopMenu();
-  }
-  asideProducto.classList.toggle('inactive');
+function openProductDetailAside(){
+  asideProducto.classList.remove('inactive');
+}
+
+function closeProductDetailAside(){
+  asideProducto.classList.add('inactive');
 }
 
 const productList = [];
 
 productList.push({
   name: 'Guitar',
-  price: 250,
-  image: 'https://images.pexels.com/photos/276517/pexels-photo-276517.jpeg?auto=compress&cs=tinysrgb&dpr=2&h=650&w=940'
+  price: 120,
+  image: 'https://images.pexels.com/photos/276517/pexels-photo-276517.jpeg?auto=compress&cs=tinysrgb&dpr=2&h=650&w=940',
+  description: 'This guitar is a sophisticated instrument with a unique design. It is made of high quality materials and has a great sound. It is perfect for beginners and professionals alike.'
 });
 
 productList.push({
   name: 'Guitar',
-  price: 250,
-  image: 'https://i.ibb.co/9wGxjc2/pexels-photo-92069.jpg'
+  price: 140,
+  image: 'https://i.ibb.co/9wGxjc2/pexels-photo-92069.jpg',
+  description: 'This guitar is a sophisticated instrument with a unique design. It is made of high quality materials and has a great sound. It is perfect for beginners and professionals alike.'
 });
 
 productList.push({
   name: 'Guitar',
-  price: 250,
-  image: 'https://i.ibb.co/9wGxjc2/pexels-photo-92069.jpg'
+  price: 160,
+  image: 'https://i.ibb.co/9wGxjc2/pexels-photo-92069.jpg',
+  description: 'This guitar is a sophisticated instrument with a unique design. It is made of high quality materials and has a great sound. It is perfect for beginners and professionals alike.'
 });
 
 const productContainer = document.querySelector('.cards-container');
@@ -124,8 +123,58 @@ function renderProducts(arr){
     productFigure.appendChild(productButton);
   
     productImage.addEventListener('click', function(){
-      toggleAsideProducto();
+      // código para mostrar la información del producto
+      showProductInfo(product);
     });
+    
+    function showProductInfo(product){
+      // código para mostrar la información del producto
+      const aside= document.querySelector('.aside-producto');
+
+      //borro todos los hijos del aside
+      while (aside.firstChild) {
+        aside.removeChild(aside.firstChild);
+      }
+      
+      const divBotonClose = document.createElement('div');
+      divBotonClose.classList.add('aside-producto-close');
+      divBotonClose.addEventListener('click', closeProductDetailAside);
+      
+    
+      const asideClose = document.createElement('img');
+      asideClose.src='./icons/icon_close.png';
+      asideClose.id='close-aside-producto';
+    
+      const asideImage = document.createElement('img');
+      asideImage.src=product.image;
+    
+      const asideProductInfo = document.createElement('div');
+      asideProductInfo.classList.add('aside-product-info');
+    
+      const asideProductPrice = document.createElement('p');
+      asideProductPrice.innerHTML=product.price + '€';
+    
+      const asideProductName = document.createElement('p');
+      asideProductName.innerHTML=product.name;
+    
+      const asideAddButton = document.createElement('button');
+      asideAddButton.classList.add('primary-button', 'add-to-cart-button');
+      asideAddButton.innerHTML='Add to cart';
+    
+      const asideAddButtonImg = document.createElement('img');
+      asideAddButtonImg.src='./icons/bt_add_to_cart.svg';
+      
+      aside.appendChild(divBotonClose);
+      divBotonClose.appendChild(asideClose);
+      aside.appendChild(asideImage);
+      aside.appendChild(asideProductInfo);
+      asideProductInfo.appendChild(asideProductPrice);
+      asideProductInfo.appendChild(asideProductName);
+      asideProductInfo.appendChild(asideAddButton);
+      asideAddButton.appendChild(asideAddButtonImg);
+    
+      openProductDetailAside();
+    }
   });
   
 }
