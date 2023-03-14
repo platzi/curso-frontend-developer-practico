@@ -72,7 +72,7 @@ function openProductDetail(){
             shoppingCartContainer.classList.add('inactive');
         }
     else if(!isMenuDesktopClosed){
-            desktopMenu.classList.add('inactive');
+            desktopMenu.classList.add('inactive'); 
         }
     else if(!isMenuMobileClosed){
             mobileMenu.classList.add('inactive');
