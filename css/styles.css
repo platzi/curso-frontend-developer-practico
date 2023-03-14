@@ -8,15 +8,23 @@
     --md: 16px;
     --lg: 18px;
   }
+  *{
+    box-sizing: border-box;
+  }
   body {
     margin: 0;
     font-family: 'Quicksand', sans-serif;
   }
   nav {
+    position: sticky;
+    top: 0;
+    z-index: 100;
+
     display: flex;
     justify-content: space-between;
     padding: 0 24px;
     border-bottom: 1px solid var(--very-light-pink);
+    background-color: var(--white);
   }
   .menu {
     display: none;
@@ -162,18 +170,78 @@
     width: 24px;
     height: 24px
   }
-  .product-detail {
+  .aside-content {
     display: flex;
     flex-direction: column;
-
     background-color: var(--white);
+    box-shadow: 8px 0px 10px 1px #aaaaaa;
     width: 360px;
     height: calc(100vh - 61px);
-    padding: 0 24px 24px 24px;
     box-sizing: border-box;
-    position: absolute;
+    position: fixed;
     right: 0;
+    top: 61px;
+    z-index: 10;
   }
+  .product-detail {
+    padding: 24px;
+  }
+  .my-cart {
+    padding: 0 24px 24px 24px;
+  }
+
+  .product-detail-close {
+    background: var(--white);
+    width: 14px;
+    height: 14px;
+    position: absolute;
+    top: 30px;
+    left: 30px;
+    z-index: 2;
+    padding: 12px;
+    border-radius: 50%;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    background-color: #858585;
+  }
+  .product-detail-close:hover {
+    cursor: pointer;
+  }
+  .product-detail > img:nth-child(2) {
+    width: 100%;
+    max-width: 320px;
+    height: auto;
+    aspect-ratio: 1/1;
+    object-fit: contain;
+    background-color: #f7f7f7;
+    border-radius: 8px 8px 20px 20px;
+    margin: 0 auto;
+  }
+  .product-info {
+    margin: 24px 24px 0 24px;
+  }
+
+  .product-info p:nth-child(1) {
+    font-weight: bold;
+    font-size: var(--md);
+    margin-top: 0;
+    margin-bottom: 4px;
+  }
+  .product-info p:nth-child(2) {
+    color: var(--very-light-pink);
+    font-size: var(--md);
+    margin-top: 0;
+    margin-bottom: 36px;
+  }
+  .product-info p:nth-child(3) {
+    color: var(--very-light-pink);
+    font-size: var(--sm);
+    margin-top: 0;
+    margin-bottom: 36px;
+  }
+
+
   .title-container {
     display: flex;
   }
@@ -243,6 +311,8 @@
     font-size: var(--md);
     font-weight: bold;
     height: 50px;
+    box-shadow: 0 1px #999;
+
   }
 
   .cards-container {
@@ -250,8 +320,14 @@
     grid-template-columns: repeat(auto-fill, minmax(240px, 1fr));
     gap: 26px;
     place-items: center;
-    width: calc(100% - 48px);
-    margin: 18px 24px;
+    padding: 18px 24px;
+    padding-right: 24px;
+    width: 100%;
+    transition: padding-right 1s ease-out;
+
+  }
+  .cards-container--aside-open {
+    padding-right: 384px;
   }
   .product-card {
     width: 240px;
@@ -264,6 +340,18 @@
     object-fit: contain;
     background-color: #f7f7f7;
   }
+  .add-to-cart-button {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    gap: 4px;
+    margin-top: auto;
+  }
+  .add-to-cart-button:active  {
+    background-color: var(--hospital-green);
+    box-shadow: 0 1px #666;
+    transform: translateY(1px);
+  }
   .product-card img:hover {
     scale: 1.01;
   }
@@ -272,6 +360,13 @@
     justify-content: space-between;
     align-items: center;
     margin-top: 12px;
+  }
+  .product-info-cart{
+    flex-direction: column;
+    align-items: flex-start;
+    margin: 12px 0 0 0;
+    height: 100%;
+    justify-content: flex-start;
   }
   .product-info figure {
     margin: 0;
@@ -298,7 +393,9 @@
   .inactive{
     display: none;
   }
-
+  .no-scroll{
+    overflow: hidden;
+  }
   /*=== Media Quries ====*/
   @media (min-width: 993px) {
     .mobile-menu{
@@ -312,4 +409,25 @@
     .navbar-left ul, .desktop-menu, .navbar-email {
       display: none;
     }
+    .aside-content{
+      display: flex;
+      flex-direction: column;
+      padding: 24px;
+      position: fixed;
+      top: 0;
+      left: 0;
+      right: 0;
+      bottom: 0;
+      z-index: 1000;
+      /* overflow-x: hidden; */
+      /* overflow-y: scroll; */
+      background: var(--white);
+      box-shadow: none;
+      width: 100vw;
+      height: 100vh;
+      box-sizing: border-box;
+    }
+    .inactive {
+      display: none;
+  }
   }
