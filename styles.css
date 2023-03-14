@@ -86,6 +86,7 @@
       display: flex;
       justify-content: center;
       align-items: center;
+      box-shadow: -1px 2px 12px 0px #898787;
     }
 
     /* Desktop-menu derecha*/
@@ -265,6 +266,12 @@
       object-fit: cover;
       cursor:pointer;
     }
+
+    .product-card img:hover {
+      box-shadow: 13px 17px 43px -8px rgba(110,110,110,1);
+      transform: scale(1.05);
+    }
+
     .product-info {
       display: flex;
       justify-content: space-between;
@@ -301,7 +308,7 @@
     top: 61px;
     right: 0;
     background-color: var(--white);
-    border-radius: 8px 0 0 8px;
+    border-radius: 8px 0 0 20px;
   }
   .aside-producto-close {
     background: var(--white);
