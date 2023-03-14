@@ -9,47 +9,42 @@ var cardsContainer = document.querySelector('.cards-container');
 var productDescription = document.querySelector('#productDescription')
 
 menuEmail.addEventListener('click', toggleDesktopmenu);
-function toggleDesktopmenu(){
-    var isMenuEmailClosed = myOrdermenu.classList.contains('inactive')
-
-    if(!isMenuEmailClosed){
-        myOrdermenu.classList.add('inactive')
-    }
-
-    desktopMenu.classList.toggle('inactive')
-};
-
-
 menubtn.addEventListener('click', toggleMobilemenu);
-function toggleMobilemenu(){
-    var isMyOrderMenuClosed = myOrdermenu.classList.contains('inactive')
-
-    if(!isMyOrderMenuClosed){
-        myOrdermenu.classList.add('inactive');
-    }
-
-    mobileMenu.classList.toggle('inactive')
-
-    
-};
-
 menuCarritoIcon.addEventListener('click', togglemyOrdermenu);
-function togglemyOrdermenu(){
-    var isMobileMenuClosed = mobileMenu.classList.contains('inactive');
+productDescriptionCloseIcon.addEventListener('click', toggleProductDescription)
 
-    if(!isMobileMenuClosed){
-        mobileMenu.classList.add('inactive');
-    }
 
-    myOrdermenu.classList.toggle('inactive');
+function toggleProductDescription(){
+    productDescription.classList.toggle('inactive')
+    myOrdermenu.classList.add('inactive')
+    mobileMenu.classList.add('inactive')
+    desktopMenu.classList.add('inactive')
+}
 
-        var isProdcutDescriptionClosed = productDescription.classList.contains('inactive');
-
-    if(!isProdcutDescriptionClosed){
-        productDescription.classList.add('inactive')
-    }
-    
+function toggleDesktopmenu(){
+    desktopMenu.classList.toggle('inactive')
+    myOrdermenu.classList.add('inactive')
+    productDescription.classList.add('inactive')
 };
+
+function toggleMobilemenu(){
+    mobileMenu.classList.toggle('inactive')
+    productDescription.classList.add('inactive')
+    myOrdermenu.classList.add('inactive')
+};
+
+function togglemyOrdermenu(){
+    myOrdermenu.classList.toggle('inactive')
+    productDescription.classList.add('inactive')
+    mobileMenu.classList.add('inactive')
+    desktopMenu.classList.add('inactive')
+
+    var closedProductDescription = productDescription.classList.add('inactive')
+    if(!closedProductDescription){
+        myOrdermenu.classList.remove('inactive')
+    }
+};
+
 
 /*Podemos crear lista de productos usando arrays, mira este ejemplo que aqui estamos haciendo un array, mira estos ejemplos que aqui hemos puesto tres productos usaando el .push. si te fijas en la consola estos productos nos apareceran.*/
 var productList = [];
