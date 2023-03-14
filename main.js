@@ -1,32 +1,36 @@
 const menuEmail = document.querySelector('.navbar-email');
-const desktopMenu = document.querySelector('.desktop-menu');
 const menuHamIcon = document.querySelector('.menu');
-const mobileMenu = document.querySelector('.mobile-menu');
 const menuCarritoIcon = document.querySelector('.navbar-shopping-cart');
-const aside = document.querySelector('.product-detail');
+const productDetailCloseIcon = document.querySelector('.product-detail-close')
+const desktopMenu = document.querySelector('.desktop-menu');
+const mobileMenu = document.querySelector('.mobile-menu');
+const shoppingCartContainer = document.querySelector('#shoppingCartContainer');
+const productDetailContainer = document.querySelector('#productDetail');
 const cardsContainer = document.querySelector('.cards-container');
 
 menuEmail.addEventListener('click', toggleDesktopMenu);
 menuHamIcon.addEventListener('click', toggleMobileMenu);
 menuCarritoIcon .addEventListener('click', toggleCarritoAside);
+productDetailCloseIcon.addEventListener('click', closeProductDetailAside);
 
 function toggleDesktopMenu() {
-    const isAsideClosed = aside.classList.contains('inactive');
+    const isAsideClosed = shoppingCartContainer.classList.contains('inactive');
 
     if (!isAsideClosed){
-        aside.classList.toggle('inactive');
+        shoppingCartContainer.classList.toggle('inactive');
     }
     desktopMenu.classList.toggle('inactive');
 }
 
 function toggleMobileMenu() {
-    const isAsideClosed = aside.classList.contains ('inactive');
+    const isAsideClosed = shoppingCartContainer.classList.contains ('inactive');
 
     if (!isAsideClosed){
-     aside.classList.add('inactive');
+     shoppingCartContainer.classList.add('inactive');
     }
+    closeProductDetailAside(); /* cada vez que se de click al menu cerrar cualquier cosa que este abierta */
 
-    mobileMenu .classList.toggle('inactive');
+    mobileMenu.classList.toggle('inactive');
 }
 
   
@@ -38,8 +42,18 @@ function toggleCarritoAside () {
         mobileMenu.classList.add('inactive');
     }
 
-    aside.classList.toggle('inactive');
+   shoppingCartContainer.classList.toggle('inactive');
 }
+
+function openProductDetailAside() {
+    shoppingCartContainer.classList.add('inactive');/* siempre que tratemos de abrir un nuevo produc le pongamos la clase inactive */
+    productDetailContainer.classList.remove('inactive');/* para que se cierre al darle a la X */
+  }
+  
+  function closeProductDetailAside() {
+    productDetailContainer.classList.add('inactive');
+  }
+  
 
 const productList = [];
 productList.push({
@@ -51,30 +65,19 @@ productList.push({
 productList.push({
     name: 'Pantalla',
     price: 220,
-    image: 'https://pisces.bbystatic.com/image2/BestBuy_US/images/products/6420/6420870_sd.jpg;maxHeight=640;maxWidth=550',
-});
+    image: 'https://images.pexels.com/photos/276517/pexels-photo-276517.jpeg?auto=compress&cs=tinysrgb&dpr=2&h=650&w=940',
+  });
+
 
 productList.push({
     name: 'Computadora',
     price: 620,
-    image: 'https://media.officedepot.com/images/f_auto,q_auto,e_sharpen,h_450/products/7315017/7315017_o01_072722/7315017',
-    
-});
+    image: 'https://images.pexels.com/photos/276517/pexels-photo-276517.jpeg?auto=compress&cs=tinysrgb&dpr=2&h=650&w=940',
+  });
 
-/* <div class="product-card">
-        <img src="https://images.pexels.com/photos/276517/pexels-photo-276517.jpeg?auto=compress&cs=tinysrgb&dpr=2&h=650&w=940" alt="">
-        <div class="product-info">
-          <div>
-            <p>$120,00</p>
-            <p>Bike</p>
-          </div>
-          <figure>
-            <img src="./icons/bt_add_to_cart.svg" alt="">
-          </figure>
-        </div>
-      </div> */
+
     function renderProducts(arr){ /* es lo mismo que for,pero organizdo. arr=array */
-      for (product of productList) {
+      for (product of arr) {
         const productCard =  document.createElement('div');
         productCard.classList.add('product-card');
      
@@ -82,6 +85,7 @@ productList.push({
        /*product = {name, price,image}-> product.image */
        const productImg = document.createElement('img');
        productImg.setAttribute('src', product.image);
+       productImg.addEventListener('click',openProductDetailAside );
  
        const productInfo = document.createElement('div');
        productInfo.classList.add('product-info');
@@ -115,3 +119,5 @@ productList.push({
 
     renderProducts(productList);
 
+
+    
