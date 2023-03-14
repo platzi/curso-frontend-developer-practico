@@ -300,6 +300,7 @@
     position: absolute;
     top: 61px;
     right: 0;
+    background-color: var(--white);
   }
   .aside-producto-close {
     background: var(--white);

@@ -52,6 +52,15 @@ function toggleCarrito(){
 }
 
 function openProductDetailAside(){
+  if(!desktopMenu.classList.contains('inactive')){
+    toggleDesktopMenu();
+  }
+  if(!menuCarrito.classList.contains('inactive')){
+    toggleCarrito();
+  }
+  if(!menuMovil.classList.contains('inactive')){
+    toggleMobileMenu();
+  }
   asideProducto.classList.remove('inactive');
 }
 
@@ -123,7 +132,6 @@ function renderProducts(arr){
     productFigure.appendChild(productButton);
   
     productImage.addEventListener('click', function(){
-      // código para mostrar la información del producto
       showProductInfo(product);
     });
     
@@ -156,6 +164,9 @@ function renderProducts(arr){
     
       const asideProductName = document.createElement('p');
       asideProductName.innerHTML=product.name;
+
+      const asideProductDescription = document.createElement('p');
+      asideProductDescription.innerHTML=product.description;
     
       const asideAddButton = document.createElement('button');
       asideAddButton.classList.add('primary-button', 'add-to-cart-button');
@@ -170,6 +181,7 @@ function renderProducts(arr){
       aside.appendChild(asideProductInfo);
       asideProductInfo.appendChild(asideProductPrice);
       asideProductInfo.appendChild(asideProductName);
+      asideProductInfo.appendChild(asideProductDescription);
       asideProductInfo.appendChild(asideAddButton);
       asideAddButton.appendChild(asideAddButtonImg);
     
