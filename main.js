@@ -6,10 +6,16 @@ const shoppingCart = document.querySelector('.navbar-shopping-cart');
 const ItemsOnCart = document.querySelector('#productsCart');
 const cardsContainer = document.querySelector('.cards-container');
 const productDetailContainer = document.querySelector('#productDetail');
+const productDetailCloseIcon = document.querySelector('.product-detail-close');
 
 menuEmail.addEventListener('click', toggleDesktopMenu);
 burgerMenu.addEventListener('click', toggleMobileMenu);
 shoppingCart.addEventListener('click', toggleShoppingCart);
+productDetailCloseIcon.addEventListener('click', closeProductDetail);
+
+function closeProductDetail() {
+    productDetailContainer.classList.add('inactive');
+}
 
 function openProductDetail(){
 productDetailContainer.classList.remove('inactive');
