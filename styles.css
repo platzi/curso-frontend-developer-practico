@@ -249,7 +249,7 @@ aside {
   height: 50px;
 }
 /*/ Product Detail /*/
-#productDetail-close {
+#productDetail .product-detail-close {
   background: var(--white);
   width: 14px;
   height: 14px;
@@ -269,7 +269,7 @@ aside {
   object-fit: cover;
   border-radius: 0 0 20px 20px;
 }
-.product-info {
+#productDetail .product-info {
   margin: 24px 24px 0 24px;
 }
 #productDetail .product-info p:nth-child(1) {

@@ -5,10 +5,15 @@ const mobileMenu = document.querySelector('.mobile-menu');
 const shoppingCart = document.querySelector('.navbar-shopping-cart');
 const ItemsOnCart = document.querySelector('#productsCart');
 const cardsContainer = document.querySelector('.cards-container');
+const productDetailContainer = document.querySelector('#productDetail');
 
 menuEmail.addEventListener('click', toggleDesktopMenu);
 burgerMenu.addEventListener('click', toggleMobileMenu);
 shoppingCart.addEventListener('click', toggleShoppingCart);
+
+function openProductDetail(){
+productDetailContainer.classList.remove('inactive');
+}
 
 function toggleDesktopMenu(){
     const isItemsOnCartClosed = ItemsOnCart.classList.contains('inactive');
@@ -77,6 +82,7 @@ for (product of productList){
 
     const productImg = document.createElement('img');
     productImg.setAttribute('src', product.image);
+    productImg.addEventListener('click', openProductDetail);
 
     const productInfo = document.createElement('div');
     productInfo.classList.add('product-info');
