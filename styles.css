@@ -263,6 +263,7 @@
       height: 240px;
       border-radius: 20px;
       object-fit: cover;
+      cursor:pointer;
     }
     .product-info {
       display: flex;
@@ -276,6 +277,7 @@
     .product-info figure img {
       width: 35px;
       height: 35px;
+      cursor: pointer;
     }
     .product-price {
       font-weight: bold;
