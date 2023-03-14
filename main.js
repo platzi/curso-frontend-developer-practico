@@ -6,18 +6,21 @@ const desktopMenu = document.querySelector('.desktop-menu');
 const mobileMenu = document.querySelector('.mobile-menu');
 const shoppingCartContainer = document.querySelector('#shoppingCartContainer');
 const cardsContainer = document.querySelector('.cards-container');
+const productDetailContainer = document.querySelector('#productDetail');
+const productDetailClose = document.querySelector('.product-detail-close');
 
 // ----- AÑADIR ESCUCHA DE EVENTOS -----
 navbarEmail.addEventListener('click', toggleDesktopMenu);
 menuHam.addEventListener('click', toggleMobileMenu);
-cartIcon.addEventListener('click', toggleProDetail);
+cartIcon.addEventListener('click', toggleShoppingCart);
+productDetailClose.addEventListener('click', closeProductDetail);
 
 // ----- Cambiar clase correo desktopMeu -----
 function toggleDesktopMenu() {
-  const isProDetailClose = shoppingCartContainer.classList.contains('inactive');
+  const isShoppingCartClose = shoppingCartContainer.classList.contains('inactive');
 
   //Ocultar shoppingCartContainer si este está abierto al abrir el menu hamburguesa
-  if (!isProDetailClose) {
+  if (!isShoppingCartClose) {
     shoppingCartContainer.classList.add('inactive');
   }
 
@@ -26,22 +29,28 @@ function toggleDesktopMenu() {
 
 // ----- Cambiar clase mobileMenu -----
 function toggleMobileMenu() {
-  const isProDetailClose = shoppingCartContainer.classList.contains('inactive');
+  const isShoppingCartClose = shoppingCartContainer.classList.contains('inactive');
+  const isProDetailClose = productDetailContainer.classList.contains('inactive');
 
   //Ocultar shoppingCartContainer si este está abierto al abrir el menu hamburguesa
-  if (!isProDetailClose) {
+  if (!isShoppingCartClose) {
     shoppingCartContainer.classList.add('inactive');
   }
+
+  //Ocultar productDetailContainer si este está abierto al abrir el menu hamburguesa
+  closeProductDetail();
 
   mobileMenu.classList.toggle('inactive');
 }
 
-// ----- Cambiar clase productDetail -----
-function toggleProDetail() {
+// ----- Cambiar clase shoppingCartContainer -----
+function toggleShoppingCart() {
   //Devuelve true si el menu hamburguesa esta cerrado
   const isMobileMenuClose = mobileMenu.classList.contains('inactive');
 
   const isDesktopMenuClose = desktopMenu.classList.contains('inactive');
+
+  const isProductDetailClose = productDetailContainer.classList.contains('inactive');
 
   //Ocultar menu hamburguesa si este está abierto al abrir el shoppingCartContainer
   if (!isMobileMenuClose) { //Si está abierto el menú hamburguesa (no tiene clase inactive)
@@ -51,8 +60,24 @@ function toggleProDetail() {
   if (!isDesktopMenuClose) {
     desktopMenu.classList.add('inactive')
   }
+  //Ocultar productDetail si este está abierto al abrir el shoppingCartContainer
+  if (!isProductDetailClose) {
+    productDetailContainer.classList.add('inactive')
+  }
 
   shoppingCartContainer.classList.toggle('inactive'); //Cambiar clase dependiendio si ya lo tiene o no
+}
+
+// ----- Cambiar clase productDetail -----
+function openProductDetail() {
+  //Cuando se abra el productDetail se cierre el carrito de compras
+  shoppingCartContainer.classList.add('inactive');
+  desktopMenu.classList.add('inactive')
+  productDetailContainer.classList.remove('inactive');
+}
+// ----- Cambiar clase productDetail -----
+function closeProductDetail() {
+  productDetailContainer.classList.add('inactive');
 }
 
 //----- Crear productos -----
@@ -103,6 +128,7 @@ function renderProducts(arr) {
 
     const img = document.createElement('img');
     img.setAttribute('src', product.image);
+    img.addEventListener('click', openProductDetail);
 
     const productInfo = document.createElement('div');
     productInfo.classList.add('product-info');
