@@ -33,9 +33,14 @@ function toggleDeskTopMenu () {
 
 function showMobileMenu () {
   const isShowCartProductsClosed = cartProducts.classList.contains('inactive');
+  const isAsideProductDetailClosed = asideProductDetail.classList.contains('inactive');
 
   if (!isShowCartProductsClosed) {
     cartProducts.classList.add('inactive');
+  }
+
+  if (!isAsideProductDetailClosed) {
+    asideProductDetail.classList.add('inactive');
   }
 
   mobileMenu.classList.toggle('inactive');
@@ -44,6 +49,7 @@ function showMobileMenu () {
 function showCartProducts () {
   const isToggleDeskTopMenuClosed = deskTopMenu.classList.contains('inactive');
   const isMobileMenuClosed = mobileMenu.classList.contains('inactive');
+  const isAsideProductDetailClosed = asideProductDetail.classList.contains('inactive');
 
   if (!isToggleDeskTopMenuClosed) {
     deskTopMenu.classList.add('inactive');
@@ -53,10 +59,29 @@ function showCartProducts () {
     mobileMenu.classList.add('inactive');
   }
 
+  if (!isAsideProductDetailClosed) {
+    asideProductDetail.classList.add('inactive');
+  }
+
   cartProducts.classList.toggle('inactive');
 }
 
 function showAsideProductDetail () {
+  const isCloseCartProducts = cartProducts.classList.contains('inactive');
+  const isDesktopMenuClose = deskTopMenu.classList.contains('inactive');
+  const isMobileMenuClose = mobileMenu.classList.contains('inactive');
+
+  if (!isCloseCartProducts) {
+    cartProducts.classList.add('inactive');
+  }
+
+  if (!isDesktopMenuClose) {
+    deskTopMenu.classList.add('inactive');
+  }
+
+  if (!isMobileMenuClose) {
+    mobileMenu.classList.add('inactive');
+  }
   asideProductDetail.classList.toggle('inactive');
 }
 
@@ -74,20 +99,20 @@ const productList = [];
 productList.push({
   name: 'Bike',
   price: 120,
-  img: 'https://images.pexels.com/photos/276517/pexels-photo-276517.jpeg?auto=compress&cs=tinysrgb&dpr=2&h=650&w=940',
+  img: 'https://images.pexels.com/photos/276517/pexels-photo-276517.jpeg?auto=compress&cs=tinysrgb&dpr=2&h=650&w=940'
 });
 productList.push({
   name: 'Bike',
   price: 120,
-  img: 'https://images.pexels.com/photos/276517/pexels-photo-276517.jpeg?auto=compress&cs=tinysrgb&dpr=2&h=650&w=940',
+  img: 'https://images.pexels.com/photos/276517/pexels-photo-276517.jpeg?auto=compress&cs=tinysrgb&dpr=2&h=650&w=940'
 });
 productList.push({
   name: 'Bike',
   price: 120,
-  img: 'https://images.pexels.com/photos/276517/pexels-photo-276517.jpeg?auto=compress&cs=tinysrgb&dpr=2&h=650&w=940',
+  img: 'https://images.pexels.com/photos/276517/pexels-photo-276517.jpeg?auto=compress&cs=tinysrgb&dpr=2&h=650&w=940'
 });
 
-function renderProducts(arr) {
+function renderProducts (arr) {
   for (const product of arr) {
     const productCart = document.createElement('div');
     productCart.classList.add('product-card');
