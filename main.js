@@ -3,18 +3,18 @@ const desktopMenu = document.querySelector('.desktop-menu');
 const menuHamburguer = document.querySelector('.menu');
 const mobileMenu = document.querySelector('.mobile-menu');
 const shoppingCart = document.querySelector('.navbar-shopping-cart');
-const productDetail = document.querySelector('.product-detail');
+const shoppingCartContainer = document.querySelector('#shoppingCartContainer');
 const productList = [];
 const cardsContainer = document.querySelector('.cards-container')
 
 function toggleDesktopMenu(){
-    const isProductDetailOpen = !productDetail.classList.contains('inactive');
-    if (isProductDetailOpen){
-        productDetail.classList.add('inactive');
+    const isshoppingCartContainerOpen = !shoppingCartContainer.classList.contains('inactive');
+    if (isshoppingCartContainerOpen){
+        shoppingCartContainer.classList.add('inactive');
     }
     desktopMenu.classList.toggle('inactive');
 }
-function toggleProductDetail(){
+function toggleShoppingCartContainer(){
     const isMobileMenuOpen = !mobileMenu.classList.contains('inactive');
     const isDesktopMenuOpen = !desktopMenu.classList.contains('inactive');
     if (isMobileMenuOpen){
@@ -23,12 +23,12 @@ function toggleProductDetail(){
     if (isDesktopMenuOpen){
         desktopMenu.classList.add('inactive');
     }
-    productDetail.classList.toggle('inactive');
+    shoppingCartContainer.classList.toggle('inactive');
 }
 function toggleMobileMenu(){
-    const isProductDetailOpen = !productDetail.classList.contains('inactive');
-    if (isProductDetailOpen){
-        productDetail.classList.add('inactive');
+    const isshoppingCartContainerOpen = !shoppingCartContainer.classList.contains('inactive');
+    if (isshoppingCartContainerOpen){
+        shoppingCartContainer.classList.add('inactive');
     }
     mobileMenu.classList.toggle('inactive');
 }
@@ -69,7 +69,7 @@ function renderProducts(arr){
 }
 
 navEmail.addEventListener('click', toggleDesktopMenu);
-shoppingCart.addEventListener('click', toggleProductDetail);
+shoppingCart.addEventListener('click', toggleShoppingCartContainer);
 menuHamburguer.addEventListener('click', toggleMobileMenu);
 productList.push({
     name: 'Bike',
