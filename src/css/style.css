@@ -146,6 +146,7 @@ aside {
   margin-top: 60px;
   left: 0;
   padding: 24px;
+  width: 100%;
   background-color: var(--white);
 }
 .mobile-menu a {
