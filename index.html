@@ -22,22 +22,22 @@
 
       <ul>
         <li>
-          <a>All</a>
+          <a>Todo</a>
         </li>
         <li>
-          <a>Clothes</a>
+          <a>Ropa</a>
         </li>
         <li>
-          <a>Electronics</a>
+          <a>Tecnología</a>
         </li>
         <li>
-          <a>Furnitures</a>
+          <a>Hogar y muebles</a>
         </li>
         <li>
-          <a>Toys</a>
+          <a>Juegos y juguetes</a>
         </li>
         <li>
-          <a>Others</a>
+          <a>Otros</a>
         </li>
       </ul>
     </div>
@@ -55,15 +55,15 @@
     <div class="desktop-menu inactive">
         <ul>
           <li>
-            <a href="/" class="title">My orders</a>
+            <a href="/" class="title">Mis ordenes</a>
           </li>
     
           <li>
-            <a href="/">My account</a>
+            <a href="/">Mi cuenta</a>
           </li>
     
           <li>
-            <a href="/">Sign out</a>
+            <a href="/">Cerrar sesión</a>
           </li>
         </ul>
     </div>
@@ -71,34 +71,34 @@
     <div class="mobile-menu inactive">
         <ul>
           <li>
-            <a>CATEGORIES</a>
+            <a>CATEGORIAS</a>
           </li>
           <li>
-            <a>All</a>
+            <a>Todo</a>
           </li>
           <li>
-            <a>Clothes</a>
+            <a>Ropa</a>
           </li>
           <li>
-            <a>Electronics</a>
+            <a>Tecnología</a>
           </li>
           <li>
-            <a>Furnitures</a>
+            <a>Hogar y muebles</a>
           </li>
           <li>
-            <a>Toys</a>
+            <a>Juegos y juguetes</a>
           </li>
           <li>
-            <a>Other</a>
+            <a>Otros</a>
           </li>
         </ul>
     
         <ul>
           <li>
-            <a href="/">My orders</a>
+            <a href="/">Mis ordenes</a>
           </li>
           <li>
-            <a href="/">My account</a>
+            <a href="/">Mi cuenta</a>
           </li>
         </ul>
     
@@ -107,7 +107,7 @@
             <a href="/" class="email">platzi@example.com</a>
           </li>
           <li>
-            <a href="/" class="sign-out">Sign out</a>
+            <a href="/" class="sign-out">Cerrar sesión</a>
           </li>
         </ul>
       </div>
@@ -116,7 +116,7 @@
   <aside id="shoppingCartContainer" class="inactive">
     <div class="title-container">
       <img src="./icons/flechita.svg" alt="arrow">
-      <p class="title">My order</p>
+      <p class="title">Mi orden</p>
     </div>
 
     <div class="my-order-content">
@@ -155,7 +155,7 @@
       </div>
 
       <button class="primary-button">
-        Checkout
+        Ir a pagar
       </button>
     </div>
   </div>
@@ -164,14 +164,14 @@
     <div class="product-detail-close">
       <img src="./icons/icon_close.png" alt="close">
     </div>
-    <img src="https://images.pexels.com/photos/276517/pexels-photo-276517.jpeg?auto=compress&cs=tinysrgb&dpr=2&h=650&w=940" alt="bike">
+    <img src="https://images.pexels.com/photos/276517/pexels-photo-276517.jpeg?auto=compress&cs=tinysrgb&dpr=2&h=650&w=940" alt="bike" id="product-detail-image">
     <div class="product-info">
-      <p>$35,00</p>
-      <p>Bike</p>
-      <p>With its practical position, this bike also fulfills a decorative function, add your hall or workspace.</p>
+      <p id="product-detail-price">$35,00</p>
+      <p id="product-detail-name">Bike</p>
+      <p id="product-detail-description">With its practical position, this bike also fulfills a decorative function, add your hall or workspace.</p>
       <button class="primary-button add-to-cart-button">
         <img src="./icons/bt_add_to_cart.svg" alt="add to cart">
-        Add to cart
+        Añadir a carrito
       </button>
     </div>
   </aside>
@@ -181,6 +181,8 @@
     </div>
   </section>
 
+  <script src="./products.js"></script>
   <script src="./main.js"></script>
+ 
 </body>
 </html>
