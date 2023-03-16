@@ -10,6 +10,7 @@ const productDetailContainer = document.querySelector('#productDetail');
 const productDetailCloseIcon = document.querySelector('.product-detail-close');
 const tipoProducto = ["clothes", "electronics", "futernitures", "toys", "others"]
 
+
 function toggleDesktopMenu(){
     const isshoppingCartContainerOpen = !shoppingCartContainer.classList.contains('inactive');
     if (isshoppingCartContainerOpen){
@@ -93,6 +94,57 @@ function openProductDetailAside(){
 function closeProductDetailAside(){
     productDetailContainer.classList.add('inactive');
 }
+
+/* function renderProductDetail(){
+    const productDetail = document.createElement('aside');
+    productDetail.setAttribute('id', 'productDetail');
+    productDetail.classList.add('inactive');
+
+    const productDetailClose = document.createElement('div');
+    productDetailClose.classList.add('product-detail-close');
+
+    productDetail.appendChild(productDetailClose);
+
+    const closeDetailImage = document.createElement('img');
+    closeDetailImage.setAttribute('src', './icons/icon_close.png');
+    closeDetailImage.setAttribute('alt', 'close');
+
+    productDetailClose.appendChild(closeDetailImage);
+
+    const productDetailImg = document.createElement('img');
+    productDetailImg.setAttribute('src', "https://images.pexels.com/photos/276517/pexels-photo-276517.jpeg?auto=compress&cs=tinysrgb&dpr=2&h=650&w=940");
+    productDetailImg.setAttribute('alt', 'bike');
+    const productDetailDiv = document.createElement('div');
+    productDetailDiv.classList.add("product-info");
+
+    productDetail.appendChild(productDetailDiv);
+    productDetail.appendChild(productDetailImg);
+
+    const productDetailPrice = document.createElement('p');
+    productDetailPrice.innerText = '$' + 35; 
+    const productDetailItem = document.createElement('p');
+    productDetailItem.innerText = 'Bike';
+    const productDetailDescription = document.createElement('p');
+    productDetailDescription.innerText = 'With its practical position, this bike also fulfills a decorative function, add your hall or workspace.';
+
+    productDetailDiv.appendChild(productDetailPrice);
+    productDetailDiv.appendChild(productDetailItem);
+    productDetailDiv.appendChild(productDetailDescription);
+
+    const productDetailBuy = document.createElement('button');
+    productDetailBuy.classList.add('primary-button');
+    productDetailBuy.classList.add('add-to-cart-button');
+
+    productDetailDiv.appendChild(productDetailBuy);
+
+    const productDetailBuyImg = document.createElement('img');
+    productDetailBuyImg.setAttribute('src', "./icons/bt_add_to_cart.svg");
+    productDetailBuyImg.setAttribute('alt', "add to cart");
+    productDetailBuy.innerText = 'Add to cart';
+
+    productDetailBuy.appendChild(productDetailBuyImg);
+
+} */
 
 navEmail.addEventListener('click', toggleDesktopMenu);
 shoppingCart.addEventListener('click', toggleShoppingCartContainer);
@@ -302,5 +354,6 @@ productList.push({
 
 
 renderProducts(productList);
+
 
 
