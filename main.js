@@ -32,6 +32,8 @@ function toggleMobileMenu(){
         shoppingCardContainer.classList.add('inactive'); 
      }
 
+    closeProductDetailAside();
+    
     mobileMenu.classList.toggle('inactive');
 }
 
@@ -59,10 +61,12 @@ const isProductDetailClosed = productDetailContainer.classList.contains('inactiv
 
 function openProductDetailAside()
 {
-    productDetailContainer.classList.remove('inactive');
+   shoppingCardContainer.classList.add('inactive');
+   productDetailContainer.classList.remove('inactive');
 }
 
 function closeProductDetailAside(){
+   
    productDetailContainer.classList.add('inactive');
 }
 
