@@ -62,148 +62,82 @@ productList.push({
     image: 'https://m.media-amazon.com/images/I/41PtgQtlXtS._SL500_.jpg',
 });
 productList.push({
-    name: 'Mouse Gamer',
-    price: 150,
-    descr: 'El mejor mouse utilizado en el mercado',
-    image: 'https://assets.reedpopcdn.com/g502x_f9QuuM8.jpeg/BROK/thumbnail/1200x1200/quality/100/g502x_f9QuuM8.jpeg',
+    name: 'Chucky',
+    price: 200,
+    descr: 'Es uno de los juguetes más utilizados para películas de terror',
+    image: 'https://juguetesdecoleccion.com/wp-content/uploads/munecos-de-chucky.jpg',
 });
 productList.push({
-    name: 'Mouse Gamer',
-    price: 150,
-    descr: 'El mejor mouse utilizado en el mercado',
-    image: 'https://assets.reedpopcdn.com/g502x_f9QuuM8.jpeg/BROK/thumbnail/1200x1200/quality/100/g502x_f9QuuM8.jpeg',
+    name: 'Ukelele',
+    price: 100,
+    descr: 'Instrumento utilizado para canciones suaves',
+    image: 'https://upload.wikimedia.org/wikipedia/commons/thumb/9/9a/Guitare_oukelele_et_charango.jpg/275px-Guitare_oukelele_et_charango.jpg',
 });
 productList.push({
-    name: 'Mouse Gamer',
-    price: 150,
-    descr: 'El mejor mouse utilizado en el mercado',
-    image: 'https://assets.reedpopcdn.com/g502x_f9QuuM8.jpeg/BROK/thumbnail/1200x1200/quality/100/g502x_f9QuuM8.jpeg',
+    name: 'Mochila Adidas Branca e Preta',
+    price: 40,
+    descr: 'La mejor mochila para que pongas tus cuadernos y tus pertenencias',
+    image: 'https://photos.enjoei.com.br/mochila-adidas-branca-e-preta/1200xN/czM6Ly9waG90b3MuZW5qb2VpLmNvbS5ici9wcm9kdWN0cy83Mjg2NTc5LzRhMWVlOGViMDcwYjdlOTc3NTQyOGU3Y2EwZWRmM2Y5LmpwZw',
 });
 productList.push({
-    name: 'Mouse Gamer',
-    price: 150,
-    descr: 'El mejor mouse utilizado en el mercado',
-    image: 'https://assets.reedpopcdn.com/g502x_f9QuuM8.jpeg/BROK/thumbnail/1200x1200/quality/100/g502x_f9QuuM8.jpeg',
+    name: 'Refrigeradora Indurama',
+    price: 600,
+    descr: 'Una de las mejores refrigeradoras para congelar todos tus productos',
+    image: 'http://digitalstore.com.ec/web/image/product.template/1945/image_1024?unique=8b0bb56',
 });
 productList.push({
-    name: 'Mouse Gamer',
-    price: 150,
-    descr: 'El mejor mouse utilizado en el mercado',
-    image: 'https://assets.reedpopcdn.com/g502x_f9QuuM8.jpeg/BROK/thumbnail/1200x1200/quality/100/g502x_f9QuuM8.jpeg',
+    name: 'Carro Marvel de HotWheels',
+    price: 25,
+    descr: 'El Mejor carro veloz para hacer uso de sus funciones',
+    image: 'https://novomundo.vteximg.com.br/arquivos/ids/908494-1000-1000/PRODUTO.jpg?v=636035953224470000',
 });
 productList.push({
-    name: 'Mouse Gamer',
-    price: 150,
-    descr: 'El mejor mouse utilizado en el mercado',
-    image: 'https://assets.reedpopcdn.com/g502x_f9QuuM8.jpeg/BROK/thumbnail/1200x1200/quality/100/g502x_f9QuuM8.jpeg',
+    name: 'Laptop I7 Gaming',
+    price: 350,
+    descr: 'Excelente Laptop para hacer uso de sus trabajos universitarios y ser un jugador profesional gaming',
+    image: 'https://cdn.cs.1worldsync.com/syndication/feeds/hp/inline-content/KV/B/B/8/6/D/BB86DF4F24BC2C798758311848D7CEB36CBCF42E_gallery.jpg',
 });
 productList.push({
-    name: 'Mouse Gamer',
-    price: 150,
-    descr: 'El mejor mouse utilizado en el mercado',
-    image: 'https://assets.reedpopcdn.com/g502x_f9QuuM8.jpeg/BROK/thumbnail/1200x1200/quality/100/g502x_f9QuuM8.jpeg',
+    name: 'Arduino',
+    price: 70,
+    descr: 'Excelente estado y uso para el funcionamiento electrónico',
+    image: 'https://www.fundacionaquae.org/wp-content/uploads/2017/02/arduino.jpg',
 });
 productList.push({
-    name: 'Mouse Gamer',
-    price: 150,
-    descr: 'El mejor mouse utilizado en el mercado',
-    image: 'https://assets.reedpopcdn.com/g502x_f9QuuM8.jpeg/BROK/thumbnail/1200x1200/quality/100/g502x_f9QuuM8.jpeg',
+    name: 'Bateria PDP',
+    price: 200,
+    descr: 'Instrumento realizado con los metales de mejor excelencia',
+    image: 'https://www.importmusic.ec/wp-content/uploads/2020/09/PDMA2215BK8.jpg',
 });
 productList.push({
-    name: 'Mouse Gamer',
-    price: 150,
-    descr: 'El mejor mouse utilizado en el mercado',
-    image: 'https://assets.reedpopcdn.com/g502x_f9QuuM8.jpeg/BROK/thumbnail/1200x1200/quality/100/g502x_f9QuuM8.jpeg',
+    name: 'Gorra Nike Pipa',
+    price: 60,
+    descr: 'Unas de las gorras mayor utilizadas por la industria de influencers',
+    image: 'http://d2r9epyceweg5n.cloudfront.net/stores/001/856/941/products/image-41-d4028867238320ec0016612267438839-640-0.jpg',
 });
 productList.push({
-    name: 'Mouse Gamer',
-    price: 150,
-    descr: 'El mejor mouse utilizado en el mercado',
-    image: 'https://assets.reedpopcdn.com/g502x_f9QuuM8.jpeg/BROK/thumbnail/1200x1200/quality/100/g502x_f9QuuM8.jpeg',
+    name: 'Televisor 50°',
+    price: 850,
+    descr: 'Excelente Telvisor para poder ver las mejores películas',
+    image: 'https://cdn.computerhoy.com/sites/navi.axelspringer.es/public/media/image/2022/05/nokia-smart-tv-5000a-50-analisis-opinion-2711303.jpg?tf=3840x',
 });
 productList.push({
-    name: 'Mouse Gamer',
-    price: 150,
-    descr: 'El mejor mouse utilizado en el mercado',
-    image: 'https://assets.reedpopcdn.com/g502x_f9QuuM8.jpeg/BROK/thumbnail/1200x1200/quality/100/g502x_f9QuuM8.jpeg',
+    name: 'Impresora Epson L4260',
+    price: 400,
+    descr: 'Unas de las mejores impresoras para el uso de escaner y copias nítidas',
+    image: 'https://digitalserver.com.ec/wp-content/uploads/2023/02/581202206091147540238.jpg',
 });
 productList.push({
-    name: 'Mouse Gamer',
-    price: 150,
-    descr: 'El mejor mouse utilizado en el mercado',
-    image: 'https://assets.reedpopcdn.com/g502x_f9QuuM8.jpeg/BROK/thumbnail/1200x1200/quality/100/g502x_f9QuuM8.jpeg',
+    name: 'Barbie Nueva Generacion',
+    price: 10,
+    descr: 'Juguete de niña que ha sido la inspiracion para nuevas generaciones',
+    image: 'https://media.vogue.mx/photos/619800d355e89a26388f0bb0/16:9/w_1280,c_limit/barbie-ejecutiva.jpg',
 });
 productList.push({
-    name: 'Mouse Gamer',
-    price: 150,
-    descr: 'El mejor mouse utilizado en el mercado',
-    image: 'https://assets.reedpopcdn.com/g502x_f9QuuM8.jpeg/BROK/thumbnail/1200x1200/quality/100/g502x_f9QuuM8.jpeg',
-});
-productList.push({
-    name: 'Mouse Gamer',
-    price: 150,
-    descr: 'El mejor mouse utilizado en el mercado',
-    image: 'https://assets.reedpopcdn.com/g502x_f9QuuM8.jpeg/BROK/thumbnail/1200x1200/quality/100/g502x_f9QuuM8.jpeg',
-});
-productList.push({
-    name: 'Mouse Gamer',
-    price: 150,
-    descr: 'El mejor mouse utilizado en el mercado',
-    image: 'https://assets.reedpopcdn.com/g502x_f9QuuM8.jpeg/BROK/thumbnail/1200x1200/quality/100/g502x_f9QuuM8.jpeg',
-});
-productList.push({
-    name: 'Mouse Gamer',
-    price: 150,
-    descr: 'El mejor mouse utilizado en el mercado',
-    image: 'https://assets.reedpopcdn.com/g502x_f9QuuM8.jpeg/BROK/thumbnail/1200x1200/quality/100/g502x_f9QuuM8.jpeg',
-});
-productList.push({
-    name: 'Mouse Gamer',
-    price: 150,
-    descr: 'El mejor mouse utilizado en el mercado',
-    image: 'https://assets.reedpopcdn.com/g502x_f9QuuM8.jpeg/BROK/thumbnail/1200x1200/quality/100/g502x_f9QuuM8.jpeg',
-});
-productList.push({
-    name: 'Mouse Gamer',
-    price: 150,
-    descr: 'El mejor mouse utilizado en el mercado',
-    image: 'https://assets.reedpopcdn.com/g502x_f9QuuM8.jpeg/BROK/thumbnail/1200x1200/quality/100/g502x_f9QuuM8.jpeg',
-});
-productList.push({
-    name: 'Mouse Gamer',
-    price: 150,
-    descr: 'El mejor mouse utilizado en el mercado',
-    image: 'https://assets.reedpopcdn.com/g502x_f9QuuM8.jpeg/BROK/thumbnail/1200x1200/quality/100/g502x_f9QuuM8.jpeg',
-});
-productList.push({
-    name: 'Mouse Gamer',
-    price: 150,
-    descr: 'El mejor mouse utilizado en el mercado',
-    image: 'https://assets.reedpopcdn.com/g502x_f9QuuM8.jpeg/BROK/thumbnail/1200x1200/quality/100/g502x_f9QuuM8.jpeg',
-});
-productList.push({
-    name: 'Mouse Gamer',
-    price: 150,
-    descr: 'El mejor mouse utilizado en el mercado',
-    image: 'https://assets.reedpopcdn.com/g502x_f9QuuM8.jpeg/BROK/thumbnail/1200x1200/quality/100/g502x_f9QuuM8.jpeg',
-});
-productList.push({
-    name: 'Mouse Gamer',
-    price: 150,
-    descr: 'El mejor mouse utilizado en el mercado',
-    image: 'https://assets.reedpopcdn.com/g502x_f9QuuM8.jpeg/BROK/thumbnail/1200x1200/quality/100/g502x_f9QuuM8.jpeg',
-});
-productList.push({
-    name: 'Mouse Gamer',
-    price: 150,
-    descr: 'El mejor mouse utilizado en el mercado',
-    image: 'https://assets.reedpopcdn.com/g502x_f9QuuM8.jpeg/BROK/thumbnail/1200x1200/quality/100/g502x_f9QuuM8.jpeg',
-});
-productList.push({
-    name: 'Mouse Gamer',
-    price: 150,
-    descr: 'El mejor mouse utilizado en el mercado',
-    image: 'https://assets.reedpopcdn.com/g502x_f9QuuM8.jpeg/BROK/thumbnail/1200x1200/quality/100/g502x_f9QuuM8.jpeg',
+    name: 'Minoxidil',
+    price: 50,
+    descr: 'El mejor tratamiento de crecimiento de vellos y cabello',
+    image: 'https://globalmedicalgroupint.com/userfiles/2022/08/MINOXIDIL-FORTE-SOLUCION-TOPICA-5-FRASCO-X-60-ML-TQ.jpg',
 });
 
 //Eventos de Click
