@@ -3,28 +3,31 @@ const desktopMenu = document.querySelector(".desktop-menu")
 const menuHamIcon = document.querySelector(".menu")
 const mobileMenu = document.querySelector(".mobile-menu")
 const menuCarIcon = document.querySelector(".navbar-shopping-cart")
-const aside = document.querySelector(".product-detail")
+const productDetailClose = document.querySelector(".product-detail-close")
+const shoppingCarContainer = document.querySelector("#shoppingCarContainer")
 const cardsContainer = document.querySelector(".cards-container")
+const productDetailContainer = document.querySelector("#productDetail")
 
 menuEmail.addEventListener("click", toggleDesktopMenu);
 menuHamIcon.addEventListener("click", toggleMobileMenu);
 menuCarIcon.addEventListener("click", toggleCarMenu);
+productDetailClose.addEventListener("click", closeProductDetailAsaid)
 
 function toggleDesktopMenu() {
-    const isAsideClosed = aside.classList.contains("inactive")
+    const isAsideClosed = shoppingCarContainer.classList.contains("inactive")
 
     if (!isAsideClosed) {
-        aside.classList.add("inactive");
+        shoppingCarContainer.classList.add("inactive");
     }
 
     desktopMenu.classList.toggle("inactive")
 }
 
 function toggleMobileMenu() {
-    const isAsideClosed = aside.classList.contains("inactive")
+    const isAsideClosed = shoppingCarContainer.classList.contains("inactive")
 
     if (!isAsideClosed) {
-        aside.classList.add("inactive");
+        shoppingCarContainer.classList.add("inactive");
     }
 
 
@@ -38,9 +41,17 @@ function toggleCarMenu() {
         mobileMenu.classList.add("inactive");
     }
     
-    aside.classList.toggle("inactive")
+    shoppingCarContainer.classList.toggle("inactive")
 
 
+}
+
+function openProductDetailAsaid() {
+    productDetailContainer.classList.remove("inactive")
+}
+
+function closeProductDetailAsaid() {
+    productDetailContainer.classList.add("inactive")
 }
 
 const productList = [];
@@ -82,6 +93,7 @@ function renderProducts(arr) {
      
         const productImg = document.createElement("img")
         productImg.setAttribute("src", product.imagen)
+        productImg.addEventListener("click", openProductDetailAsaid)
      
         const productInfo = document.createElement("div");
         productInfo.classList.add("product-info")
