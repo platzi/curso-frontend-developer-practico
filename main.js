@@ -10,12 +10,11 @@ const productDetailCloseIcon = document.querySelector('.product-detail-close');
 const cardsContainer= document.querySelector('.cards-container');
 const titleMyOrderMenu = document.querySelector('#arrow-image');
 
-
+homeMenu.addEventListener('click',goHomePage)
 menuEmail.addEventListener('click', toggleDesktopMenu);
 burguerMenu.addEventListener('click', toggleMobileMenu);
 cartMenu.addEventListener('click', toggleCartAside);
 productDetailCloseIcon.addEventListener('click',closeProductDetailMain)
-homeMenu.addEventListener('click',goHomePage)
 titleMyOrderMenu.addEventListener('click',toggleCartAside)
 
 
