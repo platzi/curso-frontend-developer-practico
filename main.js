@@ -11,8 +11,22 @@ const shoppingCartContent = document.querySelector('#mainShoppingCartDiv');
 const cartTitleContainer = document.querySelector(".titileContainer");
 const cartNumber = document.querySelector('#count');
 const totalCart = document.querySelector('#shopping-cart-total');
+const addToCartButton = document.querySelector('.add-to-cart-button');
+const all = document.querySelector('#all');
+const clothes = document.querySelector('#clothes');
+const electronics = document.querySelector('#electronics');
+const futernitures = document.querySelector('#futernitures');
+const toys = document.querySelector('#toys');
+const others = document.querySelector('#others');
+const all2 = document.querySelector('#all2');
+const clothes2 = document.querySelector('#clothes2');
+const electronics2 = document.querySelector('#electronics2');
+const futernitures2 = document.querySelector('#futernitures2');
+const toys2 = document.querySelector('#toys2');
+const others2 = document.querySelector('#others2');
 let selectedItemValues = {};
 let cartObjects = [];
+let productsShown = [];
 
 function toggleDesktopMenu(){
     const isshoppingCartContainerOpen = !shoppingCartContainer.classList.contains('inactive');
@@ -52,22 +66,22 @@ function toggleMobileMenu(){
     };
     mobileMenu.classList.toggle('inactive');
 }
-function renderProducts(){
-    productList.forEach((product) =>{
+function renderProducts(list){
+    list.forEach((product) =>{
         const productCard = document.createElement('div');
         productCard.classList.add('product-card');
     
         const productImg = document.createElement('img');
         productImg.setAttribute('src', product.image);
-        productImg.addEventListener('mouseover', () =>{
-            selectedItemValues=({
+        productImg.addEventListener('click', () =>{
+            selectedItemValues = ({
                 name: product.name,
                 image: product.image,
                 description: product.description,
                 price: product.price,
                 id: product.id,
             });
-        productImg.addEventListener('click', openProductDetailAside);
+            openProductDetailAside();
         });
     
         const productInfo = document.createElement('div');
@@ -126,6 +140,7 @@ function openProductDetailAside(){
     document.getElementById('product-detail-name').innerHTML = selectedItemValues.name;
     document.getElementById('product-detail-description').innerHTML = selectedItemValues.description;
     document.getElementById('product-detail-price').innerHTML = new Intl.NumberFormat('es-AR', { style: 'currency', currency: 'ARS' }).format(selectedItemValues.price);
+
     productDetailContainer.classList.remove('inactive');
 };
 function closeProductDetailAside(){
@@ -173,12 +188,80 @@ function deleteElement(a){
     cartObjects.splice(a, 1);
     addCartItem();
 }
+function showCategoriesElements(arrayValue){
+    cardsContainer.innerHTML = "";
+    productsShown = [];
+    productList.forEach((product) =>{
+        if (product.type == arrayValue){
+            productsShown.push({
+                name: product.name,
+                image: product.image,
+                description: product.description,
+                price: product.price,
+                id: product.id,
+            });
+        };
+    });
+    renderProducts(productsShown);
+};
+
 
 navEmail.addEventListener('click', toggleDesktopMenu);
 shoppingCart.addEventListener('click', toggleShoppingCartContainer);
 menuHamburguer.addEventListener('click', toggleMobileMenu);
 productDetailCloseIcon.addEventListener('click', closeProductDetailAside);
-
+addToCartButton.addEventListener('click', () =>{
+    productsShown.push({
+        name: selectedItemValues.name,
+        image: selectedItemValues.image,
+        description: selectedItemValues.description,
+        price: selectedItemValues.price,
+        id: selectedItemValues.id,
+    });
+    addCartItem();
+});
+clothes.addEventListener('click',() =>{
+    showCategoriesElements('clothes');
+});
+electronics.addEventListener('click',() =>{
+    showCategoriesElements('electronics');
+});
+futernitures.addEventListener('click',() =>{
+    showCategoriesElements('futernitures');
+});
+toys.addEventListener('click',() =>{
+    showCategoriesElements('toys');
+});
+others.addEventListener('click',() =>{
+    showCategoriesElements('others');
+});
+all.addEventListener('click',() =>{
+    renderProducts(productList);;
+});
+clothes2.addEventListener('click',() =>{
+    showCategoriesElements('clothes');
+    toggleMobileMenu();
+});
+electronics2.addEventListener('click',() =>{
+    showCategoriesElements('electronics');
+    toggleMobileMenu();
+});
+futernitures2.addEventListener('click',() =>{
+    showCategoriesElements('futernitures');
+    toggleMobileMenu();
+});
+toys2.addEventListener('click',() =>{
+    showCategoriesElements('toys');
+    toggleMobileMenu();
+});
+others2.addEventListener('click',() =>{
+    showCategoriesElements('others');
+    toggleMobileMenu();
+});
+all2.addEventListener('click',() =>{
+    renderProducts(productList);;
+    toggleMobileMenu();
+});
 renderProducts(productList);
 addCartItem();
 

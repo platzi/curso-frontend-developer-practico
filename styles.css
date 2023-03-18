@@ -18,6 +18,9 @@
     }
 
     /*Navbar*/
+    #cat{
+      cursor: default;
+    }
     nav {
       display: flex;
       justify-content: space-between;
@@ -337,6 +340,9 @@
         display: flex;
         align-items: center;
         justify-content: center;
+      }
+      #productDetail{
+        top: 20px;
       }
     @media (max-width: 640px) {
       .menu {

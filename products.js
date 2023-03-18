@@ -5,15 +5,15 @@ const productList = [
     price: 32990,
     image: './images/Chaleco.png',
     type: tipoProducto[0],
-    description: "Chaleco de Nylon matelaseado, con cuello alto. Acceso frontal con cierre plástico. Dos bolsillos ojal con cierre invisible. Sisa elástica. Bolsillos internos.",
+    description: "Chaleco de Nylon matelaseado, con cuello alto. Acceso frontal con cierre plástico.",
     id: 0,
 },
 {
-    name: 'Campera Macowens Deportiva Clásica Azul Hombre',
+    name: 'Campera Macowens Deportiva Azul Hombre',
     price: 19999,
     image: './images/Campera.png',
     type: tipoProducto[0],
-    description: "Campera tipo deportiva con capucha. De color azul marino. Cuenta con cierre central y bolsillos waterproof. Un bolsillo en el pecho y dos en los laterales. Ideal para un look casual.",
+    description: "Campera tipo deportiva con capucha. De color azul marino. Cuenta con cierre central y bolsillos waterproof.",
     id: 1,
 },
 {
@@ -21,7 +21,7 @@ const productList = [
     price: 8999,
     image: './images/Remera.png',
     type: tipoProducto[0],
-    description: "Remera manga corta de jersey con cuello redondo aplicado. Detalle de dobladillo en ruedo de manga. Largo a la cadera. Molderia cuadrada. Estampa centrada en frente.",
+    description: "Remera manga corta de jersey con cuello redondo aplicado. Detalle de dobladillo en ruedo de manga.",
     id: 2,
 },
 {
@@ -37,7 +37,7 @@ const productList = [
     price: 22990,
     image: './images/Camisa.png',
     type: tipoProducto[0],
-    description: "Camisa de calce amplio con charreteras en hombros, con bolsillos en delanteros, acceso por cartera delantera con botones. puños con botón.",
+    description: "Camisa de calce amplio con charreteras en hombros, con bolsillos en delanteros.",
     id: 4,
 },
 {
@@ -45,7 +45,7 @@ const productList = [
     price: 274999,
     image: './images/Aire.png',
     type: tipoProducto[1],
-    description: "Climatizar tus espacios a lo largo del año es sin duda algo importante para tu comodidad y la de tus seres queridos. Contar con un aire acondicionado con función frío/calor es la mejor decisión. Con este aire Philco conseguí una mejor relación costo-beneficio.",
+    description: "Contar con un aire acondicionado con función frío/calor es la mejor decisión. Con este aire Philco conseguí una mejor relación costo-beneficio.",
     id: 5,
 },
 {
@@ -53,7 +53,7 @@ const productList = [
     price: 9508,
     image: './images/Ventilador.png',
     type: tipoProducto[1],
-    description: "¡Aire limpio y fresco en tus ambientes! El ventilador Indelplas IV16 es un elemento útil para dar frescura en el hogar. Con su óptimo rendimiento, la sensación térmica disminuirá. Es un aparato práctico, fácil de armar e instalar.",
+    description: "¡Aire limpio y fresco en tus ambientes! El ventilador Indelplas IV16 es un elemento útil para dar frescura en el hogar.",
     id: 6,
 },
 {
@@ -61,7 +61,7 @@ const productList = [
     price: 46990,
     image: './images/Microondas.png',
     type: tipoProducto[1],
-    description: "No pierdas tiempo en la cocina. En simples pasos, podés disfrutar de tus comidas favoritas gracias a la tecnología y evolución de Samsung. El mismo cuenta con recetas preprogramadas para tu comodidad. Cocina fácilmente todo, desde arroz integral hasta pechuga de pollo deshuesada y filetes de salmón a la parrilla, con la garantía de que el resultado será comida fresca y sabrosa.",
+    description: "Disfruta de tus comidas favoritas gracias a la tecnología y evolución de Samsung.",
     id: 7,
 },
 {
@@ -69,7 +69,7 @@ const productList = [
     price: 209999,
     image: './images/Lavarropas.png',
     type: tipoProducto[1],
-    description: "Únicamente necesita que se introduzcan los productos de limpieza y se elija el programa deseado. A diferencia de los semiautomáticos, no requiere que estés presente en todas las etapas del proceso, por lo que vas a tener prendas limpias y perfumadas sin esfuerzo.",
+    description: "Únicamente necesita que se introduzcan los productos de limpieza y se elija el programa deseado.",
     id: 8,
 },
 {
@@ -85,7 +85,7 @@ const productList = [
     price: 17800,
     image: './images/Escritorio.png',
     type: tipoProducto[2],
-    description: "La solución para tu casa u oficina está en el escritorio Máximo 100, no ocupa mucho espacio y cabe perfecto tu pc o notebook. Es fácil de armar (incluye manual de instrucciones) y la calidad de los materiales es excelente.",
+    description: "La solución para tu casa u oficina está en el escritorio Máximo 100, no ocupa mucho espacio y cabe perfecto tu pc o notebook.",
     id: 10,
 },
 {
@@ -125,7 +125,7 @@ const productList = [
     price: 3620,
     image: './images/Gorilla.png',
     type: tipoProducto[3],
-    description: "¿Qué mejor plan para una tarde de lluvia que un juego de mesa? Con el Crazy gorilla vas a crear divertidos recuerdos y pasar momentos inolvidables junto a tus amigos y amigas. Con este pasatiempo entretenido las risas están aseguradas.",
+    description: "Con el Crazy gorilla vas a crear divertidos recuerdos y pasar momentos inolvidables junto a tus amigos y amigas.",
     id: 15,
 },
 {
@@ -133,7 +133,7 @@ const productList = [
     price: 4500,
     image: './images/Cara de Papa.png',
     type: tipoProducto[3],
-    description: "Al tener marcadas las articulaciones podrás manejar y acomodar tus figuras como más te guste. Con ellas, vas a poder crear historias en la que los personajes puedan movilizarse y cobrar vida.",
+    description: "Al tener marcadas las articulaciones podrás manejar y acomodar tus figuras como más te guste.",
     id: 16,
 },
 {
@@ -149,7 +149,7 @@ const productList = [
     price: 1688,
     image: './images/Ludo.png',
     type: tipoProducto[3],
-    description: "¡Para aprender y disfrutar jugando! El juego Ludo matic está pensado para desarrollar habilidades y potenciar las capacidades cognitivas y creativas de las y los niños. Ejercitarán el pensamiento y la concentración, a la vez que se divierten con este método de aprendizaje lúdico y relajado.",
+    description: "El juego Ludo matic está pensado para desarrollar habilidades y potenciar las capacidades cognitivas y creativas de las y los niños.",
     id: 18,
 },
 {
@@ -165,7 +165,7 @@ const productList = [
     price: 18612700 ,
     image: './images/Bronco.png',
     type: tipoProducto[4],
-    description: "La unidades se entregan el mismo dia que se abona el vehiculo, con la mejor atencion, Confiabilidad, Servicio y Gestoria en la actualidad del mercado. Solicite su turno para ver tu vehiculo!!",
+    description: "La unidades se entregan el mismo dia que se abona el vehiculo, con la mejor Confiabilidad en la actualidad del mercado.",
     id: 20,
 },
 {
@@ -173,7 +173,7 @@ const productList = [
     price: 20069,
     image: './images/Stereo.png',
     type: tipoProducto[4],
-    description: "Increíble estéreo doble DIN de pantalla de 7 Pulgadas con soporte de definición Full HD 1080p, para ver películas, fotos y tener una conectividad total bluetooth con tus dispositivos.",
+    description: "Increíble estéreo doble DIN de pantalla de 7 Pulgadas con soporte de definición Full HD 1080p",
     id: 21,
 },
 {
@@ -197,7 +197,7 @@ const productList = [
     price: 16180,
     image: './images/Amoladora.png',
     type: tipoProducto[4],
-    description: "Daewoo ofrece una amplia variedad de líneas de productos, todas ellas específicamente pensadas y diseñadas para brindar la máxima satisfacción.",
+    description: "Daewoo ofrece una amplia variedad de líneas de productos, todas ellas específicamente pensadas para brindar la máxima satisfacción.",
     id: 24,
 }
 ];
