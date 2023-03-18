@@ -16,7 +16,9 @@
     .inactive{
         display: none;
     }
-
+    #itemCancelImg{
+      cursor: pointer;
+    }
     /*Navbar*/
     #cat{
       cursor: default;

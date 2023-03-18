@@ -172,6 +172,7 @@ function addCartItem(){
             itemPrice.innerHTML = new Intl.NumberFormat('es-AR', { style: 'currency', currency: 'ARS' }).format(product.price);
 
             const itemCancelImg = document.createElement('img');
+            itemCancelImg.setAttribute('id', 'itemCancelImg')
             itemCancelImg.setAttribute('src', './icons/icon_close.png');
             itemCancelImg.addEventListener('click', () => {
                 i = cartObjects.indexOf(product);
@@ -211,7 +212,7 @@ shoppingCart.addEventListener('click', toggleShoppingCartContainer);
 menuHamburguer.addEventListener('click', toggleMobileMenu);
 productDetailCloseIcon.addEventListener('click', closeProductDetailAside);
 addToCartButton.addEventListener('click', () =>{
-    productsShown.push({
+    cartObjects.push({
         name: selectedItemValues.name,
         image: selectedItemValues.image,
         description: selectedItemValues.description,
