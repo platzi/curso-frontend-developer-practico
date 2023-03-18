@@ -7,11 +7,13 @@ const mobileMenu = document.querySelector ('.mobile-menu');
 const shoppingCartContainer = document.querySelector ('#shoppingCartContainer');
 const productDetailContainer = document.querySelector ('#productDetail');
 const cardsContainer = document.querySelector ('.cards-container');
+const mainContainer = document.querySelector ('.main-container');
 
 menuEmail.addEventListener('click', toggleDesktopMenu);
 menuHamIcon.addEventListener('click', toggleMobileMenu);
 menuCarritoIcon.addEventListener('click', toggleCarritoAside);
 productDetailCloseIcon.addEventListener('click', closeProductDetailAside);
+mainContainer.addEventListener('click', closeAnyMenu);
 
 function toggleDesktopMenu ( ) {
     const isAsideClosed = shoppingCartContainer.classList.contains('inactive');
@@ -56,7 +58,6 @@ function toggleCarritoAside() {
 
     //abro el aside
     shoppingCartContainer.classList.toggle('inactive');
- 
 }
 
 //creamos la funcion openProductDetailAside que la utilizaremos en la funcion renderProducts para que al hacer click en alguna imagen nos muestre los detalles pero que no se cierre al volver a hacer click en la misma imagen.
@@ -76,6 +77,21 @@ function closeProductDetailAside() {
     productDetailContainer.classList.add('inactive');
 }
 
+// creamos una funcion que va a validar se algun menu esta abierto y lo cerramos al hacer click en cualquier lugar de la pantalla.
+function closeAnyMenu() {
+    const isDesktopMenuClosed = desktopMenu.classList.contains('inactive');
+    const isShoppingCartContainerClosed = shoppingCartContainer.classList.contains('inactive');
+    
+    
+
+    if (!isDesktopMenuClosed || !isShoppingCartContainerClosed) {
+        desktopMenu.classList.add('inactive');
+        shoppingCartContainer.classList.add('inactive');
+        
+    }
+    
+}
+
 
 
 // LISTA DE PRODUCTOS: Manipulación dinámica del DOM para poder mostrar los productos que estarían en una base de datos.
@@ -91,27 +107,27 @@ productList.push ({
 productList.push ({
     name: 'Monitor',
     price: 220,
-    image: 'https://images.pexels.com/photos/276517/pexels-photo-276517.jpeg?auto=compress&cs=tinysrgb&dpr=2&h=650&w=940',
+    image: 'https://images.pexels.com/photos/1029757/pexels-photo-1029757.jpeg?auto=compress&cs=tinysrgb&w=1260&h=750&dpr=1',
 });
 productList.push ({
     name: 'Laptop',
     price: 620,
-    image: 'https://images.pexels.com/photos/276517/pexels-photo-276517.jpeg?auto=compress&cs=tinysrgb&dpr=2&h=650&w=940',
+    image: 'https://images.pexels.com/photos/3999538/pexels-photo-3999538.jpeg?auto=compress&cs=tinysrgb&w=1260&h=750&dpr=1',
 });
 productList.push ({
-    name: 'Bike',
-    price: 120,
-    image: 'https://images.pexels.com/photos/276517/pexels-photo-276517.jpeg?auto=compress&cs=tinysrgb&dpr=2&h=650&w=940',
+    name: 'Joystick',
+    price: 50,
+    image: 'https://images.pexels.com/photos/3945659/pexels-photo-3945659.jpeg',
 });
 productList.push ({
-    name: 'Monitor',
-    price: 220,
-    image: 'https://images.pexels.com/photos/276517/pexels-photo-276517.jpeg?auto=compress&cs=tinysrgb&dpr=2&h=650&w=940',
+    name: 'Teclado',
+    price: 100,
+    image: 'https://images.pexels.com/photos/1772123/pexels-photo-1772123.jpeg?auto=compress&cs=tinysrgb&w=1260&h=750&dpr=1',
 });
 productList.push ({
-    name: 'Laptop',
-    price: 620,
-    image: 'https://images.pexels.com/photos/276517/pexels-photo-276517.jpeg?auto=compress&cs=tinysrgb&dpr=2&h=650&w=940',
+    name: 'Auricular',
+    price: 30,
+    image: 'https://images.pexels.com/photos/815494/pexels-photo-815494.jpeg?auto=compress&cs=tinysrgb&w=1260&h=750&dpr=1',
 });
 
 //Una vez terminado el array con nuestros productos, es necesario insertarlos en nuestro HTML, para ello vamos a recorrer nuestro array con un ciclo for. Existen dos tipos de ciclos for, el for of que nos devolverá la propiedad especificada o el for in, que nos devolverá el numero índice de nuestro array.
