@@ -154,7 +154,7 @@ nav {
 }
 
 /* Cart */
-.product-detail {
+.cart-list {
   top: 60px;
   width: 360px;
   padding: 24px;
@@ -286,7 +286,7 @@ nav {
   .navbar-email {
     display: none;
   }
-  .product-detail {
+  .cart-list {
     width: 100%;
   }
   .cards-container {
