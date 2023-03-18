@@ -5,14 +5,18 @@ const menu_mobile = document.querySelector('.mobile-menu')
 const navbar_shoping_cart = document.querySelector('.navbar-shopping-cart')
 const shopping_cart_container = document.querySelector('#shopping-cart-container')
 const cards_container = document.querySelector('.cards-container')
+const product_detail_container = document.querySelector('#productDetail')
+const x_de_product_detail = document.querySelector('.product-detail-close')
 
 navbar_shoping_cart.addEventListener('click',toggleshopingcart)
 menu_hamburguesa.addEventListener('click', toggleMenuMobile)
 menu_email.addEventListener('click', togglemenu)
+x_de_product_detail.addEventListener('click', cerrarProductDetail)
 
 function toggleshopingcart() {
     const is_mobile_closed = menu_mobile.classList.contains('inactive')
     const is_menu_desktop_closed = desktopmenu.classList.contains('inactive')
+    const is_product_detail = product_detail_container.contains('inactive')
     
    if (!is_mobile_closed){
         menu_mobile.classList.add('inactive')
@@ -20,6 +24,10 @@ function toggleshopingcart() {
 
    if (!is_menu_desktop_closed){
         desktopmenu.classList.add('inactive')
+   }
+
+   if (!is_product_detail){
+        product_detail_container.classList.add('inactive')
    }
 
    shopping_cart_container.classList.toggle('inactive')
@@ -44,6 +52,17 @@ function togglemenu(){
 
     desktopmenu.classList.toggle('inactive')
 }
+
+function openDetailAside(){
+    
+    product_detail_container.classList.remove('inactive')
+}
+
+function cerrarProductDetail(){
+
+    product_detail_container.classList.add('inactive')
+}
+
 
 const product_array = []
 product_array.push({
@@ -77,6 +96,8 @@ product_array.push({
     imagen: 'https://images.pexels.com/photos/276517/pexels-photo-276517.jpeg?auto=compress&cs=tinysrgb&dpr=2&h=650&w=940'
 })
 
+
+
 function renderProducts(arr){
     for (x of arr){
         const product_cart = document.createElement('div')
@@ -84,6 +105,7 @@ function renderProducts(arr){
         
         const img_producto = document.createElement('img')
         img_producto.setAttribute('src', x.imagen)
+        img_producto.addEventListener('click', openDetailAside)
     
         const product_info = document.createElement('div')
         product_info.classList.add('product-info')
@@ -117,6 +139,7 @@ function renderProducts(arr){
         cards_container.appendChild(product_cart)
     }
 }
+
 
 renderProducts(product_array)
 
