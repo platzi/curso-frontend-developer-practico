@@ -123,12 +123,12 @@ nav {
 
 /* Menu en mobile */
 .mobile-menu {
-  background-color: var(--white);
   position: absolute;
-  top: 60px;
+  background-color: var(--white);
+  top: 61px;
   left: 0;
-  width: 100%;
-  padding: 24px;
+  width: calc(100% - 24px);
+  padding-left: 24px;
 }
 .mobile-menu a {
   text-decoration: none;
