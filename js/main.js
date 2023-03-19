@@ -5,7 +5,7 @@ const desktopMenu = document.querySelector('.desktop-menu');
 const menuBurger = document.querySelector('.menu');
 const mobileMenu = document.querySelector('.mobile-menu');
 const shoppingCar = document.querySelector('.navbar-shopping-cart');
-const productDetails = document.querySelector('.product-detail');
+const shoppingCartContainer = document.querySelector('#shoppingCartContainer');
 const cardContainer = document.querySelector('.cards-container');
 
 //NAME FUNCION
@@ -16,10 +16,10 @@ shoppingCar.addEventListener('click', showMyOrders)
 //DESKTOP MENU
 
 function toggleDesktopMenu(){
-    const isProductDetailsClosed =  productDetails.classList.contains('inactive');
+    const isShoppingCartContainerClosed =  shoppingCartContainer.classList.contains('inactive');
 
-    if (!isProductDetailsClosed){
-        productDetails.classList.add('inactive');
+    if (!isShoppingCartContainerClosed){
+        shoppingCartContainer.classList.add('inactive');
     }
     desktopMenu.classList.toggle('inactive');
 }
@@ -27,10 +27,10 @@ function toggleDesktopMenu(){
 // MOBILE MENU
 function toggleMobileMenu(){
 
-    const isProductDetailsClosed =  productDetails.classList.contains('inactive');
+    const isShoppingCartContainerClosed =  shoppingCartContainer.classList.contains('inactive');
 
-    if (!isProductDetailsClosed){
-        productDetails.classList.add('inactive');
+    if (!isShoppingCartContainerClosed){
+        shoppingCartContainer.classList.add('inactive');
     }
 
     mobileMenu.classList.toggle('inactive');
@@ -43,7 +43,7 @@ function toggleMobileMenu(){
 
 function showMyOrders(){
     mobileMenu.classList.add('inactive')
-    productDetails.classList.toggle('inactive');
+    shoppingCartContainer.classList.toggle('inactive');
     desktopMenu.classList.add('inactive');
     
 };
