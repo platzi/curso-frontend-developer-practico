@@ -351,9 +351,9 @@ aside {
     display: none;
   }
   .desktop-menu {
-      display: none;
+    display: none;
   }
-  .product-detail {
+  #product-detail, #shoppingCartContainer {
     width: 100%;
   }
   .cards-container {
