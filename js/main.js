@@ -139,8 +139,8 @@ function  renderProducts(arr){
     cardContainer.append(productCard);
 
 }
-    
-}
+}    
+// 
 
 renderProducts(productList);
 
