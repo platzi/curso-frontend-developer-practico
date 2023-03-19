@@ -135,10 +135,9 @@ nav {
 
 .mobile-menu {
     position: absolute;
-    width: calc( 100% - 50px);
     top: 61px;
     left: 0;
-    padding: 0 24px;
+    padding-left : 24px;
     transition: .4s ease-in;
     background: var(--white);
 }
@@ -397,7 +396,7 @@ aside {
     }
 
     .mobile-menu{
-        width: 100%;
+        width: calc(100% - 24px);
         height: 100%;
     }
 
