@@ -2,15 +2,17 @@ const nav_email = document.querySelector(".navbar-email");
 const DesktopMenu = document.querySelector(".desktop-menu");
 const MenuIcon = document.querySelector(".menu");
 const MenuCarritoIcon = document.querySelector(".navbar-shopping-cart");
+const ProductDetailCloseIcon = document.querySelector('.product-detail-close');
 const MobileMenu = document.querySelector(".mobile-menu");
 const shoppingCart = document.querySelector("#shoppingCart");
 const cardsContainer = document.querySelector('.cards-container');
+const ProductDetailContainer = document.querySelector('#productDetail');
 
 
 nav_email.addEventListener('click', ToggleDesktopMenu);
 MenuIcon.addEventListener('click', ToggleMobileMenu);
 MenuCarritoIcon.addEventListener('click', ToggleCArrito);
-
+ProductDetailCloseIcon.addEventListener('click', closeProductDetailsAside)
 
 function ToggleDesktopMenu()
 {
@@ -35,6 +37,8 @@ function ToggleMobileMenu()
         shoppingCart.classList.add('inactive');
     }
 
+    closeProductDetailsAside();
+
     MobileMenu.classList.toggle('inactive'); //El toggle quita y coloca la clase inactive dependiendo si la tiene o no
 }
 
@@ -45,6 +49,13 @@ function ToggleCArrito()
     if (!IsMobileMenuClosed) 
     {
         MobileMenu.classList.add('inactive');
+    }
+
+    const IsProductDetailClosed = ProductDetailContainer.classList.contains('inactive');
+
+    if (!IsProductDetailClosed) 
+    {
+        ProductDetailContainer.classList.add('inactive');
     }
 
     shoppingCart.classList.toggle('inactive');
@@ -96,6 +107,7 @@ function renderProducts (arr)
     
         const productImg = document.createElement('img');
         productImg.setAttribute('src', product.image);
+        productImg.addEventListener('click', openProductDetailAside);
     
         const ProductInfo = document.createElement('div');
         ProductInfo.classList.add('product-info');
@@ -128,3 +140,14 @@ function renderProducts (arr)
 }
 
 renderProducts(productList);
+
+function openProductDetailAside()
+{
+    shoppingCart.classList.add('inactive');
+    ProductDetailContainer.classList.remove('inactive');
+}
+
+function closeProductDetailsAside() 
+{
+    ProductDetailContainer.classList.add('inactive');
+}
