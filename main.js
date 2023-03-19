@@ -3,7 +3,7 @@ const DesktopMenu = document.querySelector(".desktop-menu");
 const MenuIcon = document.querySelector(".menu");
 const MenuCarritoIcon = document.querySelector(".navbar-shopping-cart");
 const MobileMenu = document.querySelector(".mobile-menu");
-const Aside = document.querySelector(".product-detail");
+const shoppingCart = document.querySelector("#shoppingCart");
 const cardsContainer = document.querySelector('.cards-container');
 
 
@@ -16,11 +16,11 @@ function ToggleDesktopMenu()
 {
     //Esto es para validar si esta abierto el menu mobile o el aside.
     //Es decir: Si tiene la clase inactive es porque esta cerrado
-    const IsAsideClosed = Aside.classList.contains('inactive');
+    const IsAsideClosed = shoppingCart.classList.contains('inactive');
 
     if (!IsAsideClosed) 
     {
-        Aside.classList.add('inactive');
+        shoppingCart.classList.add('inactive');
     }
 
     DesktopMenu.classList.toggle('inactive'); //El toggle quita y coloca la clase inactive dependiendo si la tiene o no
@@ -28,11 +28,11 @@ function ToggleDesktopMenu()
 
 function ToggleMobileMenu()
 {
-    const IsAsideClosed = Aside.classList.contains('inactive');
+    const IsAsideClosed = shoppingCart.classList.contains('inactive');
 
     if (!IsAsideClosed) 
     {
-        Aside.classList.add('inactive');
+        shoppingCart.classList.add('inactive');
     }
 
     MobileMenu.classList.toggle('inactive'); //El toggle quita y coloca la clase inactive dependiendo si la tiene o no
@@ -47,7 +47,7 @@ function ToggleCArrito()
         MobileMenu.classList.add('inactive');
     }
 
-    Aside.classList.toggle('inactive');
+    shoppingCart.classList.toggle('inactive');
 }
 
 const productList = [];
