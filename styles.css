@@ -158,11 +158,13 @@
   }
    /*estilos generales para los aside */
    aside {
-    width: 360px; 
+    width: 460px;
     position: absolute;
-    right: 17px;
+    right: 2%;
     padding-bottom: 24px;
     background: var(--white);
+    height: 65vh;
+    border-left: 1px solid var(--very-light-pink);
   }
   /*Carrito de compras lista*/
   #shoppingCartContainer {
