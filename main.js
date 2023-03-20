@@ -60,6 +60,86 @@ productList.push({
   price: 120,
   Image: "https://cdn.pixabay.com/photo/2014/05/05/16/09/tablet-338299_640.jpg",
 });
+productList.push({
+  name: "Refrigerador",
+  price: 1000,
+  Image:
+    "https://cdn.pixabay.com/photo/2016/10/24/21/03/appliance-1767311_640.jpg",
+});
+productList.push({
+  name: "Cafetera",
+  price: 120,
+  Image: "https://cdn.pixabay.com/photo/2012/04/14/14/46/percolator-34180_640.png",
+});
+productList.push({
+  name: "Microonda",
+  price: 220,
+  Image: "https://cdn.pixabay.com/photo/2012/04/11/17/29/microwave-29056_640.png",
+});
+productList.push({
+  name: "Licuadora",
+  price: 120,
+  Image:
+    "https://cdn.pixabay.com/photo/2011/12/05/14/51/blender-10935_640.jpg",
+});
+productList.push({
+  name: "Cafetera",
+  price: 120,
+  Image: "https://cdn.pixabay.com/photo/2012/04/14/14/46/percolator-34180_640.png",
+});
+productList.push({
+  name: "Sarten",
+  price: 120,
+  Image: "https://cdn.pixabay.com/photo/2014/12/02/14/50/pan-554072_640.jpg",
+});
+productList.push({
+  name: "Bike",
+  price: 120,
+  Image:
+    "https://images.pexels.com/photos/276517/pexels-photo-276517.jpeg?auto=compress&cs=tinysrgb&dpr=2&h=650&w=940",
+});
+productList.push({
+  name: "Pantalla",
+  price: 120,
+  Image: "https://cdn.pixabay.com/photo/2016/08/28/00/57/tv-1625228_1280.jpg",
+});
+productList.push({
+  name: "Computadora",
+  price: 120,
+  Image: "https://cdn.pixabay.com/photo/2014/05/05/16/09/tablet-338299_640.jpg",
+});
+productList.push({
+  name: "Refrigerador",
+  price: 1000,
+  Image:
+    "https://cdn.pixabay.com/photo/2016/10/24/21/03/appliance-1767311_640.jpg",
+});
+productList.push({
+  name: "Cafetera",
+  price: 120,
+  Image: "https://cdn.pixabay.com/photo/2012/04/14/14/46/percolator-34180_640.png",
+});
+productList.push({
+  name: "Microonda",
+  price: 220,
+  Image: "https://cdn.pixabay.com/photo/2012/04/11/17/29/microwave-29056_640.png",
+});
+productList.push({
+  name: "Licuadora",
+  price: 120,
+  Image:
+    "https://cdn.pixabay.com/photo/2011/12/05/14/51/blender-10935_640.jpg",
+});
+productList.push({
+  name: "Cafetera",
+  price: 120,
+  Image: "https://cdn.pixabay.com/photo/2012/04/14/14/46/percolator-34180_640.png",
+});
+productList.push({
+  name: "Sarten",
+  price: 120,
+  Image: "https://cdn.pixabay.com/photo/2014/12/02/14/50/pan-554072_640.jpg",
+});
 /*
 <div class="product-card">
     <img src="https://images.pexels.com/photos/276517/pexels-photo-276517.jpeg?auto=compress&cs=tinysrgb&dpr=2&h=650&w=940" alt="">
