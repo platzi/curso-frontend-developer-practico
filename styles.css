@@ -160,14 +160,13 @@
    aside {
     width: 360px; 
     position: absolute;
-    right: 0;
+    right: 17px;
     padding-bottom: 24px;
     background: var(--white);
   }
   /*Carrito de compras lista*/
   #shoppingCartContainer {
     padding: 17px;
-    right: 17px;
     box-sizing: border-box;
   }
   /*targetas de los productos en vista general */
