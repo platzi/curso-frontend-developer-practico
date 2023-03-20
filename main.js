@@ -1,33 +1,45 @@
 const menuEmail = document.querySelector(".navbar-email");
-const desktopMenu = document.querySelector(".desktop-menu");
 const menuHamIcon = document.querySelector(".menu");
-const mobileMenu = document.querySelector(".mobile-menu");
 const menuCarritoIcon = document.querySelector(".navbar-shopping-cart");
-const aside = document.querySelector(".product-detail");
-const cardsContainer = document.querySelector('.cards-container');
+const desktopMenu = document.querySelector(".desktop-menu");
+const mobileMenu = document.querySelector(".mobile-menu");
+const shoppingCartContainer = document.querySelector("#shoppingCartContainer");
+const cardsContainer = document.querySelector(".cards-container");
+const productDetailcontainer = document.querySelector("#productDetail");
+const productDetailCloseIcon = document.querySelector(".product-detail-close")
 
 menuEmail.addEventListener("click", toggleDesktopMenu);
 menuHamIcon.addEventListener("click", toggleMobileMenu);
 menuCarritoIcon.addEventListener("click", toggleCarritoAside);
+productDetailCloseIcon.addEventListener("click", closeProductDetailAside)
 
 function toggleDesktopMenu() {
+  const isAsideClosed = shoppingCartContainer.classList.contains("inactive");
+  if (!isAsideClosed) {
+    shoppingCartContainer.classList.add("inactive");
+  }
   desktopMenu.classList.toggle("inactive");
 }
 
 function toggleMobileMenu() {
-  if (!aside.classList.contains("inactive")) {
-    aside.classList.add("inactive");
+  const isAsideClosed = shoppingCartContainer.classList.contains("inactive");
+  if (!isAsideClosed) {
+    shoppingCartContainer.classList.add("inactive");
   }
-
   mobileMenu.classList.toggle("inactive");
 }
 
 function toggleCarritoAside() {
-  if (!mobileMenu.classList.contains("inactive")) {
-    mobileMenu.classList.add("inactive");
+  const isMobileMenuClosed = mobileMenu.classList.contains("inactive");
+  const isProductDetailcontainer = productDetailcontainer.classList.contains("inactive");
+  if (!isMobileMenuClosed) {
+    mobileMenu.classList.add('inactive');
   }
-
-  aside.classList.toggle("inactive");
+  if (!isProductDetailcontainer) {
+    productDetailcontainer.classList.add('inactive');
+  }
+  console.log("click")
+  shoppingCartContainer.classList.toggle('inactive');
 }
 
 const productList = [];
@@ -40,14 +52,12 @@ productList.push({
 productList.push({
   name: "Pantalla",
   price: 120,
-  Image:
-    "https://cdn.pixabay.com/photo/2016/08/28/00/57/tv-1625228_1280.jpg",
+  Image: "https://cdn.pixabay.com/photo/2016/08/28/00/57/tv-1625228_1280.jpg",
 });
 productList.push({
   name: "Computadora",
   price: 120,
-  Image:
-    "https://cdn.pixabay.com/photo/2014/05/05/16/09/tablet-338299_640.jpg",
+  Image: "https://cdn.pixabay.com/photo/2014/05/05/16/09/tablet-338299_640.jpg",
 });
 /*
 <div class="product-card">
@@ -94,13 +104,11 @@ function renderProducts(arr) {
 }
 //renderProducts(productList);
 
-
 //forma 01
-function mostrarProductos(lista, contenedor){
-
-    for(product of lista){
-        const htmlContenedor = `<div class="product-card">
-            <img src="${product.Image}" alt="">
+function mostrarProductos(lista, contenedor) {
+  for (product of lista) {
+    const htmlContenedor = `<div class="product-card">
+            <img src="${product.Image}" alt="" onclick="openProductDetailAside()">
             <div class="product-info">
                 <div>
                     <p>$${product.price}</p>
@@ -111,9 +119,21 @@ function mostrarProductos(lista, contenedor){
                 </figure>
             </div>
         </div>`;
-        contenedor.innerHTML += htmlContenedor;
-    }   
+    contenedor.innerHTML += htmlContenedor;
 
+  }
 }
 
 mostrarProductos(productList, cardsContainer);
+
+function openProductDetailAside(){
+  const isshoppingCartContainer = shoppingCartContainer.classList.contains("inactive");
+  if (!isshoppingCartContainer) {
+    shoppingCartContainer.classList.add('inactive');
+  }
+  productDetailcontainer.classList.remove("inactive");
+}
+
+function closeProductDetailAside(){
+  productDetailcontainer.classList.add("inactive");
+}
