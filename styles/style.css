@@ -276,6 +276,74 @@ nav {
   color: var(--very-light-pink);
 }
 
+/* Product Detail */
+.product-detail {
+  width: 360px;
+  padding-bottom: 24px;
+  position: absolute;
+  right: 0;
+  background-color: rgb(237, 236, 236);
+  border-radius: 20px;
+}
+.product-detail-close {
+  background: var(--white);
+  width: 14px;
+  height: 14px;
+  position: absolute;
+  top: 24px;
+  left: 24px;
+  z-index: 2;
+  padding: 12px;
+  border-radius: 50%;
+}
+.product-detail-close:hover {
+  cursor: pointer;
+}
+.product-detail > img:nth-child(2) {
+  width: 100%;
+  height: 360px;
+  object-fit: cover;
+  border-radius: 0 0 0 0;
+}
+.product-desc {
+  margin: 24px 24px 0 24px;
+}
+.product-desc p:nth-child(1) {
+  font-weight: bold;
+  font-size: var(--md);
+  margin-top: 0;
+  margin-bottom: 4px;
+}
+.product-desc p:nth-child(2) {
+  color: #9d9d9d;
+  font-size: var(--lg);
+  margin-top: 0;
+  margin-bottom: 36px;
+}
+.product-desc p:nth-child(3) {
+  color: #9d9d9d;
+  font-size: var(--lg);
+  margin-top: 0;
+  margin-bottom: 36px;
+}
+.primary-button {
+  background-color: var(--hospital-green);
+  border-radius: 8px;
+  border: none;
+  color: var(--white);
+  width: 100%;
+  cursor: pointer;
+  font-size: var(--md);
+  font-weight: bold;
+  height: 50px;
+}
+.add-to-cart-button {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+}
+
+/* Media Query Small Screens */
 @media (max-width: 750px) {
   .burgerMenu {
     display: block;
@@ -286,8 +354,12 @@ nav {
   .navbar-email {
     display: none;
   }
-  .cart-list {
+  .cart-list,
+  .product-detail {
     width: 100%;
+  }
+  .product-detail {
+    height: 100vh;
   }
   .cards-container {
     grid-template-columns: repeat(auto-fill, 140px);
@@ -301,8 +373,21 @@ nav {
   }
 }
 
+/* Media Query Big Screens */
 @media (min-width: 751px) {
   .mobile-menu {
     display: none;
+  }
+  .product-detail {
+    width: 360px;
+    padding-bottom: 24px;
+    position: absolute;
+    right: 0;
+    background-color: rgb(237, 236, 236);
+    border-radius: 20px;
+    max-width: 20%;
+  }
+  .cards-container {
+    max-width: 75%;
   }
 }
