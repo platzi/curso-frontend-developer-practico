@@ -13,10 +13,13 @@ menu_hamburguesa.addEventListener('click', toggleMenuMobile)
 menu_email.addEventListener('click', togglemenu)
 x_de_product_detail.addEventListener('click', cerrarProductDetail)
 
+
+
 function toggleshopingcart() {
     const is_mobile_closed = menu_mobile.classList.contains('inactive')
     const is_menu_desktop_closed = desktopmenu.classList.contains('inactive')
-    const is_product_detail = product_detail_container.contains('inactive')
+    const is_product_detail_closed = product_detail_container.classList.contains('inactive')
+    
     
    if (!is_mobile_closed){
         menu_mobile.classList.add('inactive')
@@ -24,36 +27,56 @@ function toggleshopingcart() {
 
    if (!is_menu_desktop_closed){
         desktopmenu.classList.add('inactive')
-   }
+   }   
 
-   if (!is_product_detail){
+   if(!is_product_detail_closed){
         product_detail_container.classList.add('inactive')
    }
+
 
    shopping_cart_container.classList.toggle('inactive')
 }
 
 function toggleMenuMobile(){
     const is_shopping_cart_container_closed = shopping_cart_container.classList.contains('inactive')
+    product_detail_container.classList.add('inactive')
 
     if (!is_shopping_cart_container_closed){
         shopping_cart_container.classList.add('inactive')
     }
+
+
     menu_mobile.classList.toggle('inactive')
 }
 
 function togglemenu(){
 
     const is_shopping_cart_container_closed = shopping_cart_container.classList.contains('inactive')
+    const is_product_detail_closed = product_detail_container.classList.contains('inactive')
 
     if (!is_shopping_cart_container_closed){
         shopping_cart_container.classList.add('inactive')
+    }
+
+    if (!is_product_detail_closed){
+        product_detail_container.classList.add('inactive')
     }
 
     desktopmenu.classList.toggle('inactive')
 }
 
 function openDetailAside(){
+
+    const is_menu_closed = desktopmenu.classList.contains('inactive') 
+    const is_orders_closed = shopping_cart_container.classList.contains('inactive')
+
+    if (!is_menu_closed){
+        desktopmenu.classList.add('inactive')
+    }
+
+    if (!is_orders_closed){
+        shopping_cart_container.classList.add('inactive')
+    }
     
     product_detail_container.classList.remove('inactive')
 }
@@ -134,8 +157,6 @@ function renderProducts(arr){
         product_info_div.appendChild(product_nombre)
         product_info_div.appendChild(product_precio)
         product_info_div.appendChild(product_nombre)
-    
-    
         cards_container.appendChild(product_cart)
     }
 }
