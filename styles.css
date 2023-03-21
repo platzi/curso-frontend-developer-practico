@@ -158,6 +158,7 @@
 /* Aside (product detail and car) */
 .product-detail {
   background-color: var(--white);
+  cursor: pointer;
   width: 360px;
   padding: 0 24px;
   box-sizing: border-box;
@@ -204,6 +205,11 @@
   margin-bottom: 24px;
   align-items: center;
 }
+
+/* .shopping-cart:hover {
+  cursor: pointer;
+} */
+
 .shopping-cart figure {
   margin: 0;
 }
@@ -213,6 +219,7 @@
   border-radius: 20px;
   object-fit: cover;
 }
+
 .shopping-cart p:nth-child(2) {
   color: var(--very-light-pink);
 }
@@ -277,6 +284,7 @@
 
 /* Product */
 .product {
+  background-color: var(--white);
   width: 360px;
   padding-bottom: 24px;
   position: absolute;
