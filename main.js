@@ -200,6 +200,10 @@ const openProductDetail = (product) => {
         productImg.setAttribute('src',product.image);
         productPrice.textContent= product.price;
         productName.textContent= product.name;
+        
+    menuMobile.classList.add('inactive');
+    desktopMenu.classList.add('inactive');
+    shoppingDetail.classList.add('inactive');
 }
 
 renderProducts(productList);
