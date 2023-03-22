@@ -80,6 +80,12 @@ nav {
   align-items: center;
 }
 
+/* Main Container */
+.main-container {
+  display: flex;
+  justify-content: center;
+}
+
 /* Menú opciones PC */
 .desktop-menu {
   position: absolute;
@@ -240,6 +246,7 @@ nav {
   grid-template-columns: repeat(auto-fill, 240px);
   gap: 26px;
   place-content: center;
+  max-width: 60%;
 }
 .product-card {
   width: 240px;
@@ -249,6 +256,10 @@ nav {
   height: 240px;
   border-radius: 20px;
   object-fit: cover;
+  cursor: pointer;
+}
+.product-card img:hover {
+  transform: scale(1.1);
 }
 .product-info {
   display: flex;
@@ -385,9 +396,5 @@ nav {
     right: 0;
     background-color: rgb(237, 236, 236);
     border-radius: 20px;
-    max-width: 20%;
-  }
-  .cards-container {
-    max-width: 75%;
   }
 }
