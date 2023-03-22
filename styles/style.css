@@ -258,9 +258,6 @@ nav {
   object-fit: cover;
   cursor: pointer;
 }
-.product-card img:hover {
-  transform: scale(1.1);
-}
 .product-info {
   display: flex;
   justify-content: space-between;
@@ -396,5 +393,8 @@ nav {
     right: 0;
     background-color: rgb(237, 236, 236);
     border-radius: 20px;
+  }
+  .product-card img:hover {
+    transform: scale(1.1);
   }
 }
