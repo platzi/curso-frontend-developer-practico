@@ -78,6 +78,7 @@ function toggleMenu() {
         : menuOpt.removeAttribute("hidden");
     menuMobile.setAttribute("hidden", "");
     cartList.setAttribute("hidden", "");
+    productDetail.setAttribute("hidden", "");
     // menuOpt.classList.toggle('clase'); coloca o quita la clase
 }
 
@@ -86,6 +87,7 @@ function toggleMenuMobile() {
     menuMobile.toggleAttribute("hidden");
     cartList.setAttribute("hidden", "");
     menuOpt.setAttribute("hidden", "");
+    productDetail.setAttribute("hidden", "");
 }
 
 // Display/Hide cart
@@ -93,6 +95,7 @@ function toggleCart() {
     cartList.toggleAttribute("hidden");
     menuMobile.setAttribute("hidden", "");
     menuOpt.setAttribute("hidden", "");
+    productDetail.setAttribute("hidden", "");
 }
 
 // Create products list
@@ -150,6 +153,9 @@ function createProductsList(array) {
 
 // Create the details of the products
 function openProductDetail(index) {
+    menuMobile.setAttribute("hidden", "");
+    menuOpt.setAttribute("hidden", "");
+    cartList.setAttribute("hidden", "");
     deleteChildrenProductDetail();
 
     const product = productsList[index];
