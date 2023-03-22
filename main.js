@@ -5,12 +5,13 @@ const mobileMenu = document.querySelector('.mobile-menu');
 const cartMenuIcon = document.querySelector('.navbar-shopping-cart');
 const aside = document.querySelector('.product-detail');
 const asideDetailProduct = document.querySelector('.product-detail-into');
-//const imageDetail = document.querySelector('.imageDetail');
+const closeDetailProductIcon = document.querySelector('.product-detail-close');
+const cardsContainer = document.querySelector('.cards-container');
 
 emailMenu.addEventListener('click', toggleDesktopMenu);
 hamMenuIcon.addEventListener('click', toggleMobileMenu);
 cartMenuIcon.addEventListener('click', toggleCartAside);
-
+closeDetailProductIcon.addEventListener('click', closeDetailProduct);
 
 function toggleDesktopMenu() {
     const isAsideMenuClosed = aside.classList.contains('inactive');
@@ -27,6 +28,7 @@ function toggleMobileMenu() {
     if(!isAsideMenuClosed) {
         aside.classList.add('inactive');
     }
+    closeDetailProduct();
     mobileMenu.classList.toggle('inactive');
 }
 
@@ -36,12 +38,23 @@ function toggleCartAside() {
     if(!isMobileMenuClosed) {
         mobileMenu.classList.add('inactive');
     }
+
+    const isAsideProductDetailClosed = asideDetailProduct.classList.contains('inactive');
+
+    if(!isAsideProductDetailClosed) {
+        mobileMenu.classList.add('inactive');
+    }
     
     aside.classList.toggle('inactive');
 }
 
-function toggleDetailProduct() {
-    asideDetailProduct.classList.toggle('inactive');
+function openDetailProduct() {
+    aside.classList.add('inactive');
+    asideDetailProduct.classList.remove('inactive');
+}
+
+function closeDetailProduct() {
+    asideDetailProduct.classList.add('inactive');
 }
 
 const productsList = [];
@@ -60,8 +73,6 @@ productsList.push({
     price: 420,
     image: 'https://images.pexels.com/photos/276517/pexels-photo-276517.jpeg?auto=compress&cs=tinysrgb&dpr=2&h=650&w=940'
 });
-
-const cardsContainer = document.querySelector('.cards-container');
 
 function createProducts(arr) {
     for (const product of arr) {
@@ -89,7 +100,7 @@ function createProducts(arr) {
         productCard.appendChild(productInfo);
         cardsContainer.appendChild(productCard);
 
-        img.addEventListener('click', toggleDetailProduct);
+        img.addEventListener('click', openDetailProduct);
     }
     
 }
