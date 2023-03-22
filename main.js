@@ -3,7 +3,7 @@ const desktopMenu = document.querySelector('.desktop-menu');
 const menuCarritoIcon = document.querySelector('.navbar-shopping-cart');
 const menuHamIcon = document.querySelector('.menu');
 const mobileMenu = document.querySelector('.mobile-menu');
-const aside = document.querySelector('.product-detail');
+const shoppingCartContainer = document.querySelector('#shoppingCartContainer');
 const container = document.querySelector('.cards-container');
 
 menuEmail.addEventListener('click', toogleDesktopMenu);
@@ -11,19 +11,19 @@ menuHamIcon.addEventListener('click', toogleMobileMenu);
 menuCarritoIcon.addEventListener('click', toogleCarritoAside);
 
 function toogleDesktopMenu(){
-   const isAsideClosed = aside.classList.contains('inactive');
+   const isShoppingCartContainerClosed = shoppingCartContainer.classList.contains('inactive');
 
-   if(!isAsideClosed)
-      aside.classList.add('inactive');
+   if(!isShoppingCartContainerClosed)
+   shoppingCartContainer.classList.add('inactive');
 
    desktopMenu.classList.toggle('inactive');
 }
 
 function toogleMobileMenu(){
-   const isAsideClosed = aside.classList.contains('inactive');
+   const isShoppingCartContainerClosed = shoppingCartContainer.classList.contains('inactive');
 
-   if(!isAsideClosed) 
-      aside.classList.add('inactive');
+   if(!isShoppingCartContainerClosed) 
+      shoppingCartContainer.classList.add('inactive');
 
    mobileMenu.classList.toggle('inactive');
 }
@@ -38,13 +38,14 @@ function toogleCarritoAside(){
    if(!isDesktopMenuClosed)
       desktopMenu.classList.add('inactive');
 
-   aside.classList.toggle('inactive');
+   shoppingCartContainer.classList.toggle('inactive');
    
 }
 
 function renderProducts(arr){
    for (product of arr){
       const productCard = document.createElement('div');
+      productCard.id = 'product-card';
       productCard.classList.add('product-card');
       
       const img = document.createElement('img');
@@ -68,7 +69,7 @@ function renderProducts(arr){
       divProductInfo.appendChild(nameProduct);
    
       const figureProduct = document.createElement('figure')
-      divProductInfo.appendChild(figureProduct);
+      productInfo.appendChild(figureProduct);
    
       const imgFigureProduct = document.createElement('img');
       imgFigureProduct.src = './icons/bt_add_to_cart.svg'
@@ -100,3 +101,21 @@ productList.push({
 });
 
 renderProducts(productList);
+
+/*
+<aside class="product-detail">
+    <div class="product-detail-close">
+      <img src="./icons/icon_close.png" alt="close">
+    </div>
+    <img src="https://images.pexels.com/photos/276517/pexels-photo-276517.jpeg?auto=compress&cs=tinysrgb&dpr=2&h=650&w=940" alt="bike">
+    <div class="product-info">
+      <p>$35,00</p>
+      <p>Bike</p>
+      <p>With its practical position, this bike also fulfills a decorative function, add your hall or workspace.</p>
+      <button class="primary-button add-to-cart-button">
+        <img src="./icons/bt_add_to_cart.svg" alt="add to cart">
+        Add to cart
+      </button>
+    </div>
+  </aside>
+*/
