@@ -285,7 +285,7 @@ aside {
     width: 14px;
     height: 14px;
     position: absolute;
-    top: 24px;
+    top:24px;
     left: 24px;
     z-index: 2;
     padding: 12px;
@@ -303,7 +303,7 @@ aside {
 }
 
 #productDetail {
-    margin: 24px 24px 0 24px;
+    margin: 15px 24px 0 24px;
 }
 
 #productDetail p:nth-child(1) {
