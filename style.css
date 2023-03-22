@@ -121,6 +121,8 @@ nav {
 
 .mobile-menu {
   position: absolute;
+  background:var(--white);
+  border: solid 1px var(--very-light-pink);
   top: 60px;
   padding: 24px;
 }
@@ -155,7 +157,8 @@ nav {
 
 .product-detail {
   width: 360px;
-  padding: 24px;
+  padding:0 24px;
+  background: var(--white);
   box-sizing: border-box;
   position: absolute;
   right: 0;
