@@ -293,6 +293,7 @@ nav {
   }
   .product-detail {
     width: 100%;
+    border-radius: 0px 0px 10px 10px;
   }
   .cards-container {
     grid-template-columns: repeat(auto-fill, 140px);
