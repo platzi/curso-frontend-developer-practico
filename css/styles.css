@@ -38,6 +38,7 @@
     padding: 0;
     margin: 0;
     display: flex;
+    gap: 4px;
     align-items: center;
     height: 60px;
   }
@@ -47,18 +48,17 @@
   .navbar-left ul {
     margin-left: 12px;
   }
-  .navbar-left ul li a,
-  .navbar-right ul li a {
+  .item-desktop{
     text-decoration: none;
     color: var(--very-light-pink);
     border: 1px solid var(--white);
     padding: 8px;
     border-radius: 8px;
   }
-  .navbar-left ul li a:hover,
-  .navbar-right ul li a:hover {
+  .item-desktop:hover {
     border: 1px solid var(--hospital-green);
     color: var(--hospital-green);
+    cursor: pointer;
   }
   .navbar-email {
     color: var(--very-light-pink);
@@ -138,10 +138,11 @@
     overflow-y: scroll;
     background: var(--white);
   }
-  .mobile-menu a {
+  .item-mobile {
     text-decoration: none;
     color: var(--black);
     font-weight: bold;
+    padding: 4px 24px 4px 0;
     /* margin-bottom: 24px; */
   }
   .mobile-menu ul {
@@ -212,14 +213,15 @@
     width: 100%;
     max-width: 320px;
     height: auto;
+    padding: 16px;
     aspect-ratio: 1/1;
     object-fit: contain;
-    background-color: #f7f7f7;
+    background-color: #eceff1;
     border-radius: 8px 8px 20px 20px;
     margin: 0 auto;
   }
   .product-info {
-    margin: 24px 24px 0 24px;
+    margin: 24px 12px 0 12px;
   }
 
   .product-info p:nth-child(1) {
@@ -340,6 +342,10 @@
     object-fit: contain;
     background-color: #f7f7f7;
   }
+  .product-card__image {
+    padding: 16px;
+
+  }
   .add-to-cart-button {
     display: flex;
     align-items: center;
@@ -396,6 +402,10 @@
   .no-scroll{
     overflow: hidden;
   }
+  .item-active{    
+    border: 1px solid var(--hospital-green);
+    color: var(--hospital-green);
+  }
   /*=== Media Quries ====*/
   @media (min-width: 993px) {
     .mobile-menu{
@@ -423,8 +433,8 @@
       /* overflow-y: scroll; */
       background: var(--white);
       box-shadow: none;
-      width: 100vw;
-      height: 100vh;
+      width: 100%;
+      height: 100%;
       box-sizing: border-box;
     }
     .inactive {
