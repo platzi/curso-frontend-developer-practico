@@ -14,9 +14,11 @@ menuHamIcon.addEventListener('click', toggleMobileMenu);
 menuCarritoIcon.addEventListener('click', toggleCarritoAside); 
 
 function toggleDesktopMenu() {
-    const isAsideClosed = aside.classList.contains('inactive')
-    if (!isAsideClosed){
+    const isAsideClosed = aside.classList.contains('inactive');
+    const isProductDeatilAsideClosed = openProductDetailContainer.classList.contains('inactive');
+    if (!isAsideClosed || !isProductDeatilAsideClosed){
         aside.classList.add('inactive');
+        openProductDetailContainer.classList.add('inactive');
     }
     desktopMenu.classList.toggle('inactive');
 }
@@ -48,7 +50,9 @@ function toggleCarritoAside(){
 
 function openProductDetailAside(){
     openProductDetailContainer.classList.remove('inactive');
+    desktopMenu.classList.add('inactive');
 }
+
 function closeProductDetailAside(){
     openProductDetailContainer.classList.add('inactive');
     aside.classList.add('inactive');
