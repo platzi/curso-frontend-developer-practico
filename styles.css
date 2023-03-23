@@ -1,9 +1,4 @@
 /*General*/
-/* * {
-  margin: 0;
-  padding: 0;
-  box-sizing: border-box;
-} */
 :root {
   --white: #ffffff;
   --black: #000000;
@@ -17,23 +12,25 @@
 body {
   margin: 0;
   font-family: "Quicksand", sans-serif;
+  background-color: #e1ede3;
 }
 .inactive {
   display: none;
 }
-
 /*Navbar (general)*/
 nav {
   display: flex;
   justify-content: space-between;
   padding: 0 24px;
   border-bottom: 1px solid var(--very-light-pink);
+  align-items: center;
+  background-color: var(--white);
 }
 .menu {
   display: none;
 }
 .logo {
-  width: 100px;
+  width: 100%;
 }
 .navbar-left ul,
 .navbar-right ul {
@@ -174,6 +171,7 @@ aside {
 /* ShoppingCart */
 #shoppingCartContainer {
   padding: 0 24px;
+  border-radius: 0 0 15px 15px;
 }
 .title-container {
   display: flex;
@@ -195,6 +193,9 @@ aside {
   margin-bottom: 24px;
   border-radius: 8px;
   padding: 0 24px;
+}
+.order-button {
+  padding: 10px;
 }
 .order p:nth-child(1) {
   display: flex;
@@ -230,6 +231,12 @@ aside {
 .shopping-cart p:nth-child(3) {
   font-size: var(--md);
   font-weight: bold;
+}
+.removeList {
+  cursor: pointer;
+}
+.arrow {
+  cursor: pointer;
 }
 .primary-button {
   background-color: var(--hospital-green);
@@ -333,6 +340,7 @@ aside {
 }
 .product-card .product-info figure {
   margin: 0;
+  cursor: pointer;
 }
 .product-card .product-info figure img {
   width: 35px;
