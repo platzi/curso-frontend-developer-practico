@@ -3,7 +3,7 @@ const emaillll = document.querySelector('.navbar-email');
 const barritas = document.querySelector('.menu');
 const categories = document.querySelector('.mobile-menu');
 const carrito = document.querySelector('.navbar-shopping-cart');
-const carritoMenu = document.querySelector('.product-detail');
+const carritoMenu = document.querySelector('#shopCartCont');
 const cardsContainer = document.querySelector('.cards-container')
 
 emaillll.addEventListener('click', show1);
