@@ -5,7 +5,7 @@ const desktopInactive = document.querySelector(".desktop-menu");
 const burger = document.querySelector(".menu-burger");
 const mobileInactive = document.querySelector(".mobile-menu");
 // Shopping car
-const productDetail = document.querySelector(".product-detail")
+const shoppingCartContent = document.querySelector("#shoppingCartContent")
 const shoppingCar = document.querySelector(".navbar-shopping-cart")
 
 navLink.addEventListener("click", toggleMenu);
@@ -16,13 +16,13 @@ function toggleMenu() {
     desktopInactive.classList.toggle("inactive");
 }
 function toggleBurger() {
-    productDetail.classList.add("inactive");
+    shoppingCartContent.classList.add("inactive");
     mobileInactive.classList.toggle("inactive");
 }
 
 function toggleShoppingCar() {
     mobileInactive.classList.add("inactive");
-    productDetail.classList.toggle("inactive");
+    shoppingCartContent.classList.toggle("inactive");
 }
 
 // first container of products list
