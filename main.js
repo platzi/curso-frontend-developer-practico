@@ -29,26 +29,32 @@ const cardsContainer = document.querySelector('.cards-container')
 const productList = [];
 
 productList.push({
-    name: 'bike',
-    price: 120,
-    image: 'https://images.pexels.com/photos/276517/pexels-photo-276517.jpeg?auto=compress&cs=tinysrgb&dpr=2&h=650&w=940'
+    name: 'iPhone XS MAX 256GB',
+    price: 450,
+    image: 'https://d3ugyf2ht6aenh.cloudfront.net/stores/001/116/601/products/xs-max-gold1-f77df19bbfa2120ea116376872330226-640-0.png'
 });
 
 productList.push({
-    name: 'Pantalla',
-    price: 220,
-    image: 'https://images.pexels.com/photos/276517/pexels-photo-276517.jpeg?auto=compress&cs=tinysrgb&dpr=2&h=650&w=940'
+    name: 'iPhone 11 Pro 256GB',
+    price: 650,
+    image: 'https://celutronic.com/wp-content/uploads/2021/04/iphone-12-pro-max-7.jpg'
 });
 
 productList.push({
-    name: 'Computadora',
-    price: 620,
-    image: 'https://images.pexels.com/photos/276517/pexels-photo-276517.jpeg?auto=compress&cs=tinysrgb&dpr=2&h=650&w=940'
+    name: 'iPhone 12 Pro Max',
+    price: 820,
+    image: 'https://celutronic.com/wp-content/uploads/2021/04/iphone-12-pro-max-7.jpg'
 });
 productList.push({
-    name: 'Heladera',
-    price: 1220,
-    image: 'https://images.pexels.com/photos/276517/pexels-photo-276517.jpeg?auto=compress&cs=tinysrgb&dpr=2&h=650&w=940'
+    name: 'iPhone 13 128GB',
+    price: 1020,
+    image: 'https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcSXh3iKtEmemxwzYMhonFg2WaeFxNokctq7tXdEOsxvvC9NDwA&usqp=CAc'
+});
+
+productList.push({
+    name: 'iPhone 14 Pro Max 512GB',
+    price: 1320,
+    image: 'https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcSXh3iKtEmemxwzYMhonFg2WaeFxNokctq7tXdEOsxvvC9NDwA&usqp=CAc'
 });
 
 
