@@ -11,9 +11,9 @@
 body {
   margin: 0;
   font-family: 'Quicksand', sans-serif;
-  background-color:black;
 }
-
+.oscuro{
+  background-color:black;}
 .inactive{ display: none;}
 
 nav {
@@ -79,6 +79,13 @@ nav {
   display: flex;
   justify-content: center;
   align-items: center;
+}
+.luna{
+  cursor: pointer;
+  width: 20px;
+  height: 20px;
+  text-align: center;
+  margin-top: 19px;
 }
 /* menu perfil */
   .desktop-menu {
