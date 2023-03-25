@@ -1,110 +1,77 @@
 const $ = (selector) => document.querySelector(selector);
 const navbarEmail = $(".navbar-email");
 const desktopMenu = $(".desktop-menu");
-
 const menuIcon = $(".menu");
 const mobileMenu = $(".mobile-menu");
-
 const productDetail = $(".product-detail");
 const navShopCart = $(".navbar-shopping-cart");
-
+const productDetailView = $(".product-detail-view");
 
 const productos = [
-  { 
+  {
+    id: 1,
     nombre: "Camiseta",
-    precio: 20.00,
-    imagen: "https://example.com/camiseta.jpg",
-    stock: 10 
+    precio: 20.0,
+    imagen:
+      "https://images.pexels.com/photos/276517/pexels-photo-276517.jpeg?auto=compress&cs=tinysrgb&dpr=2&h=650&w=940",
+    stock: 10,
+    descripcion: "Camiseta de algodón con corte clásico y cómodo.",
   },
-  { 
+  {
+    id: 2,
     nombre: "Pantalón",
-    precio: 40.00,
-    imagen: "https://example.com/pantalon.jpg",
-    stock: 5 
+    precio: 40.0,
+    imagen:
+      "https://images.pexels.com/photos/276517/pexels-photo-276517.jpeg?auto=compress&cs=tinysrgb&dpr=2&h=650&w=940",
+    stock: 5,
+    descripcion: "Pantalón de mezclilla de corte recto y lavado oscuro.",
   },
-  { 
+  {
+    id: 3,
     nombre: "Zapatos",
-    precio: 60.00,
-    imagen: "https://example.com/zapatos.jpg",
-    stock: 8 
+    precio: 60.0,
+    imagen:
+      "https://images.pexels.com/photos/276517/pexels-photo-276517.jpeg?auto=compress&cs=tinysrgb&dpr=2&h=650&w=940",
+    stock: 8,
+    descripcion: "Zapatos de cuero elegantes y cómodos para cualquier ocasión.",
   },
-  { 
+  {
+    id: 4,
+    nombre: "Zapatos XX",
+    precio: 62.0,
+    imagen:
+      "https://images.pexels.com/photos/276517/pexels-photo-276517.jpeg?auto=compress&cs=tinysrgb&dpr=2&h=650&w=940",
+    stock: 8,
+    descripcion: "Zapatos de cuero elegantes y cómodos para cualquier ocasión.",
+  },
+  {
+    id: 5,
     nombre: "Gorra",
-    precio: 15.00,
-    imagen: "https://example.com/gorra.jpg",
-    stock: 20 
+    precio: 15.0,
+    imagen:
+      "https://images.pexels.com/photos/428338/pexels-photo-428338.jpeg?auto=compress&cs=tinysrgb&dpr=2&h=650&w=940",
+    stock: 20,
+    descripcion: "Gorra de béisbol en color negro.",
   },
-  { 
-    nombre: "Chaqueta",
-    precio: 80.00,
-    imagen: "https://example.com/chaqueta.jpg",
-    stock: 3 
+  {
+    id: 6,
+    nombre: "Bufanda",
+    precio: 25.0,
+    imagen:
+      "https://images.pexels.com/photos/2234567/pexels-photo-2234567.jpeg?auto=compress&cs=tinysrgb&dpr=2&h=650&w=940",
+    stock: 15,
+    descripcion: "Bufanda de lana suave en color gris.",
   },
-  { 
-    nombre: "Bolso",
-    precio: 50.00,
-    imagen: "https://example.com/bolso.jpg",
-    stock: 12 
+  {
+    id: 7,
+    nombre: "Botas",
+    precio: 80.0,
+    imagen:
+      "https://images.pexels.com/photos/1893559/pexels-photo-1893559.jpeg?auto=compress&cs=tinysrgb&dpr=2&h=650&w=940",
+    stock: 7,
+    descripcion: "Botas de cuero resistentes y cómodas en color marrón.",
   },
-  { 
-    nombre: "Reloj",
-    precio: 100.00,
-    imagen: "https://example.com/reloj.jpg",
-    stock: 7 
-  },
-  { 
-    nombre: "Pulsera",
-    precio: 25.00,
-    imagen: "https://example.com/pulsera.jpg",
-    stock: 15 
-  },
-  { 
-    nombre: "Zapatillas",
-    precio: 90.00,
-    imagen: "https://example.com/zapatillas.jpg",
-    stock: 4 
-  },
-  { 
-    nombre: "Vestido",
-    precio: 70.00,
-    imagen: "https://example.com/vestido.jpg",
-    stock: 9 
-  },
-  { 
-    nombre: "Pendientes",
-    precio: 20.00,
-    imagen: "https://example.com/pendientes.jpg",
-    stock: 18 
-  },
-  { 
-    nombre: "Botines",
-    precio: 75.00,
-    imagen: "https://example.com/botines.jpg",
-    stock: 6 
-  },
-  { 
-    nombre: "Mochila",
-    precio: 45.00,
-    imagen: "https://example.com/mochila.jpg",
-    stock: 11 
-  },
-  { 
-    nombre: "Sombrero",
-    precio: 30.00,
-    imagen: "https://example.com/sombrero.jpg",
-    stock: 14 
-  },
-  { 
-    nombre: "Collar",
-    precio: 35.00,
-    imagen: "https://example.com/collar.jpg",
-    stock: 16 
-  }
-];
-
-
-
-
+]
 
 navbarEmail.addEventListener("click", toogleDesktopMenu);
 menuIcon.addEventListener("click", toogleMenuMobile);
@@ -113,41 +80,80 @@ navShopCart.addEventListener("click", toogleShoppingCart);
 function toogleDesktopMenu() {
   productDetail.classList.add("inactive");
   desktopMenu.classList.toggle("inactive");
+  productDetailView.classList.add("inactive");
 }
 
 function toogleMenuMobile() {
   mobileMenu.classList.toggle("inactive");
   productDetail.classList.add("inactive");
+  productDetailView.classList.add("inactive");
 }
 
 function toogleShoppingCart() {
   desktopMenu.classList.add("inactive");
   mobileMenu.classList.add("inactive");
   productDetail.classList.toggle("inactive");
+  productDetailView.classList.add("inactive");
 }
 
+function toogleCloseIconView() {
+  productDetailView.classList.add("inactive");
+  desktopMenu.classList.add("inactive");
+  mobileMenu.classList.add("inactive");
+  productDetail.classList.add("inactive");
+}
 
-
-function renderProducts(productos) {
-  const productsContainer = $(".cards-container");
-  productos.forEach((producto) => {
-    const product = document.createElement("div");
-    product.classList.add("product-card");
-    product.innerHTML = `
-      <img src="https://images.pexels.com/photos/276517/pexels-photo-276517.jpeg?auto=compress&cs=tinysrgb&dpr=2&h=650&w=940" alt="${producto.nombre}">
-      <div class="product-info">
-        <div>
-          <p>$ ${producto.precio}</p>
-          <p>${producto.nombre}</p>
-        </div>
-        <figure>
-          <img src="./icons/bt_add_to_cart.svg" alt="">
-        </figure>
+const renderProductCard = (producto) => (`
+  <div class="product-card">
+    <img src="${producto.imagen}" alt="${producto.nombre}" id="product-${producto.id}">
+    <div class="product-info">
+      <div>
+        <p>$ ${producto.precio}</p>
+        <p>${producto.nombre}</p>
       </div>
-    `;
-    productsContainer.appendChild(product);
+      <figure>
+        <img src="./icons/bt_add_to_cart.svg" alt="">
+      </figure>
+    </div>
+  </div>
+`);
+
+const renderProducts = (products) => {
+  const productsContainer =
+    document.getElementsByClassName("cards-container")[0];
+  productsContainer.innerHTML = products.map(renderProductCard).join("");
+  productsContainer.addEventListener("click", (event) => {
+    const target = event.target;
+    console.log(event)
+    if (target.tagName === "IMG" && target.id.startsWith("product-")) {
+      const productId = target.id.split("-")[1];
+      const producto = products.find((producto) => producto.id == productId);
+      renderProductDetail(producto);
+    }
   });
 };
 
-renderProducts(productos);
+const renderProductDetail = (producto) => {
+  productDetailView.classList.remove("inactive");
+  productDetailView.innerHTML = `
+    <div class="product-detail-close">
+      <img src="./icons/icon_close.png" alt="close">
+    </div>
+    <img src="${producto.imagen}" alt="bike">
+    <div class="product-info-view">
+      <p>$ ${producto.precio}</p>
+      <p>${producto.nombre}</p>
+      <p>${producto.descripcion}</p>
+      <button class="primary-button add-to-cart-button">
+        <img src="./icons/bt_add_to_cart.svg" alt="add to cart">
+        Add to cart
+      </button>
+    </div>
+  `;
+  const productDetailClose = document.getElementsByClassName(
+    "product-detail-close"
+  )[0];
+  productDetailClose.addEventListener("click", toogleCloseIconView);
+};
 
+renderProducts(productos);
