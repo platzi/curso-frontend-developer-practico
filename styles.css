@@ -29,6 +29,9 @@
   .menu {
     display: none;
   }
+  .menu:hover {
+    cursor: pointer;
+  }
   .logo {
     width: 100px;
   }
@@ -64,9 +67,20 @@
     color: var(--very-light-pink);
     font-size: var(--sm);
     margin-right: 12px;
+    padding: 8px;
+    border-radius: 8px;
+
 
     cursor: pointer;
   }
+
+  .navbar-email:hover {
+    border: 1px solid var(--hospital-green);
+    color: var(--hospital-green);
+  }
+
+
+
   .navbar-shopping-cart {
     position: relative;
   }
