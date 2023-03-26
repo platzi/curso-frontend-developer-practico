@@ -26,6 +26,9 @@ function toggleMobileMenu() {
     //compras este se cierre
     const isAsideClosed = shoppingCardContainer.classList.contains('inactive')
     if(!isAsideClosed) shoppingCardContainer.classList.add('inactive')
+
+    // al momento de nosotros darle click al menu mobile, se cerrara los detalles del producto en caso de tenernlo abiero
+    closeProductDetail()
 }
 
 // carrito de compras
@@ -45,6 +48,29 @@ function toggleCarritoAside() {
     //el carrito de compras, el desktopMenu se cierre
     const isDesktopMenuClosed = desktopMenu.classList.contains('inactive')
     if(!isDesktopMenuClosed) desktopMenu.classList.add('inactive')
+
+    // cuando este abierto los detalles del producto estos se van a cerrar cuanto querramos abirir el carrito de compras
+    const isProductDetailClosed = productDetail.classList.contains('inactive')
+    if(!isProductDetailClosed) productDetail.classList.add('inactive')
+}
+
+// open detail of product
+const productDetail = document.querySelector('#productDetail')
+function openDetail() {
+    productDetail.classList.remove('inactive')
+
+    // cuando este abierto el carrito de compras este se va a cerrar cuando querramos abrir los detallos del producto
+    const isShoppingCardContainer = shoppingCardContainer.classList.contains('inactive')
+    if(!isShoppingCardContainer) shoppingCardContainer.classList.add('inactive')
+
+}
+
+// closed detail of product
+const closedDetailProduct = document.querySelector('#productDetail')
+closedDetailProduct.addEventListener('click', closeProductDetail)
+
+function closeProductDetail() {
+    closedDetailProduct.classList.add('inactive')
 }
 
 // ahora crearemos el/los productos de la tienda aqui en js
@@ -65,6 +91,8 @@ function renderProducts(listOfProduct){
         // creamos la imagen la cual sera la imagen del producto
         const productImg = document.createElement('img')
         productImg.setAttribute('src', product.image)
+        productImg.addEventListener("click",openDetail)
+
 
         // creamos el contenedor el cual va a tener la informacion del producto como lo que es el nombre y el precio de este
         const divInfo = document.createElement('div')
