@@ -57,33 +57,21 @@ function toggleCarritoAside(){
 const productList = [];
 productList.push({
     name: 'Xbox',
-    precio: 6000,
+    precio: '6000',
     imagen: 'https://images.pexels.com/photos/276517/pexels-photo-276517.jpeg?auto=compress&cs=tinysrgb&dpr=2&h=650&w=940',
 });
 productList.push({
     name: 'Play Station 5',
-    precio: 8000,
+    precio: '8000',
     imagen: 'https://images.pexels.com/photos/276517/pexels-photo-276517.jpeg?auto=compress&cs=tinysrgb&dpr=2&h=650&w=940',
 });
 productList.push({
     name: 'Swicth',
-    precio: 8000,
+    precio: '8000',
     imagen: 'https://images.pexels.com/photos/276517/pexels-photo-276517.jpeg?auto=compress&cs=tinysrgb&dpr=2&h=650&w=940',
 });
 
 
-// <!--0 <div class="product-card">
-// <img src="https://images.pexels.com/photos/276517/pexels-photo-276517.jpeg?auto=compress&cs=tinysrgb&dpr=2&h=650&w=940" alt="">
-// <div class="product-info">
-//   <div>
-//     <p>$120,00</p>
-//     <p>Bike</p>
-//   </div>
-//   <figure>
-//     <img src="./icons/bt_add_to_cart.svg" alt="">
-//   </figure>
-// </div>
-// </div> -->
 
 //insercion
 //creacion de for para recorrer el arreglo
@@ -103,12 +91,22 @@ for(producto of productList){
     productCard.classList.add('product-card')
     
     
+    //creacion de imagen
+    const productImg = document.createElement('img'); 
+    //metodo para añadir una imagen
+    productImg.setAttribute('src', producto.imagen);
     
     
-    //constante para la creacion del nombre
-    const productName = document.createElement('p');
-    //metodo para la asignacion del nombre
-    productName.innerText = producto.name;
+    
+    //contenedor de clase
+    //constante para creacion de la informacion del producto
+    const productInfo = document.createElement('div');
+    //metodo para añadir la informacion
+    productInfo.classList.add = ('producto-info');
+    
+    
+    
+    const divInfo = document.createElement('div');
     
     
     
@@ -118,53 +116,48 @@ for(producto of productList){
     productPrice.innerText = '$' + producto.precio;
     
     
+    //constante para la creacion del nombre
+    const productName = document.createElement('p');
+    //metodo para la asignacion del nombre
+    productName.innerText = producto.name;
     
-    //creacion de imagen
-    const productImg = document.createElement('img'); 
-    //metodo para añadir una imagen
-    productImg.setAttribute('src', producto.imagen);
-    
-    //contenedor de clase
-    //constante para creacion de la informacion del producto
-    const productInfo = document.createElement('div');
-    //metodo para añadir la informacion
-    productInfo.classList.add = ('producto-info');
-    
+    // <!--0 <div class="product-card">
+    // <img src="https://images.pexels.com/photos/276517/pexels-photo-276517.jpeg?auto=compress&cs=tinysrgb&dpr=2&h=650&w=940" alt="">
+    // <div class="product-info">
+    //   <div>
+    //     <p>$120,00</p>
+    //     <p>Bike</p>
+    //   </div>
+    //   <figure>
+    //     <img src="./icons/bt_add_to_cart.svg" alt="">
+    //   </figure>
+    // </div>
+    // </div> -->
 
-    const divInfo = document.createElement('div');
+
+    divInfo.append(productPrice, productName);
+ 
     
-
-
     //contenedor de figure
     //constante para la creacion del contenedor figure
     const productFigure = document.createElement('figure');
-    
+    productFigure.classList.add = 'figure'
     //imagen agregar
     //constante para la creacion de la imagen del producto
     const productImgCard = document.createElement('img');
     //metodo para añadir la imagen con ruta
-    productImgCard.setAttribute('src', './icons/bt_add_to_cart.svg');
+    productImgCard.src = './icons/bt_add_to_cart.svg';
+    
+    productImgCard.classList.add = '';
     
     
-
-
-    //PENDIENTE SOLO FALTA ESTRUCTURAR BIEN LOS NODOS
-
-    
-    //creacion del nuevo nodo (hijo)
-    productCard.appendChild(productImg)
-    
-    
-    productInfo.appendChild(divInfo)
-
-    divInfo.appendChild(productPrice,productName);
-    
-    
-    productCard.appendChild(productFigure);
-
-
+    productInfo.appendChild(divInfo);
+    productInfo.appendChild(productFigure);
     productFigure.appendChild(productImgCard);
-
+    productCard.appendChild(productImg);
+    
+    
+    productCard.appendChild(productInfo)
     
     //creacion del nuevo nodo el cual guardara el contenedor principal de la creacion de los productos creados
     cardsContainer.appendChild(productCard);
