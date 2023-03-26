@@ -372,6 +372,12 @@ aside {
         width: 140px;
         height: 140px;
     }
+    #productDetail {
+        position: absolute;
+        width: 100%;
+        height: 100vh;
+        margin: 0;
+    }
 }
 @media (min-width: 641px) {
     .mobile-menu {
