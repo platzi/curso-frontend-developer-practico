@@ -123,8 +123,7 @@
   .mobile-menu {
       padding: 24px;
       background-color: var(--white);
-      position: absolute;
-      
+      position: absolute;      
     }
     .mobile-menu a {
       text-decoration: none;
@@ -276,8 +275,10 @@
         width: 360px;
         padding-bottom: 24px;
         position: absolute;
-        right: 0;
-        display: none;
+        right: 24px;
+        top: 64px;
+        background-color: var(--white);
+        /* display: none; */
       }
       .product-detail-close {
         background: var(--white);
