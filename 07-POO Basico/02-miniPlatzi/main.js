@@ -1,20 +1,3 @@
-class Comment {
-  constructor({
-    content,
-    studentName,
-    studentRole = 'estudiante',
-  }) {
-    this.content = content;
-    this.studentName = studentName;
-    this.studentRole = studentRole;
-    this.likes = 0;
-  }
-  publicar() {
-    console.log(this.studentName + ' (' + this.studentRole + ')');
-    console.log(this.likes + ' Likes');
-    console.log(this.content);
-  }
-}
 
 //////////////////////////////////////////
 function videoPlay(id) {
@@ -117,6 +100,23 @@ const escuelaVideoGame = new LearningPath({
 });
 
 //////////////////////////////////////////
+class Comment {
+  constructor({
+    content,
+    studentName,
+    studentRole = 'estudiante',
+  }) {
+    this.content = content;
+    this.studentName = studentName;
+    this.studentRole = studentRole;
+    this.likes = 0;
+  }
+  publicar() {
+    console.log(this.studentName + ' (' + this.studentRole + ')');
+    console.log(this.likes + ' Likes');
+    console.log(this.content);
+  }
+}
 class Student {
   constructor({
     name,
