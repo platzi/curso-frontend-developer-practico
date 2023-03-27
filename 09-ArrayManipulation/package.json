@@ -1,0 +1,23 @@
+{
+  "name": "js-arrays",
+  "version": "1.0.0",
+  "description": "",
+  "main": "index.js",
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/platzi/curso-manipulacion-de-arrays.git"
+  },
+  "keywords": [],
+  "author": "",
+  "license": "ISC",
+  "bugs": {
+    "url": "https://github.com/platzi/curso-manipulacion-de-arrays/issues"
+  },
+  "homepage": "https://github.com/platzi/curso-manipulacion-de-arrays#readme",
+  "dependencies": {
+    "http-server": "^0.12.3"
+  }
+}

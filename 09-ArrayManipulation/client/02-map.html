@@ -1,0 +1,30 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta http-equiv="X-UA-Compatible" content="IE=edge">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Array MAP</title>
+</head>
+<body>
+  
+  <h1>Aprendiendo Array MAP</h1>
+  <div class="app"></div>
+
+  <script>
+    const app = document.querySelector('.app');
+    const products = [
+      { name: 'Monitor 20 Pulgadas', price: 500 },
+      { name: 'Televisión 50 Pulgadas', price: 700 },
+      { name: 'Tablet', price: 300 },
+    ];
+
+    const names = products.map( product => {
+      return `Producto: ${ product.name } - Precio: ${ product.price }`;
+    });
+
+    app.innerHTML = names.join(' <br> ');
+  </script>
+  <script src="../server/02-map.js"></script>
+</body>
+</html>
