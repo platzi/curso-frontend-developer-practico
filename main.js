@@ -25,7 +25,7 @@ order.addEventListener('click', openProdcutDetail);
 productDetailClose.addEventListener('click', closeProductDetail);
 function openProdcutDetail(){
     productDetail.classList.remove('inactive');
-
+ 
     if(!aside.classList.contains('inactive')){
         console.log('funciona');
         aside.classList.add('inactive');
@@ -50,6 +50,7 @@ function SetVisibleCar(){
     aside.classList.toggle('inactive');
     const MobileClosed = menuMobile.classList.contains('inactive');
     const navEmailClosed = navEmail.classList.contains('inactive'); 
+    
 
     if(!aside.classList.contains('inactive')){
         navEmail.classList.add('inactive');
