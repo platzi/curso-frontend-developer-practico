@@ -6,12 +6,32 @@ const menuCarritoIcon = document.querySelector('.navbar-shopping-cart');
 const aside = document.querySelector('.product-detail');
 
 const cardsContainer = document.querySelector('.cards-container');
+//creacion de productos 
+const productList = [];
+productList.push({
+    name: 'Xbox',
+    precio: '6000',
+    imagen: 'https://images.pexels.com/photos/276517/pexels-photo-276517.jpeg?auto=compress&cs=tinysrgb&dpr=2&h=650&w=940',
+});
+productList.push({
+    name: 'Play Station 5',
+    precio: '8000',
+    imagen: 'https://images.pexels.com/photos/276517/pexels-photo-276517.jpeg?auto=compress&cs=tinysrgb&dpr=2&h=650&w=940',
+});
+productList.push({
+    name: 'Swicth',
+    precio: '8000',
+    imagen: 'https://images.pexels.com/photos/276517/pexels-photo-276517.jpeg?auto=compress&cs=tinysrgb&dpr=2&h=650&w=940',
+});
+
+//Al momento que la ventana de carga abra (la pagina), se cargaran todas las funciones o procesos asignados. 
+window.onload = renderProducts(productList);
+
 
 
 menuEmail.addEventListener('click', toggleDesktopMenu);
 menuHamIcon.addEventListener('click', toggleMobileMenu);
 menuCarritoIcon.addEventListener('click',toggleCarritoAside);
-
 
 console.log(menuEmail.addEventListener('click', toggleDesktopMenu))
 
@@ -52,32 +72,13 @@ function toggleCarritoAside(){
     
 }
 
+function renderProducts(producto){
 
-
-const productList = [];
-productList.push({
-    name: 'Xbox',
-    precio: '6000',
-    imagen: 'https://images.pexels.com/photos/276517/pexels-photo-276517.jpeg?auto=compress&cs=tinysrgb&dpr=2&h=650&w=940',
-});
-productList.push({
-    name: 'Play Station 5',
-    precio: '8000',
-    imagen: 'https://images.pexels.com/photos/276517/pexels-photo-276517.jpeg?auto=compress&cs=tinysrgb&dpr=2&h=650&w=940',
-});
-productList.push({
-    name: 'Swicth',
-    precio: '8000',
-    imagen: 'https://images.pexels.com/photos/276517/pexels-photo-276517.jpeg?auto=compress&cs=tinysrgb&dpr=2&h=650&w=940',
-});
-
-
-
-//insercion
-//creacion de for para recorrer el arreglo
-for(producto of productList){
-    //sintaxis y semantica 
-    
+    //insercion
+    //creacion de for para recorrer el arreglo
+    for(producto of productList){
+        //sintaxis y semantica 
+        
     //declaracion e inializacion
     //primero se declara e inicializa una variable para asignarle el tipo de elemento el cual tendra en relacion al elemento que tiene como referencia en el html.
     
@@ -87,7 +88,7 @@ for(producto of productList){
     
     //constante para la creacion del div
     const productCard = document.createElement('div');
-    //metodo para añadir
+    //metodo para añadirle un nombre a la clase
     productCard.classList.add('product-card')
     
     
@@ -98,28 +99,35 @@ for(producto of productList){
     
     
     
+    
     //contenedor de clase
     //constante para creacion de la informacion del producto
     const productInfo = document.createElement('div');
     //metodo para añadir la informacion
-    productInfo.classList.add = ('producto-info');
+    productInfo.classList.add('producto-info');
     
     
     
     const divInfo = document.createElement('div');
-    
+    divInfo.classList.add('divInfo');
     
     
     //constante para creacion del precio
     const productPrice = document.createElement('p');
+    //metodo para asignarle un nombre a la constante
+    productPrice.classList.add('parrafo-precio');
     //metodo para añadir precio
     productPrice.innerText = '$' + producto.precio;
     
     
     //constante para la creacion del nombre
     const productName = document.createElement('p');
-    //metodo para la asignacion del nombre
+    //metodo para asignarle un nombre a la constante
+    productName.classList.add('parrafo-nombre');
+    //metodo para la asignacion del valor que ira cambiando segun el producto
     productName.innerText = producto.name;
+    
+    
     
     // <!--0 <div class="product-card">
     // <img src="https://images.pexels.com/photos/276517/pexels-photo-276517.jpeg?auto=compress&cs=tinysrgb&dpr=2&h=650&w=940" alt="">
@@ -133,10 +141,10 @@ for(producto of productList){
     //   </figure>
     // </div>
     // </div> -->
-
-
+    
+    //El usar solamente append nos permite englobar mas de una sola constante como hijo, para evitar el tener que poner mas codigo esto 
     divInfo.append(productPrice, productName);
- 
+    
     
     //contenedor de figure
     //constante para la creacion del contenedor figure
@@ -148,7 +156,6 @@ for(producto of productList){
     //metodo para añadir la imagen con ruta
     productImgCard.src = './icons/bt_add_to_cart.svg';
     
-    productImgCard.classList.add = '';
     
     
     productInfo.appendChild(divInfo);
@@ -161,8 +168,19 @@ for(producto of productList){
     
     //creacion del nuevo nodo el cual guardara el contenedor principal de la creacion de los productos creados
     cardsContainer.appendChild(productCard);
+
+    //NOTA: La unica constante que no fue declarada dentro de la funcion fue 'cardsContainer' ya que esta es la unica clase que si fue declara desde el html por lo cual esta fue llamada con el query selector.
     
+
+
+    //cambiando el estilo de los parrafos de los productos
+
 }
+}
+
+
+
+
 
 
 // document.addEventListener('click', clickeo)
@@ -180,15 +198,16 @@ for(producto of productList){
     const emailcarrito = () => {
         const [estado, cambio] = false;
         if (menuEmail == false ){
-
+            
+        }
+        
+        //menu del carrito
+        menuEmail
+        //menuCarritoIcon
+        
+        
+        //menudeordencarro
+        mobileMenu
     }
-    
-    //menu del carrito
-    menuEmail
-    //menuCarritoIcon
-     
-
-    //menudeordencarro
-    mobileMenu
-}
-*/
+    */
+   

@@ -274,7 +274,7 @@ nav {
 /* LISTA DE PRODUCTOS */
 .cards-container {
     display: grid;
-    place-content: center;
+    place-content: space-evenly;
     grid-template-columns: repeat(auto-fill, 240px);
     gap: 26px;
     margin: 20px 0;
@@ -288,19 +288,38 @@ nav {
     border-radius: 20px;
     object-fit: cover;
   }
-  .product-info {
+  .producto-info {
     display: flex;
     justify-content: space-between;
     align-items: center;
-    margin-top: 12px;
+    margin-top: 0;
   }
-  .product-card figure {
+  .divInfo{
+    width: 120px;
     margin: 0;
   }
-  .product-card div figure img {
-    width: 55px;
-    height: 55px;
+  .parrafo-precio{
+    font-weight: 800;
   }
+  .parrafo-nombre{
+    font-weight: 300;
+  }
+  figure{
+    width: 40px;
+    height: 40px;
+    margin: 0 0;
+  }
+  .product-card div figure img {
+    width: 40px;
+    height: 40px;
+  }
+  .product-card div figure img:hover {
+    width: 42px;
+    height: 42px;
+    box-shadow: 1px 1px green;
+  }
+
+  
   .product-info div p:nth-child(1) {
     font-weight: bold;
     font-size: var(--md);
