@@ -5,7 +5,7 @@ const menuHamIcon = document.querySelector(".menu");
 const menuHamList = document.querySelector(".mobile-menu");
 
 const menuCarritoIcon = document.querySelector(".navbar-shopping-cart");
-const menuCarritoList = document.querySelector(".product-detail");
+const menuCarritoList = document.querySelector("#shoppingCartContainer");
 
 const cardsContainer = document.querySelector(".cards-container");
 
