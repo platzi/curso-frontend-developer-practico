@@ -3,7 +3,7 @@ const desktopMenu = document.querySelector('.desktop-menu');
 const menuHamb = document.querySelector('.menuHamb');
 const menuCarritoIcon = document.querySelector('.navbar-shopping-cart');
 const mobileMenu = document.querySelector('.mobile-menu');
-const productDetailAssaid = document.querySelector('.product-detail');
+const shoppingCartContainer = document.querySelector('#shoppingCartContainer');
 const cardsContainer = document.querySelector('.cards-container');
 
 menuEmail.addEventListener('click', toggleDesktopMenu);
@@ -14,10 +14,10 @@ menuCarritoIcon.addEventListener('click', toggleMenuCarrito);
 
 function toggleDesktopMenu(){
 
-const isassaidClosed = productDetailAssaid.classList.contains('inactive');
+const isassaidClosed = shoppingCartContainer.classList.contains('inactive');
 
  if(!isassaidClosed){
-   productDetailAssaid.classList.add('inactive'); 
+   shoppingCartContainer.classList.add('inactive'); 
  }
 
  desktopMenu.classList.toggle('inactive');         
@@ -25,10 +25,10 @@ const isassaidClosed = productDetailAssaid.classList.contains('inactive');
        
 function toggleMobileMenu(){
   
- const isassaidClosed = productDetailAssaid.classList.contains('inactive');
+ const isassaidClosed = shoppingCartContainer.classList.contains('inactive');
 
  if(!isassaidClosed){
-   productDetailAssaid.classList.add('inactive'); 
+   shoppingCartContainer.classList.add('inactive'); 
  }
 
  mobileMenu.classList.toggle('inactive'); 
@@ -49,7 +49,7 @@ function toggleMenuCarrito(){
         desktopMenu.classList.add('inactive');
     }
     
-    productDetailAssaid.classList.toggle('inactive');
+    shoppingCartContainer.classList.toggle('inactive');
 
 };
 
@@ -97,10 +97,11 @@ image: 'https://images.pexels.com/photos/276517/pexels-photo-276517.jpeg?auto=co
 
 function AddProducts(arr){
 
-for (product of productList){
+for (product of arr){
  const productCard = document.createElement('div');
  productCard.classList.add('product-card');
 
+ // product= {name, price, image} -> product.image
  const InfoImg = document.createElement('img');
  InfoImg.setAttribute('src' , product.image);
 
@@ -129,6 +130,7 @@ producInfo.appendChild(divInfoProduct);
 producInfo.appendChild(figure);
 
 productCard.appendChild(InfoImg);
+productCard.appendChild(producInfo);
 
 cardsContainer.appendChild(productCard);
 
