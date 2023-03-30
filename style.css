@@ -129,6 +129,8 @@
     position: absolute;
     top: 61px;
     padding: 24px;
+    left: 0;
+    width: calc(100% - 48px);
   }
   .mobile-menu a {
     text-decoration: none;

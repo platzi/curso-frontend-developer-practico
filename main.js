@@ -22,17 +22,20 @@ function toggleDesktopMenu(){
     // }
     menuDesktop.classList.toggle("inactive");
     compra.classList.add("inactive");
+    productDetail.classList.add("inactive")
 };
 
 function toggleMobileMenu(){
     mobileMenu.classList.toggle("inactive");
     compra.classList.add("inactive");
+    productDetail.classList.add("inactive")
 };
 
 function toggleCompraMenu (){
     compra.classList.toggle("inactive");
     mobileMenu.classList.add("inactive");
-    menuDesktop.classList.toggle("inactive");
+    menuDesktop.classList.add("inactive");
+    productDetail.classList.add("inactive")
 }
 
 productList.push({
@@ -124,6 +127,10 @@ function closeDetailWindow () {
 for (let index = 0; index < cardsCreated.length; index++){
     cardsCreated[index].addEventListener("click", showDetails)
     function showDetails() {
+        
+        compra.classList.add("inactive");
+        mobileMenu.classList.add("inactive");
+        menuDesktop.classList.add("inactive");
         productDetail.classList.remove("inactive")
         imgDetail.setAttribute("src" ,productList[index].image)
         priceDetail.innerText = productList[index].price
