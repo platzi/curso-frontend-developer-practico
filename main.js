@@ -173,7 +173,9 @@ function GenerateProductDetail(event) {
     priceProductDetail.textContent = priceFormatted(foundProduct.price);
     descProductDetail.textContent = foundProduct.description;
     buttonProductDetail.setAttribute('value', foundProduct.id);
-    buttonProductDetail.addEventListener('click', getValueFromNamedNodeMap);
+    buttonProductDetail.addEventListener('click', event => {
+      addProductToShoppingCart(getValueFromNamedNodeMap(event));
+    });
   }
 }
 
@@ -186,14 +188,14 @@ function addProductToShoppingCart(identifyProduct) {
     price: productList[identifyProduct - 1].price,
     pricetotal: productList[identifyProduct - 1].price,
     quantity: 1
-  }
+  };
 
   let content = validateProductToAddToShoppingCart(identifyProduct);
   if (content === false) {
     listShoppingCart.push(productToShopping);
   }
   renderProductsShoppingCart(listShoppingCart);
-  updateTotalToPayAndQuantityOfProducts();
+  updateTotalToPayAndQuantityOfProducts(listShoppingCart);
 }
 
 // * Permite generar el listado de productos
@@ -229,7 +231,9 @@ function renderProducts(arr) {
       'src': './icons/bt_add_to_cart.svg',
       'data-value': products.id
     });
-    productIconCart.addEventListener('click', getValueFromNamedNodeMap);
+    productIconCart.addEventListener('click', event => {
+      addProductToShoppingCart(getValueFromNamedNodeMap(event));
+    });
 
     // * Se le da estructura al html generado
     productInfoDiv.append(productName, productPrice);
@@ -258,9 +262,9 @@ function renderProductsShoppingCart(array) {
     let productShoppingCard = document.createElement('div'),
       productShoppingFigure = document.createElement('figure'),
       productShoppingImage = document.createElement('img'),
-      productShoppingName = document.createElement('p'),
-      productShoppingQuantity = document.createElement('p'),
-      productShoppingPrice = document.createElement('p'),
+      productShoppingName = document.createElement('span'),
+      productShoppingQuantity = document.createElement('span'),
+      productShoppingPrice = document.createElement('span'),
       productShoppingIcon = document.createElement('img');
 
     //* Se agregan complementos al HTML
@@ -279,7 +283,11 @@ function renderProductsShoppingCart(array) {
     productShoppingPrice.textContent = priceFormatted(products.pricetotal);
     AddListAttr(productShoppingIcon, {
       'src': './icons/icon_close.png',
-      'alt': 'Close'
+      'alt': 'Close',
+      'data-value': products.id
+    });
+    productShoppingIcon.addEventListener('click', event => {
+      removeProductToShoppingCart(getValueFromNamedNodeMap(event));
     });
 
     //*Se le da estructura al html Generado
@@ -293,6 +301,15 @@ function renderProductsShoppingCart(array) {
 
   //* Se agrega estructura al array creado, modificando solo una vez el DOM
   shoppingCartContent.append(...toRender);
+}
+
+//* Permite eliminar un producto del carrito
+function removeProductToShoppingCart(idProduct) {
+  const newListOfProductsToShopping = listShoppingCart.filter(item => item.id != idProduct);
+  listShoppingCart = [];
+  newListOfProductsToShopping.forEach(item => listShoppingCart.push(item));
+  renderProductsShoppingCart(listShoppingCart);
+  updateTotalToPayAndQuantityOfProducts(listShoppingCart);
 }
 
 //* validamos que el producto no exista en el carrito de compras para agregarlo
@@ -312,12 +329,12 @@ function validateProductToAddToShoppingCart(identifyProduct) {
 }
 
 // * Permite actualizar total a pagar y conteno de productos agregados al carrito
-function updateTotalToPayAndQuantityOfProducts() {
+function updateTotalToPayAndQuantityOfProducts(arrayOfProducts) {
   let shoppingCartTotalToPay = document.querySelector('.order-total-to-pay'),
     badgeOfQuantityProducts = document.querySelector('.navbar-shopping-cart .badge');
 
-  shoppingCartTotalToPay.textContent = priceFormatted(getTotalToPayment());
-  badgeOfQuantityProducts.textContent = getCountTotalProductsToShoppingCart();
+  shoppingCartTotalToPay.textContent = priceFormatted(getTotalToPayment(arrayOfProducts));
+  badgeOfQuantityProducts.textContent = getCountTotalProductsToShoppingCart(arrayOfProducts);
 }
 
 //* Realiza suma de total a pagar por un producto
@@ -327,18 +344,18 @@ function updateTotalandQuantityProduct(quantity, price) {
 }
 
 //* Realiza suma de total a pagar de los productos agregados al carrito
-function getTotalToPayment() {
+function getTotalToPayment(arrayOfProducts) {
   let totalToPay = 0;
-  listShoppingCart.forEach(product => {
+  arrayOfProducts.forEach(product => {
     totalToPay += product.pricetotal;
   });
   return totalToPay;
 }
 
 //* Realiza conteo total de productos agregados al carrito
-function getCountTotalProductsToShoppingCart() {
+function getCountTotalProductsToShoppingCart(arrayOfProducts) {
   let countProducts = 0;
-  listShoppingCart.forEach(product => {
+  arrayOfProducts.forEach(product => {
     countProducts += product.quantity;
   });
   return countProducts;
@@ -373,7 +390,6 @@ function cleanShoppingCart() {
 * contenga el valor esperado para la funcion del agregar productos al carrito
 */
 function getValueFromNamedNodeMap(event) {
-  debugger
   const attrMap = event.target.attributes;
   let attrToSend = "";
   switch (true) {
@@ -385,5 +401,5 @@ function getValueFromNamedNodeMap(event) {
       break;
   }
 
-  addProductToShoppingCart(attrToSend);
+  return attrToSend;
 }
