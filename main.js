@@ -26,7 +26,7 @@ function toggleMobileMenu() {
   if (!isAsideClosed) {
     shoppingCartContainer.classList.add("inactive");
   }
-  closeProductDetailAside();
+  closeProductDetailAside;
   mobileMenu.classList.toggle("inactive");
 }
 
@@ -63,50 +63,46 @@ productList.push({
     "https://images.pexels.com/photos/276517/pexels-photo-276517.jpeg?auto=compress&cs=tinysrgb&dpr=2&h=650&w=940",
 });
 productList.push({
-  name: "Bicycle helmet",
-  price: 1200,
+  name: "Echo Dot",
+  price: 999,
   image:
-    "https://assets.specialized.com/i/specialized/60821-104_HLMT_ALIGN-II-HLMT-MIPS-CE-BLK-BLKREFL-S-M_HERO?bg=rgb(241,241,241)&w=1600&h=900&fmt=auto",
+    "https://images-na.ssl-images-amazon.com/images/I/61Rr8uxmREL._AC_UL300_SR300,200_.jpg",
 });
 productList.push({
-  name: "Bicycle helmet",
-  price: 1600,
-  image: "https://m.media-amazon.com/images/I/61eExL-rIAL._AC_SL1001_.jpg",
-});
-productList.push({
-  name: "Bicycle helmet",
-  price: 1500,
+  name: "Fire TV Stick",
+  price: 899,
   image:
-    "https://assets.specialized.com/i/specialized/60822-140_HLMT_CHAMONIX-HLMT-MIPS-CE-MRN-M-L_HERO?bg=rgb(241,241,241)&w=1600&h=900&fmt=auto",
+    "https://images-na.ssl-images-amazon.com/images/I/51glVwLlgaL._AC_UL600_SR600,400_.jpg",
 });
 productList.push({
-  name: "Seat",
-  price: 300,
-  image: "https://m.media-amazon.com/images/I/61e+sZ9rgNL._AC_SL1500_.jpg",
-});
-productList.push({
-  name: "Tennis Montain Bike",
-  price: 2200,
+  name: "TP-Link Tapo C200",
+  price: 684.98,
   image:
-    "https://assets.adidas.com/images/h_840,f_auto,q_auto,fl_lossy,c_fill,g_auto/8ea578f6c07847fca2d0ac85011d7f1f_9366/Tenis_para_Mountain_Bike_Five_Ten_Freerider_Negro_FW2835_01_standard.jpg",
+    "https://images-na.ssl-images-amazon.com/images/I/61W8vUtB2GL._AC_UL600_SR600,400_.jpg",
 });
 productList.push({
-  name: "Sunglasses",
-  price: 800,
+  name: "Nuevo Echo Dot",
+  price: 1299,
   image:
-    "https://cdn.siroko.com/s/files/1/1220/6874/products/gafas-siroko-tech-k3s-london-lateral/1200x/crop_center.jpg?v=1635209602",
+    "https://images-na.ssl-images-amazon.com/images/I/71xoR4A6q-L._AC_UL600_SR600,400_.jpg",
 });
 productList.push({
-  name: "Sunglasses",
+  name: "Power Bank",
+  price: 188.79,
+  image:
+    "https://images-na.ssl-images-amazon.com/images/I/61m99DgaWbL._AC_UL600_SR600,400_.jpg",
+});
+productList.push({
+  name: "Luffy Skeleton",
+  price: 309,
+  image: "https://m.media-amazon.com/images/I/6125WhkKKSL._AC_UL320_.jpg",
+});
+productList.push({
+  name: "Gorro",
   price: 600,
-  image:
-    "https://cdn.siroko.com/s/files/1/1220/6874/products/siroko-tech-k3s-clearfog-lente-antiniebla-frontal/1200x/crop_center.jpg?v=1635209603",
+  image: "https://m.media-amazon.com/images/I/71KKeQAg+aL._AC_UL320_.jpg",
 });
-productList.push({
-  name: "Bicycle seat bag",
-  price: 876,
-  image: "https://m.media-amazon.com/images/I/81k2Gmal+VL._AC_SL1500_.jpg",
-});
+
 /*
 <div class="product-card">
         <img src="https://images.pexels.com/photos/276517/pexels-photo-276517.jpeg?auto=compress&cs=tinysrgb&dpr=2&h=650&w=940" alt="">
