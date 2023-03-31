@@ -160,7 +160,7 @@
 
 
   /* Aside (product-detail) */
-  .product-detail, .product-detail-main {
+  .product-detail {
     background-color: var(--white);
     width: 360px;
     padding: 0 24px;
@@ -237,6 +237,14 @@
   }
 
   /* product detail main */
+
+  .product-detail-main {
+    background-color: var(--white);
+    width: 360px;
+    box-sizing: border-box;
+    position: absolute;
+    right: 0;
+  }
 
   .product-detail-main-close {
     background: var(--white);

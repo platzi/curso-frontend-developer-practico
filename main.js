@@ -106,20 +106,17 @@ function renderProducts(array) {
     
         cardContainer.appendChild(productCard)
     }
-}
 
-renderProducts(productList)
+    const cardsCreated = document.getElementsByClassName ("product-card") //aqui creo una variable con los bloques html creados por la anterior funcion
+    const imgDetail = document.querySelector(".imageDetail")
+    const priceDetail = document.querySelector(".price-detail")
+    const nameDetail = document.querySelector(".name-detail")
+    const especDetail = document.querySelector(".espec-detail")
+    const detailClose = document.querySelector(".product-detail-main-close")
 
-const cardsCreated = document.getElementsByClassName ("product-card") //aqui creo una variable con los bloques html creados por la anterior funcion
-const imgDetail = document.querySelector(".imageDetail")
-const priceDetail = document.querySelector(".price-detail")
-const nameDetail = document.querySelector(".name-detail")
-const especDetail = document.querySelector(".espec-detail")
-const detailClose = document.querySelector(".product-detail-main-close")
+    detailClose.addEventListener("click", closeDetailWindow) // funcion de cerrado de la ventana
 
-detailClose.addEventListener("click", closeDetailWindow) // funcion de cerrado de la ventana
-
-function closeDetailWindow () {
+    function closeDetailWindow () {
     productDetail.classList.add("inactive")
 }
 
@@ -138,3 +135,8 @@ for (let index = 0; index < cardsCreated.length; index++){
         especDetail.innerText = productList[index].description
     }
 }
+}
+
+renderProducts(productList)
+
+
