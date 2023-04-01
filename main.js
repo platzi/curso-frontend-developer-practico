@@ -62,12 +62,12 @@ productList.push({
 productList.push({
     name: 'Celular',
     price: 340,
-    image: 'https://images.pexels.com/photos/276517/pexels-photo-276517.jpeg?auto=compress&cs=tinysrgb&dpr=2&h=650&w=940',
+    image: 'https://m.media-amazon.com/images/I/71xn9bCRfhL._FMwebp__.jpg',
 });
 productList.push({
     name: 'Computadora',
     price: 620,
-    image: 'https://images.pexels.com/photos/276517/pexels-photo-276517.jpeg?auto=compress&cs=tinysrgb&dpr=2&h=650&w=940',
+    image: 'https://m.media-amazon.com/images/I/61I9y4-b86L._AC_SY355_.jpg',
 });
 
 function cargarProductos(arr) {
