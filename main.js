@@ -396,7 +396,7 @@ function getValueFromNamedNodeMap(event) {
     case attrMap.getNamedItem("value") !== null:
       attrToSend = attrMap.getNamedItem("value").value;
       break;
-    default:
+    case attrMap.getNamedItem("data-value") !== null:
       attrToSend = attrMap.getNamedItem("data-value").value;
       break;
   }
