@@ -12,6 +12,9 @@
     margin: 0;
     font-family: 'Quicksand', sans-serif;
   }
+
+  /* Barra de navegacion principal */
+
   nav {
     display: flex;
     justify-content: space-between;
@@ -20,6 +23,7 @@
   }
   .menu {
     display: none;
+    margin-left: 5px;
   }
   .logo {
     width: 100px;
@@ -79,6 +83,8 @@
     align-items: center;
   }
 
+  /*Menu del Desktop*/
+
   .inactive{
     display: none;
   }
@@ -121,6 +127,43 @@
     display: inline-block;
   }
 
+  /*Menu de hamburguesa*/
+  .mobile-menu {
+    padding: 24px;
+    position: absolute;
+    top: 60px;
+    border: 1px solid var(--very-light-pink);
+    border-radius: 0px 0px 12px 12px;
+  }
+  .none{
+    display: none;
+  }
+  .mobile-menu a {
+    text-decoration: none;
+    color: var(--black);
+    font-weight: bold;
+    /* margin-bottom: 24px; */
+  }
+  .mobile-menu ul {
+    padding: 0;
+    margin: 24px 0 0;
+    list-style: none;
+  }
+  .mobile-menu ul:nth-child(1) {
+    border-bottom: 1px solid var(--very-light-pink);
+  }
+  .mobile-menu ul li {
+    margin-bottom: 24px;
+  }
+  .email {
+    font-size: var(--sm);
+    font-weight: 300 !important;
+  }
+  .sign-out {
+    font-size: var(--sm);
+    color: var(--hospital-green) !important;
+  }
+  
   @media (max-width: 640px) {
     .menu {
       display: block;
@@ -131,4 +174,14 @@
     .navbar-email {
       display: none;
     }
+    .desktop-menu{
+      display: none;
+    }
   }
+
+  @media(min-width: 640px){
+    .mobile-menu{
+      display: none;
+    }
+  }
+  

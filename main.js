@@ -8,3 +8,11 @@ function toggleDesktopMenu(){
 
 }
 
+const burguerMenu = document.querySelector('.menu');
+const mobMenu = document.querySelector('.mobile-menu');
+
+burguerMenu.addEventListener('click', toggleMobMenu);
+
+function toggleMobMenu(){
+    mobMenu.classList.toggle('none')
+}
