@@ -1,0 +1,8 @@
+# Ignora contenido relacionado a sonarqube
+.scannerwork/
+sonar-project.properties
+
+# Ignorar la carpeta .vscode y su contenido
+.vscode/
+
+
