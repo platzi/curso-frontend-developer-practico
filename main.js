@@ -91,7 +91,7 @@ function openProductDetailAside(image, name, origin, gender, species, status, lo
                 Status: ${status} <br>
                 Location: ${location}
                 </p>
-                <button class="primary-button add-to-cart-button" onclick="addToCart('${image}','${name}','${origin}')">
+                <button href="product-detail" class="primary-button add-to-cart-button" onclick="addToCart('${image}','${name}','${origin}')">
                 <img src="./icons/bt_add_to_cart.svg" alt="add to cart">
                 Add to cart
                 </button>
