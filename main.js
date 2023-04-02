@@ -2,16 +2,29 @@ const menuEmail = document.querySelector('.navbar-email');
 const desktopMenu = document.querySelector('.desktop-menu');
 const menuCarritoIcon = document.querySelector('.navbar-shopping-cart');
 const productDetailCloseIcon = document.querySelector('.product-detail-close');
+const checkOutBoton = document.querySelector('.primary-button');
+const orderBack = document.querySelector('#orderBack');
 const aside = document.querySelector('#shoppingCartContainer');
 const menuHamIcon = document.querySelector('.menu');
 const mobileMenu = document.querySelector('.mobile-menu');
 const productDetailContainer = document.querySelector('#productDetail')
 const cardsContainer = document.querySelector('.cards-container');
+const body = document.querySelector('body');
 
+orderBack.addEventListener('click', orderBackOcultar);
+checkOutBoton.addEventListener('click', goToOrder);
 menuEmail.addEventListener('click', toggleDesktopMenu);
 menuCarritoIcon.addEventListener('click', toggleCarritoAside);
 menuHamIcon.addEventListener('click', toggleMobileMenu);
 productDetailCloseIcon.addEventListener('click', closeProductDetailAside);
+
+function orderBackOcultar() {
+    toggleCarritoAside();
+}
+
+function goToOrder() {
+    window.location.href = "./clase9.html";
+}
 
 function toggleDesktopMenu() {
     mobileMenu.classList.add('inactive');
@@ -35,7 +48,14 @@ function toggleCarritoAside() {
 }
 
 function openProductDetailAside() {
-    productDetailContainer.classList.remove('inactive');
+    body.addEventListener("click", function(e) {
+        const x = e.clientX;
+        const y = e.clientY;
+        productDetailContainer.style.left = x + "px";
+        productDetailContainer.style.top = y + "px";
+    });
+
+    productDetailContainer.classList.remove("inactive");
 }
 
 function closeProductDetailAside() {
@@ -58,6 +78,13 @@ productList.push({
     name: 'Computadora',
     price: 620,
     image: 'https://systemarket.com.ec/wp-content/uploads/2019/02/PC-MESA-CORE-I7-11TH.jpg'
+
+})
+productList.push({
+    name: 'Elpepe',
+    price: 690,
+    image: 'https://systemarket.com.ec/wp-content/uploads/2019/02/PC-MESA-CORE-I7-11TH.jpg'
+
 })
 
 function cargarProductos(arr) {
@@ -68,6 +95,7 @@ function cargarProductos(arr) {
         // product = {name, price, image} -> product.image
         const productImg = document.createElement('img');
         productImg.setAttribute('src', product.image);
+        productImg.setAttribute('class', "elementImage");
         productImg.addEventListener('click', openProductDetailAside);
 
         const productInfo = document.createElement('div');

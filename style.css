@@ -80,9 +80,11 @@ nav {
 
 .navbar-shopping-cart {
     position: relative;
+    cursor: pointer;
 }
 
 .navbar-shopping-cart div {
+    cursor: pointer;
     width: 16px;
     height: 16px;
     background-color: var(--hospital-green);
@@ -210,6 +212,7 @@ aside {
 }
 
 .title-container img {
+    cursor: pointer;
     transform: rotate(180deg);
     margin-right: 14px;
 }
@@ -375,6 +378,10 @@ aside {
     height: 240px;
     border-radius: 20px;
     object-fit: cover;
+}
+
+.elementImage {
+    border: 1px solid silver;
 }
 
 .product-info {
