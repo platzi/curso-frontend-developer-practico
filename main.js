@@ -8,6 +8,8 @@ const productDetailContainer = document.querySelector('#product-detail');
 const countItems = document.querySelector('#countItems');
 const totalItems = document.querySelector('#totalItems');
 let count=0;
+var element = document.getElementById("top");
+
 const myOrdersContainer = document.querySelector('.my-order-content');
 window.onload = () => {
     API();
@@ -79,6 +81,7 @@ function openProductDetailAside(image, name, origin, gender, species, status, lo
     mobileMenu.classList.add('inactive');
     shoppingCartContainer.classList.add('inactive');
     desktopMenu.classList.add('inactive');
+    element.scrollIntoView();
     productDetailContainer.innerHTML=`<div class="product-detail-close" onclick="closeProductDetailAside()">
                 <img src="./icons/icon_close.png" alt="close">
             </div>
