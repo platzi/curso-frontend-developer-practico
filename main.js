@@ -21,7 +21,7 @@ function API(){
         const cardsContenedor = document.querySelector('.cards-container');
         for (let i = 0; i < data['results'].length; i++) {
             cardsContenedor.innerHTML+=`<div class="product-card">
-            <img src="${data['results'][i].image}" href="product-detail" alt="" onclick="openProductDetailAside('${data['results'][i].image}', '${data['results'][i].name}', '${data['results'][i]['origin'].name}' ,'${data['results'][i].gender}','${data['results'][i].species}', '${data['results'][i].status}', '${data['results'][i]['location'].name}')">
+            <button href="product-detail" style="margin: 0; padding: 0;"><img src="${data['results'][i].image}" alt="" onclick="openProductDetailAside('${data['results'][i].image}', '${data['results'][i].name}', '${data['results'][i]['origin'].name}' ,'${data['results'][i].gender}','${data['results'][i].species}', '${data['results'][i].status}', '${data['results'][i]['location'].name}')"></button>
             <div class="product-info">
             <div>
                 <p>${data['results'][i].name}</p>
