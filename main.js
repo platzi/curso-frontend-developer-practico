@@ -14,6 +14,24 @@ const nameDetail = document.querySelector(".name-detail")
 const especDetail = document.querySelector(".espec-detail")
 const detailClose = document.querySelector(".product-detail-main-close")
 const contenedorShopingCart = document.querySelector(".my-order-content")
+const precioUnitario = document.getElementsByClassName ("precioUnitario")
+const totalCompraCart = document.querySelector(".totalCompra")
+const discount = document.querySelector("#discount")
+let contador = 0
+let realPrice = 0
+
+function Coupon(id, discount, usos, usado) {
+    this.id = id;
+    this.discount = discount;
+    this.usos = usos;
+    this.usado = usado
+}
+
+let cupones = []
+
+cupones.push(new Coupon("abcd", 20, 5, 0))
+cupones.push(new Coupon("bcde", 30, 2, 0))
+cupones.push(new Coupon("cdef", 40, 1, 0))
 
 const productList = []
 
@@ -40,10 +58,15 @@ function toggleMobileMenu(){
 };
 
 function toggleCompraMenu (){
-    compra.classList.toggle("inactive");
+    let totalCompra = 0
+    compra.classList.remove("inactive");
     mobileMenu.classList.add("inactive");
     menuDesktop.classList.add("inactive");
-    productDetail.classList.add("inactive")
+    productDetail.classList.add("inactive");
+    for (let i = 0; i < precioUnitario.length; i++) {
+        totalCompra = totalCompra + Number(precioUnitario[i].innerText)
+    }
+    totalCompraCart.innerText = totalCompra
 }
 
 productList.push({
@@ -141,20 +164,12 @@ for (let index = 0; index < cardsCreated.length; index++){
 renderProducts(productList)
 
 function addToTheCart() {
-    // <div class="shopping-cart">
-    //     <figure>
-    //       <img src="https://images.pexels.com/photos/276517/pexels-photo-276517.jpeg?auto=compress&cs=tinysrgb&dpr=2&h=650&w=940" alt="bike">
-    //     </figure>
-    //     <p>Bike</p>
-    //     <p>$30,00</p>
-    //     <img src="./icons/icon_close.png" alt="close">
-//          <p>
-//              <span>Total</span>
-//          </p>
-//          <p>$560.00</p>
-    //   </div>
+    
+    calcularDescuento ()
+
     const contenidoShopingCart = document.createElement("div")
     contenidoShopingCart.classList.add("shopping-cart")
+    contenidoShopingCart.setAttribute("id", `art${contador}`)
 
     const contenedorFigure = document.createElement("Figure")
     contenidoShopingCart.appendChild(contenedorFigure)
@@ -169,14 +184,65 @@ function addToTheCart() {
     contenidoShopingCart.appendChild(nameOrder)
 
     const priceOrder = document.createElement ("p")
-    priceOrder.innerText = priceDetail.innerText
+    priceOrder.classList.add ("precioUnitario")
+    priceOrder.innerText = realPrice
     contenidoShopingCart.appendChild(priceOrder)
 
     const closeOrder = document.createElement("img")
     closeOrder.setAttribute("src", "./icons/icon_close.png")
     closeOrder.setAttribute("alt", "close")
+    closeOrder.classList.add(`buttonCloseOrder`)
+    closeOrder.setAttribute ("id", `${contador}`)
+    closeOrder.addEventListener("click", quitarElementoCart)
     contenidoShopingCart.appendChild(closeOrder)
 
     contenedorShopingCart.appendChild(contenidoShopingCart)
 
+    contador++
+
+    function quitarElementoCart () {
+        let aEliminar = closeOrder.id
+        const orderGroup = document.getElementById(`art${aEliminar}`)
+        const temporal = document.createElement("div")
+        temporal.appendChild(orderGroup)
+        temporal.innerHTML = ""
+        toggleCompraMenu()
+        console.log(aEliminar)
+    }
+}
+
+function calcularDescuento () {
+    if (discount.value){
+        for (let i = 0; i < cupones.length; i++) {
+            if (discount.value === cupones[i].id && cupones[i].usado < cupones[i].usos) {
+                realPrice = (Number(priceDetail.innerText) * (100 - cupones[i].discount))/100
+                cupones[i].usado++
+    //          <div class="order">
+    //              <p>
+    //                  <span>Total</span>
+    //              </p>
+    //              <p class="totalCompra">$560.00</p>
+    //          </div>
+                const discountContainer = document.createElement("div");
+                discountContainer.classList.add("discountContainer")
+                
+                const discountP = document.createElement("p")
+
+                const discountNoun = document.createElement("span")
+                discountNoun.innerText = ("Haz usado el cupon " + cupones[i].id + " en el producto: " + product.name)
+                discountP.appendChild(discountNoun)
+                
+                const discountValue = document.createElement("p")
+                discountValue.innerHTML = cupones[i].discount + "%"
+                discountContainer.appendChild(discountP)
+                discountContainer.appendChild(discountValue)
+
+                compra.appendChild(discountContainer)
+                return
+            }
+        }
+        alert("Codigo de descuento no valido")
+    } else {
+        realPrice = priceDetail.innerText
+    }
 }
