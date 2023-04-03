@@ -144,8 +144,10 @@ display: inline-block;
 
 .mobile-menu {
   position: absolute;
-  top: 60px;
-  padding: 0 24px;
+  top: 61px;
+  left: 0;
+  width: calc(100% - 24px);
+  padding: 0 0 0 24px;
   background-color: var(--white);
 }
 .mobile-menu a {
@@ -406,6 +408,7 @@ aside {
     }
 
     /* Cards container */
+
     
   }
 
