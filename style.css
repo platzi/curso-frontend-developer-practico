@@ -298,6 +298,10 @@
     font-weight: bold;
     height: 50px;
   }
+
+  #discount{
+    margin-bottom: 10px;
+  }
   .add-to-cart-button {
     display: flex;
     align-items: center;

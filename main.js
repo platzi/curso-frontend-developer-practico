@@ -6,13 +6,21 @@ const carrito = document.querySelector(".navbar-shopping-cart");
 const compra = document.querySelector(".product-detail");
 const cardContainer = document.querySelector(".cards-container")
 const productDetail = document.querySelector(".product-detail-main")
+const buttonDetailCart = document.querySelector(".primary-button-main")
+const cardsCreated = document.getElementsByClassName ("product-card") //aqui creo una variable con los bloques html creados por la anterior funcion
+const imgDetail = document.querySelector(".imageDetail")
+const priceDetail = document.querySelector(".price-detail")
+const nameDetail = document.querySelector(".name-detail")
+const especDetail = document.querySelector(".espec-detail")
+const detailClose = document.querySelector(".product-detail-main-close")
+const contenedorShopingCart = document.querySelector(".my-order-content")
 
 const productList = []
 
 menuEmail.addEventListener("click", toggleDesktopMenu);
 menuHamburguer.addEventListener("click", toggleMobileMenu);
 carrito.addEventListener("click", toggleCompraMenu);
-
+buttonDetailCart.addEventListener("click", addToTheCart)
 
 function toggleDesktopMenu(){
     // if (menuDesktop.classList[1] == "inactive") {
@@ -107,13 +115,6 @@ function renderProducts(array) {
         cardContainer.appendChild(productCard)
     }
 
-    const cardsCreated = document.getElementsByClassName ("product-card") //aqui creo una variable con los bloques html creados por la anterior funcion
-    const imgDetail = document.querySelector(".imageDetail")
-    const priceDetail = document.querySelector(".price-detail")
-    const nameDetail = document.querySelector(".name-detail")
-    const especDetail = document.querySelector(".espec-detail")
-    const detailClose = document.querySelector(".product-detail-main-close")
-
     detailClose.addEventListener("click", closeDetailWindow) // funcion de cerrado de la ventana
 
     function closeDetailWindow () {
@@ -139,4 +140,43 @@ for (let index = 0; index < cardsCreated.length; index++){
 
 renderProducts(productList)
 
+function addToTheCart() {
+    // <div class="shopping-cart">
+    //     <figure>
+    //       <img src="https://images.pexels.com/photos/276517/pexels-photo-276517.jpeg?auto=compress&cs=tinysrgb&dpr=2&h=650&w=940" alt="bike">
+    //     </figure>
+    //     <p>Bike</p>
+    //     <p>$30,00</p>
+    //     <img src="./icons/icon_close.png" alt="close">
+//          <p>
+//              <span>Total</span>
+//          </p>
+//          <p>$560.00</p>
+    //   </div>
+    const contenidoShopingCart = document.createElement("div")
+    contenidoShopingCart.classList.add("shopping-cart")
 
+    const contenedorFigure = document.createElement("Figure")
+    contenidoShopingCart.appendChild(contenedorFigure)
+
+
+    const imgOrder = document.createElement("img")
+    imgOrder.setAttribute("src", imgDetail.src)
+    contenedorFigure.appendChild(imgOrder)
+
+    const nameOrder = document.createElement("p")
+    nameOrder.innerText = nameDetail.innerText
+    contenidoShopingCart.appendChild(nameOrder)
+
+    const priceOrder = document.createElement ("p")
+    priceOrder.innerText = priceDetail.innerText
+    contenidoShopingCart.appendChild(priceOrder)
+
+    const closeOrder = document.createElement("img")
+    closeOrder.setAttribute("src", "./icons/icon_close.png")
+    closeOrder.setAttribute("alt", "close")
+    contenidoShopingCart.appendChild(closeOrder)
+
+    contenedorShopingCart.appendChild(contenidoShopingCart)
+
+}
