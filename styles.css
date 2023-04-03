@@ -182,6 +182,7 @@ display: inline-block;
   box-sizing: border-box;
   position: absolute;
   right: 0;
+  background-color: var(--white);
 }
 .title-container {
   display: flex;
