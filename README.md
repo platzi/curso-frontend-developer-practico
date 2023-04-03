@@ -1,5 +1,11 @@
 # Project-Store-online
 Bienvenido a Kpaez
+
+Pagina web oficial [Kpaez](https://alejandropaez1.github.io/Project-Store-online-/).
+
+
+
+
 Este es el sitio web oficial de STORE KPAEZ, donde podrás encontrar una gran variedad de productos de alta calidad a precios competitivos. Nos esforzamos por brindar una experiencia de compra en línea excepcional, con un servicio al cliente amable y eficiente.
 
 ## Navegación
