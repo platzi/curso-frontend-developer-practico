@@ -103,8 +103,10 @@ function renderProducts(arr) {
     
         // Creating HTML elements
     
-        var productCardDiv = document.createElement('div');
+        var productCardDiv = document.createElement('div'); // Este es el que usaremos para mostrar el aside de product Details cuando le den click
         productCardDiv.classList.add('product-card');
+        productCardDiv.addEventListener('click', openAsideProductDetail);
+
     
         var cardImg = document.createElement('img');
         cardImg.setAttribute('src', product.img);
@@ -143,6 +145,27 @@ function renderProducts(arr) {
 }
 
 renderProducts(productList); 
+
+// Abrir aside productDetail cuando se le de click a algun producto 
+function openAsideProductDetail() {
+    asideProductDetail.classList.remove('inactive');
+}
+
+
+// Aside Product detail 
+
+//const productCardDiv = document.querySelector('.product-card');
+const asideProductDetail = document.querySelector('#productDetail');
+const crossProductDetail = document.querySelector('.product-detail-close');
+
+crossProductDetail.addEventListener('click', closeAsideProductDetail);
+
+function closeAsideProductDetail() {
+    asideProductDetail.classList.add('inactive');
+
+}
+
+
 
 
 
