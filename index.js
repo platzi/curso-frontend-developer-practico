@@ -1,10 +1,12 @@
 const $menuEmail = document.querySelector('.navbar-email');
 const $desktopMenu = document.querySelector('.desktop-menu');
 const $iconCartShopping = document.querySelector('.navbar-shopping-cart');
-const $cartShopping = document.getElementById('shoppingCartContainer')
+const $cartShopping = document.getElementById('shoppingCartContainer');
+const $productDetail = document.getElementById('productDetail');
 const $iconMenu = document.querySelector('.iconMenu');
 const $mobileMenu = document.querySelector('.mobile-menu');
 const $cardContainer = document.querySelector('.cards-container');
+const $close = document.querySelector('.product-detail-close');
 
 
 
@@ -13,6 +15,7 @@ const $cardContainer = document.querySelector('.cards-container');
 $menuEmail.addEventListener('click', toggleDesktopMenu);
 $iconMenu.addEventListener('click', toggleMobileMenu);
 $iconCartShopping.addEventListener('click', toggleCartShopping);
+$close.addEventListener('click', closeProductDetail)
 
 function toggleDesktopMenu(){
 
@@ -25,9 +28,13 @@ function toggleDesktopMenu(){
 
 function toggleMobileMenu(){
   const isAsideClosed = $cartShopping.classList.contains('inactive');
+
   if(!isAsideClosed){
     $cartShopping.classList.add('inactive');
   }
+
+  closeProductDetail();
+
   $mobileMenu.classList.toggle('inactive');
 }
 
@@ -37,12 +44,23 @@ function toggleCartShopping(){
   if(!isMobileMenuClosed){
     $mobileMenu.classList.add('inactive');
   }
+  const isProductDetailClosed = $productDetail.classList.contains('inactive')
+  if(!isProductDetailClosed){
+    $productDetail.classList.add('inactive')
+  }
 
   $cartShopping.classList.toggle('inactive');
   
 }
 
+function openProductDetail(){
+  $cartShopping.classList.add('inactive')
+  $productDetail.classList.remove('inactive')
+}
 
+function closeProductDetail(){
+  $productDetail.classList.add('inactive')
+}
 const productList = [];
 productList.push({
   name: 'Cicla',
@@ -62,9 +80,10 @@ productList.push({
 
 
 function renderProduct(){
+  const fragment = document.createDocumentFragment();
+
   for (product of productList){
-    const fragment = document.createDocumentFragment();
-  
+    console.log(fragment);
     const $productCard = document.createElement('div');
     $productCard.classList.add('product-card');
   
@@ -72,7 +91,9 @@ function renderProduct(){
     $productImg.setAttribute('src',product.image);
     $productImg.setAttribute('alt', product.name);
     $productCard.appendChild($productImg);
-  
+    $productImg.addEventListener('click', openProductDetail)
+    
+
     const $productInfo = document.createElement('div');
     $productInfo.classList.add('product-info');
   
@@ -95,8 +116,8 @@ function renderProduct(){
     $productCard.appendChild($productInfo);
     fragment.appendChild($productCard);
   
-    $cardContainer.appendChild(fragment)
   }
+  $cardContainer.appendChild(fragment)
 }
 
 renderProduct()
