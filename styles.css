@@ -194,9 +194,15 @@ aside {
 .title-container {
   display: flex;
 }
+
+.closeShoppingCartArrow{
+  display: flex;
+}
+
 .title-container img {
   transform: rotate(180deg);
   margin-right: 14px;
+  justify-content: center;
 }
 .title {
   font-size: var(--lg);
@@ -260,7 +266,7 @@ aside {
 }
 
 
-/*Aside Product Detail*/
+                              /*Aside Product Detail*/
 
 /* #productDetail{
   width: 360px;

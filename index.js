@@ -34,14 +34,17 @@ function toggleMobileMenu() {
     // Cerrar los siguientes:
     desktopMenu.classList.add('inactive');
     shoppingCartContainer.classList.add('inactive');
+    asideProductDetail.classList.add('inactive');
 }
 
 
 // Aside My order
 const shoppingCart = document.querySelector('.navbar-shopping-cart');
 const shoppingCartContainer = document.querySelector('#shoppingCartContainer');
+const closeShoppingCartArrow = document.querySelector('.closeShoppingCartArrow');
 
 shoppingCart.addEventListener('click', toggleShoppingCartContainer);
+closeShoppingCartArrow.addEventListener('click', toggleShoppingCartContainer);
 
 function toggleShoppingCartContainer() {
     shoppingCartContainer.classList.toggle('inactive');
@@ -49,6 +52,7 @@ function toggleShoppingCartContainer() {
     // Cerrar los siguientes:
     desktopMenu.classList.add('inactive');
     mobileMenu.classList.add('inactive');
+    asideProductDetail.classList.add('inactive');
 }
 
 
@@ -146,10 +150,6 @@ function renderProducts(arr) {
 
 renderProducts(productList); 
 
-// Abrir aside productDetail cuando se le de click a algun producto 
-function openAsideProductDetail() {
-    asideProductDetail.classList.remove('inactive');
-}
 
 
 // Aside Product detail 
@@ -160,9 +160,18 @@ const crossProductDetail = document.querySelector('.product-detail-close');
 
 crossProductDetail.addEventListener('click', closeAsideProductDetail);
 
+// Abrir aside productDetail cuando se le de click a algun producto (El evento con esta funcion esta declarado en la construccion de los elementos HTML en JS)
+function openAsideProductDetail() {
+    asideProductDetail.classList.remove('inactive');
+
+    desktopMenu.classList.add('inactive');
+    shoppingCartContainer.classList.add('inactive');
+    mobileMenu.classList.add('inactive');
+
+}
 function closeAsideProductDetail() {
     asideProductDetail.classList.add('inactive');
-
+    
 }
 
 
