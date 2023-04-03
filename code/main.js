@@ -74,7 +74,7 @@ function renderProducts(arr){
                 <p>${product.name}</p>
             </div>
             <figure>
-                <img src="./icons/bt_add_to_cart.svg" alt="">
+                <img src="../icons/bt_add_to_cart.svg" alt="">
             </figure>
         </div>
         `
