@@ -90,6 +90,17 @@ body {
   margin-top: 14px;
   margin-bottom: 30px;
 }
+a.primary-button.login-button{
+      color: var(--white);
+      text-align: center;
+      text-decoration: none;
+      line-height: 3;
+}
+a.secondary-button.signup-button{
+      text-align: center;
+      text-decoration: none;
+      line-height: 3;
+}
 
 /*Sign up*/
 
@@ -199,6 +210,11 @@ body {
 .login-button {
   margin-top: 14px;
   margin-bottom: 30px;
+}
+a.primary-button.login-button{
+  text-align: center;
+  text-decoration: none;
+  line-height: 3;
 }
 /*Editar cuenta*/
 
