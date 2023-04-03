@@ -5,10 +5,13 @@ const mobileMenuSelector = document.querySelector('.mobile-menu');
 const iconCartSelector = document.querySelector('.icon-cart');
 const shoppingCartContainer = document.querySelector('#shoppingCartContainer');
 const cardsContainerSelector = document.querySelector('.cards-container')
+const productDetailSelector = document.querySelector('#productDetail')
+const productDetailCloseSelector = document.querySelector('.product-detail-close')
 
 iconMenuSelector.addEventListener('click', tuggleMobileMenu);
 emailSelector.addEventListener('click', showDesktopMenu);
 iconCartSelector.addEventListener('click', toggleCartMenu);
+productDetailCloseSelector.addEventListener('click', closeProductDetail)
 
 function showDesktopMenu() {
   const ismyOrderContentSelectorClosed =
@@ -25,6 +28,10 @@ function tuggleMobileMenu() {
   if (ismyOrderContentSelectorClosed) {
     shoppingCartContainer.classList.add('inactive');
   }
+  
+
+  closeProductDetail()
+
   mobileMenuSelector.classList.toggle('inactive');
 }
 
@@ -34,7 +41,16 @@ function toggleCartMenu() {
   if (ismobileMenuSelectorClosed) {
     mobileMenuSelector.classList.add('inactive');
   }
+  const isProductDetailOpen =
+  !productDetailSelector.classList.contains('inactive');
+if (isProductDetailOpen) {
+  productDetailSelector.classList.add('inactive');
+}
   shoppingCartContainer.classList.toggle('inactive');
+}
+
+function closeProductDetail() {
+    productDetailSelector.classList.add('inactive')
 }
 
 const productList = [];
@@ -65,6 +81,7 @@ function loadProducts(arr) {
       
         const productImg = document.createElement('img');
         productImg.setAttribute('src', product.image);
+        productImg.addEventListener('click', openProductDetailAside)
       
         const productInfo = document.createElement('div');
         productInfo.classList.add('product-info');
@@ -94,6 +111,11 @@ function loadProducts(arr) {
       
         console.log(product.name);
       }
+}
+
+function openProductDetailAside() {
+    shoppingCartContainer.classList.add('inactive')
+    productDetailSelector.classList.remove('inactive')
 }
 
 loadProducts(productList)
