@@ -316,6 +316,7 @@
         gap: 26px;
         place-content: center;
         margin-top: 20px;
+        margin-bottom: 20px;
       }
       .product-card {
         width: 240px;
