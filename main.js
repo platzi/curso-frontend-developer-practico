@@ -7,3 +7,5 @@ menuEmail.addEventListener('click',toogleDesktopMenu)
 function toogleDesktopMenu(){
     DesktopMenu.classList.toggle('inactive')
 }
+
+
