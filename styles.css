@@ -134,10 +134,10 @@
   .mobile-menu {
     background: var(--white);
     position: absolute;
-    width: 100%;
+    width: calc(100% - 24px);
     top: 60px;
     left: 0;
-    padding: 24px;
+    padding-left: 24px;
   }
   .mobile-menu a {
     text-decoration: none;
@@ -314,7 +314,7 @@ aside {
     grid-template-columns: repeat(auto-fill, 240px);
     gap: 26px;
     place-content: center;
-    margin-top: 20px;
+    margin: 20px 0;
   }
   .product-card {
     width: 240px;
