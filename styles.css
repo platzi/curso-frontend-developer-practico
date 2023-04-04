@@ -148,7 +148,7 @@ nav {
     position: absolute;
     top: 60px;
     left: 0;
-    width: 100%;
+    width: 88%;
     padding: 24px;
 }
 
@@ -186,7 +186,7 @@ nav {
 /* Aside (product details & cart) */
 aside {
     background-color: var(--white);
-    width: 360px;
+    width: 350px;
     box-sizing: border-box;
     position: absolute;
     right: 0;
