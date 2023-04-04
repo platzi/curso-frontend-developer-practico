@@ -22,10 +22,24 @@
     justify-content: space-between;
     padding: 0 24px;
     border-bottom: 1px solid var(--very-light-pink);
+    z-index: 2;
+    position: relative;
+    background-color: var(--white);
+}
+.inactive {
+    display: none;
   }
+.dark-screen {
+  width: 100%;
+  height: calc(100%);
+  position: fixed;
+  top: 0;
+  background-color: rgba(0, 0, 0, 0.5);
+}
   .menu {
     display: none;
   }
+
   .logo {
     width: 100px;
   }
@@ -125,9 +139,6 @@
     margin-bottom: 20px;
     display: inline-block;
   }
-  .inactive {
-    display: none;
-  }
 
   /* Mobile Menu */
 
@@ -173,9 +184,11 @@
 aside {
     background: var(--white);
     width: 360px;
+    z-index: 2;
     box-sizing: border-box;
     position: absolute;
     right: 0;
+    padding-bottom: 12px;
   }
   #shopping-cart-container {
     padding: 0 24px;
@@ -259,6 +272,7 @@ aside {
     z-index: 2;
     padding: 12px;
     border-radius: 50%;
+    border: 1px solid var(--hospital-green);
   }
   .product-detail-close:hover {
     cursor: pointer;
