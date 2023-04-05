@@ -27,7 +27,7 @@ function toggleDetailShop(){
     desktopMenu.classList.add('inactive');
 }
 
-
+//ingresar productos
 const productList = []; 
 productList.push({
     nameProduct: 'Bike',
@@ -51,37 +51,43 @@ productList.push({
 }); 
 
 //ciclo para recorrer los productos
-for(product of productList){
-    //se crea una variable por cada etiqueta HTML
-    const productCard = document.createElement('div'); 
-    productCard.classList.add('product-card'); 
 
-    const img = document.createElement('img')
-    img.setAttribute('src', product.image);
 
-    const productInfo = document.createElement('div')
-    productInfo.classList.add('product-info')
+function generarProductos(arr){
+    for(product of arr){
+        //se crea una variable por cada etiqueta HTML
+        const productCard = document.createElement('div'); 
+        productCard.classList.add('product-card'); 
 
-    const productInfoDiv = document.createElement('div')
-  
-    const productPrice = document.createElement('p');
-    productPrice.innerHTML = '$' + product.price;
+        const img = document.createElement('img')
+        img.setAttribute('src', product.image);
 
-    const productName = document.createElement('p')
-    productName.innerHTML = product.nameProduct;
+        const productInfo = document.createElement('div')
+        productInfo.classList.add('product-info')
 
-    const productFigure = document.createElement('figure'); 
-    const imgCart = document.createElement('img'); 
-    imgCart.setAttribute('src', './icons/bt_add_to_cart.svg');
+        const productInfoDiv = document.createElement('div')
+    
+        const productPrice = document.createElement('p');
+        productPrice.innerHTML = '$' + product.price;
 
-    productFigure.appendChild(imgCart); 
-    productInfoDiv.appendChild(productPrice);
-    productInfoDiv.appendChild(productName); 
-    productInfo.appendChild(productInfoDiv);
-    productInfo.appendChild(productFigure); 
+        const productName = document.createElement('p')
+        productName.innerHTML = product.nameProduct;
 
-    productCard.appendChild(img);
-    productCard.appendChild(productInfo);
+        const productFigure = document.createElement('figure'); 
+        const imgCart = document.createElement('img'); 
+        imgCart.setAttribute('src', './icons/bt_add_to_cart.svg');
 
-    cardsContainer.appendChild(productCard); 
+        productFigure.appendChild(imgCart); 
+        productInfoDiv.appendChild(productPrice);
+        productInfoDiv.appendChild(productName); 
+        productInfo.appendChild(productInfoDiv);
+        productInfo.appendChild(productFigure); 
+
+        productCard.appendChild(img);
+        productCard.appendChild(productInfo);
+
+        cardsContainer.appendChild(productCard); 
+    }
 }
+
+generarProductos(productList)
