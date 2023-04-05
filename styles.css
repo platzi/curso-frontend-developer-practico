@@ -168,6 +168,7 @@
     box-sizing: border-box;
     position: absolute;
     right: 0;
+    background-color: var(--white);
   }
   .title-container {
     display: flex;
@@ -175,6 +176,9 @@
   .title-container img {
     transform: rotate(180deg);
     margin-right: 14px;
+  }
+  .title-container img:hover{
+    cursor: pointer;
   }
   .title {
     font-size: var(--lg);
@@ -290,7 +294,7 @@
     
     
   }
-  .product-detail-secondary-closes {
+  .product-detail-secondary-close {
     background: var(--white);
     width: 14px;
     height: 14px;
@@ -301,7 +305,7 @@
     padding: 12px;
     border-radius: 50%;
   }
-  .product-detail-secondary-closes:hover {
+  .product-detail-secondary-close:hover {
     cursor: pointer;
   }
   .product-detail-secondary > img:nth-child(2) {

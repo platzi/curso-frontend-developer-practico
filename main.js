@@ -5,6 +5,9 @@ const selectorMobile = document.querySelector(".mobile-menu")
 const menuCarritoIcon = document.querySelector(".navbar-shopping-cart")
 const aside = document.querySelector(".product-detail")
 const cardsContainer = document.querySelector(".cards-container")
+const productDetailContainer = document.querySelector(".product-detail-secondary")
+const productDetailCloseIcon = document.querySelector(".product-detail-secondary-close")
+const flechitaIcon = document.querySelector(".title-container img")
 
 
 
@@ -12,11 +15,20 @@ const cardsContainer = document.querySelector(".cards-container")
 menuEmail.addEventListener("click", toggleDesktopMenu)
 menuCel.addEventListener("click", toggleMobileMenu)
 menuCarritoIcon.addEventListener("click", toggleCarritoAside)
+productDetailCloseIcon.addEventListener("click", closeProductDetailAside)
+flechitaIcon.addEventListener("click", closeFlechita)
+
 
 function toggleDesktopMenu(){
     const asideClosed = aside.classList.contains("inactive")
     if(!asideClosed){
         aside.classList.add("inactive")
+    }
+    const productDetailClosed = productDetailContainer.classList.contains("inactive")
+   
+
+    if(!productDetailClosed){
+        productDetailContainer.classList.add("inactive")
     }
 
     desktopMenu.classList.toggle("inactive")
@@ -30,7 +42,7 @@ function toggleMobileMenu(){
     }
 
     selectorMobile.classList.toggle("inactive")
-
+    closeProductDetailAside()
 
 }
 
@@ -47,10 +59,32 @@ function toggleCarritoAside(){
         desktopMenu.classList.add("inactive")
     }
 
+    const productDetailClosed = productDetailContainer.classList.contains("inactive")
+   
+
+    if(!productDetailClosed){
+        productDetailContainer.classList.add("inactive")
+    }
+
     aside.classList.toggle("inactive")
 
     
 }
+
+function openProductDetailAside(){
+    aside.classList.add("inactive")
+    desktopMenu.classList.add("inactive")
+    productDetailContainer.classList.remove("inactive")
+}
+
+function closeProductDetailAside(){
+    productDetailContainer.classList.add("inactive")
+}
+
+function closeFlechita(){
+    aside.classList.add("inactive")
+}
+
 
 const productList = []
 productList.push({
@@ -79,7 +113,8 @@ function renderProducts(arr){
     
         const productImg = document.createElement("img")
         productImg.setAttribute("src",product.image)
-    
+        productImg.addEventListener("click", openProductDetailAside)
+
         const productInfo = document.createElement("div")
         productInfo.classList.add("product-info")
     
@@ -94,9 +129,9 @@ function renderProducts(arr){
         productInfoDiv.appendChild(productPrice)
         productInfoDiv.appendChild(productName)
         
-        const productInfoFigure = document.createElement("div")
+        const productInfoFigure = document.createElement("figure")
         
-        const productImgCard = document.createElement("div")
+        const productImgCard = document.createElement("img")
         productImgCard.setAttribute("src", "./icons/bt_add_to_cart.svg")
     
         productInfoFigure.appendChild(productImgCard)
@@ -114,3 +149,5 @@ function renderProducts(arr){
 }
 
 renderProducts(productList)
+
+
