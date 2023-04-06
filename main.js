@@ -26,7 +26,7 @@ shoppingCart.addEventListener("click", toggleShoppingCart);
 productDetailCloseIcon.addEventListener("click", closeProductDetailAside);
 
 
-// FUNCTIONS FOR THE INTERACTIONS
+// FUNCTIONS FOR THE MENU INTERACTIONS
 
 function toggleDesktopMenu() {
     desktopMenu.classList.toggle("inactive");
