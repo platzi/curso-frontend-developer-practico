@@ -323,45 +323,45 @@ function cerrar() {
 }
 
 
+
 function sendWhatsappMessage(productosEnCarr) {
     // Número de teléfono y mensaje que se quiere enviar
     const phoneNumber = '9622167188';
     
-    // console.log("recibo :" ,productosEnCarr);
     let name = "";
     let info = "";
     let price = 1;
     let image = "";
     let codigo = "";
-
+  
     for (let i = 0; i < productosEnCarr.length; i++) {
-        name = productosEnCarr[i].name;
-        info = productosEnCarr[i].info;
-        price = productosEnCarr[i].price;
-        image = productosEnCarr[i].image;
-        codigo = productosEnCarr[i].code;
+      name = productosEnCarr[i].name;
+      info = productosEnCarr[i].info;
+      price = productosEnCarr[i].price;
+      image = productosEnCarr[i].image;
+      codigo = productosEnCarr[i].code;
     }
-    console.log("me intereso el articulo: ",name,
-    "\n precio", price,
-    "codigo tester ", name
-    );
+  
+    console.log("Me interesó el artículo: ", name,
+      "\n precio", price,
+      "código tester ", name);
+  
+    const message = `Me interesaron estos artículos ${name} con código: ${codigo}`;
+  
+    let url = '';
+    const userAgent = navigator.userAgent.toLowerCase();
+    
+    if (/mobile|iphone|ipod|ipad|android|blackberry|iemobile|wpdesktop/i.test(userAgent)) {
+      url = `https://wa.me/${phoneNumber}?text=${encodeURIComponent(message)}`;
+      console.log("El usuario está navegando en un dispositivo móvil");
 
-    const message = `me interesaron estos articulos ${name}
-                    con codigo: ${codigo}`;
+    } else {
+        console.log("El usuario está navegando en una computadora");
 
-
-      
-
-    // Se crea la URL con el protocolo whatsapp://send y los parámetros phoneNumber y text
-    const url = `https://web.whatsapp.com/send?phone=${phoneNumber}&text=${encodeURIComponent(message)}`;
-
+      url = `https://web.whatsapp.com/send?phone=${phoneNumber}&text=${encodeURIComponent(message)}`;
+    }
+  
     // Se abre la URL en una nueva ventana
     window.open(url);
-}
-
-
-function comprar(productosEnCarrito) {
-    console.log("quiero comprar estos articulos \n ", productosEnCarrito.name);
-
-}
-
+  }
+  
