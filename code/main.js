@@ -327,6 +327,7 @@ function cerrar() {
 function sendWhatsappMessage(productosEnCarr) {
     // Número de teléfono y mensaje que se quiere enviar
     const phoneNumber = '9622167188';
+    let url = '';
     
     let name = "";
     let info = "";
@@ -334,23 +335,28 @@ function sendWhatsappMessage(productosEnCarr) {
     let image = "";
     let codigo = "";
   
+    let message = `Me interesaron estos artículos \n ${name} con código: ${codigo}`;
+
     for (let i = 0; i < productosEnCarr.length; i++) {
       name = productosEnCarr[i].name;
       info = productosEnCarr[i].info;
       price = productosEnCarr[i].price;
       image = productosEnCarr[i].image;
       codigo = productosEnCarr[i].code;
+      
+        console.log("Me interesó el artículo: ", name,
+          "\n precio", price,
+          "código tester ", codigo);
+
+          message += `Nombre: ${productosEnCarr[i].name}\n`;
+          message += `Precio: ${productosEnCarr[i].price}\n`;
+          message += `Código: ${productosEnCarr[i].code}\n\n`;
     }
   
-    console.log("Me interesó el artículo: ", name,
-      "\n precio", price,
-      "código tester ", name);
-  
-    const message = `Me interesaron estos artículos ${name} con código: ${codigo}`;
-  
-    let url = '';
+  console.log(message);
+
     const userAgent = navigator.userAgent.toLowerCase();
-    
+
     if (/mobile|iphone|ipod|ipad|android|blackberry|iemobile|wpdesktop/i.test(userAgent)) {
       url = `https://wa.me/${phoneNumber}?text=${encodeURIComponent(message)}`;
       console.log("El usuario está navegando en un dispositivo móvil");
@@ -358,7 +364,7 @@ function sendWhatsappMessage(productosEnCarr) {
     } else {
         console.log("El usuario está navegando en una computadora");
 
-      url = `https://web.whatsapp.com/send?phone=${phoneNumber}&text=${encodeURIComponent(message)}`;
+     url = `https://web.whatsapp.com/send?phone=${phoneNumber}&text=${encodeURIComponent(message)}`;
     }
   
     // Se abre la URL en una nueva ventana
