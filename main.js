@@ -76,11 +76,16 @@ productMenu.classList.add("oculto-menu-product");
 
 
 function OpenProductMenu() {
-  console.log("click");
   const isMobileClosed = !mobileMenu.classList.contains("oculto-menu-mobile");
   const isDesktopClosed = !desktopMenu.classList.contains("oculto-menu-desktop");
   const isCartClosed = !cartMenu.classList.contains("oculto-menu-cart");
-
+  productList.forEach(product => {
+    if(product.image == this.src){
+      productMenu.childNodes[3].src = product.image;
+      productMenu.childNodes[5].childNodes[1].innerText = `$${product.price}`;
+      productMenu.childNodes[5].childNodes[3].innerText = product.name;
+    }
+  });
   if (isMobileClosed) {
     mobileMenu.classList.add("oculto-menu-mobile");
   } else if (isDesktopClosed) {
@@ -89,8 +94,6 @@ function OpenProductMenu() {
     cartMenu.classList.add("oculto-menu-cart");
   }
   
-  
-
   productMenu.classList.remove("oculto-menu-product");
 }
 
