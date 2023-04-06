@@ -7,9 +7,12 @@ const burguerMenu = document.querySelector(".menu");
 const mobileMenu = document.querySelector(".mobile-menu");
 
 const shoppingCart = document.querySelector(".navbar-shopping-cart");
-const checkoutMenu = document.querySelector(".product-detail");
+const checkoutMenu = document.querySelector("#shoppingCartContainer");
 
 const cardsContainer = document.querySelector(".cards-container");
+
+const productDetailContainer = document.querySelector("#productDetail");
+const productDetailCloseIcon = document.querySelector(".product-detail-close");
 
 
 // INTERACTION
@@ -19,6 +22,8 @@ menuEmail.addEventListener("click", toggleDesktopMenu);
 burguerMenu.addEventListener("click", toggleMobileMenu);
 
 shoppingCart.addEventListener("click", toggleShoppingCart);
+
+productDetailCloseIcon.addEventListener("click", closeProductDetailAside);
 
 
 // FUNCTIONS FOR THE INTERACTIONS
@@ -57,6 +62,14 @@ function toggleShoppingCart() {
     }
 
     checkoutMenu.classList.toggle('inactive');
+}
+
+function openProductDetailAside() {
+    productDetailContainer.classList.remove("inactive");
+}
+
+function closeProductDetailAside() {
+    productDetailContainer.classList.add("inactive");
 }
 
 // GENERATE PRODUCT CARDS AND THE HTML FOR THEM
@@ -99,6 +112,9 @@ for (product of productList){
 
     const productImg = document.createElement("img");
     productImg.setAttribute("src", product.image);
+
+    // FUNCTION TO OPEN PRODUCT DETAIL FROM THE CARD'S IMAGE
+    productImg.addEventListener("click", openProductDetailAside);
 
     const productInfo = document.createElement("div");
     productInfo.classList.add("product-info");
