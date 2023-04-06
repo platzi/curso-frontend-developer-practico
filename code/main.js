@@ -52,42 +52,62 @@ const productList = [];
 
 
 productList.push({
-    name: "higado",
-    price: 100,
-    image: "https://images.pexels.com/photos/8272928/pexels-photo-8272928.jpeg?auto=compress&cs=tinysrgb&w=1260&h=750&dpr=1",
-    info: "El hígado es un órgano del cuerpo humano que se encuentra en la parte superior derecha del abdomen y es de color marrón oscuro. Tiene múltiples funciones importantes, como procesar los nutrientes de los alimentos, almacenar energía, producir bilis para la digestión y filtrar la sangre para eliminar sustancias tóxicas y desechos del cuerpo.",
-    code: "H123"
+    name: "pulsera con diseño minimalista",
+    price: 40,
+    image: "https://i.pinimg.com/564x/77/52/08/775208fd2388787d11bf9b1d489e5b0a.jpg",
+    info: "👉👉👉👉👉 CORRECCIÓN ✅✅ 🔅POR FAVOR LOS HILOS SON EL PRIMERO QUE ES DE LA MUÑECA DE 56 CM REEMPLAZARLO POR 112 CENTÍMETROSY PARA EL SEGUNDO QUE ES PARA EL",
+    code: "https://pin.it/1ekzFT8"
 });
 
 productList.push({
-    name: "Pulmones",
-    info: "Los pulmones son órganos del sistema respiratorio que se encuentran dentro del tórax, en la cavidad torácica. La función principal de los pulmones es la respiración, es decir, permiten la entrada de aire rico en oxígeno y la eliminación de dióxido de carbono y otros gases residuales del cuerpo",
-    price: 200,
+    name: "Red Decenario Knotted Rosary Stylish Pulseras Trendy Celebrity Bracelet ",
+    info: "https://www.etsy.com/listing/594948397/red-decenario-knotted-rosary-stylish?epik=dj0yJnU9TDVHdGZUczZNSkpwTDhlVU9iVTZDcGxaZUFvaFRPQmYmcD0wJm49eEczNXBkUFlVdWdUSnNKNEt4TFREdyZ0PUFBQUFBR1F2UmJn \n\n Esta pulsera rosario está hecha de cordón y tiene una cruz de macramé. Las diez Avemarías también son un diseño de macramé. Como se trata de una pulsera ajustable, es perfecta para niños, adolescentes y adultos. Está muy bien hecho y es una manera fácil de tener un rosario contigo en todo momento.",
+    price: 45,
     image:
-        "https://imgs.search.brave.com/dh_Mjj5R_AIHMtR5BhT3_FsN5DdckfpmwqInba19GQU/rs:fit:1200:1200:1/g:ce/aHR0cHM6Ly93d3cu/bHVuZ3NhbmR5b3Uu/Y29tL3N0YXRpYy9p/bWFnZXMvcHJvZ3Jl/c3Npb24vbm9ybWFs/LWx1bmdzLmpwZw",
-    code: "PUL321"
+        "https://i.pinimg.com/564x/4a/f5/aa/4af5aaf23e653fcad8cb9dab212727ce.jpg",
+    code: "RDKRPTC"
 
-    });
+});
 
 productList.push({
-    info: "El riñón es un órgano en forma de frijol que se encuentra en la parte inferior de la caja torácica. Es responsable de filtrar la sangre para eliminar los desechos y el exceso de líquido del cuerpo. Los riñones también mantienen el equilibrio de electrolitos, la presión arterial y la producción de glóbulos rojos. Además, producen una hormona llamada eritropoyetina que estimula la producción de glóbulos rojos en la médula ósea.",
-    name: "Riñones",
-    price: 300,
+    info: "Collar nuevo y estetico",
+    name: "Collar eco-Friendly",
+    price: 30,
     image:
-        "https://e7.pngegg.com/pngimages/779/986/png-clipart-kidney-kidney-failure-membranoproliferative-glomerulonephritis-minimal-change-disease-membranous-glomerulonephritis-kidney-miscellaneous-hand.png",
-    code: "R3231"
+        "https://i.pinimg.com/564x/11/11/1d/11111dbce6164b2735c2a3ddbd58bdca.jpg",
+    code: "https://pin.it/5aq5NHv"
 
-    });
+});
 
 productList.push({
-    info: "El corazón es un órgano muscular que se encuentra en el pecho y que se encarga de bombear la sangre a través del sistema circulatorio del cuerpo. Es esencial para el suministro de oxígeno y nutrientes a los tejidos y órganos del cuerpo, y para eliminar los productos de desecho y dióxido de carbono del cuerpo.",
-    name: "Corazon",
-    price: 400,
+    info: "Este hermoso collar en forma de corazón es una pieza única que seguramente llamará la atención de todos. El colgante en forma de corazón está hecho de un material de alta calidad, con un acabado suave y brillante que refleja la luz de manera espectacular.",
+    name:"Collar corazon for you",
+    price: 40,
     image:
-        "https://imgs.search.brave.com/Z3PoQVmWJ_40IDszsejme7GleijpmUKzXLjOuSpATXw/rs:fit:840:784:1/g:ce/aHR0cHM6Ly93d3cu/Y2xpcGFydG1heC5j/b20vcG5nL21pZGRs/ZS8yMDctMjA3Nzky/N19odW1hbi1oZWFy/dC1jbGlwYXJ0LXBu/Zy1yZWFsLWhlYXJ0/LWRyYXdpbmcucG5n",
+        "https://i.pinimg.com/564x/94/6b/bc/946bbc13955bb8e294e86c8661a82781.jpg",
     code: "CORA123"
-    
-    });
+
+});
+
+productList.push({
+    info: "Collar con tematica de los vengadores",
+    name: "Collar con tema de LOKI",
+    price: 60,
+    image:
+        "https://i.pinimg.com/564x/f0/d0/6e/f0d06ef71fb66bd3e54c79073060b5f0.jpg",
+    code: "LoKi12"
+
+});
+
+productList.push({
+    info: "¡Estas pulseras serían el regalo más dulce para cualquier amante de los superhéroes! Este listado es para una pulsera. Cada pulsera está encordada dos veces a mano en un cordón elástico para garantizar la calidad y la durabilidad. ✨¿Necesitas ayuda con qué talla de pulsera elegir? Use una cinta métrica flexible o una tira de papel para envolver su muñeca. Debe quedar ajustado pero no demasiado apretado. Si usa una hoja de papel, marque el tamaño con un bolígrafo y use una regla para ver la medida. Recomiendo dimensionar hasta la media pulgada más cercana.",
+    name: "pulsera para niños",
+    price: 35,
+    image:
+        "https://i.pinimg.com/564x/4c/e4/dd/4ce4ddf1a40d2176168c6cbfeb1ea364.jpg",
+    code: "PSNI1"
+});
+
 
 
 // renderProducts(productList);
@@ -202,18 +222,6 @@ function mostrarInfoProduct(imagen, precio, nombre, info) {
         image: imagen
     })
 
-    // addCar.addEventListener('click', function () {
-    //     productoAgregado.push({
-    //         name: nombre,
-    //         price: precio,
-    //         descripcion: info,
-    //         image: imagen
-    //     })
-    //     // console.log(productoAgregado);
-    //     agregarCarrito(productoAgregado);
-
-    // })
-
 }
 
 let iconShopping = document.querySelector('.navbar-shopping-cart');
@@ -233,12 +241,6 @@ function verificarProducto(nameProduct) {
 
 function agregarCarrito(producto) {
 
-    // if (verificarProducto(producto[0].name)) {
-    //     productoACarrito = []
-    //     //  return modal.style.display = 'grid'
-    //     return console.log("repetido");
-    // }
-
     /* Creacion de elemtentos HTML */
     let divShoppingCart = document.createElement('div')
     let figureShoppingCart = document.createElement('figure')
@@ -255,10 +257,6 @@ function agregarCarrito(producto) {
     ppriceShoppingCart.innerText = '$' + producto[0].price
     imgcloseShoppingCart.setAttribute('src', './icons/icon_close.png')
     imgcloseShoppingCart.classList.add('removeList')
-    // /* Se agregan la cantidad de productos ademas de la suma de precios */
-    // countCarrito.innerText = document.querySelectorAll('.shopping-cart').length
-    // totalCarrito.innerText = '$' + (Number(totalCarrito.innerText.substring(1)) + Number(product1.price))
-    // productosEnCarrito.push(product1.name)
 
     /* Se insertan los documentos */
     figureShoppingCart.appendChild(imgfigureShoppingCart)
@@ -300,7 +298,7 @@ function agregarCarrito(producto) {
             }
         });
 
-        console.log("el resultado que va:  \n",result);
+        console.log("el resultado que va:  \n", result);
 
         sendWhatsappMessage(result);
 
@@ -328,46 +326,45 @@ function sendWhatsappMessage(productosEnCarr) {
     // Número de teléfono y mensaje que se quiere enviar
     const phoneNumber = '9622167188';
     let url = '';
-    
+
     let name = "";
     let info = "";
     let price = 1;
     let image = "";
     let codigo = "";
-  
+
     let message = `Me interesaron estos artículos \n ${name} con código: ${codigo}`;
 
     for (let i = 0; i < productosEnCarr.length; i++) {
-      name = productosEnCarr[i].name;
-      info = productosEnCarr[i].info;
-      price = productosEnCarr[i].price;
-      image = productosEnCarr[i].image;
-      codigo = productosEnCarr[i].code;
-      
-        console.log("Me interesó el artículo: ", name,
-          "\n precio", price,
-          "código tester ", codigo);
+        name = productosEnCarr[i].name;
+        info = productosEnCarr[i].info;
+        price = productosEnCarr[i].price;
+        image = productosEnCarr[i].image;
+        codigo = productosEnCarr[i].code;
 
-          message += `Nombre: ${productosEnCarr[i].name}\n`;
-          message += `Precio: ${productosEnCarr[i].price}\n`;
-          message += `Código: ${productosEnCarr[i].code}\n\n`;
+        console.log("Me interesó el artículo: ", name,
+            "\n precio", price,
+            "código tester ", codigo);
+
+        message += `Nombre: ${productosEnCarr[i].name}\n`;
+        message += `Precio: ${productosEnCarr[i].price}\n`;
+        message += `Código: ${productosEnCarr[i].code}\n\n`;
     }
-  
-  console.log(message);
+
+    console.log(message);
 
     const userAgent = navigator.userAgent.toLowerCase();
 
     if (/mobile|iphone|ipod|ipad|android|blackberry|iemobile|wpdesktop/i.test(userAgent)) {
-      url = `https://wa.me/${phoneNumber}?text=${encodeURIComponent(message)}`;
-      console.log("El usuario está navegando en un dispositivo móvil");
+        url = `https://wa.me/${phoneNumber}?text=${encodeURIComponent(message)}`;
+        console.log("El usuario está navegando en un dispositivo móvil");
 
     } else {
         console.log("El usuario está navegando en una computadora");
 
-     url = `https://web.whatsapp.com/send?phone=${phoneNumber}&text=${encodeURIComponent(message)}`;
+        url = `https://web.whatsapp.com/send?phone=${phoneNumber}&text=${encodeURIComponent(message)}`;
     }
-  
+
     // Se abre la URL en una nueva ventana
     window.open(url);
-  }
-  
+}
