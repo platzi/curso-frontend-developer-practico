@@ -22,6 +22,7 @@ El sitio cuenta con las siguientes secciones principales:
 - Tecnologia WebPack Minificación y compresión de archivos: Webpack puede minimizar y comprimir los archivos CSS, JS y HTML de su aplicación web para que se carguen más rápido.
 
 - Carga de imágenes y archivos: Webpack puede cargar imágenes, archivos y otros recursos de manera eficiente para garantizar una carga rápida de la página.
+![Menu principal](pantallaprincipal.png)
 
 
 - JavaScript
