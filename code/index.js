@@ -1,4 +1,37 @@
 
+import '../estilos/styles.css';
+// import bt_add_to_cart from '../icons/bt_add_to_cart.s'
+
+import bt_add_to_cart from '../icons/bt_add_to_cart.svg'
+import icon_close from  '../icons/icon_close.png'
+
+import icon_menu from   '../icons/icon_menu.svg'
+import logo_yard_sale from '../logos/logo_yard_sale.svg'
+import icon_shopping_cart from '../icons/icon_shopping_cart.svg'
+import flechita from    '../icons/flechita.svg'
+import closeDetail from    '../icons/icon_close.png'
+import AddCart from    '../icons/bt_add_to_cart.svg'
+
+
+const imgMenu     = document.querySelector(".menu")
+const imgLogo     = document.querySelector(".logo")
+const imgCartshop = document.querySelector(".cart-shop")
+const imgArrow    = document.querySelector(".arrowImg")
+const imgClose    = document.querySelector(".imgClose")
+const imgAddCart    = document.querySelector(".imgAddCart")
+
+
+imgMenu.src = `${icon_menu}`;
+imgLogo.src = `${logo_yard_sale}`;
+imgCartshop.src = `${icon_shopping_cart}`;
+imgArrow.src = `${flechita}`;
+imgClose.src = `${closeDetail}`;
+imgAddCart.src = `${AddCart}`;
+
+
+
+
+
 const menuEmail = document.querySelector(".navbar-email")
 const DesktopMenu = document.querySelector(".desktop-menu")
 
@@ -133,7 +166,7 @@ function renderizar(productList) {
         divproductinfo.classList.add('product-info')
         pprice.innerText = `$ ${product.price}`
         pname.innerText = product.name
-        imgproductinfo.setAttribute('src', './icons/bt_add_to_cart.svg')
+        imgproductinfo.setAttribute('src', `${bt_add_to_cart}`)
 
         figureproductinfo.appendChild(imgproductinfo)
         divdivproductinfo.appendChild(pprice)
@@ -255,7 +288,7 @@ function agregarCarrito(producto) {
     imgfigureShoppingCart.setAttribute('src', producto[0].image)
     pnameShoppingCart.innerText = producto[0].name
     ppriceShoppingCart.innerText = '$' + producto[0].price
-    imgcloseShoppingCart.setAttribute('src', './icons/icon_close.png')
+    imgcloseShoppingCart.setAttribute('src', `${icon_close}`)
     imgcloseShoppingCart.classList.add('removeList')
 
     /* Se insertan los documentos */
