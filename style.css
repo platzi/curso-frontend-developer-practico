@@ -279,6 +279,11 @@ aside {
   padding: 12px;
   border-radius: 50%;
 }
+.product-detail{
+  position: fixed;
+  top: 60px;
+  height: calc(100vh - 60px);
+}
 .product-detail-close img{
   position: absolute;
   top: 10px;
@@ -334,7 +339,7 @@ aside {
   justify-content: center;
 }
 .oculto-menu-product{
-  transform: translateY(-700px);
+  transform: translateY(-750px);
 }
 
 /* Main Container */
