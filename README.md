@@ -17,12 +17,13 @@ El sitio cuenta con las siguientes secciones principales:
 - Catálogo: Descubre nuestra amplia variedad de productos organizados por categorías.
 - Mi Cuenta: Aquí podrás crear una cuenta de usuario, ver tu historial de compras, actualizar tus datos personales y revisar el estado de tus pedidos.
 - Carrito: Revisa los productos que has agregado al carrito y continúa con el proceso de compra.
-- Contacto: Encuentra nuestros datos de contacto y un formulario para enviar comentarios y preguntas.
 ## Tecnologías utilizadas
 ### Este sitio web ha sido creado utilizando las siguientes tecnologías:
+- Tecnologia WebPack Minificación y compresión de archivos: Webpack puede minimizar y comprimir los archivos CSS, JS y HTML de su aplicación web para que se carguen más rápido.
 
-- HTML5
-- CSS 3
+- Carga de imágenes y archivos: Webpack puede cargar imágenes, archivos y otros recursos de manera eficiente para garantizar una carga rápida de la página.
+
+
 - JavaScript
 
 ¡Gracias por visitarnos! Esperamos que disfrutes de tu experiencia de compra en línea con Kpaez.
