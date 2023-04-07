@@ -88,14 +88,12 @@ function renderProducts(arrayProducts){                                         
         productInfoDiv.appendChild(productPrice);
         productInfoDiv.appendChild(productName);
      
-        productInfo.appendChild(productInfoDiv);                                 // Inserto los contenores "productInfoDiv" y "productInfoFigure" a un <div> padre
-        productInfo.appendChild(productInfoFigure);
-     
-        productCard.appendChild(productImg);                                     // Inserto la imagen e info de mi producto
-        productCard.appendChild(productInfo);
+        productInfo.append(productInfoDiv, productInfoFigure);                   // Inserto los contenores "productInfoDiv" y "productInfoFigure" a un <div> padre, tambien podemos usar "append()" para enviar mas de un parámetro a la vez
+        productCard.append(productImg, productInfo);                             // Inserto la imagen e info de mi producto, tambien podemos usar "append()" para enviar mas de un parámetro a la vez
      
         cardsContainer.appendChild(productCard);                                 // Agregamos todas las anteriores etiquetas o elementos al contenedor padre o final
     }
 }
 
 renderProducts(productList);                                                    // Generamos las imagenes e información de los productos, le enviamos un array con los productos como Objetos
+
