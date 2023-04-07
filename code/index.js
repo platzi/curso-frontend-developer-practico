@@ -1,17 +1,18 @@
 
-import '../estilos/styles.css';
-// import bt_add_to_cart from '../icons/bt_add_to_cart.s'
+import '@estilos/styles.css';
+// rm -rf dist && npm run build
 
-import bt_add_to_cart from '../icons/bt_add_to_cart.svg'
-import icon_close from  '../icons/icon_close.png'
 
-import icon_menu from   '../icons/icon_menu.svg'
-import logo_yard_sale from '../logos/logo_yard_sale.svg'
-import icon_shopping_cart from '../icons/icon_shopping_cart.svg'
-import flechita from    '../icons/flechita.svg'
-import closeDetail from    '../icons/icon_close.png'
-import AddCart from    '../icons/bt_add_to_cart.svg'
 
+import bt_add_to_cart from '@icons/bt_add_to_cart.svg'
+import icon_close from     '@icons/icon_close.png'
+import icon_menu from      '@icons/icon_menu.svg'
+import icon_shopping_cart from '@icons/icon_shopping_cart.svg'
+import flechita from       '@icons/flechita.svg'
+import closeDetail from    '@icons/icon_close.png'
+import AddCart from        '@icons/bt_add_to_cart.svg'
+
+import logo_yard_sale from '@logos/logo_yard_sale.svg'
 
 const imgMenu     = document.querySelector(".menu")
 const imgLogo     = document.querySelector(".logo")

@@ -5,9 +5,12 @@
   "main": "index.js",
   "scripts": {
     "test": "echo \"Error: no test specified\" && exit 1",
-    "build": "webpack --mode production",
-    "dev": "webpack --mode development"
+    "build": "webpack --mode production --config webpack.config.js",
+    "dev": "webpack --config webpack.config.dev.js",
+    "watch": "npm run dev --watch"
+
   },
+
   "repository": {
     "type": "git",
     "url": "git+https://github.com/AlejandroPaez1/curso-frontend-developer-js.git"
@@ -19,6 +22,7 @@
   },
   "homepage": "https://github.com/AlejandroPaez1/curso-frontend-developer-js#readme",
   "devDependencies": {
+    "clean-webpack-plugin": "^4.0.0",
     "copy-webpack-plugin": "^11.0.0",
     "css-loader": "^6.7.3",
     "css-minimizer-webpack-plugin": "^5.0.0",
