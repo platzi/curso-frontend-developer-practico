@@ -281,6 +281,7 @@ aside {
 /* Product detail */
 
 .product-detail-close {
+  cursor: pointer;
   background: var(--white);
   width: 14px;
   height: 14px;
@@ -383,6 +384,7 @@ aside {
 }
 
 .product-card img {
+  cursor: pointer;
   width: 240px;
   height: 240px;
   border-radius: 20px;
