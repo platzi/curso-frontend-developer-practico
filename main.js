@@ -3,41 +3,41 @@ const menuCarritoIcon = document.querySelector('.navbar-shopping-cart');
 const desktopMenu = document.querySelector('.desktop-menu');
 const iconBurgerMenu = document.querySelector('.menu');
 const mobileMenu = document.querySelector('.mobile-menu');
-const aside = document.querySelector('.product-detail');
+const shoppingCartContainer = document.querySelector('#shoppingCartContainer');
 const cardsContainer = document.querySelector('.cards-container');
 
-menuEmail.addEventListener('click', toggleMenuDesktop);                     // "toggle" significa intercambiar  
+menuEmail.addEventListener('click', toggleMenuDesktop);                             // "toggle" significa intercambiar  
 iconBurgerMenu.addEventListener('click', toggleMenuMobile);
 menuCarritoIcon.addEventListener('click', toggleCarritoAside);
 
 
-function toggleMenuDesktop(){                                               // Despliegue de menú para Desktop
-    const isAsideClosed = aside.classList.contains('inactive');             // Guardamos en una varialble True o False si el elemento aside '.product-detail' esta desplegado o no
+function toggleMenuDesktop(){                                                       // Despliegue de menú para Desktop
+    const isAsideClosed = shoppingCartContainer.classList.contains('inactive');     // Guardamos en una varialble True o False si el elemento aside '.product-detail' esta desplegado o no
 
-    if(!isAsideClosed){                                                     // Verificamos que el aside esta abierto
-        aside.classList.add('inactive');                                    // Cerramos el aside '.product-detail' al agregarle la class '.inactive'
+    if(!isAsideClosed){                                                             // Verificamos que el aside esta abierto
+        shoppingCartContainer.classList.add('inactive');                            // Cerramos el aside '.product-detail' al agregarle la class '.inactive'
     } 
-    desktopMenu.classList.toggle('inactive');                               // Desplegamos o ocultamos el elemento desktopMenu '.desktop-menu' usando el atributo "toggle()"
+    desktopMenu.classList.toggle('inactive');                                       // Desplegamos o ocultamos el elemento desktopMenu '.desktop-menu' usando el atributo "toggle()"
 }
 
 
-function toggleMenuMobile(){                                                // Despliegue de menú para Mobile
-    const isAsideClosed = aside.classList.contains('inactive');             // Guardamos en una varialble True o False si el elemento aside '.product-detail' esta desplegado o no
+function toggleMenuMobile(){                                                        // Despliegue de menú para Mobile
+    const isAsideClosed = shoppingCartContainer.classList.contains('inactive');     // Guardamos en una varialble True o False si el elemento aside '.product-detail' esta desplegado o no
 
-    if(!isAsideClosed){                                                     // Verificamos que el aside esta abierto
-        aside.classList.add('inactive');                                    // Cerramos el aside '.product-detail' al agregarle la class '.inactive'
+    if(!isAsideClosed){                                                             // Verificamos que el aside esta abierto
+        shoppingCartContainer.classList.add('inactive');                            // Cerramos el aside '.product-detail' al agregarle la class '.inactive'
     } 
-    mobileMenu.classList.toggle('oculto');                                  // Acá usé otra transición para mostra el menú para mobile
+    mobileMenu.classList.toggle('oculto');                                          // Acá usé otra transición para mostra el menú para mobile
 }
 
 
-function toggleCarritoAside(){                                              // Despliegue de menu de carrito
-    const isMobileMenuClosed = mobileMenu.classList.contains('inactive');   // Guardamos en una variable si el elemento ".mobile-menu" contiene la class 'inactive' (True si '.inactive' esta agregado o False si '.inactive' no esta agregado)
+function toggleCarritoAside(){                                                      // Despliegue de menu de carrito
+    const isMobileMenuClosed = mobileMenu.classList.contains('inactive');           // Guardamos en una variable si el elemento ".mobile-menu" contiene la class 'inactive' (True si '.inactive' esta agregado o False si '.inactive' no esta agregado)
 
-    if(!isMobileMenuClosed){                                                // Verificamos si el '.mobile-menu' esta desplegado
-        mobileMenu.classList.add('oculto');                                 // Lo cerramos usando la class '.oculto'
+    if(!isMobileMenuClosed){                                                        // Verificamos si el '.mobile-menu' esta desplegado
+        mobileMenu.classList.add('oculto');                                         // Lo cerramos usando la class '.oculto'
     } 
-    aside.classList.toggle('inactive');                                     // Desplegamos el aside '.product-detail' usando el atributo 'toggle'
+    shoppingCartContainer.classList.toggle('inactive');                             // Desplegamos el aside '.product-detail' usando el atributo 'toggle'
 }
 
 
@@ -65,8 +65,8 @@ function renderProducts(arrayProducts){                                         
         const productCard =  document.createElement('div');                      // Creo un elemento <div> 
         productCard.classList.add('product-card');                               // Le agrego su class correspondiente 'product-card'
      
-        const productImg = document.createElement('img');                               // Creo un elemento <img>
-        productImg.setAttribute('src', product.image);                                  // Aqui le agrego al atributo 'src' la propiedad 'image' de cada uno de mis objetos del Array en vez de un String con la URL de imagen en concreto
+        const productImg = document.createElement('img');                        // Creo un elemento <img>
+        productImg.setAttribute('src', product.image);                           // Aqui le agrego al atributo 'src' la propiedad 'image' de cada uno de mis objetos del Array en vez de un String con la URL de imagen en concreto
      
         const productInfo =  document.createElement('div');                      
         productInfo.classList.add('product-info'); 
@@ -83,7 +83,7 @@ function renderProducts(arrayProducts){                                         
         const productImgCart =  document.createElement('img'); 
         productImgCart.setAttribute('src', './icons/bt_add_to_cart.svg');        // Le mando un URL de la imagen ya que siempre será la misma
       
-        // En esta sección voy a colocar e insertar mis elementos generados arriba
+        // En esta sección voy insertar mis elementos generados arriba a sus respectivas etiquetas
         productInfoFigure.appendChild(productImgCart);                           // Inserto mi imagen "productImgCart" adentro de mi elemento <figure>
         productInfoDiv.appendChild(productPrice);
         productInfoDiv.appendChild(productName);
