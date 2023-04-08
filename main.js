@@ -1,8 +1,15 @@
-const menuEmail = document.querySelector(".navbar-email");
-const menuDesktop = document.querySelector(".desktop-menu");
+const menuEmail = document.querySelector(".navbar-email")
+const desktopMenu = document.querySelector(".desktop-menu")
+const menuHumIcon = document.querySelector(".menu")
+const mobileMenu = document.querySelector(".mobile-menu")
 
-menuEmail.addEventListener("mouseover", toggleDesktopMenu);
+menuEmail.addEventListener("click", toggleDesktopMenu);
+menuHumIcon.addEventListener("click", toggleMobileMenu);
 
 function toggleDesktopMenu() {
-    menuDesktop.classList.toggle("inactive");
+    desktopMenu.classList.toggle('inactive');
+}
+
+function toggleMobileMenu() {
+    mobileMenu.classList.toggle('inactive');
 }
