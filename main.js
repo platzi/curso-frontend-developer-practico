@@ -2,13 +2,16 @@ const menuEmail = document.querySelector('.navbar-email');
 const menuCarritoIcon = document.querySelector('.navbar-shopping-cart');
 const desktopMenu = document.querySelector('.desktop-menu');
 const iconBurgerMenu = document.querySelector('.menu');
+const productDetailCloseIcon = document.querySelector('.product-detail-close');
 const mobileMenu = document.querySelector('.mobile-menu');
 const shoppingCartContainer = document.querySelector('#shoppingCartContainer');
+const productDetailContainer = document.querySelector('#productDetail');
 const cardsContainer = document.querySelector('.cards-container');
 
 menuEmail.addEventListener('click', toggleMenuDesktop);                             // "toggle" significa intercambiar  
 iconBurgerMenu.addEventListener('click', toggleMenuMobile);
 menuCarritoIcon.addEventListener('click', toggleCarritoAside);
+productDetailCloseIcon.addEventListener('click', closeProductDetailAside);
 
 
 function toggleMenuDesktop(){                                                       // Despliegue de menú para Desktop
@@ -22,6 +25,7 @@ function toggleMenuDesktop(){                                                   
 
 
 function toggleMenuMobile(){                                                        // Despliegue de menú para Mobile
+    closeProductDetailAside();                                                      // Nos aseguramos de cerrar el "aside" de la información del producto
     const isAsideClosed = shoppingCartContainer.classList.contains('inactive');     // Guardamos en una varialble True o False si el elemento aside '.product-detail' esta desplegado o no
 
     if(!isAsideClosed){                                                             // Verificamos que el aside esta abierto
@@ -38,6 +42,24 @@ function toggleCarritoAside(){                                                  
         mobileMenu.classList.add('oculto');                                         // Lo cerramos usando la class '.oculto'
     } 
     shoppingCartContainer.classList.toggle('inactive');                             // Desplegamos el aside '.product-detail' usando el atributo 'toggle'
+
+
+    const isProductDetailClosed = productDetailContainer.classList.contains('inactive');       // Guardo en una variable True o False si el 'product-detail' esta abierto    
+    if(!isProductDetailClosed){                                                        
+        productDetailContainer.classList.add('inactive');                                         
+    } 
+}
+
+
+function openProductDetailAside(){                                          // Función para mostrar el detalle en un "aside" sobre el producto seleccionado
+    shoppingCartContainer.classList.add('inactive');                        // Siempre que queramos mostrar el 'product-detail' vamos a cerrar la ventana del carrito
+
+    productDetailContainer.classList.remove('inactive');                    // Mostramos nuestra carta de los detalles del producto
+}
+
+
+function closeProductDetailAside(){
+    productDetailContainer.classList.add('inactive')
 }
 
 
@@ -67,6 +89,7 @@ function renderProducts(arrayProducts){                                         
      
         const productImg = document.createElement('img');                        // Creo un elemento <img>
         productImg.setAttribute('src', product.image);                           // Aqui le agrego al atributo 'src' la propiedad 'image' de cada uno de mis objetos del Array en vez de un String con la URL de imagen en concreto
+        productImg.addEventListener('click', openProductDetailAside);
      
         const productInfo =  document.createElement('div');                      
         productInfo.classList.add('product-info'); 

@@ -144,8 +144,8 @@ nav {
   width: 100%;
 }
 .oculto{
-    transform: translateX(-200px);
-    transition: transform 300ms;
+    transform: translateX(-700px);
+    transition: transform 500ms;
 }
 .mobile-menu a {
   text-decoration: none;
