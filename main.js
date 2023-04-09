@@ -60,10 +60,63 @@ function toggleCarritoAside(){                                                  
     } 
 }
 
-function openProductDetailAside(){                                                   // Función para mostrar el detalle en un "aside" sobre el producto seleccionado
+function openProductDetailAside(product){                                                   // Función para mostrar el detalle en un "aside" sobre el producto seleccionado
     shoppingCartContainer.classList.add('inactive');                        // Siempre que queramos mostrar el 'product-detail' vamos a cerrar la ventana del carrito
     productDetailContainer.classList.remove('inactive');                    // Mostramos nuestra carta de los detalles del producto
     //darken.classList.remove('inactive');
+
+    const productImg = document.createElement('img');
+    productImg.setAttribute('src', product.image);
+
+    const productInfo = document.createElement('div');
+    productInfo.classList.add('product-info');
+
+    const productInfoDiv = document.createElement('div');
+
+    const productPrice = document.createElement('p');
+    productPrice.innerText = '$' + product.price;
+
+    const productName = document.createElement('p');
+    productName.innerText = product.name;
+
+    productInfoDiv.appendChild(productName);
+    productInfoDiv.appendChild(productPrice);
+    productInfo.appendChild(productInfoDiv);
+
+    productDetailContainer.appendChild(productImg);
+    productDetailContainer.appendChild(productInfo);
+}
+
+function openProductDetail(evento){
+    shoppingCartContainer.classList.add('inactive');                        // Siempre que queramos mostrar el 'product-detail' vamos a cerrar la ventana del carrito
+    productDetailContainer.classList.remove('inactive');
+    const lista = productList;
+    const elemento = lista.find(product => product.image == evento.explicitOriginalTarget.src);
+    console.log(elemento);
+
+    const mostrarElemento = `
+    <div class="product-detail-individual-close">
+        <img src="./icons/icon_close.png" alt="close" class="close-product-detail">
+    </div>
+    <img src=${elemento.image} alt='${elemento.name}' title='${elemento.name}'>
+    <div class="product-info">
+        <p>${elemento.price}</p>
+        <p>${elemento.name}</p>
+        <p>${elemento.description}.</p>
+        <button class="primary-button add-to-cart-button">
+            <img src="./icons/bt_add_to_cart.svg" alt="add to cart">
+            Add to cart
+        </button>
+    </div>
+    `;
+    const prueba = document.querySelector('.product-detail-individual');
+    prueba.innerHTML = mostrarElemento;
+
+    const closeProductDetail = document.querySelector('.product-detail-individual-close');
+    closeProductDetail.addEventListener('click', closeProductDetail);
+    function closedProductDetail(){
+        productDetailContainer.classList.add('inactive'); 
+    }
 }
 
 function closeProductDetailAside(){
@@ -122,6 +175,36 @@ function renderProducts(arrayProducts){                                         
     }
 }
 
+function renderProducts2(arrayProducts){ 
+    arrayProducts.forEach((product) => {
+        const productCard = document.createElement('div');
+        productCard.classList.add('product-card');
+
+        const productImg = document.createElement('img');
+        productImg.setAttribute('src', product.image);
+        productImg.addEventListener('click', () => openProductDetailAside(product));
+
+        const productInfo = document.createElement('div');
+        productInfo.classList.add('product-info');
+
+        const productInfoDiv = document.createElement('div');
+
+        const productPrice = document.createElement('p');
+        productPrice.innerText = '$' + product.price;
+
+        const productName = document.createElement('p');
+        productName.innerText = product.name;
+
+        productInfoDiv.appendChild(productName);
+        productInfoDiv.appendChild(productPrice);
+        productInfo.appendChild(productInfoDiv);
+
+        productCard.appendChild(productImg);
+        productCard.appendChild(productInfo);
+
+        cardsContainer.appendChild(productCard);
+    });
+}
 
 
 
@@ -130,20 +213,23 @@ productList.push({                                                              
     name: 'Bike',
     price: 120,
     image: 'https://images.pexels.com/photos/276517/pexels-photo-276517.jpeg?auto=compress&cs=tinysrgb&dpr=2&h=650&w=940',
+    description: "a"
 })
 productList.push({                                                          
     name: 'Screen',
     price: 220,
     image: 'https://images.unsplash.com/photo-1496181133206-80ce9b88a853?ixlib=rb-4.0.3&ixid=MnwxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8&auto=format&fit=crop&w=2071&q=80',
+    description: "b"
 })
 productList.push({                                                          
     name: 'Computer',
     price: 620,
     image: 'https://images.unsplash.com/photo-1566647387313-9fda80664848?ixlib=rb-4.0.3&ixid=MnwxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8&auto=format&fit=crop&w=1530&q=80',
+    description: "c"
 })
 
 
-renderProducts(productList);                                                    // Generamos las imagenes e información de los productos, le enviamos un array con los productos como Objetos
+renderProducts2(productList);                                                    // Generamos las imagenes e información de los productos, le enviamos un array con los productos como Objetos
 
 
 window.addEventListener('click', function(e){                                   // Con este evento imprimo que parte del HTML le hice click
@@ -151,56 +237,4 @@ window.addEventListener('click', function(e){                                   
 });
 
 
-function mostrarProductosDinamico(arrayProducts){
-    arrayProducts.forEach(product => {                                               
-        const productCard =  document.createElement('div');                      
-        productCard.classList.add('product-card');     
-        
-        productCard.addEventListener('click',()=>{ //evento de escucha
-            openProductInfo(product); //llamo a la funcion
 
-        })
-     
-        const productImg = document.createElement('img');                        
-        productImg.setAttribute('src', product.image);                           
-        productImg.addEventListener('click', openProductDetailAside);
-     
-        const productInfo =  document.createElement('div');                      
-        productInfo.classList.add('product-info'); 
-     
-        const productInfoDiv =  document.createElement('div');                   
-     
-        const productPrice = document.createElement('p');                        
-        productPrice.innerText = '$' + product.price;                            
-     
-        const productName = document.createElement('p');                         
-        productName.innerText = product.name;                                    
-     
-        const productInfoFigure =  document.createElement('figure');             
-        const productImgCart =  document.createElement('img'); 
-        productImgCart.setAttribute('src', './icons/bt_add_to_cart.svg');        
-      
-        // En esta sección voy insertar mis elementos generados arriba a sus respectivas etiquetas
-        productInfoFigure.appendChild(productImgCart);                           
-        productInfoDiv.appendChild(productPrice);
-        productInfoDiv.appendChild(productName);
-     
-        productInfo.append(productInfoDiv, productInfoFigure);                   
-        productCard.append(productImg, productInfo);                             
-     
-        cardsContainer.appendChild(productCard);                                 
-    });
-
-    const openProductInfo = (product)=>{ //muestra el aside con la info del producto seleccionado
-        const aside = document.querySelector('#productDetail');
-        const productImg = document.querySelector('.product-detail-main-img');
-        const productPrice = document.querySelector('.product-info .product-price');
-        const productName= document.querySelector('.product-info .product-name');
-            aside.classList.remove('inactive');
-            productImg.setAttribute('src', product.img);
-            productPrice.textContent = product.price;
-            productName.textContent = product.name;
-    
-    
-    }
-}
