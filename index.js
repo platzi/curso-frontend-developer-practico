@@ -151,14 +151,23 @@ function renderProducts(arr) {
         
         cardsContainer.appendChild(productCardDiv);
         
-        
+
         // Pasar info de la card al Aside de product detail
         productCardDiv.addEventListener('click', e => {
             openAsideProductDetail(product.img, product.name, product.price, product.description);
         });
+
+        shoppingCartImage.addEventListener('click', function() {
+            let productoAgregado = [];
+            productoAgregado.push({
+                name: product.name,
+                price: product.price,
+                image: product.img,
+
+            })
+            agregarCarrito(productoAgregado);
+        });
     }
-
-
 }
 
 renderProducts(productList); 
@@ -202,6 +211,14 @@ function openAsideProductDetail(img, name, price, description) {
 function closeAsideProductDetail() {
     asideProductDetail.classList.add('inactive');
     
+}
+
+let productosEnCarrito = [];
+
+function agregarCarrito(producto) {
+
+    
+
 }
 
 
