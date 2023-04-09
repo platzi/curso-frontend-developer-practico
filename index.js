@@ -97,6 +97,7 @@ productList.push(
     {
         name: 'Frisbit',
         price: 14000748532657834,
+        description: "Foto del frisbin",
         img: './logos/S6000206.JPG',
     }
 );
@@ -104,29 +105,9 @@ productList.push(
 
 const cardsContainer = document.querySelector('.cards-container');
 
-// Asignarle la info corresta al aside de PRODUCT DETAIL 
-
-const asideProductDetailContainer = document.querySelector('#productDetail');
-
-const productDetailImage = document.createElement('img');
-
-const divAsideProductInfoContainer = document.createElement('div');
-divAsideProductInfoContainer.classList.add('product-info');
-
-const priceAsideProductDetail = document.createElement('p');
-const nameAsideProductDetail = document.createElement('p');
-const descriptionAsideProductDetail = document.createElement('p');
-
-  
-divAsideProductInfoContainer.appendChild(priceAsideProductDetail);
-divAsideProductInfoContainer.appendChild(nameAsideProductDetail);
-divAsideProductInfoContainer.appendChild(descriptionAsideProductDetail);
-
-asideProductDetailContainer.appendChild(productDetailImage);
-asideProductDetailContainer.appendChild(divAsideProductInfoContainer);
 
 function renderProducts(arr) {
-    for (product of productList) {
+    for (const product of productList) {
     
         // Creating HTML elements
     
@@ -156,7 +137,7 @@ function renderProducts(arr) {
         
         // Pasar info de la card al Aside de product detail
         productCardDiv.addEventListener('click', e => {
-            openAsideProductDetail(e, cardImg, infoDivContainer);
+            openAsideProductDetail(product.img, product.name, product.price, product.description);
         });
         
         // Insert Child elements into Parent elements
@@ -215,7 +196,15 @@ const crossProductDetail = document.querySelector('.product-detail-close');
 crossProductDetail.addEventListener('click', closeAsideProductDetail);
 
 // Abrir aside productDetail cuando se le de click a algun producto (El evento con esta funcion esta declarado en la construccion de los elementos HTML en JS)
-function openAsideProductDetail(e, cardImg, infoDivContainer) {
+
+
+// Asignarle la info corresta al aside de PRODUCT DETAIL 
+const productDetailImage = document.querySelector('#imgAsideProductDetails');
+const productDetailPrice = document.querySelector('#priceAsideProductDetails');
+const productDetailName = document.querySelector('#nameAsideProductDetails');
+const productDetailDescription = document.querySelector('#descriptionAsideProductDetails');
+
+function openAsideProductDetail(img, name, price, description) {
     asideProductDetail.classList.remove('inactive');
 
     desktopMenu.classList.add('inactive');
@@ -233,10 +222,13 @@ function openAsideProductDetail(e, cardImg, infoDivContainer) {
     //     }
     // }
 
-            productDetailImage.setAttribute('src', cardImg.src);
+            productDetailImage.setAttribute('src', img);
+            productDetailPrice.innerText = '$' + price;
+            productDetailName.innerText = name;
+            productDetailDescription.innerText = description;
             //console.log(e.target);
-            console.log(infoDivContainer.children[0].children[0].textContent);
-            console.log(infoDivContainer.children[0].children[1].textContent);
+            console.log(name);
+            console.log(price);
             //console.log(nameP.textContent);
             //priceAsideProductDetail.innerText = priceP;
             //nameAsideProductDetail.innerText = product.name;
