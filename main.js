@@ -3,13 +3,16 @@ const desktopMenu = document.querySelector('.desktop-menu');
 const burguerMenu = document.querySelector('.menu');
 const mobileMenu = document.querySelector('.mobile-menu');
 const iconCart = document.querySelector('.navbar-shopping-cart');
+const productDetailClose = document.querySelector('.product-detail-close');
 const shoppingCartContainer = document.querySelector('#shoppingCartContainer');
+const productDetailContainer = document.querySelector('#productDetail');
 const cardsContainer = document.querySelector('.cards-container');
 
 
 navEmail.addEventListener('click', toggleDesktopMenu);
 burguerMenu.addEventListener('click', toggleBurguerMenu);
 iconCart.addEventListener('click', toggleCart);
+productDetailClose.addEventListener('click', closeProductDetailAside);
 
 function toggleDesktopMenu() {
     const isshoppingCartContainerClosed = shoppingCartContainer.classList.contains('inactive');
@@ -24,17 +27,32 @@ function toggleBurguerMenu() {
     if (!isshoppingCartContainerClosed) {
         shoppingCartContainer.classList.add('inactive');
     }
+    closeProductDetailAside();
     mobileMenu.classList.toggle('inactive');
 }
 
 function toggleCart() {
     const isMobileMenuClosed = mobileMenu.classList.contains('inactive');
     const isNavEmailClosed = navEmail.classList.contains('inactive');
+    const isProductDetailClosed = productDetailContainer.classList.contains('inactive');
     if (!isMobileMenuClosed || !isNavEmailClosed) {
         mobileMenu.classList.add('inactive');
         desktopMenu.classList.add('inactive');
     }
+
+    if (!isProductDetailClosed) {
+        productDetailContainer.classList.add('inactive');
+    }
     shoppingCartContainer.classList.toggle('inactive');
+}
+
+function openProductDetailAside() {
+    productDetailContainer.classList.remove('inactive');
+    shoppingCartContainer.classList.add('inactive');
+}
+
+function closeProductDetailAside() {
+    productDetailContainer.classList.add('inactive');
 }
 
 const productList = [];
@@ -60,8 +78,10 @@ function renderProducts(arr) {
     for (product of arr) {
         const productCard = document.createElement('div');
         productCard.classList.add('product-card');
+
         const ProductImg = document.createElement('img');
         ProductImg.setAttribute('src', product.image)
+        ProductImg.addEventListener('click', openProductDetailAside)
     
         const productInfo = document.createElement('div');
         productInfo.classList.add('product-info');
