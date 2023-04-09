@@ -19,12 +19,26 @@ body {
   display: none;
 }
 
+.darken
+  {
+    width: 100%;
+    height: calc(100%);
+    position: fixed;
+    top: 0;
+    background-color: rgba(0, 0, 0, 0.5);
+    
+  }
+.main-container {
+  height: 3000px; 
+}
+
 /* Navbar (general) */
 nav {
   display: flex;
   justify-content: space-between;
   padding: 0 24px;
   border-bottom: 1px solid var(--very-light-pink);
+  z-index: 1;
 }
 .menu {
   display: none;
@@ -100,6 +114,7 @@ nav {
   border-radius: 6px;
   border-top-left-radius: 0;
   border-top-right-radius: 0;
+  border-color: var(--black);
   width: 100px;
   height: auto;
   padding: 20px 20px 0 20px;
