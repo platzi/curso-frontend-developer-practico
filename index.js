@@ -1,4 +1,4 @@
-// Desktop Menu
+// DESKTOP MENU
 const navEmail = document.querySelector('.navbar-email');
 const desktopMenu = document.querySelector('.desktop-menu');
 
@@ -22,7 +22,7 @@ function toggleDesktopMenu() {
     shoppingCartContainer.classList.add('inactive');
 }
 
-// Mobile Menu
+// MOBILE MENU
 const hamIcon = document.querySelector('.menu');
 const mobileMenu = document.querySelector('.mobile-menu');
 
@@ -38,7 +38,7 @@ function toggleMobileMenu() {
 }
 
 
-// Aside My order
+// ASIDE MY ORDER
 const shoppingCart = document.querySelector('.navbar-shopping-cart');
 const shoppingCartContainer = document.querySelector('#shoppingCartContainer');
 const closeShoppingCartArrow = document.querySelector('.closeShoppingCartArrow');
@@ -135,10 +135,6 @@ function renderProducts(arr) {
         var shoppingCartImage = document.createElement('img');
         shoppingCartImage.setAttribute('src', './icons/bt_add_to_cart.svg');
         
-        // Pasar info de la card al Aside de product detail
-        productCardDiv.addEventListener('click', e => {
-            openAsideProductDetail(product.img, product.name, product.price, product.description);
-        });
         
         // Insert Child elements into Parent elements
         
@@ -155,6 +151,11 @@ function renderProducts(arr) {
         
         cardsContainer.appendChild(productCardDiv);
         
+        
+        // Pasar info de la card al Aside de product detail
+        productCardDiv.addEventListener('click', e => {
+            openAsideProductDetail(product.img, product.name, product.price, product.description);
+        });
     }
 
 
@@ -164,38 +165,13 @@ renderProducts(productList);
 
 
 
+// ASIDE PRODUCT DETAIL
 
-
-
-
-
-
-/*
-<img src="https://images.pexels.com/photos/276517/pexels-photo-276517.jpeg?auto=compress&cs=tinysrgb&dpr=2&h=650&w=940" alt="bike">
-<div class="product-info">
-  <p>$35,00</p>
-  <p>Bike</p>
-  <p>With its practical position, this bike also fulfills a decorative function, add your hall or workspace.</p>
-  <button class="primary-button add-to-cart-button">
-    <img src="./icons/bt_add_to_cart.svg" alt="add to cart">
-    Add to cart
-  </button>
-</div>
-*/
-
-
-
-
-
-// Aside Product detail 
-
-//const productCardDiv = document.querySelector('.product-card');
 const asideProductDetail = document.querySelector('#productDetail');
 const crossProductDetail = document.querySelector('.product-detail-close');
 
 crossProductDetail.addEventListener('click', closeAsideProductDetail);
 
-// Abrir aside productDetail cuando se le de click a algun producto (El evento con esta funcion esta declarado en la construccion de los elementos HTML en JS)
 
 
 // Asignarle la info corresta al aside de PRODUCT DETAIL 
@@ -204,37 +180,23 @@ const productDetailPrice = document.querySelector('#priceAsideProductDetails');
 const productDetailName = document.querySelector('#nameAsideProductDetails');
 const productDetailDescription = document.querySelector('#descriptionAsideProductDetails');
 
+// Abrir aside productDetail cuando se le de click a algun producto (El evento con esta funcion esta declarado en la construccion de los elementos HTML en JS)
 function openAsideProductDetail(img, name, price, description) {
+    // Abrir el Aside
     asideProductDetail.classList.remove('inactive');
 
+    // Cerrar elementos que colisionan
     desktopMenu.classList.add('inactive');
     shoppingCartContainer.classList.add('inactive');
     mobileMenu.classList.add('inactive');
 
-    // for (var i = 0; i < productList.length; i++) {
-    //     if (productList[i].name == product.name) {
-    //         productDetailImage.setAttribute('src', product.img);
-    //         priceAsideProductDetail.innerText = product.price;
-    //         nameAsideProductDetail.innerText = product.name;
-    //         descriptionAsideProductDetail.innerText = product.description;
-    //         console.log('Nombre del Objeto en el array de objetos: ' + productList[i].name);
-    //         console.log('Nombre del Objeto Actual: ' + product.name);
-    //     }
-    // }
-
-            productDetailImage.setAttribute('src', img);
-            productDetailPrice.innerText = '$' + price;
-            productDetailName.innerText = name;
-            productDetailDescription.innerText = description;
-            //console.log(e.target);
-            console.log(name);
-            console.log(price);
-            //console.log(nameP.textContent);
-            //priceAsideProductDetail.innerText = priceP;
-            //nameAsideProductDetail.innerText = product.name;
-            //descriptionAsideProductDetail.innerText = product.description;
-            //console.log('Nombre del Objeto en el array de objetos: ' + productList[i].name);
-            //console.log('Nombre del Objeto Actual: ' + product.name);
+    // Asignarle la info correcta del producto seleccionado al Aside
+    productDetailImage.setAttribute('src', img);
+    productDetailPrice.innerText = '$' + price;
+    productDetailName.innerText = name;
+    productDetailDescription.innerText = description;
+    console.log(name);
+    console.log(price);
 }
 
 function closeAsideProductDetail() {
