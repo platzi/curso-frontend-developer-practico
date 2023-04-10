@@ -50,9 +50,15 @@ productList.push({
     image: "./Image/pexels-nataliya-vaitkevich-5412270.jpg"
 });
 
+<<<<<<< HEAD
+=======
+
+//Creación de etiquetas HTML (DOM)
+
+>>>>>>> bc09c8407a6ece0d8b9248ed70d9c7420169e1af
 for (product of productList) {
     const productCard = document.createElement("div")
-    productCard.classList.add("product-card");
+    productCard.classList.add("product-card")
 
     const productImg = document.createElement("img")
     productImg.setAttribute("src", product.image)
