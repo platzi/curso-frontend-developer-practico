@@ -3,7 +3,7 @@ const desktopMenu = document.querySelector(".desktop-menu")
 const menuHamIcon = document.querySelector(".menu")
 const mobileMenu = document.querySelector(".mobile-menu")
 const carritoShop = document.querySelector(".navbar-shopping-cart")
-const aside = document.querySelector(".product-detail")
+const shoppingCartContainer = document.querySelector("#shoppingCartContainer")
 const cardsContainer = document.querySelector(".cards-container")
 
 menuEmail.addEventListener("click", toggleDesktopMenu)
@@ -18,16 +18,16 @@ function toggleDesktopMenu(){
 function toggleMobileMenu(){
     mobileMenu.classList.toggle("inactive")
 
-    const isAsideClosed = aside.classList.contains("inactive")
+    const isAsideClosed = shoppingCartContainer.classList.contains("inactive")
 
     if(!isAsideClosed) {
-        aside.classList.add("inactive")
+        shoppingCartContainer.classList.add("inactive")
     }
 }
 
 
 function toggleCarrito(){
-    aside.classList.toggle("inactive")
+    shoppingCartContainer.classList.toggle("inactive")
     mobileMenu.classList.add("inactive")
 }
 
@@ -49,24 +49,6 @@ productList.push({
     price: 1050,
     image: "./Image/pexels-nataliya-vaitkevich-5412270.jpg"
 });
-
-
-//Creación de etiquetas HTML (DOM)
-
-/*
-<div class="product-card">
-    <img src="https://images.pexels.com/photos/276517/pexels-photo-276517.jpeg?auto=compress&cs=tinysrgb&dpr=2&h=650&w=940" alt="">
-    <div class="product-info">
-        <div>
-            <p>$120,00</p>
-            <p>Bike</p>
-        </div>
-        <figure>
-          <img s./icons/bt_add_to_cart.svg" alt="">
-        </figure>
-    </div>
-</div>
-*/
 
 for (product of productList) {
     const productCard = document.createElement("div")
@@ -90,7 +72,7 @@ for (product of productList) {
 
     const productInfoFigure = document.createElement("figure")
     const productImgCart = document.createElement("img")
-    productImg.setAttribute("src", "./icons/bt_add_to_cart.svg")
+    productImgCart.setAttribute("src", "./icons/bt_add_to_cart.svg")
     
     productInfoFigure.appendChild(productImgCart)
 
