@@ -108,6 +108,14 @@ productList.push({
 
 // PARA PODER AUTOMATIZAR TODO EL CODIGO DEL FOR PODEMOS METERLO DENTRO DE UNA FUNCION
 
+/*COMANDOS GIT A RECORDAR
+git status -> ver el estado de los archivos
+git add -A -> añadir todo los archivos
+git commit - m "comentario" -> para subirlos
+git push -> subir los archivos a nuetro gitup
+
+*/
+
 function rederProducts(arr) {
   for (product of arr) {
     // crea elementos uno por uno
