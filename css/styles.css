@@ -190,7 +190,7 @@
   .my-cart {
     padding: 0 24px 24px 24px;
   }
-
+  
   .product-detail-close {
     background: var(--white);
     width: 14px;
@@ -209,6 +209,7 @@
   .product-detail-close:hover {
     cursor: pointer;
   }
+
   .product-detail > img:nth-child(2) {
     width: 100%;
     max-width: 320px;
@@ -246,6 +247,13 @@
 
   .title-container {
     display: flex;
+  }
+  .my-order-content {
+    max-height: 60%;
+    overflow-y: scroll;
+  }
+  .product-detail__checkout {
+    max-height: 40%;
   }
   .title-container img {
     transform: rotate(180deg);
@@ -293,8 +301,9 @@
   .shopping-cart figure img {
     width: 70px;
     height: 70px;
-    border-radius: 20px;
-    object-fit: cover;
+    border-radius: 50%;
+    object-fit: contain;
+    background: var(--text-input-field);
   }
   .shopping-cart p:nth-child(2) {
     color: var(--very-light-pink);
@@ -342,11 +351,20 @@
     object-fit: contain;
     background-color: #f7f7f7;
   }
+  .add-to-cart {
+    box-shadow: 0 1px #999;
+  }
+  .add-to-cart:active {
+    background-color: var(--hospital-green);
+    box-shadow: 0 1px #666;
+    transform: translateY(1px);
+  }
   .product-card__image {
     padding: 16px;
 
   }
   .add-to-cart-button {
+    position: relative;
     display: flex;
     align-items: center;
     justify-content: center;
@@ -375,7 +393,11 @@
     justify-content: flex-start;
   }
   .product-info figure {
+    position: relative;
+    cursor: pointer;
     margin: 0;
+    height: 35px;
+    width: 35px;
   }
   .product-info figure img {
     width: 35px;
@@ -394,10 +416,44 @@
     color: var(--very-light-pink);
   }
 
+  /* <=== Animatios ===>*/
+  .item-to-cart{
+    position: absolute;
+    top: 50%;
+    left: 58%;
+    opacity: 0;
+    transform: translate(-50%, -50%);
+    z-index: 0;
 
+    display: inline-block;
+    height: fit-content;
+    width: fit-content;
+    padding: 4px 6px;
+    font-size: 16px;
+    font-weight: bold;
+    color: var(--white);
+    background-color: var(--hospital-green);
+    border-radius: 50%;
+  }
+  .to-cart-animation {
+    animation: to-cart .4s ease-in-out forwards;
+  }
+
+  @keyframes to-cart {
+    0% {
+      opacity: 0.1;
+    }
+    50% {
+      opacity: 1;
+      transform: translate(-50%, -200%);
+    }
+    60%, 75%, 100% {
+      opacity: 0;
+    }
+  }
   /*==== Modificadores ====*/
   .inactive{
-    display: none;
+    display: none !important;
   }
   .no-scroll{
     overflow: hidden;

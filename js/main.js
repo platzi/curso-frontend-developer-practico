@@ -10,6 +10,9 @@ let orderDetail = document.querySelector("#order-detail");
 let cardsContainer = document.querySelector(".cards-container");
 let productCard = document.querySelector(".product-card");
 let body = document.querySelector("body");
+let orderContainer = document.querySelector(".my-order-content");
+
+let shopingCart = [];
 
 userMenuListener.addEventListener("click", toggleUserMenu);
 burgerButton.addEventListener("click", toggleMobileMenu);
@@ -162,29 +165,58 @@ productList.push ({
 
 function renderCards(array){
   for (let product of array){
-    // <div class="product-card" onclick="showProductDetail(console.log(product))"></div>
-    let productCard = document.createElement("div");
+    let productCard = document.createElement("div"); // Card conntainer 
     productCard.classList.add("product-card");
-    // productCard.dataset.index = "0";
-    productCard.onclick  =  function () { showProductDetail(product); };
+
+    let productCardImage = document.createElement("img"); //Image of card
+    productCardImage.src = product.img;
+    productCardImage.alt = product.img;
+    productCardImage.id = "product-card__img";
+    productCardImage.onclick = function () { showProductDetail(product); };
     
+    let productCardInfo = document.createElement("div");
+    productCardInfo.classList.add("product-info");
+    productCardInfo.innerHTML = `<div>
+                                  <p>$${product.price}</p>
+                                  <p>${product.name}</p>
+                                </div>`;
+
+    let figureAddToCart = document.createElement("figure");
+    figureAddToCart. innerHTML = `<img src="./icons/bt_add_to_cart.svg" alt="" class='add-to-cart'> <span class="item-to-cart">+1</span>`;
+    figureAddToCart.onclick = function () { addToShopingCart(product, figureAddToCart); }
+
+    productCardInfo.append(figureAddToCart);
+    productCard.append(productCardImage);
+    productCard.append(productCardInfo);
     
+    cardsContainer.append(productCard);
+  }
+}
+
+function renderProductsListOfCart(){
+  orderContainer.innerHTML = "";
+  let productosAgrupados = [];
+  let auxShopingCart = shopingCart;
+
+  while(auxShopingCart.length > 0){
+
+    let grupo = auxShopingCart.filter((product) => {
+      return product.name === auxShopingCart[0].name;
+    });
+
+    productosAgrupados.push(grupo);
     
-    const dataCard = `<img class="product-card__image" src="${product.img}" alt="${product.name}" id="product-card__img">
-    <div class="product-info">
-        <div>
-          <p>$${product.price}</p>
-          <p>${product.name}</p>
-        </div>
-        <figure>
-        <img src="./icons/bt_add_to_cart.svg" alt="">
-        </figure>
-        </div>`;
-        
-        productCard.innerHTML = dataCard;
-        cardsContainer.append(productCard);
-      }
-    }
+    auxShopingCart = auxShopingCart.filter((product) => {
+      return product.name !== grupo[0].name;
+    });
+  }
+
+  productosAgrupados.forEach((arrayGroup) => {
+    console.log({arrayGroup});
+    console.log("---------------");
+  });
+}
+
 function showProductDetail(product){
   let isThereActiveProduct = document.querySelectorAll("#product-detail").length > 0;
   if(isThereActiveProduct){
@@ -200,17 +232,28 @@ function showProductDetail(product){
   
   productResume.innerHTML = `<div class="product-detail-close" id="product-detail__close" onclick="removeProductDetail()">
   <img src="./icons/icon_close.png" alt="close">
-  </div>
-  <img class="product-card__image" src="${product.img}" alt="${product.name}">
-  <div class="product-info product-info-cart">
-  <p>$${product.price}</p>
-      <p>${product.name}</p>
-      <p>${product.description}</p>
-      <button class="primary-button add-to-cart-button">
-      <img src="./icons/bt_add_to_cart.svg" alt="add to cart">
-      Add to cart
-      </button>
-    </div>`;
+  </div>`;
+
+  let productCardImage = document.createElement("img");
+  productCardImage.classList.add("product-card__image");
+  productCardImage.src = product.img;
+  productCardImage.alt = product.name;
+  
+  let productCardInfo = document.createElement("div");
+  productCardInfo.classList.add("product-info", "product-info-cart");
+  productCardInfo.innerHTML = `<p>$${product.price}</p>
+                               <p>${product.name}</p>
+                               <p>${product.description}</p>`;
+
+  let productCartBtn = document.createElement("button");
+  productCartBtn.classList.add("primary-button", "add-to-cart-button");
+  productCartBtn.onclick = function (){ addToShopingCart(product, productCartBtn); };
+  productCartBtn.innerHTML = `<img src="./icons/bt_add_to_cart.svg" alt="add to cart">
+                              <p>Add to cart</p>
+                              <span class="item-to-cart">+1</span>`;
+
+  productResume.append(productCardImage, productCardInfo, productCartBtn);
+
   if(window.innerWidth > 992){
     cardsContainer.classList.add("cards-container--aside-open");
   } else{
@@ -219,6 +262,8 @@ function showProductDetail(product){
   body.append(productResume);
   
 }
+
+
 function removeProductDetail(){
   body.classList.remove("no-scroll");
   
@@ -278,6 +323,45 @@ function removeNoScroll() {
   }
 }
 
-renderCards(productList);
+function addToShopingCart(product, figureAddToCart){
+  let isThereActiveProduct = document.querySelectorAll("#product-detail").length > 0;
+  let itemToCart = figureAddToCart.lastElementChild;
 
+
+  itemToCart.classList.add("to-cart-animation");
+
+  setTimeout(() => {
+    itemToCart.classList.remove("to-cart-animation");
+  }, 400);
+
+  shopingCart.push(product);
+  refreshCounter(1);
+  renderProductsListOfCart();
+}
+
+function refreshCounter(add){
+  let itemsCounter = document.querySelector("#items-counter");
+  
+  if(parseInt(shopingCart.length) === 0){
+    itemsCounter.classList.add("inactive");
+  } else{
+    itemsCounter.classList.remove("inactive");
+  }
+
+  itemsCounter.innerHTML = shopingCart.length;
+}
+function refreshOrderTotal(){
+  let orderTotal = document.querySelector("#order-total");
+  let total = 0;
+  shopingCart.forEach((product) =>{
+    total += product.price;
+  });
+
+  orderTotal.innerHTML = `$${total}`;
+}
+
+renderCards(productList);
+renderProductsListOfCart();
+refreshCounter();
+refreshOrderTotal();
 window.onresize = removeNoScroll;
