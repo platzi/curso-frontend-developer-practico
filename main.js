@@ -32,7 +32,7 @@ function toggleMobileMenu(){
 }
 
 
-const CarritoDetail = document.querySelector('.product-detail')
+const CarritoDetail = document.querySelector('#shoppingCartContainer')
 const menuCarrito = document.querySelector('.navbar-shopping-cart')
 
 menuCarrito.addEventListener('click', toggleCarritoDetail);
