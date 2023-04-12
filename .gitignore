@@ -238,3 +238,4 @@ $RECYCLE.BIN/
 .vscode/
 # End of https://www.toptal.com/developers/gitignore/api/macos,windows,linux,visualstudiocode,node
 ignore.js
+calculadora.php

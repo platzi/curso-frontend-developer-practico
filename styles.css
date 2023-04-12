@@ -198,6 +198,7 @@ aside{
     box-sizing: border-box;
     position: absolute;
     right: 0;
+    border-color: var(--black);
   }
 
 /* ShoppingCart */
@@ -389,12 +390,6 @@ aside{
   color: rgb(144, 82, 0);
 }
   
-
-/*  */
-
-
-
-
 /* Media query que se ejecuta de 0px hasta 640px, genera estilos para mobile */
 @media (max-width: 640px) {
   .menu {
