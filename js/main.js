@@ -211,10 +211,22 @@ function renderProductsListOfCart(){
     });
   }
 
-  productosAgrupados.forEach((arrayGroup) => {
-    console.log({arrayGroup});
-    console.log("---------------");
-  });
+  // productosAgrupados.forEach((arrayGroup) => {
+  //   let productInCart = document.createElement("div");
+  //   productInCart.classList.add("shopping-cart");
+  //   productInCart.innerHTML = 
+  //       `<figure>
+  //         <img
+  //           src="arra"
+  //           alt="bike">
+  //       </figure>
+  //       <p>Bike</p>
+  //       <p>$30,00</p>
+  //       <img src="./icons/icon_close.png" alt="close">`
+
+  //   console.log({arrayGroup});
+  //   console.log("---------------");
+  // });
 }
 
 function showProductDetail(product){
