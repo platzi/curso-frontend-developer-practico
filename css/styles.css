@@ -249,11 +249,12 @@
     display: flex;
   }
   .my-order-content {
-    max-height: 60%;
-    overflow-y: scroll;
+    max-height: 65%;
+    height: 100%;
+    overflow-y: auto;
   }
   .product-detail__checkout {
-    max-height: 40%;
+    max-height: 35%;
   }
   .title-container img {
     transform: rotate(180deg);
@@ -309,7 +310,7 @@
     color: var(--very-light-pink);
   }
   .shopping-cart p:nth-child(3) {
-    font-size: var(--md);
+    font-size: var(--sm);
     font-weight: bold;
   }
   .primary-button {

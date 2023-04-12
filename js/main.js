@@ -54,6 +54,9 @@ function toggleOrderDetail() {
   if(orderDetail.classList.contains("inactive")){
     cardsContainer.classList.remove("cards-container--aside-open");
   }
+  if(window.innerWidth <= 992){
+    body.classList.toggle("no-scroll");
+  }
 }
 function closeMobileMenu() {
   mobileMenu.classList.add("inactive");
@@ -211,22 +214,32 @@ function renderProductsListOfCart(){
     });
   }
 
-  // productosAgrupados.forEach((arrayGroup) => {
-  //   let productInCart = document.createElement("div");
-  //   productInCart.classList.add("shopping-cart");
-  //   productInCart.innerHTML = 
-  //       `<figure>
-  //         <img
-  //           src="arra"
-  //           alt="bike">
-  //       </figure>
-  //       <p>Bike</p>
-  //       <p>$30,00</p>
-  //       <img src="./icons/icon_close.png" alt="close">`
+  productosAgrupados.forEach((grupoDeArticulos) => {
+    let subTotalArticulo = 0;
+    let numeroDeArticulos = 0;
+    let precioArticulo = grupoDeArticulos[0].price;
+    let nombreArticulo = grupoDeArticulos[0].name;
+    let imagenArticulo = grupoDeArticulos[0].img;
 
-  //   console.log({arrayGroup});
-  //   console.log("---------------");
-  // });
+    for(articulo of grupoDeArticulos){
+      subTotalArticulo += articulo.price;
+      numeroDeArticulos++;
+    }
+
+    let productInCart = document.createElement("div");
+    productInCart.classList.add("shopping-cart");
+    productInCart.innerHTML = 
+        `<figure>
+          <img
+            src="${imagenArticulo}"
+            alt="${nombreArticulo}">
+        </figure>
+        <p>${nombreArticulo}</p>
+        <p class="shopping-cart__price">($${precioArticulo} x ${numeroDeArticulos}) $${subTotalArticulo}</p>
+        <img src="./icons/icon_close.png" alt="close">`
+
+    orderContainer.appendChild(productInCart);
+  });
 }
 
 function showProductDetail(product){
@@ -349,6 +362,7 @@ function addToShopingCart(product, figureAddToCart){
   shopingCart.push(product);
   refreshCounter(1);
   renderProductsListOfCart();
+  refreshOrderTotal();
 }
 
 function refreshCounter(add){
