@@ -27,6 +27,7 @@ function toggleMobileMenu(){
 
         CarritoDetail.classList.add('inactive')
     }
+    CloseProductDetailContainer();
     
     MobileMenu.classList.toggle('inactive');
 }
@@ -45,11 +46,34 @@ function toggleCarritoDetail(){
         MobileMenu.classList.add('inactive')
     }
     
-   
-    CarritoDetail.classList.toggle('inactive');
+    
 
+    const IsProductDetailClosed = ProductDetailContainer.classList.contains('inactive');
+   
+    if(!IsProductDetailClosed){
+        ProductDetailContainer.classList.add('inactive')
+    }
+       
+    CarritoDetail.classList.toggle('inactive');
   
 }
+
+const ProductDetailContainer = document.querySelector('#productDetail')
+const CloseIconProductDetailContainer = document.querySelector('.product-detail-close')
+
+CloseIconProductDetailContainer.addEventListener('click',CloseProductDetailContainer)
+
+function OpenProductDetailAside(){
+
+    CarritoDetail.classList.add('inactive')
+    
+    ProductDetailContainer.classList.remove("inactive")
+}
+
+function CloseProductDetailContainer(){
+    ProductDetailContainer.classList.add("inactive")
+}
+
 
 const productlist = [];
 
@@ -119,6 +143,7 @@ for (product of arr) {
     // product= {name, price, image} -> product.image
     const productImg = document.createElement('img');
     productImg.setAttribute('src', product.Imagen);
+    productImg.addEventListener('click',OpenProductDetailAside)
   
     const productInfo = document.createElement('div');
     productInfo.classList.add('product-info');
@@ -150,3 +175,5 @@ for (product of arr) {
 }
 
 RenderProducts(productlist);
+
+
