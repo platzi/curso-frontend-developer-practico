@@ -14,11 +14,11 @@ menuCarritoIcon.addEventListener('click', toggleCarritoAside);
 productDetailCloseIcon.addEventListener('click', closeProductDetailAside);
 
 function toggleDesktopMenu() {
-  const isAsideClosed = shoppingCartContainer.classList.contains('inactive');
+  // const isAsideClosed = shoppingCartContainer.classList.contains('inactive');
 
-  if (!isAsideClosed) {
-    shoppingCartContainer.classList.add('inactive');
-  }
+  // if (!isAsideClosed) {
+  //   shoppingCartContainer.classList.add('inactive');
+  // }
   
   desktopMenu.classList.toggle('inactive');
 }
