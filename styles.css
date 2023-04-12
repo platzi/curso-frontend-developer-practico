@@ -14,9 +14,12 @@ body {
   font-family: 'Quicksand', sans-serif;
 }
 
+
 .inactive{
-  display: none;
+	display: none;
 }
+
+
 
 /*Navbar (general)*/
 nav {
