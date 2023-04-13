@@ -3,7 +3,7 @@ const desktopMenu = document.querySelector(".desktop-menu");
 const iconMenuMob = document.querySelector(".menu"); //boton para menu en mobile
 const mobileMenu = document.querySelector(".mobile-menu");
 const iconMenuCar = document.querySelector(".shoppin-cart");//boton para mostrar product-detail en el carrito
-const aside = document.querySelector(".product-detail");
+const shoppingCartContainer = document.querySelector("#shoppingCartContainer");
 const cardsContainer = document.querySelector(".cards-container"); //creamos esta constante como div para meter productCard
 
 menuEmail.addEventListener("click", toggleDesktopMenu);
@@ -12,18 +12,18 @@ iconMenuCar.addEventListener("click", toggleProductCarrito);
 
 
 function toggleDesktopMenu(){
-    const isAsideClose = aside.classList.contains("inactive");
+    const isAsideClose = shoppingCartContainer.classList.contains("inactive");
     if (!isAsideClose){
-        aside.classList.add("inactive");
+        shoppingCartContainer.classList.add("inactive");
     }
     
     desktopMenu.classList.toggle("inactive");
 }
 
 function toggleMobileMenu(){
-    const isAsideMobileClose = aside.classList.contains("inactive");
+    const isAsideMobileClose = shoppingCartContainer.classList.contains("inactive");
     if (!isAsideMobileClose){
-        aside.classList.add("inactive");
+        shoppingCartContainer.classList.add("inactive");
     }
     mobileMenu.classList.toggle("inactive");
 }
@@ -39,7 +39,7 @@ function toggleProductCarrito(){
         desktopMenu.classList.add("inactive");
     }
     
-    aside.classList.toggle("inactive");
+    shoppingCartContainer.classList.toggle("inactive");
 }
 
 const productList = []; //proceso para no repetir los div de product-card en el html
