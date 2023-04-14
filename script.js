@@ -3,11 +3,17 @@
 const menu_email = document.querySelector('.navbar-email');
 const menu_desktop = document.querySelector('.desktop-menu');
 menu_email.addEventListener('click', toggleDesktopMenu);
+// Product Detail
+const productDetailContainer = document.querySelector('#productDetail');
+const productDetailCloseIcon = document.querySelector('.product-detail-close');
+productDetailCloseIcon.addEventListener('click',closeProductDetailAside);
 
+// Productos
+const cardsContainer=document.querySelector('.cards-container');
 function toggleDesktopMenu(){
-    const isAsideClosed = aside.classList.contains('inactive');
+    const isAsideClosed = ShoppingCartContainer.classList.contains('inactive');
     if(!isAsideClosed){
-        aside.classList.add('inactive');
+        ShoppingCartContainer.classList.add('inactive');
     }
 
     menu_desktop.classList.toggle('inactive'); /* esto hace que se coloque o se quite dependiendo si esta o no */
@@ -21,11 +27,11 @@ const menuHamIcon = document.querySelector('.menu');
 const mobileMenu = document.querySelector('.mobile-menu');
 menuHamIcon.addEventListener('click',toggleMenuHamIcon)
 function toggleMenuHamIcon(){
-    const isAsideClosed = aside.classList.contains('inactive');
+    const isAsideClosed = ShoppingCartContainer.classList.contains('inactive');
     if(!isAsideClosed){
-        aside.classList.add('inactive');
+        ShoppingCartContainer.classList.add('inactive');
     }
-
+    closeProductDetailAside();
     mobileMenu.classList.toggle('inactive'); /* esto hace que se coloque o se quite dependiendo si esta o no */
 
 }
@@ -34,9 +40,9 @@ function toggleMenuHamIcon(){
 
 // inicio MenuHamburguesa
 const menuCarritoIcon = document.querySelector('.navbar-shopping-cart');
-const aside = document.querySelector('.product-detail');
+const ShoppingCartContainer = document.querySelector('#ShoppingCartContainer');
 menuCarritoIcon.addEventListener('click',toggleMenuCarrito)
-aside.addEventListener('click',toggleMenuCarrito)
+ShoppingCartContainer.addEventListener('click',toggleMenuCarrito)
 
 function toggleMenuCarrito(){
     const isMobileMenuClosed = mobileMenu.classList.contains('inactive');
@@ -44,15 +50,25 @@ function toggleMenuCarrito(){
     if(!isMobileMenuClosed){
         mobileMenu.classList.add('inactive');
     }
-    aside.classList.toggle('inactive'); /* esto hace que se coloque o se quite dependiendo si esta o no */
+    const isProductDetailClosed = productDetailContainer.classList.contains('inactive');
+    console.log(isProductDetailClosed)
+    
+    if(!isProductDetailClosed){
+        productDetailContainer.classList.add('inactive');
+    }
+
+    ShoppingCartContainer.classList.toggle('inactive'); /* esto hace que se coloque o se quite dependiendo si esta o no */
 }
 // fin menu ham
 
 
+
+
+
 // integrando productos Automaticamente
 
-const cardsContainer=document.querySelector('.cards-container');
 const productList = [];
+function AgregandoProductos(){
 productList.push({
     name:'Bike',
     price: 120,
@@ -83,8 +99,14 @@ productList.push({
     price: 990,
     image: "https://images.pexels.com/photos/276517/pexels-photo-276517.jpeg?auto=compress&cs=tinysrgb&dpr=2&h=650&w=940"
 });
-
+return productList;
+}
+AgregandoProductos();
+AgregandoProductos(); 
+AgregandoProductos(); 
 RendersProducts(productList);
+
+
 function RendersProducts(productList){
     for (product of productList){
         const productcard= document.createElement('div');
@@ -92,7 +114,10 @@ function RendersProducts(productList){
         
         const productImg= document.createElement('img');
         productImg.setAttribute('src',product.image);
-        
+        /* generando el Evento para que abra el productdetail */
+        productImg.addEventListener('click',openProductDetailAside);
+
+        /*FIN  */
         const productinfo= document.createElement('div');
         productinfo.classList.add('product-info');
         
@@ -117,4 +142,19 @@ function RendersProducts(productList){
         cardsContainer.appendChild(productcard)
         
     }
+}
+
+/* Fin Agregando Productos */
+
+
+/* Inicio Del Detalle del Producto */
+
+
+function openProductDetailAside(){
+    ShoppingCartContainer.classList.add('inactive');
+    productDetailContainer.classList.remove('inactive');
+}
+function closeProductDetailAside(){
+    
+    productDetailContainer.classList.add('inactive');
 }
