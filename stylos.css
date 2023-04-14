@@ -3,7 +3,7 @@
     --black: #000000;
     --very-light-pink: #C7C7C7;
     --text-input-field: #F7F7F7;
-    --hospital-green: #ACD9B2;
+    --pink: #ee5fb2;
     --sm: 14px;
     --md: 16px;
     --lg: 18px;
@@ -64,8 +64,8 @@ nav {
 
 .navbar-left ul li a:hover,
 .navbar-right ul li a:hover {
-    border: 1px solid var(--hospital-green);
-    color: var(--hospital-green);
+    border: 1px solid var(pink);
+    color: var(pink);
 }
 
 .navbar-email {
@@ -82,7 +82,7 @@ nav {
 .navbar-shopping-cart div {
     width: 16px;
     height: 16px;
-    background-color: var(--hospital-green);
+    background-color: var(pink);
     border-radius: 50%;
     font-size: var(--sm);
     font-weight: bold;
@@ -128,7 +128,7 @@ nav {
 }
 
 .desktop-menu ul li:last-child a {
-    color: var(--hospital-green);
+    color: var(pink);
     font-size: var(--sm);
 }
 
@@ -178,7 +178,7 @@ nav {
 
 .sign-out {
     font-size: var(--sm);
-    color: var(--hospital-green) !important;
+    color: var(pink) !important;
 }
 
 
@@ -265,7 +265,7 @@ aside {
 }
 
 .primary-button {
-    background-color: var(--hospital-green);
+    background-color: var(pink);
     border-radius: 8px;
     border: none;
     color: var(--white);
@@ -326,7 +326,7 @@ aside {
 }
 
 .primary-button {
-    background-color: var(--hospital-green);
+    background-color: var(pink);
     border-radius: 8px;
     border: none;
     color: var(--white);
