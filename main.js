@@ -3,12 +3,15 @@ const desktopMenu = document.querySelector(".desktop-menu");
 const mobileMenuIcon = document.querySelector(".menu");
 const mobileMenu = document.querySelector(".mobile-menu");
 const cartIcon = document.querySelector(".navbar-shopping-cart");
+const productDetailCloseIcon = document.querySelector(".product-detail-close");
 const shoppingCartContainer = document.querySelector("#shoppingCartContainer");
+const productDetailContainer = document.querySelector("#productDetail");
 const cardsContainer = document.querySelector(".cards-container");
 
 menuEmail.addEventListener("click", toggleDesktopMenu);
 mobileMenuIcon.addEventListener("click", toggleMobileMenu);
 cartIcon.addEventListener("click", toggleCart);
+productDetailCloseIcon.addEventListener("click", closeProductDetailAside);
 
 // If the aside is open, close it
 function toggleDesktopMenu() {
@@ -26,6 +29,8 @@ function toggleMobileMenu() {
   if (isAsideOpen) {
     shoppingCartContainer.classList.toggle("inactive");
   }
+  // We close the productDetail before opening the mobileMenu
+  closeProductDetailAside();
   mobileMenu.classList.toggle("inactive");
 }
 
@@ -33,17 +38,32 @@ function toggleMobileMenu() {
 function toggleCart() {
   const isDesktopMenuOpen = !desktopMenu.classList.contains("inactive");
   const isMobileMenuOpen = !mobileMenu.classList.contains("inactive");
+  const isProductDetailOpen =
+    !productDetailContainer.classList.contains("inactive");
 
   if (isDesktopMenuOpen) {
     // if the desktopMenu is open when we click the cart, close it
     desktopMenu.classList.add("inactive");
   }
+
+  if (isProductDetailOpen) {
+    productDetailContainer.classList.add("inactive");
+  }
+
   if (isMobileMenuOpen) {
     // if the mobileMenu is open when we click the cart, close it
     mobileMenu.classList.add("inactive");
   }
-
   shoppingCartContainer.classList.toggle("inactive");
+}
+
+function openProductDetailAside() {
+  shoppingCartContainer.classList.add("inactive");
+  productDetailContainer.classList.remove("inactive");
+}
+
+function closeProductDetailAside() {
+  productDetailContainer.classList.add("inactive");
 }
 
 // List of products to be displayed in the cards-container
@@ -121,6 +141,11 @@ function renderProducts(arr) {
     // product = {name, price, img}
 
     productImg.setAttribute("src", product.image);
+
+    // We cannot select the productImg with the querySelector because it doesn't exist
+    // yet. After we create it, we add an EventListener to it so it can listen to the
+    // click event and display the productDetail
+    productImg.addEventListener("click", openProductDetailAside);
 
     // We create the second div which contains the product info together with the
     // add to cart button
