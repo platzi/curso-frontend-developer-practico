@@ -5,10 +5,14 @@ const mobileMenu = document.querySelector(".mobile-menu");
 const iconMenuCar = document.querySelector(".shoppin-cart");//boton para mostrar product-detail en el carrito
 const shoppingCartContainer = document.querySelector("#shoppingCartContainer");
 const cardsContainer = document.querySelector(".cards-container"); //creamos esta constante como div para meter productCard
+const productDetailContainer = document.querySelector("#productDetail"); 
+const productDetailBtnClose = document.querySelector(".product-detail-close");
+ 
 
 menuEmail.addEventListener("click", toggleDesktopMenu);
 iconMenuMob.addEventListener("click", toggleMobileMenu);
 iconMenuCar.addEventListener("click", toggleProductCarrito);
+productDetailBtnClose.addEventListener("click", closeProductDetailAside);
 
 
 function toggleDesktopMenu(){
@@ -25,6 +29,8 @@ function toggleMobileMenu(){
     if (!isAsideMobileClose){
         shoppingCartContainer.classList.add("inactive");
     }
+
+    closeProductDetailAside();
     mobileMenu.classList.toggle("inactive");
 }
 
@@ -39,8 +45,25 @@ function toggleProductCarrito(){
         desktopMenu.classList.add("inactive");
     }
     
+    const isProductDetailClose = productDetailContainer.classList.contains("inactive");
+    if (!isProductDetailClose){
+        productDetailContainer.classList.add("inactive");
+    } 
+
     shoppingCartContainer.classList.toggle("inactive");
 }
+
+function openProductDetailAside (){
+    shoppingCartContainer.classList.add("inactive");
+
+    productDetailContainer.classList.remove("inactive");
+}
+
+function closeProductDetailAside (){
+    productDetailContainer.classList.add("inactive");
+}
+
+
 
 const productList = []; //proceso para no repetir los div de product-card en el html
 productList.push({ // creamos una lista para ir agregando cada producto
@@ -52,13 +75,13 @@ productList.push({ // creamos una lista para ir agregando cada producto
 productList.push({
     name: "Skateboard",
     price: 99,
-    image: "https://images.pexels.com/photos/2529187/pexels-photo-2529187.jpeg?auto=compress&cs=tinysrgb&w=1260&h=750&dpr=1",
+    image: "https://images.pexels.com/photos/2565814/pexels-photo-2565814.jpeg?auto=compress&cs=tinysrgb&w=1260&h=750&dpr=1",
 })
 
 productList.push({
     name: "Inline Skate",
     price: 107,
-    image: "https://images.pexels.com/photos/13373949/pexels-photo-13373949.jpeg",
+    image: "https://images.pexels.com/photos/2566123/pexels-photo-2566123.jpeg?auto=compress&cs=tinysrgb&w=1260&h=750&dpr=1",
 })
 
 function renderProduct(arr) {
@@ -70,7 +93,8 @@ function renderProduct(arr) {
         //creamos la imagen
         const productImg = document.createElement("img"); //generamos una constante para la imagen
         productImg.setAttribute("src", product.image); //a la cual le asignamos como atributo el obejto image de cada producto
-        
+        productImg.addEventListener("click", openProductDetailAside);//le agregamos a productImg un eventlistener para abrir el product detail al hacer click a la imgaen
+
         //creamos el div de product-info
         const productInfo = document.createElement("div"); //creamos el div de class product-info 
         productInfo.classList.add("product-info"); //y le asignamos su clase correspondiente
@@ -110,4 +134,6 @@ function renderProduct(arr) {
 
 }
 renderProduct(productList);
+
+
 
