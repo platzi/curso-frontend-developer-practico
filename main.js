@@ -4,6 +4,7 @@ const menuHamburguesa = document.querySelector('.menu')
 const mobileMenu = document.querySelector('.mobile-menu')
 const menuCarritoIcon = document.querySelector('.navbar-shopping-cart')
 const aside = document.querySelector('.product-detail')
+const cardsContainer = document.querySelector('.cards-container')
 
 menuEmail.addEventListener('click', toggleDesktopMenu)
 
@@ -36,3 +37,60 @@ function toggleCarritoAside() {
     }
     aside.classList.toggle('inactive')
 }
+
+const productList = []
+productList.push({
+    name: 'Bike',
+    price: 120,
+    image: 'https://images.pexels.com/photos/276517/pexels-photo-276517.jpeg?auto=compress&cs=tinysrgb&dpr=2&h=650&w=940'
+})
+productList.push({
+    name: 'R1250GS',
+    price: 23000,
+    image: 'https://www.advpulse.com/wp-content/uploads/2019/03/BMW-1250-GS-HP-adventure-motorcycle-5.jpg'
+})
+productList.push({
+    name: 'Vstrom 1050',
+    price: 17000,
+    image: 'https://www.fpmoto.com/pub/media//suzuki_dl1050_2023_9_0.jpg'
+})
+
+function renderProducts(arr) {
+    for (const product of arr) {
+        const productCard = document.createElement('div')
+        productCard.classList.add('product-card')
+    
+        const productImg = document.createElement('img')
+        productImg.setAttribute('src', product.image)
+    
+        const productInfo = document.createElement('div')
+        productInfo.classList.add('product-info')
+    
+        const productInfoDiv = document.createElement('div')
+    
+        const productPrice = document.createElement('p')
+        productPrice.innerText = '$' + product.price
+        const productName = document.createElement('p')
+        productName.innerText = product.name
+    
+        productInfoDiv.appendChild(productPrice)
+        productInfoDiv.appendChild(productName)
+    
+        const productInfoFigure = document.createElement('figure')
+        const productImgCart = document.createElement('img')
+        productImgCart.setAttribute('src', './icons/bt_add_to_cart.svg')
+    
+        productInfoFigure.appendChild(productImgCart)
+    
+        productInfo.appendChild(productInfoDiv)
+        productInfo.appendChild(productInfoFigure)
+    
+        productCard.appendChild(productImg)
+        productCard.appendChild(productInfo)
+    
+        cardsContainer.appendChild(productCard)
+    
+    }
+}
+
+renderProducts(productList)
