@@ -31,11 +31,14 @@ function toggleMobileMenu(){
     mobileMenu.classList.toggle('inactive');
 }
 
+//* Funcion que revisa si el menú en version "Mobile" o el menú en versión "Desktop" está abierto para cerrarlos al dar click al carrito
 function toggleCarritoAside(){
     const isMobileMenuClosed = mobileMenu.classList.contains('inactive');    
+    const isEmailclosed = desktopMenu.classList.contains('inactive');
 
-    if (!isMobileMenuClosed) {
-        mobileMenu.classList.add('inactive');            
+    if (!isMobileMenuClosed || !isEmailclosed) {
+        mobileMenu.classList.add('inactive');    
+        desktopMenu.classList.add('inactive')   ;     
     }
 
     aside.classList.toggle('inactive');
