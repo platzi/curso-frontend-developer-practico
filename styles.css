@@ -163,13 +163,19 @@
     width: 360px;
     box-sizing: border-box;
     position: absolute;
-    right: 0;
   }
 
   /** ShoppingCart */
   #shoppingCartContainer{
     padding: 0 24px;
+    right: 0;
   }
+
+  #productDetail{
+    top: 37px;
+    right: -15px;
+  }
+
   .title-container {
     display: flex;
   }
