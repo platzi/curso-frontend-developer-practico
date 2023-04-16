@@ -6,7 +6,7 @@ const hamborguerMenuIcon = document.querySelector(".menu");
 const mobileMenu = document.querySelector(".mobile-menu");
 // carrito de compras
 const menuCarritoIcon = document.querySelector(".navbar-shopping-cart");
-const aside = document.querySelector(".product-detail");
+const shoppingCartContainer = document.querySelector("#shoppingCartContainer");
 
 //crear las clases de los productos
 const cardContainer = document.querySelector(".cards-container");
@@ -20,18 +20,20 @@ hamborguerMenuIcon.addEventListener("click", toggleMenuMobile);
 menuCarritoIcon.addEventListener("click", toggleCarritoAside);
 
 function toggleDesktopMenu() {
-  const isAsideMenuClosed = aside.classList.contains("inactive");
+  const isAsideMenuClosed =
+    shoppingCartContainer.classList.contains("inactive");
   if (!isAsideMenuClosed) {
-    aside.classList.add("inactive");
+    shoppingCartContainer.classList.add("inactive");
     //en este if se pregunta si mobile menu esta abierto si es verdad lo pone como inactivo
   }
   desktopMenu.classList.toggle("inactive");
 }
 
 function toggleMenuMobile() {
-  const isAsideMenuClosed = aside.classList.contains("inactive");
+  const isAsideMenuClosed =
+    shoppingCartContainer.classList.contains("inactive");
   if (!isAsideMenuClosed) {
-    aside.classList.add("inactive");
+    shoppingCartContainer.classList.add("inactive");
     //en este if se pregunta si mobile menu esta abierto si es verdad lo pone como inactivo
   }
   mobileMenu.classList.toggle("inactive");
@@ -46,7 +48,7 @@ function toggleCarritoAside() {
     desktopMenu.classList.add("inactive");
     //en este if se pregunta si mobile menu esta abierto si es verdad lo pone como inactivo
   }
-  aside.classList.toggle("inactive");
+  shoppingCartContainer.classList.toggle("inactive");
 }
 
 // para agregar productos de manera mas facil y no terer html en exeso
