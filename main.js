@@ -4,9 +4,12 @@ const menuEmail = document.querySelector(".navbar-email");
 const desktopMenu = document.querySelector(".desktop-menu");
 const hamborguerMenuIcon = document.querySelector(".menu");
 const mobileMenu = document.querySelector(".mobile-menu");
+
 // carrito de compras
+const productDetailCloseIcon = document.querySelector(".product-detail-close");
 const menuCarritoIcon = document.querySelector(".navbar-shopping-cart");
 const shoppingCartContainer = document.querySelector("#shoppingCartContainer");
+const productDetailContainer = document.querySelector("#productDetail");
 
 //crear las clases de los productos
 const cardContainer = document.querySelector(".cards-container");
@@ -18,6 +21,8 @@ menuEmail.addEventListener("click", toggleDesktopMenu);
 hamborguerMenuIcon.addEventListener("click", toggleMenuMobile);
 //menu carrito aside
 menuCarritoIcon.addEventListener("click", toggleCarritoAside);
+//cerrar detalles de productos
+productDetailCloseIcon.addEventListener("click", closeProductDetail);
 
 function toggleDesktopMenu() {
   const isAsideMenuClosed =
@@ -37,6 +42,7 @@ function toggleMenuMobile() {
     //en este if se pregunta si mobile menu esta abierto si es verdad lo pone como inactivo
   }
   mobileMenu.classList.toggle("inactive");
+  closeProductDetail();
 }
 
 function toggleCarritoAside() {
@@ -48,7 +54,22 @@ function toggleCarritoAside() {
     desktopMenu.classList.add("inactive");
     //en este if se pregunta si mobile menu esta abierto si es verdad lo pone como inactivo
   }
+
+  const isProductDetailClosed =
+    productDetailContainer.classList.contains("inactive");
+  if (!isProductDetailClosed) {
+    productDetailContainer.classList.add("inactive");
+  }
   shoppingCartContainer.classList.toggle("inactive");
+}
+
+function openProductDetail() {
+  shoppingCartContainer.classList.add("inactive");
+  productDetailContainer.classList.remove("inactive");
+}
+
+function closeProductDetail() {
+  productDetailContainer.classList.add("inactive");
 }
 
 // para agregar productos de manera mas facil y no terer html en exeso
@@ -127,6 +148,8 @@ function rederProducts(arr) {
     //product = {name, price, image} -> product.image
     const productImg = document.createElement("img");
     productImg.setAttribute("src", product.image);
+    //añadir un evento para que al hacer click se habra los detalles del producto
+    productImg.addEventListener("click", openProductDetail);
 
     const productInfo = document.createElement("div");
     productInfo.classList.add("product-info");
