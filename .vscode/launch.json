@@ -1,0 +1,14 @@
+{
+    // Use IntelliSense para saber los atributos posibles.
+    // Mantenga el puntero para ver las descripciones de los existentes atributos.
+    // Para más información, visite: https://go.microsoft.com/fwlink/?linkid=830387
+    "version": "0.2.0",
+    "configurations": [
+        {
+            "type": "chrome",
+            "request": "launch",
+            "name": "Open clase10.html",
+            "file": "c:\\Users\\lenovo\\OneDrive - Instituto Tecnológico de Huejutla\\Programacion\\JavaScript\\Practicas JS-Basico\\2 Curso Práctico de JavaScript\\3 practicaJs\\curso-frontend-developer-JSpractico\\clase10.html"
+        }
+    ]
+}
