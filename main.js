@@ -3,12 +3,19 @@ const desktopMenu = document.getElementsByClassName("desktop-menu")[0];
 const hamburgerMenuIcon = document.getElementsByClassName("menu")[0];
 const mobileMenu = document.getElementsByClassName("mobile-menu")[0];
 const cartMenuIcon = document.getElementsByClassName("navbar-shopping-cart")[0];
-const cartMenu = document.getElementsByClassName("product-detail")[0];
+const cartMenu = document.getElementsByClassName("shoppingCart")[0];
 const cardsContainer = document.getElementsByClassName("cards-container")[0];
+const productDetail = document.getElementsByClassName("product-detail")[0];
+const productDetails = document.getElementsByClassName("product-card")[0];
+const iconProductDetailClosed = document.getElementsByClassName(
+  "product-detail-closed"
+)[0];
 
 navEmail.addEventListener("click", toggleDesktopNav);
 hamburgerMenuIcon.addEventListener("click", toggleMobileMenu);
 cartMenuIcon.addEventListener("click", toggleCartMenu);
+
+// iconProductDetailClosed.addEventListener("click", closedIconProductDetail);
 
 /* Creo el evento para invocar a la función renderProductList cuando se 
 cargue el DOM y cuando invoco   renderProductList le paso como argumento el array productList;
@@ -18,17 +25,24 @@ document.addEventListener("DOMContentLoaded", function () {
 });
 
 function toggleDesktopNav() {
-  isCartMenuClosed = cartMenu.classList.contains("inactive");
+  const isCartMenuClosed = cartMenu.classList.contains("inactive");
+  const isproductDetailsClosed = productDetail.classList.contains("inactive");
   if (!isCartMenuClosed) {
     cartMenu.classList.add("inactive");
+  } else if (!isproductDetailsClosed) {
+    productDetail.classList.add("inactive");
   }
+
   desktopMenu.classList.toggle("inactive");
 }
 
 function toggleMobileMenu() {
-  isCartMenuClosed = cartMenu.classList.contains("inactive");
+  const isCartMenuClosed = cartMenu.classList.contains("inactive");
+  const isproductDetailsClosed = productDetail.classList.contains("inactive");
   if (!isCartMenuClosed) {
     cartMenu.classList.add("inactive");
+  } else if (!isproductDetailsClosed) {
+    productDetail.classList.add("inactive");
   }
 
   mobileMenu.classList.toggle("inactive");
@@ -37,10 +51,13 @@ function toggleMobileMenu() {
 function toggleCartMenu() {
   const isMobileMenuClosed = mobileMenu.classList.contains("inactive");
   const isDesktopMenuClosed = desktopMenu.classList.contains("inactive");
+  const isproductDetailsClosed = productDetail.classList.contains("inactive");
   !isMobileMenuClosed
     ? mobileMenu.classList.add("inactive")
     : !isDesktopMenuClosed
     ? desktopMenu.classList.add("inactive")
+    : !isproductDetailsClosed
+    ? productDetail.classList.add("inactive")
     : null;
   cartMenu.classList.toggle("inactive");
 }
