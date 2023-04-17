@@ -162,7 +162,7 @@ nav {
 
 /* **Shopping Cart**/
 
-.shoppingCart {
+.shoppingCartContainer {
   background-color: var(--white);
   width: 360px;
   padding: 0 24px;
@@ -362,7 +362,7 @@ nav {
   .desktop-menu {
     display: none;
   }
-  .shoppingCart {
+  .shoppingCartContainer {
     width: 100%;
   }
   .cards-container {
