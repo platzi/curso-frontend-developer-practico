@@ -148,7 +148,10 @@ body {
   font-family: "Quicksand", sans-serif;
 }
 .mobile-menu {
+<<<<<<< HEAD
   background-color: var(--white);
+=======
+>>>>>>> c70657f47f2a0782d529e05f06d5e2b55d6789de
   position: absolute;
   top: 60px;
   padding: 24px;
@@ -179,6 +182,7 @@ body {
   color: var(--hospital-green) !important;
 }
 
+<<<<<<< HEAD
 /*Aside (product detail y carrito de compras) */
 .product-detail {
   background-color: var(--white);
@@ -299,6 +303,8 @@ body {
 }
 
 /* Media query para la versión desktop */
+=======
+>>>>>>> c70657f47f2a0782d529e05f06d5e2b55d6789de
 @media (max-width: 640px) {
   .menu {
     display: block;
@@ -309,6 +315,7 @@ body {
   .navbar-email {
     display: none;
   }
+<<<<<<< HEAD
   .desktop-menu {
     display: none;
   }
@@ -329,6 +336,10 @@ body {
 }
 
 /* Media query para la versión mobile */
+=======
+}
+
+>>>>>>> c70657f47f2a0782d529e05f06d5e2b55d6789de
 @media (min-width: 641px) {
   .mobile-menu {
     display: none;

@@ -1,5 +1,6 @@
 const menuEmail = document.querySelector(".navbar-email");
 const desktopMenu = document.querySelector(".desktop-menu");
+<<<<<<< HEAD
 const menuCarritoIcon = document.querySelector(".navbar-shopping-cart");
 const menuHamIcon = document.querySelector(".menu");
 const mobileMenu = document.querySelector(".mobile-menu");
@@ -17,10 +18,20 @@ function toggleDesktopMenu() {
     aside.classList.add("inactive");
   }
 
+=======
+const menuHamIcon = document.querySelector(".menu");
+const mobileMenu = document.querySelector(".mobile-menu");
+
+menuEmail.addEventListener("click", toggleDesktopMenu);
+menuHamIcon.addEventListener("click", toggleMobileMenu);
+
+function toggleDesktopMenu() {
+>>>>>>> c70657f47f2a0782d529e05f06d5e2b55d6789de
   desktopMenu.classList.toggle("inactive");
 }
 
 function toggleMobileMenu() {
+<<<<<<< HEAD
   const isAsideClosed = aside.classList.contains("inactive");
 
   if (!isAsideClosed) {
@@ -101,3 +112,7 @@ function renderProducts(arr) {
 }
 
 renderProducts(productList);
+=======
+  mobileMenu.classList.toggle("inactive");
+}
+>>>>>>> c70657f47f2a0782d529e05f06d5e2b55d6789de
