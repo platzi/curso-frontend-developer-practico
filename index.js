@@ -2,7 +2,7 @@ const email = document.querySelector(".navbar-email");
 const desktopMenu = document.querySelector(".desktop-menu");
 const bntMenuMobile = document.querySelector(".menu");
 const mobileMenu = document.querySelector(".mobile-menu");
-const productDetail = document.querySelector(".product-detail");
+const productDetail = document.querySelector(".product-content");
 const navbarShopingCart = document.querySelector(".navbar-shopping-cart");
 
 email.addEventListener('click', () => {
