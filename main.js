@@ -9,10 +9,13 @@ const menuCarritoList = document.querySelector("#shoppingCartContainer");
 
 const cardsContainer = document.querySelector(".cards-container");
 
+const productDetailCloseIcon = document.querySelector(".product-detail-close");
+const productDetailContainer = document.querySelector("#productDetail");
+
 navMenuEmali.addEventListener("click" , toggleDesktopMenu);
 menuHamIcon.addEventListener("click", toggleMobileMenu);
 menuCarritoIcon.addEventListener("click", toggleMenuCarritoList);
-
+productDetailCloseIcon.addEventListener("click",closeProductDetailAside);
 
 function toggleMobileMenu(){
     menuHamList.classList.toggle("inactive");
@@ -20,6 +23,10 @@ function toggleMobileMenu(){
     if(!menuCarritoList.classList.contains("inactive")){
         menuCarritoList.classList.toggle("inactive");
     }
+    if(!productDetailContainer.classList.contains("inactive")){
+        productDetailContainer.classList.toggle("inactive");
+    }
+    
    
 }
 
@@ -29,7 +36,11 @@ function toggleDesktopMenu(){
     if(!menuCarritoList.classList.contains("inactive")){
         menuCarritoList.classList.toggle("inactive");
     }
-    
+
+    if(!productDetailContainer.classList.contains("inactive")){
+        productDetailContainer.classList.toggle("inactive");
+    }
+
 }
 
 function toggleMenuCarritoList(){
@@ -43,6 +54,28 @@ function toggleMenuCarritoList(){
         desktopMenu.classList.toggle("inactive");
     }
 
+    if(!productDetailContainer.classList.contains("inactive")){
+        productDetailContainer.classList.toggle("inactive");
+    }
+
+}
+
+function openProductDetailAside(){
+    productDetailContainer.classList.remove("inactive")
+    if(!menuCarritoList.classList.contains("inactive")){
+        menuCarritoList.classList.toggle("inactive");
+    }
+
+    if(!desktopMenu.classList.contains("inactive")){
+        desktopMenu.classList.toggle("inactive");
+    }
+    
+}
+
+function closeProductDetailAside(){
+    productDetailContainer.classList.add("inactive")
+
+    
 }
 
 const productList =[];
@@ -90,11 +123,13 @@ function renderProducts(productList){
 
         const productCard = document.createElement("div");
         productCard.classList.add("product-card");
-        
+
     
         const productImg = document.createElement("img");
         productImg.setAttribute("src" , product.image);
-    
+        productImg.addEventListener("click",openProductDetailAside)
+
+
         const productInfo = document.createElement("div");
         productInfo.classList.add("product-info"); 
     
