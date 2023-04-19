@@ -6,6 +6,7 @@ const mobileMenu = document.querySelector(".mobile-menu");
 const menuHamburger = document.querySelector(".menu");
 const cartIcon = document.querySelector(".navbar-shopping-cart")
 const AsidePanelDetail = document.querySelector(".product-detail")
+const containerCard = document.querySelector('.cards-container')
 
 
 mail.addEventListener("click", unHiddenDesktopMenu);
@@ -40,19 +41,19 @@ function showAsidePanel(){
 
 const productList = [];
 productList.push({
-  name: 'Keyboard Black RGB Blue',
+  name: 'Keyboard 65% Black RGB Blue Gamer',
   price: 250,
   image: 'https://preview.redd.it/2rpowbo5jhua1.jpg?width=960&crop=smart&auto=webp&v=enabled&s=68dcf9a85e643770d7514229f0299b9a8395ff17'
 });
 
 productList.push({
-  name: 'Keyboard 65% White letters Japanese',
+  name: 'KB 65% White Letters Japanese',
   price: 1250,
   image: 'https://preview.redd.it/xe7lf2lvqhua1.jpg?width=3394&format=pjpg&auto=webp&v=enabled&s=773d2ca2cac05e64af6d31d070e55cbfae287be8'
 });
 
 productList.push({
-  name: 'Keyboard 60% White old color',
+  name: 'Keyboard 60% with White old Color',
   price: 550,
   image: 'https://preview.redd.it/hzp1o72q9fua1.jpg?width=960&crop=smart&auto=webp&v=enabled&s=437d784c478cb17ca1354f867a9f1cc79a6488ed'
 });
@@ -62,48 +63,48 @@ productList.push({
   price: 450,
   image: 'https://preview.redd.it/8jlqs8qgaaua1.jpg?width=960&crop=smart&auto=webp&v=enabled&s=d5688ef9e3f37e1059fbe1e23235eaad35859e18'
 });
-/*
-<div class="product-card">
-        <img
-          src="https://images.pexels.com/photos/276517/pexels-photo-276517.jpeg?auto=compress&cs=tinysrgb&dpr=2&h=650&w=940"
-          alt="">
-        <div class="product-info">
-          <div>
-            <p>$120,00</p>
-            <p>Bike</p>
-          </div>
-          <figure>
-            <img src="./icons/bt_add_to_cart.svg" alt="">
-          </figure>
-        </div>
-      </div>
-*/
-for (product of productList){
-  const productCard = document.createElement('div');
-  productCard.classList.add('product-card');
 
-  const img = document.createElement('img');
-  img.src = product.image
-  //""MANERA DEL CURSO"" img.setAttribute('src' ,product.image);
+function renderProducts(array) {
+  for (product of array){
+    const productCard = document.createElement('div');
+    productCard.classList.add('product-card');
+  
+    const productImg = document.createElement('img');
+    productImg.src = product.image
+    //""MANERA DEL CURSO"" img.setAttribute('src' ,product.image);
+  
+    const productInfo = document.createElement('div');
+    productInfo.classList.add('product-info');
+  
+    const productInfoDiv = document.createElement('div');
 
-  const productInfo = document.createElement('div');
-  productInfo.classList.add('product-info');
-
-  const productInfoDiv = document.createElement('div');
-
-  const productPrice = document.createElement('p');
-  productPrice.innerHTML= '$' + product.price;
-
-  const productName = document.createElement('p');
-  productName.innerHTML= product.name;
-
-  const productInfoFigure = document.createElement('figure');
-
-  const productImgCart = document.createElement('img');
-  productImgCart.setAttribute('src' ,"./icons/bt_add_to_cart.svg" );
-
-  productInfoFigure.appendChild(productImgCart),
-
-  console.log(productImgCart.attributes);
+    const productPrice = document.createElement('p');
+    productPrice.innerHTML= '$' + product.price;
+    const productName = document.createElement('p');
+    productName.innerHTML= product.name;
+    
+    
+    productInfoDiv.appendChild(productPrice);
+    productInfoDiv.appendChild(productName);
+    
+  
+    const productInfoFigure = document.createElement('figure');
+  
+    const productImgCart = document.createElement('img');
+    productImgCart.setAttribute('src' ,"./icons/bt_add_to_cart.svg" );
+  
+    productInfoFigure.appendChild(productImgCart);
+  
+    productInfo.appendChild(productInfoDiv);
+    productInfo.appendChild(productInfoFigure);
+    
+    productCard.appendChild(productImg);
+    productCard.appendChild(productInfo);
+    
+  
+    containerCard.appendChild(productCard);
+  }
 }
 
+
+renderProducts(productList);
