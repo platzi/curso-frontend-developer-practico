@@ -20,8 +20,9 @@
 
   /*HEADER*/
   nav {
+    width: 100%;
     display: flex;
-    justify-content: space-between;
+    justify-content: space-around;
     background-color: var(--dark-green);
     padding: 0 24px;
     border-bottom: 1px solid var(--very-light-pink);
@@ -299,7 +300,7 @@
   padding: 24px 12px;
   position: absolute;
   top: 94px;
-  right: 12px;
+  right: 0;
 }
 .product-detail-closed {
   background: var(--white);
@@ -390,9 +391,7 @@
       width: 140px;
       height: 140px;
     }
-    .product-detail {
-      width: 100%;
-    }
+   
   }
 
   @media (min-width: 681px){

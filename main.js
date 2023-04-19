@@ -22,10 +22,14 @@ shoppingCart.addEventListener('click', togglemyOrder);
 
 function toggleMenuEmail(){
    const ismyOrderClosed= myOrder.classList.contains('inactive'); 
+   const isproductDetailClosed= productDetail.classList.contains('inactive');
 
    if (!ismyOrderClosed){
       myOrder.classList.add('inactive');
    } 
+   if(!isproductDetailClosed){
+      productDetail.classList.add('inactive')
+   }
    desktopMenu.classList.toggle('inactive');
 }
 
@@ -41,10 +45,14 @@ function toggleMenuMobil(){
 
 function togglemyOrder(){
    const ismovilMenuClosed= movilMenu.classList.contains('inactive'); 
+   const isproductDetailClosed= productDetail.classList.contains('inactive');
 
    if (!ismovilMenuClosed){
       movilMenu.classList.add('inactive');
    } 
+   if(!isproductDetailClosed){
+      productDetail.classList.add('inactive')
+   }
    myOrder.classList.toggle('inactive');
 }
 
@@ -61,6 +69,8 @@ function closedProductDetail(){
 }
 
 function openProductDetail(){
+   toggleCloseMenu();
+   
    productDetail.classList.remove("inactive");
 
    const containerCard = document.querySelector('#containerCard');
