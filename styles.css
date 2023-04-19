@@ -88,9 +88,6 @@
       display: none;
     }
 
-    .product-content {
-      width: 100%;
-    }
     .cards-container {
       grid-template-columns: repeat(auto-fill, 140px);
     }
@@ -102,9 +99,15 @@
       height: 140px;
     }
 
-    .product-detail {
+    #detalles {
+      width: 100%;
+      background: var(--white);
+    }
+
+    #carrito{
       width: 100%;
     }
+
   }
 
   @media (min-width: 641px) {
