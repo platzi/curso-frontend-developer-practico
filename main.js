@@ -1,16 +1,26 @@
 const menuEmail = document.querySelector ('.navbar-email');
 const desktopMenu = document.querySelector ('.desktop-menu');
-const categoriesMenu = document.querySelector ('.menu');
-const categories = document.querySelector ('.mobile-menu')
+const categoriesMenuIcon = document.querySelector ('.menu');
+const carritoMenuIcon = document.querySelector ('.navbar-shopping-cart');
+const categories = document.querySelector ('.mobile-menu');
+const aside = document.querySelector ('.product-detail');
 
-menuEmail.addEventListener ('click', toggleDeskMenu);
-categoriesMenu.addEventListener ('click', toggleCatMenu)
+menuEmail.addEventListener ('click', toggleUserMenu);
+categoriesMenuIcon.addEventListener ('click', toggleCatMenu);
+carritoMenuIcon.addEventListener ('click', toggleCarritoAside);
 
-function toggleDeskMenu () {
-   desktopMenu.classList.toggle('inactive')
+function toggleUserMenu () {
+   aside.classList.add('inactive');
+   desktopMenu.classList.toggle('inactive');
 }
 
 function toggleCatMenu () {
-   categories.classList.toggle('inactive')
+   aside.classList.add('inactive');
+   categories.classList.toggle('inactive');
 }
 
+function toggleCarritoAside () {
+   desktopMenu.classList.add('inactive');
+   categories.classList.add('inactive');
+   aside.classList.toggle('inactive');
+}
