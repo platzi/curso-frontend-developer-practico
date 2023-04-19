@@ -93,6 +93,7 @@ nav {
   border: 1px solid var(--very-light-pink);
   border-radius: 6px;
   padding: 20px 20px 0 20px;
+  z-index: 1;
 }
 .desktop-menu ul {
   list-style: none;
@@ -126,9 +127,11 @@ nav {
   background-color: var(--white);
   position:absolute;
   top: 70px;
-  left: 10px;
+  left: 0px;
   width: 100%;
+  height: 100%;
   padding: 0 0 0 0;
+  z-index: 1;
 
 }
 .mobile-menu a {
@@ -139,6 +142,7 @@ nav {
 .mobile-menu ul {
   padding: 0;
   margin: 24px 0 0;
+  margin-left: 10px;
   list-style: none;
 }
 .mobile-menu ul:nth-child(1) {
@@ -161,10 +165,12 @@ nav {
 .product-detail {
   background-color: var(--white);
   width: 360px;
+  height: 100%;
   padding: 0 24px;
   box-sizing: border-box;
   position: absolute;
   right: 0;
+  z-index: 1;
 }
 .title-container {
   display: flex;
@@ -282,9 +288,11 @@ nav {
 
 .product-detail-description {
   width: 360px;
+  background-color: var(--white);
   padding-bottom: 24px;
   position: absolute;
   right: 0;
+  z-index: 0;
 }
 .product-detail-description-close {
   background: var(--white);
