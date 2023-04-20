@@ -348,6 +348,7 @@ nav {
   }
 /* ////////Detalles del Product////*/
 .product-detail-right {
+    background-color: var(--white);
     width: 360px;
     padding-bottom: 24px;
     position: absolute;
