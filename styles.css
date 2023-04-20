@@ -90,13 +90,16 @@
     .desktop-menu{
       display: none; 
     }
+    aside {
+      width: 100% !important;
+      padding-bottom: 24px;
+    }
   }
 
 
 
 
   .desktop-menu {
-   
     top: 60px;
     right: 0px;
     width: 100px;
@@ -104,7 +107,6 @@
     border: 1px solid var(--very-light-pink);
     border-radius: 6px;
     padding: 20px 20px 0 20px;
-    
     position: absolute;
   }
   .desktop-menu ul {
@@ -136,7 +138,11 @@
 
   /*mobile css*/
   .mobile-menu {
-    padding: 24px;
+    top: 64px;
+    margin-left: 24px;
+    position: absolute;
+    background-color: var(--white);
+    width: 90%;
   }
   .mobile-menu a {
     text-decoration: none;

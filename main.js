@@ -5,35 +5,59 @@ const mobileMenu = document.querySelector('.mobile-menu')
 const shcar = document.querySelector('.navbar-shopping-cart')
 const shoppingCartContainer = document.querySelector('#shoppingCartContainer')
 const cardsContainer = document.querySelector('.cards-container')
+const openProductDetail = document.querySelector('#product-detail')
+const closeButton = document.querySelector('#closeButton')
 
 email.addEventListener('click', toggleFunction)
 
 function toggleFunction(){
     const isProductDetail= shoppingCartContainer.classList.contains('inactive')
+    const isDescription= openProductDetail.classList.contains('inactive')
     desktop.classList.toggle('inactive')
     if(!isProductDetail){
         shoppingCartContainer.classList.toggle('inactive')
+    }
+    if(!isDescription){
+        openProductDetail.classList.toggle('inactive')
     }
 }
 
 hamb.addEventListener('click', toggleHam)
 
 function toggleHam(){
-    
+    const isSh = shoppingCartContainer.classList.contains('inactive')
+    const isDescription= openProductDetail.classList.contains('inactive')
     mobileMenu.classList.toggle('inactive')
+
+    if(!isSh){
+        shoppingCartContainer.classList.toggle('inactive')
+    }
+    if(!isDescription){
+        openProductDetail.classList.toggle('inactive')
+    }
 }
 
 shcar.addEventListener('click',toggleShcar)
 
 function toggleShcar(){
+    const isMobileMenu = mobileMenu.classList.contains('inactive')
+    const isDescription= openProductDetail.classList.contains('inactive')
     shoppingCartContainer.classList.toggle('inactive')
-    const isDesktopOpen = desktop.classList.contains('inactive')
-    if(!isDesktopOpen){
+    const isDesktop = desktop.classList.contains('inactive')
+    if(!isDescription){
+        openProductDetail.classList.toggle('inactive')
+        
+    }
+    console.log("hola1")
+    if(!isDesktop){
         desktop.classList.toggle('inactive')
     }
-    if(isProductDetail){
-        desktop.classList.toggle('inactive')
+    console.log("hola2")
+    console.log("hola3")
+    if(!isMobileMenu){
+        mobileMenu.classList.toggle('inactive')
     }
+    
 }
 
 const productList = [];
@@ -76,6 +100,7 @@ productList.push({
         
             const productImg = document.createElement('img')
             productImg.setAttribute('src', product.image)
+            productImg.addEventListener('click', openDescription)
         
             const productContainer = document.createElement('div')
             productContainer.classList.add('product-info')
@@ -108,3 +133,21 @@ productList.push({
 }
 
 renderProducts(productList);
+
+closeButton.addEventListener('click', openDescription)
+
+function openDescription(){
+    const isDesktop = desktop.classList.contains('inactive')
+    const isSh = shoppingCartContainer.classList.contains('inactive')
+    const isMobileMenu = mobileMenu.classList.contains('inactive')
+    openProductDetail.classList.toggle('inactive');
+    if(!isDesktop){
+        desktop.classList.toggle('inactive')
+    }
+    if (!isSh){
+        shoppingCartContainer.classList.toggle('inactive')
+    }
+    if(!isMobileMenu){
+        mobileMenu.classList.toggle('inactive')
+    }
+}
