@@ -12,6 +12,7 @@
 body {
 	margin: 0;
 	font-family: 'Quicksand', sans-serif;
+	box-sizing: border-box;
 }
 
 .inactive {
@@ -144,7 +145,7 @@ nav {
 	padding: 24px;
 	background-color: var(--white);
 	left: 0;
-	width: 100%;
+	width: calc(100% - 48px);
 }
 
 .mobile-menu a {
