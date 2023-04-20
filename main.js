@@ -5,9 +5,11 @@ const burgerMenu = document.querySelector('.menu')
 const shoppingCart = document.querySelector('.navbar-shopping-cart')
 const productDetail = document.querySelector('.product-detail')
 const cardsContainer = document.querySelector('.cards-container')
+const productDetail2 = document.querySelector('#product-detail')
+const closeProductDetailBtn = document.querySelector('.product-detail-close')
 
 const toggleElement = (e) => {
-	const elements = [mobileMenu, productDetail, desktopMenu]
+	const elements = [mobileMenu, productDetail, desktopMenu, productDetail2]
 	return () => {
 		const otherElements = elements.filter(elem => elem !== e)
 		e.classList.toggle('inactive')
@@ -15,6 +17,27 @@ const toggleElement = (e) => {
 		// Hide other elements
 		if (isElementOpen) otherElements.forEach(elem => elem.classList.add('inactive'))
 	}
+}
+
+const openProductDetailAside = (product) => {
+	return () => {
+		const prodName = product.name
+		const prodPrice = product.price
+		const prodImg = product.image
+		const detailPrice = productDetail2.querySelector('.product-detail__product-info p')
+		const detailName = productDetail2.querySelector('.product-detail__product-info p:nth-child(2)');
+		const detailImg = productDetail2.querySelector('img:nth-child(2)')
+		detailPrice.innerText = prodPrice
+		detailName.innerText = prodName
+		detailImg.setAttribute('src', prodImg)
+
+		toggleElement(productDetail2)()
+		productDetail2.classList.remove('inactive')
+	}
+}
+
+const closeProductDetail = () => {
+	productDetail2.classList.add('inactive')
 }
 
 const productList = []
@@ -78,6 +101,7 @@ const renderProducts = () => {
 	
 		const img = document.createElement('img')
 		img.setAttribute('src', product.image)
+		img.addEventListener('click', openProductDetailAside(product))
 	
 		const productInfo = document.createElement('div')
 		productInfo.classList.add('product-info')
@@ -108,8 +132,9 @@ const renderProducts = () => {
 	}
 }
 
-
 menuEmail.addEventListener('click', toggleElement(desktopMenu))
 burgerMenu.addEventListener('click', toggleElement(mobileMenu))
 shoppingCart.addEventListener('click', toggleElement(productDetail))
 renderProducts()
+closeProductDetailBtn.addEventListener('click', closeProductDetail)
+
