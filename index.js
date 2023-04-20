@@ -217,7 +217,8 @@ function renderProducts(arr) {
         //     console.log(productosEnCarrito);
         // });
 
-        productCardDiv.addEventListener('click', function (){
+        // Antes estaba productCardDiv / Ahora cardImg
+        cardImg.addEventListener('click', function (){
             openAsideProductDetail(product.img, product.name, product.price, product.description, product);
         });
 
