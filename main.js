@@ -1,48 +1,47 @@
 const menuEmail = document.querySelector('.navbar-email');
+const menuHamIcon = document.querySelector('.menu');
+const menuCarritoIcon = document.querySelector('.navbar-shopping-cart'); //email
+const productDetailCloseIcon = document.querySelector('.product-detail-close')
 const desktopMenu = document.querySelector('.desktop-menu');
-const menuHambIcon = document.querySelector('.menu');
-const menuCarritoIcon = document.querySelector('.navbar-shopping-cart');
 const mobileMenu = document.querySelector('.mobile-menu');
-const shoppingCartContainer = document.querySelector('#shoppingCartContainer')
-const cardsContainer = document.querySelector('.cards-container')
-
+const shoppingCartContainer = document.querySelector('#shoppingCartContainer');//shopping-cart-detail
+const productDetailContainer = document.querySelector('#productDetail');//productDetail
+const cardsContainer = document.querySelector('.cards-container');
 
 menuEmail.addEventListener('click', toggleDesktopMenu);
-menuHambIcon.addEventListener('click', toggleMobileMenu);
-menuCarritoIcon.addEventListener('click', toggleCarritoAside);
+menuHamIcon.addEventListener('click', toggleMobileMenu);
+menuCarritoIcon.addEventListener('click', toggleCarritoAside);//email
+productDetailCloseIcon.addEventListener('click', closeProductDetailAside);
 
 
-function toggleDesktopMenu(){
-  const isAsideClosed = shoppingCartContainer.classList.contains('inactive')
-
-  if (!isAsideClosed) {
-    shoppingCartContainer.classList.add('inactive');
-  }
-  
-    desktopMenu.classList.toggle('inactive');
+function toggleDesktopMenu() {
+  desktopMenu.classList.toggle('inactive');
+  shoppingCartContainer.classList.add('inactive');
+  productDetailContainer.classList.add('inactive');
 }
 
-function toggleMobileMenu(){
-  const isAsideClosed = shoppingCartContainer.classList.contains('inactive')
-
-  if (!isAsideClosed) {
-    shoppingCartContainer.classList.add('inactive');
-  }
-    mobileMenu.classList.toggle('inactive');
+function toggleMobileMenu() {
+  mobileMenu.classList.toggle('inactive');
+  shoppingCartContainer.classList.add('inactive');
+  productDetailContainer.classList.add('inactive');
 }
 
-function toggleCarritoAside(){
-  const isMobileMenuClosed = mobileMenu.classList.contains('inactive');
-  const isDesktopMenu = desktopMenu.classList.contains('inactive');
-
-
-  if (!isMobileMenuClosed) {
-    mobileMenu.classList.add('inactive');
-  } else if (!isDesktopMenu) {
-    desktopMenu.classList.add('inactive');
-  }
-
+function toggleCarritoAside() {
   shoppingCartContainer.classList.toggle('inactive');
+  mobileMenu.classList.add('inactive');
+  desktopMenu.classList.add('inactive');
+  productDetailContainer.classList.add('inactive')
+}
+
+function openProductDetailAside() {
+  productDetailContainer.classList.toggle('inactive');
+  shoppingCartContainer.classList.add('inactive');
+  desktopMenu.classList.add('inactive');
+  mobileMenu.classList.add('inactive');
+}
+function closeProductDetailAside() {
+  productDetailContainer.classList.add('inactive');
+
 }
 
 const productList = [];
@@ -61,6 +60,17 @@ productList.push({
   price: 300,
   image: 'https://th.bing.com/th/id/R.bfa0a08c49b570133a4998a22e54d561?rik=TvrCd%2bHiE%2fnKmw&riu=http%3a%2f%2fhardzone.es%2fapp%2fuploads%2f2016%2f08%2fAsus.jpg&ehk=qfdjrF%2boK8LHxtJriKsh0TeCMwQr8i0K7A9txbuRqkI%3d&risl=&pid=ImgRaw&r=0',
 });
+productList.push({
+  name: 'TV OLED',
+  price: 220,
+  image: 'https://i1.wp.com/techtrendske.co.ke/wp-content/uploads/2018/07/lg-oled-tv.jpg?fit=1280%2C720',
+});
+productList.push({
+  name: 'Hello Kityy',
+  price: 150,
+  image: 'https://th.bing.com/th/id/R.a715e2a9002a13c7a720406dfe4dcb1e?rik=Q1XSRDiveW2zSA&pid=ImgRaw&r=0',
+});
+
 
 
 function renderProducts(arr){
@@ -68,37 +78,37 @@ function renderProducts(arr){
     const productCard = document.createElement('div');
     productCard.classList.add('product-card');
   
-    // product = {name, price,img}--> product.image
+    // product= {name, price, image} -> product.image
     const productImg = document.createElement('img');
     productImg.setAttribute('src', product.image);
+    productImg.addEventListener('click', openProductDetailAside);
   
     const productInfo = document.createElement('div');
     productInfo.classList.add('product-info');
   
-    const productInfoDiv= document.createElement('div');
-      
+    const productInfoDiv = document.createElement('div');
+  
     const productPrice = document.createElement('p');
     productPrice.innerText = '$' + product.price;
-  
     const productName = document.createElement('p');
     productName.innerText = product.name;
   
     productInfoDiv.appendChild(productPrice);
     productInfoDiv.appendChild(productName);
-    
-    const productInfofigure= document.createElement('figure');
-    const productImgCart= document.createElement('img');
+  
+    const productInfoFigure = document.createElement('figure');
+    const productImgCart = document.createElement('img');
     productImgCart.setAttribute('src', './icons/bt_add_to_cart.svg');
   
-    productInfofigure.appendChild(productImgCart);
+    productInfoFigure.appendChild(productImgCart);
   
     productInfo.appendChild(productInfoDiv);
-    productInfo.appendChild(productInfofigure);
+    productInfo.appendChild(productInfoFigure);
   
     productCard.appendChild(productImg);
     productCard.appendChild(productInfo);
   
-    cardsContainer.appendChild(productCard)
+    cardsContainer.appendChild(productCard);
   }
 }
 
