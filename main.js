@@ -5,99 +5,114 @@ const mobileMenu = document.querySelector('.mobile-menu');
 const shoppingCartIcon = document.querySelector('.navbar-shopping-cart');
 const aside = document.querySelector('.product-detail');
 const cardsContainer = document.querySelector('.cards-container')
+const closeProductDescription = document.querySelector('.product-description-close');
+const productDescription = document.querySelector('.product-description')
+
 
 menuEmail.addEventListener('click', toggleDesktopMenu);
 iconMenu.addEventListener('click', toggleMobileMenu);
 shoppingCartIcon.addEventListener('click', toggleCartAside);
+closeProductDescription.addEventListener('click', CloseProductDescription)
+
 
 function toggleDesktopMenu() {
     aside.classList.add('inactive');
+    productDescription.classList.add('inactive')
     desktopMenu.classList.toggle('inactive');
 }
 function toggleCartAside() {
     desktopMenu.classList.add('inactive');
     mobileMenu.classList.add('inactive');
+    productDescription.classList.add('inactive')
     aside.classList.toggle('inactive');
 }
 function toggleMobileMenu() {
     aside.classList.add('inactive');
+    productDescription.classList.add('inactive')
     mobileMenu.classList.toggle('inactive');
 }
+function CloseProductDescription() {
+    productDescription.classList.add('inactive')
+}
+// function () {
+//     aside.classList.add('inactive');
+//     productDescription.toggle('inactive');
+// }
 
 const productList = [];
 productList.push({
-    name: 'bike',
-    price: 120,
+    name: 'Bike',
+    price: "120,00",
     image: 'https://images.pexels.com/photos/276517/pexels-photo-276517.jpeg?auto=compress&cs=tinysrgb&dpr=2&h=650&w=940'
 });
 productList.push({
-    name: 'bike',
-    price: 120,
+    name: 'Bike',
+    price: "120,00",
     image: 'https://images.pexels.com/photos/276517/pexels-photo-276517.jpeg?auto=compress&cs=tinysrgb&dpr=2&h=650&w=940'
 });
 productList.push({
-    name: 'bike',
-    price: 120,
+    name: 'Bike',
+    price: "120,00",
     image: 'https://images.pexels.com/photos/276517/pexels-photo-276517.jpeg?auto=compress&cs=tinysrgb&dpr=2&h=650&w=940'
 });
 productList.push({
-    name: 'bike',
-    price: 120,
+    name: 'Bike',
+    price: "120,00",
     image: 'https://images.pexels.com/photos/276517/pexels-photo-276517.jpeg?auto=compress&cs=tinysrgb&dpr=2&h=650&w=940'
 });
 productList.push({
-    name: 'bike',
-    price: 120,
+    name: 'Bike',
+    price: "120,00",
     image: 'https://images.pexels.com/photos/276517/pexels-photo-276517.jpeg?auto=compress&cs=tinysrgb&dpr=2&h=650&w=940'
 });
 productList.push({
-    name: 'bike',
-    price: 120,
+    name: 'Bike',
+    price: "120,00",
     image: 'https://images.pexels.com/photos/276517/pexels-photo-276517.jpeg?auto=compress&cs=tinysrgb&dpr=2&h=650&w=940'
 });
 productList.push({
-    name: 'bike',
-    price: 120,
+    name: 'Bike',
+    price: "120,00",
     image: 'https://images.pexels.com/photos/276517/pexels-photo-276517.jpeg?auto=compress&cs=tinysrgb&dpr=2&h=650&w=940'
 });
 productList.push({
-    name: 'bike',
-    price: 120,
+    name: 'Bike',
+    price: "120,00",
     image: 'https://images.pexels.com/photos/276517/pexels-photo-276517.jpeg?auto=compress&cs=tinysrgb&dpr=2&h=650&w=940'
 });
 productList.push({
-    name: 'bike',
-    price: 120,
+    name: 'Bike',
+    price: "120,00",
     image: 'https://images.pexels.com/photos/276517/pexels-photo-276517.jpeg?auto=compress&cs=tinysrgb&dpr=2&h=650&w=940'
 });
 productList.push({
-    name: 'bike',
-    price: 120,
+    name: 'Bike',
+    price: "120,00",
     image: 'https://images.pexels.com/photos/276517/pexels-photo-276517.jpeg?auto=compress&cs=tinysrgb&dpr=2&h=650&w=940'
 });
 productList.push({
-    name: 'bike',
-    price: 120,
+    name: 'Bike',
+    price: "120,00",
     image: 'https://images.pexels.com/photos/276517/pexels-photo-276517.jpeg?auto=compress&cs=tinysrgb&dpr=2&h=650&w=940'
 });
 productList.push({
-    name: 'bike',
-    price: 120,
+    name: 'Bike',
+    price: "120,00",
     image: 'https://images.pexels.com/photos/276517/pexels-photo-276517.jpeg?auto=compress&cs=tinysrgb&dpr=2&h=650&w=940'
 });
 productList.push({
-    name: 'bike',
-    price: 120,
+    name: 'Bike',
+    price: "120,00",
     image: 'https://images.pexels.com/photos/276517/pexels-photo-276517.jpeg?auto=compress&cs=tinysrgb&dpr=2&h=650&w=940'
 });
 productList.push({
-    name: 'bike',
-    price: 120,
+    name: 'Bike',
+    price: "120,00",
     image: 'https://images.pexels.com/photos/276517/pexels-photo-276517.jpeg?auto=compress&cs=tinysrgb&dpr=2&h=650&w=940'
 });
 productList.push({
-    name: 'bike',
-    price: 120,
+    name: 'Bike',
+    price: "120,00",
     image: 'https://images.pexels.com/photos/276517/pexels-photo-276517.jpeg?auto=compress&cs=tinysrgb&dpr=2&h=650&w=940'
 });
 
@@ -108,17 +123,22 @@ function renderProducts(array) {
     
         const productImg = document.createElement('img');
         productImg.setAttribute('src', product.image);
+        productImg.addEventListener('click', openProductDescription)
     
+        function openProductDescription() {
+            desktopMenu.classList.add('inactive')
+            aside.classList.add('inactive')
+            productDescription.classList.remove('inactive')
+        }
         const productInfo = document.createElement('div');
         productInfo.classList.add('product-info'); 
-    
-        
+          
         const productInfodiv = document.createElement('div');
         
         const productPrice = document.createElement('p');
-        productPrice.innerText = '$' + product.price;
+        productPrice.innerText = '$ ' + product.price;
         const productName = document.createElement('p');
-        productName.innerText = '$' + product.name;
+        productName.innerText = product.name;
         
         productInfodiv.appendChild(productPrice);
         productInfodiv.appendChild(productName);

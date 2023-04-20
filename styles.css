@@ -12,19 +12,26 @@
   }
   body {
     margin: 0;
-    font-family: 'Quicksand', sans-serif;
+    font-family: 'Quicksand'
   }
   .inactive {
     display: none;
   }
 
 /* Navbar */
-
+  .NavFixed {
+    position: fixed;
+    z-index: 100;
+  }
   nav {
     display: flex;
     justify-content: space-between;
-    padding: 0 24px;
+    background-color: var(--white);
+    width: 100vw;
+    box-sizing: border-box;
+    padding: 0 50px;
     border-bottom: 1px solid var(--very-light-pink);
+    overflow: hidden;
   }
   .menu {
     display: none;
@@ -95,7 +102,7 @@
   .desktop-menu {
     position: absolute;
     top: 60px;
-    right: 58px;
+    right: 84px;
     background: var(--white);
     width: 100px;
     height: auto;
@@ -133,11 +140,13 @@
 /* Mobile Menu*/
 
   .mobile-menu {
-    padding: 24px;
-    position: absolute;
+    padding: 24px 0px 0 24px;
+    position: fixed;
+    box-sizing: border-box;
     background: var(--white);
     width: 100%;
-    height: 100%;
+    border-bottom: 1px var(--very-light-pink) solid;
+    height: 100vh;
     left: 0;
     top: 61px;
   }
@@ -172,13 +181,12 @@
 
 .product-detail {
     width: 360px;
-    padding: 0px 24px;
     height: 100vh;
+    padding: 60px 24px;
     box-sizing: border-box;
     background-color: var(--white);
-    position: absolute;
+    position: fixed;
     right: 0;
-    grid-template-rows: auto 1fr;
     border-left: var(--very-light-pink) solid 1px;
   }
   .title-container {
@@ -253,23 +261,72 @@
 
 .main-container {
   display: grid;
+  padding: 0 50px;
 }
-
+.search {
+  margin: 108px 0 48px;
+  display: flex;
+}
+.search input {
+  display: flex;
+  background-color: var(--text-input-field);
+  border: none;
+  border-radius: 12px;
+  width: 30%;
+  height: 52px;
+  margin-right: 24px;
+  color: var(--very-light-pink);
+  font-size: var(--md);
+  font-weight: 700;
+  padding-left: 50px;
+  background-image: url(https://www.freeiconspng.com/thumbs/search-icon-png/search-icon-png-18.png);
+  background-position: 20px 50%;
+  background-size: 20px;
+  background-repeat: no-repeat;
+  align-content: center;
+}
+.search-parameter {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+}
+.search-parameter p:nth-child(1) {
+  font-size: var(--md);
+  font-weight: bold;
+  color: var(--black);
+  margin-right: 8px;
+}
+.search-parameter p:nth-child(2) {
+  font-size: var(--md);
+  font-weight: 500;
+  color: var(--very-light-pink);
+  margin-right: 5px;
+  cursor: pointer;
+}
+.search-parameter img {
+  width: 8px;
+  height: 8px;
+  margin-top: 3px;
+  cursor: pointer;
+}
 .cards-container {
   display: grid;
-  grid-template-columns: repeat(auto-fill, 300px);
-  gap: 26px;
+  grid-template-columns: 1fr 1fr 1fr 1fr 1fr;
   place-content: center;
-  margin-top: 60px;
+  height: auto;
+  margin:0 0 28px;
+  gap: 24px;
 }
 .product-card {
-  width: 300px;
+  width: auto;
+  height: auto;
 }
 .product-card img {
-  width: 300px;
-  height: 300px;
+  width: 100%;
   border-radius: 20px;
-  object-fit: cover;
+  aspect-ratio: 1/1;
+  object-fit:cover;
+  cursor: pointer;
 }
 .product-info {
   display: flex;
@@ -278,23 +335,101 @@
   margin-top: 12px;
 }
 .product-info figure {
+  display: grid;
   margin: 0;
+  height: 100%;
+  width: auto;
+  align-content: center;
 }
 .product-info figure img {
-  width: 35px;
-  height: 35px;
+  height: 100%;
+  align-self:center;
+
 }
 .product-info div p:nth-child(1) {
+  font-weight: bolder;
+  font-family: "Roboto";
+  font-size: var(--lg);
+  margin-top: 0;
+  margin-bottom: 4px;
+}
+.product-info div p:nth-child(2) {
+  font-size: var(--md);
+  margin-top: 0;
+  margin-bottom: 0;
+  color: var(--very-light-pink);
+}
+
+/* aside product-description */
+.product-description {
+  width: 360px;
+  height: 100vh;
+  padding: 0px;
+  margin-top: 60px;
+  box-sizing: border-box;
+  background-color: var(--white);
+  position: fixed;
+  right: 0;
+  border-left: var(--very-light-pink) solid 1px;
+
+}
+.product-description-close {
+  background: var(--white);
+  width: 14px;
+  height: 14px;
+  position: absolute;
+  top: 24px;
+  left: 24px;
+  z-index: 2;
+  padding: 12px;
+  border-radius: 50%;
+  
+}
+.product-description-close:hover {
+  cursor: pointer;
+}
+.product-description > img:nth-child(2) {
+  width: 100%;
+  height: 360px;
+  object-fit: cover;
+  border-radius: 0 0 20px 20px;
+}
+.product-description-info {
+  margin: 24px 24px 0 24px;
+}
+.product-description-info p:nth-child(1) {
   font-weight: bold;
   font-size: var(--md);
   margin-top: 0;
   margin-bottom: 4px;
 }
-.product-info div p:nth-child(2) {
+.product-description-info p:nth-child(2) {
+  color: var(--very-light-pink);
+  font-size: var(--md);
+  margin-top: 0;
+  margin-bottom: 36px;
+}
+.product-description-info p:nth-child(3) {
+  color: var(--very-light-pink);
   font-size: var(--sm);
   margin-top: 0;
-  margin-bottom: 0;
-  color: var(--very-light-pink);
+  margin-bottom: 36px;
+}
+.primary-button {
+  background-color: var(--hospital-green);
+  border-radius: 8px;
+  border: none;
+  color: var(--white);
+  width: 100%;
+  cursor: pointer;
+  font-size: var(--md);
+  font-weight: bold;
+  height: 50px;
+}
+.add-to-cart-button {
+  display: flex;
+  align-items: center;
+  justify-content: center;
 }
 
 
@@ -302,31 +437,41 @@
     .menu {
       display: block;
     }
+    nav {
+      padding: 0 24px;
+    }
+    .product-description {
+      width: 100%;
+    }
+    .product-detail {
+      width: 100%;
+    }
     .navbar-left ul {
       display: none;
     }
+    .search {
+      display: grid;
+      width: 100%;
+      margin-bottom: 0;
+    }
+    .search input {
+      width: 100%;
+    }  
     .navbar-email {
       display: none;
     }
     .desktop-menu {
       display: none;
     }
-    .product-detail {
-      width: 100%;
-      height: 100vh;
+    .main-container {
+      display: grid;
+      padding: 0 50px;
     }
     .cards-container {
-      grid-template-columns: repeat(auto-fill, 140px);
+      grid-template-columns: 1fr 1fr;
     }
-    .product-card {
-      width: 140px;
+  
     }
-    .product-card img {
-      width: 140px;
-      height: 140px;
-    }
-
-  }
 
   @media (min-width: 800px) {
     .mobile-menu {
