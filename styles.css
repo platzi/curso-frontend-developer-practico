@@ -190,7 +190,6 @@ nav {
 
 
 /* Aside (product detail y carrito) */
-
 aside {
     background-color: var(--white);
     width: 360px;
@@ -199,10 +198,11 @@ aside {
     right: 0;
 }
 
-/* ShoppingCart */
 
+/* ShoppingCart */
 #shoppingCartContainer {
     padding: 24px;
+    padding-left: 0;
 }
 
 .title-container {
@@ -285,8 +285,8 @@ aside {
     height: 50px;
 }
 
-/* ProductDetail */
 
+/* ProductDetail */
 .product-detail-close {
     background: var(--white);
     width: 14px;
@@ -352,6 +352,7 @@ aside {
     align-items: center;
     justify-content: center;
 }
+
 
 /* Products List */
 .cards-container {
