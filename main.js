@@ -5,8 +5,10 @@ const menuCarritoIcon = document.querySelector(".navbar-shopping-cart")
 const aside = document.querySelector(".product-detail")
 const mobileMenu = document.querySelector(".mobile-menu")
 const cardsContainer = document.querySelector(".cards-container")
-
+const productDetailSecondary = document.querySelector(".product-detail-secondary")
 const productList = []
+const productDetailSecondaryClose = document.querySelector(".product-detail-secondary-close")
+productDetailSecondaryClose.addEventListener("click", closeDetail)
 productList.push({
     name: "bike",
     price: 110,
@@ -33,6 +35,10 @@ function toggleDesktopMenu(){//prender y apagar menu correo
     if(!aside.classList.contains("inactive")){//apagar carrito menu
         aside.classList.toggle("inactive")
     }
+
+    if (!productDetailSecondary.classList.contains("inactive")){
+        productDetailSecondary.classList.add("inactive")
+    }
 }
 
 function toggleMobileMenu(){//prender y apagar menu mobile
@@ -40,6 +46,10 @@ function toggleMobileMenu(){//prender y apagar menu mobile
 
     if(!aside.classList.contains("inactive")){//apagar carrito menu
         aside.classList.toggle("inactive")
+    }
+
+    if (!productDetailSecondary.classList.contains("inactive")){
+        productDetailSecondary.classList.add("inactive")
     }
 }
 
@@ -50,10 +60,35 @@ function togggleCarritoAside(){//prender y apagar carrito
         mobileMenu.classList.toggle("inactive")
     }
 
+    if (!productDetailSecondary.classList.contains("inactive")){
+        productDetailSecondary.classList.add("inactive")
+    }
+
     if(!desktopMenu.classList.contains("inactive")){//apagar menu correo
         desktopMenu.classList.toggle("inactive")
         console.log("cierre");
     }
+}
+
+function showDetail(){
+    productDetailSecondary.classList.remove("inactive")
+
+    if(!desktopMenu.classList.contains("inactive")){//apagar menu correo
+        desktopMenu.classList.toggle("inactive")
+        console.log("cierre");
+    }
+
+    if(!mobileMenu.classList.contains("inactive")){//apagar mobile menu 
+        mobileMenu.classList.toggle("inactive")
+    }
+
+    if(!aside.classList.contains("inactive")){//apagar carrito menu
+        aside.classList.toggle("inactive")
+    }
+}
+
+function closeDetail(){
+    productDetailSecondary.classList.add("inactive")
 }
 
 function renderProducts(arr){
@@ -82,6 +117,8 @@ function renderProducts(arr){
 
         const productImg = document.createElement("img")
         productImg.setAttribute("src", product.image)
+        productImg.addEventListener("click", showDetail)
+
         productInfoFigure.appendChild(productImgCart)
 
         productInfo.appendChild(productInfoDiv)
