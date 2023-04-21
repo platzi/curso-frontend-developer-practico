@@ -305,7 +305,7 @@ nav {
 /*Produts LISTS */
 
 .cards-container {
-    box-shadow: 5px 5px 15px gray;
+    
     margin-top: 20px;
     display: grid;
     grid-template-columns: repeat(auto-fill, 240px);
@@ -313,9 +313,12 @@ nav {
     place-content: center;
   }
   .product-card {
+    border-radius: 20px;
+    box-shadow: 5px 5px 15px rgb(242, 242, 242);
     width: 240px;
   }
   .product-card img {
+    margin-right: 4px;
     width: 240px;
     height: 240px;
     border-radius: 20px;
@@ -335,12 +338,14 @@ nav {
     height: 35px;
   }
   .product-info div p:nth-child(1) {
+    margin-left: 8px;
     font-weight: bold;
     font-size: var(--md);
     margin-top: 0;
     margin-bottom: 4px;
   }
   .product-info div p:nth-child(2) {
+    margin-left: 8px;
     font-size: var(--sm);
     margin-top: 0;
     margin-bottom: 0;
