@@ -1,0 +1,41 @@
+[33mcommit 9b1dccd308d8c07600174ce868920a4810ff7469[m[33m ([m[1;36mHEAD -> [m[1;32mmain[m[33m)[m
+Author: Nyu00 <figueran4@gmail.com>
+Date:   Thu Apr 20 20:34:12 2023 -0300
+
+    Added the side of the product detail with logic js
+
+[33mcommit 6f455550bf2d4c46d26b14480fbc7b3e1fd187ad[m
+Author: Nyu00 <figueran4@gmail.com>
+Date:   Wed Apr 19 21:42:52 2023 -0300
+
+    Added the Product detail (with info of the product) Aside
+
+[33mcommit 58a91a01e3a34cfb38d4980e55876a980c270176[m
+Author: Nyu00 <figueran4@gmail.com>
+Date:   Wed Apr 19 19:18:14 2023 -0300
+
+    Adding the list of the products with JS Done
+
+[33mcommit ebc7ccc05a544b72bb4bc3b8d9282706913aeeed[m
+Author: Nyu00 <figueran4@gmail.com>
+Date:   Tue Apr 18 20:07:58 2023 -0300
+
+    Addin the js to the products of the store
+
+[33mcommit 4774124de4c723d46d6a22da4c93c03f7be9e7bd[m[33m ([m[1;31morigin/main[m[33m, [m[1;31morigin/HEAD[m[33m)[m
+Author: Juan David Castro <me@juandc.co>
+Date:   Fri Aug 6 10:22:19 2021 -0500
+
+    Add files via upload
+
+[33mcommit 84bc21bb1cb013e03a0c6d694b632aeec8a77977[m
+Author: Juan David Castro <me@juandc.co>
+Date:   Thu Aug 5 16:50:27 2021 -0500
+
+    Add files via upload
+
+[33mcommit 06d2ccd2293a68614a14db757d1dc3477403e89f[m
+Author: Juan David Castro <me@juandc.co>
+Date:   Mon Aug 2 22:38:03 2021 -0500
+
+    Initial commit
