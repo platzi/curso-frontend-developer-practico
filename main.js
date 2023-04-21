@@ -6,6 +6,23 @@ const aside = document.querySelector(".product-detail")
 const mobileMenu = document.querySelector(".mobile-menu")
 const cardsContainer = document.querySelector(".cards-container")
 
+const productList = []
+productList.push({
+    name: "bike",
+    price: 110,
+    image: "https://images.pexels.com/photos/276517/pexels-photo-276517.jpeg?auto=compress&cs=tinysrgb&dpr=2&h=650&w=940"
+    },
+    {
+    name: "compu",
+    price: 220,
+    image: "https://images.pexels.com/photos/276517/pexels-photo-276517.jpeg?auto=compress&cs=tinysrgb&dpr=2&h=650&w=940"
+    },
+    {
+    name: "car",
+    price: 12000,
+    image: "https://images.pexels.com/photos/276517/pexels-photo-276517.jpeg?auto=compress&cs=tinysrgb&dpr=2&h=650&w=940"
+    })
+
 menuEmail.addEventListener("click", toggleDesktopMenu)
 menuHamIcon.addEventListener("click", toggleMobileMenu)
 menuCarritoIcon.addEventListener("click", togggleCarritoAside)
@@ -39,22 +56,6 @@ function togggleCarritoAside(){//prender y apagar carrito
     }
 }
 
-const productList = []
-productList.push({
-    name: "bike",
-    price: 110,
-    image: "https://images.pexels.com/photos/276517/pexels-photo-276517.jpeg?auto=compress&cs=tinysrgb&dpr=2&h=650&w=940"
-    },
-    {
-    name: "compu",
-    price: 220,
-    image: "https://images.pexels.com/photos/276517/pexels-photo-276517.jpeg?auto=compress&cs=tinysrgb&dpr=2&h=650&w=940"
-    },
-    {
-    name: "car",
-    price: 12000,
-    image: "https://images.pexels.com/photos/276517/pexels-photo-276517.jpeg?auto=compress&cs=tinysrgb&dpr=2&h=650&w=940"
-    })
 function renderProducts(arr){
     for (product of arr){
         const productCard = document.createElement("div")
