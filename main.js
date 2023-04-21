@@ -141,6 +141,34 @@ const productList = [
     image:
       "https://images.pexels.com/photos/5907127/pexels-photo-5907127.jpeg?auto=compress&cs=tinysrgb&w=600",
   },
+  {
+    id: 9,
+    name: "Mouse",
+    price: 200,
+    image:
+      "https://images.pexels.com/photos/2115256/pexels-photo-2115256.jpeg?auto=compress&cs=tinysrgb&w=600",
+  },
+  {
+    id: 10,
+    name: "Cargador",
+    price: 300,
+    image:
+      "https://images.pexels.com/photos/4526406/pexels-photo-4526406.jpeg?auto=compress&cs=tinysrgb&w=600",
+  },
+  {
+    id: 11,
+    name: "Set cámara digital",
+    price: 900,
+    image:
+      "https://images.pexels.com/photos/4164088/pexels-photo-4164088.jpeg?auto=compress&cs=tinysrgb&w=600",
+  },
+  {
+    id: 12,
+    name: "Artículos",
+    price: 900,
+    image:
+      "https://images.pexels.com/photos/3183132/pexels-photo-3183132.jpeg?auto=compress&cs=tinysrgb&w=600",
+  },
 ];
 
 // Product Details
@@ -165,6 +193,14 @@ const productDetails = productList.map((product) => ({
       ? "The iPhone 14 Pro allows you to capture incredible details thanks to its 48 MP wide-angle camera."
       : product.name === "Cornetas"
       ? "JBL Charge 5 portable Bluetooth waterproof speaker, in red color and compatible with both 110V and 220V power."
+      : product.name === "Mouse"
+      ? "Mouse inalámbrico Genius NX-7000 elegant."
+      : product.name === "Cargador"
+      ? "Wireless charger for cell phones."
+      : product.name === "Set cámara digital"
+      ? "Pro digital camera set with 5 interchangeable parts, black color."
+      : product.name === "Artículos"
+      ? "Office supplies set."
       : null,
   toAdd: "Add to cart",
 }));
