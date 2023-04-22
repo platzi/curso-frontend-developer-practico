@@ -32,6 +32,7 @@ function toggleCarritoAside() {
 }
 
 function openProductDetail(){
+    aside.classList.add('inactive');
     productDetailContainer.classList.remove('inactive')    
 }
 
