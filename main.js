@@ -7,7 +7,9 @@ const aside = document.querySelector(".product-detail");
 const cardsContainer = document.querySelector(".cards-container");
 const productDetailContainer = document.querySelector(".product-detail-secundary");
 const IconClose = document.querySelector(".product-detail-close-secundary");
-
+const imageDetail = document.querySelector("#info-images");
+const priceDetail = document.querySelector("#price");
+const nameDetail = document.querySelector("#name")
 
 navbarEmail.addEventListener('click', toggleDesktopMenu);
 logoDeMenu.addEventListener('click', toggleMobileMenu);
@@ -33,10 +35,13 @@ function toggleCarritoAside() {
     aside.classList.toggle('inactive');
 }
 
-function openProductDetail(){
+function openProductDetail(event){
     desktopMenu.classList.add('inactive');
     aside.classList.add('inactive');
-    productDetailContainer.classList.remove('inactive')    
+    productDetailContainer.classList.remove('inactive');
+    imageDetail.setAttribute("src", event.target.src);
+    priceDetail.innerText= event.target.nextElementSibling.innerText;
+
 }
 
 function closeProductDetail(){
@@ -48,7 +53,8 @@ const productList = [];
 productList.push({
     name: 'bike',
     price: 200,
-    image: "https://cdn.shopify.com/s/files/1/0604/4637/6123/products/negrorojo_da3808c2-8e88-4f5b-a666-f6c16f31cffc_720x.jpg?v=1636735417"
+    image: "https://cdn.shopify.com/s/files/1/0604/4637/6123/products/negrorojo_da3808c2-8e88-4f5b-a666-f6c16f31cffc_720x.jpg?v=1636735417",
+    
 });
 
 productList.push({
