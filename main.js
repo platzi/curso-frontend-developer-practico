@@ -16,6 +16,7 @@ IconClose.addEventListener('click', closeProductDetail);
 
 
 function toggleDesktopMenu() {
+    productDetailContainer.classList.add('inactive');
     aside.classList.add('inactive')
     desktopMenu.classList.toggle('inactive');
 };
@@ -26,12 +27,14 @@ function toggleMobileMenu() {
 };
 
 function toggleCarritoAside() {
+    productDetailContainer.classList.add('inactive');
     navbarEmail.classList.add('ínactive')
     mobileMenu.classList.add('inactive')
     aside.classList.toggle('inactive');
 }
 
 function openProductDetail(){
+    desktopMenu.classList.add('inactive');
     aside.classList.add('inactive');
     productDetailContainer.classList.remove('inactive')    
 }
