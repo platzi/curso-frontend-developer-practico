@@ -9,7 +9,10 @@ const productDetailContainer = document.querySelector(".product-detail-secundary
 const IconClose = document.querySelector(".product-detail-close-secundary");
 const imageDetail = document.querySelector("#info-images");
 const priceDetail = document.querySelector("#price");
-const nameDetail = document.querySelector("#name")
+const nameDetail = document.querySelector("#name");
+const numberProducts = document.querySelector(".shopping-cart-number");
+let contador = 0;
+
 
 navbarEmail.addEventListener('click', toggleDesktopMenu);
 logoDeMenu.addEventListener('click', toggleMobileMenu);
@@ -41,7 +44,8 @@ function openProductDetail(event){
     productDetailContainer.classList.remove('inactive');
     imageDetail.setAttribute("src", event.target.src);
     priceDetail.innerText= event.target.nextElementSibling.innerText;
-
+    numberProducts.innerText = contador += 1;
+    
 }
 
 function closeProductDetail(){
@@ -54,6 +58,7 @@ productList.push({
     name: 'bike',
     price: 200,
     image: "https://cdn.shopify.com/s/files/1/0604/4637/6123/products/negrorojo_da3808c2-8e88-4f5b-a666-f6c16f31cffc_720x.jpg?v=1636735417",
+   
     
 });
 
