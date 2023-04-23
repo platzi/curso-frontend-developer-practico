@@ -97,7 +97,7 @@
     height: auto;
     border: 1px solid var(--very-light-pink);
     border-top:1px solid var(--white);
-   
+    box-shadow:3px 3px var(--shadows);
     border-bottom-left-radius: 6px;
     border-bottom-right-radius:6px;
     padding: 20px 20px 0 20px;
@@ -133,13 +133,17 @@
 .mobile-menu {
   padding: 24px;
   position: absolute;
-  top: 61px;
+  top: 64.01px;
   left:24px ;
   background-color: var(--white);
   box-shadow:3px 3px var(--shadows);
   padding: 15px;
   border-bottom-left-radius: 15px;
   border-bottom-right-radius: 15px;
+  border-top: none;
+  border-left: 1px solid var(--very-light-pink) ;
+  border-right: 1px solid var(--very-light-pink) ;
+  border-bottom: 1px solid var(--very-light-pink) ;
   
 }
 .mobile-menu a {
@@ -180,6 +184,11 @@
   padding: 15px;
   border-bottom-left-radius: 15px;
   border-bottom-right-radius: 15px;
+  border-top: none;
+  border-left: 1px solid var(--very-light-pink) ;
+  border-right: 1px solid var(--very-light-pink) ;
+  border-bottom: 1px solid var(--very-light-pink) ;
+  top: 64.01px;
 }
 
 .aside-order .title-container {
@@ -252,6 +261,10 @@
 
 
    /*------------------------------------------------contenido----------------------*/
+   .main-container{
+    margin: 0 auto;
+    padding: 5px 30px;
+   }
    .cards-container {
     display: grid;
     grid-template-columns: repeat(auto-fill, 240px);
@@ -261,11 +274,16 @@
   }
   .product-card {
     width: 240px;
+    border: 1px solid var(--very-light-pink);
+    border-radius: 15px;
+    overflow: hidden;
+    box-shadow: 3px 3px rgba(210, 210, 210, 0.7);
+    
   }
   .product-card img {
     width: 240px;
     height: 240px;
-    border-radius: 20px;
+    /* border-radius: 20px; */
     object-fit: cover;
   }
   .product-info {
@@ -273,6 +291,8 @@
     justify-content: space-between;
     align-items: center;
     margin-top: 12px;
+    padding: 15px;
+    height: auto;
   }
   .product-info figure {
     margin: 0;
