@@ -3,7 +3,7 @@ const desktopMenu = document.querySelector(".desktop-menu");
 const burguerMenu = document.querySelector(".menu");
 const mobileMenu = document.querySelector(".mobile-menu");
 const cartMenu = document.querySelector(".navbar-shopping-cart");
-const aside = document.querySelector(".product-detail");
+const aside = document.querySelector("#shopping-cart");
 const cardsContainer = document.querySelector(".cards-container");
 
 email.addEventListener("click", toggleDesktopMenu);
@@ -41,6 +41,7 @@ function toggleCartAside() {
 	}
 	aside.classList.toggle("inactive");
 }
+
 
 const productList = [];
 productList.push({
