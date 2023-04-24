@@ -74,6 +74,10 @@ nav {
 	margin-right: 12px;
 }
 
+.navbar-email:hover{
+	text-decoration: underline;
+}
+
 .navbar-shopping-cart {
 	position: relative;
 	cursor: pointer;
@@ -161,8 +165,10 @@ nav .mobile-menu li:not(:nth-child(1)):hover {
 	text-decoration: underline;
 }
 
-nav .mobile-menu .category {
+nav .mobile-menu ul .category {
 	text-decoration: none;
+	color: 	var(--hospital-green);
+	font-weight: bold;
 }
 
 .mobile-menu ul {
@@ -182,6 +188,10 @@ nav .mobile-menu .category {
 ul .email {
 	font-size: var(--sm);
 	font-weight: 300;
+}
+
+ul .email:hover{
+	text-decoration: underline;
 }
 
 ul .sign-out {
