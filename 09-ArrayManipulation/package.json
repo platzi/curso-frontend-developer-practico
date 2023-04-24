@@ -18,6 +18,7 @@
   },
   "homepage": "https://github.com/platzi/curso-manipulacion-de-arrays#readme",
   "dependencies": {
+    "date-fns": "^2.29.3",
     "http-server": "^0.12.3"
   }
 }
