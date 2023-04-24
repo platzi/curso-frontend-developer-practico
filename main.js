@@ -14,7 +14,7 @@ function toggleCarrito() {
 
     const MenuMovileClose = movileMenu.classList.contains('inactive')
     const MenuCarritoClose = carritoMenu.classList.contains('inactive')
-
+    const MenuDesktopClose = desktopMenu.classList.contains('inactive')
 
     if(MenuMovileClose){
         carritoMenu.classList.toggle('inactive')
@@ -22,6 +22,12 @@ function toggleCarrito() {
         movileMenu.classList.add('inactive')
         carritoMenu.classList.toggle('inactive')
     }
+
+    if(MenuDesktopClose){
+        carritoMenu.classList.remove('inactive')
+    }
+
+
 }
 
 
@@ -43,5 +49,18 @@ function toggleMovile() {
 
 
 function toggleMenu() {
-    desktopMenu.classList.toggle('inactive')
+    //desktopMenu.classList.toggle('inactive')
+
+    const MenuDesktopClose = desktopMenu.classList.contains('inactive')
+    const MenuCarritoClose = carritoMenu.classList.contains('inactive')
+
+    if(MenuCarritoClose){
+        desktopMenu.classList.toggle('inactive')
+    }else{
+        carritoMenu.classList.add('inactive')
+        desktopMenu.classList.toggle('inactive')
+    }
+
+
+
 }
