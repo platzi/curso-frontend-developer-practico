@@ -1,3 +1,4 @@
+//Variables Generales
 const navbarEmail = document.querySelector(".navbar-email");
 const desktopMenu = document.querySelector(".desktop-menu");
 const logoDeMenu = document.querySelector(".logoMenu");
@@ -12,45 +13,6 @@ const priceDetail = document.querySelector("#price");
 const nameDetail = document.querySelector("#name");
 const numberProducts = document.querySelector(".shopping-cart-number");
 let contador = 0;
-
-
-navbarEmail.addEventListener('click', toggleDesktopMenu);
-logoDeMenu.addEventListener('click', toggleMobileMenu);
-carritoDecompras.addEventListener('click', toggleCarritoAside);
-IconClose.addEventListener('click', closeProductDetail);
-
-
-function toggleDesktopMenu() {
-    productDetailContainer.classList.add('inactive');
-    aside.classList.add('inactive')
-    desktopMenu.classList.toggle('inactive');
-};
-
-function toggleMobileMenu() {
-    aside.classList.add('inactive')
-    mobileMenu.classList.toggle('inactive');
-};
-
-function toggleCarritoAside() {
-    productDetailContainer.classList.add('inactive');
-    navbarEmail.classList.add('ínactive')
-    mobileMenu.classList.add('inactive')
-    aside.classList.toggle('inactive');
-}
-
-function openProductDetail(event){
-    desktopMenu.classList.add('inactive');
-    aside.classList.add('inactive');
-    productDetailContainer.classList.remove('inactive');
-    imageDetail.setAttribute("src", event.target.src);
-    priceDetail.innerText= event.target.nextElementSibling.innerText;
-    numberProducts.innerText = contador += 1;
-    
-}
-
-function closeProductDetail(){
-productDetailContainer.classList.add('inactive');    
-};
 
 const productList = [];
 
@@ -110,6 +72,50 @@ productList.push({
     image: "https://www.alkosto.com/medias/194252099407-002-750Wx750H?context=bWFzdGVyfGltYWdlc3wxMzIxMTh8aW1hZ2UvanBlZ3xpbWFnZXMvaGM4L2gxNi8xMDA1NjU5OTY2NjcxOC5qcGd8MmQwZjIwNjkwMWE4OTNiMTk4NDQ5ODZjZWJlNGVmYmY0M2FkMDQ5MzhkNWU0MThiODg1MGRjOGJjN2MyYjQ3ZA",
 });
 
+
+
+//Listeners
+
+navbarEmail.addEventListener('click', toggleDesktopMenu);
+logoDeMenu.addEventListener('click', toggleMobileMenu);
+carritoDecompras.addEventListener('click', toggleCarritoAside);
+IconClose.addEventListener('click', closeProductDetail);
+
+//Functions
+
+function toggleDesktopMenu() {
+    productDetailContainer.classList.add('inactive');
+    aside.classList.add('inactive')
+    desktopMenu.classList.toggle('inactive');
+};
+
+function toggleMobileMenu() {
+    aside.classList.add('inactive')
+    mobileMenu.classList.toggle('inactive');
+};
+
+function toggleCarritoAside() {
+    productDetailContainer.classList.add('inactive');
+    navbarEmail.classList.add('ínactive')
+    mobileMenu.classList.add('inactive')
+    aside.classList.toggle('inactive');
+}
+
+function openProductDetail(event){
+    desktopMenu.classList.add('inactive');
+    aside.classList.add('inactive');
+    productDetailContainer.classList.remove('inactive');
+    imageDetail.setAttribute("src", event.target.src);
+    priceDetail.innerText= event.target.nextElementSibling.innerText;
+    numberProducts.innerText = contador += 1;
+    
+}
+
+function closeProductDetail(){
+productDetailContainer.classList.add('inactive');    
+};
+
+
 function renderProduct(arr){
     for (product of arr) {
         const productCard = document.createElement('div');
@@ -150,5 +156,6 @@ function renderProduct(arr){
     
     }
 };
+
 
 renderProduct(productList);
