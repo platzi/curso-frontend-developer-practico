@@ -3,7 +3,7 @@ const desktopMenu = document.querySelector('.desktop-menu');
 const menuHamIcon = document.querySelector('.menu');
 const mobileMenu = document.querySelector('.mobile-menu');
 const menuCarritoIcon = document.querySelector('.navbar-shopping-cart');
-const aside = document.querySelector('.product-detail');
+const shoppingCartContainer = document.querySelector('#shoppingCartContainer');
 const cardsContainer = document.querySelector('.cards-container');
 
 menuEmail.addEventListener('click', toggleDesktopMenu);
@@ -14,17 +14,17 @@ function toggleDesktopMenu() {
     const isAsideClosed = aside.classList.contains('inactive');
 
     if (!isAsideClosed) {
-    aside.classList.add('inactive');
+        shoppingCartContainer.classList.add('inactive');
     }
 
 desktopMenu.classList.toggle('inactive');
 }
 
 function toggleMobileMenu() {
-const isAsideClosed = aside.classList.contains('inactive');
+const isAsideClosed = shoppingCartContainer.classList.contains('inactive');
 
 if (!isAsideClosed) {
-aside.classList.add('inactive');
+    shoppingCartContainer.classList.add('inactive');
 }
 
     mobileMenu.classList.toggle('inactive');
@@ -37,7 +37,7 @@ if (!isMobileMenuClosed) {
     mobileMenu.classList.add('inactive');
 }
 
-aside.classList.toggle('inactive');
+shoppingCartContainer.classList.toggle('inactive');
 
 
 
@@ -63,7 +63,7 @@ productList.push({
     image: 'https://images.pexels.com/photos/276517/pexels-photo-276517.jpeg?auto=compress&cs=tinysrgb&dpr=2&h=650&w=940',
 });
 
-//Maquetacion HTML para crear un producto
+//Maquetacion HTML para crear el producto
 function renderProducts(arr) {
     for (product of productList) {
         const productCard = document.createElement('div');
