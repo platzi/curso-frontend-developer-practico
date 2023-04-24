@@ -74,7 +74,7 @@ nav {
 	margin-right: 12px;
 }
 
-.navbar-email:hover{
+.navbar-email:hover {
 	text-decoration: underline;
 }
 
@@ -167,7 +167,7 @@ nav .mobile-menu li:not(:nth-child(1)):hover {
 
 nav .mobile-menu ul .category {
 	text-decoration: none;
-	color: 	var(--hospital-green);
+	color: var(--hospital-green);
 	font-weight: bold;
 }
 
@@ -190,7 +190,7 @@ ul .email {
 	font-weight: 300;
 }
 
-ul .email:hover{
+ul .email:hover {
 	text-decoration: underline;
 }
 
