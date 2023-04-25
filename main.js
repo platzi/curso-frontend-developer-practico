@@ -3,7 +3,7 @@ let desktopMenu = document.querySelector(".desktop-menu");
 let menuHamburgerIcon = document.querySelector(".menu");
 let menuCarritoIcon = document.querySelector(".navbar-shopping-cart");
 let mobileMenu = document.querySelector(".mobile-menu");
-let aside = document.querySelector(".product-detail");
+let shoppingCartContainer = document.querySelector("#shoppingCartContainer");
 
 let cardsContainer = document.querySelector(".cards-container"); // Creamos esta variable para hacer .appendChild del productCart
 
@@ -12,20 +12,20 @@ menuHamburgerIcon.addEventListener("click", toggleMobileMenu);
 menuCarritoIcon.addEventListener("click", toggleCarritoAside);
 
 function toggleDesktopMenu() {
-    let isAsideClosed = aside.classList.contains("inactive");
+    let isAsideClosed = shoppingCartContainer.classList.contains("inactive");
 
     if (!isAsideClosed) {
-        aside.classList.add("inactive");
+        shoppingCartContainer.classList.add("inactive");
     }
 
     desktopMenu.classList.toggle("inactive");
 }
 
 function toggleMobileMenu() {
-    let isAsideClosed = aside.classList.contains("inactive");
+    let isAsideClosed = shoppingCartContainer.classList.contains("inactive");
 
     if (!isAsideClosed) {
-        aside.classList.add("inactive");
+        shoppingCartContainer.classList.add("inactive");
     }
 
     mobileMenu.classList.toggle("inactive");
@@ -43,7 +43,7 @@ function toggleCarritoAside() {
         mobileMenu.classList.add("inactive");
     }
 
-    aside.classList.toggle("inactive");
+    shoppingCartContainer.classList.toggle("inactive");
 }
 
 
