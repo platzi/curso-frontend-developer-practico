@@ -3,33 +3,31 @@ const desktopMenu = document.querySelector(`.desktop-menu`)
 const menuCarritoIcon = document.querySelector(`.navbar-shopping-cart`)
 const menuHamIcon = document.querySelector(`.menu`)
 const mobileMenu = document.querySelector(`.mobile-menu`)
-const aside = document.querySelector(`.product-detail`)
+const shoppinCartContainer = document.querySelector(`#shoppinCartContainer`)
 const cardsContainer = document.querySelector(`.cards-container`)
-
-
 menuEmail.addEventListener(`click`, toggleDesktopMenu)
 menuHamIcon.addEventListener(`click`, toggleMobileMenu)
-menuCarritoIcon.addEventListener(`click`, toggleCarritoAside)
+menuCarritoIcon.addEventListener(`click`, toggleCarritoshoppinCartContainer)
 
 function toggleDesktopMenu() {
-    const isAsideClosed = aside.classList.contains(`inactive`);
-    if (!isAsideClosed) {
-        aside.classList.add(`inactive`);
+    const isShoppinCartContainerClosed = shoppinCartContainer.classList.contains(`inactive`);
+    if (!isShoppinCartContainerClosed) {
+        shoppinCartContainer.classList.add(`inactive`);
     }
     desktopMenu.classList.toggle(`inactive`)
     
 }
 
 function toggleMobileMenu () {
-    const isAsideClosed = aside.classList.contains(`inactive`);
+    const isShoppinCartContainerClosed = shoppinCartContainer.classList.contains(`inactive`);
 
-    if (!isAsideClosed) {
-        aside.classList.add(`inactive`);
+    if (!isShoppinCartContainerClosed) {
+        shoppinCartContainer.classList.add(`inactive`);
     }
     mobileMenu.classList.toggle(`inactive`) 
 }
 
-function toggleCarritoAside() {
+function toggleCarritoshoppinCartContainer() {
     const isMobileMenuClosed = mobileMenu.classList.contains(`inactive`);
     const isDesktopMenuClosed = desktopMenu.classList.contains(`inactive`);
     
@@ -40,7 +38,7 @@ function toggleCarritoAside() {
         desktopMenu.classList.add(`inactive`);
     }
     
-    aside.classList.toggle(`inactive`)
+    shoppinCartContainer.classList.toggle(`inactive`)
 }
 
 const productList = [];
@@ -62,19 +60,6 @@ productList.push({
     image: `https://images.pexels.com/photos/276517/pexels-photo-276517.jpeg?auto=compress&cs=tinysrgb&dpr=2&h=650&w=940`
 })
 
-/* <div class="product-card">
-        <img src="https://images.pexels.com/photos/276517/pexels-photo-276517.jpeg?auto=compress&cs=tinysrgb&dpr=2&h=650&w=940" alt="">
-        <div class="product-info">
-          <div>
-            <p>$120,00</p>
-            <p>Bike</p>
-          </div>
-          <figure>
-            <img src="./icons/bt_add_to_cart.svg" alt="">
-          </figure>
-        </div>
-      </div> */
-      
 function renderProducts(arr) {
     for(product of arr) {
         const productCard = document.createElement(`div`);
