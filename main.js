@@ -3,8 +3,9 @@ const deskopMenu = document.querySelector('.desktop-menu'); // donde quiero que 
 const menuMobile = document.querySelector('.menu');
 const movileMenu = document.querySelector('.mobile-menu');
 const menuDeskopCart = document.querySelector('.navbar-shopping-cart');
-const cartMenu = document.querySelector('.product-detail');//recordar que tiene que llevar el punto por que son clases si fuera ID seria numeral y si fuera etiquete nada
+const cartMenu = document.querySelector('.cart');//recordar que tiene que llevar el punto por que son clases si fuera ID seria numeral y si fuera etiquete nada
 const cardsContainer = document.querySelector('.cards-container');
+
 
 const cardNumber = document.querySelector('.product-card');
 
@@ -95,6 +96,7 @@ function toggleDeskopCar () {
   cartMenu.classList.toggle('inactive');
   movileMenu.classList.add('inactive');
   deskopMenu.classList.add('inactive');
+
 }
 
 
