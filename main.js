@@ -6,11 +6,12 @@ const mobileMenu = document.querySelector('.mobile-menu');
 const menuHamIcon = document.querySelector('.menu');
 
 const menuCarritoIcon = document.querySelector('.navbar-shopping-cart');
-const aside=document.querySelector('.aside-order');
+const asideOrder=document.querySelector('.aside-order');
 
 const cardContainer=document.querySelector('.cards-container');
 
-
+const detailsproduct=document.querySelector('.product-detail');
+const cerrar = document.querySelector('.product-detail-close');
 
 // -------------------Llamando Eventos-------------------------------
 menuEmail.addEventListener('click', toggleDesktopMenu);
@@ -19,29 +20,40 @@ menuCarritoIcon.addEventListener('click',toggleCarritoAside);
 
 
 // -----------------------Funciones----------------------------------
+// Abirendo y cerrando elementos
+// desktop-menu
 function toggleDesktopMenu() {
-  const isAsideClosed=aside.classList.contains('inactive');
+  const isAsideClosed=asideOrder.classList.contains('inactive');
   
   if(!isAsideClosed){
-    aside.classList.add('inactive');
+    asideOrder.classList.add('inactive');
+  }
+  const isDetailProduct=detailsproduct.classList.contains('inactive');
+  if (!isDetailProduct){
+    detailsproduct.classList.add('inactive');
+    
   }
   desktopMenu.classList.toggle('inactive'); //el .toggle hace que suceda el intercambio de la clase
   console.log("Click menu desktop");
 }
-
+// mobile-menu
 function toggleMobileMenu() {
  
-  const isAsideClosed=aside.classList.contains('inactive');
+  const isAsideClosed=asideOrder.classList.contains('inactive');
   
   if(!isAsideClosed){
-    aside.classList.add('inactive');
+    asideOrder.classList.add('inactive');
   }
   mobileMenu.classList.toggle('inactive');
   console.log("Click menu mobile");
-
+  const isDetailProduct=detailsproduct.classList.contains('inactive');
+  if (!isDetailProduct){
+    detailsproduct.classList.add('inactive');
+    
+  }
 
 }
-
+// Carrito-MyOrders
 function toggleCarritoAside(){
   const isMobileMenuClosed=mobileMenu.classList.contains('inactive');
   const isDesktopMenuClosed=desktopMenu.classList.contains('inactive');
@@ -52,10 +64,34 @@ function toggleCarritoAside(){
   else if(!isDesktopMenuClosed){
     desktopMenu.classList.toggle('inactive')
   }
-  
-  aside.classList.toggle('inactive');}
+  const isDetailProduct=detailsproduct.classList.contains('inactive');
+  if (!isDetailProduct){
+    detailsproduct.classList.add('inactive');
+    
+  }
+  asideOrder.classList.toggle('inactive');
+}
 
 
+//Detalles del producto
+function openProductDetail(){
+  const isAsideOrder=asideOrder.classList.contains('inactive');
+  if (!isAsideOrder){
+    asideOrder.classList.add('inactive');
+  }
+  // const isDesktopMenuClosed=desktopMenu.classList.contains('inactive');
+  // if (!isDesktopMenuClosed){
+  //   mobileMenu.classList.add('inactive');}
+  // const isMobileMenuClosed=desktopMenu.classList.contains('inactive');
+  // if (!isMobileMenuClosed){
+    mobileMenu.classList.add('inactive');
+  }detailsproduct.classList.remove('inactive');}
+
+
+function cerrarDetails(){
+  detailsproduct.classList.add('inactive');
+}
+// ---------------------Array de prductos -----------------------------
   const productlist=[];
   productlist.push({
     name:'Bike',
@@ -107,46 +143,52 @@ function toggleCarritoAside(){
     price: 2500,
     image:'https://assets.bridgestonetire.com/content/dam/consumer/bst/la/co/tips/2022/tecnologia-de-llantas/deportivo.jpg'
   })
-  for ( product of productlist){
+  // ------------------Funcion de llamadoy creacion  de los productos-------------------
+  function renderProducts(arr){
+    for ( product of productlist){
     
     
 
-    const productcard=document.createElement('div');
-    productcard.classList.add('product-card'); 
-    
-    
-
-    const productimg=document.createElement('img');
-    productimg.setAttribute('src',product.image);
-
-    const productinfo=document.createElement('div');
-    productinfo.classList.add('product-info');
-    
-
-    const productInfoDiv=document.createElement('div');
-    const productPrice=document.createElement('p');
-    productPrice.classList.add('price');
-    productPrice.innerText='$'+product.price;
-    const productName=document.createElement('p');
-    productName.classList.add('name');
-    productName.innerText=product.name;
-    
-
-    const productInfoFigure=document.createElement('figure');
-    const productIconcard=document.createElement('img');
-    productIconcard.setAttribute('src','./icons/bt_add_to_cart.svg');
-    
-    productInfoFigure.append(productIconcard);
-
-    productInfoDiv.append(productPrice,productName);
-   
-    productinfo.append(productInfoDiv,productInfoFigure);
-   
-    productcard.append(productimg,productinfo);
-    
-    cardContainer.append(productcard);
+      const productcard=document.createElement('div');
+      productcard.classList.add('product-card'); 
+      
+      
   
+      const productImg=document.createElement('img');
+      productImg.setAttribute('src',product.image);
+      productImg.addEventListener('click', openProductDetail);
+      cerrar.addEventListener('click',cerrarDetails);
+      const productinfo=document.createElement('div');
+      productinfo.classList.add('product-info');
+      
+  
+      const productInfoDiv=document.createElement('div');
+      const productPrice=document.createElement('p');
+      productPrice.classList.add('price');
+      productPrice.innerText='$'+product.price;
+      const productName=document.createElement('p');
+      productName.classList.add('name');
+      productName.innerText=product.name;
+      
+  
+      const productInfoFigure=document.createElement('figure');
+      const productIconcard=document.createElement('img');
+      productIconcard.setAttribute('src','./icons/bt_add_to_cart.svg');
+      
+      productInfoFigure.append(productIconcard);
+  
+      productInfoDiv.append(productPrice,productName);
+     
+      productinfo.append(productInfoDiv,productInfoFigure);
+     
+      productcard.append(productImg,productinfo);
+      
+      cardContainer.append(productcard);
+    
+      
     
   
-
+    }
   }
+
+ renderProducts(productlist);
