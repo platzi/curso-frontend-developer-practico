@@ -2,19 +2,20 @@ const menuEmail = document.querySelector('.navbar-email'); //donde debo dar clic
 const deskopMenu = document.querySelector('.desktop-menu'); // donde quiero que cambie con el click
 const menuMobile = document.querySelector('.menu');
 const movileMenu = document.querySelector('.mobile-menu');
-const menuDeskopCar = document.querySelector('.navbar-shopping-cart');
-const carMenu = document.querySelector('.product-detail');//recordar que tiene que llevar el punto por que son clases si fuera ID seria numeral y si fuera etiquete nada
-const cardsContainer = document.querySelector('.cards-container')
+const menuDeskopCart = document.querySelector('.navbar-shopping-cart');
+const cartMenu = document.querySelector('.product-detail');//recordar que tiene que llevar el punto por que son clases si fuera ID seria numeral y si fuera etiquete nada
+const cardsContainer = document.querySelector('.cards-container');
 
+const cardNumber = document.querySelector('.product-card');
 
 // selecionamos nuestro main container. 
-const mainContainer = document.querySelector(".main-container");
+const mainContainer = document.querySelector(".cards-container");
 
 
 /* de esta forma se convierte un objeto en un array
-const menu2 = {...[deskopMenu,movileMenu,menuDeskopCar]}
+const menu2 = {...[deskopMenu,movileMenu,menuDeskopCart]}
 console.log(menu2)
-const menu3 = array from ([deskopMenu,movileMenu,menuDeskopCar])
+const menu3 = array from ([deskopMenu,movileMenu,menuDeskopCart])
 console.log(menu3) */
 
 
@@ -26,7 +27,7 @@ console.log(menu3) */
 /* //otra forma 1
 menuEmail.addEventListener("click", () => toggleElement(deskopMenu));
 menuMobile.addEventListener("click", () => toggleElement(movileMenu));
-menuDeskopCar.addEventListener("click", () => toggleElement(carMenu));
+menuDeskopCart.addEventListener("click", () => toggleElement(cartMenu));
 
 
 
@@ -35,7 +36,7 @@ const toggleElement = (e) => {
     e.classList.toggle("inactive");
     
     if (e==deskopMenu || e==movileMenu) {
-      carMenu.classList.add('inactive');
+      cartMenu.classList.add('inactive');
     }
 
 };*/
@@ -52,13 +53,13 @@ function colseMenusClick() {
 
   const isMobileMenuClosed = movileMenu.classList.contains('inactive');
   const isDesktopMenuClosed = deskopMenu.classList.contains('inactive')
-  const isCarritoComprasClosed = carMenu.classList.contains('inactive');
+  const isCarritoComprasClosed = cartMenu.classList.contains('inactive');
   
   if (!isMobileMenuClosed || !isDesktopMenuClosed || !isCarritoComprasClosed )  {
 
       movileMenu.classList.add("inactive");
       deskopMenu.classList.add("inactive");   
-      carMenu.classList.add("inactive");
+      cartMenu.classList.add("inactive");
  
   }
 
@@ -70,13 +71,13 @@ mainContainer.addEventListener('click', colseMenusClick);
 
 menuEmail.addEventListener ('click',toggleDeskotMenu);
 menuMobile.addEventListener ('click',toggleMobileMenu);
-menuDeskopCar.addEventListener ('click',toggleDeskopCar);
+menuDeskopCart.addEventListener ('click',toggleDeskopCar);
 
 
 function toggleDeskotMenu () {
     pestaña = deskopMenu.classList.value;  
     deskopMenu.classList.toggle('inactive');
-    carMenu.classList.add('inactive');
+    cartMenu.classList.add('inactive');
 };
 
 
@@ -85,13 +86,13 @@ function toggleMobileMenu () {
   
 
   movileMenu.classList.toggle('inactive');
-  carMenu.classList.add('inactive');
+  cartMenu.classList.add('inactive');
   };
 
 function toggleDeskopCar () {
-  pestaña = carMenu.classList.value;
+  pestaña = cartMenu.classList.value;
 
-  carMenu.classList.toggle('inactive');
+  cartMenu.classList.toggle('inactive');
   movileMenu.classList.add('inactive');
   deskopMenu.classList.add('inactive');
 }
@@ -155,6 +156,22 @@ for (product of productlist)*/
 
 
   function renderProductos(arr) {
+    /**
+      * ! aplicaciones del for
+      * ! 1
+
+    for (product of productList) {
+      console.log(product.name)
+    }
+    dando como resultado la impresion de los nombre del array
+
+      * ! 2
+     for (product in productList) {
+      console.log(product)
+      }
+    dando como resultado la impresion de cada uno de los numeros de los elementos
+    */
+
     for (product of productList) {
       //crear el div con el metodo create
       const productCard = document.createElement('div')
@@ -182,7 +199,8 @@ for (product of productlist)*/
       productInfoDiv.appendChild(productPrice);
       productInfoDiv.appendChild(productName);
 /** 
- * ! mejora para el appen productInfoDiv.append(productPrice, productName)
+ * ! mejora para el appen 
+ * productInfoDiv.append(productPrice, productName)
  
 */       
     
@@ -260,3 +278,5 @@ crean cualquier producto con la clase y una vez creado se le aplica el metodo.
   ///producto subido a nuestra pagina */
  
   renderProductos(productList);
+
+  
