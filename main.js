@@ -116,18 +116,18 @@ function toggleDeskopCar () {
   } 
 } */
 
-const productlist = [];
-productlist.push ({
+const productList = [];
+productList.push ({
   name: 'bike',
   price: 120,
   Image: 'https://images.pexels.com/photos/276517/pexels-photo-276517.jpeg?auto=compress&cs=tinysrgb&dpr=2&h=650&w=940'
 });
-productlist.push ({
+productList.push ({
   name: 'motorbike',
   price: 1200,
   Image: 'https://images.pexels.com/photos/5803142/pexels-photo-5803142.jpeg?auto=compress&cs=tinysrgb&dpr=2&h=650&w=940'
 });
-productlist.push ({
+productList.push ({
   name: 'car',
   price: 6000,
   Image: 'https://images.pexels.com/photos/3686770/pexels-photo-3686770.jpeg?auto=compress&cs=tinysrgb&dpr=2&h=650&w=940'
@@ -155,8 +155,8 @@ for (product of productlist)*/
 
 
   function renderProductos(arr) {
-    for (product of productlist) {
-      //crear el div
+    for (product of productList) {
+      //crear el div con el metodo create
       const productCard = document.createElement('div')
       // asignarle la clase
       productCard.classList.add('product-card')
@@ -204,7 +204,8 @@ for (product of productlist)*/
       //meter productCards en el container
       cardsContainer.appendChild(productCard);
     
-    
+    }
+  }
       /** 
        * ! me sirve para mas adelante ya que tien clases y metodos
       como se va a tener que trabajar con la class container se agrega la costante en query selecto
@@ -248,7 +249,7 @@ class product {
 crean cualquier producto con la clase y una vez creado se le aplica el metodo.
 
 // creamos un nuevo producto de la instancia product
-const portatil= new product({
+  const portatil= new product({
         name:'Portatil Hp Pavilion',
         id: 6841563,
         price: 1200,
@@ -256,7 +257,6 @@ const portatil= new product({
     });
 
   portatil.deploy();
-///producto subido a nuestra pagina */
-  }
-
-  renderProductos(productlist)
+  ///producto subido a nuestra pagina */
+ 
+  renderProductos(productList);
