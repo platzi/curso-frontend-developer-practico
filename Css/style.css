@@ -15,6 +15,15 @@
     font-family: 'Quicksand', sans-serif;
   }
   /* ----------------Navbar en general----------------------- */
+ /* nav ul li{
+  padding: 8px;
+ } */
+  .desktop-menu ul li a:hover, .mobile-menu ul li:hover{
+    background-color: var(--shadows);
+    border-radius: 8px;
+    
+
+  }
   nav {
     display: flex;
     justify-content: space-between;
@@ -64,6 +73,7 @@
     margin-right: 12px;
     cursor: pointer;
   }
+  
   .navbar-shopping-cart {
     position: relative;
     cursor: pointer;
@@ -109,6 +119,7 @@
   }
   .desktop-menu ul li {
     text-align: end;
+    
   }
   .desktop-menu ul li:nth-child(1),
   .desktop-menu ul li:nth-child(2) {
@@ -127,6 +138,7 @@
     text-decoration: none;
     margin-bottom: 20px;
     display: inline-block;
+    
   }
 
 /*-------------------------mobile menu---------------------------------------*/
@@ -264,6 +276,7 @@
    .main-container{
     margin: 0 auto;
     padding: 5px 30px;
+    padding-bottom: 50px;
    }
    .cards-container {
     display: grid;
