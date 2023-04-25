@@ -181,8 +181,10 @@ for (product of productlist)*/
       //meter los datos de precios y nombre en el div
       productInfoDiv.appendChild(productPrice);
       productInfoDiv.appendChild(productName);
-    
-      
+/** 
+ * ! mejora para el appen productInfoDiv.append(productPrice, productName)
+ 
+*/       
     
       const productInfoFigure = document.createElement('figure');
       const productImgCard = document.createElement('img');
@@ -203,8 +205,58 @@ for (product of productlist)*/
       cardsContainer.appendChild(productCard);
     
     
-      // como se va a tener que trabajar con la class container se agrega la costante en query selecto
+      /** 
+       * ! me sirve para mas adelante ya que tien clases y metodos
+      como se va a tener que trabajar con la class container se agrega la costante en query selecto
     }
+
+   /*  Pueden crear una clase y crear un metodo deploy(), lo que hara este metodo es es que cada vez que creen un producto y le apliquen el metodo deploy(), este mismo producto se añadira a nuestro contenedor de las cards en html.
+
+class product {
+    constructor({
+        name,
+        id,
+        price,
+        img
+    }){
+        this.name = name,
+        this.id= id,
+        this.price= price,
+        this.img= img
+    }
+ ///metodo deploy()
+    deploy(){
+        let cardHtml=`
+        <img src="${this.img}" alt="">
+            <div class="product-info">
+            <div>
+                <p>$${this.price}</p>
+                <p>${this.name}</p>
+            </div>
+            <figure>
+                <img src="./icons/bt_add_to_cart.svg"   alt="">
+            </figure>
+            </div>
+        `
+        const parentChildsCards= document.querySelector('.cards-container');
+        let cardInfoProduct= document.createElement('div');
+        cardInfoProduct.classList.add('product-card');
+        cardInfoProduct.innerHTML= cardHtml;
+        parentChildsCards.insertAdjacentElement('beforeend',cardInfoProduct);
+    }
+}
+crean cualquier producto con la clase y una vez creado se le aplica el metodo.
+
+// creamos un nuevo producto de la instancia product
+const portatil= new product({
+        name:'Portatil Hp Pavilion',
+        id: 6841563,
+        price: 1200,
+        img: 'https://th.bing.com/th/id/R.64e3e17f84c592313289c38103125892?rik=F26je4v5XKOAPA&pid=ImgRaw&r=0'
+    });
+
+  portatil.deploy();
+///producto subido a nuestra pagina */
   }
 
   renderProductos(productlist)
