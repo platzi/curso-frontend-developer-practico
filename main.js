@@ -4,16 +4,17 @@ const menuMobile = document.querySelector('.menu');
 const movileMenu = document.querySelector('.mobile-menu');
 const menuDeskopCar = document.querySelector('.navbar-shopping-cart');
 const carMenu = document.querySelector('.product-detail');//recordar que tiene que llevar el punto por que son clases si fuera ID seria numeral y si fuera etiquete nada
-const menu = [deskopMenu.classList.value,movileMenu.classList.value,menuDeskopCar.classList.value]
-let pestaña;
+const cardsContainer = document.querySelector('.cards-container')
 
 
-/* console.log(menu)
-console.log(deskopMenu) */
-/* de esta forma se convierte un objeto en un array*/
+// selecionamos nuestro main container. 
+const mainContainer = document.querySelector(".main-container");
+
+
+/* de esta forma se convierte un objeto en un array
 const menu2 = {...[deskopMenu,movileMenu,menuDeskopCar]}
-console.log(menu2) 
-/* const menu3 = array from ([deskopMenu,movileMenu,menuDeskopCar])
+console.log(menu2)
+const menu3 = array from ([deskopMenu,movileMenu,menuDeskopCar])
 console.log(menu3) */
 
 
@@ -21,8 +22,8 @@ console.log(menu3) */
 
 
 
-/* 
-otra forma
+
+/* //otra forma 1
 menuEmail.addEventListener("click", () => toggleElement(deskopMenu));
 menuMobile.addEventListener("click", () => toggleElement(movileMenu));
 menuDeskopCar.addEventListener("click", () => toggleElement(carMenu));
@@ -34,17 +35,37 @@ const toggleElement = (e) => {
     e.classList.toggle("inactive");
     
     if (e==deskopMenu || e==movileMenu) {
-
+      carMenu.classList.add('inactive');
     }
 
-
-
-};
-
+};*/
+/* 
 otra forma de capturar datos
 atajo en bloque shit + alt  + a
 */
 
+/* 
+//otra forma 2 
+// creamos una funcion que va a validar si alguno de los 2 menus o el carrito de compras este abierto y va a cerrarlo si esta abierto. 
+
+function colseMenusClick() {
+
+  const isMobileMenuClosed = movileMenu.classList.contains('inactive');
+  const isDesktopMenuClosed = deskopMenu.classList.contains('inactive')
+  const isCarritoComprasClosed = carMenu.classList.contains('inactive');
+  
+  if (!isMobileMenuClosed || !isDesktopMenuClosed || !isCarritoComprasClosed )  {
+
+      movileMenu.classList.add("inactive");
+      deskopMenu.classList.add("inactive");   
+      carMenu.classList.add("inactive");
+ 
+  }
+
+}
+// añadimos un evento de escucha y llamamos a la funcion antes creada  
+mainContainer.addEventListener('click', colseMenusClick);
+ */
 
 
 menuEmail.addEventListener ('click',toggleDeskotMenu);
@@ -53,12 +74,9 @@ menuDeskopCar.addEventListener ('click',toggleDeskopCar);
 
 
 function toggleDeskotMenu () {
-    pestaña = deskopMenu.classList.value;
-    
-
+    pestaña = deskopMenu.classList.value;  
     deskopMenu.classList.toggle('inactive');
     carMenu.classList.add('inactive');
-    /* cleanScreen (pestaña); */
 };
 
 
@@ -68,19 +86,16 @@ function toggleMobileMenu () {
 
   movileMenu.classList.toggle('inactive');
   carMenu.classList.add('inactive');
-/*     cleanScreen (pestaña);
- */};
+  };
+
 function toggleDeskopCar () {
   pestaña = carMenu.classList.value;
-  
 
   carMenu.classList.toggle('inactive');
-/*   cleanScreen (pestaña);
- */  movileMenu.classList.add('inactive');
+  movileMenu.classList.add('inactive');
   deskopMenu.classList.add('inactive');
-
-
 }
+
 
 /* function cleanScreen (valor) {
     let menuLista = [...menu];
@@ -97,6 +112,99 @@ function toggleDeskopCar () {
     console.log(menuLista)
     for (let i=0; i<menuLista.length; i++){
       console.log(menuLista[i])
-      menuLista[i].classList.toggle('inactive')
+      menuLista[i].classList.add('inactive')
   } 
-}  */
+} */
+
+const productlist = [];
+productlist.push ({
+  name: 'bike',
+  price: 120,
+  Image: 'https://images.pexels.com/photos/276517/pexels-photo-276517.jpeg?auto=compress&cs=tinysrgb&dpr=2&h=650&w=940'
+});
+productlist.push ({
+  name: 'motorbike',
+  price: 1200,
+  Image: 'https://images.pexels.com/photos/5803142/pexels-photo-5803142.jpeg?auto=compress&cs=tinysrgb&dpr=2&h=650&w=940'
+});
+productlist.push ({
+  name: 'car',
+  price: 6000,
+  Image: 'https://images.pexels.com/photos/3686770/pexels-photo-3686770.jpeg?auto=compress&cs=tinysrgb&dpr=2&h=650&w=940'
+});
+
+/* atajo para f0r
+
+for (product of productlist)*/
+
+/* estructura base
+<div class="product-card">
+<img src="https://images.pexels.com/photos/276517/pexels-photo-276517.jpeg?auto=compress&cs=tinysrgb&dpr=2&h=650&w=940" alt="">
+<div class="product-info">
+  <div>
+    <p>$120,00</p>
+    <p>Bike</p>
+  </div>
+  <figure>
+    <img src="./icons/bt_add_to_cart.svg" alt="">
+  </figure>
+</div>
+</div> 
+ */
+
+
+
+  function renderProductos(arr) {
+    for (product of productlist) {
+      //crear el div
+      const productCard = document.createElement('div')
+      // asignarle la clase
+      productCard.classList.add('product-card')
+      
+      
+      //product contiene {name, price, img} product.img
+      const productImg =document.createElement('img')
+      //agregar el link de la imagen
+      productImg.setAttribute('src', product.Image)
+      
+      const productInfo = document.createElement('div');
+      productInfo.classList.add('product-info');
+    
+      const productInfoDiv = document.createElement('div');
+    
+      const productPrice = document.createElement('p');
+      productPrice.innerText = '$' + product.price;
+    
+      const productName = document.createElement('p');
+      productName.innerText = product.name;
+    
+      //meter los datos de precios y nombre en el div
+      productInfoDiv.appendChild(productPrice);
+      productInfoDiv.appendChild(productName);
+    
+      
+    
+      const productInfoFigure = document.createElement('figure');
+      const productImgCard = document.createElement('img');
+      productImgCard.setAttribute('src', './icons/bt_add_to_cart.svg')
+      //meter la imagen dentro del figure
+      productInfoFigure.appendChild(productImgCard);
+    
+      
+      //meter productinfodiv y productinfofigure en el productinfo
+      productInfo.appendChild(productInfoDiv)
+      productInfo.appendChild(productInfoFigure)
+    
+    
+      productCard.appendChild(productImg)
+      productCard.appendChild(productInfo)
+      
+      //meter productCards en el container
+      cardsContainer.appendChild(productCard);
+    
+    
+      // como se va a tener que trabajar con la class container se agrega la costante en query selecto
+    }
+  }
+
+  renderProductos(productlist)
