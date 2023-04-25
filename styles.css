@@ -56,6 +56,9 @@
     color: var(--very-light-pink);
     font-size: var(--sm);
     margin-right: 12px;
+
+    user-select: none; /*No deja que sea seleccionado por el usuario*/
+    cursor: pointer;
   }
   .navbar-shopping-cart {
     position: relative;
