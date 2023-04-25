@@ -28,7 +28,6 @@
       justify-content: space-between;
       padding: 0 24px;
       border-bottom: 2px solid var(--very-light-pink);
-      position: fixed;
     }
     .menu {
       display: none;
