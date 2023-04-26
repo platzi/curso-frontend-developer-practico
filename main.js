@@ -5,6 +5,8 @@ const movileMenu = document.querySelector('.mobile-menu');
 const menuDeskopCart = document.querySelector('.navbar-shopping-cart');
 const cartMenu = document.querySelector('.cart');//recordar que tiene que llevar el punto por que son clases si fuera ID seria numeral y si fuera etiquete nada
 const cardsContainer = document.querySelector('.cards-container');
+const cardDetail = document.querySelector('.card');//cambiar si se muestra o no la ventana
+const closeCardDetail = document.querySelector('.product-detail-close');//escuchar el clik en la X
 
 
 const cardNumber = document.querySelector('.product-card');
@@ -29,17 +31,12 @@ console.log(menu3) */
 menuEmail.addEventListener("click", () => toggleElement(deskopMenu));
 menuMobile.addEventListener("click", () => toggleElement(movileMenu));
 menuDeskopCart.addEventListener("click", () => toggleElement(cartMenu));
-
-
-
 const toggleElement = (e) => {
-
     e.classList.toggle("inactive");
     
     if (e==deskopMenu || e==movileMenu) {
       cartMenu.classList.add('inactive');
     }
-
 };*/
 /* 
 otra forma de capturar datos
@@ -49,21 +46,17 @@ atajo en bloque shit + alt  + a
 /* 
 //otra forma 2 
 // creamos una funcion que va a validar si alguno de los 2 menus o el carrito de compras este abierto y va a cerrarlo si esta abierto. 
-
 function colseMenusClick() {
-
   const isMobileMenuClosed = movileMenu.classList.contains('inactive');
   const isDesktopMenuClosed = deskopMenu.classList.contains('inactive')
   const isCarritoComprasClosed = cartMenu.classList.contains('inactive');
   
   if (!isMobileMenuClosed || !isDesktopMenuClosed || !isCarritoComprasClosed )  {
-
       movileMenu.classList.add("inactive");
       deskopMenu.classList.add("inactive");   
       cartMenu.classList.add("inactive");
  
   }
-
 }
 // añadimos un evento de escucha y llamamos a la funcion antes creada  
 mainContainer.addEventListener('click', colseMenusClick);
@@ -73,6 +66,7 @@ mainContainer.addEventListener('click', colseMenusClick);
 menuEmail.addEventListener ('click',toggleDeskotMenu);
 menuMobile.addEventListener ('click',toggleMobileMenu);
 menuDeskopCart.addEventListener ('click',toggleDeskopCar);
+closeCardDetail.addEventListener ('click',closeDetailCard);
 
 
 function toggleDeskotMenu () {
@@ -99,15 +93,30 @@ function toggleDeskopCar () {
 
 }
 
+function openDetailCard () {
+  cardDetail.classList.remove('inactive');
+  movileMenu.classList.add('inactive');
+  deskopMenu.classList.add('inactive');
+  cartMenu.classList.add('inactive');
+}
+
+
+
+
+function closeDetailCard () {
+
+  cardDetail.classList.add('inactive');
+  
+
+}
+
 
 /* function cleanScreen (valor) {
     let menuLista = [...menu];
     console.log(menuLista);
     let posicion = menuLista.indexOf(valor);
     console.log(posicion)
-
     
-
    
     
     console.log(menuLista.length)
@@ -137,7 +146,6 @@ productList.push ({
 });
 
 /* atajo para f0r
-
 for (product of productlist)*/
 
 /* estructura base
@@ -161,12 +169,10 @@ for (product of productlist)*/
     /**
       * ! aplicaciones del for
       * ! 1
-
     for (product of productList) {
       console.log(product.name)
     }
     dando como resultado la impresion de los nombre del array
-
       * ! 2
      for (product in productList) {
       console.log(product)
@@ -185,7 +191,9 @@ for (product of productlist)*/
       const productImg =document.createElement('img')
       //agregar el link de la imagen
       productImg.setAttribute('src', product.Image)
-      
+      //escuchar el click de la imagen
+      productImg.addEventListener('click',openDetailCard);
+
       const productInfo = document.createElement('div');
       productInfo.classList.add('product-info');
     
@@ -230,9 +238,7 @@ for (product of productlist)*/
        * ! me sirve para mas adelante ya que tien clases y metodos
       como se va a tener que trabajar con la class container se agrega la costante en query selecto
     }
-
    /*  Pueden crear una clase y crear un metodo deploy(), lo que hara este metodo es es que cada vez que creen un producto y le apliquen el metodo deploy(), este mismo producto se añadira a nuestro contenedor de las cards en html.
-
 class product {
     constructor({
         name,
@@ -267,7 +273,6 @@ class product {
     }
 }
 crean cualquier producto con la clase y una vez creado se le aplica el metodo.
-
 // creamos un nuevo producto de la instancia product
   const portatil= new product({
         name:'Portatil Hp Pavilion',
@@ -275,10 +280,7 @@ crean cualquier producto con la clase y una vez creado se le aplica el metodo.
         price: 1200,
         img: 'https://th.bing.com/th/id/R.64e3e17f84c592313289c38103125892?rik=F26je4v5XKOAPA&pid=ImgRaw&r=0'
     });
-
   portatil.deploy();
   ///producto subido a nuestra pagina */
  
   renderProductos(productList);
-
-  
