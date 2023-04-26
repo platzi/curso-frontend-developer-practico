@@ -8,7 +8,7 @@ const shoppingCartContainer = document.querySelector('#shoppingCartContainer')
 const cardsContainer = document.querySelector('.cards-container')
 const productDetailContainer = document.querySelector('#productDetail')
 productDetailCloseIcon.addEventListener('click', closeProductDetailAside)
-
+ 
 navEmail.addEventListener('click', toggleDesktopMenu)
 menuHamIcon.addEventListener('click', toggleMobileMenu)
 menuCarritoIcon.addEventListener('click', toggleCarritoAside)
