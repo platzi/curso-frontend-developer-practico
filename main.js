@@ -7,17 +7,16 @@ const cartMenu = document.querySelector('.cart');//recordar que tiene que llevar
 const cardsContainer = document.querySelector('.cards-container');
 const cardDetail = document.querySelector('.card');//cambiar si se muestra o no la ventana
 const closeCardDetail = document.querySelector('.product-detail-close');//escuchar el clik en la X
-const cardNumber = document.querySelector('.product-card');
+const cardClickDetail = document.querySelector('.card')
+
 
 // selecionamos nuestro main container. 
 const mainContainer = document.querySelector(".cards-container");
 
-
-
 menuEmail.addEventListener ('click',toggleDeskotMenu);
 menuMobile.addEventListener ('click',toggleMobileMenu);
 menuDeskopCart.addEventListener ('click',toggleDeskopCar);
-closeCardDetail.addEventListener ('click',closeDetailCard);
+//closeCardDetail.addEventListener ('click',closeDetailCard);
 
 
 function toggleDeskotMenu () {
@@ -48,12 +47,11 @@ function openDetailCard () {
   cartMenu.classList.add('inactive');
 }
 
-
-
-
 function closeDetailCard () {
   cardDetail.classList.add('inactive');
 }
+
+
 
 const productList = [];
 productList.push ({
@@ -90,6 +88,9 @@ productList.push ({
       productImg.setAttribute('src', product.Image)
       //escuchar el click de la imagen
       productImg.addEventListener('click',openDetailCard);
+      
+
+      
       //productImg.addEventListener('click',detailCard); se pretendia escuchar el click y que funcionara la funcion detailCard
 
 
@@ -101,9 +102,18 @@ productList.push ({
       const productPrice = document.createElement('p');
       productPrice.innerText = '$' + product.price;
     
+      /**
+    * ! importante
+
+    **/
+      productImg.addEventListener('click', function() {
+        
+        console.log("mostrar detail")
+      });
+
       const productName = document.createElement('p');
       productName.innerText = product.name;
-    
+
       //meter los datos de precios y nombre en el div
       productInfoDiv.appendChild(productPrice);
       productInfoDiv.appendChild(productName);  
@@ -125,54 +135,66 @@ productList.push ({
       
       //meter productCards en el container
       cardsContainer.appendChild(productCard);
-    
-      /** 
-       * ! descripcion card
-       
 
-      function detailCard () {
-
-        const productDetail = document.createElement('div')
-        productDetail.classList.add('product-detail-close')
-        
-        const closeDetailImg =document.createElement('img')
-        closeDetailImg.setAttribute('src', "./icons/icon_close.png")
-  
-         //meter closeDetailImg en el productDetail
-        productDetail.appendChild(closeDetailImg);
-        
-        const productDetailInfo = document.createElement('div')
-        productDetailInfo.classList.add('product-info')
-  
-        const productDetailImg = document.createElement('img');
-        productDetailImg.setAttribute('src',product.Image);
-  
-        const productDetailPrice = document.createElement('p');
-        productDetailPrice.innerText = '$' + product.price;
-      
-        const productDetailName = document.createElement('p');
-        productDetailName.innerText = product.name;
-  
-        const productDetailDescription = document.createElement('p');
-        productDetailDescription.innerText = product.description;
-  
-        
-        
-        const productDetailButton = document.createElement('button');
-        productDetailButton.classList.add('primary-button add-to-cart-button')
-        productDetailDescription.innerText = "Add to cart";
-  
-        const buttonDetailImg =document.createElement('img')
-        buttonDetailImg.setAttribute('src', "./icons/bt_add_to_cart.svg")
-  
-        productDetailButton.append(buttonDetailImg , productDetailDescription)
-  
-        productDetailInfo.append(productDetailImg, productDetailPrice, productDetailName, productDetailDescription, productDetailButton)
-  
-        cardDetail.append(productDetail, productDetailInfo)
-      }
-      */
+     
     }
   }
- 
+
   renderProductos(productList);
+
+  function detailCard () {
+    
+    /** 
+   * ! descripcion card
+   * 
+   * 
+   * 
+   * */
+    for (product of productList) {
+      console.log("entro")
+
+      const productDetail = document.createElement('div')
+      productDetail.classList.add('product-detail-close')
+      productDetail.addEventListener('click',closeDetailCard)
+
+      const closeDetailImg =document.createElement('img')
+      closeDetailImg.setAttribute('src', "./icons/icon_close.png")
+
+       //meter closeDetailImg en el productDetail
+      productDetail.appendChild(closeDetailImg);
+    
+      const productDetailInfo = document.createElement('div')
+      productDetailInfo.classList.add('product-info')
+
+      const productDetailImg = document.createElement('img');
+      productDetailImg.setAttribute('src',product.Image);
+
+      const productDetailPrice = document.createElement('p');
+      productDetailPrice.innerText = '$' + product.price;
+  
+      const productDetailName = document.createElement('p');
+      productDetailName.innerText = product.name;
+
+      const productDetailDescription = document.createElement('p');
+      productDetailDescription.innerText = product.description;
+
+    
+    
+      const productDetailButton = document.createElement('button');
+      productDetailButton.classList.add('primary-button', 'add-to-cart-button')
+      productDetailButton.append ("Add to cart");
+
+      const buttonDetailImg =document.createElement('img')
+      buttonDetailImg.setAttribute('src', "./icons/bt_add_to_cart.svg")
+
+      productDetailButton.append(buttonDetailImg , productDetailDescription)
+
+      productDetailInfo.append(productDetailPrice, productDetailName, productDetailDescription, productDetailButton)
+
+      cardClickDetail.append(productDetail,productDetailImg ,productDetailInfo)
+      
+    }
+    
+  
+  }
+  detailCard(productList)
