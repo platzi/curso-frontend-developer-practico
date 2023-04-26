@@ -5,11 +5,15 @@ const movileMenu = document.querySelector('.mobile-menu');
 const carritoIcon = document.querySelector('.navbar-shopping-cart')
 const carritoMenu = document.querySelector('.product-detail')
 const cardConteiner = document.querySelector('.cards-container')
+const Clothes = document.querySelector('.Clothes')
+
+var mostrarProduct = false;
+
 
 navEmail.addEventListener('click', toggleMenu)
 burguerIcon.addEventListener('click', toggleMovile);
 carritoIcon.addEventListener('click', toggleCarrito);
-
+Clothes.addEventListener('click', productClothes);
 
 function toggleCarrito() {
 
@@ -101,7 +105,7 @@ productList.push({
 */
 
 function renderProduct(lib){
-    for(product of productList){
+    for(product of lib){
         // Maquetacion de carta del producto (elemento html)
            const productCard = document.createElement("div");
            productCard.classList.add("product-card");
@@ -144,4 +148,38 @@ function renderProduct(lib){
 
 renderProduct(productList);
 
-//funciona
+
+function productClothes(){   
+   
+    var productListClothes = [];
+productListClothes.push({
+    name:'hello Kanye',
+    price:70,
+    image:'https://cdn.shopify.com/s/files/1/0235/4475/8319/products/hellokanye.jpg?v=1667000969'
+});
+productListClothes.push({
+    name:'t-shirt Ralph Lauren',
+    price:100,
+    image:'https://static.standard.co.uk/2022/02/11/13/PAUL%20SMITH%20ARTIST%20STRIPE%20POLO.jpg'
+});
+productListClothes.push({
+    name:'BBC Jacket Lollipop Red',
+    price:300,
+    image:'https://i.ebayimg.com/images/g/XXEAAOSwxkhhu5gM/s-l1600.jpg'
+});
+
+
+if(!mostrarProduct) {
+    renderProduct(productListClothes);
+    mostrarProduct = true;
+}
+}
+
+
+
+
+
+
+
+
+
