@@ -7,60 +7,11 @@ const cartMenu = document.querySelector('.cart');//recordar que tiene que llevar
 const cardsContainer = document.querySelector('.cards-container');
 const cardDetail = document.querySelector('.card');//cambiar si se muestra o no la ventana
 const closeCardDetail = document.querySelector('.product-detail-close');//escuchar el clik en la X
-
-
 const cardNumber = document.querySelector('.product-card');
 
 // selecionamos nuestro main container. 
 const mainContainer = document.querySelector(".cards-container");
 
-
-/* de esta forma se convierte un objeto en un array
-const menu2 = {...[deskopMenu,movileMenu,menuDeskopCart]}
-console.log(menu2)
-const menu3 = array from ([deskopMenu,movileMenu,menuDeskopCart])
-console.log(menu3) */
-
-
-
-
-
-
-
-/* //otra forma 1
-menuEmail.addEventListener("click", () => toggleElement(deskopMenu));
-menuMobile.addEventListener("click", () => toggleElement(movileMenu));
-menuDeskopCart.addEventListener("click", () => toggleElement(cartMenu));
-const toggleElement = (e) => {
-    e.classList.toggle("inactive");
-    
-    if (e==deskopMenu || e==movileMenu) {
-      cartMenu.classList.add('inactive');
-    }
-};*/
-/* 
-otra forma de capturar datos
-atajo en bloque shit + alt  + a
-*/
-
-/* 
-//otra forma 2 
-// creamos una funcion que va a validar si alguno de los 2 menus o el carrito de compras este abierto y va a cerrarlo si esta abierto. 
-function colseMenusClick() {
-  const isMobileMenuClosed = movileMenu.classList.contains('inactive');
-  const isDesktopMenuClosed = deskopMenu.classList.contains('inactive')
-  const isCarritoComprasClosed = cartMenu.classList.contains('inactive');
-  
-  if (!isMobileMenuClosed || !isDesktopMenuClosed || !isCarritoComprasClosed )  {
-      movileMenu.classList.add("inactive");
-      deskopMenu.classList.add("inactive");   
-      cartMenu.classList.add("inactive");
- 
-  }
-}
-// añadimos un evento de escucha y llamamos a la funcion antes creada  
-mainContainer.addEventListener('click', colseMenusClick);
- */
 
 
 menuEmail.addEventListener ('click',toggleDeskotMenu);
@@ -70,27 +21,24 @@ closeCardDetail.addEventListener ('click',closeDetailCard);
 
 
 function toggleDeskotMenu () {
-    pestaña = deskopMenu.classList.value;  
-    deskopMenu.classList.toggle('inactive');
-    cartMenu.classList.add('inactive');
+  deskopMenu.classList.toggle('inactive');
+  cartMenu.classList.add('inactive');
+  cardDetail.classList.add('inactive');
 };
 
 
 function toggleMobileMenu () {
-  pestaña = movileMenu.classList.value;
-  
-
   movileMenu.classList.toggle('inactive');
   cartMenu.classList.add('inactive');
+  cardDetail.classList.add('inactive');
   };
 
 function toggleDeskopCar () {
-  pestaña = cartMenu.classList.value;
 
   cartMenu.classList.toggle('inactive');
   movileMenu.classList.add('inactive');
   deskopMenu.classList.add('inactive');
-
+  cardDetail.classList.add('inactive');
 }
 
 function openDetailCard () {
@@ -104,82 +52,31 @@ function openDetailCard () {
 
 
 function closeDetailCard () {
-
   cardDetail.classList.add('inactive');
-  
-
 }
-
-
-/* function cleanScreen (valor) {
-    let menuLista = [...menu];
-    console.log(menuLista);
-    let posicion = menuLista.indexOf(valor);
-    console.log(posicion)
-    
-   
-    
-    console.log(menuLista.length)
-    menuLista = menuLista.filter((item ) => item  !== valor)
-    console.log(menuLista)
-    for (let i=0; i<menuLista.length; i++){
-      console.log(menuLista[i])
-      menuLista[i].classList.add('inactive')
-  } 
-} */
 
 const productList = [];
 productList.push ({
   name: 'bike',
   price: 120,
+  description: "bicycle, also called bike, two-wheeled steerable machine that is pedaled by the rider's feet",
   Image: 'https://images.pexels.com/photos/276517/pexels-photo-276517.jpeg?auto=compress&cs=tinysrgb&dpr=2&h=650&w=940'
 });
 productList.push ({
   name: 'motorbike',
   price: 1200,
+  description: "A motorcycle is a two-wheeled vehicle with an engine. Motorcycles are bigger, heavier, and much faster than bicycles",
   Image: 'https://images.pexels.com/photos/5803142/pexels-photo-5803142.jpeg?auto=compress&cs=tinysrgb&dpr=2&h=650&w=940'
 });
 productList.push ({
   name: 'car',
   price: 6000,
+  description: "A car is a vehicle that has wheels, carries a small number of passengers, and is moved by an engine or a motor",
   Image: 'https://images.pexels.com/photos/3686770/pexels-photo-3686770.jpeg?auto=compress&cs=tinysrgb&dpr=2&h=650&w=940'
 });
 
-/* atajo para f0r
-for (product of productlist)*/
-
-/* estructura base
-<div class="product-card">
-<img src="https://images.pexels.com/photos/276517/pexels-photo-276517.jpeg?auto=compress&cs=tinysrgb&dpr=2&h=650&w=940" alt="">
-<div class="product-info">
-  <div>
-    <p>$120,00</p>
-    <p>Bike</p>
-  </div>
-  <figure>
-    <img src="./icons/bt_add_to_cart.svg" alt="">
-  </figure>
-</div>
-</div> 
- */
-
-
-
   function renderProductos(arr) {
-    /**
-      * ! aplicaciones del for
-      * ! 1
-    for (product of productList) {
-      console.log(product.name)
-    }
-    dando como resultado la impresion de los nombre del array
-      * ! 2
-     for (product in productList) {
-      console.log(product)
-      }
-    dando como resultado la impresion de cada uno de los numeros de los elementos
-    */
-
+  
     for (product of productList) {
       //crear el div con el metodo create
       const productCard = document.createElement('div')
@@ -193,6 +90,8 @@ for (product of productlist)*/
       productImg.setAttribute('src', product.Image)
       //escuchar el click de la imagen
       productImg.addEventListener('click',openDetailCard);
+      //productImg.addEventListener('click',detailCard); se pretendia escuchar el click y que funcionara la funcion detailCard
+
 
       const productInfo = document.createElement('div');
       productInfo.classList.add('product-info');
@@ -207,12 +106,7 @@ for (product of productlist)*/
     
       //meter los datos de precios y nombre en el div
       productInfoDiv.appendChild(productPrice);
-      productInfoDiv.appendChild(productName);
-/** 
- * ! mejora para el appen 
- * productInfoDiv.append(productPrice, productName)
- 
-*/       
+      productInfoDiv.appendChild(productName);  
     
       const productInfoFigure = document.createElement('figure');
       const productImgCard = document.createElement('img');
@@ -232,55 +126,53 @@ for (product of productlist)*/
       //meter productCards en el container
       cardsContainer.appendChild(productCard);
     
+      /** 
+       * ! descripcion card
+       
+
+      function detailCard () {
+
+        const productDetail = document.createElement('div')
+        productDetail.classList.add('product-detail-close')
+        
+        const closeDetailImg =document.createElement('img')
+        closeDetailImg.setAttribute('src', "./icons/icon_close.png")
+  
+         //meter closeDetailImg en el productDetail
+        productDetail.appendChild(closeDetailImg);
+        
+        const productDetailInfo = document.createElement('div')
+        productDetailInfo.classList.add('product-info')
+  
+        const productDetailImg = document.createElement('img');
+        productDetailImg.setAttribute('src',product.Image);
+  
+        const productDetailPrice = document.createElement('p');
+        productDetailPrice.innerText = '$' + product.price;
+      
+        const productDetailName = document.createElement('p');
+        productDetailName.innerText = product.name;
+  
+        const productDetailDescription = document.createElement('p');
+        productDetailDescription.innerText = product.description;
+  
+        
+        
+        const productDetailButton = document.createElement('button');
+        productDetailButton.classList.add('primary-button add-to-cart-button')
+        productDetailDescription.innerText = "Add to cart";
+  
+        const buttonDetailImg =document.createElement('img')
+        buttonDetailImg.setAttribute('src', "./icons/bt_add_to_cart.svg")
+  
+        productDetailButton.append(buttonDetailImg , productDetailDescription)
+  
+        productDetailInfo.append(productDetailImg, productDetailPrice, productDetailName, productDetailDescription, productDetailButton)
+  
+        cardDetail.append(productDetail, productDetailInfo)
+      }
+      */
     }
   }
-      /** 
-       * ! me sirve para mas adelante ya que tien clases y metodos
-      como se va a tener que trabajar con la class container se agrega la costante en query selecto
-    }
-   /*  Pueden crear una clase y crear un metodo deploy(), lo que hara este metodo es es que cada vez que creen un producto y le apliquen el metodo deploy(), este mismo producto se añadira a nuestro contenedor de las cards en html.
-class product {
-    constructor({
-        name,
-        id,
-        price,
-        img
-    }){
-        this.name = name,
-        this.id= id,
-        this.price= price,
-        this.img= img
-    }
- ///metodo deploy()
-    deploy(){
-        let cardHtml=`
-        <img src="${this.img}" alt="">
-            <div class="product-info">
-            <div>
-                <p>$${this.price}</p>
-                <p>${this.name}</p>
-            </div>
-            <figure>
-                <img src="./icons/bt_add_to_cart.svg"   alt="">
-            </figure>
-            </div>
-        `
-        const parentChildsCards= document.querySelector('.cards-container');
-        let cardInfoProduct= document.createElement('div');
-        cardInfoProduct.classList.add('product-card');
-        cardInfoProduct.innerHTML= cardHtml;
-        parentChildsCards.insertAdjacentElement('beforeend',cardInfoProduct);
-    }
-}
-crean cualquier producto con la clase y una vez creado se le aplica el metodo.
-// creamos un nuevo producto de la instancia product
-  const portatil= new product({
-        name:'Portatil Hp Pavilion',
-        id: 6841563,
-        price: 1200,
-        img: 'https://th.bing.com/th/id/R.64e3e17f84c592313289c38103125892?rik=F26je4v5XKOAPA&pid=ImgRaw&r=0'
-    });
-  portatil.deploy();
-  ///producto subido a nuestra pagina */
  
   renderProductos(productList);
