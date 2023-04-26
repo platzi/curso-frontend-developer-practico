@@ -11,7 +11,7 @@ Clase 19/29
 Fusión del menú en desktop
 
 Primera unión: en la parte desktop el menu (clase7) con el navbar(clase11).
-Ojo: conectar el HTML con JS usando script con el atributo src.
+Ojo: conectar el HTML con JS usando la etiqueta script con el atributo src.
 Por diseño conviene agregar primero el codigo del navbar para que despues le pongamos encima el menú.
 Los estilos se pegan abajo execpto que los mediaqueries quedan ultimos.
 Como el menu se va a desplegar haciendo click en el mail, conviene dejarlo dentro del navbar y ajustar los estilos para que se vea bien.
@@ -19,3 +19,15 @@ Se definen las constantes en el JS.
 En este caso las que estan involucradas.
 Ahora se le agrega un evento a la que esta fija, en este caso el email. Acordarse que son dos parametros. Siendo el primero "click" y el segundo una funcion que queramos que haga.
 La funcion hay que hacerla(revisar).
+
+Lo que esta haciendo el classList.toggle es sacando y metiendo el elemento. Tambien existe classList.add y classList.remove.
+
+
+
+Clase 20/29
+Fusión del menú en mobile
+
+El menú en mobile esta en clase8.
+De la misma manera que el anterior, el HTML lo metemos dentro del navbar (ojo en el futuro podría cambiar).
+Se hace de la mimas manera que la clase anterior.
+Hay que modificar los mediaqueries para que los menus aparezcan solo cuando corresponde.
