@@ -1,23 +1,41 @@
 const desktopMenu = document.getElementById("desktopMenu");
+
 const navbarRight = document.querySelector("#navbarRight .navbar-email");
 const navbarCart  = document.querySelector("#navbarRight .navbar-shopping-cart");
+
+const infoClose   = document.querySelector(".product-info-detail .product-info-detail-close");
+
 const menuBtn     = document.getElementById("menuBtn");
 const detailCart  = document.getElementById("detailCart");
 const mobileMenu  = document.getElementById("mobileMenu");
+const infoProduct = document.getElementById("infoProduct");
 
-function menuVerticalAnimation(menu,closeMenu=null,toggle=true) 
+
+function menuAnimation(menu,closeMenu=null,toggle=true,close=true) 
 {
-    const state  = menu.classList.contains('display-none');
+    const state      = menu.classList.contains('display-none');
+
+    let animationClass = "menu-animation";
+    let reverseAnimationClass = "menu-animation-reverse";
+
+    //Revisamos si el menú tiene animación horizontal - Checking if it is horizontal menu
+    const isRight    = menu.classList.contains('menu-left-animation')||menu.classList.contains('menu-left-animation-reverse');
+
+    if(isRight)
+    {
+        animationClass = "menu-left-animation";
+        reverseAnimationClass = "menu-left-animation-reverse";
+    }
 
     // console.log(menu.classList)
     // console.log(toggle)
     
-    if(!state)
+    if(!state && close)
     {
         //Esconder el menú - Hide menu
 
-        menu.classList.remove("menu-animation");
-        menu.classList.add("menu-animation-reverse");
+        menu.classList.remove(animationClass);
+        menu.classList.add(reverseAnimationClass);
 
         setTimeout(()=>{
             menu.classList.add("display-none")
@@ -29,8 +47,8 @@ function menuVerticalAnimation(menu,closeMenu=null,toggle=true)
         //Mostrar el menú - Show menu
 
         // console.log("No")
-        menu.classList.add("menu-animation");
-        menu.classList.remove("menu-animation-reverse");
+        menu.classList.add(animationClass);
+        menu.classList.remove(reverseAnimationClass);
         menu.classList.remove("display-none")
     }
 
@@ -42,12 +60,12 @@ function menuVerticalAnimation(menu,closeMenu=null,toggle=true)
         {
             for(const m of closeMenu)
             {
-                menuVerticalAnimation(m,null,toggle=false);
+                menuAnimation(m,null,false);
             }
         }
         else
         {
-            menuVerticalAnimation(closeMenu,null,toggle=false);
+            menuAnimation(closeMenu,null,false);
         }
     }
 
@@ -91,6 +109,11 @@ function addProduct(parentElementID,data={price:120,name:"bike"})
     container.appendChild(img);
     container.appendChild(productInfo);
 
+    img.addEventListener("click",()=>{
+        // console.log("product");
+        menuAnimation(infoProduct,[mobileMenu,detailCart,desktopMenu],true,false);
+    });
+
     parent.appendChild(container);
 
 }
@@ -102,18 +125,22 @@ for (let index = 0; index < 9; index++)
 
 navbarRight.addEventListener("click",()=>{
     
-    menuVerticalAnimation(desktopMenu,detailCart);
+    menuAnimation(desktopMenu,[detailCart,infoProduct]);
 
 })
 
 navbarCart.addEventListener("click",()=>{
     
-    menuVerticalAnimation(detailCart,[desktopMenu,mobileMenu]);
+    menuAnimation(detailCart,[desktopMenu,mobileMenu,infoProduct]);
 
 })
 
 menuBtn.addEventListener("click",()=>{
     
-    menuVerticalAnimation(mobileMenu,detailCart);
+    menuAnimation(mobileMenu,[detailCart,infoProduct]);
 
+})
+
+infoClose.addEventListener("click",()=>{
+    menuAnimation(infoProduct,[mobileMenu,detailCart,desktopMenu]);
 })

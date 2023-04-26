@@ -253,10 +253,10 @@
   }
   .mobile-menu-position
   {
+    position: absolute;
     top: 100%;
     left: 0%;
-    width: 90%;
-    position: absolute;
+    right: 0%;
   }
   .mobile-menu a {
     text-decoration: none;
@@ -440,6 +440,75 @@
     display: none;
   }
 
+  /*Product info styles*/
+  .product-info-detail {
+    width: 360px;
+    padding-bottom: 24px;
+    position: absolute;
+    right: 0;
+    top: 61px;
+    bottom: 0;
+    background: var(--white);
+    border-radius: 1em;
+  }
+  .product-info-detail-close {
+    background: var(--white);
+    width: 14px;
+    height: 14px;
+    position: absolute;
+    top: 24px;
+    left: 24px;
+    z-index: 2;
+    padding: 12px;
+    border-radius: 50%;
+  }
+  .product-info-detail-close:hover {
+    cursor: pointer;
+  }
+  .product-info-detail > img:nth-child(2) {
+    width: 100%;
+    height: 360px;
+    object-fit: cover;
+    border-radius: 0 0 20px 20px;
+  }
+  .product-data {
+    margin: 24px 24px 0 24px;
+  }
+  .product-data p:nth-child(1) {
+    font-weight: bold;
+    font-size: var(--md);
+    margin-top: 0;
+    margin-bottom: 4px;
+  }
+  .product-data p:nth-child(2) {
+    color: var(--very-light-pink);
+    font-size: var(--md);
+    margin-top: 0;
+    margin-bottom: 36px;
+  }
+  .product-data p:nth-child(3) {
+    color: var(--very-light-pink);
+    font-size: var(--sm);
+    margin-top: 0;
+    margin-bottom: 36px;
+  }
+  .product-info-detail .primary-button {
+    background-color: var(--hospital-green);
+    border-radius: 8px;
+    border: none;
+    color: var(--white);
+    width: 100%;
+    cursor: pointer;
+    font-size: var(--md);
+    font-weight: bold;
+    height: 50px;
+  }
+  .product-info-detail .add-to-cart-button {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+  }
+
   
 /*///////////////////////////////
     Media Queries
@@ -531,5 +600,43 @@
 	100% {
 		transform: scaleY(0.001);
 		transform-origin: 100% 0%;
+	}
+}
+
+.menu-left-animation
+{
+  animation: menu-left-animation 0.3s ease 0s 1 normal forwards;
+}
+@keyframes menu-left-animation
+{
+  0% 
+  {
+		transform: scaleX(0.01);
+		transform-origin: 100% 100%;
+	}
+
+	100% 
+  {
+		transform: scaleX(1);
+		transform-origin: 100% 100%;
+	}
+}
+
+.menu-left-animation-reverse
+{
+  animation: menu-left-animation-reverse 0.3s ease 0s 1 normal forwards;
+}
+@keyframes menu-left-animation-reverse
+{
+  0% 
+  {
+		transform: scaleX(1);
+		transform-origin: 100% 100%;
+	}
+
+	100% 
+  {
+		transform: scaleX(0.01);
+		transform-origin: 100% 100%;
 	}
 }
