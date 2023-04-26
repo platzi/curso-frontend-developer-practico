@@ -5,17 +5,27 @@ let menuCarritoIcon = document.querySelector(".navbar-shopping-cart");
 let mobileMenu = document.querySelector(".mobile-menu");
 let shoppingCartContainer = document.querySelector("#shoppingCartContainer");
 
+//let productImagen = document.querySelector(".productImage");
+let productDetail = document.querySelector("#productDetail")
+let closeIcon = document.querySelector(".product-detail-close");
+
 let cardsContainer = document.querySelector(".cards-container"); // Creamos esta variable para hacer .appendChild del productCart
 
 menuEmail.addEventListener("click", toggleDesktopMenu);
 menuHamburgerIcon.addEventListener("click", toggleMobileMenu);
 menuCarritoIcon.addEventListener("click", toggleCarritoAside);
+closeIcon.addEventListener("click", addInactiveProductDetail)
 
 function toggleDesktopMenu() {
     let isAsideClosed = shoppingCartContainer.classList.contains("inactive");
+    let isproductDetailClosed = productDetail.classList.contains("inactive");
 
     if (!isAsideClosed) {
         shoppingCartContainer.classList.add("inactive");
+    }
+
+    if (!isproductDetailClosed) {
+        productDetail.classList.add("inactive");
     }
 
     desktopMenu.classList.toggle("inactive");
@@ -23,9 +33,14 @@ function toggleDesktopMenu() {
 
 function toggleMobileMenu() {
     let isAsideClosed = shoppingCartContainer.classList.contains("inactive");
+    let isproductDetailClosed = productDetail.classList.contains("inactive");
 
     if (!isAsideClosed) {
         shoppingCartContainer.classList.add("inactive");
+    }
+
+    if (!isproductDetailClosed) {
+        productDetail.classList.add("inactive");
     }
 
     mobileMenu.classList.toggle("inactive");
@@ -34,6 +49,7 @@ function toggleMobileMenu() {
 function toggleCarritoAside() {
     let isMobileMenuClosed = mobileMenu.classList.contains("inactive");
     let isDesktopMenuClosed = desktopMenu.classList.contains("inactive");
+    let isproductDetailClosed = productDetail.classList.contains("inactive");
 
     if (!isDesktopMenuClosed) {
         desktopMenu.classList.add("inactive");
@@ -43,7 +59,30 @@ function toggleCarritoAside() {
         mobileMenu.classList.add("inactive");
     }
 
+    if (!isproductDetailClosed) {
+        productDetail.classList.add("inactive");
+    }
+
     shoppingCartContainer.classList.toggle("inactive");
+}
+
+function openProductImage() {
+    let isAsideClosed = shoppingCartContainer.classList.contains("inactive");
+    let isDesktopMenuClosed = desktopMenu.classList.contains("inactive");
+
+    if (!isAsideClosed) {
+        shoppingCartContainer.classList.add("inactive");
+    }
+
+    if (!isDesktopMenuClosed) {
+        desktopMenu.classList.add("inactive");
+    }
+
+    productDetail.classList.remove("inactive");
+}
+
+function addInactiveProductDetail() {
+    productDetail.classList.add("inactive")
 }
 
 
@@ -76,6 +115,9 @@ function renderProducts(array) {
         // Product = {name, price, image} -> product.image
         let productImg = document.createElement("img"); // Crea el elemento imagen
         productImg.setAttribute("src", product.image); //Se le agrega el atributo a la imagen con la lista de productos del array que se hizo arriba
+        productImg.classList.add("productImage"); // Se le agrega la clase productImage (img)
+        productImg.addEventListener("click", openProductImage); //Para que dara imagen tenga el evento de click.
+
     
         let productInfo = document.createElement("div"); // Crea el contenedor div
         productInfo.classList.add("product-info"); // Le anade la clase product-info (div)
@@ -113,39 +155,4 @@ renderProducts(productList); // Tema de escalabilidad. La funcion se pude llamar
 
 
 
-// for (product of productList) {
-//     let productCart = document.createElement("div");
-//     productCart.classList.add("product-card");
 
-//     // Product = {name, price, image} -> product.image
-//     let productImg = document.createElement("img");
-//     productImg.setAttribute("src", product.image);
-
-//     let productInfo = document.createElement("div");
-//     productInfo.classList.add("product-info");
-
-//     let productInfoDiv = document.createElement("div");
-
-//     let productPrice = document.createElement("p");
-//     productPrice.innerText = "$" + product.price;
-//     let productName = document.createElement("P");
-//     productName.innerText = product.name;
-
-//     productInfoDiv.appendChild(productPrice);
-//     productInfoDiv.appendChild(productName);
-
-//     let productInfoFigure = document.createElement("figure");
-
-//     let productImgCart = document.createElement("img");
-//     productImgCart.setAttribute("src", "./icons/bt_add_to_cart.svg");
-
-//     productInfoFigure.appendChild(productImgCart);
-
-//     productInfo.appendChild(productInfoDiv);
-//     productInfo.appendChild(productInfoFigure);
-
-//     productCart.appendChild(productImg);
-//     productCart.appendChild(productInfo);
-
-//     cardsContainer.appendChild(productCart);
-// }
