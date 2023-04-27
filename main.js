@@ -57,3 +57,98 @@ function toggleProductDetail(){
     mobileMenu.classList.add('inactive')
     desktopMenu.classList.add('inactive')
 }
+
+
+//Creación del array que se usará para poner los elementos HTML con información variada.
+const productList = [];
+
+
+//Agregando objetos como elementos del array.
+productList.push({
+
+    //name es como una variable dentro del objeto que hace referencia a 'bike'.
+    //Es importante que todos los objetos que sean añadidos al array contengan la misma cantidad de variables, que se llamen igual, pero que tengan diferente información.
+    name: 'bike',
+    price: 120,
+    image: 'https://images.pexels.com/photos/276517/pexels-photo-276517.jpeg?auto=compress&cs=tinysrgb&dpr=2&h=650&w=940'
+});
+
+productList.push({
+    name: 'pantalla',
+    price: 220,
+    image: 'https://images.pexels.com/photos/276517/pexels-photo-276517.jpeg?auto=compress&cs=tinysrgb&dpr=2&h=650&w=940'
+});
+
+productList.push({
+    name: 'computadora',
+    price: 550,
+    image: 'https://images.pexels.com/photos/276517/pexels-photo-276517.jpeg?auto=compress&cs=tinysrgb&dpr=2&h=650&w=940'
+});
+
+productList.push({
+    name: 'computadora',
+    price: 550,
+    image: 'https://images.pexels.com/photos/276517/pexels-photo-276517.jpeg?auto=compress&cs=tinysrgb&dpr=2&h=650&w=940'
+});
+
+
+const cardsContainer = document.querySelector('.cards-container');
+
+function renderArrray(arr){
+    for(let product of arr){
+
+        //Creación de cada uno de los elementos
+
+
+        const productCard = document.createElement('div');
+        productCard.classList.add('product-card');
+    
+        
+    
+        const img = document.createElement('img');
+        img.setAttribute('src', product.image);
+
+    
+        const productInfo = document.createElement('div');
+        productInfo.classList.add('product-info');
+
+    
+        const productInfoDiv = document.createElement('div');
+
+    
+        const productPrice = document.createElement('p');
+        productPrice.innerText = "$" + product.price;
+
+    
+        const productName = document.createElement('p');
+        productName.innerText = product.name;
+
+    
+        const productFigure = document.createElement('figure');
+
+
+        const imgFigure = document.createElement('img');
+        imgFigure.setAttribute('src', './icons/bt_add_to_cart.svg');
+
+        //Termina la creación de cada uno de los elementos HTML
+
+
+        //Se empiezan a organizar los elementos hijos dentro de los elementos padres.
+
+        productFigure.append(imgFigure);
+
+        productInfoDiv.append(productPrice, productName);
+
+        productInfo.append(productInfoDiv, productFigure);
+    
+        productCard.append(img, productInfo);
+    
+        cardsContainer.append(productCard);
+        
+    }
+}
+
+renderArrray(productList);
+
+
+
