@@ -31,3 +31,14 @@ El menú en mobile esta en clase8.
 De la misma manera que el anterior, el HTML lo metemos dentro del navbar (ojo en el futuro podría cambiar).
 Se hace de la mimas manera que la clase anterior.
 Hay que modificar los mediaqueries para que los menus aparezcan solo cuando corresponde.
+
+
+
+Clase 21/29
+Carrito de compras
+
+En Clase 13 esta la maquetación que queremos que aparezca y desaparezca cada vez que hacemos click al carrito de compras del nabvar. Es el que tiene la etiqueta aside.
+El aside si lo queremos dejar por fuera del navbar (aunque no entiendo el criterio).
+El mediaqueri del aside se mete dentro de los anteriores poque hace lo mismo.
+
+Se hicieron condicionales y se utilizo .contains y .add para hacer que se cierre uno mientras se habre otro. Ojo, no es la mejor solición, en los comentarios hay una mejor solución, la cual voy a implementar la proxima clase.
