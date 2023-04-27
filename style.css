@@ -279,8 +279,10 @@
     width: 360px;
     padding-bottom: 24px;
     position: absolute;
-    right: 100px;
-    top: 80px;
+    top: 50%;
+    left: 50%;
+    transform: translate(-50%, -50%);
+    margin: 0 auto;
     background: var(--white);
   }
   .product-detail-close {
