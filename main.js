@@ -45,10 +45,12 @@ function openDetailCard () {
   movileMenu.classList.add('inactive');
   deskopMenu.classList.add('inactive');
   cartMenu.classList.add('inactive');
+  
 }
 
 function closeDetailCard () {
   cardDetail.classList.add('inactive');
+  
 }
 
 
@@ -102,15 +104,7 @@ productList.push ({
       const productPrice = document.createElement('p');
       productPrice.innerText = '$' + product.price;
     
-      /**
-    * ! importante
-
-    **/
-      productImg.addEventListener('click', function() {
-        
-        console.log("mostrar detail")
-      });
-
+     
       const productName = document.createElement('p');
       productName.innerText = product.name;
 
@@ -136,6 +130,7 @@ productList.push ({
       //meter productCards en el container
       cardsContainer.appendChild(productCard);
 
+      
      
     }
   }
@@ -151,16 +146,31 @@ productList.push ({
    * 
    * */
     for (product of productList) {
-      console.log("entro")
+      console.log("entro detail")
+      
+      /* const aside = document.createElement('aside');
+      aside.classList.add("product-detail", "inactive");
+      const containerDetail = document.querySelector("product-detail");
+      containerDetail.append(aside);
+      
+      const asideProduct = document.createElement('aside');
+      asideProduct.classList.add("product-detail", "aside", "card", "inactive");
+      cardClickDetail.append(asideProduct);
+
+      */
+      
+
+      
+
 
       const productDetail = document.createElement('div')
       productDetail.classList.add('product-detail-close')
-      productDetail.addEventListener('click',closeDetailCard)
 
       const closeDetailImg =document.createElement('img')
       closeDetailImg.setAttribute('src', "./icons/icon_close.png")
-
-       //meter closeDetailImg en el productDetail
+      productDetail.addEventListener('click',closeDetailCard)
+       
+      //meter closeDetailImg en el productDetail
       productDetail.appendChild(closeDetailImg);
     
       const productDetailInfo = document.createElement('div')
@@ -168,6 +178,12 @@ productList.push ({
 
       const productDetailImg = document.createElement('img');
       productDetailImg.setAttribute('src',product.Image);
+      productDetailImg.addEventListener('click',openDetailCard);
+      
+      /* function() {
+        
+        console.log("escuucho click imagen")
+      }); */
 
       const productDetailPrice = document.createElement('p');
       productDetailPrice.innerText = '$' + product.price;
@@ -187,12 +203,14 @@ productList.push ({
       const buttonDetailImg =document.createElement('img')
       buttonDetailImg.setAttribute('src', "./icons/bt_add_to_cart.svg")
 
-      productDetailButton.append(buttonDetailImg , productDetailDescription)
+      productDetailButton.append(buttonDetailImg)
 
-      productDetailInfo.append(productDetailPrice, productDetailName, productDetailDescription, productDetailButton)
+      productDetailInfo.append(productDetailPrice, productDetailName, productDetailDescription, productDetailButton);
 
-      cardClickDetail.append(productDetail,productDetailImg ,productDetailInfo)
+      cardClickDetail.append(productDetail,productDetailImg ,productDetailInfo);
       
+      
+     
     }
     
   
