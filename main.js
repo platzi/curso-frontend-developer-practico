@@ -3,7 +3,7 @@ const desktopMenu = document.querySelector('.desktop-menu');
 const menuHamburguesa = document.querySelector('.menu');
 const mobileMenu = document.querySelector('.mobile-menu');
 const navbarShopCar = document.querySelector('.navbar-shopping-cart');
-const aside = document.querySelector('.product-detail');
+const shoppingCartContainer = document.querySelector('#shoppingCartContainer');
 const cardsContainer = document.querySelector('.cards-container'); /* todoesto para poder pegar los productos al html */
 
 menuEmail.addEventListener('click', toggleDesktopMenu);
@@ -11,19 +11,19 @@ menuHamburguesa.addEventListener('click', toggleMibileMenu);
 navbarShopCar.addEventListener('click', toggleShopCard);
 
 function toggleDesktopMenu() {
-    const isAsideClosed = aside.classList.contains('inactive');
+    const isAsideClosed = shoppingCartContainer.classList.contains('inactive');
 
   if (!isAsideClosed) {
-    aside.classList.add('inactive');
+    shoppingCartContainer.classList.add('inactive');
   }
     desktopMenu.classList.toggle('inactive');/* coloca y quita la clase */  
 }
 
 function toggleMibileMenu() {
-    const isAsideClosed = aside.classList.contains('inactive');
+    const isAsideClosed = shoppingCartContainer.classList.contains('inactive');
 
   if (!isAsideClosed) {
-    aside.classList.add('inactive'); 
+    shoppingCartContainer.classList.add('inactive'); 
   }
     mobileMenu.classList.toggle('inactive');/* Q y C Menu Mobile */
 }
@@ -37,7 +37,7 @@ function toggleShopCard() {
   } else if (!isDesktopMenuClosed) {
     desktopMenu.classList.add('inactive');
   }
-    aside.classList.toggle('inactive');/* Qy C My Order */
+  shoppingCartContainer.classList.toggle('inactive');/* Qy C My Order */
 }
 
 const productList = [];
