@@ -167,7 +167,7 @@
     position: absolute;
     right: 0;
     width: 360px;
-    padding: 24px;
+    padding-inline: 24px;
     box-sizing: border-box;
     background-color: var(--white);
   }
@@ -258,10 +258,12 @@
     }
     .product-detail {
       width: 100%;
+      padding: 24px;
     }
+    
   }
   @media (min-width: 641px){
-    .mobile-menu, .product-detail{
+    .mobile-menu{
       display: none;
     }
   }
