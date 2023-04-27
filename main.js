@@ -7,7 +7,7 @@ const cartMenu = document.querySelector('.cart');//recordar que tiene que llevar
 const cardsContainer = document.querySelector('.cards-container');
 const cardDetail = document.querySelector('.card');//cambiar si se muestra o no la ventana
 const closeCardDetail = document.querySelector('.product-detail-close');//escuchar el clik en la X
-const cardClickDetail = document.querySelector('.card')
+//const cardClickDetail = document.querySelector('.card')
 
 
 // selecionamos nuestro main container. 
@@ -155,13 +155,17 @@ productList.push ({
       
       const asideProduct = document.createElement('aside');
       asideProduct.classList.add("product-detail", "aside", "card", "inactive");
+      containerDetail = document.querySelector("product-detail")
       cardClickDetail.append(asideProduct);
 
       */
       
 
       
-
+      const asideProduct = document.createElement('aside');
+      asideProduct.classList.add("product-detail", "aside", "card");
+      const cardClickDetail = document.querySelector(".card")
+      
 
       const productDetail = document.createElement('div')
       productDetail.classList.add('product-detail-close')
@@ -206,11 +210,21 @@ productList.push ({
       productDetailButton.append(buttonDetailImg)
 
       productDetailInfo.append(productDetailPrice, productDetailName, productDetailDescription, productDetailButton);
+      
+      asideProduct.append(productDetail,productDetailImg ,productDetailInfo);
+      cardClickDetail.append(asideProduct);
+      
+      productDetail.addEventListener('click', () => {
+        console.log("entro arrow inactive")
+        asideProduct.classList.add("inactive")
+      });
 
-      cardClickDetail.append(productDetail,productDetailImg ,productDetailInfo);
-      
-      
-     
+      productDetailImg.addEventListener('click', () => {
+        console.log("entro arrow active")
+        asideProduct.classList.remove("inactive")
+      });
+
+
     }
     
   
