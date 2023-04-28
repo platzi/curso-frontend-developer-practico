@@ -13,33 +13,21 @@ shoppingCartIcon.addEventListener("click", toggleSummaryFromShoppingCart);
 
 
 function toggleDesktopMenu() {
-    const isSummaryShoppingCartClosed = productDetailSummary.classList.contains("inactive");
-    
-    if(!isSummaryShoppingCartClosed) {
-        productDetailSummary.classList.add("inactive");
-    }
 
+    productDetailSummary.classList.add("inactive");
     desktopMenu.classList.toggle("inactive");
+
 };
 
 function toggleMenuBurger() {
-    const isSummaryShoppingCartClosed = productDetailSummary.classList.contains("inactive");
 
-    if(!isSummaryShoppingCartClosed) {
-        productDetailSummary.classList.add("inactive");
-    }
-
+    productDetailSummary.classList.add("inactive");
     mobileMenu.classList.toggle("inactive");
 };
 
 function toggleSummaryFromShoppingCart() {
-    const isDesktopMenuClosed = desktopMenu.classList.contains("inactive");
-    const isMenuBurgerClosed = mobileMenu.classList.contains("inactive");
 
-    if (!isDesktopMenuClosed || !isMenuBurgerClosed) {
-        desktopMenu.classList.add("inactive");
-        mobileMenu.classList.add("inactive");
-    }
-
+    mobileMenu.classList.add("inactive");
+    desktopMenu.classList.add("inactive");
     productDetailSummary.classList.toggle("inactive");
-}
+};
