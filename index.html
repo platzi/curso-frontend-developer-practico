@@ -112,7 +112,7 @@
 
   </nav>
 
-  <aside class="product-detail inactive">
+  <aside id="shoppingCartContainer" class="inactive">
     <div class="title-container">
       <img src="./icons/flechita.svg" alt="arrow">
       <p class="title">My order</p>
@@ -124,13 +124,7 @@
   </div>
   </aside>
 
-  <section class="main-container">
-    <div class="cards-container">
-    <!-- get from backend -->
-    </div>
-  </section>
-
-  <aside class="product-detail">
+  <aside id="productDetail" class="inactive" >
     <div class="product-detail-close">
       <img src="./icons/icon_close.png" alt="close">
     </div>
@@ -145,6 +139,12 @@
       </button>
     </div>
   </aside>
+
+  <section class="main-container">
+    <div class="cards-container">
+    <!-- get from backend -->
+    </div>
+  </section>
 
   <script src="js/menu.js"></script>
 </body>

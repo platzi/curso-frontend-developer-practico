@@ -3,7 +3,7 @@ const desktopMenu           = document.querySelector('.desktop-menu');
 const MobileMenuTriger      = document.querySelector('.mobile-menu-trigger ');
 const MobileMenu            = document.querySelector('.mobile-menu');
 const navbarShoppingCart    = document.querySelector('.navbar-shopping-cart');
-const productDetail         = document.querySelector('.product-detail');
+const shoppingCartContainer = document.querySelector('#shoppingCartContainer');
 const myOrderContent        = document.querySelector('.my-order-content');
 const cardsContainer        = document.querySelector('.cards-container');
 
@@ -24,25 +24,15 @@ productList.push({
     price: 1200,
     image: "https://images.pexels.com/photos/276517/pexels-photo-276517.jpeg?auto=compress&cs=tinysrgb&dpr=2&h=650&w=940"
 });
-productList.push({
-    name: "Bike",
-    price: 120,
-    image: "https://images.pexels.com/photos/276517/pexels-photo-276517.jpeg?auto=compress&cs=tinysrgb&dpr=2&h=650&w=940"
-});
-productList.push({
-    name: "Screen",
-    price: 500,
-    image: "https://images.pexels.com/photos/276517/pexels-photo-276517.jpeg?auto=compress&cs=tinysrgb&dpr=2&h=650&w=940"
-});
-productList.push({
-    name: "Laptop",
-    price: 1200,
-    image: "https://images.pexels.com/photos/276517/pexels-photo-276517.jpeg?auto=compress&cs=tinysrgb&dpr=2&h=650&w=940"
-});
 
 shoppingCartList.push({
     name: "Bike",
     price: 120,
+    image: "https://images.pexels.com/photos/276517/pexels-photo-276517.jpeg?auto=compress&cs=tinysrgb&dpr=2&h=650&w=940"
+});
+shoppingCartList.push({
+    name: "Screen",
+    price: 500,
     image: "https://images.pexels.com/photos/276517/pexels-photo-276517.jpeg?auto=compress&cs=tinysrgb&dpr=2&h=650&w=940"
 });
 shoppingCartList.push({
@@ -60,20 +50,20 @@ renderProducts(productList);
 shoppingCart(shoppingCartList);
 
 function toggleDesktopMenu() {
-    const isAsideOpen = !productDetail.classList.contains('inactive');
+    const isAsideOpen = !shoppingCartContainer.classList.contains('inactive');
     
     if (isAsideOpen) {
-        productDetail.classList.add('inactive');
+        shoppingCartContainer.classList.add('inactive');
     }
 
     desktopMenu.classList.toggle('inactive');
 }
 
 function toggleMobileMenu() {
-    const isAsideOpen = !productDetail.classList.contains('inactive');
+    const isAsideOpen = !shoppingCartContainer.classList.contains('inactive');
 
     if (isAsideOpen) {
-        productDetail.classList.add('inactive');
+        shoppingCartContainer.classList.add('inactive');
     }
 
     MobileMenu.classList.toggle('inactive');
@@ -90,7 +80,7 @@ function toggleProductDetail() {
         desktopMenu.classList.add('inactive');
     }
 
-    productDetail.classList.toggle('inactive');
+    shoppingCartContainer.classList.toggle('inactive');
     
 }
 
