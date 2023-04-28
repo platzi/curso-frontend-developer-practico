@@ -3,7 +3,7 @@ const desktopMenu = document.querySelector(".desktop-menu");
 const hamburguerMenu = document.querySelector(".menu");
 const mobileMenu = document.querySelector(".mobile-menu");
 const carMenu = document.querySelector(".navbar-shopping-cart");
-const asideCar = document.querySelector(".product-detail");
+const shoppingCarContainer = document.querySelector("#shooping-Car-Container");
 
 const cardsContainer = document.querySelector(".cards-container");
 
@@ -14,17 +14,17 @@ carMenu.addEventListener("click", toggleCarMenu);
 function toggleDesktopMenu (){
     desktopMenu.classList.toggle("inactive"); //Pone y quita la clase
     mobileMenu.classList.add("inactive");
-    asideCar.classList.add("inactive");
+    shoppingCarContainer.classList.add("inactive");
 
 }
 
 function toggleMobileMenu(){
     mobileMenu.classList.toggle("inactive");
-    asideCar.classList.add("inactive");
+    shoppingCarContainer.classList.add("inactive");
 }
 
 function toggleCarMenu(){
-    asideCar.classList.toggle("inactive");
+    shoppingCarContainer.classList.toggle("inactive");
     mobileMenu.classList.add("inactive");
     desktopMenu.classList.add("inactive");
 
