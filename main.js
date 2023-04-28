@@ -4,31 +4,48 @@ const hamburguerMenu = document.querySelector(".menu");
 const mobileMenu = document.querySelector(".mobile-menu");
 const carMenu = document.querySelector(".navbar-shopping-cart");
 const shoppingCarContainer = document.querySelector("#shooping-Car-Container");
-
+const productDetailContainer = document.querySelector("#product-details")
+const productDetailClose = document.querySelector(".product-detail-close")
 const cardsContainer = document.querySelector(".cards-container");
 
 menuEmail.addEventListener("click", toggleDesktopMenu);
 hamburguerMenu.addEventListener("click", toggleMobileMenu);
 carMenu.addEventListener("click", toggleCarMenu);
+productDetailClose.addEventListener("click", closeProductDetailAside)
 
 function toggleDesktopMenu (){
     desktopMenu.classList.toggle("inactive"); //Pone y quita la clase
     mobileMenu.classList.add("inactive");
     shoppingCarContainer.classList.add("inactive");
+    productDetailContainer.classList.add("inactive");
 
 }
 
 function toggleMobileMenu(){
     mobileMenu.classList.toggle("inactive");
     shoppingCarContainer.classList.add("inactive");
+    productDetailContainer.classList.add("inactive");
 }
 
 function toggleCarMenu(){
     shoppingCarContainer.classList.toggle("inactive");
     mobileMenu.classList.add("inactive");
     desktopMenu.classList.add("inactive");
+    productDetailContainer.classList.add("inactive");
 
 }
+
+function openProductDetailAside(){
+    productDetailContainer.classList.remove("inactive");
+}
+
+function closeProductDetailAside(){
+    productDetailContainer.classList.add("inactive");
+    shoppingCarContainer.classList.add("inactive");
+    mobileMenu.classList.add("inactive");
+    desktopMenu.classList.add("inactive");
+}
+
 
 const productsList = []
 productsList.push({
@@ -68,6 +85,7 @@ function renderProducts(arr){
         productCard.classList.add("product-card");
         const productImage = document.createElement("img");
         productImage.setAttribute("src", product.image);
+        productImage.addEventListener("click", openProductDetailAside);
        
         const productInfo = document.createElement("div");
         productInfo.classList.add("product-info");
