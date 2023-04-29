@@ -18,6 +18,8 @@ burgerMenu.addEventListener('click', toggleMobileMenu);
 //Añadiendo el addEventListener al carrito para mandar a llamar a los detalles de los productos.
 carrito.addEventListener('click', toggleProductDetail);
 
+const darken = document.querySelector('.darken');
+
 //Solución del profesor
 
 /* function toggleDesktopMenu(){
@@ -28,6 +30,22 @@ carrito.addEventListener('click', toggleProductDetail);
 } */
 
 
+function AreMenusOpen(){
+    const isDesktopMenuOpen = !desktopMenu.classList.contains('inactive');
+    const isMobileMenuOpen = !mobileMenu.classList.contains('inactive');
+    const isProductBiggerDetailsOpen = !productBiggerDetails.classList.contains('inactive');
+    const isProductDetailOpen = !productDetails.classList.contains('inactive');
+
+    const anythingOpen = [isDesktopMenuOpen, isMobileMenuOpen, isProductBiggerDetailsOpen, isProductDetailOpen];
+
+    if(anythingOpen.includes(true) == true){
+        darken.classList.remove('inactive');
+    }else{
+        darken.classList.add('inactive')
+    }
+
+}
+
 //Mi solución
 function toggleDesktopMenu(){
     if(desktopMenu.classList.contains('inactive') == false){
@@ -37,7 +55,9 @@ function toggleDesktopMenu(){
         desktopMenu.classList.remove('inactive');
     }
 
-    productDetails.classList.add('inactive')
+    productDetails.classList.add('inactive');
+    productBiggerDetails.classList.add('inactive');
+    AreMenusOpen()
 }
 
 //Función que nos permite hacer que desaparezcan o aparezcan los menús.
@@ -46,6 +66,10 @@ function toggleMobileMenu(){
     //Manda a agregar la clase "inactive" a los detalles de los productos para que desaparezcan cada vez que se abre el menú de móvil.
     productDetails.classList.add("inactive")
     mobileMenu.classList.toggle('inactive');
+    productBiggerDetails.classList.add('inactive');
+    AreMenusOpen()
+
+
 }
 
 //Función que nos permite que aparezcan o desaparezcan los detalles de los productos.
@@ -54,8 +78,27 @@ function toggleProductDetail(){
     productDetails.classList.toggle("inactive");
 
     //Le añade la clase 'inactive' al menú de teléfono y al menú de pc cada vez que se abran los detalles de los productos.
-    mobileMenu.classList.add('inactive')
-    desktopMenu.classList.add('inactive')
+    mobileMenu.classList.add('inactive');
+    desktopMenu.classList.add('inactive');
+    productBiggerDetails.classList.add('inactive');
+    AreMenusOpen()
+}
+
+const productBiggerDetails = document.querySelector('.product-details');
+
+function openProductDetails(){
+    productBiggerDetails.classList.remove('inactive');
+    productDetails.classList.add('inactive');
+    desktopMenu.classList.add('inactive');
+    AreMenusOpen()
+}
+
+const closeProductButton = document.querySelector(".product-detail-close");
+closeProductButton.addEventListener('click', closeProductDetails);
+
+function closeProductDetails(){
+    productBiggerDetails.classList.add('inactive');
+    AreMenusOpen()
 }
 
 
@@ -64,35 +107,21 @@ const productList = [];
 
 
 //Agregando objetos como elementos del array.
-productList.push({
 
-    //name es como una variable dentro del objeto que hace referencia a 'bike'.
-    //Es importante que todos los objetos que sean añadidos al array contengan la misma cantidad de variables, que se llamen igual, pero que tengan diferente información.
-    name: 'bike',
-    price: 120,
-    image: 'https://images.pexels.com/photos/276517/pexels-photo-276517.jpeg?auto=compress&cs=tinysrgb&dpr=2&h=650&w=940'
-});
+for(let i = 0; i < 36; i++){
+    productList.push({
 
-productList.push({
-    name: 'pantalla',
-    price: 220,
-    image: 'https://images.pexels.com/photos/276517/pexels-photo-276517.jpeg?auto=compress&cs=tinysrgb&dpr=2&h=650&w=940'
-});
-
-productList.push({
-    name: 'computadora',
-    price: 550,
-    image: 'https://images.pexels.com/photos/276517/pexels-photo-276517.jpeg?auto=compress&cs=tinysrgb&dpr=2&h=650&w=940'
-});
-
-productList.push({
-    name: 'computadora',
-    price: 550,
-    image: 'https://images.pexels.com/photos/276517/pexels-photo-276517.jpeg?auto=compress&cs=tinysrgb&dpr=2&h=650&w=940'
-});
+        //name es como una variable dentro del objeto que hace referencia a 'bike'.
+        //Es importante que todos los objetos que sean añadidos al array contengan la misma cantidad de variables, que se llamen igual, pero que tengan diferente información.
+        name: 'bike',
+        price: 120,
+        image: 'https://images.pexels.com/photos/276517/pexels-photo-276517.jpeg?auto=compress&cs=tinysrgb&dpr=2&h=650&w=940'
+    });
+    
+}
 
 
-const cardsContainer = document.querySelector('.cards-container');
+const cardsContainer = document.querySelector(".cards-container")
 
 function renderArrray(arr){
     for(let product of arr){
@@ -107,6 +136,7 @@ function renderArrray(arr){
     
         const img = document.createElement('img');
         img.setAttribute('src', product.image);
+        img.addEventListener('click', openProductDetails)
 
     
         const productInfo = document.createElement('div');
@@ -149,6 +179,8 @@ function renderArrray(arr){
 }
 
 renderArrray(productList);
+
+
 
 
 
