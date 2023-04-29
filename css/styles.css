@@ -83,6 +83,10 @@
     justify-content: center;
     align-items: center;
   }
+
+  .pointer {
+    cursor: pointer;
+  }
   
   /* Desktop menu */
   .desktop-menu {
