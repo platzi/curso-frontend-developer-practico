@@ -3,45 +3,8 @@ const desktopMenu = document.querySelector('.desktop-menu');
 const mobileMenuIcon = document.querySelector('.menu');
 const mobileMenu = document.querySelector('.mobile-menu');
 const carritoIcon = document.querySelector('.navbar-shopping-cart');
-const carritoMenu = document.querySelector('.product-detail');
+const carritoMenu = document.querySelector('#shoppingCartContainer');
 const cardsContainer = document.querySelector('.cards-container');
-
-menuEmail.addEventListener('click', toggleDesktopMenu);
-mobileMenuIcon.addEventListener('click', toggleMobileMenu);
-carritoIcon.addEventListener('click', toggleCarritoMenu);
-
-function toggleDesktopMenu() {
-  const isCarritoMenuClosed = carritoMenu.classList.contains('inactive')
-  
-  if(!isCarritoMenuClosed){
-    carritoMenu.classList.add('inactive');
-  }
-
-  desktopMenu.classList.toggle('inactive');
-}
-
-function toggleMobileMenu() {
-  const isCarritoMenuClosed = carritoMenu.classList.contains('inactive')
-  
-  if(!isCarritoMenuClosed){
-    carritoMenu.classList.add('inactive');
-  }
-  mobileMenu.classList.toggle('inactive');
-}
-function toggleCarritoMenu() {
-  const isMobileMenuClosed = mobileMenu.classList.contains('inactive')
-  const isDesktopMenuClosed = desktopMenu.classList.contains('inactive')
-  
-  if(!isDesktopMenuClosed){
-    desktopMenu.classList.add('inactive');
-  }
-  if(!isMobileMenuClosed){
-    mobileMenu.classList.add('inactive');
-  }
-
-  carritoMenu.classList.toggle('inactive');
-}
-
 const productList = [];
 productList.push({
   name: 'bike',
@@ -95,6 +58,8 @@ function renderProducts(arr) {
     productCard.classList.add('product-card');
     productImage.setAttribute('src', product.imageUrl);
     productImage.setAttribute('alt', 'product image');
+    productImage.classList.add('product-card-img');
+    productImage.addEventListener('click', openProductDetail);
     productInfo.classList.add('product-info');
     productPrice.innerText = '$' + product.price;
     productName.innerText = product.name;
@@ -118,3 +83,67 @@ function renderProducts(arr) {
 }  
 
 renderProducts(productList);
+
+const productDetailContainer = document.querySelector('#productDetail');
+const productDetailCloseIcon = document.querySelector('.product-detail-close');
+
+menuEmail.addEventListener('click', toggleDesktopMenu);
+mobileMenuIcon.addEventListener('click', toggleMobileMenu);
+carritoIcon.addEventListener('click', toggleCarritoMenu);
+productDetailCloseIcon.addEventListener('click', closeProductDetail);
+
+
+function toggleDesktopMenu() {
+  const isCarritoMenuClosed = carritoMenu.classList.contains('inactive');
+  
+  if(!isCarritoMenuClosed){
+    carritoMenu.classList.add('inactive');
+  }
+
+  desktopMenu.classList.toggle('inactive');
+}
+
+function toggleMobileMenu() {
+  const isCarritoMenuClosed = carritoMenu.classList.contains('inactive');
+  const isProductDetailClosed = productDetailContainer.classList.contains('inactive');
+
+  if(!isCarritoMenuClosed){
+    carritoMenu.classList.add('inactive');
+  }
+  if(!isProductDetailClosed){
+    productDetailContainer.classList.add('inactive');
+  }
+  mobileMenu.classList.toggle('inactive');
+}
+
+function toggleCarritoMenu() {
+  const isMobileMenuClosed = mobileMenu.classList.contains('inactive');
+  const isDesktopMenuClosed = desktopMenu.classList.contains('inactive');
+  const isProductDetailClosed = productDetailContainer.classList.contains('inactive');
+  
+  if(!isDesktopMenuClosed){
+    desktopMenu.classList.add('inactive');
+  }
+  if(!isMobileMenuClosed){
+    mobileMenu.classList.add('inactive');
+  }
+  if(!isProductDetailClosed){
+    productDetailContainer.classList.add('inactive');
+  }
+
+  carritoMenu.classList.toggle('inactive');
+}
+
+function openProductDetail() {
+  const isCarritoMenuClosed = carritoMenu.classList.contains('inactive');
+
+
+  if(!isCarritoMenuClosed){
+    carritoMenu.classList.add('inactive');
+  }
+  productDetailContainer.classList.remove('inactive');
+}
+
+function closeProductDetail() {
+  productDetailContainer.classList.add('inactive');
+}
