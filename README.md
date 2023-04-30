@@ -56,13 +56,24 @@ Se crea una lista de productos vacia.
 Se le haran push de objetos (dicts) a esa lista vacia, con las caracteristicas que necesitan los productos.
 Despues de agregar varios productos se aplica un ciclo para que se agregen en el HTML. Dentro de este ciclo se maquetaran como estaba en el HTML y con los estilos de CSS para que vayan quedando igual. De esta manera:
     * Crear un div que tenga la clase product-card.
-    * Ahora hay que crear la imagen. A la imagen hay que agregarle el src, peor no debe ser el link de la imagen sino la propiedad image que tienen los objetos.
+    * Ahora hay que crear la imagen. A la imagen hay que agregarle el src, pero no debe ser el link de la imagen sino la propiedad image que tienen los objetos.
     *Despues se crea el siguiente div con clase product-info.
     *Se sigue construyendo la misma maquetación completa.
-    *Ahora hay que devolverse, como asi? -- meter la imagen (cerrito) dentro del figure, meter los parrafos dentro del div y meter al figure y el div dentro del div product-info.
-    * Ahora quedaria insertar el product-info y la imagen dentro del div profuct-card.
+    *Ahora hay que devolverse, como asi? -- meter la imagen (carrito) dentro del figure, meter los parrafos dentro del div y meter al figure y el div dentro del div product-info.
+    * Ahora quedaria insertar el product-info y la imagen dentro del div product-card.
     * Ahora todavia queda insertar el productCart dentro del div cards-container. Para esto tengo que crear la variable cardsContainer fuera del ciclo for. Pero se le agrega el productCard dentro del ciclo.
     * Funcccccccccciiiiiiiiiiiiiiiooooooooooonaaaaaaaaaaaaaaaaaaaaaaaaaa!
 Ahora con este codigo si se meten mas productList.push se acomodaran directamente en el HTML!!!
 Ahora lo que queda es meter ese ciclo for en una funcion para ordenar y poder utilizarlo mas eficientemente.
-En el futuro esto se puede conectar con el backend para traer los productos y solo hacer un llamado desde el JS usando API 
+En el futuro esto se puede conectar con el backend para traer los productos y solo hacer un llamado desde el JS usando API.
+
+
+
+Clase 23/29
+Detalles de un producto
+
+Vamos a unir el detalle de cada producto. Esta en la Clase 12.
+Cuando se pega el HTML en el JS hay un problema porque son dos etiquetas aside que tienen el mismo nombre de clases.
+Lo que hice fue meterme en el HTML de la clase 12 y le cambie el nombre a las etiquetas. El profesor lo hizo de una manera diferente pero en fin tuvo que ponerse a cambiar nombres tambien.
+
+Habia un detalle con el mobile-menu: primero le pusimos un background-color blanco para que no se vea lo que esta atras, a se va a ajustar para que tape todo cuando se baje a esa resolución.
