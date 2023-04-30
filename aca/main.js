@@ -12,11 +12,29 @@ shoppingCart.addEventListener('click', toggleproductDetail);
 
 
 function toggleDesktopMenu(){
+    const isproductDetailClosed = productDetail.classList.contains('incative');
+
+    if(!isproductDetailClosed){
+        productDetail.classList.add('inactive');
+    }
+
     desktopMenu.classList.toggle('inactive');
 }
 function togglemobileMenu(){
+    const isproductDetailClosed = productDetail.classList.contains('incative');
+
+    if(!isproductDetailClosed){
+        productDetail.classList.add('inactive');
+    }
+    
     mobileMenu.classList.toggle('inactive');
 }
 function toggleproductDetail(){
+    const isMobileMenuClosed = mobileMenu.classList.contains('incative');
+
+    if(!isMobileMenuClosed){
+        mobileMenu.classList.add('inactive');
+    }
+
     productDetail.classList.toggle('inactive');
 }
