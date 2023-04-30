@@ -1,24 +1,30 @@
 'use strict'
 
+//Creación de selectores de elemntos HTML
+
+const darken = document.querySelector('.darken');
 const navEmail = document.querySelector(".navbar-email");
 const desktopMenu = document.querySelector(".desktop-menu");
-
-//Añadiendo los menús para dispositivos móviles
 const burgerMenu = document.querySelector(".menu");
 const mobileMenu = document.querySelector(".mobile-menu");
-
-//Añadiendo el carrito de compras y los detalles de los productos.
-
 const carrito = document.querySelector(".navbar-shopping-cart");
 const productDetails = document.querySelector(".product-detail");
+const cardsContainer = document.querySelector(".cards-container");
+const productBiggerDetails = document.querySelector('.product-details');
+const closeProductButton = document.querySelector(".product-detail-close");
+
+
+
+
+
+
+//Añadiendo .addEventListener para abrir menús
 
 navEmail.addEventListener('click', toggleDesktopMenu);
 burgerMenu.addEventListener('click', toggleMobileMenu);
-
-//Añadiendo el addEventListener al carrito para mandar a llamar a los detalles de los productos.
 carrito.addEventListener('click', toggleProductDetail);
 
-const darken = document.querySelector('.darken');
+
 
 //Solución del profesor
 
@@ -30,14 +36,14 @@ const darken = document.querySelector('.darken');
 } */
 
 
+/* Función para activar el oscurecimiento de la página para resaltar a los menús abiertos */
+
 function AreMenusOpen(){
     const isDesktopMenuOpen = !desktopMenu.classList.contains('inactive');
     const isMobileMenuOpen = !mobileMenu.classList.contains('inactive');
     const isProductBiggerDetailsOpen = !productBiggerDetails.classList.contains('inactive');
     const isProductDetailOpen = !productDetails.classList.contains('inactive');
-
     const anythingOpen = [isDesktopMenuOpen, isMobileMenuOpen, isProductBiggerDetailsOpen, isProductDetailOpen];
-
     if(anythingOpen.includes(true) == true){
         darken.classList.remove('inactive');
     }else{
@@ -84,7 +90,7 @@ function toggleProductDetail(){
     AreMenusOpen()
 }
 
-const productBiggerDetails = document.querySelector('.product-details');
+
 
 function openProductDetails(){
     productBiggerDetails.classList.remove('inactive');
@@ -93,7 +99,7 @@ function openProductDetails(){
     AreMenusOpen()
 }
 
-const closeProductButton = document.querySelector(".product-detail-close");
+
 closeProductButton.addEventListener('click', closeProductDetails);
 
 function closeProductDetails(){
@@ -121,7 +127,7 @@ for(let i = 0; i < 36; i++){
 }
 
 
-const cardsContainer = document.querySelector(".cards-container")
+
 
 function renderArrray(arr){
     for(let product of arr){
