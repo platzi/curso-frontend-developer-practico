@@ -1,0 +1,13 @@
+-clase1.html = Create a new password
+-clase2.html = Email has been sent!
+-clase3.html = Login Page
+-clase4.html = Signin Page
+-clase5.html = My account
+-clase6.html = Product List
+-clase7.html = Desktop Menu
+-clase8.html = Modile Menu
+-clase9.html = My order List
+-clase10.html = My orders List
+-clase11.html = Nav bar
+-clase12.html = Product Detail
+-clase13.html = My order Aside
