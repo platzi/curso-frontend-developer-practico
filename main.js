@@ -33,7 +33,7 @@ function toggleMobilMenu(){
     if(!isAsideClosed){
         shoppingCartContainer.classList.add('inactive');
     }
-    
+
     closeProductDetailClose();
 
     mobilMenu.classList.toggle('inactive');
@@ -81,6 +81,41 @@ productList.push({
     name: 'Computer',
     price: 720,
     image : 'https://images.pexels.com/photos/930530/pexels-photo-930530.jpeg?auto=compress&cs=tinysrgb&w=600'
+});
+productList.push({
+    name: 'Clothes',
+    price: 100,
+    image : 'https://images.pexels.com/photos/45982/pexels-photo-45982.jpeg?auto=compress&cs=tinysrgb&w=600'
+});
+productList.push({
+    name: 'Clothes',
+    price: 110,
+    image : 'https://images.pexels.com/photos/297933/pexels-photo-297933.jpeg?auto=compress&cs=tinysrgb&w=600'
+});
+productList.push({
+    name: 'Toys',
+    price: 90,
+    image : 'https://images.pexels.com/photos/163036/mario-luigi-yoschi-figures-163036.jpeg?auto=compress&cs=tinysrgb&w=600'
+});
+productList.push({
+    name: 'Toys',
+    price: 70,
+    image : 'https://images.pexels.com/photos/12211/pexels-photo-12211.jpeg?auto=compress&cs=tinysrgb&w=600'
+});
+productList.push({
+    name: 'Electronics',
+    price: 520,
+    image : 'https://images.pexels.com/photos/164938/pexels-photo-164938.jpeg?auto=compress&cs=tinysrgb&w=600'
+});
+productList.push({
+    name: 'Forniture',
+    price: 620,
+    image : 'https://images.pexels.com/photos/1866149/pexels-photo-1866149.jpeg?auto=compress&cs=tinysrgb&w=600'
+});
+productList.push({
+    name: 'Forniture',
+    price: 320,
+    image : 'https://images.pexels.com/photos/1350789/pexels-photo-1350789.jpeg?auto=compress&cs=tinysrgb&w=600'
 });
 
 
