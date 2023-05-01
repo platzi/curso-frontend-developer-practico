@@ -1,6 +1,7 @@
 :root {
   --white: #FFFFFF;
   --black: #000000;
+  --light-pink:#fff0f3;
   --very-light-pink: #C7C7C7;
   --text-input-field: #F7F7F7;
   --hospital-green: #ACD9B2;
@@ -11,6 +12,8 @@
 body {
   margin: 0;
   font-family: 'Quicksand', sans-serif;
+ /*  background-color: aliceblue; */
+  background-color:var(--light-pink);
 }
 .inactive {
   display: none;
@@ -23,6 +26,7 @@ nav {
   justify-content: space-between;
   padding: 0 24px;
   border-bottom: 1px solid var(--very-light-pink);
+  background-color: var(--white);
 }
 .menu {
   display: none;
@@ -379,7 +383,7 @@ aside {
   font-size: var(--sm);
   margin-top: 0;
   margin-bottom: 0;
-  color: var(--very-light-pink);
+  color: #fb6f92;
 }
 
 

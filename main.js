@@ -66,23 +66,45 @@ function closeProductDetailAside() {
 
 const productList = [];
 productList.push({
-    name:'Bike',
+    name:'Sandalias Minnie - 18',
+    price: 30,
+    image: './productos/sandalias-minie.jpeg'
+});
+productList.push({
+    name:'Skechers Arcoiris- 18',
+    price: 100,
+    image: './productos/skechers-holo.jpeg'
+});
+productList.push({
+    name:'Escolar Gobierno - 22',
+    price: 80,
+    image: './productos/escolar-gob.jpeg'
+});
+
+productList.push({
+    name:'Choclo Beige - 19',
+    price: 80,
+    image: './productos/choclo-cafe19.jpeg'
+});
+productList.push({
+    name:'Escolar Gobierno - 19',
+    price: 80,
+    image: './productos/botines-gamusa19.jpeg'
+});
+productList.push({
+    name:'Tacones Gamusa - 4',
+    price: 100,
+    image: './productos/tacon-gamusa4.jpeg'
+});
+productList.push({
+    name:'Plancha Vidal Sasson',
     price: 120,
-    image: 'https://images.pexels.com/photos/276517/pexels-photo-276517.jpeg?auto=compress&cs=tinysrgb&dpr=2&h=650&w=940'
-});
-productList.push({
-    name:'Pantalla',
-    price: 220,
-    image: 'https://images.pexels.com/photos/276517/pexels-photo-276517.jpeg?auto=compress&cs=tinysrgb&dpr=2&h=650&w=940'
-});
-productList.push({
-    name:'Computer',
-    price: 620,
-    image: 'https://images.pexels.com/photos/276517/pexels-photo-276517.jpeg?auto=compress&cs=tinysrgb&dpr=2&h=650&w=940'
+    image: './productos/plancha-vidal.jpeg'
 });
 
 
 
+//Elemento de display
 function renderProducts(arr) {
     for (product of arr){
         //crear cada elemento de html pero en js
