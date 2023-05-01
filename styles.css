@@ -57,8 +57,12 @@ nav {
 }
 
 .logo {
-
+    cursor: pointer;
     width: 100px;
+}
+.logo:hover{
+    transition: 250ms;
+    transform: scale(1.05);
 }
 
 .navbar-left ul,
@@ -113,8 +117,6 @@ nav {
     position: fixed;
 }
 
-
-
 .navbar-shopping-cart img:hover {
     border-radius: 25%;
     background-color: var(--text-input-field)
@@ -129,7 +131,7 @@ nav {
     font-weight: bold;
     position: absolute;
     top: -6px;
-    right: 3px;
+    right: -3px;
     display: flex;
     justify-content: center;
     align-items: center;
@@ -337,6 +339,11 @@ nav {
     height: 240px;
     border-radius: 20px;
     object-fit: cover;
+  }
+  .product-card:hover {
+    transition: 250ms;
+    transform: scale(1.02);
+
   }
   .product-info {
     display: flex;
