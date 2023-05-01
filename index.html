@@ -10,7 +10,7 @@
   <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
   <link href="https://fonts.googleapis.com/css2?family=Quicksand:wght@300;500;700&display=swap" rel="stylesheet">
 </head>
-<body>
+<body class="darkmode">
   <!-- menu -->
   <nav>
     <img src="./icons/icon_menu.svg" alt="menu" class="menu">
@@ -42,6 +42,11 @@
     </div>
 
     <div class="navbar-right">
+      <div class="buscador">
+        <input type="text" name="" id="" class="buscar" placeholder="buscar" >
+        <img src="./icons/buscar.png" alt="">
+      </div>
+      
       <ul>
         <li class="navbar-email">platzi@example.com</li>
         <li class="navbar-shopping-cart">
@@ -51,7 +56,7 @@
       </ul>
     </div>
 <!-- menu desktop -->
-    <div class="desktop-menu inactive">
+    <div class="desktop-menu inactive darkmode">
       <ul>
         <li>
           <a href="/" class="title">My orders</a>
@@ -60,6 +65,9 @@
         <li>
           <a href="/">My account</a>
         </li>
+        <li>
+          <a href="/" class="bdark">Dark mode</a>
+        </li>
   
         <li>
           <a href="/">Sign out</a>
@@ -67,7 +75,7 @@
       </ul>
     </div>
 <!-- menu mobile -->
-    <div class="mobile-menu inactive">
+    <div class="mobile-menu inactive darkmode">
       <ul>
         <li>
           <a href="/">CATEGORIES</a>
@@ -96,8 +104,12 @@
         <li>
           <a href="/">My orders</a>
         </li>
+        
         <li>
           <a href="/">My account</a>
+        </li>
+        <li>
+          <a href="/" class="bdark">Dark mode</a>
         </li>
       </ul>
   
@@ -164,7 +176,7 @@
   <!-- Detalles del producto -->
   <aside class="product-detail inactive">
     <div class="product-detail-close">
-      <img src="./icons/icon_close.png" alt="close">
+      <img src="./icons/icon_close.png" alt="close" class="closeIcon">
     </div>
     <img src="https://images.pexels.com/photos/276517/pexels-photo-276517.jpeg?auto=compress&cs=tinysrgb&dpr=2&h=650&w=940" alt="bike">
     <div class="product-details-info">
