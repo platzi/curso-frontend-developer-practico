@@ -52,6 +52,13 @@
     padding: 8px;
     border-radius: 8px;
   }
+  .all {
+    text-decoration: none;
+    color: var(--very-light-pink);
+    border: 1px solid var(--white);
+    padding: 8px;
+    border-radius: 8px;
+  }
   .navbar-left ul li a:hover,
   .navbar-right ul li a:hover {
     border: 1px solid var(--hospital-green);
@@ -163,6 +170,7 @@
   box-sizing: border-box;
   position: absolute;
   right: 0;
+  background-color: var(--white); /*added*/
 }
 .title-container {
   display: flex;

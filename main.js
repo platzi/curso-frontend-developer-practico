@@ -6,13 +6,16 @@ const shoppingCartIcon = document.querySelector(".navbar-shopping-cart");
 const productDetailSummary = document.querySelector(".product-detail");
 const cardsContainer = document.querySelector(".cards-container");
 
+const practicaMenuFromAll = document.querySelector(".all");
+practicaMenuFromAll.addEventListener("click", toggleDesktopMenu);
+
 
 menuFromEmail.addEventListener("click", toggleDesktopMenu);
 menuBurgerIcon.addEventListener("click", toggleMenuBurger);
 shoppingCartIcon.addEventListener("click", toggleSummaryFromShoppingCart);
 
-function toggleDesktopMenu() {
-
+function toggleDesktopMenu(event) {
+    event.preventDefault();
     productDetailSummary.classList.add("inactive");
     desktopMenu.classList.toggle("inactive");
 
@@ -28,6 +31,7 @@ function toggleSummaryFromShoppingCart() {
     desktopMenu.classList.add("inactive");
     productDetailSummary.classList.toggle("inactive");
 };
+
 
 const productList = [];
 productList.push({
@@ -65,15 +69,15 @@ function renderProducts (list) {
 
         const productCard = document.createElement("div");
         productCard.classList.add("product-card");
+        // productCard.addEventListener("click", openSpecificProductDetail);
+
     
         const productImg = document.createElement("img");
         productImg.setAttribute("src", product.image);
     
         const productInfo = document.createElement("div");
         productInfo.classList.add("product-info");
-    
-        // productInfo.appendChild(productInfoDiv)
-        // productInfo.appendChild(productInfoFigure)
+
     
         const productInfoDiv = document.createElement("div");
         const productPrice = document.createElement("p");
