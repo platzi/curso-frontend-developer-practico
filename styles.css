@@ -71,10 +71,12 @@ nav {
     margin-bottom: 20px;
     display: inline-block;
 }
+
 @keyframes appear {
     from {
         transform: scale(0);
     }
+
     to {
         transform: scale(1);
     }
@@ -90,11 +92,70 @@ nav {
     }
 }
 
+.mobile-menu {
+    padding: 24px;
+    position: absolute;
+    left: 0;
+    top: 60px;
+}
+
+.mobile-menu a {
+    text-decoration: none;
+    color: var(--black);
+    font-weight: bold;
+    /* margin-bottom: 24px; */
+}
+
+.mobile-menu ul {
+    padding: 0;
+    list-style: none;
+    margin: 24px 0 0;
+}
+
+.mobile-menu ul:nth-child(1) {
+    border-bottom: 1px solid var(--very-light-pink);
+    margin: 0;
+}
+
+.mobile-menu ul li {
+    margin-bottom: 14px;
+}
+
+.email {
+    font-size: var(--sm);
+    font-weight: 300 !important;
+}
+
+.sign-out {
+    font-size: var(--sm);
+    color: var(--hospital-green) !important;
+}
+
+@keyframes slide {
+    from {
+        transform: translateX(-100%);
+    }
+
+    to {
+        transform: translateX(0);
+    }
+}
+
+@keyframes unslide {
+    from {
+        transform: translateX(0);
+    }
+
+    to {
+        transform: translateX(-100%);
+    }
+}
+
 .logo {
     width: 100px;
 }
 
-.navbar-left ul,
+.navbar-left>ul,
 .navbar-right>ul {
     list-style: none;
     padding: 0;
@@ -112,7 +173,7 @@ nav {
     margin-left: 12px;
 }
 
-.navbar-left ul li a,
+.navbar-left>ul li a,
 .navbar-right>ul li a {
     text-decoration: none;
     color: var(--very-light-pink);
@@ -121,7 +182,7 @@ nav {
     border-radius: 8px;
 }
 
-.navbar-left ul li a:hover,
+.navbar-left>ul li a:hover,
 .navbar-right>ul li a:hover {
     border: 1px solid var(--hospital-green);
     color: var(--hospital-green);
@@ -169,4 +230,14 @@ nav {
     .navbar-email {
         display: none;
     }
+    .desktop-menu {
+        display: none;
+    }
+}
+
+@media (min-width: 641px) {
+    .mobile-menu {
+        display: none;
+    }
+    
 }
