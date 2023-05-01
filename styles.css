@@ -238,7 +238,7 @@ aside > img:nth-child(2) {
     display: none;
   }
   aside {
-    width: 100%;
+    width: 100% !important;
   }
   /* CARD PRODUCTS */
   .cards-container {
