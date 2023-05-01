@@ -87,6 +87,26 @@ productList.push({
     price: 100.00,
     image: 'https://upload.wikimedia.org/wikipedia/commons/9/94/Optimus_prime_bumblebee-1200x983.jpg',
 });
+productList.push({
+  name: 'Donkey Kong',
+  price: 49.00,
+  image: 'https://i.blogs.es/e600d8/donkey-kong/840_560.jpeg',
+});
+productList.push({
+  name: 'Grand Theft Auto VI',
+  price: 599.00,
+  image: 'https://phantom-marca.unidadeditorial.es/e72780553608fb3be40111ca92011e83/crop/0x0/1022x575/resize/1320/f/jpg/assets/multimedia/imagenes/2021/09/17/16318800815612.jpg',
+});
+productList.push({
+  name: 'Turtles Shredders Revenge',
+  price: 59.00,
+  image: 'https://media.vandal.net/m/6-2022/20226158524017_1.jpg',
+});
+productList.push({
+  name: 'Gixxer 250',
+  price: 10000.00,
+  image: 'https://rodaticarros.com.co/images/listings/2023-02/e62252f3-1676719292-388.jpg',
+});
 
 function renderProducts(arr) {
     for (product of arr) {
