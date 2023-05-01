@@ -5,6 +5,9 @@ const hamMenu = $(".menu");
 const mobileMenu = $(".mobile-menu");
 const cart = $(".navbar-shopping-cart");
 const productDetail = $(".product-detail");
+const productList = [];
+const cardsContainer = $(".cards-container");
+
 
 navbarEmail.addEventListener('click', toggleDesktopMenu);
 hamMenu.addEventListener('click', toggleMobileMenu);
@@ -72,3 +75,67 @@ function toggleProductDetail() {
         }, 590);
     }
 }
+
+
+productList.push(
+    {name:'Bike',price:120,image:'https://images.pexels.com/photos/276517/pexels-photo-276517.jpeg?auto=compress&cs=tinysrgb&dpr=2&h=650&w=940'}
+);
+productList.push(
+    {name:'Electro Bike',price:550,image:'https://images.pexels.com/photos/8936922/pexels-photo-8936922.jpeg?auto=compress&cs=tinysrgb&w=600'}
+);
+productList.push(
+    {name:'Bike',price:250,image:'https://i.pinimg.com/564x/51/a2/00/51a200a727eef9311725fd798bf761df.jpg'}
+);
+productList.push(
+    {name:'Bike',price:120,image:'https://images.pexels.com/photos/276517/pexels-photo-276517.jpeg?auto=compress&cs=tinysrgb&dpr=2&h=650&w=940'}
+);
+productList.push(
+    {name:'Electro Bike',price:550,image:'https://images.pexels.com/photos/8936922/pexels-photo-8936922.jpeg?auto=compress&cs=tinysrgb&w=600'}
+);
+productList.push(
+    {name:'Bike',price:250,image:'https://i.pinimg.com/564x/51/a2/00/51a200a727eef9311725fd798bf761df.jpg'}
+);
+productList.push(
+    {name:'Bike',price:120,image:'https://images.pexels.com/photos/276517/pexels-photo-276517.jpeg?auto=compress&cs=tinysrgb&dpr=2&h=650&w=940'}
+);
+productList.push(
+    {name:'Electro Bike',price:550,image:'https://images.pexels.com/photos/8936922/pexels-photo-8936922.jpeg?auto=compress&cs=tinysrgb&w=600'}
+);
+productList.push(
+    {name:'Bike',price:250,image:'https://i.pinimg.com/564x/51/a2/00/51a200a727eef9311725fd798bf761df.jpg'}
+);
+
+function renderProducts (list) {
+    for (product of list) {
+        const productCard = document.createElement('div');
+        productCard.classList.add('product-card');
+    
+        const productImg = document.createElement('img');
+        productImg.setAttribute('src', product.image);
+    
+        const productInfo = document.createElement('div');
+        productInfo.classList.add('product-info');
+    
+        const infoDiv = document.createElement('div');
+    
+        const productPrice = document.createElement('p');
+        productPrice.innerText = '$' + product.price;
+        const productName = document.createElement('p');
+        productName.innerText = product.name;
+    
+        const figure = document.createElement('figure');
+        const figureImg = document.createElement('img');
+        figureImg.setAttribute('src', "./icons/bt_add_to_cart.svg");
+    
+        figure.append(figureImg);
+        infoDiv.append(productName, productPrice);
+        productInfo.append(infoDiv, figure);
+        productCard.append(productImg, productInfo);
+    
+        
+        cardsContainer.append(productCard);
+    
+    }
+}
+
+renderProducts(productList)
