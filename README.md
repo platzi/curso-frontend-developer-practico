@@ -83,3 +83,6 @@ Habia un detalle con el mobile-menu: primero le pusimos un background-color blan
 Clase 24/29
 Interacción entre todos los componentes
 
+Primero hice una practica: le puse evento a los a del navbar. Hice commit.
+Se hizo aparecer y desaparecer el resumen del producto aside agregado un evento dentro la función renderProducts. Esa fue la diferencia, lo demas se hizo igual que las veces anteriores. Hice commit.
+Ahora agregue la funcionalidad de que se cierre uno mientras se abra otro como lo habiamos hecho con el menu desktop y el shopping cart. El profe lo hizo con logica if - tengo un ejemplo varios commits atras.

@@ -31,22 +31,27 @@ closeProductResumeAside.addEventListener("click", closeSpecificProductDetailResu
 
 function toggleDesktopMenu(event) {
     event.preventDefault();
+    productResumeAside.classList.add("inactive");
     productDetailSummary.classList.add("inactive");
     desktopMenu.classList.toggle("inactive");
-
 };
 function toggleMenuBurger() {
-
+    productResumeAside.classList.add("inactive");
     productDetailSummary.classList.add("inactive");
     mobileMenu.classList.toggle("inactive");
 };
 function toggleSummaryFromShoppingCart(event) {
     event.preventDefault();
+    productResumeAside.classList.add("inactive");
     mobileMenu.classList.add("inactive");
     desktopMenu.classList.add("inactive");
     productDetailSummary.classList.toggle("inactive");
 };
 function openSpecificProductDetailResume() {
+
+    desktopMenu.classList.add("inactive");
+    mobileMenu.classList.add("inactive");
+    productDetailSummary.classList.add("inactive");
     productResumeAside.classList.remove("inactive");
 };
 function closeSpecificProductDetailResume() {
