@@ -40,6 +40,21 @@ menuEmail.addEventListener('click', toogleDesktopMenu);
 BurgerIcon.addEventListener('click', toogleMobile);
 shoppingCarIcon.addEventListener('click', hideShowShoppingCart);
 
+
+const productList = [];
+
+productList.push(
+    {
+        productNama: 'Volt Viggo MTB Bike',
+        price: 400,
+        productImage: 'https://voltabikes.com.ar/wp-content/uploads/2020/06/Bicis-0038-EDITADO-1330x888.jpg' 
+    }
+);
+
+
+
+
+
 console.log('Js funciona')
 
 
