@@ -77,3 +77,9 @@ Cuando se pega el HTML en el JS hay un problema porque son dos etiquetas aside q
 Lo que hice fue meterme en el HTML de la clase 12 y le cambie el nombre a las etiquetas. El profesor lo hizo de una manera diferente pero en fin tuvo que ponerse a cambiar nombres tambien.
 
 Habia un detalle con el mobile-menu: primero le pusimos un background-color blanco para que no se vea lo que esta atras, a se va a ajustar para que tape todo cuando se baje a esa resolución.
+
+
+
+Clase 24/29
+Interacción entre todos los componentes
+

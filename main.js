@@ -8,11 +8,26 @@ const cardsContainer = document.querySelector(".cards-container");
 
 const practicaMenuFromAll = document.querySelector(".all");
 practicaMenuFromAll.addEventListener("click", toggleDesktopMenu);
+const practicaMenuFromClothes = document.querySelector(".clothes");
+practicaMenuFromClothes.addEventListener("click", toggleSummaryFromShoppingCart);
+const practicaMenuFromElectronics = document.querySelector(".electronics");
+practicaMenuFromElectronics.addEventListener("click", toggleDesktopMenu);
+const practicaMenuFromFurnitures = document.querySelector(".furnitures");
+practicaMenuFromFurnitures.addEventListener("click", toggleSummaryFromShoppingCart);
+const practicaMenuFromToys = document.querySelector(".toys");
+practicaMenuFromToys.addEventListener("click", toggleDesktopMenu);
+const practicaMenuFromOthers = document.querySelector(".others");
+practicaMenuFromOthers.addEventListener("click", toggleSummaryFromShoppingCart);
+
+const productResumeAside = document.querySelector(".product-resume");
+const closeProductResumeAside = document.querySelector(".product-resume-close");
 
 
 menuFromEmail.addEventListener("click", toggleDesktopMenu);
 menuBurgerIcon.addEventListener("click", toggleMenuBurger);
 shoppingCartIcon.addEventListener("click", toggleSummaryFromShoppingCart);
+
+closeProductResumeAside.addEventListener("click", closeSpecificProductDetailResume);
 
 function toggleDesktopMenu(event) {
     event.preventDefault();
@@ -25,13 +40,18 @@ function toggleMenuBurger() {
     productDetailSummary.classList.add("inactive");
     mobileMenu.classList.toggle("inactive");
 };
-function toggleSummaryFromShoppingCart() {
-
+function toggleSummaryFromShoppingCart(event) {
+    event.preventDefault();
     mobileMenu.classList.add("inactive");
     desktopMenu.classList.add("inactive");
     productDetailSummary.classList.toggle("inactive");
 };
-
+function openSpecificProductDetailResume() {
+    productResumeAside.classList.remove("inactive");
+};
+function closeSpecificProductDetailResume() {
+    productResumeAside.classList.add("inactive");
+};
 
 const productList = [];
 productList.push({
@@ -69,12 +89,13 @@ function renderProducts (list) {
 
         const productCard = document.createElement("div");
         productCard.classList.add("product-card");
-        // productCard.addEventListener("click", openSpecificProductDetail);
 
     
         const productImg = document.createElement("img");
         productImg.setAttribute("src", product.image);
+        productImg.addEventListener("click", openSpecificProductDetailResume);
     
+
         const productInfo = document.createElement("div");
         productInfo.classList.add("product-info");
 
