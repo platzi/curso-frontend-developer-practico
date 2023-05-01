@@ -71,7 +71,7 @@ productList.push({
     image: './productos/sandalias-minie.jpeg'
 });
 productList.push({
-    name:'Skechers Arcoiris- 18',
+    name:'Skechers Arcoiris- 17',
     price: 100,
     image: './productos/skechers-holo.jpeg'
 });
