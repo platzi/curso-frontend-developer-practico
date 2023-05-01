@@ -5,6 +5,8 @@
     --very-light-pink: #C7C7C7;
     --text-input-field: #F7F7F7;
     --hospital-green: #ACD9B2;
+    --light-hospital-green:#deefe0 ;
+    --very-light-gray:#F2F2F2;
     --sm: 14px;
     --md: 16px;
     --lg: 18px;
@@ -93,6 +95,8 @@ nav {
 }
 
 .navbar-email {
+    right: 36px;
+    position: fixed;
     cursor: pointer;
     color: var(--very-light-pink);
     font-size: var(--sm);
@@ -104,8 +108,9 @@ nav {
 }
 
 .navbar-shopping-cart {
+    right: 16px;
     cursor: pointer;
-    position: relative;
+    position: fixed;
 }
 
 
@@ -124,7 +129,7 @@ nav {
     font-weight: bold;
     position: absolute;
     top: -6px;
-    right: -3px;
+    right: 3px;
     display: flex;
     justify-content: center;
     align-items: center;
@@ -132,8 +137,9 @@ nav {
 
 /* Desktom menu */
 .desktop-menu {
+    box-shadow:5px 5px 15px var(--light-hospital-green) ;
     top: 60px;
-    right: 0;
+    right: 60px;
     background: var(--white);
     position: absolute;
     width: 100px;
@@ -218,13 +224,16 @@ nav {
 }
 
 /* Detalles del producto */
-.product-detail {
+.product-detail {     
+    top:60px;
     background-color: var(--white);
     width: 360px;
     padding: 0 24px;
     box-sizing: border-box;
-    position: absolute;
+    position: fixed;
     right: 0;
+    height: 100vh;
+    box-shadow:5px 5px 15px var(--very-light-pink) ;
 }
 
 .title-container {
@@ -311,7 +320,7 @@ nav {
 
 .cards-container {
     
-    margin-top: 20px;
+    margin-top: 84px;
     display: grid;
     grid-template-columns: repeat(auto-fill, 240px);
     gap: 26px;
@@ -319,7 +328,7 @@ nav {
   }
   .product-card {
     border-radius: 20px;
-    box-shadow: 5px 5px 15px rgb(242, 242, 242);
+    box-shadow: 5px 5px 15px var(--very-light-gray);
     width: 240px;
   }
   .product-card img {
@@ -433,7 +442,14 @@ nav {
 
 /*/////////// */
 
-
+@media (max-width:727px){
+    .navbar-left ul {
+        display: none;
+    }
+    .categories{
+        display: none;
+    }
+}
 
 @media (max-width: 640px) {
     .product-detail-right {
