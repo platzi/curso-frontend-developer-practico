@@ -5,13 +5,23 @@ const menuHamIcon = document.querySelector('.menu');
 const mobileMenu = document.querySelector('.mobile-menu');
 
 const menuCarritoIcon = document.querySelector('.navbar-shopping-cart');
+
+const productDetailCloseIcon = document.querySelector('.product-detail-close');
+
 const shoppingCartContainer = document.querySelector('#shoppingCartContainer');
+const productDetailContainer = document.querySelector('#productDetail');
+
+const productDetailContainerImage = document.querySelector('#productDetailImage');
+const productDetailContainerPrice = document.querySelector('#productDetailPrice');
+const productDetailContainerName = document.querySelector('#productDetailName');
+
 
 const cardsContainer = document.querySelector('.cards-container')
 
 menuEmail.addEventListener('click', toggleDesktopMenu);
 menuHamIcon.addEventListener('click',toggleMobileMenu);
 menuCarritoIcon.addEventListener('click',toggleCarritoAside);
+productDetailCloseIcon.addEventListener('click',closeProductDetailAside);
 
 function toggleDesktopMenu(){
     const isAsideClosed = shoppingCartContainer.classList.contains('inactive');
@@ -27,6 +37,8 @@ function toggleMobileMenu(){
         shoppingCartContainer.classList.add('inactive');
     }
     mobileMenu.classList.toggle('inactive')
+
+    closeProductDetailAside()
 }
 
 function toggleCarritoAside(){
@@ -35,6 +47,26 @@ function toggleCarritoAside(){
         mobileMenu.classList.add('inactive');
     }
     shoppingCartContainer.classList.toggle('inactive')
+
+    const isProductDetailClosed = productDetailContainer.classList.contains('inactive');
+    if(!isProductDetailClosed){
+        productDetailContainer.classList.add('inactive');
+    }
+}
+
+function openProductDetailAside(product){
+    shoppingCartContainer.classList.add('inactive');
+    productDetailContainer.classList.remove('inactive');
+    
+    // Modifico lo que se muestra
+
+    productDetailContainerImage.setAttribute('src',product.srcElement.pImage);
+    productDetailContainerName.innerText = product.srcElement.pName;
+    productDetailContainerPrice.innerText = '$' + product.srcElement.pPrice;
+}
+
+function closeProductDetailAside(){
+    productDetailContainer.classList.add('inactive')
 }
 
 const productList = []; // array que se devolveria por alguna API REST
@@ -96,6 +128,11 @@ function renderProducts(arr){
         const productImg = document.createElement('img');
         // product = {name, price, image} -> product.image
         productImg.setAttribute('src', product.image);
+        productImg.addEventListener('click', openProductDetailAside);
+        productImg.pPrice = product.price;
+        productImg.pImage = product.image;
+        productImg.pName = product.name;
+        
     
         const productInfo = document.createElement('div');
         productInfo.classList.add('product-info');
