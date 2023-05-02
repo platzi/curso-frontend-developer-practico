@@ -3,7 +3,7 @@ const desktopMenu = document.querySelector('.desktop-menu');
 const burguerIcon = document.querySelector('.burguerIcon');
 const movileMenu = document.querySelector('.mobile-menu');
 const carritoIcon = document.querySelector('.navbar-shopping-cart')
-const carritoMenu = document.querySelector('.product-detail')
+const carritoMenu = document.querySelector('#shopping-cart-container')
 const cardConteiner = document.querySelector('.cards-container')
 const Clothes = document.querySelector('.Clothes')
 
@@ -21,16 +21,10 @@ function toggleCarrito() {
     const MenuCarritoClose = carritoMenu.classList.contains('inactive')
     const MenuDesktopClose = desktopMenu.classList.contains('inactive')
 
-    if(MenuMovileClose){
-        carritoMenu.classList.toggle('inactive')
-    }else{
-        movileMenu.classList.add('inactive')
-        carritoMenu.classList.toggle('inactive')
-    }
-
-    if(MenuDesktopClose){
-        carritoMenu.classList.remove('inactive')
-    }
+    if (MenuMovileClose == false) {
+        movileMenu.classList.add('inactive'); 
+      }
+    carritoMenu.classList.toggle('inactive');
 
 
 }
