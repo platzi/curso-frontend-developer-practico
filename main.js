@@ -6,6 +6,8 @@ const carritoIcon = document.querySelector('.navbar-shopping-cart')
 const carritoMenu = document.querySelector('#shopping-cart-container')
 const cardConteiner = document.querySelector('.cards-container')
 const Clothes = document.querySelector('.Clothes')
+const productDetail = document.querySelector('#product-detail')
+const productDetailClose = document.querySelector('.product-detail-close')
 
 var mostrarProduct = false;
 
@@ -14,18 +16,25 @@ navEmail.addEventListener('click', toggleMenu)
 burguerIcon.addEventListener('click', toggleMovile);
 carritoIcon.addEventListener('click', toggleCarrito);
 Clothes.addEventListener('click', productClothes);
+productDetailClose.addEventListener('click', closeProductDetail);
 
 function toggleCarrito() {
 
     const MenuMovileClose = movileMenu.classList.contains('inactive')
     const MenuCarritoClose = carritoMenu.classList.contains('inactive')
     const MenuDesktopClose = desktopMenu.classList.contains('inactive')
+    const productDetailClose = productDetail.classList.contains('inactive')
 
-    if (MenuMovileClose == false) {
+    if (!MenuMovileClose) {
         movileMenu.classList.add('inactive'); 
-      }
+    }
     carritoMenu.classList.toggle('inactive');
 
+
+    if (!productDetailClose) {
+        productDetail.classList.add('inactive'); 
+    }
+   
 
 }
 
@@ -41,7 +50,7 @@ function toggleMovile() {
         carritoMenu.classList.add('inactive')
         movileMenu.classList.toggle('inactive')
     }
-
+    closeProductDetail();
 
     
 }
@@ -106,6 +115,7 @@ function renderProduct(lib){
        
            const productImage = document.createElement("img");
            productImage.setAttribute("src", product.image);
+           productImage.addEventListener('click', openProductDetail)
        
            const productInfo = document.createElement("div");
            productInfo.classList.add("product-info");
@@ -141,6 +151,18 @@ function renderProduct(lib){
 }
 
 renderProduct(productList);
+
+function openProductDetail(){
+
+    carritoMenu.classList.add('inactive')
+
+    productDetail.classList.remove('inactive')
+}
+
+function closeProductDetail(){
+
+    productDetail.classList.add('inactive')
+}
 
 
 function productClothes(){   
