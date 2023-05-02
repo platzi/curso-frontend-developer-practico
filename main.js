@@ -22,7 +22,7 @@ function toggleMobileMenu() {
 
 // My car desplegable
 const carritoMenu = document.querySelector('.navbar-shopping-cart');
-const aside = document.querySelector('.product-detail');
+const aside = document.querySelector('#shoppingCartContainer');
 
 carritoMenu.addEventListener('click', toogleCarritoAside);
 
