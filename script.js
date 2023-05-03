@@ -1,42 +1,54 @@
-const menuEmail = document.querySelector('.navbar-email');
+//Desktop and mobile menu
+const showDesktopMenu = document.querySelector('.navbar-email');
 const desktopMenu = document.querySelector('.desktop-menu');
-const menuHamburgerIcon = document.querySelector('.menu');
+const showMobileMenu = document.querySelector('.menu');
 const mobileMenu = document.querySelector('.mobile-menu');
-const menuCarritoIcon = document.querySelector('.navbar-shopping-cart');
-const aside = document.querySelector('.product-detail');
+//Shopping cart
+const showShoppingCart = document.querySelector('.navbar-shopping-cart');
+const shoppingCart = document.querySelector('.product-detail');
 
-menuEmail.addEventListener('click', toggleDesktopMenu);
-menuHamburgerIcon.addEventListener('click', toggleMobileMenu);
-menuCarritoIcon.addEventListener('click', toggleCarritoAside)
+
+//Shows menus (Desktop and mobile)
+showDesktopMenu.addEventListener('click', toggleDesktopMenu);
+showMobileMenu.addEventListener('click', toggleMobileMenu);
 
 function toggleDesktopMenu(){
-    const isAsideClosed = aside.classList.contains('inactive');
+    //Explicación de la lógica de "shoppingCartStatus" en la función "toggleShoppingCart"
+    const shoppingCartStatus = shoppingCart.classList.contains('inactive');
 
-    if(!isAsideClosed){
-        aside.classList.add('inactive');
+    if(!shoppingCartStatus){
+        shoppingCart.classList.add('inactive');
     }
+
     desktopMenu.classList.toggle('inactive');
 }
 
 function toggleMobileMenu(){
-    const isAsideClosed = aside.classList.contains('inactive');
+    const shoppingCartStatus = shoppingCart.classList.contains('inactive');
 
-    if(!isAsideClosed){
-        aside.classList.add('inactive');
+    if(!shoppingCartStatus){
+        shoppingCart.classList.add('inactive');
     }
+
     mobileMenu.classList.toggle('inactive');
 }
 
-function toggleCarritoAside(){
-    const isMobileMenuClosed = mobileMenu.classList.contains('inactive');
-    const isDesktopMenuClosed = desktopMenu.classList.contains('inactive');
+/*Show shopping cart*/
+showShoppingCart.addEventListener('click', toggleShoppingCart);
 
-    if(!isMobileMenuClosed){
+function toggleShoppingCart(){
+    //Si no tiene la clase devuelve FALSE. Significa que el menu esta abierto.
+    const mobileMenuStatus = mobileMenu.classList.contains('inactive');
+    const desktopMenuStatus = desktopMenu.classList.contains('inactive');
+    
+    if(!mobileMenuStatus){//(!false = true) Niego el false para que entre a la condición.
+        //Close mobileMenu
         mobileMenu.classList.add('inactive');
     }
-    if(!isDesktopMenuClosed){
+    if (!desktopMenuStatus) {
+        //Closed desktopMenu
         desktopMenu.classList.add('inactive');
     }
 
-    aside.classList.toggle('inactive');
+    shoppingCart.classList.toggle('inactive');
 }
