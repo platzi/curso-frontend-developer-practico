@@ -19,7 +19,7 @@ body {
 }
 
 /* navbar general styles */
-    nav {
+nav {
     display: flex;
     justify-content: space-between;
     padding: 0 24px;
@@ -129,7 +129,8 @@ body {
     top: 60px;
     padding: 24px;
     left: 0;
-    width: 100%;
+    width: calc(100% - 24px);
+    padding-left: 24px;
     background-color: var(--white);
 }
 .mobile-menu a {
@@ -159,7 +160,7 @@ body {
 }
 
 /* buy styles  */
-.aside {
+aside {
     background-color: var(--white);
     width: 360px;
     box-sizing: border-box;
@@ -357,7 +358,7 @@ body {
     {
         display: none;
     }
-    .aside{
+    aside{
         width: 100%;
     }
     .cards-container {
