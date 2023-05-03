@@ -9,6 +9,12 @@
       --lg: 18px;
     }
 
+      *{
+        padding: 0;
+        margin: 0;
+        box-sizing: border-box;
+      }
+
     .inactive{
       opacity: 0;
       pointer-events: none;
@@ -25,6 +31,7 @@
       display: flex;
       justify-content: space-between;
       padding: 0 24px;
+      width:100%;
       border-bottom: 1px solid var(--very-light-pink);
     }
     .menu {
@@ -153,7 +160,9 @@ fue solucionado 5 minutos despues XD
 
 
     .mobile-menu {
-        position: absolute;
+      width: 100%;
+      position: absolute;
+      left: 0;
       top: 60px;      
       padding: 24px;    
       transition: all .4s ease ;
@@ -193,11 +202,12 @@ fue solucionado 5 minutos despues XD
 
 
     /*ESTILOS DEL CARRITO DE COMPRAS*/
-    .product-detail {
+      aside {
       width: 360px;
-      padding: 0 24px;
       box-sizing: border-box;
       position: absolute;
+      padding: 0 24px 20px 24px;
+
       right: 0;
       top: 60px;
       transition: all .4s ease ;
@@ -288,7 +298,7 @@ fue solucionado 5 minutos despues XD
     .cards-container {
       margin: 26px 0;
       display: grid;
-      grid-template-columns: repeat(auto-fill, 240px);
+      grid-template-columns: repeat(auto-fill, 140px);
       gap: 26px;
       place-content: center;
     }
@@ -309,7 +319,7 @@ fue solucionado 5 minutos despues XD
       display: flex;
       justify-content: space-between;
       align-items: center;
-      margin-top: 12px;
+       
     }
     .product-info figure {
       margin: 0;
@@ -330,24 +340,6 @@ fue solucionado 5 minutos despues XD
       margin-bottom: 0;
       color: var(--very-light-pink);
     }
-    @media (max-width: 640px) {
-      
-    }
-
-    @media (max-width: 640px) {
-       .product-detail {
-        width: 100%;
-      }
-      .menu {
-        display: block;
-      }
-      .navbar-left ul, .navbar-email, .desktop-menu{
-        display: none;
-      }
-
-  .cards-container {
-        grid-template-columns: repeat(auto-fill, 140px);
-      }
       .product-card {
         width: 140px;
       }
@@ -355,10 +347,90 @@ fue solucionado 5 minutos despues XD
         width: 140px;
         height: 140px;
       }
+    
+
+
+    /*Detalles del producto*/
+
+  #product-detail-2{
+    padding: 0 0 20px 0;
+  }
+
+    .product-detail-2-close {
+      background: var(--white);
+      width: 14px;
+      height: 14px;
+      position: absolute;
+      top: 24px;
+      left: 24px;
+      z-index: 2;
+      padding: 12px;
+      border-radius: 50%;
     }
+    .product-detail-2-close:hover {
+      cursor: pointer;
+    }
+    aside > img:nth-child(2) {
+      width: 100%;
+      height: 360px;
+      object-fit: cover;
+      border-radius: 0 0 20px 20px;
+    }
+    aside .product-info{
+      flex-direction: column;
+      margin: 24px 24px 0 24px;}
+
+    aside .product-info p:nth-child(1) {
+      font-weight: bold;
+      font-size: var(--md);
+      margin-top: 0;
+      margin-bottom: 4px;
+    }
+    aside .product-info p:nth-child(2) {
+      color: var(--very-light-pink);
+      font-size: var(--md);
+      margin-top: 0;
+      margin-bottom: 36px;
+    }
+    aside .product-info p:nth-child(3) {
+      color: var(--very-light-pink);
+      font-size: var(--sm);
+      margin-top: 0;
+      margin-bottom: 36px;
+    }
+    .primary-button {
+      background-color: var(--hospital-green);
+      border-radius: 8px;
+      border: none;
+      color: var(--white);
+      width: 100%;
+      cursor: pointer;
+      font-size: var(--md);
+      font-weight: bold;
+      height: 50px;
+    }
+    .add-to-cart-button {
+      display: flex;
+      align-items: center;
+      justify-content: center;
+    }
+
 
     @media (min-width: 641px) {
       .mobile-menu{
         display: none;
       }
     }
+  @media (max-width: 640px) {
+        .product-detail-2{
+          width: 100%;
+        }
+       .product-detail {
+        width: 100%;
+        }
+        .menu {
+          display: block;
+        }
+        .navbar-left ul, .navbar-email, .desktop-menu{
+          display: none;
+        }

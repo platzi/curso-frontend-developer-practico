@@ -11,7 +11,7 @@ const burguerMenu = $(".menu")
 const mobileMenu = $(".mobile-menu")
 //Constante del carrito de compras
 const carritoCompras = $(".navbar-shopping-cart")
-const carritoComprasDesplegable = $(".product-detail")
+const carritoComprasDesplegable = $("#shoppingCart")
 
 //constantes de la s de productos 
 
