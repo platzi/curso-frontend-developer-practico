@@ -170,6 +170,7 @@ nav {
   box-sizing: border-box;
   position: absolute;
   right: 0;
+  background-color: white;
 }
 .title-container {
   display: flex;
