@@ -7,6 +7,7 @@ const desktopMenu = document.querySelector('.desktop-menu');
 const mobileMenu = document.querySelector('.mobile-menu');
 const shoppingCartContainer = document.querySelector('#shopping-cart-container');
 const productDetailContainer = document.querySelector('#product-detail');
+const imgProductDetail = document.querySelector('#product-detail > img:nth-child(2)');
 const cardsContainer = document.querySelector('.cards-container');
 
 // Escuchar eventos
@@ -66,10 +67,13 @@ function toggleCarAside() {
     shoppingCartContainer.classList.toggle('inactive');
 }
 
-function openProductDetailAside() {
+function openProductDetailAside(event) {
     mobileMenu.classList.add('inactive');
     desktopMenu.classList.add('inactive');
     shoppingCartContainer.classList.add('inactive');
+
+    // Asigna img de card seleccionada al product detail
+    imgProductDetail.setAttribute('src', event.target.currentSrc);
 
     productDetailContainer.classList.remove('inactive');
 }
