@@ -1,8 +1,10 @@
 const clickMail = document.querySelector('.navbar-email');
 const desktopMenu = document.querySelector('.desktop-menu');
 
-clickMail.addEventListener('click', mostrar);
+clickMail.addEventListener('click', toggleDesktopMenu);
 
-function mostrar(){
-    desktopMenu.removeAttribute('class', 'inactive')
+function toggleDesktopMenu(){
+    desktopMenu.classList.toggle('inactive');
 }
+
+console.log(desktopMenu.classList);
