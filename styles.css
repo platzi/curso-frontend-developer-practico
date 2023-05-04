@@ -260,6 +260,9 @@ aside {
     padding: 12px;
     border-radius: 50%;
 }
+.product-detail-close:active {
+    background-color: var(--black);
+}
 .product-detail-close:hover {
     cursor: pointer;
 }
