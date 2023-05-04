@@ -1,11 +1,11 @@
 
 /* Gernerales */
 :root {
-    --white: #FFFFFF;
-    --black: #000000;
-    --very-light-pink: #C7C7C7;
-    --text-input-field: #F7F7F7;
-    --hospital-green: #ACD9B2;
+  --white: #FFFFFF;
+  --black: #000000;
+  --very-light-pink: #e4c6c6;
+  --text-input-field: #F7F7F7;
+  --hospital-green: rgb(222, 110, 226);
     --sm: 14px;
     --md: 16px;
     --lg: 18px;
@@ -25,6 +25,7 @@
     justify-content: space-between;
     padding: 0 24px;
     border-bottom: 1px solid var(--very-light-pink);
+    background-color: #ba97c0;
   }
   .menu {
     display: none;
@@ -50,14 +51,15 @@
   .navbar-left ul li a,
   .navbar-right ul li a {
     text-decoration: none;
-    color: var(--very-light-pink);
-    border: 1px solid var(--white);
+    color: #ad9b9b;
+    border: 1px solid rgba(128, 128, 128, 0.562);
     padding: 8px;
     border-radius: 8px;
+    background-color: var(--white);
   }
   .navbar-left ul li a:hover,
   .navbar-right ul li a:hover {
-    border: 1px solid var(--hospital-green);
+    border: 2px solid rgb(91, 30, 94);
     color: var(--hospital-green);
   }
   .navbar-email {
@@ -72,7 +74,7 @@
   .navbar-shopping-cart div {
     width: 16px;
     height: 16px;
-    background-color: var(--hospital-green);
+    background-color: var(--white);
     border-radius: 50%;
     font-size: var(--sm);
     font-weight: bold;
@@ -165,6 +167,8 @@ aside {
   position: absolute;
   top: 61px;
   right: 0;
+  border: 3px solid rgb(222, 110, 226);
+  border-radius: 0 0 5% 5%;
 }
 
 /* ShoppingCart*/
@@ -250,11 +254,21 @@ aside {
   margin: 20px;
 }
 .product-card {
-  width: 240px;
+  width: 250px;
+  overflow-clip-margin: content-box;
+  overflow: clip;
+  color: rgb(222, 110, 226);
+  border-style: solid;
+  border-radius: 2rem;
+  cursor: pointer
 }
+.product-card:hover {
+border: 5px solid rgb(91, 30, 94);;
+}
+
 .product-card img {
-  width: 240px;
-  height: 240px;
+  width: 250px;
+  height: 250px;
   border-radius: 20px;
   object-fit: cover;
 }
@@ -276,6 +290,7 @@ aside {
   font-size: var(--md);
   margin-top: 0;
   margin-bottom: 4px;
+  color: rgb(222, 110, 226);;
 }
 .product-card div p:nth-child(2) {
   font-size: var(--sm);
@@ -296,7 +311,7 @@ aside {
   left: 24px;
   z-index: 2;
   padding: 12px;
-  border-radius: 50%;
+  border-radius: 50% ;
 }
 .product-detail-close:hover {
   cursor: pointer;

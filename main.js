@@ -59,24 +59,46 @@ function closeProductDetailAside() {
 }
 
 
-
-
-
 const productList = [];
 productList.push({
-  name: 'Bike',
-  price: 120,
-  image: 'https://images.pexels.com/photos/276517/pexels-photo-276517.jpeg?auto=compress&cs=tinysrgb&dpr=2&h=650&w=940',
+  name: 'Juego de Mesa de Ratán',
+  price: 190,
+  image: "./imgs/IMG (1).jpeg",
 });
 productList.push({
-  name: 'Pantalla',
+  name: 'Juego de Mesa Contemporáneo',
   price: 220,
-  image: 'https://images.pexels.com/photos/276517/pexels-photo-276517.jpeg?auto=compress&cs=tinysrgb&dpr=2&h=650&w=940',
+  image: "./imgs/IMG (2).jpg",
 });
 productList.push({
-  name: 'Compu',
-  price: 620,
-  image: 'https://images.pexels.com/photos/276517/pexels-photo-276517.jpeg?auto=compress&cs=tinysrgb&dpr=2&h=650&w=940',
+  name: 'Juego de mesa Vintage',
+  price: 600,
+  image: "./imgs/IMG (3).jpg",
+});
+productList.push({
+  name: 'Juego de Escritorio Vintage',
+  price: 370,
+  image: "./imgs/IMG (4).jpg",
+});
+productList.push({
+  name: 'Sofá Vintage',
+  price: 435,
+  image: "./imgs/IMG (5).jpg",
+});
+productList.push({
+  name: 'Juego de Sillas Madera',
+  price: 650,
+  image: "./imgs/IMG (6).jpg",
+});
+productList.push({
+  name: 'Isla de MDF',
+  price: 385,
+  image: "./imgs/IMG (7).jpg",
+});
+productList.push({
+  name: 'Juego de sillones',
+  price: 510,
+  image: "./imgs/IMG (8).jpg",
 });
 
 
