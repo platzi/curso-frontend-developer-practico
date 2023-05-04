@@ -4,7 +4,7 @@ const desktopMenu = document.querySelector(".desktop-menu");
 const mobileMenu = document.querySelector(".mobile-menu");
 const mobileMenuIcon = document.querySelector(".menu");
 
-const shoppingCartAside = document.querySelector(".product-detail");
+const shoppingCartAside = document.querySelector("#shopping-cart-container");
 const navShoppingCart = document.querySelector(".navbar-shopping-cart");
 
 const cardsContainer = document.querySelector(".cards-container");
