@@ -235,7 +235,7 @@ aside {
 }
 /*Shopping cart interna*/
 #shoppingCartContainer{
-  padding: 0 24px;
+  padding: 10px 24px;
 }
 .product-detail-close {
   background: var(--white);
