@@ -1,0 +1,150 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta http-equiv="X-UA-Compatible" content="IE=edge">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>YardSale - Tienda Yard online</title>
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Quicksand:wght@300;500;700&display=swap" rel="stylesheet">
+  <link rel="stylesheet" href="./css/styles.css">
+</head>
+<body>
+  <nav>
+    <img src="./icons/icon_menu.svg" alt="menu" class="menu" id="burger-button">
+
+    <div class="navbar-left">
+      <img src="./logos/logo_yard_sale.svg" alt="logo" class="logo">
+
+      <ul>
+        <li>
+          <a onclick="filterProducts('all', this)" class="item item-desktop item-active">All</a>
+        </li>
+        <li>
+          <a onclick="filterProducts('clothes', this)" class="item item-desktop">Clothes</a>
+        </li>
+        <li>
+          <a onclick="filterProducts('electronics', this)" class="item item-desktop">Electronics</a>
+        </li>
+        <li>
+          <a onclick="filterProducts('furnitures', this)" class="item item-desktop">Furnitures</a>
+        </li>
+        <li>
+          <a onclick="filterProducts('toys', this)" class="item item-desktop">Toys</a>
+        </li>
+        <li>
+          <a onclick="filterProducts('others', this)" class="item item-desktop">Others</a>
+        </li>
+      </ul>
+    </div>
+
+    <div class="navbar-right">
+      <ul>
+        <li class="navbar-email" id="user-menu" class="item">platzi@example.com</li>
+        
+        <li class="navbar-shopping-cart" id="shopping-cart-button">
+          <img src="./icons/icon_shopping_cart.svg" alt="shopping cart">
+          <div id="items-counter"></div>
+        </li>
+      </ul>
+    </div>
+    <div class="desktop-menu inactive" id="desktop-menu">
+      <ul>
+        <li>
+          <a href="/" class="title">My orders</a>
+        </li>
+
+        <li>
+          <a href="/">My account</a>
+        </li>
+
+        <li>
+          <a href="/">Sign out</a>
+        </li>
+      </ul>
+    </div>
+    <div class="mobile-menu inactive">
+      <svg id="close-mobile-menu" xmlns="http://www.w3.org/2000/svg" width="16" height="16" fill="currentColor"
+        class="bi bi-x" viewBox="0 0 16 16">
+        <path
+          d="M4.646 4.646a.5.5 0 0 1 .708 0L8 7.293l2.646-2.647a.5.5 0 0 1 .708.708L8.707 8l2.647 2.646a.5.5 0 0 1-.708.708L8 8.707l-2.646 2.647a.5.5 0 0 1-.708-.708L7.293 8 4.646 5.354a.5.5 0 0 1 0-.708z" />
+      </svg>
+      <ul>
+        <li>
+          <a class="item item-mobile">CATEGORIES</a>
+        </li>
+        <li>
+          <a class="item item-mobile item-active" onclick="filterProducts('all', this)">All</a>
+        </li>
+        <li>
+          <a class="item item-mobile" onclick="filterProducts('clothes', this)">Clothes</a>
+        </li>
+        <li>
+          <a class="item item-mobile" onclick="filterProducts('electronics', this)">Electronics</a>
+        </li>
+        <li>
+          <a class="item item-mobile" onclick="filterProducts('furnitures', this)">Furnitures</a>
+        </li>
+        <li>
+          <a class="item item-mobile" onclick="filterProducts('toys', this)">Toys</a>
+        </li>
+        <li>
+          <a class="item item-mobile" onclick="filterProducts('others', this)">Others</a>
+        </li>
+      </ul>
+
+      <ul>
+        <li>
+          <a class="item-mobile">My orders</a>
+        </li>
+        <li>
+          <a class="item-mobile">My account</a>
+        </li>
+      </ul>
+
+      <ul>
+        <li>
+          <a href="/" class="email">platzi@example.com</a>
+        </li>
+        <li>
+          <a href="/" class="sign-out">Sign out</a>
+        </li>
+      </ul>
+    </div>
+  </nav>
+  <aside class="aside-content my-cart inactive" id="order-detail">
+    <div class="title-container" id="back-to-home">
+      <img src="./icons/flechita.svg" alt="arrow">
+      <p class="title">My order</p>
+    </div>
+
+    <div class="my-order-content">
+      <!-- PRODUCTS OF CART -->
+    </div>
+    <div class="product-detail__checkout">
+      <div class="order">
+        <p>
+          <span>Total</span>
+        </p>
+        <p id="order-total">$560.00</p>
+      </div>
+
+      <button id="checkout" class="primary-button">
+        Checkout
+      </button>
+    </div>
+    </div>
+  </aside>
+  <!-- <aside id="product-detail" class="aside-content product-detail">
+  </aside> -->
+  <main>
+    <div class="cards-container">
+      <!-- <div class="product-card">
+      </div> -->
+    </div>
+  </main>
+  <script src="./js/main.js"></script>
+</body>
+
+</html>
