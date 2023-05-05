@@ -3,6 +3,7 @@ let burgerButton = document.querySelector("#burger-button");
 let cartButton = document.querySelector("#shopping-cart-button");
 let closeMobileMenuBtn = document.querySelector("#close-mobile-menu");
 let backtoHomeBtn = document.querySelector("#back-to-home");
+let CheckoutBtn = document.querySelector("#checkout");
 
 let desktopMenu = document.querySelector("#desktop-menu");
 let mobileMenu = document.querySelector(".mobile-menu");
@@ -320,6 +321,10 @@ function filterProducts(category, itemSelected){
   
   cardsContainer.innerHTML = "";
 
+  if(!mobileMenu.classList.contains("inactive")){
+    closeMobileMenu();
+  }
+
   if(category === "all"){
     renderCards(productList);
     return;
@@ -330,6 +335,7 @@ function filterProducts(category, itemSelected){
   });
 
   renderCards(resultProducts);
+
 }
 
 function removeNoScroll() {
@@ -391,3 +397,4 @@ renderProductsListOfCart();
 refreshCounter();
 refreshOrderTotal();
 window.onresize = removeNoScroll;
+CheckoutBtn.onclick = () => { alert("Muchas gracias por ver esta demo, aún le faltan muchas funcionalidades, pero seguiré actualizando el proyecto..."); };

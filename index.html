@@ -75,22 +75,22 @@
           <a class="item item-mobile">CATEGORIES</a>
         </li>
         <li>
-          <a class="item item-mobile item-active">All</a>
+          <a class="item item-mobile item-active" onclick="filterProducts('all', this)">All</a>
         </li>
         <li>
-          <a class="item item-mobile">Clothes</a>
+          <a class="item item-mobile" onclick="filterProducts('clothes', this)">Clothes</a>
         </li>
         <li>
-          <a class="item item-mobile">Electronics</a>
+          <a class="item item-mobile" onclick="filterProducts('electronics', this)">Electronics</a>
         </li>
         <li>
-          <a class="item item-mobile">Furnitures</a>
+          <a class="item item-mobile" onclick="filterProducts('furnitures', this)">Furnitures</a>
         </li>
         <li>
-          <a class="item item-mobile">Toys</a>
+          <a class="item item-mobile" onclick="filterProducts('toys', this)">Toys</a>
         </li>
         <li>
-          <a class="item item-mobile">Others</a>
+          <a class="item item-mobile" onclick="filterProducts('others', this)">Others</a>
         </li>
       </ul>
 
@@ -130,7 +130,7 @@
         <p id="order-total">$560.00</p>
       </div>
 
-      <button class="primary-button">
+      <button id="checkout" class="primary-button">
         Checkout
       </button>
     </div>
