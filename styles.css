@@ -168,7 +168,7 @@
   aside {
     position: absolute;
     right: 0;
-    width: 360px;
+    width: 420px;
     background-color: var(--white);
   }
   #shopping-cart-container{
@@ -302,11 +302,6 @@
     align-items: center;
     justify-content: center;
   }
-  @media (max-width: 640px) {
-    .product-detail {
-      width: 100%;
-    }
-  }
 
   /* Product List */
   .cards-container {
@@ -372,6 +367,8 @@
     }
     aside {
       width: 100%;
+    }
+    #shopping-cart-container{
       padding: 24px;
     }
 

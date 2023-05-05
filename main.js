@@ -9,16 +9,29 @@ const navShoppingCart = document.querySelector(".navbar-shopping-cart");
 
 const cardsContainer = document.querySelector(".cards-container");
 
+const productDetailAside = document.querySelector("#product-detail");
+const productDetailCloseIcon = document.querySelector(".product-detail-close");
+const productDetailImg = document.querySelector(".product-detail-img");
+const productList = [];
+
+let a;
+
+productDetailCloseIcon.addEventListener("click", ()=>{
+    productDetailAside.classList.add("inactive");
+})
+
 navShoppingCart.addEventListener("click", ()=>{
     shoppingCartAside.classList.toggle("inactive");
     desktopMenu.classList.add("inactive");
     mobileMenu.classList.add("inactive");
+    productDetailAside.classList.add("inactive");
 })
 
 mobileMenuIcon.addEventListener("click", ()=>{
     mobileMenu.classList.toggle("inactive");
     desktopMenu.classList.add("inactive");
     shoppingCartAside.classList.add("inactive");
+    productDetailAside.classList.add("inactive");
 })
 
 navEmail.addEventListener("click", ()=>{ //Uso una funcion de flecha para el evento ya que la funcion no se volvera a usar.
@@ -26,6 +39,7 @@ navEmail.addEventListener("click", ()=>{ //Uso una funcion de flecha para el eve
     desktopMenu.classList.toggle("inactive");
     mobileMenu.classList.add("inactive");
     shoppingCartAside.classList.add("inactive");
+    productDetailAside.classList.add("inactive");
 });
 
 function productConstructor(name, price, img){
@@ -34,7 +48,6 @@ function productConstructor(name, price, img){
     this.img = img
 }
 
-const productList = [];
 
 productList.push(
     new productConstructor("bici", 200, "https://images.pexels.com/photos/276517/pexels-photo-276517.jpeg?auto=compress&cs=tinysrgb&dpr=2&h=650&w=940"),
@@ -53,7 +66,16 @@ function newProductsCards(arr){
     
         const imgElement = document.createElement("img");
         imgElement.setAttribute("src", product.img);
-        
+        imgElement.addEventListener("click", (event)=>{
+            productDetailAside.classList.remove("inactive") //muestra el aside de detalle de producto.
+            shoppingCartAside.classList.add("inactive");
+            desktopMenu.classList.add("inactive");
+            mobileMenu.classList.add("inactive");
+            console.log(imgElement.parentNode);
+            a = imgElement.getAttribute("src");
+            productDetailImg.setAttribute("src", imgElement.getAttribute("src"))
+        })
+
         const productInfo = document.createElement("div");
         productInfo.classList.add("product-info");
     
