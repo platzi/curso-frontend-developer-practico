@@ -104,7 +104,7 @@
       top: 60px;
       right: 60px;
       background-color: var(--white);
-      width: 100px;
+      width: 131px;
       height: auto;
       border: 1px solid var(--very-light-pink);
       border-radius: 6px;
@@ -206,7 +206,7 @@ fue solucionado 5 minutos despues XD
       width: 360px;
       box-sizing: border-box;
       position: absolute;
-      padding: 0 24px 20px 24px;
+      padding: 24px 20px 24px;
 
       right: 0;
       top: 60px;
@@ -220,6 +220,7 @@ fue solucionado 5 minutos despues XD
 
     .my-order-content{
       height: 440px;
+      padding: 10px;
     }
 
     .title-container {
@@ -354,12 +355,15 @@ fue solucionado 5 minutos despues XD
 
   #product-detail-2{
     padding: 0 0 20px 0;
+    right: 0;
   }
 
     .product-detail-2-close {
       background: var(--white);
       width: 14px;
       height: 14px;
+      display: grid;
+      place-content: center;
       position: absolute;
       top: 24px;
       left: 24px;
