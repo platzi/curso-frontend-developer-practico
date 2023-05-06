@@ -1,36 +1,37 @@
-/*.***Navbar desktop Menu*** */
 const menuEmail = document.querySelector(".navbar-email");
 const desktopMenu = document.querySelector(".desktop-menu");
+const menuAmburgesa = document.querySelector(".menu");
+const movileMenu = document.querySelector(".mobile-menu");
+const menuCarritoIcon = document.querySelector(".navbar-shopping-cart");
+const shoppingCartContainer = document.querySelector("#shoppingCartContainer");
+const cardsContainer = document.querySelector(".cards-container");
 
+/*.***Navbar desktop Menu*** */
 menuEmail.addEventListener("click", toogleDesktopMenu);
 
 function toogleDesktopMenu() {
-    const isAsiceClose = aside.classList.contains("inactive");
+    const isAsiceClose = shoppingCartContainer.classList.contains("inactive");
 
     if (!isAsiceClose) {
-        aside.classList.add("inactive");
+        shoppingCartContainer.classList.add("inactive");
     }
     desktopMenu.classList.toggle("inactive");
 }
 
 /* *** Menu en movile *** */
-const menuAmburgesa = document.querySelector(".menu");
-const movileMenu = document.querySelector(".mobile-menu");
 
 menuAmburgesa.addEventListener("click", toogleMovileMenu);
 
 function toogleMovileMenu() {
-    const isAsiceClose = aside.classList.contains("inactive");
+    const isAsiceClose = shoppingCartContainer.classList.contains("inactive");
 
     if (!isAsiceClose) {
-        aside.classList.add("inactive");
+        shoppingCartContainer.classList.add("inactive");
     }
     movileMenu.classList.toggle("inactive");
 }
 
 /* ***** Carrito de compras***** */
-const menuCarritoIcon = document.querySelector(".navbar-shopping-cart");
-const aside = document.querySelector(".product-detail");
 
 menuCarritoIcon.addEventListener("click", toogleCarritoAside);
 
@@ -46,11 +47,11 @@ function toogleCarritoAside() {
         movileMenu.classList.add("inactive");
     }
 
-    aside.classList.toggle("inactive");
+    shoppingCartContainer.classList.toggle("inactive");
 }
 
 /* ***Lista de Productos*** */
-const cardsContainer = document.querySelector(".cards-container");
+
 const productList = [];
 
 productList.push({
