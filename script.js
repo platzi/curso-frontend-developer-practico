@@ -13,39 +13,24 @@ const productDetailContainer = document.querySelector('#productDetail');
 const productDetailCloseIcon = document.querySelector('.product-detail-close');
 
 /*Functions general*/
-/*function closed(element){
+function close(element){
     element.classList.add('inactive');
-}*/
+}
 
 //Shows menus (Desktop and mobile)
 showDesktopMenu.addEventListener('click', toggleDesktopMenu);
 showMobileMenu.addEventListener('click', toggleMobileMenu);
 
 function toggleDesktopMenu(){
-    //Explicación de la lógica de "shoppingCartStatus" en la función "toggleShoppingCart"
-    const shoppingCartStatus = shoppingCartContainer.classList.contains('inactive');
-    const productDetailContainerStatus = productDetailContainer.classList.contains('inactive');
-
-    if(!shoppingCartStatus){
-        shoppingCartContainer.classList.add('inactive');
-    }
-    if(!productDetailContainerStatus){
-        closeProductDetail();
-    }
+    close(shoppingCartContainer);
+    closeProductDetail();
 
     desktopMenu.classList.toggle('inactive');
 }
 
 function toggleMobileMenu(){
-    const shoppingCartStatus = shoppingCartContainer.classList.contains('inactive');
-    const productDetailContainerStatus = productDetailContainer.classList.contains('inactive');
-
-    if(!shoppingCartStatus){
-        shoppingCartContainer.classList.add('inactive');
-    }
-    if(!productDetailContainerStatus){
-        closeProductDetail();
-    }
+    close(shoppingCartContainer);
+    closeProductDetail();
 
     mobileMenu.classList.toggle('inactive');
 }
@@ -54,43 +39,18 @@ function toggleMobileMenu(){
 showShoppingCart.addEventListener('click', toggleShoppingCart);
 
 function toggleShoppingCart(){
-    //Si no tiene la clase devuelve FALSE. Significa que el menu esta abierto.
-    const mobileMenuStatus = mobileMenu.classList.contains('inactive');
-    const desktopMenuStatus = desktopMenu.classList.contains('inactive');
-    const productDetailContainerStatus = productDetailContainer.classList.contains('inactive');
-
-    if(!mobileMenuStatus){//(!false = true) Niego el false para que entre a la condición.
-        //Close mobileMenu
-        mobileMenu.classList.add('inactive');
-    }
-    if (!desktopMenuStatus) {
-        //Closed desktopMenu
-        desktopMenu.classList.add('inactive');
-    }
-    if(!productDetailContainerStatus){
-        closeProductDetail();
-    }
+    close(mobileMenu);
+    close(desktopMenu);
+    closeProductDetail();
 
     shoppingCartContainer.classList.toggle('inactive');
 }
 
 //Show and Close product detail
 function openProducDetail(){
-    const mobileMenuStatus = mobileMenu.classList.contains('inactive');
-    const desktopMenuStatus = desktopMenu.classList.contains('inactive');
-    const shoppingCartStatus = shoppingCartContainer.classList.contains('inactive');
-
-    if(!mobileMenuStatus){//(!false = true) Niego el false para que entre a la condición.
-        //Close mobileMenu
-        mobileMenu.classList.add('inactive');
-    }
-    if (!desktopMenuStatus) {
-        //Closed desktopMenu
-        desktopMenu.classList.add('inactive');
-    }
-    if(!shoppingCartStatus){
-        shoppingCartContainer.classList.add('inactive');
-    }
+    close(mobileMenu);
+    close(desktopMenu);
+    close(shoppingCartContainer);
 
     productDetailContainer.classList.remove('inactive');
 }
@@ -98,7 +58,7 @@ function openProducDetail(){
 productDetailCloseIcon.addEventListener('click', closeProductDetail);
 
 function closeProductDetail(){
-    productDetailContainer.classList.add('inactive');
+    close(productDetailContainer);
 }
 
 //Cards container
