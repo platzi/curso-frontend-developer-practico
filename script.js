@@ -8,7 +8,14 @@ const showShoppingCart = document.querySelector('.navbar-shopping-cart');
 const shoppingCartContainer = document.querySelector('#shoppingCartContainer');
 //cards container
 const cardsContainer = document.querySelector('.cards-container');
+//Prouct details
+const productDetailContainer = document.querySelector('#productDetail');
+const productDetailCloseIcon = document.querySelector('.product-detail-close');
 
+/*Functions general*/
+/*function closed(element){
+    element.classList.add('inactive');
+}*/
 
 //Shows menus (Desktop and mobile)
 showDesktopMenu.addEventListener('click', toggleDesktopMenu);
@@ -17,9 +24,13 @@ showMobileMenu.addEventListener('click', toggleMobileMenu);
 function toggleDesktopMenu(){
     //Explicación de la lógica de "shoppingCartStatus" en la función "toggleShoppingCart"
     const shoppingCartStatus = shoppingCartContainer.classList.contains('inactive');
+    const productDetailContainerStatus = productDetailContainer.classList.contains('inactive');
 
     if(!shoppingCartStatus){
         shoppingCartContainer.classList.add('inactive');
+    }
+    if(!productDetailContainerStatus){
+        closeProductDetail();
     }
 
     desktopMenu.classList.toggle('inactive');
@@ -27,9 +38,13 @@ function toggleDesktopMenu(){
 
 function toggleMobileMenu(){
     const shoppingCartStatus = shoppingCartContainer.classList.contains('inactive');
+    const productDetailContainerStatus = productDetailContainer.classList.contains('inactive');
 
     if(!shoppingCartStatus){
         shoppingCartContainer.classList.add('inactive');
+    }
+    if(!productDetailContainerStatus){
+        closeProductDetail();
     }
 
     mobileMenu.classList.toggle('inactive');
@@ -42,7 +57,8 @@ function toggleShoppingCart(){
     //Si no tiene la clase devuelve FALSE. Significa que el menu esta abierto.
     const mobileMenuStatus = mobileMenu.classList.contains('inactive');
     const desktopMenuStatus = desktopMenu.classList.contains('inactive');
-    
+    const productDetailContainerStatus = productDetailContainer.classList.contains('inactive');
+
     if(!mobileMenuStatus){//(!false = true) Niego el false para que entre a la condición.
         //Close mobileMenu
         mobileMenu.classList.add('inactive');
@@ -51,8 +67,38 @@ function toggleShoppingCart(){
         //Closed desktopMenu
         desktopMenu.classList.add('inactive');
     }
+    if(!productDetailContainerStatus){
+        closeProductDetail();
+    }
 
     shoppingCartContainer.classList.toggle('inactive');
+}
+
+//Show and Close product detail
+function openProducDetail(){
+    const mobileMenuStatus = mobileMenu.classList.contains('inactive');
+    const desktopMenuStatus = desktopMenu.classList.contains('inactive');
+    const shoppingCartStatus = shoppingCartContainer.classList.contains('inactive');
+
+    if(!mobileMenuStatus){//(!false = true) Niego el false para que entre a la condición.
+        //Close mobileMenu
+        mobileMenu.classList.add('inactive');
+    }
+    if (!desktopMenuStatus) {
+        //Closed desktopMenu
+        desktopMenu.classList.add('inactive');
+    }
+    if(!shoppingCartStatus){
+        shoppingCartContainer.classList.add('inactive');
+    }
+
+    productDetailContainer.classList.remove('inactive');
+}
+
+productDetailCloseIcon.addEventListener('click', closeProductDetail);
+
+function closeProductDetail(){
+    productDetailContainer.classList.add('inactive');
 }
 
 //Cards container
@@ -96,6 +142,7 @@ function renderProducts(arr){
         
         const productImg = document.createElement('img');
         productImg.setAttribute('src', product.image);
+        productImg.addEventListener('click', openProducDetail);
         
         const productInfo = document.createElement('div');
         productInfo.classList.add('product-info');
