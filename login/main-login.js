@@ -1,11 +1,15 @@
 const loginButtom = document.querySelector(".primary-button login-button");
 const signButtom = document.querySelector(".secondary-button signup-button");
+const logInButtom = document.querySelector(".primary-button login-button");
+const inputmail = document.querySelector(".input-email");
+const inputMailValue = inputmail.value
 
+logInButtom.addEventListener("click", works);
 
-signButtom.addEventListener('click', showSignUpPage)
-
-
-function showSignUpPage(){
-    console.log(loginButtom);
-    window.location.href = "../signin/index-signin.html"
+function works(){
+    console.log("kjhfsdhkjdsfd");
+    console.log(inputMailValue);
 }
+    
+
+
