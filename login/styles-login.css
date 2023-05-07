@@ -9,7 +9,7 @@
     --lg: 18px;
 }
 
-body {
+body{
     margin: 0;
     font-family: 'Quicksand', sans-serif;
 }
@@ -96,7 +96,20 @@ body {
     margin-bottom: 30px;
 }
 
-@media (max-width: 640px) {
+.passwordForgot{
+    font-size: var(--sm);
+    font-family: 'Quicksand', sans-serif;
+    text-align: center;
+    text-decoration: none;
+    width: 300px;
+    color: var(--very-light-pink);
+    padding-bottom: 24px;
+}
+.passwordForgot:hover{
+    text-decoration:underline;
+}
+
+@media (max-width: 3000px) {
     .logo {
         display: block;
     }
