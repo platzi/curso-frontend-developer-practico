@@ -4,6 +4,7 @@ const burguerMenu = document.querySelector('.menuIcon');
 const mobileMenu = document.querySelector('.mobile-menu');
 const shoppingCart = document.querySelector('.navbar-shopping-cart');
 const productDetail = document.querySelector('.product-detail');
+const cardsContainer = document.querySelector('.cards-container');
 
 
 menuEmail.addEventListener('click', toggleDesktopMenu);
@@ -49,12 +50,12 @@ productList.push({
 productList.push({
     name: 'Coso',
     price: 11220,
-    image: "https://images.pexels.com/photos/276517/pexels-photo-276517.jpeg?auto=compress&cs=tinysrgb&dpr=2&h=650&w=940",
+    image: "https://images.pexels.com/photos/6249454/pexels-photo-6249454.jpeg?auto=compress&cs=tinysrgb&w=1260&h=750&dpr=1",
 }); 
 productList.push({
     name: 'Mas coso',
     price: 13440,
-    image: "https://images.pexels.com/photos/276517/pexels-photo-276517.jpeg?auto=compress&cs=tinysrgb&dpr=2&h=650&w=940",
+    image: "https://images.pexels.com/photos/2638026/pexels-photo-2638026.jpeg",
 }); 
 
 /* <div class="product-card">
@@ -75,8 +76,8 @@ for (product of productList){
     const productCard = document.createElement('div');
     productCard.classList.add('product-card');
 
-    const img = document.createElement('img');
-    img.setAttribute('src', product.image);
+    const productImg = document.createElement('img');
+    productImg.setAttribute('src', product.image);
 
     const productInfo = document.createElement('div');
     productInfo.classList.add('product-info');
@@ -84,14 +85,25 @@ for (product of productList){
     const productInfoDiv = document.createElement('div');
     
     const productPrice = document.createElement('p');
-    productPrice.innerText = '$' + productPrice;
+    productPrice.innerText = '$' + product.price;
 
     const productName = document.createElement('p');
-    productName.innerText = productName;
+    productName.innerText = product.name;
+
+    productInfoDiv.appendChild(productPrice);
+    productInfoDiv.appendChild(productName);
 
     const productInfoFigure = document.createElement('figure');
     const productImgCart = document.createElement('img');
-    img.setAttribute('src', "../icons/bt_add_to_cart.svg" );
+    productImgCart.setAttribute('src', "../icons/bt_add_to_cart.svg" );
 
+    productInfoFigure.appendChild(productImgCart) ;
 
+    productInfo.appendChild(productInfoDiv);
+    productInfo.appendChild(productInfoFigure);
+
+    productCard.appendChild(productImg);
+    productCard.appendChild(productInfo);
+
+    cardsContainer.appendChild(productCard);
 }
