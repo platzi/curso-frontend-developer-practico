@@ -33,7 +33,7 @@ productList.push({
 productList.push({
     name: 'Televisor',
     price: 1500,
-    image: "https://exitocol.vtexassets.com/arquivos/ids/16228288-800-auto?v=638089800064470000&width=800&height=auto&aspect=true",
+    image: "https://www.alkosto.com/medias/750Wx750H-master-hotfolder-transfer-incoming-deposit-hybris-interfaces-IN-media-product-8806091636522-001.jpg?context=bWFzdGVyfGltYWdlc3wzNjU0OTZ8aW1hZ2UvanBlZ3xoNjcvaDdjLzEzNzc1OTEzNDE4NzgyLzc1MFd4NzUwSF9tYXN0ZXIvaG90Zm9sZGVyL3RyYW5zZmVyL2luY29taW5nL2RlcG9zaXQvaHlicmlzLWludGVyZmFjZXMvSU4vbWVkaWEvcHJvZHVjdC84ODA2MDkxNjM2NTIyXzAwMS5qcGd8ZTY2Y2NiYTg1ZDM0OTJkMzBhNzMxNTMzNTNkODlmYjkzYTVhNWIyOGViZDRkMzFhNWNhMzRiNjI4YTllYmIxMw",
 });
 
 productList.push({
