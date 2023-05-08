@@ -6,9 +6,7 @@ const cartIcon = document.querySelector(".navbar-shopping-cart");
 const closeButtom = document.querySelector(".product-detail-close");
 const AsidePanelDetail = document.querySelector(".product-detail");
 const containerCard = document.querySelector(".cards-container");
-const productDetailAsideConstainer = document.querySelector(
-  ".product-detail-right"
-);
+const productDetailAsideConstainer = document.querySelector(".product-detail-right");
 
 mail.addEventListener("click", unHiddenDesktopMenu);
 menuHamburger.addEventListener("click", showMenuMobile);
@@ -36,6 +34,21 @@ function showMenuMobile() {
 }
 
 function showAsidePanel() {
+  ////////////////////////////////////////////////
+
+  const id = this.dataset.id; // obtener el identificador único del botón
+  const objeto = productList.find(obj => obj.id === id); // buscar el objeto correspondiente en la lista de objetos
+  // mostrar los valores del objeto en el aside
+  
+  productDetailAsideConstainer.innerHTML = `
+     <h2>${objeto.nombre}</h2>
+    <p>${objeto.descripcion}</p>
+    <p>Precio: ${objeto.precio}</p>
+  `;
+  
+    ////////////////////////////////////////////////
+
+
   // Si el Menu de mobile esta abierto lo cerramos
   const isMobileMenuClosed = mobileMenu.classList.contains("inactive");
   if (!isMobileMenuClosed) {
@@ -49,6 +62,9 @@ function showAsidePanel() {
     productDetailAsideConstainer.classList.add("inactive");
   }
   AsidePanelDetail.classList.toggle("inactive");
+
+
+
 }
 
 function openProductDetailAside() {
