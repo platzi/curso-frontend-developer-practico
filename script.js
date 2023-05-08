@@ -3,29 +3,44 @@ const desktopMenu = document.querySelector(".desktop-menu");
 const menuHamIcon = document.querySelector(".menu");
 const mobileMenu = document.querySelector(".mobile-menu");
 const carrito = document.querySelector(".navbar-shopping-cart");
-const aside = document.querySelector(".product-detail");
+const shoppingCartContainer = document.querySelector("#shoppingCartContainer");
+const productDetailContainer = document.querySelector("#productDetail");
 const cardsContainer = document.querySelector(".cards-container");
 
 menuEmail.addEventListener("click", toggleDesktopMenu);
 menuHamIcon.addEventListener("click", toggleMobileMenu);
 carrito.addEventListener("click", toggleCarrito);
 
+function openProductDetailAside() {
+  productDetailContainer.classList.toggle("inactive");
+  desktopMenu.classList.add("inactive");
+  mobileMenu.classList.add("inactive");
+  shoppingCartContainer.classList.add("inactive");
+}
+
 function toggleDesktopMenu() {
+  productDetailContainer.classList.add("inactive");
   desktopMenu.classList.toggle("inactive");
   mobileMenu.classList.add("inactive");
-  aside.classList.add("inactive");
+  shoppingCartContainer.classList.add("inactive");
 }
 
 function toggleMobileMenu() {
   mobileMenu.classList.toggle("inactive");
-  aside.classList.add("inactive");
+  shoppingCartContainer.classList.add("inactive");
   desktopMenu.classList.add("inactive");
+  productDetailContainer.classList.add("inactive");
 }
 
 function toggleCarrito() {
-  aside.classList.toggle("inactive");
+  shoppingCartContainer.classList.toggle("inactive");
   mobileMenu.classList.add("inactive");
   desktopMenu.classList.add("inactive");
+  productDetailContainer.classList.add("inactive");
+}
+
+function closeProductDetail() {
+  productDetailContainer.classList.toggle("inactive");
 }
 
 const productList = [];
@@ -96,6 +111,10 @@ productList.map((objeto) => {
 
   const ProductImg = document.createElement("img");
   ProductImg.setAttribute("src", objeto.image);
+  ProductImg.addEventListener("click", openProductDetailAside);
+
+  const productDetailClose = document.querySelector(".product-detail-close");
+  productDetailClose.addEventListener("click", closeProductDetail);
 
   const productInfo = document.createElement("div");
   productInfo.classList.add("product-info");
