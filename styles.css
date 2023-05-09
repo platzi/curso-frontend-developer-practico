@@ -87,7 +87,8 @@ nav .logo {
     position: absolute;
     top: 61px;
     left: 0;
-    padding: 24px;
+    width: calc(100% - 24px);
+    padding-left: 24px;
     background-color: var(--white);
 }
 .mobile-menu a {
