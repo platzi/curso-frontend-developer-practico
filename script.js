@@ -5,29 +5,47 @@ const mobileMenu = document.querySelector('.mobile-menu')
 const cartMenu = document.querySelector('.navbar-shopping-cart')
 const shoppingCartContainer = document.querySelector('#shopping-cart-container')
 const cardsContainer = document.querySelector('.cards-container')
+const productDetailContainer = document.querySelector('#product-detail')
+const productDetailClose = document.querySelector('.product-detail-close')
+
 
 menuEmail.addEventListener('click',showDesktopMenu)
 menuLines.addEventListener('click',showMobileMenu)
 cartMenu.addEventListener('click',showCarrito)
-
+productDetailClose.addEventListener('click',closeProductDetail);
 
 
 
 function showDesktopMenu(){
     shoppingCartContainer.classList.add('inactive')
     desktopMenu.classList.toggle('inactive')
+    productDetailContainer.classList.add('inactive')
+
 }
 
 function showMobileMenu(){
     shoppingCartContainer.classList.add('inactive')
     mobileMenu.classList.toggle('inactive')
+    productDetailContainer.classList.add('inactive')
 }
 
 function showCarrito(){
     mobileMenu.classList.add('inactive')
     desktopMenu.classList.add('inactive')
     shoppingCartContainer.classList.toggle('inactive')
-    
+    productDetailContainer.classList.add('inactive')
+
+}
+function showProductDetail(){
+productDetailContainer.classList.remove('inactive')
+}
+
+function closeProductDetail(){
+    productDetailContainer.classList.add('inactive')
+    shoppingCartContainer.classList.add('inactive')
+    mobileMenu.classList.add('inactive')
+    desktopMenu.classList.add('inactive')
+
 }
 
 const productList = []
@@ -101,6 +119,7 @@ function renderProducts(arr){
         const productImg = document.createElement('img')
         // product = {name.price,image}
         productImg.setAttribute('src',product.image)
+        productImg.addEventListener('click',showProductDetail)
     
         const productInfo = document.createElement('div')
         productInfo.classList.add('product-info')
@@ -132,5 +151,7 @@ function renderProducts(arr){
     }
 
 }
+
+
 
 renderProducts(productList);
