@@ -155,8 +155,8 @@ nav {
     display: inline-block;
 }
 
-/* Aside (product datail)*/
-.product-detail {
+/* Shoping car menu (product datail)*/
+.car-menu {
     display: absolute;
     top: 61px;
     width: 360px;
@@ -166,18 +166,18 @@ nav {
     right: 0;
     background-color: var(--white);
 }
-.title-container {
+.car-menu .title-container {
     display: flex;
 }
-.title-container img {
+.car-menu .title-container img {
     transform: rotate(180deg);
     margin-right: 14px;
 }
-.title {
+.car-menu .title {
     font-size: var(--lg);
     font-weight: bold;
 }
-.order {
+.car-menu .order {
     display: grid;
     grid-template-columns: auto 1fr;
     gap: 16px;
@@ -187,42 +187,42 @@ nav {
     border-radius: 8px;
     padding: 0 24px;
 }
-.order p:nth-child(1) {
+.car-menu .order p:nth-child(1) {
     display: flex;
     flex-direction: column;
 }
-.order p span:nth-child(1) {
+.car-menu .order p span:nth-child(1) {
     font-size: var(--md);
     font-weight: bold;
 }
-.order p:nth-child(2) {
+.car-menu .order p:nth-child(2) {
     text-align: end;
     font-weight: bold;
 }
-.shopping-cart {
+.car-menu .shopping-cart {
     display: grid;
     grid-template-columns: auto 1fr auto auto;
     gap: 16px;
     margin-bottom: 24px;
     align-items: center;
 }
-.shopping-cart figure {
+.car-menu .shopping-cart figure {
     margin: 0;
 }
-.shopping-cart figure img {
+.car-menu .shopping-cart figure img {
     width: 70px;
     height: 70px;
     border-radius: 20px;
     object-fit: cover;
 }
-.shopping-cart p:nth-child(2) {
+.car-menu .shopping-cart p:nth-child(2) {
     color: var(--very-light-pink);
 }
-.shopping-cart p:nth-child(3) {
+.car-menu .shopping-cart p:nth-child(3) {
     font-size: var(--md);
     font-weight: bold;
 }
-.primary-button {
+.car-menu .primary-button {
     background-color: var(--hospital-green);
     border-radius: 8px;
     border: none;
@@ -234,7 +234,7 @@ nav {
     height: 50px;
 }
 
-/* Product list */
+/* Shoping car container */
 .cards-container {
     margin: 20px 0;
     display: grid;
@@ -288,19 +288,21 @@ nav {
     .navbar-email {
     display: none;
     }
+
     .desktop-menu {
         display: none;
     }
-    .product-detail {
+
+    .car-menu .product-detail {
         width: 100%;
     }
-    .cards-container {
+    .car-menu .cards-container {
         grid-template-columns: repeat(auto-fill, 140px);
     }
-    .product-card {
+    .car-menu .product-card {
         width: 140px;
     }
-    .product-card img {
+    .car-menu .product-card img {
         width: 140px;
         height: 140px;
     }
