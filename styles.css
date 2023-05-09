@@ -360,7 +360,7 @@ nav .logo {
         display: none;
     }
 
-    .car-menu .product-detail {
+    .car-menu, .preview-menu {
         width: 100%;
     }
     .car-menu .cards-container {
