@@ -3,7 +3,7 @@ const desktopMenu = document.querySelector('.desktop-menu')
 const menuLines = document.querySelector('.menu')
 const mobileMenu = document.querySelector('.mobile-menu')
 const cartMenu = document.querySelector('.navbar-shopping-cart')
-const aside = document.querySelector('.product-detail')
+const shoppingCartContainer = document.querySelector('#shopping-cart-container')
 const cardsContainer = document.querySelector('.cards-container')
 
 menuEmail.addEventListener('click',showDesktopMenu)
@@ -14,18 +14,20 @@ cartMenu.addEventListener('click',showCarrito)
 
 
 function showDesktopMenu(){
-    aside.classList.add('inactive')
+    shoppingCartContainer.classList.add('inactive')
     desktopMenu.classList.toggle('inactive')
 }
 
 function showMobileMenu(){
-    aside.classList.add('inactive')
+    shoppingCartContainer.classList.add('inactive')
     mobileMenu.classList.toggle('inactive')
 }
 
 function showCarrito(){
     mobileMenu.classList.add('inactive')
-    aside.classList.toggle('inactive')
+    desktopMenu.classList.add('inactive')
+    shoppingCartContainer.classList.toggle('inactive')
+    
 }
 
 const productList = []
