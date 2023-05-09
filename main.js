@@ -3,7 +3,7 @@ const desktopMenu = document.querySelector('.desktop-menu');
 const menuHamIcon = document.querySelector('.menu');
 const mobileMenu = document.querySelector('.mobile-menu');
 const menuCartIcon = document.querySelector('.navbar-shopping-cart');
-const productDetail = document.querySelector('.product-detail');
+const shoppingCartDetail = document.querySelector('.Shopping-cart-container');
 const cardsContainer = document.querySelector('.cards-container');
 
 
@@ -13,16 +13,16 @@ menuCartIcon.addEventListener('click', toggleCartMenu);
 
 function toggleDesktopMenu (){
     desktopMenu.classList.toggle('inactive'); 
-    productDetail.classList.add('inactive'); 
+    shoppingCartDetail.classList.add('inactive'); 
 }
 
 function toggleMobileMenu (){
     mobileMenu.classList.toggle('inactive'); 
-    productDetail.classList.add('inactive'); 
+    shoppingCartDetail.classList.add('inactive'); 
 }
 
 function toggleCartMenu (){
-    productDetail.classList.toggle('inactive'); 
+    shoppingCartDetail.classList.toggle('inactive'); 
     desktopMenu.classList.add('inactive'); 
     mobileMenu.classList.add('inactive');
 }
