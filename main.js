@@ -5,7 +5,7 @@ const menuIcon = document.querySelector(
   'img.menu[src="./icons/icon_menu.svg"]'
 );
 const shoppingCart = document.querySelector(".navbar-shopping-cart");
-const productDetail = document.querySelector(".product-detail");
+const orderSection = document.querySelector("#my-order-section");
 
 const productList = [
   {
@@ -29,6 +29,8 @@ const productList = [
 ];
 
 const cardsContainer = document.querySelector(".cards-container");
+const productDetail = document.querySelector("#product-detail");
+const productDetailClose = document.querySelector(".product-detail-close");
 
 createProductCards(productList, cardsContainer);
 
@@ -38,25 +40,32 @@ function createProductCards(productList, cardsContainer) {
     productCard.classList.add("product-card");
 
     const productImage = document.createElement("img");
+    productImage.style.cursor = "pointer"; // Agregando el cursor pointer
     productImage.setAttribute("src", product.image);
     productImage.setAttribute("alt", "");
+    productImage.addEventListener("click", () => {
+      if (productDetail.classList.contains("inactive")) {
+        closeAllElements();
+        productDetail.classList.remove("inactive");
+      }
+    });
     productCard.appendChild(productImage);
 
     const productInfo = document.createElement("div");
     productInfo.classList.add("product-info");
     productCard.appendChild(productInfo);
 
-    const productDetails = document.createElement("div");
-    productDetails.classList.add("product-details");
-    productInfo.appendChild(productDetails);
+    const orderSections = document.createElement("div");
+    orderSections.classList.add("product-details");
+    productInfo.appendChild(orderSections);
 
     const productPrice = document.createElement("p");
     productPrice.textContent = "$" + product.price;
-    productDetails.appendChild(productPrice);
+    orderSections.appendChild(productPrice);
 
     const productName = document.createElement("p");
     productName.textContent = product.name;
-    productDetails.appendChild(productName);
+    orderSections.appendChild(productName);
 
     const addToCartButton = document.createElement("figure");
     addToCartButton.style.cursor = "pointer"; // Agregando el cursor pointer
@@ -67,13 +76,20 @@ function createProductCards(productList, cardsContainer) {
   }
 }
 
-// Añadir evento de control para el botón del carrito de compras
-shoppingCart.addEventListener("click", () => {
+// Agregar un evento de escucha al botón de cierre de detalles del producto para ocultar la sección de detalles del producto cuando se hace clic en él.
+productDetailClose.addEventListener("click", () => {
   if (!productDetail.classList.contains("inactive")) {
     productDetail.classList.add("inactive");
+  }
+});
+
+// Añadir evento de control para el botón del carrito de compras
+shoppingCart.addEventListener("click", () => {
+  if (!orderSection.classList.contains("inactive")) {
+    orderSection.classList.add("inactive");
   } else {
     closeAllElements();
-    productDetail.classList.remove("inactive");
+    orderSection.classList.remove("inactive");
   }
 });
 
@@ -99,13 +115,16 @@ menuIcon.addEventListener("click", () => {
 
 // Función para cerrar todos los elementos abiertos
 function closeAllElements() {
-  if (!productDetail.classList.contains("inactive")) {
-    productDetail.classList.add("inactive");
+  if (!orderSection.classList.contains("inactive")) {
+    orderSection.classList.add("inactive");
   }
   if (!desktopMenu.classList.contains("inactive")) {
     desktopMenu.classList.add("inactive");
   }
   if (!mobileMenu.classList.contains("inactive")) {
     mobileMenu.classList.add("inactive");
+  }
+  if (!productDetail.classList.contains("inactive")) {
+    productDetail.classList.add("inactive");
   }
 }
