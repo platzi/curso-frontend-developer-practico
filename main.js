@@ -6,7 +6,8 @@ const menuHamIcon = document.querySelector(".menu");
 const menuCarritoIcon = document.querySelector(".navbar-shopping-cart");
 const desktopMenu = document.querySelector(".desktop-menu");
 const mobileMenu = document.querySelector(".mobile-menu");
-const shoppingCartContainer = document.querySelector("#shoppingCartContainer")
+const shoppingCartContainer = document.querySelector("#shoppingCartContainer");
+const productDetailContainer = document.querySelector("#productDetail");
 const cardsContainer = document.querySelector(".cards-container")
 
 //2.Utilizamos la propiedada o evento al darle click***
@@ -38,6 +39,11 @@ function toggleCarritoAside() {
     shoppingCartContainer.classList.toggle("inactive");
 
 }
+function openProductDetailAside() {
+    productDetailContainer.classList.remove("inactive")
+}
+
+
 
 // INTRODUCCION LISTA DE PRODUCTOS AL HTML  ****
 const productList = [];
@@ -71,6 +77,7 @@ function renderProducts(arr) {
         //product = {name, price, image} -> product.image
         const productImg = document.createElement("img");
         productImg.setAttribute("src", product.image);
+        productImg.addEventListener("click", openProductDetailAside)
      
         const productInfo = document.createElement("div");
         productInfo.classList.add("product-info");
