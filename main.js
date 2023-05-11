@@ -9,18 +9,21 @@ const orderSection = document.querySelector("#my-order-section");
 
 const productList = [
   {
+    id: 1,
     name: "Bike",
     price: 120,
     image:
       "https://images.pexels.com/photos/276517/pexels-photo-276517.jpeg?auto=compress&cs=tinysrgb&dpr=2&h=650&w=940",
   },
   {
+    id: 2,
     name: "Smartphone",
     price: 400,
     image:
       "https://images.pexels.com/photos/1092644/pexels-photo-1092644.jpeg?auto=compress&cs=tinysrgb&dpr=2&h=650&w=940",
   },
   {
+    id: 3,
     name: "Laptop",
     price: 800,
     image:
@@ -32,7 +35,27 @@ const cardsContainer = document.querySelector(".cards-container");
 const productDetail = document.querySelector("#product-detail");
 const productDetailClose = document.querySelector(".product-detail-close");
 
+document.addEventListener("DOMContentLoaded", () => {
+  // const checkoutButton = document.querySelector(
+  //   "#my-order-section .primary-button"
+  // );
+  // checkoutButton.addEventListener("click", () => {
+  //   // Obtener los productos del carrito
+  //   const cartItems = JSON.parse(localStorage.getItem("cartItems")) || [];
+
+  //   // Guardar los productos en el localStorage
+  //   localStorage.setItem("orderItems", JSON.stringify(cartItems));
+
+  //   // Redirigir al usuario a la página de "My Order"
+  //   window.location.href = "./my-order.html";
+  // });
+});
+
 createProductCards(productList, cardsContainer);
+
+let totalPrice = 0;
+let numItems = 0;
+const cartItems = JSON.parse(localStorage.getItem("cartItems")) || [];
 
 function createProductCards(productList, cardsContainer) {
   for (const product of productList) {
@@ -72,9 +95,120 @@ function createProductCards(productList, cardsContainer) {
     addToCartButton.innerHTML = '<img src="./icons/bt_add_to_cart.svg" alt="">';
     productInfo.appendChild(addToCartButton);
 
+    // Agregando evento de click al botón "addToCartButton"
+    addToCartButton.addEventListener("click", () => {
+      // Creando un nuevo elemento de shopping-cart
+      const orderSection = document.querySelector(".my-order-content");
+      const orderElement = orderSection.querySelector(".order");
+
+      const newCartItem = document.createElement("div");
+      newCartItem.classList.add("shopping-cart");
+      newCartItem.innerHTML = `
+    <figure>
+      <img src="${product.image}" alt="${product.name}">
+    </figure>
+    <p>${product.name}</p>
+    <p>$${product.price}</p>
+    <img class="remove-item" src="./icons/icon_close.png" alt="close" style="cursor: pointer;">
+  `;
+
+      const removeItemButton = newCartItem.querySelector(".remove-item");
+      removeItemButton.addEventListener("click", () => {
+        newCartItem.remove();
+        totalPrice -= parseFloat(product.price);
+        numItems--;
+
+        // Actualizar el número de elementos en el carrito
+        const navbarShoppingCart = document.querySelector(
+          ".navbar-shopping-cart div"
+        );
+        navbarShoppingCart.textContent = numItems.toString();
+        updateTotalPrice();
+
+        cartItems = JSON.parse(localStorage.getItem("cartItems")) || [];
+
+        const index = cartItems.findIndex((item) => item.id === product.id);
+        if (index !== -1) {
+          cartItems.splice(index, 1);
+          localStorage.setItem("cartItems", JSON.stringify(cartItems));
+        }
+      });
+
+      if (orderElement !== null) {
+        const parentElement = orderElement.parentNode;
+        parentElement.insertBefore(newCartItem, orderElement);
+      }
+      
+      totalPrice += product.price;
+      numItems++;
+
+      // Actualizar el número de elementos en el carrito
+      const navbarShoppingCart = document.querySelector(
+        ".navbar-shopping-cart div"
+      );
+      navbarShoppingCart.textContent = numItems.toString();
+      updateTotalPrice();
+
+      // Obtener los elementos del carrito del localStorage
+      const cartItems = JSON.parse(localStorage.getItem("cartItems")) || [];
+
+      // Agregar el nuevo elemento al arreglo
+      cartItems.push(product);
+
+      // Guardar el arreglo actualizado en el localStorage
+      localStorage.setItem("cartItems", JSON.stringify(cartItems));
+    });
+
     cardsContainer.appendChild(productCard);
   }
 }
+
+function updateTotalPrice() {
+  const totalElement = document.querySelector(
+    "#my-order-content .order p:last-of-type"
+  );
+  if (totalElement) {
+    totalElement.textContent = "$" + totalPrice.toFixed(2);
+  }
+}
+const orderElement = orderSection.querySelector(".order");
+
+const cartItemElements = cartItems.map((item) => {
+  return `
+    <div class="shopping-cart">
+      <figure>
+        <img src="${item.image}" alt="${item.name}">
+      </figure>
+      <p>${item.name}</p>
+      <p>${item.price ? `$${item.price.toFixed(2)}` : ""}</p>
+      <img src="./icons/icon_close.png" alt="close" data-id="${
+        item.id
+      }" class="remove-item">
+    </div>
+  `;
+});
+const myOrderContent = document.getElementById("my-order-content");
+myOrderContent.innerHTML = cartItemElements.join("");
+
+const removeItemButtons = document.querySelectorAll(".remove-item");
+removeItemButtons.forEach((button) => {
+  button.addEventListener("click", () => {
+    const itemId = button.dataset.id;
+    const updatedCartItems = cartItems.filter((item) => item.id !== itemId);
+    localStorage.setItem("cartItems", JSON.stringify(updatedCartItems));
+    location.reload(); // recargar la página para actualizar la lista de productos
+  });
+});
+
+const arrowImage = document.querySelector("#my-order-section img");
+arrowImage.addEventListener("click", () => {
+  if (!orderSection.classList.contains("inactive")) {
+    orderSection.classList.add("inactive");
+  } else {
+    closeAllElements();
+    orderSection.classList.remove("inactive");
+  }
+});
 
 // Agregar un evento de escucha al botón de cierre de detalles del producto para ocultar la sección de detalles del producto cuando se hace clic en él.
 productDetailClose.addEventListener("click", () => {

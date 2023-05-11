@@ -159,6 +159,7 @@ aside {
 }
 #my-order-section {
   padding: 0 24px;
+  padding-bottom: 24px;
 }
 .title-container {
   display: flex;

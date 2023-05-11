@@ -1,0 +1,223 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta http-equiv="X-UA-Compatible" content="IE=edge" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <link rel="preconnect" href="https://fonts.googleapis.com" />
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+    <link
+      href="https://fonts.googleapis.com/css2?family=Quicksand:wght@300;500;700&display=swap"
+      rel="stylesheet"
+    />
+    <title>YardSale: tienda online de cositas chidas</title>
+    <style>
+      :root {
+        --white: #ffffff;
+        --black: #000000;
+        --very-light-pink: #c7c7c7;
+        --text-input-field: #f7f7f7;
+        --hospital-green: #acd9b2;
+        --sm: 14px;
+        --md: 16px;
+        --lg: 18px;
+      }
+      body {
+        margin: 0;
+        font-family: "Quicksand", sans-serif;
+      }
+      .my-order {
+        width: 100%;
+        height: 100vh;
+        display: grid;
+        place-items: center;
+      }
+      .title {
+        font-size: var(--lg);
+        margin-bottom: 40px;
+      }
+      .my-order-container {
+        display: grid;
+        grid-template-rows: auto 1fr auto;
+        width: 300px;
+      }
+      .my-order-content {
+        display: flex;
+        flex-direction: column;
+      }
+      .order {
+        display: grid;
+        grid-template-columns: auto 1fr;
+        gap: 16px;
+        align-items: center;
+        background-color: var(--text-input-field);
+        margin-bottom: 24px;
+        border-radius: 8px;
+        padding: 0 24px;
+      }
+      .order p:nth-child(1) {
+        display: flex;
+        flex-direction: column;
+      }
+      .order p span:nth-child(1) {
+        font-size: var(--md);
+        font-weight: bold;
+      }
+      .order p span:nth-child(2) {
+        font-size: var(--sm);
+        color: var(--very-light-pink);
+      }
+      .order p:nth-child(2) {
+        text-align: end;
+        font-weight: bold;
+      }
+      .shopping-cart {
+        display: grid;
+        grid-template-columns: auto 1fr auto auto;
+        gap: 16px;
+        margin-bottom: 24px;
+        align-items: center;
+      }
+      .shopping-cart figure {
+        margin: 0;
+      }
+      .shopping-cart figure img {
+        width: 70px;
+        height: 70px;
+        border-radius: 20px;
+        object-fit: cover;
+      }
+      .shopping-cart p:nth-child(2) {
+        color: var(--very-light-pink);
+      }
+      .shopping-cart p:nth-child(3) {
+        font-size: var(--md);
+        font-weight: bold;
+      }
+    </style>
+  </head>
+  <body>
+    <div class="my-order">
+      <div class="my-order-container">
+        <h1 class="title">My order</h1>
+
+        <div class="my-order-content">
+          <div class="order">
+            <p>
+              <span></span>
+              <span></span>
+            </p>
+            <p>$0.00</p>
+          </div>
+
+          <!-- <div class="shopping-cart">
+          <figure>
+            <img src="https://images.pexels.com/photos/276517/pexels-photo-276517.jpeg?auto=compress&cs=tinysrgb&dpr=2&h=650&w=940" alt="bike">
+          </figure>
+          <p>Bike</p>
+          <p>$30,00</p>
+        </div> -->
+        </div>
+      </div>
+    </div>
+
+    <script>
+      window.addEventListener("load", () => {
+        // Obtener los productos del pedido del localStorage
+        const orderItems = JSON.parse(localStorage.getItem("orderItems")) || [];
+
+        // Obtener el contenedor donde se mostrarán los productos del pedido
+        const myOrderContent = document.querySelector(".my-order-content");
+
+        // Crear un fragmento para almacenar los elementos del pedido
+        const fragment = document.createDocumentFragment();
+
+        const currentDate = new Date();
+        const formattedDate = `${
+          currentDate.getMonth() + 1
+        }.${currentDate.getDate()}.${currentDate.getFullYear()}`;
+        const numItems = orderItems.length;
+        const formattedNumItems = `${numItems} ${
+          numItems == 1 ? "article" : "articles"
+        }`;
+
+        // Recorrer los productos del pedido y crear los elementos correspondientes
+        orderItems.forEach((item) => {
+          const orderItem = document.createElement("div");
+          orderItem.classList.add("shopping-cart");
+
+          const figure = document.createElement("figure");
+          const img = document.createElement("img");
+          img.src = item.product.image;
+          img.alt = item.product.name;
+          figure.appendChild(img);
+          orderItem.appendChild(figure);
+
+          const name = document.createElement("p");
+          name.textContent = item.product.name;
+          orderItem.appendChild(name);
+
+          const price = document.createElement("p");
+          price.textContent = `$${item.product.price}`;
+          orderItem.appendChild(price);
+
+          const closeButton = document.createElement("img");
+          closeButton.src = "./icons/icon_close.png";
+          closeButton.style.cursor = "pointer"; // Agregando el cursor pointer
+          closeButton.alt = "close";
+          closeButton.classList.add("close-button");
+          closeButton.addEventListener("click", () => {
+            // Eliminar el producto del pedido y actualizar el localStorage
+            const index = orderItems.indexOf(item);
+            orderItems.splice(index, 1);
+            localStorage.setItem("orderItems", JSON.stringify(orderItems));
+
+            // Actualizar el contador de productos en el carrito y en la barra de navegación
+            updateCartCounter();
+            updateNavCartCounter();
+
+            // Eliminar el elemento del DOM
+            const orderItem = closeButton.parentElement;
+            orderItem.remove();
+          });
+          orderItem.appendChild(closeButton);
+
+          fragment.appendChild(orderItem);
+        });
+
+        // Agregar los elementos del pedido al contenedor
+        myOrderContent.appendChild(fragment);
+
+        // Actualizar el total del pedido
+        const orderTotal = document.querySelector(
+          ".my-order-content .order p:last-child"
+        );
+        const total = orderItems.reduce(
+          (acc, item) => acc + item.product.price,
+          0
+        );
+        const orderHeader = document.querySelector(
+          ".my-order-content .order p:first-child"
+        );
+        orderHeader.innerHTML = `
+    <span>${formattedDate}</span>
+    <span>${formattedNumItems}</span>
+  `;
+
+        orderTotal.textContent = `$${total.toFixed(2)}`;
+      });
+
+      function updateCartCounter() {
+        const cartCounter = document.querySelector(".cart-counter");
+        const orderItems = JSON.parse(localStorage.getItem("orderItems")) || [];
+        cartCounter.textContent = orderItems.length;
+      }
+
+      function updateNavCartCounter() {
+        const navCartCounter = document.querySelector(".nav-cart-counter");
+        const orderItems = JSON.parse(localStorage.getItem("orderItems")) || [];
+        navCartCounter.textContent = orderItems.length;
+      }
+    </script>
+  </body>
+</html>
