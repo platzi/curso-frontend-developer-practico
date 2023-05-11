@@ -1,9 +1,9 @@
-
 //ACTIVAR O DESACTIVAR MENU DESKTOP CADA QUE SE PRESIONE CLICK***
 //1.Creamos las variables de los elementos que vamos a seleccionar***
 const menuEmail = document.querySelector(".navbar-email");
 const menuHamIcon = document.querySelector(".menu");
 const menuCarritoIcon = document.querySelector(".navbar-shopping-cart");
+const productDetailCloseIcon = document.querySelector(".product-detail-close");
 const desktopMenu = document.querySelector(".desktop-menu");
 const mobileMenu = document.querySelector(".mobile-menu");
 const shoppingCartContainer = document.querySelector("#shoppingCartContainer");
@@ -14,6 +14,8 @@ const cardsContainer = document.querySelector(".cards-container")
 menuEmail.addEventListener("click", toggleDesktopMenu);
 menuHamIcon.addEventListener("click", toggleMobileMenu);
 menuCarritoIcon.addEventListener("click", toggleCarritoAside);
+productDetailCloseIcon.addEventListener("click", closeProductDetailAside);
+
 
 //3.Creamos las funciones**
 function toggleDesktopMenu() {
@@ -40,9 +42,11 @@ function toggleCarritoAside() {
 
 }
 function openProductDetailAside() {
-    productDetailContainer.classList.remove("inactive")
+    productDetailContainer.classList.remove("inactive");
 }
-
+function closeProductDetailAside() {
+    productDetailContainer.classList.add("inactive");
+}
 
 
 // INTRODUCCION LISTA DE PRODUCTOS AL HTML  ****
