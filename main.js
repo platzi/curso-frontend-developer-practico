@@ -16,7 +16,6 @@ menuHamIcon.addEventListener("click", toggleMobileMenu);
 menuCarritoIcon.addEventListener("click", toggleCarritoAside);
 productDetailCloseIcon.addEventListener("click", closeProductDetailAside);
 
-
 //3.Creamos las funciones**
 function toggleDesktopMenu() {
     const isAsideClosed = shoppingCartContainer.classList.contains("inactive");
@@ -30,24 +29,37 @@ function toggleMobileMenu() {
     if (!isAsideClosed) {
         shoppingCartContainer.classList.add("inactive");
     }
+
+    closeProductDetailAside();//AL DARLE CLICK AL MENU MOBILE SE CERRARA TODO LO QUE ESTE ABIERTO PARA DARLE PASO***
     mobileMenu.classList.toggle("inactive");
+
 }
+
 function toggleCarritoAside() {
-    const isMobileMenuClosed = mobileMenu.classList.contains("inactive");
+  const isMobileMenuClosed = mobileMenu.classList.contains("inactive");
 
     if (!isMobileMenuClosed) {
         mobileMenu.classList.add("inactive");
     }
+
+  const isProductDetailClosed = productDetailContainer.classList.contains("inactive");
+    if (!isProductDetailClosed) {
+        productDetailContainer.classList.add("inactive");
+    }
+
     shoppingCartContainer.classList.toggle("inactive");
 
 }
+
 function openProductDetailAside() {
+    shoppingCartContainer.classList.add("inactive")
     productDetailContainer.classList.remove("inactive");
+
 }
+
 function closeProductDetailAside() {
     productDetailContainer.classList.add("inactive");
 }
-
 
 // INTRODUCCION LISTA DE PRODUCTOS AL HTML  ****
 const productList = [];
