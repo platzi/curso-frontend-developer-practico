@@ -4,7 +4,7 @@
     --black: #000000;
     --very-light-pink: #C7C7C7;
     --text-input-field: #F7F7F7;
-    --hospital-green: #ACD9B2;
+    --hospital-green: #3cf454;
     --sm: 14px;
     --md: 16px;
     --lg: 18px;
@@ -12,7 +12,7 @@
   body {
     margin: 0;
     font-family: 'Quicksand', sans-serif;
-    background: #959191;
+    background: #7e7c7c;
   }
   .inactive {
     display: none;
@@ -86,12 +86,12 @@
   /*Menu en desktop*/
   .desktop-menu {
     position: absolute;
-    background: var(--white);
+    background: var(--very-light-pink);
     top: 60px;
     right: 60px;
     width: 100px;
     height: auto;
-    border: 1px solid var(--very-light-pink);
+    border: 1px solid var(--white);
     border-radius: 6px;
     padding: 20px 20px 0 20px;
   }
@@ -124,7 +124,7 @@
 
   /*Menu en mobile*/
   .mobile-menu {
-    background-color: var(--white);
+    background-color: var(--very-light-pink);
     position: absolute;
     top: 60px;
     padding: 24px;
@@ -167,6 +167,7 @@ aside {
 
 /* ShoppingCart */
 #shoppingCartContainer {
+  background: var(--very-light-pink);
   padding: 0 24px;
 }
 .title-container {
@@ -219,7 +220,7 @@ aside {
   object-fit: cover;
 }
 .shopping-cart p:nth-child(2) {
-  color: var(--very-light-pink);
+  color: var(--black);
 }
 .shopping-cart p:nth-child(3) {
   font-size: var(--md);
@@ -228,6 +229,7 @@ aside {
 .primary-button {
   background-color: var(--hospital-green);
   border-radius: 8px;
+  margin-bottom: 5px;
   border: none;
   color: var(--white);
   width: 100%;
@@ -239,7 +241,7 @@ aside {
 
 /* ProductDetail*/
 .product-detail-close {
-  background: var(--white);
+  background: var(--very-light-pink);
   width: 14px;
   height: 14px;
   position: absolute;
@@ -251,6 +253,9 @@ aside {
 }
 .product-detail-close:hover {
   cursor: pointer;
+}
+#productDetail {
+  background: var(--very-light-pink);
 }
 #productDetail > img:nth-child(2) {
   width: 100%;
@@ -268,13 +273,13 @@ aside {
   margin-bottom: 4px;
 }
 #productDetail .product-info p:nth-child(2) {
-  color: var(--very-light-pink);
+  color: var(--black);
   font-size: var(--md);
   margin-top: 0;
   margin-bottom: 36px;
 }
 #productDetail .product-info p:nth-child(3) {
-  color: var(--very-light-pink);
+  color: var(--black);
   font-size: var(--sm);
   margin-top: 0;
   margin-bottom: 36px;
@@ -307,6 +312,10 @@ aside {
 }
 .product-card {
   width: 240px;
+  border: 1px solid var(--white);
+  box-shadow: 0px 2px 20px rgba(0, 0, 0, 0.5);
+  border-radius: 20px;
+  padding: 5px;
 }
 .product-card img {
   width: 240px;

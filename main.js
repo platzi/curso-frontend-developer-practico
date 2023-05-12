@@ -75,7 +75,7 @@ productList.push({
 });
 productList.push({
     name: "Mouse",
-    price: 300,
+    price: 100,
     image: "https://img.ibxk.com.br/2021/11/11/11231807139015.jpg?ims=328x",
 });
 productList.push({
