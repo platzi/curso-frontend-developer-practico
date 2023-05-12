@@ -62,9 +62,9 @@ productDetailCloseIcon.addEventListener('click', closeProductDetailAside)
 
 const productList = []
 productList.push({
-    name: 'Bike',
-    price: 120,
-    image: 'https://images.pexels.com/photos/276517/pexels-photo-276517.jpeg?auto=compress&cs=tinysrgb&dpr=2&h=650&w=940'
+    name: 'KLR 650',
+    price: 8000,
+    image: 'https://www.cycleworld.com/resizer/4DOamNSg42pEiCNKsbc0QxCx5yE=/arc-photo-octane/arc3-prod/public/NTK5NIYA4BFV3OV6XXF5VGKTU4.jpg'
 })
 productList.push({
     name: 'R1250GS',
@@ -76,6 +76,42 @@ productList.push({
     price: 17000,
     image: 'https://www.fpmoto.com/pub/media//suzuki_dl1050_2023_9_0.jpg'
 })
+productList.push({
+    name: 'KTM 1290 Super Adventure',
+    price: 20000,
+    image: 'https://revistamoto.com/wp_rm/wp-content/uploads/2021/02/KTM-1290-Super-Adventure-R-2021-24-1200x800-1.jpg'
+})
+productList.push({
+    name: 'Africa Twin',
+    price: 17000,
+    image: 'https://www.webbikeworld.com/2021-honda-africa-twin/2021-honda-africa-twin-hero/'
+})
+productList.push({
+    name: 'Super Teneré',
+    price: 16000,
+    image: 'https://cdp.azureedge.net/products-private/prod/492ba90c-7d7d-440e-95fc-009b2803dab7/b3c84a08-d3db-4171-b1b7-caeb92b22aea/00000000-0000-0000-0000-000000000000/acd79fa9-1a56-497b-8d92-af4800718cb9/5273142e-0256-4cae-a3c1-afaa016866d8/6000000003.jpg'
+})
+productList.push({
+    name: 'F850 GS',
+    price: 14000,
+    image: 'https://i.wpimg.pl/1200x/filerepo.grupawp.pl/api/v1/display/embed/b177b48e-cabd-4833-8ee3-04d3142f10e5'
+})
+productList.push({
+    name: 'T7',
+    price: 11000,
+    image: 'https://mcn-images.bauersecure.com/wp-images/186473/yamaha-tenere-world-raid-01.jpg'
+})
+
+const mostrarDetallesCorrectos = element =>{
+    const imgProduct = document.querySelector('#imgMain')
+    imgProduct.src = element.image
+
+    const priceProduct = document.querySelector('#priceMain')
+    priceProduct.textContent = '$' + element.price
+
+    const nameProduct = document.querySelector('#nameMain')
+    nameProduct.textContent = element.name
+}
 
 function renderProducts(arr) {
     for (const product of arr) {
@@ -85,6 +121,7 @@ function renderProducts(arr) {
         const productImg = document.createElement('img')
         productImg.setAttribute('src', product.image)
         productImg.addEventListener('click', openProductDetailAside)
+        productImg.addEventListener('click', () => {mostrarDetallesCorrectos(product)})
     
         const productInfo = document.createElement('div')
         productInfo.classList.add('product-info')
