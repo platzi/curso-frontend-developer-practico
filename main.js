@@ -8,7 +8,11 @@ const desktopMenu = document.querySelector(".desktop-menu");
 const mobileMenu = document.querySelector(".mobile-menu");
 const shoppingCartContainer = document.querySelector("#shoppingCartContainer");
 const productDetailContainer = document.querySelector("#productDetail");
-const cardsContainer = document.querySelector(".cards-container")
+const cardsContainer = document.querySelector(".cards-container");
+
+//VARIABLES PARA SELECCION DE PRODUCTO EN EL <ASIDE> 
+const imagen = document.querySelector("#infoImages");
+const priceProduct = document.querySelector("#price");
 
 //2.Utilizamos la propiedada o evento al darle click***
 menuEmail.addEventListener("click", toggleDesktopMenu);
@@ -51,10 +55,12 @@ function toggleCarritoAside() {
 
 }
 
-function openProductDetailAside() {
+function openProductDetailAside(event) {
     shoppingCartContainer.classList.add("inactive")
     productDetailContainer.classList.remove("inactive");
-
+//SE AGREGO PARAMETRO Y SE INTRODUCE INFORMACION PARA QUE SALGA EL ELEMENTO   SELECCIONADO***
+    imagen.setAttribute("src", event.target.src);
+    priceProduct.innerText = event.target.nextElementSibling.innerText;
 }
 
 function closeProductDetailAside() {
@@ -86,30 +92,31 @@ productList.push({
 
 //INSERCION DE OBJETOS CON LAS PROPIEDADES AL HTML CON LOOP for (of) ****
 function renderProducts(arr) {
-    for (product of arr) {
-        const productCard = document.createElement("div");
+  for (product of arr) {
+    const productCard = document.createElement("div");
         productCard.classList.add("product-card");
      
         //product = {name, price, image} -> product.image
-        const productImg = document.createElement("img");
+    const productImg = document.createElement("img");
         productImg.setAttribute("src", product.image);
         productImg.addEventListener("click", openProductDetailAside)
      
-        const productInfo = document.createElement("div");
+    const productInfo = document.createElement("div");
         productInfo.classList.add("product-info");
      
-        const productInfoDiv = document.createElement("div");
+    const productInfoDiv = document.createElement("div");
      
-        const productPrice = document.createElement("p");
+    const productPrice = document.createElement("p");
         productPrice.innerText = "$" + product.price;
-        const productName = document.createElement("p");
+    const productName = document.createElement("p");
         productName.innerText = product.name;
      
         productInfoDiv.appendChild(productPrice);
         productInfoDiv.appendChild(productName);
      
-        const productInfoFigure = document.createElement("figure");
-        const productImgCart = document.createElement("img");
+    const productInfoFigure = document.createElement("figure");
+
+    const productImgCart = document.createElement("img");
         productImgCart.setAttribute("src", "./icons/bt_add_to_cart.svg")
      
         productInfoFigure.appendChild(productImgCart);

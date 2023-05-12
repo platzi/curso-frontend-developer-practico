@@ -242,11 +242,11 @@ aside {
 /* ProductDetail*/
 .product-detail-close {
   background: var(--very-light-pink);
-  width: 14px;
-  height: 14px;
+  width: 2px;
+  height: 4px;
   position: absolute;
-  top: 24px;
-  left: 24px;
+  top: 12px;
+  left: 12px;
   z-index: 2;
   padding: 12px;
   border-radius: 50%;
