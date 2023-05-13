@@ -34,19 +34,7 @@ function showMenuMobile() {
 }
 
 function showAsidePanel() {
-  ////////////////////////////////////////////////
 
-  const id = this.dataset.id; // obtener el identificador único del botón
-  const objeto = productList.find(obj => obj.id === id); // buscar el objeto correspondiente en la lista de objetos
-  // mostrar los valores del objeto en el aside
-  
-  productDetailAsideConstainer.innerHTML = `
-     <h2>${objeto.nombre}</h2>
-    <p>${objeto.descripcion}</p>
-    <p>Precio: ${objeto.precio}</p>
-  `;
-  
-    ////////////////////////////////////////////////
 
 
   // Si el Menu de mobile esta abierto lo cerramos
@@ -67,10 +55,6 @@ function showAsidePanel() {
 
 }
 
-function openProductDetailAside() {
-  AsidePanelDetail.classList.add("inactive");
-  productDetailAsideConstainer.classList.remove("inactive");
-}
 
 function closeProductDetailAside() {
   productDetailAsideConstainer.classList.add("inactive");
@@ -78,13 +62,15 @@ function closeProductDetailAside() {
 
 const productList = [];
 productList.push({
-  name: "Keyboard 65% Black RGB Blue Gamer",
+  dataId: 1,
+  name: "  Keyboard 65% Black RGB Blue Gamer",
   price: 250,
   image:
     "https://preview.redd.it/2rpowbo5jhua1.jpg?width=960&crop=smart&auto=webp&v=enabled&s=68dcf9a85e643770d7514229f0299b9a8395ff17",
 });
 
 productList.push({
+  dataId: 2,
   name: "KB 65% White Letters Japanese",
   price: 1250,
   image:
@@ -92,6 +78,7 @@ productList.push({
 });
 
 productList.push({
+  dataId: 3,
   name: "Keyboard 60% with White old Color",
   price: 550,
   image:
@@ -99,6 +86,7 @@ productList.push({
 });
 
 productList.push({
+  dataId: 4,
   name: "Keyboard Full-Sized White old Japanese Letters",
   price: 450,
   image:
@@ -106,6 +94,7 @@ productList.push({
 });
 
 productList.push({
+  dataId: 5,
   name: "Keyboard 60 Yellow and Black",
   price: 110,
   image:
@@ -113,6 +102,7 @@ productList.push({
 });
 
 productList.push({
+  dataId: 6,
   name: "Keyboard 65 Colorful Duck",
   price: 220,
   image:
@@ -120,6 +110,7 @@ productList.push({
 });
 
 productList.push({
+  dataId: 7,
   name: "Keyboard 65 Black with purple light",
   price: 400,
   image:
@@ -127,6 +118,7 @@ productList.push({
 });
 
 productList.push({
+  dataId: 8,
   name: "Keyboard 65 White with Green Transparent",
   price: 1000,
   image:
@@ -134,6 +126,7 @@ productList.push({
 });
 
 productList.push({
+  dataId: 9,
   name: "Keyboard 65 White Honey",
   price:700 ,
   image:
@@ -141,6 +134,7 @@ productList.push({
 });
 
 productList.push({
+  dataId: 10,
   name: "Keyboard 65 White Minimalistic",
   price: 300,
   image:
@@ -153,11 +147,31 @@ function renderProducts(array) {
     const productCard = document.createElement("div");
     productCard.classList.add("product-card");
 
+    productCard.addEventListener("click", () =>{
+
+      AsidePanelDetail.classList.add("inactive");
+      productDetailAsideConstainer.classList.remove("inactive");
+      
+      const productId = this.product.dataset.id;
+
+      // Buscar la información del producto en el arreglo de productos
+      const clickedProduct = productList.find(product => product.dataId === productId);
+    
+      // mostrar los valores del objeto en el aside
+      productDetailAsideConstainer.innerHTML = `
+        <h2>${clickedProduct.name}</h2>
+        <p>Precio: ${clickedProduct.price}</p>
+        <img src="${clickedProduct.image}" alt="${clickedProduct.name}">
+      `;
+    
+      
+    });
+
     const productImg = document.createElement("img");
     productImg.src = product.image;
     //""MANERA DEL CURSO"" img.setAttribute('src' ,product.image);
 
-    productImg.addEventListener("click", openProductDetailAside);
+    
 
     const productInfo = document.createElement("div");
     productInfo.classList.add("product-info");
