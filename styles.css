@@ -309,6 +309,7 @@ aside {
   gap: 26px;
   place-content: center;
   margin-top: 20px;
+  cursor: pointer;
 }
 .product-card {
   width: 240px;
