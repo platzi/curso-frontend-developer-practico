@@ -100,8 +100,8 @@ for (img of imgProducts) {
 
 function showProductDetails() {
     const isOrdersClose = orders.classList.contains("inactive");
-    const desktopMenu = desktopMenu.classList.contains("inactive");
-    if (!isOrdersClose || !desktopMenu) {
+    const isdesktopMenuClose = desktopMenu.classList.contains("inactive");
+    if (!isOrdersClose || !isdesktopMenuClose) {
         orders.classList.add("inactive");
         desktopMenu.classList.add("inactive");
     }
