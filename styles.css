@@ -123,6 +123,7 @@
   /* Mobile menu */
   .mobile-menu {
     background-color: var(--white);
+    width: 100vw;
     position: absolute;
     top: 61px;
     left: 0;
