@@ -3,44 +3,46 @@ const burgerMenu = document.querySelector(".menu");
 const menuCarIcon = document.querySelector(".navbar-shopping-cart");
 const desktopMenu = document.querySelector(".desktop-menu");
 const mobileMenu = document.querySelector(".mobile-menu");
-const aside = document.querySelector(".product-detail");
+const orders = document.querySelector(".orders");
 const cardsContainer = document.querySelector(".cards-container");
+const productDetail = document.querySelector(".product-detail");
+const closePanel = document.querySelectorAll(".detail-close");
 
 menuEmail.addEventListener("click", toggleDesktopMenu);
 burgerMenu.addEventListener("click", toggleMobileMenu);
-menuCarIcon.addEventListener("click", toggleCarAside);
+menuCarIcon.addEventListener("click", toggleCarorders);
 
 function toggleDesktopMenu () {
-    const isAsideClose = aside.classList.contains("inactive");
-    if(!isAsideClose) {
-        aside.classList.add("inactive");
+    const isOrdersClose = orders.classList.contains("inactive");
+    if(!isOrdersClose) {
+        orders.classList.add("inactive");
     }
     desktopMenu.classList.toggle("inactive");
 }
 
 function toggleMobileMenu () {
-    const isAsideClose = aside.classList.contains("inactive");
+    const isOrdersClose = orders.classList.contains("inactive");
     
-    if(!isAsideClose) {
-        aside.classList.add("inactive");
+    if(!isOrdersClose) {
+        orders.classList.add("inactive");
     }
 
     mobileMenu.classList.toggle("inactive");
 }
 
-function toggleCarAside () {
+function toggleCarorders () {
     const isMobileMenuClose = mobileMenu.classList.contains("inactive");
     
     if (!isMobileMenuClose) {
         mobileMenu.classList.add("inactive");
     }
 
-    aside.classList.toggle("inactive");
+    orders.classList.toggle("inactive");
 }
 const productList = [];
 
 function renderProducts(arr) {
-    for (var i = 1; i <=100; i++) {
+    for (var i = 1; i <=20; i++) {
         arr.push({
             name: 'Bike',
             price: 120,
@@ -71,6 +73,7 @@ function renderProducts(arr) {
         const productInfoFigure = document.createElement("figure");
         const productImgCard = document.createElement("img");
         productImgCard.setAttribute("src", "./icons/bt_add_to_cart.svg");
+        productImgCard.setAttribute("class", "add-product");
     
         productInfoFigure.appendChild(productImgCard);
     
@@ -85,3 +88,23 @@ function renderProducts(arr) {
 }
 
 renderProducts(productList);
+
+const imgProducts = document.querySelectorAll(".add-product");
+
+for (img of imgProducts) {
+    img.addEventListener("click", showProductDetails);
+}
+
+function showProductDetails() {
+    orders.classList.add("inactive");
+    desktopMenu.classList.add("inactive");
+    productDetail.classList.remove("inactive");
+}
+
+for (img of closePanel) {
+    img.addEventListener("click", closeProductDetails);
+}
+
+function closeProductDetails () {
+    productDetail.classList.add("inactive");
+}
