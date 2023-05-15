@@ -7,6 +7,9 @@ const menuMobile = document.querySelector('.mobile-menu');
 const menuCarritoIcon = document.querySelector('.navbar-shopping-cart');
 const detalleProductos = document.querySelector('.product-detail');
 
+const detalleProdClick = document.querySelector('.product-detail-click');
+const detalleProdClose = document.querySelector('.product-detail-close');
+
 //Mando a llamar el contenedor de las card, para pasarles mis
 //elementos con appendchild
 const cardsContainer = document.querySelector('.cards-container');
@@ -28,6 +31,14 @@ function toggleMobileMenu(){
     if(!isdetallecarrito){
         detalleProductos.classList.add('inactive');
     }
+    ////
+    //El menu productDetalles esta cerrado cuando tiene la clase inactive
+    const isProductDetail = detalleProdClick.classList.contains('inactive');
+    //si el productDetail NO esta cerrado
+    if(!isProductDetail){
+        detalleProdClick.classList.add('inactive');
+    }
+
     menuMobile.classList.toggle('inactive');
 }
 function toggleDetallesProductos(){    
@@ -38,7 +49,27 @@ function toggleDetallesProductos(){
         menuMobile.classList.add('inactive');
     }
 
+    //El menu productDetalles esta cerrado cuando tiene la clase inactive
+    const isProductDetail = detalleProdClick.classList.contains('inactive');
+    //si el productDetail NO esta cerrado
+    if(!isProductDetail){
+        detalleProdClick.classList.add('inactive');
+    }
+
     detalleProductos.classList.toggle('inactive');
+}
+function abrirDetalleProducto(){
+    //El detalle de carrito esta cerrado cuando tiene la clase inactive
+    const isdetallecarrito = detalleProductos.classList.contains('inactive');
+    //si el detalle carrito NO esta cerrado
+    if(!isdetallecarrito){
+        detalleProductos.classList.add('inactive');
+    }
+
+    detalleProdClick.classList.remove('inactive');
+}
+function cerrarDetalleProducto(){
+    detalleProdClick.classList.add('inactive');
 }
 
 menuEmail.addEventListener('click', toggleMenu);
@@ -93,6 +124,9 @@ for(productos of productList){
     //y ese src debe ser la propiedad image de cada objeto
     const  productImg = document.createElement('img');
     productImg.setAttribute('src', productos.image);
+    //Para el detalles de productos click
+    productImg.addEventListener('click', abrirDetalleProducto);
+    detalleProdClose.addEventListener('click', cerrarDetalleProducto);
 
     //creando el div con la clase product-info
     const productInfo = document.createElement('div');

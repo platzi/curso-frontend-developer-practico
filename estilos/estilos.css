@@ -253,6 +253,8 @@
     height: 240px;
     border-radius: 20px;
     object-fit: cover;
+    cursor: pointer;
+
   }
   .product-info {
     display: flex;
