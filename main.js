@@ -25,6 +25,9 @@ function toggleCarritoAside(){
     mobileMenu.classList.add('inactive');
     desktopMenu.classList.add('inactive');
 }
+function openProductDetailAside(){
+    
+}
 
 const productList = [];
 
@@ -82,8 +85,11 @@ function renderProducts(arr){
         const productCard = document.createElement('div');
         productCard.classList.add('product-card');
     
-        const img = document.createElement('img');
-        img.setAttribute('src', product.image);
+        const imgProduct = document.createElement('img');
+        imgProduct.setAttribute('src', product.image);
+        imgProduct.addEventListener('click',openProductDetailAside);
+
+        
     
         const productInfo = document.createElement('div');
         productInfo.classList.add('product-info');
@@ -105,9 +111,7 @@ function renderProducts(arr){
 
         productInfo.append(divVacio, productInfoFigure);
 
-        productCard.append(img, productInfo)
-        // productCard.appendChild(img);
-        // productCard.appendChild(productInfo);
+        productCard.append(imgProduct, productInfo)
         
         cardContainer.appendChild(productCard);
     }    
