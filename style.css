@@ -20,12 +20,25 @@
   display: none;
 }
 
+.darken{
+  top: 0;
+  bottom: 0;
+  right: 0;
+  left: 0;
+	width: 100%;
+	height: 100vh;
+	position: fixed;
+	background-color: rgba(0, 0, 0, 0.5);
+}
+
 /* --BARRA DE NAVEGACION--*/
 nav {
   display: flex;
   justify-content: space-between;
   padding: 0 24px;
   border-bottom: 1px solid var(--very-light-pink);
+  
+  
 }
 
 .menu {
@@ -155,7 +168,8 @@ nav {
   background-color: var(--white);
   border-right: 1px solid var(--very-light-pink);
   width: 250px;
-  z-index: 2;
+  height: 100%;
+  z-index: 5;
 }
 
 .show-mobile-menu {
@@ -195,12 +209,16 @@ nav {
 
 
 /*DETALLES DE PRODUCTOS CARRITO DE COMPRAS*/
-.product-detail {
+aside {
   width: 360px;
-  padding: 24px;
   box-sizing: border-box;
   position: absolute;
   right: 0;
+  background-color: var(--white);
+}
+
+#detaillShoppingCart {
+  padding: 24px;
 }
 
 .title-container {
@@ -226,7 +244,7 @@ nav {
   background-color: var(--text-input-field);
   margin-bottom: 24px;
   border-radius: 8px;
-  padding: 0 24px;
+  padding: 16px 24px;
 }
 
 .order p:nth-child(1) {
@@ -334,6 +352,80 @@ nav {
   color: var(--very-light-pink);
 }
 
+
+/*Product Detail*/
+
+
+#productDetail{
+  top: 0;
+  right: 0;
+  left: 0;
+  bottom: 0;
+  margin: auto;
+  width: 300px;
+  height: max-content;
+  padding: 10px;
+}
+
+.product-detail-close {
+  background: var(--white);
+  width: 14px;
+  height: 14px;
+  position: absolute;
+  top: 20px;
+  left: 20px;
+  z-index: 2;
+  padding: 16px;
+  border-radius: 50%;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+}
+
+.product-detail-close:hover {
+  cursor: pointer;
+}
+
+#productDetail>img:nth-child(2) {
+  width: 100%;
+  height: 260px;
+  object-fit: cover;
+  border-radius: 0 0 20px 20px;
+}
+
+.product-detail-info {
+  margin: 24px 24px 0 24px;
+}
+
+.product-detail-info p:nth-child(1) {
+  font-weight: bold;
+  font-size: var(--md);
+  margin-top: 0;
+  margin-bottom: 4px;
+}
+
+.product-detail-info p:nth-child(2) {
+  color: var(--very-light-pink);
+  font-size: var(--md);
+  margin-top: 0;
+  margin-bottom: 16px;
+}
+
+.product-detail-info p:nth-child(3) {
+  color: var(--very-light-pink);
+  font-size: var(--sm);
+  margin-top: 0;
+  margin-bottom: 16px;
+}
+
+.add-to-cart-button {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  margin-bottom:24px ;
+
+}
+
 @media (max-width: 640px) {
   .menu {
     display: block;
@@ -351,8 +443,12 @@ nav {
     display: none;
   }
 
-  .product-detail {
+  aside {
     width: 100%;
+  }
+
+  #productDetail{
+    width: 300px;
   }
 
   .cards-container {
