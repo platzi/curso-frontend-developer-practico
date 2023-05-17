@@ -3,7 +3,7 @@ const desktopMenu = document.querySelector('.desktop-menu');
 const manuHamIcon = document.querySelector('.menu');
 const mobileMenu = document.querySelector('.mobile-menu');
 const menuCarritoIcon = document.querySelector('.navbar-shopping-cart');
-const aside = document.querySelector('.product-detail');
+const aside = document.querySelector('.shoppingCartContainer');
 const cardContainer = document.querySelector('.cards-container');
 
 
@@ -11,10 +11,10 @@ const cardContainer = document.querySelector('.cards-container');
 menuEmail.addEventListener('click', toggleDesktopMenu);
 
 function toggleDesktopMenu(){
-    const isAsideMenuClosed = aside.classList.contains('inactive');
+    const isAsideMenuClosed = shoppingCartContainer.classList.contains('inactive');
 
     if(!isAsideMenuClosed){
-        aside.classList.add('inactive');
+        shoppingCartContainer.classList.add('inactive');
      }
 
     desktopMenu.classList.toggle('inactive');// Esta función agrega o remueve una clase
@@ -24,10 +24,10 @@ function toggleDesktopMenu(){
 manuHamIcon.addEventListener('click', toggleMobileMenu);
 
 function toggleMobileMenu(){
-    const isAsideMenuClosed = aside.classList.contains('inactive');
+    const isAsideMenuClosed = shoppingCartContainer.classList.contains('inactive');
 
     if(!isAsideMenuClosed){
-        aside.classList.add('inactive');
+        shoppingCartContainer.classList.add('inactive');
      }
 
     mobileMenu.classList.toggle('inactive');// Esta función agrega o remueve una clase
@@ -49,7 +49,7 @@ function toggleCarritoAside(){
         desktopMenu.classList.add('inactive');
      }
 
-    aside.classList.toggle('inactive');
+    shoppingCartContainer.classList.toggle('inactive');
 }
 
 const productList = [];
@@ -82,6 +82,7 @@ productList.push({
         </div>
       </div>     
 </div> */
+
 function renderProducts(arr){
     for(product of arr){
         const productCard = document.createElement('div');
