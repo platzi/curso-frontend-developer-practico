@@ -27,6 +27,7 @@
     position: absolute;
     top: 60px;
     right: 60px;
+    display: block;
   }
 
   .desktop-menu {
@@ -71,4 +72,40 @@
     display: block;
   }
   
- 
+
+  .mobile-menu{
+    display: none;
+  }
+
+  /* Aside details */
+  
+  .product-detail {
+    width: 360px;
+    padding: 0 24px;
+    box-sizing: border-box;
+    position: absolute;
+    right: 0;
+  }
+
+  /* all products */
+
+  main{
+    padding: 50px 20px;
+  }
+
+  .cards-container {
+    display: grid;
+    grid-template-columns: repeat(auto-fill, 240px);
+    gap: 26px;
+    place-content: center;
+  }
+  .product-card {
+    width: 240px;
+  }
+  .product-card img {
+    width: 240px;
+    height: 240px;
+    border-radius: 20px;
+    object-fit: cover;
+  }
+  
