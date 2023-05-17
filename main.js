@@ -29,7 +29,7 @@ function toggleMobileMenu() {
     if(!isAsideClosed) {
         shoppingCartContainer.classList.add('inactive');
     }
-    
+
     closeProductDetailAsside();
 
     mobileMenu.classList.toggle('inactive');
