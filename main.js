@@ -23,6 +23,9 @@ function togglemenu() {
     if (!shoppingCartContainer.classList.contains('inactive')){
         shoppingCartContainer.classList.add('inactive')
     }
+    if (!productDetailContainer.classList.contains('inactive')) {
+        productDetailContainer.classList.add('inactive')
+    }
 }
 
 function togglemobilemenu() {
@@ -30,17 +33,29 @@ function togglemobilemenu() {
     if (!shoppingCartContainer.classList.contains('inactive')){
         shoppingCartContainer.classList.add('inactive')
     }
+    if (!productDetailContainer.classList.contains('inactive')) {
+        productDetailContainer.classList.add('inactive')
+    }
 }
 
 function toggleshoppingCartContainer() {
     shoppingCartContainer.classList.toggle('inactive')
+    desktopMenu.classList.add('inactive');
+
     if (!MovilMenu.classList.contains('inactive')) {
         MovilMenu.classList.add('inactive')
+    }
+
+    if (!productDetailContainer.classList.contains('inactive')) {
+        productDetailContainer.classList.add('inactive')
     }
 }
 
 function openProductdetaiAside() {
     productDetailContainer.classList.remove('inactive');
+    shoppingCartContainer.classList.add('inactive');
+    desktopMenu.classList.add('inactive');
+    MovilMenu.classList.add('inactive');
 }
 
 const productList = [];
