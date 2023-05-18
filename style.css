@@ -1,0 +1,111 @@
+  
+  .menu {
+    display: none;
+  }
+  
+  .navbar-left ul,
+  .navbar-right ul {
+    list-style: none;
+    padding: 0;
+    margin: 0;
+    display: flex;
+    align-items: center;
+    height: 60px;
+  }
+  
+  .navbar-left ul {
+    margin-left: 12px;
+  }
+
+  .navbar-email{
+    display: list-item;
+    cursor: pointer; 
+  }
+
+  .desktop-menu {
+    background-color: var(--white);
+    position: absolute;
+    top: 60px;
+    right: 60px;
+    display: block;
+  }
+
+  .desktop-menu {
+    width: 100px;
+    height: auto;
+    border: 1px solid var(--very-light-pink);
+    border-radius: 6px;
+    padding: 20px 20px 0 20px;
+  }
+  .desktop-menu ul {
+    list-style: none;
+    padding: 0;
+    margin: 0;
+  }
+  .desktop-menu ul li {
+    text-align: end;
+  }
+  .desktop-menu ul li:nth-child(1),
+  .desktop-menu ul li:nth-child(2) {
+    font-weight: bold;
+  }
+  .desktop-menu ul li:last-child {
+    padding-top: 20px;
+    border-top: 1px solid var(--very-light-pink);
+  }
+  .desktop-menu ul li:last-child a {
+    color: var(--hospital-green);
+    font-size: var(--sm);
+  }
+  .desktop-menu ul li a {
+    color: var(--back);
+    text-decoration: none;
+    margin-bottom: 20px;
+    display: inline-block;
+  }
+
+  .hide--element{
+    display: none;
+  }
+
+  .show--element{
+    display: block;
+  }
+  
+
+  .mobile-menu{
+    display: none;
+  }
+
+  /* Aside details */
+  
+  .product-detail {
+    width: 360px;
+    padding: 0 24px;
+    box-sizing: border-box;
+    position: absolute;
+    right: 0;
+  }
+
+  /* all products */
+
+  main{
+    padding: 50px 20px;
+  }
+
+  .cards-container {
+    display: grid;
+    grid-template-columns: repeat(auto-fill, 240px);
+    gap: 26px;
+    place-content: center;
+  }
+  .product-card {
+    width: 240px;
+  }
+  .product-card img {
+    width: 240px;
+    height: 240px;
+    border-radius: 20px;
+    object-fit: cover;
+  }
+  
