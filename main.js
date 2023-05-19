@@ -5,27 +5,44 @@ const desktopMenu = document.querySelector('.desktop-menu')
 const mobileMenu = document.querySelector('.mobile-menu')
 const mainAside = document.querySelector('.main-product-detail')
 const cardsContainer = document.querySelector('.cards-container')
+const specificAside = document.querySelector('.specific-product-detail')
+const closeSpecificAside = document.querySelector('.product-detail-close')
 
 menuEmail.addEventListener('click', toggleDesktopMenu)
 menuHamIcon.addEventListener('click', toggleMobileMenu)
-menuCarritoIcon.addEventListener('click', toggleCarritomainAside)
+menuCarritoIcon.addEventListener('click', toggleCarritoMainAside)
+closeSpecificAside.addEventListener('click', hideSpecificAside)
 
 function toggleDesktopMenu() {
     mainAside.classList.add('inactive')
     mobileMenu.classList.add('inactive')
+    specificAside.classList.add('inactive')
     desktopMenu.classList.toggle('inactive')
 }
 
 function toggleMobileMenu() {
     mainAside.classList.add('inactive')
     desktopMenu.classList.add('inactive')
+    specificAside.classList.add('inactive')
     mobileMenu.classList.toggle('inactive')
 }
 
-function toggleCarritomainAside() {
+function toggleCarritoMainAside() {
     desktopMenu.classList.add('inactive')
     mobileMenu.classList.add('inactive')
+    specificAside.classList.add('inactive')
     mainAside.classList.toggle('inactive')
+}
+
+function showSpecificAside() {
+    desktopMenu.classList.add('inactive')
+    mobileMenu.classList.add('inactive')
+    mainAside.classList.add('inactive')
+    specificAside.classList.remove('inactive')
+}
+
+function hideSpecificAside() {
+    specificAside.classList.add('inactive')
 }
 
 const productList = []
@@ -62,6 +79,7 @@ function renderProducts(arr) {
 
         const productImg = document.createElement('img')
         productImg.setAttribute('src', product.image)
+        productImg.addEventListener('click', showSpecificAside)
 
         const productInfo = document.createElement('div')
         productInfo.classList.add('product-info')
