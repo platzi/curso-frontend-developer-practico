@@ -19,6 +19,7 @@ body {
 }
 
 /* navbar (general) */
+
 nav {
   display: flex;
   justify-content: space-between;
