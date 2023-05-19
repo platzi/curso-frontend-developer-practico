@@ -5,10 +5,11 @@ const mobileMenu = document.querySelector('.mobile-menu');
 const cartIcon = document.querySelector('.navbar-shopping-cart');
 const productDetail = document.querySelector('.product-detail');
 
-accountMenu.addEventListener('click', toggleAccountMenu);
-mobileMenuIcon.addEventListener('click', toggleMobileMenu);
-cartIcon.addEventListener('click', toggleProductDetail);
-
+function initEventListeners() {
+    accountMenu.addEventListener('click', toggleAccountMenu);
+    mobileMenuIcon.addEventListener('click', toggleMobileMenu);
+    cartIcon.addEventListener('click', toggleProductDetail);
+}
 function toggleAccountMenu() {
     const isProductDetailClosed = productDetail.classList.contains('inactive');
 
@@ -37,44 +38,24 @@ function toggleProductDetail() {
     }
     productDetail.classList.toggle('inactive');
 }
-
-/* 
-
-<div class="product-card">
-    <img src="https://images.pexels.com/photos/276517/pexels-photo-276517.jpeg?auto=compress&cs=tinysrgb&dpr=2&h=650&w=940"
-        alt="">
-    <div class="product-info">
-        <div>
-            <p>$120,00</p>
-            <p>Bike</p>
-        </div>
-        <figure>
-            <img src="./icons/bt_add_to_cart.svg" alt="">
-        </figure>
-    </div>
-</div>
-
-*/
-
-const productList = [];
 function renderProducts(productListArr) {
     for (const product of productListArr) {
-        
+
         // Creting product image
         const productImage = document.createElement('img');
         productImage.setAttribute('src', product.image);
-        
+
         // Creting product info
         const productInfo = document.createElement('div');
         productInfo.classList.add('product-info');
 
         const productInfoContent = document.createElement('div');
         productInfoContent.classList.add('product-info-content');
-        
+
         const productPrice = document.createElement('p');
         productPrice.innerText = `$${product.price}`;
         const productName = document.createElement('p');
-        productName.innerText = `$${product.name}`; 
+        productName.innerText = `$${product.name}`;
 
         productInfoContent.appendChild(productPrice);
         productInfoContent.appendChild(productName);
@@ -85,19 +66,21 @@ function renderProducts(productListArr) {
         addToCartImg.setAttribute('src', './icons/bt_add_to_cart.svg')
         addToCartFigure.appendChild(addToCartImg);
         productInfo.appendChild(addToCartFigure);
-        
+
         // Creting product card
         const productCard = document.createElement('div');
         productCard.classList.add('product-card');
         productCard.appendChild(productImage);
         productCard.appendChild(productInfo);
-        
+
         // Getting cards container, append product card
         const cardsContainer = document.querySelector('.cards-container');
         cardsContainer.appendChild(productCard);
     }
 }
 
+
+const productList = [];
 productList.push({
     name: 'Bike',
     price: 120,
@@ -129,6 +112,7 @@ productList.push({
     image: 'https://images.pexels.com/photos/276517/pexels-photo-276517.jpeg?auto=compress&cs=tinysrgb&dpr=2&h=650&w=940'
 })
 
+initEventListeners()
 renderProducts(productList)
 
 
