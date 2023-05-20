@@ -11,9 +11,14 @@ const isOrderMenuclosed= ShoppingCartContainer.classList.contains('inactive');
 
 const cardsContainer=document.querySelector(".cards-container");
 
+const productDetailContainer=document.querySelector("#ProductDetail")
+
+const productDetailIconClose=document.querySelector(".product-detail-close")
+
 menuEmail.addEventListener('click',toggleDesktopMenu);
 menuburger.addEventListener('click',toggleMobileMenu);
 menucarrito.addEventListener('click',toggleOrderMenu);
+productDetailIconClose.addEventListener("click",closeProductDetailAside);
 
 function toggleDesktopMenu(){
     if(!ShoppingCartContainer){
@@ -26,7 +31,9 @@ function toggleMobileMenu(){
     if(!isOrderMenuclosed){
         ShoppingCartContainer.classList.add('inactive');
     }
+    closeProductDetailAside();
     mobileMenu.classList.toggle('inactive');
+
 }
 
 function toggleOrderMenu(){
@@ -35,12 +42,27 @@ function toggleOrderMenu(){
     if(!isMobileMenuclosed){
         mobileMenu.classList.add('inactive');
     }
+    const isProductDetailClosed=productDetailContainer.classList.contains("inactive");
+    if(!isProductDetailClosed){
+        productDetailContainer.classList.add("inactive");
+    }
+
     if(!isDesktopMenuclosed){
         desktopMenu.classList.add('inactive');
     }
     ShoppingCartContainer.classList.toggle('inactive');
 }
 
+function openProductDetailAside(){
+    productDetailContainer.classList.remove("inactive");
+    if (!isProductDetailClosed){
+        productDetailContainer.classList.add("inactive");
+    }
+}
+
+function closeProductDetailAside(){
+    productDetailContainer.classList.add("inactive");
+}
 const productList=[];
 productList.push({
     name:"bike",
@@ -79,6 +101,7 @@ function renderProduct(arr)
     
         const imageProduct=document.createElement("img");
         imageProduct.setAttribute("src",product.image);
+        imageProduct.addEventListener("click",openProductDetailAside)
     
         const productInfo=document.createElement("div");
         productInfo.classList.add("product-info");
