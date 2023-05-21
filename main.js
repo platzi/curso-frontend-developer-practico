@@ -3,6 +3,8 @@ const $ = (selector) => document.querySelector(selector);
 
 const menuEmail = $('.navbar-email');
 const desktopMenu = $('.desktop-menu');
+const menuHamIcon = $('.menu');
+const mobileMenu = $('.mobile-menu');
 
 
 /* como la escribió el profesor
@@ -27,7 +29,10 @@ Para agregar la función flecha ()=> seria recomendable hacerlo así.*/
 const toggleDesktopMenu = () => {
     desktopMenu.classList.toggle('inactive');
 }
+const toggleMobileMenu = () => {
+    mobileMenu.classList.toggle('inactive');
+}
 
 menuEmail.addEventListener('click', toggleDesktopMenu);
-
+menuHamIcon.addEventListener('click', toggleMobileMenu);
 // Para que funcione tube que poner el evento click después de la función.
