@@ -7,6 +7,8 @@ const closeButtom = document.querySelector(".product-detail-close");
 const AsidePanelDetail = document.querySelector(".product-detail");
 const containerCard = document.querySelector(".cards-container");
 const productDetailAsideConstainer = document.querySelector(".product-detail-right");
+const logoMenuDesktop = document.querySelector("menu")
+
 
 mail.addEventListener("click", unHiddenDesktopMenu);
 menuHamburger.addEventListener("click", showMenuMobile);
@@ -32,10 +34,8 @@ function showMenuMobile() {
 
   mobileMenu.classList.toggle("inactive");
 }
-
+//Lista de Produtos Agregados al Carrito
 function showAsidePanel() {
-
-
 
   // Si el Menu de mobile esta abierto lo cerramos
   const isMobileMenuClosed = mobileMenu.classList.contains("inactive");
@@ -51,10 +51,29 @@ function showAsidePanel() {
   }
   AsidePanelDetail.classList.toggle("inactive");
 
+}
+
+
+// Aside Detail Product
+function productDetailAside(event){
+  AsidePanelDetail.classList.add("inactive");
+  productDetailAsideConstainer.classList.remove("inactive");
+
+    // mostrar los valores del objeto en el aside
+  const imagecontent = document.createElement("img");
+  imagecontent.setAttribute("src", "https://preview.redd.it/2rpowbo5jhua1.jpg?width=960&crop=smart&auto=webp&v=enabled&s=68dcf9a85e643770d7514229f0299b9a8395ff17");
+  productCard.appendChild(imagecontent);
+
+  // const productId = this.product.identifier;
+  console.log(event.product.identifier);
+
+  // Buscar la información del producto en el arreglo de productos
+  const clickedProduct = productList.find(
+    (product) => product.identifier === productId
+  );
 
 
 }
-
 
 function closeProductDetailAside() {
   productDetailAsideConstainer.classList.add("inactive");
@@ -62,7 +81,7 @@ function closeProductDetailAside() {
 
 const productList = [];
 productList.push({
-  dataId: 1,
+  identifier: 1,
   name: "  Keyboard 65% Black RGB Blue Gamer",
   price: 250,
   image:
@@ -70,7 +89,7 @@ productList.push({
 });
 
 productList.push({
-  dataId: 2,
+  identifier: 2,
   name: "KB 65% White Letters Japanese",
   price: 1250,
   image:
@@ -78,7 +97,7 @@ productList.push({
 });
 
 productList.push({
-  dataId: 3,
+  identifier: 3,
   name: "Keyboard 60% with White old Color",
   price: 550,
   image:
@@ -86,7 +105,7 @@ productList.push({
 });
 
 productList.push({
-  dataId: 4,
+  identifier: 4,
   name: "Keyboard Full-Sized White old Japanese Letters",
   price: 450,
   image:
@@ -94,7 +113,7 @@ productList.push({
 });
 
 productList.push({
-  dataId: 5,
+  identifier: 5,
   name: "Keyboard 60 Yellow and Black",
   price: 110,
   image:
@@ -102,7 +121,7 @@ productList.push({
 });
 
 productList.push({
-  dataId: 6,
+  identifier: 6,
   name: "Keyboard 65 Colorful Duck",
   price: 220,
   image:
@@ -110,7 +129,7 @@ productList.push({
 });
 
 productList.push({
-  dataId: 7,
+  identifier: 7,
   name: "Keyboard 65 Black with purple light",
   price: 400,
   image:
@@ -118,7 +137,7 @@ productList.push({
 });
 
 productList.push({
-  dataId: 8,
+  identifier: 8,
   name: "Keyboard 65 White with Green Transparent",
   price: 1000,
   image:
@@ -126,7 +145,7 @@ productList.push({
 });
 
 productList.push({
-  dataId: 9,
+  identifier: 9,
   name: "Keyboard 65 White Honey",
   price:700 ,
   image:
@@ -134,7 +153,7 @@ productList.push({
 });
 
 productList.push({
-  dataId: 10,
+  identifier: 10,
   name: "Keyboard 65 White Minimalistic",
   price: 300,
   image:
@@ -146,26 +165,9 @@ function renderProducts(array) {
   for (product of array) {
     const productCard = document.createElement("div");
     productCard.classList.add("product-card");
+    productCard.setAttribute('marcador', product.identifier);
 
-    productCard.addEventListener("click", () =>{
-
-      AsidePanelDetail.classList.add("inactive");
-      productDetailAsideConstainer.classList.remove("inactive");
-      
-      const productId = this.product.dataset.id;
-
-      // Buscar la información del producto en el arreglo de productos
-      const clickedProduct = productList.find(product => product.dataId === productId);
-    
-      // mostrar los valores del objeto en el aside
-      productDetailAsideConstainer.innerHTML = `
-        <h2>${clickedProduct.name}</h2>
-        <p>Precio: ${clickedProduct.price}</p>
-        <img src="${clickedProduct.image}" alt="${clickedProduct.name}">
-      `;
-    
-      
-    });
+    productCard.addEventListener("click",productDetailAside)
 
     const productImg = document.createElement("img");
     productImg.src = product.image;
