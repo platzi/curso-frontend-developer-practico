@@ -93,10 +93,11 @@ function renderProducts (arr){
     const productPrice=document.createElement("p");
     productPrice.innerText="$" + product.price;
 
-    const productName=document.createElement("p");
-    productName.innerText=product.name;
-
-    productInfoDiv.appendChild(productPrice,productName);
+    const productName = document.createElement('p');
+    productName.innerText = product.name;
+  
+    productInfoDiv.appendChild(productPrice);
+    productInfoDiv.appendChild(productName);
 
     const productInfoFigure=document.createElement("figure");
     const productImgCart=document.createElement("img");
@@ -104,9 +105,11 @@ function renderProducts (arr){
 
     productInfoFigure.appendChild(productImgCart);
 
-    productInfo.append(productInfoDiv,productInfoFigure);
-    
-    productCard.append(productImg,productInfo)
+    productInfo.appendChild(productInfoDiv);
+    productInfo.appendChild(productInfoFigure);
+  
+    productCard.appendChild(productImg);
+    productCard.appendChild(productInfo);
    
     cardsContainer.appendChild(productCard)
     }
