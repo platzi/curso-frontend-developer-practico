@@ -4,7 +4,7 @@ var menuCarIcon = document.querySelector('.navbar-shopping-cart');
 
 var desktopMenu = document.querySelector('.desktop-menu');
 var mobileMenu = document.querySelector('.mobile-menu');
-var carMenu = document.querySelector('.product-detail');
+var carMenu = document.querySelector('#shoppingCart');
 var cardsContainer = document.querySelector('.cards-container');
 
 
