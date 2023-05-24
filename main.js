@@ -8,6 +8,8 @@ const mobileMenu = $('.mobile-menu');
 const menuCarritoIcon = $('.navbar-shopping-cart');
 const shoppingCartContainer = $('#shoppingCartContainer');
 const cardContainer = $('.cards-container');
+const productDetailContainer = $('#productDetail');
+const productDetailCloseIcon = $('.product-detail-close');
 
 
 /* como la escribió el profesor
@@ -36,6 +38,8 @@ const toggleDesktopMenu = () => {
         shoppingCartContainer.classList.add('inactive');
     }
 
+    closeProductDetailAside();
+
     desktopMenu.classList.toggle('inactive');
 }
 const toggleMobileMenu = () => {
@@ -45,6 +49,8 @@ const toggleMobileMenu = () => {
         shoppingCartContainer.classList.add('inactive');
     }
 
+    closeProductDetailAside();
+    
     mobileMenu.classList.toggle('inactive');
 }
 const toggleCarrito = () => {
@@ -59,12 +65,25 @@ const toggleCarrito = () => {
         desktopMenu.classList.add('inactive');
     }
 
+    closeProductDetailAside();
+
     shoppingCartContainer.classList.toggle('inactive');
+}
+const openProductDetailAside = () => {
+    productDetailContainer.classList.remove('inactive');
+    shoppingCartContainer.classList.add('inactive');
+    desktopMenu.classList.add('inactive');
+    mobileMenu.classList.add('inactive');
+
+}
+const closeProductDetailAside = () => {
+    productDetailContainer.classList.add('inactive');
 }
 
 menuEmail.addEventListener('click', toggleDesktopMenu);
 menuHamIcon.addEventListener('click', toggleMobileMenu);
 menuCarritoIcon.addEventListener('click', toggleCarrito);
+productDetailCloseIcon.addEventListener('click', closeProductDetailAside);
 
 // Para que funcione tube que poner el evento click después de la función.
 
@@ -92,6 +111,7 @@ function renderProducts(arr) {
     
         const productImg = document.createElement('img');
         productImg.setAttribute('src', product.image);
+        productImg.addEventListener('click', openProductDetailAside);
     
         const productInfo = document.createElement('div');
         productInfo.classList.add('product-info');
