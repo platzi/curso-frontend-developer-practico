@@ -6,7 +6,7 @@ const desktopMenu = $('.desktop-menu');
 const menuHamIcon = $('.menu');
 const mobileMenu = $('.mobile-menu');
 const menuCarritoIcon = $('.navbar-shopping-cart');
-const aside = $('.product-detail');
+const shoppingCartContainer = $('#shoppingCartContainer');
 const cardContainer = $('.cards-container');
 
 
@@ -30,19 +30,19 @@ Pero al parecer no es una buena práctica ya que si te ves en la necesidad de re
 Para agregar la función flecha ()=> seria recomendable hacerlo así.*/
 
 const toggleDesktopMenu = () => {
-    const isCarritoClosed = aside.classList.contains('inactive');
+    const isCarritoClosed = shoppingCartContainer.classList.contains('inactive');
 
     if (!isCarritoClosed) {
-        aside.classList.add('inactive');
+        shoppingCartContainer.classList.add('inactive');
     }
 
     desktopMenu.classList.toggle('inactive');
 }
 const toggleMobileMenu = () => {
-    const isCarritoClosed = aside.classList.contains('inactive');
+    const isCarritoClosed = shoppingCartContainer.classList.contains('inactive');
 
     if (!isCarritoClosed) {
-        aside.classList.add('inactive');
+        shoppingCartContainer.classList.add('inactive');
     }
 
     mobileMenu.classList.toggle('inactive');
@@ -59,7 +59,7 @@ const toggleCarrito = () => {
         desktopMenu.classList.add('inactive');
     }
 
-    aside.classList.toggle('inactive');
+    shoppingCartContainer.classList.toggle('inactive');
 }
 
 menuEmail.addEventListener('click', toggleDesktopMenu);
