@@ -41,6 +41,8 @@ function toggleShoppingCart () {
 
 function openProductDetail () {
     productDetailContainer.classList.remove("inactive");
+    mobileMenu.classList.add('inactive'); // closing Mobile Menu
+    shoppingCart.classList.add('inactive'); // closing ShoppingCart
 }
 
 function closeProductDetail () {
