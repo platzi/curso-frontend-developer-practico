@@ -21,6 +21,9 @@ nav {
 .inactive {
   display: none;
 }
+.hidden {
+  display: none;
+}
 
 .menu {
   display: none;
@@ -91,6 +94,7 @@ nav {
   border: 1px solid var(--very-light-pink);
   border-radius: 6px;
   padding: 20px 20px 0 20px;
+  background-color: var(--white);
   z-index: 5;
 }
 .desktop-menu ul {

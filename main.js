@@ -27,9 +27,34 @@ productList.push({
     "https://images.pexels.com/photos/276517/pexels-photo-276517.jpeg?auto=compress&cs=tinysrgb&dpr=2&h=650&w=940",
 });
 
-const toggleElement = (e) => {
-  e.classList.toggle("inactive");
-};
+function toggleDesktopMenu() {
+  const isShoppingCardClosed =
+    shoppingCartDetails.classList.contains("inactive");
+  if (!isShoppingCardClosed) {
+    shoppingCartDetails.classList.toggle("inactive");
+  }
+
+  desktopMenu.classList.toggle("inactive");
+}
+function toggleMobileMenu() {
+  const isShoppingCardClosed =
+    shoppingCartDetails.classList.contains("inactive");
+  if (!isShoppingCardClosed) {
+    shoppingCartDetails.classList.toggle("inactive");
+  }
+  mobileMenu.classList.toggle("inactive");
+}
+
+function toggleShoppingCardDetails() {
+  const isDesktopMenuClosed = desktopMenu.classList.contains("inactive");
+  const isMobileMenuClosed = mobileMenu.classList.contains("inactive");
+  if (!isDesktopMenuClosed || !isMobileMenuClosed) {
+    desktopMenu.classList.toggle("inactive");
+
+    mobileMenu.classList.toggle("inactive");
+  }
+  shoppingCartDetails.classList.toggle("inactive");
+}
 
 function renderProducts(data) {
   for (const product of data) {
@@ -67,10 +92,8 @@ function renderProducts(data) {
   }
 }
 
-navEmail.addEventListener("click", () => toggleElement(desktopMenu));
-burgerMenu.addEventListener("click", () => toggleElement(mobileMenu));
-shoppingCartIcon.addEventListener("click", () =>
-  toggleElement(shoppingCartDetails)
-);
+navEmail.addEventListener("click", toggleDesktopMenu);
+burgerMenu.addEventListener("click", toggleMobileMenu);
+shoppingCartIcon.addEventListener("click", toggleShoppingCardDetails);
 
 renderProducts(productList);
