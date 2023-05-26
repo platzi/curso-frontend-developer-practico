@@ -5,43 +5,50 @@ const shoppingCart = document.querySelector('.navbar-shopping-cart')
 const mobileMenu = document.querySelector('.mobile-menu');
 const shoppingCartContainer = document.querySelector('#shoppingCartContainer')
 const cardContainer = document.querySelector('.cards-container');
-const productDetail = document.querySelector('#productDetail');
-const productDetailClouseIcon = document.querySelector('.product-detail-close')
+
 
 menuEmail.addEventListener('click', toggleDesktopMenu);
 hamIconMenu.addEventListener('click', toggleMobileMenu);
 shoppingCart.addEventListener('click', toggleCarritoshoppingCartContainer);
-productDetailClouseIcon.addEventListener('click', closeProductDetail)
 
 function toggleDesktopMenu(){
-  productDetail.classList.add('inactive')
+    if(document.querySelector('#productDetail')){
+      document.querySelector('#productDetail').remove()
+    }
   shoppingCartContainer.classList.add('inactive')
 
   desktopMenu.classList.toggle('inactive');
 }
 
 function toggleMobileMenu(){
-  productDetail.classList.add('inactive')
+  if(document.querySelector('#productDetail')){
+    document.querySelector('#productDetail').remove()
+  }
   shoppingCartContainer.classList.add('inactive')
   mobileMenu.classList.toggle('inactive');
 }
 
 function toggleCarritoshoppingCartContainer(){
+  if(document.querySelector('#productDetail')){
+    document.querySelector('#productDetail').remove()
+  }
     mobileMenu.classList.add('inactive')
     desktopMenu.classList.add('inactive')
-    productDetail.classList.add('inactive')
   shoppingCartContainer.classList.toggle('inactive')
 }
 
-function openProductDetail(){
-  shoppingCartContainer.classList.add('inactive')
-  mobileMenu.classList.add('inactive')
-  desktopMenu.classList.add('inactive')
-  productDetail.classList.remove('inactive')
+function openProductDetail(evento){
+
+  if(!document.querySelector('#productDetail')){
+    renderProductDetail(evento.target.parentNode);
+    shoppingCartContainer.classList.add('inactive');
+    mobileMenu.classList.add('inactive');
+    desktopMenu.classList.add('inactive')
+  }
 }
 
 function closeProductDetail(){
-  productDetail.classList.add('inactive')
+  productDetail.remove()
 }
 
 const productList = [];
@@ -97,6 +104,55 @@ function renderProducts(arr){
   
     cardContainer.appendChild(productCard)
   }
+}
+
+function renderProductDetail(producto){
+  const ProductImg = producto.children[0].getAttribute('src')
+  const ProductPrice = producto.children[1].children[0].children[0].textContent;
+  const ProductName = producto.children[1].children[0].children[1].textContent;
+
+  const productDetail = document.createElement('aside');
+  productDetail.setAttribute("id", "productDetail");
+  
+  const productDetailClose = document.createElement('div');
+  productDetailClose.classList.add('product-detail-close')
+  productDetailClose.addEventListener('click', closeProductDetail)
+
+  const productDetailCloseImg = document.createElement('img');
+  productDetailCloseImg.setAttribute('src', './icons/icon_close.png');
+  productDetailCloseImg.setAttribute('alt', 'close');
+
+  const productDetailImg = document.createElement('img');
+  productDetailImg.setAttribute('src', ProductImg);
+  productDetailImg.setAttribute('alt', ProductName);
+
+  const productInfo = document.createElement('div');
+  productInfo.classList.add('product-info');
+
+  const productPrice = document.createElement('p')
+  productPrice.innerText = ProductPrice;
+  
+  const productName = document.createElement('p')
+  productName.innerText = ProductName;
+
+  const productAddButton = document.createElement('button');
+  productAddButton.innerText = 'Add to cart';
+  productAddButton.classList.add('primary-button')
+  productAddButton.classList.add('add-to-cart-button')
+
+  const productAddImg = document.createElement('img');
+  productAddImg.setAttribute('src', './icons/bt_add_to_cart.svg')
+  productAddImg.setAttribute('alt', 'add to cart')
+
+
+  productDetail.append(productDetailClose, productDetailImg  ,productInfo);
+  productDetailClose.append(productDetailCloseImg);
+  productInfo.append(productPrice, productName, productAddButton);
+  productAddButton.append(productAddImg)
+
+
+  document.querySelector('.main-container').before(productDetail)
+
 }
 
 renderProducts(productList)
