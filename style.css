@@ -127,6 +127,7 @@ nav {
 
 .mobile-menu {
   position: absolute;
+  width: 100%;
   top: 61px;
   left: 0;
   padding: 24px;
@@ -137,7 +138,6 @@ nav {
   text-decoration: none;
   color: var(--black);
   font-weight: bold;
-  /* margin-bottom: 24px; */
 }
 .mobile-menu ul {
   padding: 0;
@@ -150,23 +150,89 @@ nav {
 .mobile-menu ul li {
   margin-bottom: 24px;
 }
-.email {
+.mobile-menu .email {
   font-size: var(--sm);
-  font-weight: 300 !important;
+  font-weight: 300;
 }
-.sign-out {
+.mobile-menu .sign-out {
   font-size: var(--sm);
-  color: var(--hospital-green) !important;
+  color: var(--hospital-green);
 }
-/* carrito de la compra */
-.product-detail {
+
+/* geneal aside style */
+aside {
   width: 360px;
-  padding: 0 24px;
   box-sizing: border-box;
   position: absolute;
   right: 0;
   top: 61px;
   background-color: var(--white);
+}
+
+/* PRODUCT DETAIL */
+
+.product-detail-close {
+  background: var(--white);
+  width: 14px;
+  height: 14px;
+  position: absolute;
+  top: 8px;
+  left: 10px;
+  z-index: 2;
+  padding: 12px;
+  border-radius: 50%;
+}
+.product-detail-close:hover {
+  cursor: pointer;
+}
+aside > img:nth-child(2) {
+  width: 100%;
+  height: 360px;
+  object-fit: cover;
+  border-radius: 0 0 20px 20px;
+}
+.product-detail-info {
+  margin: 24px 24px 0 24px;
+}
+.product-info p:nth-child(1) {
+  font-weight: bold;
+  font-size: var(--md);
+  margin-top: 0;
+  margin-bottom: 4px;
+}
+.product-detail-info p:nth-child(2) {
+  color: var(--very-light-pink);
+  font-size: var(--md);
+  margin-top: 0;
+  margin-bottom: 36px;
+}
+.product-detail-info p:nth-child(3) {
+  color: var(--very-light-pink);
+  font-size: var(--sm);
+  margin-top: 0;
+  margin-bottom: 36px;
+}
+.primary-button {
+  background-color: var(--hospital-green);
+  border-radius: 8px;
+  border: none;
+  color: var(--white);
+  width: 100%;
+  cursor: pointer;
+  font-size: var(--md);
+  font-weight: bold;
+  height: 50px;
+}
+.add-to-cart-button {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+}
+
+/* carrito de la compra */
+
+.shoppingCardContainer {
+  padding: 0 24px;
 }
 .title-container {
   display: flex;
@@ -292,7 +358,7 @@ nav {
   .desktop-menu {
     display: none;
   }
-  .product-detail {
+  aside {
     width: 100%;
   }
 

@@ -5,8 +5,10 @@ const desktopMenu = document.querySelector(".desktop-menu");
 const burgerMenu = document.querySelector(".menu");
 const mobileMenu = document.querySelector(".mobile-menu");
 const shoppingCartIcon = document.querySelector(".navbar-shopping-cart");
-const shoppingCartDetails = document.querySelector(".product-detail");
+const shoppingCartDetails = document.querySelector("#shoppingCardDetail");
 const cardsContainer = document.querySelector(".cards-container");
+const closeProductDetails = document.querySelector(".product-detail-close");
+const productDetail = document.querySelector("#productDetail");
 
 const productList = [];
 productList.push({
@@ -21,12 +23,17 @@ productList.push({
   image: "./logos/lampara.jpg",
 });
 productList.push({
-  name: "Bike",
-  price: 120,
-  image:
-    "https://images.pexels.com/photos/276517/pexels-photo-276517.jpeg?auto=compress&cs=tinysrgb&dpr=2&h=650&w=940",
+  name: "Chair",
+  price: 65,
+  image: "./logos/chair.jpg",
 });
 
+function closeDetails() {
+  productDetail.classList.add("inactive");
+}
+function showDetails() {
+  productDetail.classList.remove("inactive");
+}
 function toggleDesktopMenu() {
   const isShoppingCardClosed =
     shoppingCartDetails.classList.contains("inactive");
@@ -48,10 +55,11 @@ function toggleMobileMenu() {
 function toggleShoppingCardDetails() {
   const isDesktopMenuClosed = desktopMenu.classList.contains("inactive");
   const isMobileMenuClosed = mobileMenu.classList.contains("inactive");
-  if (!isDesktopMenuClosed || !isMobileMenuClosed) {
-    desktopMenu.classList.toggle("inactive");
-
+  const detailsClosed = productDetail.classList.contains("inactive");
+  if (!isDesktopMenuClosed || !isMobileMenuClosed || !detailsClosed) {
+    desktopMenu.classList.add("inactive");
     mobileMenu.classList.toggle("inactive");
+    productDetail.classList.add("inactive");
   }
   shoppingCartDetails.classList.toggle("inactive");
 }
@@ -70,7 +78,7 @@ function renderProducts(data) {
     const infoDiv = document.createElement("div");
 
     const productPrice = document.createElement("p");
-    productPrice.innerText = product.price;
+    productPrice.innerText = `${product.price} €`;
 
     const productName = document.createElement("p");
     productName.innerText = product.name;
@@ -95,5 +103,6 @@ function renderProducts(data) {
 navEmail.addEventListener("click", toggleDesktopMenu);
 burgerMenu.addEventListener("click", toggleMobileMenu);
 shoppingCartIcon.addEventListener("click", toggleShoppingCardDetails);
-
+closeProductDetails.addEventListener("click", closeDetails);
+cardsContainer.addEventListener("click", showDetails);
 renderProducts(productList);
