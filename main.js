@@ -9,8 +9,13 @@ const shoppingCartDetails = document.querySelector("#shoppingCardDetail");
 const cardsContainer = document.querySelector(".cards-container");
 const closeProductDetails = document.querySelector(".product-detail-close");
 const productDetail = document.querySelector("#productDetail");
+const arrayAllMenu = [
+  desktopMenu,
+  mobileMenu,
+  shoppingCartDetails,
+  productDetail,
+];
 
-let productAdded = [];
 const productList = [];
 productList.push({
   id: "1",
@@ -37,56 +42,51 @@ productList.push({
   description:
     "With its practical position, this bike also fulfills a decorative function, add your hall or workspace.",
 });
+productList.push({
+  id: "4",
+  name: "Table",
+  price: 120,
+  image:
+    "https://images.pexels.com/photos/2082092/pexels-photo-2082092.jpeg?auto=compress&cs=tinysrgb&w=1260&h=750&dpr=1",
 
+  description:
+    "Lorem ipsum dolor sit amet consectetur, adipisicing elit. Magnam assumenda!",
+});
+
+/*  HANDLE DROP DOWN */
+function closeMenu(element, arrayMenu) {
+  const isClosed = element.classList.contains("inactive");
+  if (!isClosed) {
+    element.classList.add("inactive");
+  } else {
+    for (let menu of arrayMenu) {
+      menu === element
+        ? menu.classList.remove("inactive")
+        : menu.classList.add("inactive");
+    }
+  }
+}
 function closeDetails() {
   productDetail.classList.add("inactive");
 }
 
 function showDetails() {
-  const isDesktopMenuClosed = desktopMenu.classList.contains("inactive");
-  const isMobileMenuClosed = mobileMenu.classList.contains("inactive");
-  const isShoppingCardClosed =
-    shoppingCartDetails.classList.contains("inactive");
-  if (!isDesktopMenuClosed || !isMobileMenuClosed || !isShoppingCardClosed) {
-    desktopMenu.classList.add("inactive");
-    mobileMenu.classList.toggle("inactive");
-    shoppingCartDetails.classList.add("inactive");
-  }
-  productDetail.classList.remove("inactive");
+  closeMenu(productDetail, arrayAllMenu);
 }
 
 function toggleDesktopMenu() {
-  const isShoppingCardClosed =
-    shoppingCartDetails.classList.contains("inactive");
-
-  if (!isShoppingCardClosed) {
-    shoppingCartDetails.classList.toggle("inactive");
-  }
-  closeDetails();
-  desktopMenu.classList.toggle("inactive");
+  closeMenu(desktopMenu, arrayAllMenu);
 }
 
 function toggleMobileMenu() {
-  const isShoppingCardClosed =
-    shoppingCartDetails.classList.contains("inactive");
-  if (!isShoppingCardClosed) {
-    shoppingCartDetails.classList.toggle("inactive");
-  }
-  mobileMenu.classList.toggle("inactive");
+  closeMenu(mobileMenu, arrayAllMenu);
 }
 
 function toggleShoppingCardDetails() {
-  const isDesktopMenuClosed = desktopMenu.classList.contains("inactive");
-  const isMobileMenuClosed = mobileMenu.classList.contains("inactive");
-  const detailsClosed = productDetail.classList.contains("inactive");
-  if (!isDesktopMenuClosed || !isMobileMenuClosed || !detailsClosed) {
-    desktopMenu.classList.add("inactive");
-    mobileMenu.classList.toggle("inactive");
-    productDetail.classList.add("inactive");
-  }
-  shoppingCartDetails.classList.toggle("inactive");
+  closeMenu(shoppingCartDetails, arrayAllMenu);
 }
 
+/* RENDER ELEMENTS */
 function renderProductList(data) {
   data.forEach((product) => {
     const productCard = document.createElement("div");
@@ -129,9 +129,7 @@ function renderProductList(data) {
     cardsContainer.appendChild(productCard);
   });
 }
-function sayHello(name) {
-  console.log("hi" + name.price);
-}
+
 function renderProductDetail(product) {
   let html = ` <div class="product-detail-close">
 
@@ -149,50 +147,11 @@ function renderProductDetail(product) {
 </div>`;
 
   productDetail.innerHTML = html;
-
-  /*  const divClose = document.createElement("div");
-  divClose.classList.add("product-detail-close");
-  divClose.addEventListener("click", closeDetails);
-
-  const closeIcon = document.createElement("img");
-  closeIcon.setAttribute("src", "./icons/icon_close.png");
-  closeIcon.alt = "close icon";
-  closeIcon.title = "Close";
-
-  const productImg = document.createElement("img");
-  productImg.setAttribute("src", product.image);
-  productImg.alt = product.description;
-
-  const divInfo = document.createElement("div");
-  divInfo.classList.add("product-detail-info");
-
-  const priceInfo = document.createElement("p");
-  priceInfo.innerText = `${product.price} €`;
-  const nameInfo = document.createElement("p");
-  nameInfo.innerText = `${product.name}`;
-  const description = document.createElement("P");
-  description.innerText =
-    "With its practical position, this bike also fulfills a decorative function, add your hall or workspace.";
-
-  const buttonAdd = document.createElement("button");
-  buttonAdd.classList.add("primary-button");
-  buttonAdd.classList.add("add-to-cart-button");
-  buttonAdd.alt = "add to shopping cart";
-  const imgButtonAdd = document.createElement("img");
-  imgButtonAdd.setAttribute = ("src", "./icons/bt_add_to_cart.svg");
-
-  buttonAdd.appendChild(imgButtonAdd);
-  buttonAdd.innerText = "Add to cart";
-
-  divClose.appendChild(closeIcon);
-  divInfo.append(priceInfo, nameInfo, description, buttonAdd);
-  productDetail.append(divClose, productImg, divInfo);
- */
   showDetails();
 }
 
 navEmail.addEventListener("click", toggleDesktopMenu);
 burgerMenu.addEventListener("click", toggleMobileMenu);
 shoppingCartIcon.addEventListener("click", toggleShoppingCardDetails);
-//renderProductDetail();
+
 renderProductList(productList);
