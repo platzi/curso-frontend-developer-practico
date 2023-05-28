@@ -51,16 +51,20 @@ nav {
     border-bottom: 1px solid var(--very-light-pink);
 }
 
+
 .menu {
     cursor: pointer;
     display: none;
 }
 
-.logo {
+.logo,
+.logoA {
+    margin-top: 3%;
     cursor: pointer;
     width: 100px;
 }
-.logo:hover{
+.logo:hover,
+.logoA:hover{
     transition: 250ms;
     transform: scale(1.05);
 }
@@ -108,6 +112,8 @@ nav {
 }
 
 .navbar-email:hover {
+    transition: transform 600ms;
+    transform: scale(1.05);
     color: var(--hospital-green)
 }
 
@@ -186,6 +192,7 @@ nav {
 
 /* Mobile menu */
 .mobile-menu {
+    height: 100vh;
     left: 0;
     width: 100%;
     background-color: var(--white);
@@ -456,9 +463,14 @@ nav {
     .categories{
         display: none;
     }
+    .logoA img{
+        margin-top: 14%;
+    }
 }
 
 @media (max-width: 640px) {
+
+
     .product-detail-right {
         width: 100%;
     }
@@ -497,6 +509,8 @@ nav {
 }
 
 @media (min-width: 641px) {
+
+    
     .mobile-menu {
         display: none;
     }
