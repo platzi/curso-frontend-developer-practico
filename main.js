@@ -10,8 +10,10 @@ const cardsContainer = document.querySelector(".cards-container");
 const closeProductDetails = document.querySelector(".product-detail-close");
 const productDetail = document.querySelector("#productDetail");
 
+let productAdded = [];
 const productList = [];
 productList.push({
+  id: "1",
   name: "Bike",
   price: 120,
   image:
@@ -20,19 +22,26 @@ productList.push({
     "Lorem ipsum dolor sit amet consectetur, adipisicing elit. Ipsa laboriosam, pariatur omnis ullam ut similique molestias quos beatae voluptatem nulla odio, dolorum unde possimus accusantium praesentium dignissimos voluptatum magnam assumenda!",
 });
 productList.push({
+  id: "2",
   name: "Table Lamp",
   price: 90,
   image: "./logos/lampara.jpg",
+  description:
+    "With its practical position, this bike also fulfills a decorative function, add your hall or workspace.",
 });
 productList.push({
+  id: "3",
   name: "Chair",
   price: 65,
   image: "./logos/chair.jpg",
+  description:
+    "With its practical position, this bike also fulfills a decorative function, add your hall or workspace.",
 });
 
 function closeDetails() {
   productDetail.classList.add("inactive");
 }
+
 function showDetails() {
   const isDesktopMenuClosed = desktopMenu.classList.contains("inactive");
   const isMobileMenuClosed = mobileMenu.classList.contains("inactive");
@@ -45,6 +54,7 @@ function showDetails() {
   }
   productDetail.classList.remove("inactive");
 }
+
 function toggleDesktopMenu() {
   const isShoppingCardClosed =
     shoppingCartDetails.classList.contains("inactive");
@@ -55,6 +65,7 @@ function toggleDesktopMenu() {
   closeDetails();
   desktopMenu.classList.toggle("inactive");
 }
+
 function toggleMobileMenu() {
   const isShoppingCardClosed =
     shoppingCartDetails.classList.contains("inactive");
@@ -77,14 +88,18 @@ function toggleShoppingCardDetails() {
 }
 
 function renderProductList(data) {
-  for (const product of data) {
+  data.forEach((product) => {
     const productCard = document.createElement("div");
     productCard.classList.add("product-card");
 
     const productImg = document.createElement("img");
     productImg.setAttribute("src", product.image);
     productImg.setAttribute("alt", product.description);
-    productImg.addEventListener("click", showDetails);
+    productImg.addEventListener("click", () => {
+      renderProductDetail(product);
+    });
+
+    productImg.addEventListener("click", () => console.log(product.name));
 
     const productInfo = document.createElement("div");
     productInfo.classList.add("product-info");
@@ -112,10 +127,30 @@ function renderProductList(data) {
     productCard.appendChild(productInfo);
 
     cardsContainer.appendChild(productCard);
-  }
+  });
 }
-function renderProductDetail() {
-  const divClose = document.createElement("div");
+function sayHello(name) {
+  console.log("hi" + name.price);
+}
+function renderProductDetail(product) {
+  let html = ` <div class="product-detail-close">
+
+  <img src="./icons/icon_close.png" alt="close" onClick= closeDetails()>
+</div>
+<img src=${product.image} alt=${product.description}>
+<div class="product-detail-info">
+  <p>${product.price} €</p>
+  <p>${product.name}</p>
+  <p>${product.description}</p>
+  <button class="primary-button add-to-cart-button">
+    <img src="./icons/bt_add_to_cart.svg" alt="add to cart">
+    Add to cart
+  </button>
+</div>`;
+
+  productDetail.innerHTML = html;
+
+  /*  const divClose = document.createElement("div");
   divClose.classList.add("product-detail-close");
   divClose.addEventListener("click", closeDetails);
 
@@ -125,20 +160,16 @@ function renderProductDetail() {
   closeIcon.title = "Close";
 
   const productImg = document.createElement("img");
-  productImg.setAttribute(
-    "src",
-    "https://images.pexels.com/photos/276517/pexels-photo-276517.jpeg?auto=compress&cs=tinysrgb&dpr=2&h=650&w=940"
-  );
-  productImg.alt = "Bike";
-  productImg.title = "Bike";
+  productImg.setAttribute("src", product.image);
+  productImg.alt = product.description;
 
   const divInfo = document.createElement("div");
   divInfo.classList.add("product-detail-info");
 
   const priceInfo = document.createElement("p");
-  priceInfo.innerText = "200€";
+  priceInfo.innerText = `${product.price} €`;
   const nameInfo = document.createElement("p");
-  nameInfo.innerText = "Bike";
+  nameInfo.innerText = `${product.name}`;
   const description = document.createElement("P");
   description.innerText =
     "With its practical position, this bike also fulfills a decorative function, add your hall or workspace.";
@@ -149,18 +180,19 @@ function renderProductDetail() {
   buttonAdd.alt = "add to shopping cart";
   const imgButtonAdd = document.createElement("img");
   imgButtonAdd.setAttribute = ("src", "./icons/bt_add_to_cart.svg");
-  buttonAdd.innerText = "Add to cart";
 
   buttonAdd.appendChild(imgButtonAdd);
+  buttonAdd.innerText = "Add to cart";
 
   divClose.appendChild(closeIcon);
   divInfo.append(priceInfo, nameInfo, description, buttonAdd);
   productDetail.append(divClose, productImg, divInfo);
+ */
+  showDetails();
 }
 
 navEmail.addEventListener("click", toggleDesktopMenu);
 burgerMenu.addEventListener("click", toggleMobileMenu);
 shoppingCartIcon.addEventListener("click", toggleShoppingCardDetails);
-
-renderProductDetail();
+//renderProductDetail();
 renderProductList(productList);
