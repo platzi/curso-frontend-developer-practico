@@ -12,6 +12,7 @@ body {
   margin: 0;
   font-family: "Quicksand", sans-serif;
 }
+
 nav {
   display: flex;
   justify-content: space-between;
@@ -83,6 +84,7 @@ nav {
   display: flex;
   justify-content: center;
   align-items: center;
+  cursor: pointer;
 }
 /* desktop menu */
 .desktop-menu {
@@ -317,6 +319,7 @@ aside > img:nth-child(2) {
   height: 240px;
   border-radius: 20px;
   object-fit: cover;
+  cursor: pointer;
 }
 .product-info {
   display: flex;
