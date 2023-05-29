@@ -3,12 +3,16 @@ const desktopMenu = document.querySelector(".desktop-menu");
 const menuHamIcon = document.querySelector(".menu");
 const mobileMenu = document.querySelector(".mobile-menu");
 const menuCarritoIcon = document.querySelector(".navbar-shopping-cart");
+const productDetailCloseIcon = document.querySelector(".product-detail-close")
 const shoppingCartContainer = document.querySelector("#shopingCartContainer")
+const productDetailContainer = document.querySelector("#productDetail")
+const cardContainer = document.querySelector('.cards-container')
 
 menuEmail.addEventListener('click', toggleDesktopMenu);
 menuHamIcon.addEventListener('click', toggleMobileMenu);
 menuCarritoIcon.addEventListener('click', toggleCarritoAside);
-const cardContainer = document.querySelector('.cards-container')
+productDetailCloseIcon.addEventListener('click', closeProductDetailAside);
+
 
 
 
@@ -28,12 +32,13 @@ function toggleDesktopMenu(){
 }
 
 function toggleMobileMenu(){
+
     const isAsideClosed = shoppingCartContainer.classList.contains('inactive')
 
     if (!isAsideClosed) {
         shoppingCartContainer.classList.add("inactive")
     }
-
+    closeProductDetailAside()
     mobileMenu.classList.toggle('inactive')
 }
 
@@ -48,7 +53,28 @@ function toggleCarritoAside(){
     shoppingCartContainer.classList.toggle('inactive')
     desktopMenu.classList.add('inactive')
     
+    const isProductDetailClosed = productDetailContainer.classList.contains('inactive')
+
+    if (!isProductDetailClosed) {
+       productDetailContainer.classList.add("inactive") 
+    }
+
+    // shoppingCartContainer.classList.toggle('inactive')
+    // desktopMenu.classList.add('inactive')
+
+
 }
+
+function openProductDetailAside() {
+    shoppingCartContainer.classList.add('inactive')
+    productDetailContainer.classList.remove('inactive')
+}
+
+function closeProductDetailAside(){
+    productDetailContainer.classList.add('inactive')
+
+}
+
 
 const productList = [];
 
@@ -79,6 +105,7 @@ function renderProduct (arr){
         // product = name,price,imge product.imgae
         const img = document.createElement('img')
         img.setAttribute('src', product.imagen)
+        img.addEventListener('click', openProductDetailAside)
     
         const productInfo = document.createElement('div')
         productInfo.classList.add("product-info")
@@ -112,3 +139,4 @@ function renderProduct (arr){
 }
 
 renderProduct(productList);
+
