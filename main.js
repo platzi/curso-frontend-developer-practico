@@ -6,9 +6,13 @@ const burgerMenu = document.querySelector(".menu");
 const mobileMenu = document.querySelector(".mobile-menu");
 const shoppingCartIcon = document.querySelector(".navbar-shopping-cart");
 const shoppingCartDetails = document.querySelector("#shoppingCardDetail");
+const shoppingCartProducts = document.querySelector(".shopping-cart");
+const totalToPay = document.querySelector(".order");
+const totalItems = document.querySelector(".js-counter");
 const cardsContainer = document.querySelector(".cards-container");
 const closeProductDetails = document.querySelector(".product-detail-close");
 const productDetail = document.querySelector("#productDetail");
+const productsAdded = [];
 const arrayAllMenu = [
   desktopMenu,
   mobileMenu,
@@ -45,7 +49,7 @@ productList.push({
 productList.push({
   id: "4",
   name: "Table",
-  price: 120,
+  price: 105,
   image:
     "https://images.pexels.com/photos/2082092/pexels-photo-2082092.jpeg?auto=compress&cs=tinysrgb&w=1260&h=750&dpr=1",
 
@@ -99,8 +103,6 @@ function renderProductList(data) {
       renderProductDetail(product);
     });
 
-    productImg.addEventListener("click", () => console.log(product.name));
-
     const productInfo = document.createElement("div");
     productInfo.classList.add("product-info");
 
@@ -119,6 +121,9 @@ function renderProductList(data) {
     const iconAddToCard = document.createElement("img");
     iconAddToCard.setAttribute("src", "./icons/bt_add_to_cart.svg");
     iconAddToCard.title = "añadir artículo";
+    iconAddToCard.addEventListener("click", () => {
+      handlerClickAddProduct(product);
+    });
 
     imgContainer.appendChild(iconAddToCard);
     productInfo.appendChild(infoDiv);
@@ -148,6 +153,57 @@ function renderProductDetail(product) {
 
   productDetail.innerHTML = html;
   showDetails();
+}
+
+function renderShoppingCard() {
+  let html = "";
+  productsAdded.forEach((item) => {
+    html += ` 
+    <figure>
+      <img src= ${item.image} alt="bike">
+    </figure>
+    <p> ${item.name} €</p>
+    <p> ${item.price} €</p>
+    <img src="./icons/icon_close.png" alt="close">`;
+  });
+
+  shoppingCartProducts.innerHTML = html;
+}
+
+function renderTotalPrice() {
+  let total = sum(productsAdded);
+  let html = ` 
+  <p>
+  <span>Total</span>
+  </p>
+  <p>${total}€</p>`;
+
+  totalToPay.innerHTML = html;
+}
+
+/* HELPER FUNCTIOS */
+function sum(array) {
+  let total = 0;
+  array.forEach((item) => {
+    total += item.price;
+  });
+  return total;
+}
+
+function countItems(array) {
+  return array.length;
+}
+
+function addProducts(product) {
+  productsAdded.push(product);
+}
+
+/* HANDLER FUNCTIONS */
+function handlerClickAddProduct(product) {
+  addProducts(product);
+  renderShoppingCard();
+  renderTotalPrice();
+  totalItems.innerHTML = countItems(productsAdded);
 }
 
 navEmail.addEventListener("click", toggleDesktopMenu);
