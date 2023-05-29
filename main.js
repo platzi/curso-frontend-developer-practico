@@ -112,3 +112,4 @@ function renderProduct (arr){
 }
 
 renderProduct(productList);
+
