@@ -3,7 +3,7 @@ const desktopMenu = document.querySelector('.desktop-menu');
 const burguerIcon = document.querySelector('.menu');
 const mobileMenu = document.querySelector('.mobile-menu');
 const menuCarritoIcon= document.querySelector('.navbar-shopping-cart');
-const carrito = document.querySelector('.product-detail');
+const shoppingCartContainer = document.querySelector('#shoppingCartContainer');
 const cardContainer = document.querySelector('.cards-container');
 
 
@@ -22,19 +22,19 @@ function toggleDesktopMenu(){
     // }
 
     // solucion mas corta
-    carrito.classList.add('inactive');
+    shoppingCartContainer.classList.add('inactive');
     desktopMenu.classList.toggle('inactive');
 }
 
 function toggleMobileMenu(){
-    carrito.classList.add('inactive');
+    shoppingCartContainer.classList.add('inactive');
     mobileMenu.classList.toggle('inactive');
 }
 
 function toggleCarritoMenu(){
     mobileMenu.classList.add('inactive');
     desktopMenu.classList.add('inactive');
-    carrito.classList.toggle('inactive');
+    shoppingCartContainer.classList.toggle('inactive');
 }
 
 const productList = [];
@@ -109,8 +109,8 @@ function renderProduct(array){
         const productCard = document.createElement('div');
         productCard.classList.add('product-card');
     
-        const img = document.createElement('img');
-        img.setAttribute('src', product.imagen);
+        const productImg = document.createElement('img');
+        productImg.setAttribute('src', product.imagen);
     
         const productInfo = document.createElement('div');
         productInfo.classList.add('product-info');
@@ -133,7 +133,7 @@ function renderProduct(array){
     
         productInfo.append(productInfoDiv, productFigure)
     
-        productCard.append(img, productInfo);
+        productCard.append(productImg, productInfo);
     
         cardContainer.appendChild(productCard)
     })
