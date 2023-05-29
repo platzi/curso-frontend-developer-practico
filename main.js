@@ -84,6 +84,30 @@ productList.push({
     imagen: 'https://images.pexels.com/photos/276517/pexels-photo-276517.jpeg?auto=compress&cs=tinysrgb&dpr=2&h=650&w=940',
 
 })
+productList.push({
+    nombre:'Bike',
+    precio: 120,
+    imagen: 'https://images.pexels.com/photos/276517/pexels-photo-276517.jpeg?auto=compress&cs=tinysrgb&dpr=2&h=650&w=940',
+
+})
+productList.push({
+    nombre:'Bike',
+    precio: 120,
+    imagen: 'https://images.pexels.com/photos/276517/pexels-photo-276517.jpeg?auto=compress&cs=tinysrgb&dpr=2&h=650&w=940',
+
+})
+productList.push({
+    nombre:'Bike',
+    precio: 120,
+    imagen: 'https://images.pexels.com/photos/276517/pexels-photo-276517.jpeg?auto=compress&cs=tinysrgb&dpr=2&h=650&w=940',
+
+})
+productList.push({
+    nombre:'Bike',
+    precio: 120,
+    imagen: 'https://images.pexels.com/photos/276517/pexels-photo-276517.jpeg?auto=compress&cs=tinysrgb&dpr=2&h=650&w=940',
+
+})
 
 productList.push({
     nombre:'Bike',
