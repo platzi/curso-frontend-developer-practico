@@ -9,10 +9,12 @@ const productDeteailContainer = document.querySelector('.product-detail-info');
 const productDeteailContainerClose = document.querySelector('.product-detail-close-info');
 
 
+
 menuEmail.addEventListener("click", toggleDesktopMenu);
 burgerMenu.addEventListener("click", toggleMobileMenu);
 menuCarritoIcon.addEventListener("click", toggleCarritoAside);
 productDeteailContainerClose.addEventListener('click', closeProductDetailAside);
+
 
 function toggleDesktopMenu (){
     const isMenuCarritoClosed = desktopMenu.classList.add('inactive');
@@ -144,6 +146,7 @@ function renderProducts(arr){
         const productImgCart = document.createElement('img');
         productImgCart.setAttribute('src', product.image);
         productImgCart.addEventListener('click', openProductDetailAside);
+        
     
         const productInfo = document.createElement('div');
         productInfo.classList.add('product-info');
@@ -177,4 +180,5 @@ function renderProducts(arr){
 }
 
 renderProducts(productList);
+
 
