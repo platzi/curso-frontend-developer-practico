@@ -7,6 +7,9 @@ const aside = document.querySelector('.product-detail');
 const cardsContainer = document.querySelector('.cards-container');
 const productDeteailContainer = document.querySelector('.product-detail-info');
 const productDeteailContainerClose = document.querySelector('.product-detail-close-info');
+const productDetailImage = document.querySelector('.product-detail > img');
+const productDetailPrice = document.querySelector('#product-detail-price');
+const productDetailName = document.querySelector('#product-detail-name');
 
 
 
@@ -51,9 +54,12 @@ function toggleCarritoAside (){
 
     }
 
-function openProductDetailAside(){
-    productDeteailContainer.classList.remove('inactive');
+function openProductDetailAside(event){
+        if (productDeteailContainer.classList.contains('inactive')){
+            productDeteailContainer.classList.remove('inactive');
+        }
 }
+
 
 function closeProductDetailAside(){
     productDeteailContainer.classList.add('inactive');
