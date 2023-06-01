@@ -130,6 +130,7 @@
     position: absolute;
     top: 60px;
     width: 100%;
+    background-color: var(--white);
   }
   .mobile-menu a {
     text-decoration: none;
