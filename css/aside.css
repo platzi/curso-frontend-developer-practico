@@ -1,0 +1,104 @@
+/**
+ * front-dev-practico
+ * https://platzi.com/clases/3271-javascript-practico
+ * Pull Request to -> https://github.com/platzi/curso-frontend-developer-practico
+ * @author: Carlos Duarte
+ * @email: hola@davdav.tech
+ * @curo: https://platzi.com/clases/3271-javascript-practico
+ * 
+ * */
+/* Aside */
+    aside {
+      background-color: var(--white);
+      width: 360px;
+      box-sizing: border-box;
+      position: absolute;
+      right: 0;
+    }
+
+    /* Shopping Cart */
+    #shoppingCartContainer{
+      padding: 0 24px 24px 24px;
+      height: auto;
+      border-radius: 0 0 6px 6px;
+      background-color: var(--white);
+      -webkit-box-shadow: -2px 4px 4px 0 rgba(0,0,0,.25);
+      box-shadow: -2px 4px 4px 0 rgba(0,0,0,.25);
+      z-index: 35;
+      animation: fadeMenu .75s;
+    }
+    .title-container {
+      display: flex;
+    }
+    .title-container img {
+      transform: rotate(180deg);
+      margin-right: 14px;
+    }
+    .title {
+      font-size: var(--lg);
+      font-weight: bold;
+    }
+    .order {
+      display: grid;
+      grid-template-columns: auto 1fr;
+      gap: 16px;
+      align-items: center;
+      background-color: var(--text-input-field);
+      margin-bottom: 24px;
+      border-radius: 8px;
+      padding: 0 24px;
+    }
+    .order p:nth-child(1) {
+      display: flex;
+      flex-direction: column;
+    }
+    .order p span:nth-child(1) {
+      font-size: var(--md);
+      font-weight: bold;
+    }
+    .order p:nth-child(2) {
+      text-align: end;
+      font-weight: bold;
+    }
+    .shopping-cart {
+      display: grid;
+      grid-template-columns: auto auto auto auto auto;
+      gap: 8px;
+      margin-bottom: 24px;
+      align-items: center;
+    }
+    .shopping-cart figure {
+      margin: 0;
+    }
+    .shopping-cart figure img {
+      width: 70px;
+      height: 70px;
+      border-radius: 20px;
+      object-fit: cover;
+    }
+    .shopping-cart p:nth-child(2) {
+      color: var(--very-light-pink);
+    }
+    .shopping-cart p:nth-child(3) {
+      color: var(--very-light-pink);
+    }
+    .shopping-cart p:nth-child(4) {
+      font-size: var(--md);
+      font-weight: bold;
+    }
+      .primary-button {
+      background-color: var(--hospital-green);
+      border-radius: 8px;
+      border: none;
+      color: var(--white);
+      width: 100%;
+      cursor: pointer;
+      font-size: var(--md);
+      font-weight: bold;
+      height: 50px;
+    }
+
+
+    /* Medias querys */
+    @media (min-width: 641px) {
+    }

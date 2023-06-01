@@ -1,0 +1,170 @@
+/**
+ * front-dev-practico
+ * https://platzi.com/clases/3271-javascript-practico
+ * Pull Request to -> https://github.com/platzi/curso-frontend-developer-practico
+ * @author: Carlos Duarte
+ * @email: hola@davdav.tech
+ * @curo: https://platzi.com/clases/3271-javascript-practico
+ * 
+ * */
+ /* imports */ 
+    @import 'vars.css';
+    @import "aside.css";
+    @import "menu.css";
+    @import "navbar.css";
+    @import "product.css";
+
+    /* General */
+    body {
+      margin: 0;
+      font-family: 'Quicksand', sans-serif;
+    }
+
+    .inactive{
+      display: none;
+    }
+
+  .showOverlay {
+      -ms-filter: none!important;
+      filter: none!important;
+      opacity: 1!important;
+      -webkit-transition: opacity .5s!important;
+      -moz-transition: opacity .5s!important;
+      -o-transition: opacity .5s!important;
+      -ms-transition: opacity .5s!important;
+      transition: opacity .5s!important;
+      visibility: visible!important;
+  }
+
+  .headerOverlay {
+    background-color: rgb(177 177 177 / 60%);
+    bottom: 0;
+    -ms-filter: "alpha(opacity=0)";
+    filter: alpha(opacity=0);
+    height: 100%;
+    left: 0;
+    opacity: 0;
+    position: fixed;
+    right: 0;
+    top: 0;
+    -webkit-transition: opacity .5s,visibility 0s .5s;
+    -moz-transition: opacity .5s,visibility 0s .5s;
+    -o-transition: opacity .5s,visibility 0s .5s;
+    -ms-transition: opacity .5s,visibility 0s .5s;
+    transition: opacity .5s,visibility 0s .5s;
+    visibility: hidden;
+    width: 100%;
+    z-index: 30;
+}
+
+/* modal */
+
+/* The Modal (background) */
+.modal {
+  display: none;
+  position: fixed; 
+  z-index: 1000; 
+  left: 0;
+  top: 0;
+  width: 100%; 
+  height: 100%; 
+  overflow: auto; 
+  animation-name: fadeMenu;
+  animation-duration: 0.8s;  
+}
+
+.modal-content {
+  background-color: #fefefe;
+  margin: 15% auto; 
+  padding: 10px;
+  border: 1px solid var(--very-light-pink);
+  border-top: 8px solid var(--hospital-green);
+  box-shadow: 0 2px 4px 0px rgba(0,0,0,.25);
+  border-radius: 6px;
+  width: 50%; 
+}
+
+.modal-content p {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  font-size: 22px;
+}
+
+#modal .close {
+  color: #aaa;
+  float: right;
+  font-size: 28px;
+  font-weight: bold;
+}
+
+#modal .close:hover,
+#modal .close:focus {
+  color: black;
+  text-decoration: none;
+  cursor: pointer;
+}
+
+
+    /* Medias querys */
+
+    @media (max-width: 640px) {
+      .menu {
+        display: block;
+      }
+      .navbar-left ul {
+        display: none;
+      }
+      .navbar-email {
+        display: none;
+      }
+      .desktop-menu{display: none}
+      aside {
+        width: 100%;
+      }
+
+      .cards-container {
+        grid-template-columns: repeat(auto-fill, 140px);
+      }
+      .product-card {
+        width: 140px;
+      }
+      .product-card img {
+        width: 140px;
+        height: 140px;
+      }
+
+    }
+
+   @media (min-width: 641px) {
+      .mobile-menu{display: none;}
+   }
+
+
+
+/* Animations */
+@keyframes fadeMenu {
+  0% {
+    -ms-filter: "alpha(opacity=0)";
+    filter: alpha(opacity=0);
+    opacity: 0;
+  }
+  100% {
+    -ms-filter: none;
+    filter: none;
+    opacity: 1;
+  }
+}
+
+
+
+
+@keyframes bounce {
+    10% { transform:translateY(0%); }
+    20% { transform:translateY(-15%); }
+    30% { transform:translateY(0%); }
+    40% { transform:translateY(-7%); }
+    60% { transform:translateY(0%); }
+    80% { transform:translateY(-3%); }
+    100% { transform:translateY(0); }
+}
