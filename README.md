@@ -31,6 +31,6 @@ El proyecto inicial consiste en fusionar los distintos archivos dados para así 
 
 ## Contacto
 
-- Mi portfolio web []()
+- [Mi portfolio web](https://lupemorales.github.io/portfolio/)
 - GitHub [@lupeMorales](https://github.com/lupeMorales )
 - Linkedin [@GuadalupeMoralesCarmona](https://linkedin.com/in/guadalupe-morales-carmona-817245226/ )
