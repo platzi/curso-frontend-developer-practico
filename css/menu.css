@@ -1,0 +1,135 @@
+/**
+ * front-dev-practico
+ * https://platzi.com/clases/3271-javascript-practico
+ * Pull Request to -> https://github.com/platzi/curso-frontend-developer-practico
+ * @author: Carlos Duarte
+ * @email: hola@davdav.tech
+ * @curo: https://platzi.com/clases/3271-javascript-practico
+ * 
+ * */
+  /* header */
+header {
+    background-color: white;
+    -webkit-box-shadow: 0 2px 4px 0 rgba(0,0,0,.25);
+    box-shadow: 0 2px 4px 0 rgba(0,0,0,.25);
+    position: relative;
+    right: 0;
+    top: 0;
+    width: 100%;
+    z-index: 31;
+}
+
+ /* Desktop Menu */
+    .desktop-menu {
+      position: absolute;
+      top: 60px;
+      right: 60px;
+      width: 100px;
+      height: auto;
+      border-radius: 0 0 6px 6px;
+      padding: 20px 20px 0 20px;
+      background-color: var(--white);
+    }
+    .desktop-menu ul {
+      list-style: none;
+      padding: 0;
+      margin: 0;
+    }
+    .desktop-menu ul li {
+      text-align: end;
+    }
+    .desktop-menu ul li:nth-child(1),
+    .desktop-menu ul li:nth-child(2) {
+      font-weight: bold;
+    }
+    .desktop-menu ul li:last-child {
+      padding-top: 20px;
+      border-top: 1px solid var(--very-light-pink);
+    }
+    .desktop-menu ul li:last-child a {
+      color: var(--hospital-green);
+      font-size: var(--sm);
+    }
+    .desktop-menu ul li a {
+      color: var(--back);
+      text-decoration: none;
+      margin-bottom: 20px;
+      display: inline-block;
+      transition: color .15s ease-in-out;
+    }
+
+    .desktop-menu ul li a:hover {
+      color: var(--hospital-green);
+    }
+
+    .desktop-menu ul li a.out {
+    }
+
+    .desktop-menu ul li a.out:hover {
+      color: red;
+    }
+
+ /* Mobile Menu */
+    .mobile-menu {
+      background-color: var(--white);
+      position: absolute;
+      top: 60px;
+      left: 0;
+      width: calc(100% - 24px);
+      height: auto;
+      padding-left: 24px;
+      -webkit-box-shadow: -2px 4px 4px 0 rgba(0,0,0,.25);
+      box-shadow: -2px 4px 4px 0 rgba(0,0,0,.25);
+    }
+    .mobile-menu a {
+      text-decoration: none;
+      color: var(--black);
+      font-weight: bold;
+      /* margin-bottom: 24px; */
+    }
+    .mobile-menu ul {
+      padding: 0;
+      margin: 24px 0 0;
+      list-style: none;
+    }
+    .mobile-menu ul:nth-child(1) {
+      border-bottom: 1px solid var(--very-light-pink);
+    }
+    .mobile-menu ul li {
+      margin-bottom: 16px;   
+    }
+
+
+    .mobile-menu ul li a{
+      transition: background-color .15s ease-in-out;
+      display: flex;
+      width: 100%;
+      padding: 4px 0 4px 0;
+      flex-direction: row;
+    }
+
+    .mobile-menu ul li a:hover{
+      color: var(--hospital-green);
+      background-color: #f1f1f1;
+    }
+
+    .email {
+      font-size: var(--sm);
+      font-weight: 300 !important;
+    }
+    .sign-out {
+      font-size: var(--sm);
+      color: var(--hospital-green) !important;
+    }
+
+
+    /* Medias querys */
+    @media (min-width: 641px) {
+      .desktop-menu {
+        -webkit-box-shadow: 0 4px 4px 0 rgba(0,0,0,.25);
+        box-shadow: 0 4px 4px 0 rgba(0,0,0,.25);
+        z-index: 35;
+        animation: fadeMenu .75s;
+      }
+
+    }

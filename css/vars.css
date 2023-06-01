@@ -1,0 +1,21 @@
+/**
+ * front-dev-practico
+ * https://platzi.com/clases/3271-javascript-practico
+ * Pull Request to -> https://github.com/platzi/curso-frontend-developer-practico
+ * @author: Carlos Duarte
+ * @email: hola@davdav.tech
+ * @curo: https://platzi.com/clases/3271-javascript-practico
+ * 
+ * */
+ /* vars */
+    :root {
+      --white: #FFFFFF;
+      --black: #000000;
+      --very-light-pink: #C7C7C7;
+      --text-input-field: #F7F7F7;
+      --hospital-green: #ACD9B2;
+      --dark-green: #7a9d7f;
+      --sm: 14px;
+      --md: 16px;
+      --lg: 18px;
+    }
