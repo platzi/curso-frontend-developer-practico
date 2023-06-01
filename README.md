@@ -1,5 +1,5 @@
 
-![Anime](https://github.com/lupeMorales/modulo-2-evaluacion-final-lupeMorales/blob/main/src/images/logo.png?raw=true)
+![YardSale](./logos/logo_yard_sale.svg)
 
 # YARD sale <span> | </span>  <a href="https://lupemorales.github.io/Onlie-shop-js/" target="_blank">   Demo </a><span> | </span>
     
@@ -18,7 +18,7 @@ El proyecto inicial consiste en fusionar los distintos archivos dados para así 
 
 ### Web views:
 
-![Desktop](https://github.com/lupeMorales/modulo-2-evaluacion-final-lupeMorales/blob/main/src/images/desktop_view.png?raw=true)
+![view](./images/view.png)
 
 
 
@@ -31,5 +31,6 @@ El proyecto inicial consiste en fusionar los distintos archivos dados para así 
 
 ## Contacto
 
+- Mi portfolio web []()
 - GitHub [@lupeMorales](https://github.com/lupeMorales )
 - Linkedin [@GuadalupeMoralesCarmona](https://linkedin.com/in/guadalupe-morales-carmona-817245226/ )
