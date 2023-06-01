@@ -57,19 +57,6 @@ productList.push({
     "Lorem ipsum dolor sit amet consectetur, adipisicing elit. Magnam assumenda!",
 });
 
-/*  HANDLE DROP DOWN */
-function closeMenu(element, arrayMenu) {
-  const isClosed = element.classList.contains("inactive");
-  if (!isClosed) {
-    element.classList.add("inactive");
-  } else {
-    for (let menu of arrayMenu) {
-      menu === element
-        ? menu.classList.remove("inactive")
-        : menu.classList.add("inactive");
-    }
-  }
-}
 function closeDetails() {
   productDetail.classList.add("inactive");
 }
@@ -154,7 +141,9 @@ function renderProductDetail(product) {
   productDetail.innerHTML = html;
   showDetails();
 }
-
+function sayHello() {
+  console.log("hola");
+}
 function renderShoppingCard() {
   let html = "";
   productsAdded.forEach((item) => {
@@ -196,6 +185,20 @@ function countItems(array) {
 
 function addProducts(product) {
   productsAdded.push(product);
+}
+
+//handler all dropsDown menu
+function closeMenu(element, arrayMenu) {
+  const isClosed = element.classList.contains("inactive");
+  if (!isClosed) {
+    element.classList.add("inactive");
+  } else {
+    for (let menu of arrayMenu) {
+      menu === element
+        ? menu.classList.remove("inactive")
+        : menu.classList.add("inactive");
+    }
+  }
 }
 
 /* HANDLER FUNCTIONS */
