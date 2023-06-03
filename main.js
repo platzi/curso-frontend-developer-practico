@@ -5,6 +5,7 @@ const hamburger = document.querySelector('.menu');
 const menuView = document.querySelector('.mobile-menu');
 const carShoping = document.querySelector('.navbar-shopping-cart');
 const listToogle = document.querySelector('.product-detail');
+const card_container = document.querySelector('.cards-container');
 
 correo.addEventListener('click', toogleClass);
 
@@ -40,3 +41,66 @@ if(desplegable.getAttribute('class').includes('inactive')==false){
 }
  
 }
+
+let arrayList = [];
+arrayList.push({
+    name: 'Bike',
+    price: '120',
+    image: 'https://images.pexels.com/photos/276517/pexels-photo-276517.jpeg?auto=compress&cs=tinysrgb&dpr=2&h=650&w=940'
+},
+{
+    name: 'TV',
+    price: '300',
+    image: 'https://images.pexels.com/photos/276517/pexels-photo-276517.jpeg?auto=compress&cs=tinysrgb&dpr=2&h=650&w=940'
+},
+{
+    name: 'Computer',
+    price: '120',
+    image: 'https://images.pexels.com/photos/276517/pexels-photo-276517.jpeg?auto=compress&cs=tinysrgb&dpr=2&h=650&w=940'
+},
+{
+    name: 'Computer',
+    price: '120',
+    image: 'https://images.pexels.com/photos/276517/pexels-photo-276517.jpeg?auto=compress&cs=tinysrgb&dpr=2&h=650&w=940'
+},{
+    name: 'Computer',
+    price: '120',
+    image: 'https://images.pexels.com/photos/276517/pexels-photo-276517.jpeg?auto=compress&cs=tinysrgb&dpr=2&h=650&w=940'
+},
+{
+    name: 'Computer',
+    price: '120',
+    image: 'https://images.pexels.com/photos/276517/pexels-photo-276517.jpeg?auto=compress&cs=tinysrgb&dpr=2&h=650&w=940'
+})
+
+function renderProduct(){
+
+    for(product of arrayList){
+        const productCard = document.createElement('div');
+        productCard.classList.add('product-card');
+        const imgProduct = document.createElement('img');
+        imgProduct.setAttribute('src', product.image);
+        const divInfo = document.createElement('div');
+        divInfo.classList.add('product-info');
+        const pPrice = document.createElement('p');
+        pPrice.innerText = '$ '+ product.price;
+        const pNombre = document.createElement('p');
+        pNombre.innerText = product.name;
+        const divS = document.createElement('div');
+        divS.append(pPrice,pNombre)
+        const iconFigure = document.createElement('figure');
+        const imgFigure = document.createElement('img');
+        imgFigure.setAttribute('src','./icons/bt_add_to_cart.svg');
+        iconFigure.appendChild(imgFigure);
+
+        productCard.appendChild(imgProduct);
+        productCard.appendChild(divInfo);
+        divInfo.appendChild(divS)
+        divInfo.appendChild(iconFigure);
+        card_container.appendChild(productCard);
+
+
+    }
+}
+
+renderProduct();
