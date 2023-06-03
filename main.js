@@ -5,7 +5,7 @@ const desktopMenu = $('.desktop-menu');
 const mobileMenu = $('.mobile-menu');
 const iconMenu = $('.menu');
 const iconCart = $('.navbar-shopping-cart');
-const menuCart = $('.product-detail');
+const shoppingCartContainer = $('#shoppingCartContainer');
 const cardsContainer = $('.cards-container');
 
 menuEmail.addEventListener('click', toogleDesktopMenu);
@@ -14,13 +14,13 @@ iconCart.addEventListener('click', tooglecarritoAside);
 
 
 function toogleDesktopMenu () {
-    menuCart.classList.add('inactive');
+    shoppingCartContainer.classList.add('inactive');
     desktopMenu.classList.toggle('inactive');
 }
 function tooglemobileMenu () {
-    const isMenuCartClosed = menuCart.classList.contains('inactive');
-    if(!isMenuCartClosed){
-        menuCart.classList.add('inactive');
+    const isshoppingCartContainer = shoppingCartContainer.classList.contains('inactive');
+    if(!isshoppingCartContainer){
+        shoppingCartContainer.classList.add('inactive');
     }   
     mobileMenu.classList.toggle('inactive');
 }
@@ -31,7 +31,7 @@ function tooglecarritoAside () {
         mobileMenu.classList.add('inactive');
         desktopMenu.classList.add('inactive');
     }
-    menuCart.classList.toggle('inactive');
+    shoppingCartContainer.classList.toggle('inactive');
 }
 
 const productList = [];
