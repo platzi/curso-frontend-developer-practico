@@ -11,6 +11,9 @@ correo.addEventListener('click', toogleClass);
 
 function toogleClass(){
     desplegable.classList.toggle('inactive');
+    if(listToogle.getAttribute('class').includes('inactive') == false){
+        listToogle.classList.toggle('inactive');
+      }
 }
 
 hamburger.addEventListener('click', menuHamburger);
@@ -32,4 +35,8 @@ function toogleList(){
   if(menuView.getAttribute('class').includes('inactive')== false){
     menuView.classList.toggle('inactive');
 }
+if(desplegable.getAttribute('class').includes('inactive')==false){
+    desplegable.classList.toggle('inactive');
+}
+ 
 }
