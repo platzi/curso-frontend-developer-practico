@@ -4,7 +4,7 @@ const correo = document.querySelector('.navbar-email');
 const hamburger = document.querySelector('.menu');
 const menuView = document.querySelector('.mobile-menu');
 const carShoping = document.querySelector('.navbar-shopping-cart');
-const listToogle = document.querySelector('.product-detail');
+const listToogle = document.querySelector('#cardShoping');
 const card_container = document.querySelector('.cards-container');
 
 correo.addEventListener('click', toogleClass);
