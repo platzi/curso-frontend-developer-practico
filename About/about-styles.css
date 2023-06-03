@@ -1,0 +1,109 @@
+/* Estilos generales */
+body {
+    font-family: Arial, sans-serif;
+    margin: 0;
+    padding: 0;
+}
+
+/* Encabezado */
+header {
+    background-color: #333;
+    color: #fff;
+    padding: 20px;
+}
+
+header h1 {
+    margin: 0;
+    font-size: 24px;
+}
+
+nav ul {
+    list-style-type: none;
+    margin: 0;
+    padding: 0;
+}
+
+nav ul li {
+    display: inline-block;
+    margin-right: 10px;
+}
+
+nav ul li a {
+    color: #fff;
+    text-decoration: none;
+}
+
+/* Contenido principal */
+main {
+    padding: 20px;
+}
+
+.hero {
+    text-align: center;
+    margin-bottom: 30px;
+}
+
+.hero h2 {
+    font-size: 36px;
+}
+
+.hero p {
+    font-size: 18px;
+    color: #666;
+}
+
+.button {
+    display: inline-block;
+    background-color: #333;
+    color: #fff;
+    padding: 10px 20px;
+    text-decoration: none;
+    margin-top: 10px;
+    border-radius: 4px;
+}
+
+.about {
+    margin-bottom: 30px;
+}
+
+.about h3 {
+    font-size: 24px;
+}
+
+.featured-products {
+    margin-bottom: 30px;
+}
+
+.featured-products ul {
+    list-style-type: none;
+    margin: 0;
+    padding: 0;
+}
+
+.featured-products ul li {
+    display: inline-block;
+    margin-right: 10px;
+}
+
+.featured-products ul li img {
+    width: 200px;
+    height: 200px;
+    object-fit: cover;
+}
+
+.faq dt {
+    font-weight: bold;
+    margin-top: 10px;
+}
+
+.faq dd {
+    margin-bottom: 10px;
+}
+
+/* Pie de página */
+footer {
+    background-color: #333;
+    color: #fff;
+    padding: 10px;
+    text-align: center;
+}
