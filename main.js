@@ -6,12 +6,14 @@ const menuView = document.querySelector('.mobile-menu');
 const carShoping = document.querySelector('.navbar-shopping-cart');
 const listToogle = document.querySelector('#cardShoping');
 const card_container = document.querySelector('.cards-container');
-
+const asideInfo = document.querySelector('#asideInformation');
+const closeBTN = document.querySelector('.product-detail-close');
 correo.addEventListener('click', toogleClass);
 
 
 function toogleClass(){
     desplegable.classList.toggle('inactive');
+    asideInfo.classList.add('inactive');
     if(listToogle.getAttribute('class').includes('inactive') == false){
         listToogle.classList.toggle('inactive');
       }
@@ -21,7 +23,7 @@ hamburger.addEventListener('click', menuHamburger);
 
 function menuHamburger(){
     menuView.classList.toggle('inactive');
-    
+    asideInfo.classList.add('inactive');
     if(listToogle.getAttribute('class').includes('inactive')== false){
         listToogle.classList.toggle('inactive');
     }
@@ -32,7 +34,7 @@ carShoping.addEventListener('click',toogleList);
 
 function toogleList(){
   listToogle.classList.toggle('inactive');
-
+  asideInfo.classList.add('inactive');
   if(menuView.getAttribute('class').includes('inactive')== false){
     menuView.classList.toggle('inactive');
 }
@@ -92,7 +94,7 @@ function renderProduct(){
         const imgFigure = document.createElement('img');
         imgFigure.setAttribute('src','./icons/bt_add_to_cart.svg');
         iconFigure.appendChild(imgFigure);
-
+        imgProduct.addEventListener('click',openInfo)
         productCard.appendChild(imgProduct);
         productCard.appendChild(divInfo);
         divInfo.appendChild(divS)
@@ -104,3 +106,16 @@ function renderProduct(){
 }
 
 renderProduct();
+
+function openInfo(){
+    asideInfo.classList.remove('inactive');
+    desplegable.classList.add('inactive');
+    menuView.classList.add('inactive');
+    listToogle.classList.add('inactive');
+}
+
+closeBTN.addEventListener('click',closeInfo);
+
+function closeInfo(){
+    asideInfo.classList.add('inactive');
+}
