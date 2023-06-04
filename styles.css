@@ -395,6 +395,10 @@
       width: 140px;
       height: 140px;
     }
+
+    .product-detail-secondary {
+      width: 100%;
+    }
   }
 
   @media (min-width: 641px) {

@@ -2,14 +2,20 @@ const menuEmail = document.querySelector('.navbar-email');
 const desktopMenu = document.querySelector('.desktop-menu');
 const burgerMenu = document.querySelector('.menu');
 const menuCarritoIcon = document.querySelector('.navbar-shopping-cart');
+const productDetailCloseIcon = document.querySelector('.product-detail-close');
+
 const mobileMenu = document.querySelector('.mobile-menu');
 const aside = document.querySelector ('.product-detail');
 const cardsContainer = document.querySelector ('.cards-container');
+const productDetailCointainer = document.querySelector ('.product-detail-secondary'); 
 
 //Esto hara que al picarle al emial, se abra el menu secundario
 menuEmail.addEventListener('click', toggleDesktopMenu);
 burgerMenu.addEventListener('click', toggleMobileMenu);
 menuCarritoIcon.addEventListener('click', toggleCarritoAside);
+productDetailCloseIcon.addEventListener('click', closeProductDetailAside);
+
+
 
 
 //Con la funcion classList.toggle hacemos que este o no este nuestra clase seleccionada, pero hay que recordar que tenemos que agregar la clase inactive a nuestra clase en HTML, la clase que estamos usando en nuestra variable. 
@@ -37,6 +43,8 @@ function  toggleMobileMenu () {
     }
 
     mobileMenu.classList.toggle('inactive');
+
+    closeProductDetailAside();
 };
 
 
@@ -50,8 +58,28 @@ function toggleCarritoAside () {
         mobileMenu.classList.add('inactive');
     }
 
+    const isProductDetailClosed = productDetailCointainer.classList.contains ('inactive');
+    
+
+    
+    if (!isProductDetailClosed) {
+        productDetailCointainer.classList.add('inactive');
+    }
+
     aside.classList.toggle('inactive');
 };
+
+
+//Estas dos funciones hacen que se quite la clase inactive en HTML para que cuando des click a la imagen del producto, aparezca el aside. Y en la segunda le agregamos la case inactive al icono de X para que al dar click se cierre. 
+function openProductDetailAside () {
+    aside.classList.add('inactive');
+
+    productDetailCointainer.classList.remove('inactive');
+}
+
+function closeProductDetailAside () {
+    productDetailCointainer.classList.add('inactive');
+}
 
 // Array de productos 
 const productList = [];
@@ -75,7 +103,7 @@ productList.push({
 
 
 
-//Estamos haciendo un loop para crear desde el DOM los product cards, maquetando HTML desde JS. Lo metimos dentro de una funcion para poder llamar luego a esa funcion en dado caso de ser necesario.   
+//Estamos haciendo un loop para crear desde el DOM los product cards, maquetando HTML desde JS. Lo metimos dentro de una funcion para poder llamar luego a esa funcion en dado caso de ser necesario.  Esta funcion hace posible que los usuarios puedan visualizar los elementos HTML aunque nuestro HTML este vacio. 
 function renderProducts (arr) {
     for (product of arr) {
    
@@ -86,6 +114,7 @@ function renderProducts (arr) {
        //Lo que hicimos aqui abajo es agarrar de nuestro producto el atributo de image para tomarlo como src en lugar de poner el link de la imagen 
        const productImg = document.createElement('img');
        productImg.setAttribute('src', product.image);
+       productImg.addEventListener('click', openProductDetailAside);
     
         // Estamos creando un div para el product info
        const productInfo = document.createElement('div');
