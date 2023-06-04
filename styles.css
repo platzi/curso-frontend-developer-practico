@@ -216,6 +216,12 @@
   /*
     ProductDetail
   */
+
+  #productDetail{
+    position: absolute;
+    top: 61px;
+  }
+
   .product-detail-close {
     background: var(--white);
     width: 14px;
