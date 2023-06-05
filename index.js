@@ -9,37 +9,44 @@ let menuShopinCar=document.querySelector(`.product-detail`)
 
 let cardsContainer=document.querySelector(`.cards-container`)
 
+let asaid2=document.querySelector(`.product-detail-2`)
+let asidClosed=document.querySelector(`.product-detail-close`)
+
+
 NavEmail.addEventListener(`click`,toggleMenus);
 mobileMenu.addEventListener(`click`,toggleMobile);
-shopincar.addEventListener(`click`,toggleShopincar)
+shopincar.addEventListener(`click`,toggleShopincar);
+asidClosed.addEventListener(`click`,closeAsaid)
 
 function toggleMenus(){
-    let carshopinopen=menuShopinCar.classList.contains(`inactive`)
-    if(!carshopinopen){
-        menuShopinCar.classList.add(`inactive`)
-    }
     DesktopMenu.classList.toggle(`inactive`) 
+    menuShopinCar.classList.add(`inactive`)
+    asaid2.classList.add(`inactive`)
+    
 }
 function toggleMobile(){
-    let carshopinopen=menuShopinCar.classList.contains(`inactive`)
-    if(!carshopinopen){
-        menuShopinCar.classList.add(`inactive`)
-    }
     menuMobile.classList.toggle(`inactive`);  
-
+    menuShopinCar.classList.add(`inactive`);
+    asaid2.classList.add(`inactive`);
+    
 }
 function toggleShopincar (){
- let desktopopen=DesktopMenu.classList.contains(`inactive`)
- let menuopen= menuMobile.classList.contains(`inactive`)
- if(!menuopen){
+    menuShopinCar.classList.toggle(`inactive`)
     menuMobile.classList.add(`inactive`)
- }else if(!desktopopen){
     DesktopMenu.classList.add(`inactive`)
+    asaid2.classList.add(`inactive`);
 
- }
- menuShopinCar.classList.toggle(`inactive`)
+}function openasaid2(){
+    asaid2.classList.remove(`inactive`)
+    DesktopMenu.classList.add(`inactive`)
+    menuMobile.classList.add(`inactive`)
 
 }
+function closeAsaid(){
+    asaid2.classList.add(`inactive`)
+
+}
+
 let productlist=[]; 
 productlist.push({
     name:`Bike`,
@@ -102,6 +109,7 @@ productlist.push({
 
       const productImage=document.createElement(`img`);
       productImage.setAttribute(`src`,product.image);
+      productImage.addEventListener(`click`,openasaid2)
 
       const productInfo=document.createElement(`div`);
       productInfo.classList.add(`product-info`);
@@ -132,4 +140,5 @@ productlist.push({
     }
 
  }
+ 
  renderProduct(productlist)
