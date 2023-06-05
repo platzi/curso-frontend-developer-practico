@@ -27,7 +27,9 @@
   }
   .menu {
     display: none;
+    cursor: pointer;
   }
+
   .logo {
     width: 100px;
   }
@@ -73,7 +75,13 @@
 
   .navbar-shopping-cart {
     position: relative;
+    cursor: pointer;
   }
+  /*Darle diseño al cursor del carrito*/
+  .navbar-shopping-cart:hover {
+    color: var(--white);
+  }
+
   .navbar-shopping-cart div {
     width: 16px;
     height: 16px;
@@ -88,6 +96,7 @@
     justify-content: center;
     align-items: center;
   }
+
 
  /*Menu en desktop*/
   .desktop-menu {
