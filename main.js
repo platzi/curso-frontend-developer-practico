@@ -17,18 +17,18 @@ function toggleDesktopMenu(){
 }
 
 function toggleMobileMenu(){
-    aside.classList.add('inactive')
+    shoppingCartContainer.classList.add('inactive')
     mobileMenu.classList.toggle('inactive')
 }
 
 const menuCarritoIcon = document.querySelector('.navbar-shopping-cart');
-const aside = document.querySelector('.product-detail');
+const shoppingCartContainer = document.querySelector('#shoppingCartContainer');
 menuCarritoIcon.addEventListener('click', toggleCarritoleAside);
 
 
 function toggleCarritoleAside(){
     mobileMenu.classList.add('inactive')
-    aside.classList.toggle('inactive')
+    shoppingCartContainer.classList.toggle('inactive')
 }
 
 const cardsContainer = document.querySelector('.cards-container')
