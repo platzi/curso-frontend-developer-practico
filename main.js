@@ -7,15 +7,18 @@ const iconMenu = $('.menu');
 const iconCart = $('.navbar-shopping-cart');
 const shoppingCartContainer = $('#shoppingCartContainer');
 const cardsContainer = $('.cards-container');
+const productDetail =$('#productDetail');
+const closeIconProductDetail =$('.product-detail-close');
 
 menuEmail.addEventListener('click', toogleDesktopMenu);
 iconMenu.addEventListener('click', tooglemobileMenu);
 iconCart.addEventListener('click', tooglecarritoAside);
-
+closeIconProductDetail.addEventListener('click', CloseProductDetailAside);
 
 function toogleDesktopMenu () {
     shoppingCartContainer.classList.add('inactive');
     desktopMenu.classList.toggle('inactive');
+    productDetail.classList.add('inactive');
 }
 function tooglemobileMenu () {
     const isshoppingCartContainer = shoppingCartContainer.classList.contains('inactive');
@@ -23,6 +26,7 @@ function tooglemobileMenu () {
         shoppingCartContainer.classList.add('inactive');
     }   
     mobileMenu.classList.toggle('inactive');
+    productDetail.classList.add('inactive');
 }
 function tooglecarritoAside () {
     const isMobileMenuClosed = mobileMenu.classList.contains('inactive');
@@ -32,6 +36,15 @@ function tooglecarritoAside () {
         desktopMenu.classList.add('inactive');
     }
     shoppingCartContainer.classList.toggle('inactive');
+    productDetail.classList.add('inactive');
+}
+function openProductDetailAside(){
+    productDetail.classList.remove('inactive');
+    desktopMenu.classList.add('inactive');
+    shoppingCartContainer.classList.add('inactive');
+}
+function CloseProductDetailAside(){
+    productDetail.classList.add('inactive');
 }
 
 const productList = [];
@@ -74,7 +87,11 @@ function renderProducts(arr){
 
     const productImg = document.createElement('img');
     productImg.setAttribute('src', product.imagen);
-
+    productImg.style.cursor = 'pointer';
+    productImg.style.userSelect = 'none';
+    productImg.addEventListener('click', openProductDetailAside);
+    closeIconProductDetail.style.cursor = 'pointer';
+    closeIconProductDetail.style.userSelect = 'none';
     const productinfo = document.createElement('div');
     productinfo.classList.add('product-info');
 
