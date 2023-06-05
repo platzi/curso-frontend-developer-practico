@@ -124,11 +124,13 @@ nav {
 /* Mobile menu */
 
 .mobile-menu {
-    background-color: var(--white);
-    position:absolute;
-    top: 60px;
-    padding: 0 24px;
-    width: 100%;
+  position:absolute;
+  background-color: var(--white);
+  left: 0;
+  box-sizing: border-box;
+  width: 100%;
+  top: 60px;
+  padding: 0 24px;
 }
 .mobile-menu a {
   text-decoration: none;
