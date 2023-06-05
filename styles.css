@@ -127,7 +127,8 @@ nav {
     background-color: var(--white);
     position:absolute;
     top: 60px;
-    padding: 24px;
+    padding: 0 24px;
+    width: 100%;
 }
 .mobile-menu a {
   text-decoration: none;
@@ -155,7 +156,7 @@ nav {
 }
 
 /* aside product detail carrito */ 
-.product-detail {
+.cart-product-detail {
   background-color: var(--white);
   width: 360px;
   padding: 0 24px;
@@ -235,7 +236,7 @@ nav {
 
 .cards-container {  
   display: grid;
-  padding: 24px 0;
+  padding: 24px 24px;
   grid-template-columns: repeat(auto-fill, 240px);
   gap: 26px;
   place-content: center;
