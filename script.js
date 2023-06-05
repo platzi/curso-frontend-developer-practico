@@ -1,12 +1,12 @@
-const navEmail = document.querySelector('.navbar-email')
 const desktopMenu = document.querySelector('.desktop-menu')
-const mobileMenuIcon = document.querySelector('.navbar-menu-icon')
 const mobileMenu = document.querySelector('.mobile-menu')
-const navbarCart = document.querySelector('.navbar-cart')
 const shoppingCartItems = document.querySelector('.checkout-container')
 const cardsContainer = document.querySelector('.cards-container')
+const asideDetailContainer = document.querySelector('.product-detail-container')
+// Parent containers classes from HTML ↑↑↑
 
-const productList = []
+// Variables used for DOM manipulating ↓↓↓
+let showItemsAndDetails, productDetailsList, productDetailContainer
 
 class Products {
     constructor(name, price, image, altText) {
@@ -17,47 +17,111 @@ class Products {
     }
 }
 
-let pioneerDj = new Products('Pioneer Dj deck', 500, 'https://images.pexels.com/photos/164745/pexels-photo-164745.jpeg?auto=compress&cs=tinysrgb&w=1260&h=750&dpr=1', 'This is a dj deck')
-let ducatiMotors = new Products('Ducati 1600', 30000, 'https://images.pexels.com/photos/15019065/pexels-photo-15019065/free-photo-of-moto-motocicleta-estacionamiento-ducati.jpeg?auto=compress&cs=tinysrgb&w=1260&h=750&dpr=1', 'This is a ducati motorcycle')
-let lesPaulGuitar = new Products('Gibson Les Paul Classic Guitar', 2000, 'https://images.pexels.com/photos/7334396/pexels-photo-7334396.jpeg?auto=compress&cs=tinysrgb&w=1600', 'This is a Gibson Les Paul Guitar')
+// Variable is used for storing the class Products objects
+const productsOnSale = [
+    { pioneerDj: new Products('Pioneer Dj deck', 500, 'https://images.pexels.com/photos/164745/pexels-photo-164745.jpeg?auto=compress&cs=tinysrgb&w=1260&h=750&dpr=1', 'This is a dj deck') },
+    { ducatiMotors: new Products('Ducati 1600', 30000, 'https://images.pexels.com/photos/15019065/pexels-photo-15019065/free-photo-of-moto-motocicleta-estacionamiento-ducati.jpeg?auto=compress&cs=tinysrgb&w=1260&h=750&dpr=1', 'This is a ducati motorcycle') },
+    { lesPaulGuitar: new Products('Gibson Les Paul Classic Guitar', 2000, 'https://images.pexels.com/photos/7334396/pexels-photo-7334396.jpeg?auto=compress&cs=tinysrgb&w=1600', 'This is a Gibson Les Paul Guitar') },
+    { smartWatch: new Products('Kaffarnaum smartwatch', 350, 'https://media.istockphoto.com/id/1380063784/es/foto/primer-plano-del-reloj-inteligente-sobre-fondo-blanco-renderizado-3d.jpg?s=612x612&w=0&k=20&c=HCJhFpUUMr74vu4UCPmjtUfGPjXJd4hCB6YnMfnJZfo=', 'This is a Kaffarnaum smartwatch') },
+    { FordMustang: new Products('Ford Mustang 1967', 10000, 'https://images.pexels.com/photos/3065602/pexels-photo-3065602.jpeg?auto=compress&cs=tinysrgb&w=1260&h=750&dpr=1', 'This is a Ford Mustang 1967 model') },
+]
 
-productList.push(pioneerDj, ducatiMotors, lesPaulGuitar)
+// variable used for storing objects from Class Products
+const productList = []
 
-itemsListContainer()
-
-function itemsListContainer() {
-    let showItems
-    productList.forEach((e) => {
-        showItems = `<div class="product-card">
-                        <img src=${e.image} alt=${e.altText}>
-                        <div class="product-info">
-                            <div>
-                            <p>$${e.price}</p>
-                            <p>${e.name}</p>
-                            </div>
-                            <figure>
-                                <img src="./icons/bt_add_to_cart.svg" alt="add-to-cart">
-                            </figure>
-                        </div>
-                    </div>`
-        cardsContainer.innerHTML += showItems
+// This function is used for pushing all products into "productList" variable
+const addToTheProductList = function (arr) {
+    Object.values(arr).forEach((e) => {
+        Object.values(e).forEach((p) => {
+            productList.push(p)
+        })
     })
 }
 
-function displayDesktopMenu() {
-    const isDesktopMenuOpened = desktopMenu.classList.contains('inactive')
-    
-    !isDesktopMenuOpened ? desktopMenu.classList.add('inactive') : desktopMenu.classList.toggle('inactive')  
+// This function shows the items in the main container
+const productsInTheMainContainer = function () {
+    productList.forEach((product) => {
+        showItemsAndDetails = `<div class="product-card">
+                                    <img src=${product.image} alt=${product.altText} class="PDetail">
+                                    <div class="product-info">
+                                        <div>
+                                            <p>$${product.price}</p>
+                                            <p>${product.name}</p>
+                                        </div>
+                                        <figure>
+                                            <img src="./icons/bt_add_to_cart.svg" alt="add-to-cart">
+                                        </figure>
+                                    </div>
+                                </div>`
+        cardsContainer.innerHTML += showItemsAndDetails
+    })
+
+    productDetailsList = document.querySelectorAll('.PDetail')
+}
+
+// This function shows the product details
+const showProductDetails = function () {
+    productDetailsList.forEach((detail) => {
+        detail.addEventListener("click", (c) => {
+            for (let items of productList) {
+                if(c.target.currentSrc === items.image) {                
+                    showItemsAndDetails = `<div class="product-detail inactive">
+                                                <div class="product-icon-close" onclick="closeProductDetails()">
+                                                    <img src="./icons/icon_close.png" alt="close">
+                                                </div>
+                                        
+                                                <img src=${items.image} alt="Pioneer dj">
+                                        
+                                                <div class="product-info">
+                                                    <div>
+                                                        <p>$${items.price}</p>
+                                                        <p>${items.name}</p>
+                                                        <p>Lorem ipsum dolor sit amet consectetur adipisicing elit. Incidunt libero odio ducimus nostrum, in laboriosam nesciunt delectus fuga laborum, quae ab! Quasi nemo sed, earum nostrum impedit laborum quas unde!</p>
+                                        
+                                                        <button class="primary-button add-to-cart-button">
+                                                            <img src="./icons/bt_add_to_cart.svg" alt="cart">
+                                                            Add to cart
+                                                        </button>
+                                                    </div>
+                                                </div>
+                                            </div>`
+                    
+                    asideDetailContainer.innerHTML = showItemsAndDetails
+                    productDetailContainer = document.querySelector('.product-detail')
+                    productDetailContainer.classList.remove('inactive')                
+                }
+            }
+        })
+    })
+}
+
+// This function is only used for closing the product details window. You can find it within "product-detail" class div tag container
+const closeProductDetails = function () {
+    productDetailContainer.classList.add('inactive')
+}
+
+// These functions are used to open and close the menus from <nav> tag container ↓↓↓
+const displayDesktopMenu = function () {
+    desktopMenu.classList.toggle('inactive')
+    shoppingCartItems.classList.add('inactive')     
+    productDetailContainer.classList.add('inactive')
 } 
 
-function displayShoppingCart() {
-    const isShoppingCartOpened = shoppingCartItems.classList.contains('inactive')
-
-    !isShoppingCartOpened ? shoppingCartItems.classList.add('inactive') : shoppingCartItems.classList.toggle('inactive') 
+const displayMobileMenuIcon = function () {
+    mobileMenu.classList.toggle('inactive')
+    shoppingCartItems.classList.add('inactive')
+    productDetailContainer.classList.add('inactive')
 }
 
-function displayMobileMenuIcon() {
-    const isMobileMenuOpened = mobileMenu.classList.contains('inactive')
-
-    !isMobileMenuOpened ? mobileMenu.classList.add('inactive') : mobileMenu.classList.toggle('inactive') 
+const displayShoppingCart = function () {
+    shoppingCartItems.classList.toggle('inactive') 
+    mobileMenu.classList.add('inactive')
+    desktopMenu.classList.add('inactive')
+    productDetailContainer.classList.add('inactive')
 }
+
+addToTheProductList(productsOnSale)
+productsInTheMainContainer()
+showProductDetails()
+
+// Pending for commiting

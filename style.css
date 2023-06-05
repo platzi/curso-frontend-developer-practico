@@ -17,6 +17,10 @@ body {
     margin: 0;
 }
 
+img {
+    cursor: pointer;
+}
+
 nav {
     display: flex;
     justify-content: space-between;
@@ -31,7 +35,6 @@ nav {
 
 .navbar-menu-icon {
     display: none;
-    cursor: pointer;
 }
 
 .navbar-logo {
@@ -67,7 +70,6 @@ nav {
 
 .navbar-cart {
     position: relative;
-    cursor: pointer;
 }
 
 .navbar-email {
@@ -101,6 +103,7 @@ nav {
     border: 1px solid var(--very-light-pink);
     border-radius: 6px;
     padding: 20px 20px 0;
+    background-color: var(--white);
 }
 
 .inactive {
@@ -352,6 +355,7 @@ nav {
     top: 72px;
     right: 0px;
     width: 360px;
+    background-color: var(--white);
 }
 
 .product-detail > img {
