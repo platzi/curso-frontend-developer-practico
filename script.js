@@ -124,4 +124,3 @@ addToTheProductList(productsOnSale)
 productsInTheMainContainer()
 showProductDetails()
 
-// Pending for commiting
