@@ -6,29 +6,48 @@ const  menuCarrito = document.querySelector(".navbar-shopping-cart");
 const  aside = document.querySelector(".product-detail");
 
 const cardsContainer = document.querySelector('.cards-container');
+const productDetail = document.querySelector('.product-detail2');
 
+const productDetailClose = document.querySelector('.product-detail-close');
 
+//  chiquito
 menuEmail.addEventListener('click', toggleDesktopMenu);
 
 function toggleDesktopMenu() {
+    productDetail.classList.add("inactive")
     aside.classList.add('inactive');
     desktopMenu.classList.toggle('inactive');
 }
-
+// ham
 hamburger.addEventListener('click', toggleMovileMenu)
 
 function toggleMovileMenu() {
+    productDetail.classList.add("inactive")
     aside.classList.add('inactive');
     menuMobile.classList.toggle('inactive');
 }
-
+// carrito
 menuCarrito.addEventListener('click', toggleMovileCarrito)
 
 function toggleMovileCarrito() {
+    productDetail.classList.add("inactive")
     menuMobile.classList.add('inactive');
     desktopMenu.classList.add('inactive');
     aside.classList.toggle('inactive');
 }
+// click producto abrir
+function openProductdetail() {
+    desktopMenu.classList.add('inactive');
+    aside.classList.add('inactive');
+    productDetail.classList.remove("inactive")
+}
+// click producto cerrar
+productDetailClose.addEventListener('click', cerrar);
+function cerrar() {
+    productDetail.classList.add("inactive")
+}
+
+
 
 const productList = [];
 productList.push({
@@ -47,6 +66,7 @@ productList.push({
   image: 'https://images.pexels.com/photos/276517/pexels-photo-276517.jpeg?auto=compress&cs=tinysrgb&dpr=2&h=650&w=940',
 });
 
+
 function renderProducts(arr) {
   for (product of arr) {
     const productCard = document.createElement('div');
@@ -55,6 +75,7 @@ function renderProducts(arr) {
     // product= {name, price, image} -> product.image
     const productImg = document.createElement('img');
     productImg.setAttribute('src', product.image);
+    productImg.addEventListener("click", openProductdetail)
   
     const productInfo = document.createElement('div');
     productInfo.classList.add('product-info');

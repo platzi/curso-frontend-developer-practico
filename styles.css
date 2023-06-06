@@ -319,6 +319,7 @@ nav {
     position: absolute;
     top: 60px;
     right: 0;
+    background-color: var(--white);
   }
   .product-detail-close {
     background: var(--white);
