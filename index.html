@@ -1,0 +1,343 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link href="./style.css" rel="stylesheet">
+    <title>YARD Sale</title>
+</head>
+<body>
+    <nav>
+        <img src="./icons/icon_menu.svg" alt="navbar menu icon" class="navbar-menu-icon" onclick="displayMobileMenuIcon()">
+
+        <div class="navbar-left">
+            <img src="./logos/logo_yard_sale.svg" alt="logo" class="navbar-logo">
+
+            <ul>
+                <li>
+                    <a href="/">All</a>
+                </li>
+                <li>
+                    <a href="/">Clothes</a>
+                </li>
+                <li>
+                    <a href="/">Electronics</a>
+                </li>
+                <li>
+                    <a href="/">Furnitures</a>
+                </li>
+                <li>
+                    <a href="/">Toys</a>
+                </li>
+                <li>
+                    <a href="/">Others</a>
+                </li>
+            </ul>
+        </div>
+            
+        <div class="navbar-right">
+            <ul>
+                <li class="navbar-email" onclick="displayDesktopMenu()">platzi@example.com</li>
+                <li class="navbar-cart" onclick="displayShoppingCart()">
+                    <img src="./icons/icon_shopping_cart.svg" alt="shopping-cart">
+                    <p>3</p>
+                </li>
+            </ul>
+        </div>
+
+        <div class="desktop-menu inactive">
+            <ul>
+                <li>
+                    <a href="/" class="menu-title">My orders</a>
+                </li>
+    
+                <li>
+                    <a href="/">My account</a>
+                </li>
+    
+                <li>
+                    <a href="/">Sign out</a>
+                </li>
+            </ul>
+        </div>
+
+        <div class="mobile-menu inactive">
+            <div class="mobile-content">
+                <ul>
+                    <li>
+                        <a href="/">CATEGORIES</a>
+                    </li>
+                    <li>
+                        <a href="/">All</a>
+                    </li>
+                    <li>
+                        <a href="/">Clothes</a>
+                    </li>
+                    <li>
+                        <a href="/">Electronics</a>
+                    </li>
+                    <li>
+                        <a href="/">Furnitures</a>
+                    </li>
+                    <li>
+                        <a href="/">Toys</a>
+                    </li>
+                    <li>
+                        <a href="/">Others</a>
+                    </li>
+                </ul>
+                
+                <ul>
+                    <li>
+                        <a href="/">My orders</a>
+                    </li>
+                    <li>
+                        <a href="/">My account</a>
+                    </li>
+                </ul>
+                
+                <ul>
+                    <li>
+                        <a href="/" class="mobile-email">platzi@example.com</a>
+                    </li>
+                    <li>
+                        <a href="/" class="mobile-sign-out">Sign out</a>
+                    </li>
+                </ul>
+            </div>
+        </div>
+    </nav>
+    <div class="login" style="display: none;">
+        <div class="form-container">
+            <img src="./logos/logo_yard_sale.svg" alt="logo" class="logo">
+
+            <h1 class="title">Create a new password</h1>
+            <p class="subtitle">Enter a new password for your account</p>
+
+            <form action="/" class="form">
+                <label for="password" class="label">Password</label>
+                <input type="password" id="password" class="input input-password" placeholder="*********">
+                    
+                <label for="new-password" class="label">Re-enter password</label>
+                <input type="password" id="new-password" class="input input-password" placeholder="*********">        
+                
+
+                <input type="submit" value="Confirm" class="primary-button login-button">
+            </form>
+        </div>
+    </div>
+    <div class="email-section" style="display: none;">
+        <div class="form-container">
+            <img src="./logos/logo_yard_sale.svg" alt="logo" class="logo">
+
+            <h1 class="email-title">Email has been sent!</h1>
+            <p class="email-subtitle">Please check your inbox for instructions on how to reset the password</p>
+
+            <div class="email-image">
+                <img src="./icons/email.svg" alt="email">
+            </div>
+
+            <button class="primary-button login-button">Login</button>
+
+            <p class="resend">
+                <span>Didn't receive the email?</span>
+                <a href="/">Resend</a>
+            </p>
+        </div>
+    </div>
+    <div class="login" style="display: none;">
+        <div class="form-container">
+            <img src="./logos/logo_yard_sale.svg" alt="logo" class="logo max-logo">
+
+            <form action="/" class="form">
+                <div>
+                    <label for="email" class="label">Email address</label>
+                    <input type="text" id="email" class="input input-email" placeholder="platzi@example.com">
+                    
+                    <label for="password" class="label">Password</label>
+                    <input type="text" id="password" class="input input-password" placeholder="*********">
+                
+                    <input type="submit" value="Log in" class="primary-button login-button">
+    
+                    <a href="/">Forgot my password</a>
+                </div>
+            </form>
+            
+            <button class="secondary-button signup-button">Sign up</button>
+        </div>
+    </div>
+    <div class="login" style="display: none;">
+        <div class="form-container form-account">
+            <h1 class="account-title">My account</h1>
+
+            <form action="/" class="form">
+                <div>
+                    <label for="name" class="label">Name</label>
+                    <input type="text" id="name" class="input input-name" placeholder="Full name">
+                 
+                    <label for="email" class="label">Email address</label>
+                    <input type="text" id="email" class="input input-email" placeholder="platzi@example.com">
+                    
+                    <label for="password" class="label">Password</label>
+                    <input type="text" id="password" class="input input-password" placeholder="*********">
+                </div>
+                <input type="submit" value="Create" class="primary-button login-button">
+            </form>
+        </div>
+    </div>
+    <div class="login" style="display: none;">
+        <div class="form-container form-account">
+            <h1 class="account-title">My account</h1>
+
+            <form action="/" class="form">
+                <div>
+                    <label for="name" class="label">Name</label>
+                    <p class="value">Camila Yokoo</p>
+                 
+                    <label for="email" class="label">Email address</label>
+                    <p class="value">camilayokoo@gmail.com</p>
+                    
+                    <label for="password" class="label">Password</label>
+                    <p class="value">*********</p> 
+                </div>
+                <input type="submit" value="Edit" class="secondary-button login-button">
+            </form>
+        </div>
+    </div>
+    <section class="main-container">
+        <div class="cards-container">
+    
+        </div>
+    </section>
+    <div class="my-order" style="display: none;">
+        <div class="my-order-container">
+            <h1 class="my-order-title">My order</h1>
+
+            <div class="my-order-content">
+                <div class="my-order-total">
+                    <p>
+                        <span>04.28.23</span>
+                        <span>3 articles</span>
+                    </p>
+                    <p>$1500.00</p>
+                </div>
+
+                <div class="shopping-cart">
+                    <figure>
+                        <img src="https://images.pexels.com/photos/164745/pexels-photo-164745.jpeg?auto=compress&cs=tinysrgb&w=1260&h=750&dpr=1" alt="Pioneer dj">
+                    </figure>
+                    <p>Tornamesa Pioneer</p>
+                    <p>$500.00</p>
+                </div>
+        
+                <div class="shopping-cart">
+                    <figure>
+                        <img src="https://images.pexels.com/photos/164745/pexels-photo-164745.jpeg?auto=compress&cs=tinysrgb&w=1260&h=750&dpr=1" alt="Pioneer dj">
+                    </figure>
+                    <p>Tornamesa Pioneer</p>
+                    <p>$500.00</p>
+                </div>
+        
+                <div class="shopping-cart">
+                    <figure>
+                        <img src="https://images.pexels.com/photos/164745/pexels-photo-164745.jpeg?auto=compress&cs=tinysrgb&w=1260&h=750&dpr=1" alt="Pioneer dj">
+                    </figure>
+                    <p>Tornamesa Pioneer</p>
+                    <p>$500.00</p>
+                </div>
+            </div>    
+        </div>
+    </div>
+    <div class="my-orders" style="display: none;">
+        <div class="my-orders-container">
+            <h1 class="my-orders-title">My orders</h1>
+
+            <div class="my-orders-content">
+                <div class="my-orders-list">
+                    <p>
+                        <span>04.28.23</span>
+                        <span>3 articles</span>
+                    </p>
+                    <p>$1500.00</p>
+                    <img src="./icons/flechita.svg" alt="arrow">
+                </div>
+            </div>    
+            <div class="my-orders-content">
+                <div class="my-orders-list">
+                    <p>
+                        <span>04.28.23</span>
+                        <span>3 articles</span>
+                    </p>
+                    <p>$1500.00</p>
+                    <img src="./icons/flechita.svg" alt="arrow">
+                </div>
+            </div>
+            <div class="my-orders-content">
+                <div class="my-orders-list">
+                    <p>
+                        <span>04.28.23</span>
+                        <span>3 articles</span>
+                    </p>
+                    <p>$1500.00</p>
+                    <img src="./icons/flechita.svg" alt="arrow">
+                </div>
+            </div>  
+        </div>
+    </div>
+    <aside class="product-detail-container">
+
+    </aside>
+    <aside class="checkout-bar">
+        <div class="checkout-container inactive">
+            <div class="checkout-title-content">
+                <img src="./icons/flechita.svg" alt="arrow">
+
+                <p class="checkout-title">Shopping cart</p>
+            </div>
+
+            <div class="checkout-content">
+                <div>
+                    <div class="shopping-cart">
+                        <figure>
+                            <img src="https://images.pexels.com/photos/164745/pexels-photo-164745.jpeg?auto=compress&cs=tinysrgb&w=1260&h=750&dpr=1" alt="Pioneer dj">
+                        </figure>
+                        <p>Tornamesa Pioneer</p>
+                        <p>$500.00</p>
+                        <img src="./icons/icon_close.png" alt="close" class="close">
+                    </div>
+            
+                    <div class="shopping-cart">
+                        <figure>
+                            <img src="https://images.pexels.com/photos/164745/pexels-photo-164745.jpeg?auto=compress&cs=tinysrgb&w=1260&h=750&dpr=1" alt="Pioneer dj">
+                        </figure>
+                        <p>Tornamesa Pioneer</p>
+                        <p>$500.00</p>
+                        <img src="./icons/icon_close.png" alt="close" class="close">
+                    </div>
+            
+                    <div class="shopping-cart">
+                        <figure>
+                            <img src="https://images.pexels.com/photos/164745/pexels-photo-164745.jpeg?auto=compress&cs=tinysrgb&w=1260&h=750&dpr=1" alt="Pioneer dj">
+                        </figure>
+                        <p>Tornamesa Pioneer</p>
+                        <p>$500.00</p>
+                        <img src="./icons/icon_close.png" alt="close" class="close">
+                    </div>
+                </div>
+
+                <div>
+                    <div class="checkout-total">
+                        <p>
+                            <span>Total</span>
+                        </p>
+                        <p>$1500.00</p>
+                    </div>
+                    <button class="primary-button">Checkout</button>
+                </div>
+            </div>    
+        </div>
+    </aside>
+    <script src="./script.js"></script>
+</body>
+</html>
