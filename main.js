@@ -9,11 +9,16 @@ const shoppingCartMenu = document.querySelector('.product-detail');
 
 const cardsContainer = document.querySelector('.cards-container');
 
+const productDetailAside = document.querySelector('.product-detail-aside');
+const productDetailAsideClose = document.querySelector('.product-detail-aside-close');
+
 
 
 menuEmail.addEventListener('click', toggleDesktopMenu)
 menuImg.addEventListener('click', toggleMobileMenu)
 menuShoppingCart.addEventListener('click', toggleShoppingCartMenu)
+
+productDetailAsideClose.addEventListener('click', closeProductDetailAside);
 
 function toggleDesktopMenu(){
     desktopMenu.classList.toggle('inactive');
@@ -27,6 +32,8 @@ function toggleMobileMenu(){
     }            
     mobileMenu.classList.toggle('inactive');
 
+    productDetailAside.classList.add('inactive');
+
 
 }
 
@@ -36,6 +43,15 @@ function toggleShoppingCartMenu(){
        mobileMenu.classList.add('inactive');       
     }            
     shoppingCartMenu.classList.toggle('inactive');
+
+
+    const isProductDetailAsideClosed = productDetailAside.classList.contains('inactive');
+    if (!isProductDetailAsideClosed){
+        productDetailAside.classList.add('inactive');       
+    }            
+    //shoppingCartMenu.classList.toggle('inactive');
+
+
 }
 
 
@@ -74,6 +90,8 @@ function renderProducts(arr){
         // product= {name, price, image} -> product.image
         const productImg = document.createElement('img');
         productImg.setAttribute('src', product.image);
+        productImg.addEventListener('click', openProductDetailAside);
+
     
         const productInfo = document.createElement('div');
         productInfo.classList.add('product-info');
@@ -102,6 +120,18 @@ function renderProducts(arr){
     
         cardsContainer.appendChild(productCard);
     }
+}
+
+function openProductDetailAside(){
+    productDetailAside.classList.remove('inactive');
+    shoppingCartMenu.classList.add('inactive');
+
+
+}
+
+function closeProductDetailAside(){
+    productDetailAside.classList.add('inactive');
+
 }
 
 
