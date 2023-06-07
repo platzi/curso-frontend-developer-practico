@@ -11,6 +11,7 @@
     body {
       margin: 0;
       font-family: 'Quicksand', sans-serif;
+      background-image: linear-gradient(to left, #000909, #03181e, #0a2134, #282745, #4d274a, #5d224c, #6e194b, #7e0646, #7e0057, #75006d, #5f0087, #2207a3);
     }
     nav {
       display: flex;

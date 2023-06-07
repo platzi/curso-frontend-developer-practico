@@ -51,42 +51,42 @@ let productlist=[];
 productlist.push({
     name:`Bike`,
     price:120,
-    image:"https:images.pexels.com/photos/276517/pexels-photo-276517.jpeg?auto=compress&cs=tinysrgb&dpr=2&h=650&w=940"
+    image:"./productos.img/Para los fanaticos de Halo.jfif"
 })
 productlist.push({
     name:`Bike`,
     price:120,
-    image:"https:images.pexels.com/photos/276517/pexels-photo-276517.jpeg?auto=compress&cs=tinysrgb&dpr=2&h=650&w=940"
+    image:"./productos.img/supermario.png"
 })
 productlist.push({
     name:`Bike`,
     price:120,
-    image:"https:images.pexels.com/photos/276517/pexels-photo-276517.jpeg?auto=compress&cs=tinysrgb&dpr=2&h=650&w=940"
+    image:"./productos.img/TOM CLANCY’S GHOST RECON_ WILDLANDS ART SERIES - tripleclix.jfif"
 })
 productlist.push({
     name:`Bike`,
     price:120,
-    image:"https:images.pexels.com/photos/276517/pexels-photo-276517.jpeg?auto=compress&cs=tinysrgb&dpr=2&h=650&w=940"
+    image:"./productos.img/Ultra HD Bloody Ghost Call of Duty Mobile.jfif"
 })
 productlist.push({
     name:`Bike`,
     price:120,
-    image:"https:images.pexels.com/photos/276517/pexels-photo-276517.jpeg?auto=compress&cs=tinysrgb&dpr=2&h=650&w=940"
+    image:"productos.img/Video Game Print Ads.jfif"
 })
 productlist.push({
     name:`Bike`,
     price:120,
-    image:"https:images.pexels.com/photos/276517/pexels-photo-276517.jpeg?auto=compress&cs=tinysrgb&dpr=2&h=650&w=940"
+    image:"./productos.img/pexels-photo-276517.jpeg"
 })
 productlist.push({
     name:`Bike`,
     price:120,
-    image:"https:images.pexels.com/photos/276517/pexels-photo-276517.jpeg?auto=compress&cs=tinysrgb&dpr=2&h=650&w=940"
+    image:"./productos.img/pexels-photo-276517.jpeg"
 })
 productlist.push({
     name:`Bike`,
     price:120,
-    image:"https:images.pexels.com/photos/276517/pexels-photo-276517.jpeg?auto=compress&cs=tinysrgb&dpr=2&h=650&w=940"
+    image:"./productos.img/pexels-photo-276517.jpeg"
 })
 
 /* 
