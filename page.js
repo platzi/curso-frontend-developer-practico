@@ -1,9 +1,9 @@
 const menuEmail = document.querySelector(".navbar-email")
-const desktopMenu = document.querySelector(".desktop-menu")
 const menuHamIcon = document.querySelector(".menu")
 const menuCarritoIcon = document.querySelector(".navbar-shopping-cart")
+const desktopMenu = document.querySelector(".desktop-menu")
 const mobileMenu = document.querySelector(".mobile-menu")
-const aside = document.querySelector(".product-detail")
+const shoppingCartContainer = document.querySelector("#shoppingCartContainer")
 const cardsContainer = document.querySelector(".cards-container")
 
 menuEmail.addEventListener("click", toggleDesktopMenu)
@@ -11,32 +11,33 @@ menuHamIcon.addEventListener("click", toggleMobileMenu)
 menuCarritoIcon.addEventListener("click", toggleCarritoAside)
 
 function toggleDesktopMenu() {
-  const isAaideClosed = aside.classList.contains("inactive")
-  if (!isAaideClosed) {
-    aside.classList.add("inactive")
+  const isAsideClosed = shoppingCartContainer.classList.contains("inactive")
+
+  if (!isAsideClosed) {
+    shoppingCartContainer.classList.add("inactive")
   }
 
-  // Funcion para que mi cuenta aparezca en Destokp
   desktopMenu.classList.toggle("inactive")
 }
 
 function toggleMobileMenu() {
-  const isAaideClosed = aside.classList.contains("inactive")
-  if (!isAaideClosed) {
-    // Si el aside esta abierto lo cerramos para abrir el mobileMenu
-    aside.classList.add("inactive")
+  const isAsideClosed = shoppingCartContainer.classList.contains("inactive")
+
+  if (!isAsideClosed) {
+    shoppingCartContainer.classList.add("inactive")
   }
-  // Funcion para que mi cuenta aparezca en Mobile
+
   mobileMenu.classList.toggle("inactive")
 }
-function toggleCarritoAside() {
-  const ismobileMenuClosed = mobileMenu.classList.contains("inactive")
 
-  if (!ismobileMenuClosed) {
-    // Si el mobileMenu esta Abierto lo cerramos para abrir el aside
+function toggleCarritoAside() {
+  const isMobileMenuClosed = mobileMenu.classList.contains("inactive")
+
+  if (!isMobileMenuClosed) {
     mobileMenu.classList.add("inactive")
   }
-  aside.classList.toggle("inactive")
+
+  shoppingCartContainer.classList.toggle("inactive")
 }
 
 const productList = []
@@ -107,13 +108,12 @@ productList.push({
     "https://images.pexels.com/photos/777001/pexels-photo-777001.jpeg?auto=compress&cs=tinysrgb&w=1260&h=750&dpr=1",
 })
 
-function rederProducts(arr) {
+function renderProducts(arr) {
   for (product of arr) {
-    const prodructCard = document.createElement("div")
-    prodructCard.classList.add("product-card")
+    const productCard = document.createElement("div")
+    productCard.classList.add("product-card")
 
-    // product = {name, price, image}
-
+    // product= {name, price, image} -> product.image
     const productImg = document.createElement("img")
     productImg.setAttribute("src", product.image)
 
@@ -122,13 +122,12 @@ function rederProducts(arr) {
 
     const productInfoDiv = document.createElement("div")
 
-    const productprice = document.createElement("p")
-    productprice.innerText = "$" + product.price
-
+    const productPrice = document.createElement("p")
+    productPrice.innerText = "$" + product.price
     const productName = document.createElement("p")
     productName.innerText = product.name
 
-    productInfoDiv.appendChild(productprice)
+    productInfoDiv.appendChild(productPrice)
     productInfoDiv.appendChild(productName)
 
     const productInfoFigure = document.createElement("figure")
@@ -140,11 +139,11 @@ function rederProducts(arr) {
     productInfo.appendChild(productInfoDiv)
     productInfo.appendChild(productInfoFigure)
 
-    prodructCard.appendChild(productImg)
-    prodructCard.appendChild(productInfo)
+    productCard.appendChild(productImg)
+    productCard.appendChild(productInfo)
 
-    cardsContainer.appendChild(prodructCard)
+    cardsContainer.appendChild(productCard)
   }
 }
 
-rederProducts(productList)
+renderProducts(productList)
