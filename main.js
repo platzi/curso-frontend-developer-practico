@@ -19,7 +19,6 @@ function toggleDesktopMenu(){
     }  
 
 
-    console.log('Clik')
     desktopMenu.classList.toggle('inactive');
 
 }
