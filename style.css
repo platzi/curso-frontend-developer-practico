@@ -15,6 +15,12 @@
    font-family: 'Quicksand', sans-serif;
  }
 
+
+ /* Esta clase se crea para colocarla en algun elemento que se requiera que aparezca o desaparezca */
+ .inactive {
+   display: none;
+}
+
  /* ! ESTILOS BARRA MENU */
 
  nav {
@@ -61,6 +67,7 @@
    color: var(--very-light-pink);
    font-size: var(--sm);
    margin-right: 12px;
+   cursor: pointer;
  }
  .navbar-shopping-cart {
    position: relative;
