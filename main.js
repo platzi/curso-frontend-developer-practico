@@ -20,6 +20,7 @@ navbarEmail.addEventListener('click', toggleDesktopMenu)
 
 function toggleDesktopMenu() {
     shoppingCartContainer.classList.add('inactive')
+    productDetailAside.classList.add('inactive')
     desktopMenu.classList.toggle('inactive')
 }
 
@@ -27,6 +28,7 @@ hamMenuIcon.addEventListener('click', toggleMobileMenu)
 
 function toggleMobileMenu() {
     shoppingCartContainer.classList.add('inactive')
+    productDetailAside.classList.add('inactive')
     mobileMenu.classList.toggle('inactive')
 }
 
@@ -35,7 +37,24 @@ cartIcon.addEventListener('click', toggleCartIcon)
 function toggleCartIcon() {
     mobileMenu.classList.add('inactive')
     desktopMenu.classList.add('inactive')
+    productDetailAside.classList.add('inactive')
     shoppingCartContainer.classList.toggle('inactive')
+}
+
+const productDetailAside = document.querySelector('#product-detail')
+
+function openProductDetailAside() {
+    desktopMenu.classList.add('inactive')
+    shoppingCartContainer.classList.add('inactive')
+    mobileMenu.classList.add('inactive')
+    productDetailAside.classList.remove('inactive')
+}
+
+const productDetailClose = document.querySelector('.product-detail-close')
+productDetailClose.addEventListener('click', closeProductDetailAside)
+
+function closeProductDetailAside() {
+    productDetailAside.classList.add('inactive')
 }
 
 /* ---- Products ----*/
@@ -62,33 +81,34 @@ function renderProducts(arr) {
     for (product of arr) {
         const productCard = document.createElement('div')
         productCard.classList.add('product-card')
-    
+
         const productImg = document.createElement('img')
         productImg.setAttribute('src', product.image)
         productImg.setAttribute('alt', product.name)
-    
+        productImg.addEventListener('click', openProductDetailAside)
+
         const productInfo = document.createElement('div')
         productInfo.classList.add('product-info')
-    
+
         const productInfoDiv = document.createElement('div')
-    
+
         const productPrice = document.createElement('p')
         productPrice.innerText= `$ ${product.price}`
-    
+
         const productName = document.createElement('p')
         productName.innerText = product.name
-    
+
         const productInfoFigure = document.createElement('figure')
         const productInfoFigureImg = document.createElement('img')
         productInfoFigureImg.setAttribute('src', './icons/bt_add_to_cart.svg')
         productInfoFigureImg.setAttribute('alt', 'Add to cart')
-    
+
         cardsContainer.append(productCard)
         productCard.append(productImg, productInfo)
         productInfo.append(productInfoDiv, productInfoFigure)
         productInfoDiv.append(productPrice, productName)
         productInfoFigure.append(productInfoFigureImg)
-    
+
     }
 }
 
