@@ -1,3 +1,5 @@
+//Esta es la parte de los selectores, es decir, se seleccionan los elementos del html y se asignan a una variable para ser utilizadas en el código de Js
+
 const menuEmail = document.querySelector('.navbar-email');
 const desktopMenu = document.querySelector('.desktop-menu');
 
@@ -9,11 +11,17 @@ const shoppingCartContainer = document.querySelector('#shoppingCartContainer');
 
 const cardsContainer = document.querySelector('.cards-container');
 
+const productDetailContainer = document.querySelector('#productDetail')
+const productDetailCloseIcon = document.querySelector('.product-detail-close');
+
+//esta parte son eventos, es decir, dan una repsuesta cuando sucede un evento en nuestro html
+
 menuEmail.addEventListener('click', toggleDesktopMenu);
 menuHambIcon.addEventListener('click', toggleMobileMenu);
 menuCarritoIcon.addEventListener('click', toggleCarritoshoppingCartContainer);
+productDetailCloseIcon.addEventListener('click', closeProductDetailAside );
 
-
+//estas son las funciones, se utilizan para que el Html sea dinámico
 
 function toggleDesktopMenu() {
     desktopMenu.classList.toggle('inactive');
@@ -26,6 +34,9 @@ function toggleMobileMenu () {
     if(!isshoppingCartContainerClosed) {
         shoppingCartContainer.classList.add('inactive');
     }
+
+    closeProductDetailAside();
+
     mobileMenu.classList.toggle('inactive');
 }
 
@@ -40,9 +51,26 @@ function toggleCarritoshoppingCartContainer() {
         //si mobileMenu está open, hay que cerrarlo
     }    
 
+    const isProductDetailClosed = productDetailContainer.classList.contains('inactive');
+
+    if(!isProductDetailClosed) {
+        productDetailContainer.classList.add('inactive');
+    }
+
     shoppingCartContainer.classList.toggle('inactive');
 }
 
+
+
+function openProductDetailAside (){
+   shoppingCartContainer.classList.add('inactive');
+    productDetailContainer.classList.remove('inactive');
+}
+
+function closeProductDetailAside() {
+    productDetailContainer.classList.add('inactive');
+
+}
 
 const productList = [];
 productList.push ({
@@ -71,6 +99,7 @@ function renderProducts (arr) {
     //product={name, price, image} -> product.image
         const productImg = document.createElement('img');
         productImg.setAttribute('src', product.image);
+        productImg.addEventListener('click', openProductDetailAside)
         
         const productInfo = document.createElement('div');
         productInfo.classList.add('product-info');
