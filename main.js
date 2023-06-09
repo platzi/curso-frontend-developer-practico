@@ -14,9 +14,14 @@ const hamMenuIcon = document.querySelector('.ham-menu-icon')
 const mobileMenu = document.querySelector('.mobile-menu')
 const cartIcon = document.querySelector('.navbar-shopping-cart')
 const shoppingCartContainer = document.querySelector('#shopping-cart-container')
-
+const productDetailAside = document.querySelector('#product-detail')
+const productDetailClose = document.querySelector('.product-detail-close')
+const cardsContainer = document.querySelector('.cards-container')
 
 navbarEmail.addEventListener('click', toggleDesktopMenu)
+hamMenuIcon.addEventListener('click', toggleMobileMenu)
+cartIcon.addEventListener('click', toggleCartIcon)
+productDetailClose.addEventListener('click', closeProductDetailAside)
 
 function toggleDesktopMenu() {
     shoppingCartContainer.classList.add('inactive')
@@ -24,15 +29,11 @@ function toggleDesktopMenu() {
     desktopMenu.classList.toggle('inactive')
 }
 
-hamMenuIcon.addEventListener('click', toggleMobileMenu)
-
 function toggleMobileMenu() {
     shoppingCartContainer.classList.add('inactive')
     productDetailAside.classList.add('inactive')
     mobileMenu.classList.toggle('inactive')
 }
-
-cartIcon.addEventListener('click', toggleCartIcon)
 
 function toggleCartIcon() {
     mobileMenu.classList.add('inactive')
@@ -41,17 +42,12 @@ function toggleCartIcon() {
     shoppingCartContainer.classList.toggle('inactive')
 }
 
-const productDetailAside = document.querySelector('#product-detail')
-
 function openProductDetailAside() {
     desktopMenu.classList.add('inactive')
     shoppingCartContainer.classList.add('inactive')
     mobileMenu.classList.add('inactive')
     productDetailAside.classList.remove('inactive')
 }
-
-const productDetailClose = document.querySelector('.product-detail-close')
-productDetailClose.addEventListener('click', closeProductDetailAside)
 
 function closeProductDetailAside() {
     productDetailAside.classList.add('inactive')
@@ -74,8 +70,6 @@ productList.push({
     price: 50,
     image: 'https://images.pexels.com/photos/276517/pexels-photo-276517.jpeg?auto=compress&cs=tinysrgb&dpr=2&h=650&w=940'
 })
-
-const cardsContainer = document.querySelector('.cards-container')
 
 function renderProducts(arr) {
     for (product of arr) {
