@@ -289,6 +289,11 @@ aside {
   .product-detail-close:hover {
     cursor: pointer;
   }
+
+  #productDetail{
+    padding-bottom: 24px;
+  }
+
   #productDetail > img:nth-child(2) {
     width: 100%;
     height: 360px;
