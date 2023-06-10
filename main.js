@@ -1,17 +1,19 @@
 const menuEmail = document.querySelector('.navbar-email'); //seleccionamos la clase, y al hacer click en esa clase queremos que aparezca el menu email.
 const menuHamburgerMobile = document.querySelector('.menu');
 const menuCarritoIcon = document.querySelector('.navbar-shopping-cart');
+const productDetailCloseIcon = document.querySelector('.product-detail-close');
 const desktopMenu = document.querySelector('.desktop-menu');
 const mobileMenu = document.querySelector('.mobile-menu');
 const shoppingCartContainer = document.querySelector('#shoppingCartContainer');
-const cardsContainer = document.querySelector('.cards-container') 
+const productDetailContainer = document.querySelector('#productDetail');
+const cardsContainer = document.querySelector('.cards-container');
 
 
 // Eventos
 menuEmail.addEventListener('click', toggleDesktopMenu);
 menuHamburgerMobile.addEventListener('click', toggleMobileMenu);
 menuCarritoIcon.addEventListener('click', toggleCarritoAside);
-
+productDetailCloseIcon.addEventListener('click', closeProductDetailAside);
 
 
 // Funciones
@@ -33,12 +35,21 @@ function toggleMobileMenu(){
     }
 
     mobileMenu.classList.toggle('inactive');
+    
+    // otra posibilidad es llamar a otra función que ejecute lo mismo que tenemos que ejecutar como el ejemplo de abajo. (closeProductDailAside()). Es más simplificado y evitamos más lineas de código! 
+
+    const isProductDetailClose = productDetailContainer.classList.contains('inactive');
+    
+    if(!isProductDetailClose){
+       
+        productDetailContainer.classList.add('inactive');
+    }
+
 }
 
 function toggleCarritoAside(){
     const isMobileMenuClosed = mobileMenu.classList.contains('inactive');
     const isDesktopMenuClosed = desktopMenu.classList.contains('inactive');
-
 
     if(!isMobileMenuClosed){
         //preguntamos si el mobileMenu está open, hay que cerrarlo. 
@@ -48,6 +59,30 @@ function toggleCarritoAside(){
         desktopMenu.classList.add('inactive');
     }
     shoppingCartContainer.classList.toggle('inactive');
+    
+    const isProductDetailClose = productDetailContainer.classList.contains('inactive');
+    
+    if(!isProductDetailClose){
+       
+        productDetailContainer.classList.add('inactive');
+    }
+    
+}
+
+
+function openProductDetailAside(){
+    productDetailContainer.classList.remove('inactive');
+
+    const isAsideClosed = shoppingCartContainer.classList.contains('inactive');
+    
+    if(!isAsideClosed){
+        shoppingCartContainer.classList.add('inactive');
+    }
+    
+}
+
+function closeProductDetailAside(){
+    productDetailContainer.classList.add('inactive');
 }
 
 /* <div class="product-card">
@@ -91,6 +126,7 @@ function renderProducts (arr){
 
     const productImg = document.createElement('img');
     productImg.setAttribute('src', product.image);
+    productImg.addEventListener('click', openProductDetailAside);
 
     const productInfo = document.createElement('div');
     productInfo.classList.add('product-info');
