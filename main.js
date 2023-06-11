@@ -3,9 +3,9 @@ const dskmenu= document.querySelector('.desktop-menu');
 const iconmenu=document.querySelector('.menu');
 const mbmenu=document.querySelector('.mobile-menu');
 const iconCar=document.querySelector('.navbar-shopping-cart');
-const aside=document.querySelector('.product-detail');
+const shoppingCartContainer=document.querySelector('#shoppingCartContainer');
 let isCloseMenuMb;
-let isCloseAside;
+let isCloseshoppingCartContainer;
 const cardsContainer=document.querySelector('.cards-container');
 
 
@@ -15,10 +15,10 @@ email.addEventListener('click',function(){
 });
 
 iconmenu.addEventListener('click',function(){
-    isCloseAside=aside.classList.contains('inactive');
-    console.log(isCloseAside);
-    if(!isCloseAside){
-        aside.classList.add('inactive');
+    isCloseshoppingCartContainer=shoppingCartContainer.classList.contains('inactive');
+    console.log(isCloseshoppingCartContainer);
+    if(!isCloseshoppingCartContainer){
+        shoppingCartContainer.classList.add('inactive');
     }
     mbmenu.classList.toggle('inactive');
     
@@ -29,7 +29,7 @@ iconCar.addEventListener('click',function(){
     if(!isCloseMenuMb){
         mbmenu.classList.add('inactive');
     }
-    aside.classList.toggle('inactive');
+    shoppingCartContainer.classList.toggle('inactive');
 });
 
 const productList=[];
