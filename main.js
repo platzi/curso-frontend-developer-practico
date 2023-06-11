@@ -231,7 +231,7 @@ imgCP.forEach((imagenProducto) => {
         
         const asaid2View = asaid2.classList.contains("inactive")
 
-        if (window.innerWidth > 641){
+        /*if (window.innerWidth > 641){
 
             if (asaid2View === true){
                 asaid2.classList.toggle("inactive")
@@ -254,6 +254,16 @@ imgCP.forEach((imagenProducto) => {
             } else {
                 asaid2.classList.toggle("inactive")
             }                   
+        }*/
+
+        if (asaid2View === true){
+            asaid2.classList.toggle("inactive")
+            menuEmail.classList.add("inactive")
+            asaidCompras.classList.add("inactive")
+            menuMovil.classList.add("inactive")
+            //cartasProductos2.classList.add("inactive")
+        } else {
+            asaid2.classList.toggle("inactive")
         }
     })
 })
