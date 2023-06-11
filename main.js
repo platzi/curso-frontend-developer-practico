@@ -49,7 +49,8 @@ window.addEventListener("resize", () => {
 navEmail.addEventListener("click", () => {    
 
     if (asaidCompras.classList.contains("inactive") === false || asaid2.classList.contains("inactive") === false) {
-        asaidCompras.classList.add("inactive");        
+        asaidCompras.classList.add("inactive");
+        asaid2.classList.add("inactive");         
         menuEmail.classList.toggle("inactive");
         menuEmail.style.zIndex = "1";
     } else {
@@ -71,48 +72,23 @@ botonMenuMovil.addEventListener("click", () => {
 
 carroCompras.addEventListener("click", () => {    
 
-    if (window.innerWidth > 641){
-
-        if (menuEmail.classList.contains("inactive") === false || asaid2.classList.contains("inactive") === false) {
-            menuEmail.classList.add("inactive");
-            asaidCompras.classList.toggle("inactive");
-            asaidCompras.style.zIndex = "1";
-        } else if (menuMovil.classList.contains("inactive") === false) {
-            menuMovil.classList.add("inactive");
-            asaidCompras.classList.toggle("inactive");
-        } else {
-            asaidCompras.classList.toggle("inactive")
-        }
+    if (menuEmail.classList.contains("inactive") === false || asaid2.classList.contains("inactive") === false) {
+        menuEmail.classList.add("inactive");
+        asaid2.classList.add("inactive");
+        asaidCompras.classList.toggle("inactive");
+        //asaidCompras.style.zIndex = "1";
+    } else if (menuMovil.classList.contains("inactive") === false) {
+        menuMovil.classList.add("inactive");
+        asaidCompras.classList.toggle("inactive");
+    } else {
+        asaidCompras.classList.toggle("inactive")
     }
-    
-    if (window.innerWidth < 641){
-
-        if (menuEmail.classList.contains("inactive") === false || asaid2.classList.contains("inactive") === false) {
-            menuEmail.classList.add("inactive");
-            asaidCompras.classList.toggle("inactive");
-            asaid2.classList.toggle("inactive");
-            
-        } else if (menuMovil.classList.contains("inactive") === false) {
-            menuMovil.classList.add("inactive");
-            asaidCompras.classList.toggle("inactive");
-        } else {
-            asaidCompras.classList.toggle("inactive")
-        }
-    }    
 })
 
 //Funcionalidad del boton de la X del assaid2
 closeAsaid2.addEventListener("click",() => {
-    if (window.innerWidth > 641){
-        //console.log("asaid2")
-        asaid2.classList.toggle("inactive")
-        cartasProductos2.classList.remove("inactive")        
-    }
-    
-    if (window.innerWidth < 641){
-        asaid2.classList.toggle("inactive")        
-    }      
-
+    //console.log("asaid2")
+    asaid2.classList.toggle("inactive")    
 })
 
 //insertar productos------------------------------------------------------------
@@ -229,32 +205,7 @@ imgCP.forEach((imagenProducto) => {
 
     imagenProducto.addEventListener("click",() =>{
         
-        const asaid2View = asaid2.classList.contains("inactive")
-
-        /*if (window.innerWidth > 641){
-
-            if (asaid2View === true){
-                asaid2.classList.toggle("inactive")
-                menuEmail.classList.add("inactive")
-                asaidCompras.classList.add("inactive")
-                menuMovil.classList.add("inactive")
-                cartasProductos2.classList.add("inactive")
-            } else {
-                asaid2.classList.toggle("inactive")
-            }
-        }
-        
-        if (window.innerWidth < 641){
-
-            if (asaid2View === true){
-                asaid2.classList.toggle("inactive")
-                menuEmail.classList.add("inactive")
-                asaidCompras.classList.add("inactive")
-                menuMovil.classList.add("inactive")                
-            } else {
-                asaid2.classList.toggle("inactive")
-            }                   
-        }*/
+        const asaid2View = asaid2.classList.contains("inactive")        
 
         if (asaid2View === true){
             asaid2.classList.toggle("inactive")
