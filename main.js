@@ -7,7 +7,9 @@ const shoppingCartContainer=document.querySelector('#shoppingCartContainer');
 let isCloseMenuMb;
 let isCloseshoppingCartContainer;
 const cardsContainer=document.querySelector('.cards-container');
-
+const productDetail=document.querySelector('#productDetail');
+const productDetailClose=document.querySelector('.product-detail-close');
+let isCloseProductDetail;
 
 
 email.addEventListener('click',function(){
@@ -16,19 +18,26 @@ email.addEventListener('click',function(){
 
 iconmenu.addEventListener('click',function(){
     isCloseshoppingCartContainer=shoppingCartContainer.classList.contains('inactive');
-    console.log(isCloseshoppingCartContainer);
+    
     if(!isCloseshoppingCartContainer){
         shoppingCartContainer.classList.add('inactive');
     }
+    productDetail.classList.add('inactive');
     mbmenu.classList.toggle('inactive');
     
 });
-
+/*Car to sales*/
 iconCar.addEventListener('click',function(){
     isCloseMenuMb=mbmenu.classList.contains('inactive');
+    isCloseProductDetail=productDetail.classList.contains('inactive');
+    
     if(!isCloseMenuMb){
         mbmenu.classList.add('inactive');
     }
+    if(!isCloseProductDetail){
+        productDetail.classList.add('inactive');
+    }
+
     shoppingCartContainer.classList.toggle('inactive');
 });
 
@@ -59,6 +68,16 @@ function renserProduct(productList){
 
             const img=document.createElement('img');
             img.setAttribute('src',product.img);
+            img.addEventListener('click',function(){
+                isCloseShoppingCartContainer=shoppingCartContainer.classList.contains('inactive');
+                if (!isCloseShoppingCartContainer){
+                    shoppingCartContainer.classList.add('inactive');
+                }
+                productDetail.classList.remove('inactive');
+                
+            });
+            
+            
 
             const productInfo=document.createElement('div');
             productInfo.classList.add('product-info');
@@ -88,6 +107,13 @@ function renserProduct(productList){
 
     });
 }
+
+    productDetailClose.addEventListener('click',function(){
+            productDetail.classList.add('inactive');
+    });
+
+
+
 /*<div class="product-card">
         <img src="https://images.pexels.com/photos/276517/pexels-photo-276517.jpeg?auto=compress&cs=tinysrgb&dpr=2&h=650&w=940" alt="">
         <div class="product-info">

@@ -90,6 +90,7 @@
     position: absolute;
     top: 100%;
     right: 0;
+    background-color: var(--white);
     
 }
   .desktop-menu ul {
