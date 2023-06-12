@@ -11,16 +11,20 @@ const burguerMenu = document.querySelector('.mobile-menu');
 // CARRITO DE COMPRA
 
 const menuCarrito = document.querySelector('.navbar-shopping-cart');
-const asideShoppingCart = document.querySelector('.product-detail');
+const shoppingCartContainer = document.querySelector('#shopping-cart-container');
+
+//PRODUC DETAIL
+
+
 
 
 navEmail.addEventListener('click', toggleDesktopMenu);
 
 function toggleDesktopMenu() {
-    const isAsideShoppingCartClosed = asideShoppingCart.classList.contains('inactive');
+    const isShoppingCartContainerClosed = shoppingCartContainer.classList.contains('inactive');
 
-    if (!isAsideShoppingCartClosed) {
-        asideShoppingCart.classList.add('inactive');
+    if (!isShoppingCartContainerClosed) {
+        shoppingCartContainer.classList.add('inactive');
     }
 
     // 2 Formas
@@ -41,10 +45,10 @@ function toggleDesktopMenu() {
 menuLogo.addEventListener('click', toggleMobileMenu);
 
 function toggleMobileMenu() {
-    const isAsideShoppingCartClosed = asideShoppingCart.classList.contains('inactive');
+    const isShoppingCartContainerClosed = shoppingCartContainer.classList.contains('inactive');
 
-    if (!isAsideShoppingCartClosed) {
-        asideShoppingCart.classList.add('inactive');
+    if (!isShoppingCartContainerClosed) {
+        shoppingCartContainer.classList.add('inactive');
     }
 
     burguerMenu.classList.toggle('inactive');
@@ -70,9 +74,11 @@ function toggleShoppingCart() {
         desktopMenu.classList.add('inactive');
     }
 
-    asideShoppingCart.classList.toggle('inactive');
+    shoppingCartContainer.classList.toggle('inactive');
 
 }
+
+//PRODUC DETAIL
 
 
 const cardsContainer = document.querySelector('.cards-container');
