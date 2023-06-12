@@ -4,7 +4,7 @@ const MenuHamIcon = document.querySelector('.menu');
 const MenuCarritoIcon = document.querySelector('.navbar-shopping-cart');
 const desktopMenu = document.querySelector('.desktop-menu');
 const mobileMenu = document.querySelector('.mobile-menu');
-const aside = document.querySelector('.product-detail');
+const shoppingCartContainer = document.querySelector('#shoppingCartContainer');
 const cardsContainer = document.querySelector('.cards-container');
 
 
@@ -14,17 +14,17 @@ MenuCarritoIcon.addEventListener('click', toggleCarritoAside);
 
 // hacer que cada uno de los menus flotantes se oculte cuando otro se abre
 function toggleDesktopMenu() {
-    const isAsideClosed = aside.classList.contains('inactive');
-    if (!isAsideClosed) {
-        aside.classList.add('inactive');
+    const isshoppingCartContainerClosed = shoppingCartContainer.classList.contains('inactive');
+    if (!isshoppingCartContainerClosed) {
+        shoppingCartContainer.classList.add('inactive');
     }
     desktopMenu.classList.toggle('inactive');
 }
 
 function toggleMobileMenu() {
-    const isAsideClosed = aside.classList.contains('inactive');
-    if (!isAsideClosed) {
-        aside.classList.add('inactive');
+    const isshoppingCartContainerClosed = shoppingCartContainer.classList.contains('inactive');
+    if (!isshoppingCartContainerClosed) {
+        shoppingCartContainer.classList.add('inactive');
     }
     mobileMenu.classList.toggle('inactive');
 }
@@ -38,7 +38,7 @@ function toggleCarritoAside() {
     if (!isDesktopMenuClosed) {
         desktopMenu.classList.add('inactive');
     }
-    aside.classList.toggle('inactive');
+    shoppingCartContainer.classList.toggle('inactive');
 }
 
 //crear los productos para la tienda
@@ -123,3 +123,5 @@ function renderProducts (arr){
     
     }
 }
+
+renderProducts(productList);

@@ -156,7 +156,7 @@ nav {
 
 /* Aside product detail*/
 
-.product-detail {
+aside {
     background-color: var(--white);
     width: 360px;
     padding: 0 24px;
@@ -289,7 +289,7 @@ nav {
     .desktop-menu {
         display: none;
     }
-    .product-detail {
+    aside {
         width: 100%;
     }
     .cards-container {
