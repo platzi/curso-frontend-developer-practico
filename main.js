@@ -23,6 +23,12 @@ function toggleDesktopMenu(){
     if(!isAsideClosed){ 
         shoppingCartContainer.classList.add('inactive');
     }
+    
+    const isProductDetailClose = productDetailContainer.classList.contains('inactive');
+
+    if(!isProductDetailClose){
+        productDetailContainer.classList.add('inactive');
+    }
 
     desktopMenu.classList.toggle('inactive');
 }
@@ -69,7 +75,6 @@ function toggleCarritoAside(){
     
 }
 
-
 function openProductDetailAside(){
     productDetailContainer.classList.remove('inactive');
 
@@ -79,6 +84,11 @@ function openProductDetailAside(){
         shoppingCartContainer.classList.add('inactive');
     }
     
+    const isDesktopMenuClosed = desktopMenu.classList.contains('inactive');
+    
+    if(!isDesktopMenuClosed){
+        desktopMenu.classList.add('inactive');
+    }
 }
 
 function closeProductDetailAside(){
@@ -107,15 +117,15 @@ productList.push({
 });
 
 productList.push({
-    name: 'Cámara',
+    name: 'Bike',
     price: 500,
-    image: 'https://images.pexels.com/photos/16862422/pexels-photo-16862422/free-photo-of-camara-fotografia-vintage-lente.jpeg?auto=compress&cs=tinysrgb&w=1260&h=750&dpr=1',
+    image: 'https://images.pexels.com/photos/276517/pexels-photo-276517.jpeg?auto=compress&cs=tinysrgb&dpr=2&h=650&w=940',
 });
 
 productList.push({
-    name: 'Computadora',
+    name: 'Bike',
     price: 850,
-    image: 'https://images.pexels.com/photos/930530/pexels-photo-930530.jpeg?auto=compress&cs=tinysrgb&w=1260&h=750&dpr=1',
+    image: 'https://images.pexels.com/photos/276517/pexels-photo-276517.jpeg?auto=compress&cs=tinysrgb&dpr=2&h=650&w=940',
 });
 
 function renderProducts (arr){

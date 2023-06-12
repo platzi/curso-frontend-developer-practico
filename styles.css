@@ -238,7 +238,7 @@ aside {
   display: grid;
   grid-template-columns: auto 1fr auto auto;
   gap: 16px;
-  margin-bottom: 24px;
+  margin-bottom: 17px;
   align-items: center;
 }
 
@@ -276,6 +276,11 @@ aside {
 
 /* ProductDetail */
 
+#productDetail{
+  padding-right : 14px;
+  padding-left: 14px;
+}
+
 .product-detail-close {
   background: var(--white);
   width: 14px;
@@ -301,6 +306,7 @@ aside {
 
 #productDetail .product-info {
   margin: 24px 24px 0 24px;
+  padding-bottom: 14px;
 }
 
 #productDetail .product-info p:nth-child(1) {
