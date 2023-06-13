@@ -5,11 +5,14 @@ const mobileMenu = document.querySelector('.mobile-menu') ;
 const menuCarritoIcon = document.querySelector('.navbar-shopping-cart') ;
 const shoppingCartContainer = document.querySelector('#shoppingCartContainer') ;
 const cardsContainer = document.querySelector('.cards-container');
+const productDetailContainer = document.querySelector('#productDetail');
+const productDetailCloseIcon = document.querySelector('.product-detail-close');
+
 
 menuEmail.addEventListener('click', toggleDesktopMenu); // utilizamos el tan amado addevent con click y la funcion que creamos 
 menuhamburguer.addEventListener('click', toggleMobilemenu); // utilizamos el tan amado addevent con click y la funcion que creamos 
 menuCarritoIcon.addEventListener('click', toggleCarritoAside); // utilizamos el tan amado addevent con click y la funcion que creamos 
-
+productDetailCloseIcon.addEventListener('click', CloseProductDetailAside);
 
 
 function toggleDesktopMenu() {
@@ -25,16 +28,33 @@ function toggleMobilemenu() {
     if(!isAsideclose){ // preguntamos si esta abierto 
       shoppingCartContainer.classList.add('inactive') // si lo esta lo desactivamos y si no pasamos directamente al otro paso
        } 
-    mobileMenu.classList.toggle('inactive');  // y el famoso toggle abre o cierra
+       CloseProductDetailAside();
+       mobileMenu.classList.toggle('inactive');  // y el famoso toggle abre o cierra
 } 
 
 function toggleCarritoAside() {
-     const isMobileMenuClose = mobileMenu.classList.contains('inactive'); // creamos constatnte
-   if(!isMobileMenuClose){  // funcion para preguntar 
+  const isMobileMenuClose = mobileMenu.classList.contains('inactive'); // creamos constatnte
+  const isProductDetailClose = productDetailContainer.classList.contains('inactive'); // creamos constatnte
+
+  if(!isMobileMenuClose){  // funcion para preguntar 
     mobileMenu.classList.add('inactive') // desactivamos
    } 
+
+   if(!isProductDetailClose){  
+    productDetailContainer.classList.add('inactive')
+   } 
+   
    shoppingCartContainer.classList.toggle('inactive');  // y el toggle
 } 
+
+function openProductDetailAside(){
+ shoppingCartContainer.classList.add('inactive'); 
+  productDetailContainer.classList.remove('inactive');
+}
+
+function CloseProductDetailAside(){
+  productDetailContainer.classList.add('inactive');
+}
 
 const productslist = [];  // creamos un array en el cual hay objetos  
 productslist.push({
@@ -75,9 +95,9 @@ function renderProducts(arr) {
     productCard.classList.add('product-card'); // ya creado el div o el objeto le asignamos su clase 
 
     // añadimos la imagen
-    const img = document.createElement('img'); // creamos la imagen 
-    img.setAttribute('src', product.Image); // como es una imagen le añadimos atributo y la imagen ya existe en el array
-
+    const productImg = document.createElement('img'); // creamos la imagen 
+    productImg.setAttribute('src', product.Image); // como es una imagen le añadimos atributo y la imagen ya existe en el array
+    productImg.addEventListener('click', openProductDetailAside);
    
    
     // creamos el otro div
@@ -101,7 +121,7 @@ function renderProducts(arr) {
     productImgCart.setAttribute('src', './icons/bt_add_to_cart.svg'); // y se añade la imagen la cual tenemos guardada
 
     productFigure.appendChild(productImgCart); //aqui encapsulamos o organisamos una dentro de otra
-    productCard.appendChild(img); // no estan en orden peroo se hace entender
+    productCard.appendChild(productImg); // no estan en orden peroo se hace entender
     productCard.appendChild(productInfo);// es como las muñecas rusas basicamente
     productInfo.appendChild(productInfoDiv); // para mi esto deberia ser lo ultimo para que el programe no falle
     productInfo.appendChild(productFigure);
