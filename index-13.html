@@ -1,0 +1,214 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+        <link rel="preconnect" href="https://fonts.googleapis.com">
+        <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+        <link href="https://fonts.googleapis.com/css2?family=Quicksand:wght@300;500;700&display=swap" rel="stylesheet">
+    <title>Document</title>
+    <style>
+        :root{
+            --white: #FFFFFF;
+            --black: #000000;
+            --very--light-pink: #C7C7C7;
+            --text-input-field: #f7f7f7;
+            --hospital-green: #ACD9B2;
+            --sm: 14px;
+            --md: 16px;
+            --lg: 18px;
+        }
+        body{
+            font-family: 'Quicksand', sans-serif;
+            margin: 0;
+            padding: 0;
+        }
+
+        .product-detail{
+            width: 400px;
+            height: 90vh;
+            position: absolute;
+            right: 0;
+        }
+
+
+        .product-detail img:nth-of-type(2){
+            width: 100%;
+            height: 400px;
+            object-fit: cover;
+            border-radius: 0 0 24PX 24px;
+
+        }
+
+        .product-detail > img:nth-of-type(1){
+            cursor: pointer;
+            position: absolute;
+            top: 12px;
+            left: 12px;
+            background: var(--white);
+            border-radius: 50%;
+            padding: 5px;
+        }
+
+        .title-container{
+            display: flex;
+            margin: 8px 16px 8px 16px;
+        }
+
+
+        .title-container img{
+            transform: rotate(180deg);
+        }
+
+        .title{
+            margin-left: 16px;
+        }
+
+        .cart-content{
+            height: 100%;
+            display: flex;
+            flex-direction: column;
+            justify-content: space-between;
+        }
+
+        .my-order-content{
+            display: flex;
+            flex-direction: column;
+            margin: 32px 16px;
+        }
+
+        .shopping-cart{
+            display: grid;
+            grid-template-columns: auto 1fr auto auto;
+            gap: 16px;
+            margin-bottom: 16px;
+            padding-right: 16px;
+            align-items: center;
+        }
+        .shopping-cart figure img{
+            width: 100px;
+            height: 100px;
+            border-radius: 24px;
+            object-fit: cover;
+        }
+
+        .shopping-cart p:nth-of-type(1){
+            color: var(--very--light-pink);
+        }
+        .shopping-cart p:nth-of-type(2){
+            font-size: var(--md);
+            font-weight: bold;
+        }
+        .shopping-cart figure{
+            margin: 0;
+        }
+
+        .resumen{
+            margin-bottom: 24px;
+            background: var(--text-input-field);
+            border-radius: 16px;
+            display: grid;
+            grid-template-columns: auto 1fr;
+            gap: 16px;
+            margin-bottom: 24px;
+            padding: 8px 16px 8px 16px;
+            align-items: center;
+        }
+        .resumen p:nth-of-type(1){
+            display: flex;
+            flex-direction: column;
+        }
+
+        .resumen p:nth-of-type(2){
+            text-align: end;
+            font-weight: bold;
+        }
+
+        .resumen p span:nth-of-type(1){
+            font-weight: bold;
+
+        }
+
+        .resumen p span:nth-of-type(2){
+            font-weight: bold;
+            font-size: var(--sm);
+            color: var(--very--light-pink);
+        }
+        .primary-button {
+            background-color: var(--hospital-green);
+            border-radius: 8px;
+            border: none;
+            color: var(--white);
+            width: 100%;
+            cursor: pointer;
+            font-size: var(--md);
+            font-weight: bold;
+            height: 50px;
+            margin-top: 24px;
+        }
+
+        .checkout-button{
+            margin: 0 16px 0 16px;
+        }
+
+
+    @media(max-width:640px ){
+        .product-detail{
+            width: 100%;
+
+        }
+    }
+        </style>
+</head>
+<body>
+    <aside class="product-detail">
+        <div class="title-container">
+            <img src="/icons/flechita.svg" alt="arrow">
+            <h1 class="title">Shopping Cart</h1>
+        </div>
+        <div class="cart-content">
+            <div class="my-order-content">
+    
+                <div class="shopping-cart">
+                    <figure>
+                        <img src="https://images.pexels.com/photos/3312791/pexels-photo-3312791.jpeg?auto=compress&cs=tinysrgb&w=300" alt="bike">
+                    </figure>
+                    <p>Bike</p>
+                    <p>$30.00</p>
+                    <img src="/icons/icon_close.png" alt="close">
+                </div>
+    
+                <div class="shopping-cart">
+                    <figure>
+                        <img src="https://images.pexels.com/photos/3312791/pexels-photo-3312791.jpeg?auto=compress&cs=tinysrgb&w=300" alt="bike">
+                    </figure>
+                    <p>Bike</p>
+                    <p>$30.00</p>
+                    <img src="/icons/icon_close.png" alt="close">
+                </div>
+    
+                <div class="shopping-cart">
+                    <figure>
+                        <img src="https://images.pexels.com/photos/3312791/pexels-photo-3312791.jpeg?auto=compress&cs=tinysrgb&w=300" alt="bike">
+                    </figure>
+                    <p>Bike</p>
+                    <p>$30.00</p>
+                    <img src="/icons/icon_close.png" alt="close">
+                </div>
+                <div class="resumen">
+                    <p>
+                        <span>Total</span>
+                    </p>
+                    <p>$560.00</p>
+                </div>
+            </div>
+            <div class="checkout-button">
+                <button class="primary-button">
+                    Checkout
+                </button>
+            </div>
+        </div>
+    </aside>
+</body>
+</html>
