@@ -89,7 +89,7 @@ productList.push({
 )
 
 /* 
-<div class="product-card">
+<div class="product-card">  ya
         <img src="https://images.pexels.com/photos/276517/pexels-photo-276517.jpeg?auto=compress&cs=tinysrgb&dpr=2&h=650&w=940" alt="">
         <div class="product-info">
           <div>
@@ -112,28 +112,27 @@ for (product of productList) {
 
 
     const productImg = document.createElement('img');
-    //product => {name, proce, image}  --> product.image
+    //product => {name, price, image}  --> product.image
     //img.src = product.image;
     productImg.setAttribute('src', product.image);
-    productCard.appendChild(productImg);
-
+    
 
     const productInfo = document.createElement('div');
     productInfo.classList.add('product-info');
     
 
-
-
     const productInfoDiv = document.createElement('div');
-    productInfo.appendChild(productInfoDiv);
-    productCard.appendChild(productInfoDiv);
-
+    
+    
     const productPrice = document.createElement('p');
     productPrice.innerText = '$' + product.price;
-    productInfoDiv.appendChild(productPrice);
+    
 
     const productName = document.createElement('p'); 
     productName.innerText = product.name;
+    
+
+    productInfoDiv.appendChild(productPrice);
     productInfoDiv.appendChild(productName);
 
 
@@ -145,6 +144,14 @@ for (product of productList) {
 
     productInfoFigure.appendChild(productImgCart);
 
+    productInfo.appendChild(productInfoDiv);
+    productInfo.appendChild(productInfoFigure);
+
+    productCard.appendChild(productImg);
+    productCard.appendChild(productInfo);
+    
     cardsContainer.appendChild(productCard);
+
+
 
 }
