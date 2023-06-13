@@ -1,6 +1,5 @@
-
-# Created by https://www.toptal.com/developers/gitignore/api/macos,windows,linux,visualstudiocode,node
-# Edit at https://www.toptal.com/developers/gitignore?templates=macos,windows,linux,visualstudiocode,node
+# Created by https://www.toptal.com/developers/gitignore/api/linux,windows,visualstudiocode,node,macos
+# Edit at https://www.toptal.com/developers/gitignore?templates=linux,windows,visualstudiocode,node,macos
 
 ### Linux ###
 *~
@@ -210,12 +209,6 @@ dist
 .history
 .ionide
 
-# Support for Project snippet scope
-.vscode/*.code-snippets
-
-# Ignore code-workspaces
-*.code-workspace
-
 ### Windows ###
 # Windows thumbnail cache files
 Thumbs.db
@@ -242,4 +235,4 @@ $RECYCLE.BIN/
 # Windows shortcuts
 *.lnk
 
-# End of https://www.toptal.com/developers/gitignore/api/macos,windows,linux,visualstudiocode,node
+# End of https://www.toptal.com/developers/gitignore/api/linux,windows,visualstudiocode,node,macos
