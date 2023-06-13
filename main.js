@@ -3,7 +3,7 @@ const desktopMenu = document.querySelector('.desktop-menu') ;
 const menuhamburguer = document.querySelector('.menu') ;
 const mobileMenu = document.querySelector('.mobile-menu') ;
 const menuCarritoIcon = document.querySelector('.navbar-shopping-cart') ;
-const aside = document.querySelector('.product-detail') ;
+const shoppingCartContainer = document.querySelector('#shoppingCartContainer') ;
 const cardsContainer = document.querySelector('.cards-container');
 
 menuEmail.addEventListener('click', toggleDesktopMenu); // utilizamos el tan amado addevent con click y la funcion que creamos 
@@ -13,17 +13,17 @@ menuCarritoIcon.addEventListener('click', toggleCarritoAside); // utilizamos el 
 
 
 function toggleDesktopMenu() {
-    const isAsideclose = aside.classList.contains('inactive'); // creamos const para saber si tiene la clase activa o no
+    const isAsideclose = shoppingCartContainer.classList.contains('inactive'); // creamos const para saber si tiene la clase activa o no
     if(!isAsideclose){   // en la funcion prefuntamos si el aside esta abierto o no, si no esta abierto lo cerramos
-        aside.classList.add('inactive')
+      shoppingCartContainer.classList.add('inactive')
        } 
     desktopMenu.classList.toggle('inactive'); //creamos la funcion que creamos con toggle que añade o quita segun este o no este 
 } //inactive es una clase que creamos que basicamente es display: none
 
 function toggleMobilemenu() {
-    const isAsideclose = aside.classList.contains('inactive'); // para saber si el aside el estado del aside
+    const isAsideclose = shoppingCartContainer.classList.contains('inactive'); // para saber si el aside el estado del aside
     if(!isAsideclose){ // preguntamos si esta abierto 
-        aside.classList.add('inactive') // si lo esta lo desactivamos y si no pasamos directamente al otro paso
+      shoppingCartContainer.classList.add('inactive') // si lo esta lo desactivamos y si no pasamos directamente al otro paso
        } 
     mobileMenu.classList.toggle('inactive');  // y el famoso toggle abre o cierra
 } 
@@ -33,7 +33,7 @@ function toggleCarritoAside() {
    if(!isMobileMenuClose){  // funcion para preguntar 
     mobileMenu.classList.add('inactive') // desactivamos
    } 
-    aside.classList.toggle('inactive');  // y el toggle
+   shoppingCartContainer.classList.toggle('inactive');  // y el toggle
 } 
 
 const productslist = [];  // creamos un array en el cual hay objetos  
@@ -64,12 +64,13 @@ productslist.push({
           </div>
           <figure>
             <img src="./icons/bt_add_to_cart.svg" alt="">
-          </figure>
+          </figure>renderProducts(productslist);
         </div>
       </div> */ 
 
 
-for (product of productslist){ // es un atajo el cual un for recorre todo un array sin necesidad de crear la variable i 
+function renderProducts(arr) {
+  for (product of arr){ // es un atajo el cual un for recorre todo un array sin necesidad de crear la variable i 
     const productCard = document.createElement('div'); // creamos los div o elementos necesarios
     productCard.classList.add('product-card'); // ya creado el div o el objeto le asignamos su clase 
 
@@ -107,5 +108,9 @@ for (product of productslist){ // es un atajo el cual un for recorre todo un arr
     productInfoDiv.appendChild(productPrice);
     productInfoDiv.appendChild(productName);
     cardsContainer.appendChild(productCard);
-
     }
+};
+
+
+  renderProducts(productslist);
+
