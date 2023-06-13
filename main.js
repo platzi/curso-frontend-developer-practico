@@ -1,10 +1,10 @@
-const menuEmail = document.querySelector('.navbar-email') ; //se crean las variables que provienen de las clases que vamos a trbajar 
+const menuEmail = document.querySelector('.navbar-email') ; //se crean las variables que provienen de las clases del html que vamos a trbajar 
 const desktopMenu = document.querySelector('.desktop-menu') ;
 const menuhamburguer = document.querySelector('.menu') ;
 const mobileMenu = document.querySelector('.mobile-menu') ;
 const menuCarritoIcon = document.querySelector('.navbar-shopping-cart') ;
 const aside = document.querySelector('.product-detail') ;
-
+const cardsContainer = document.querySelector('.cards-container');
 
 menuEmail.addEventListener('click', toggleDesktopMenu); // utilizamos el tan amado addevent con click y la funcion que creamos 
 menuhamburguer.addEventListener('click', toggleMobilemenu); // utilizamos el tan amado addevent con click y la funcion que creamos 
@@ -36,3 +36,76 @@ function toggleCarritoAside() {
     aside.classList.toggle('inactive');  // y el toggle
 } 
 
+const productslist = [];  // creamos un array en el cual hay objetos  
+productslist.push({
+    name: 'Moto de huida',
+    price: 700,
+    Image: 'https://images.pexels.com/photos/5235860/pexels-photo-5235860.jpeg?auto=compress&cs=tinysrgb&w=1260&h=750&dpr=2'
+});
+
+productslist.push({  // estos objetos los añadimos con puhs 
+    name: 'pasa-montañas',
+    price: 200,
+    Image: 'https://images.pexels.com/photos/11491602/pexels-photo-11491602.jpeg?auto=compress&cs=tinysrgb&w=1260&h=750&dpr=2'
+});
+
+productslist.push({
+    name: 'revolver',
+    price: 500,
+    Image: 'https://images.pexels.com/photos/53351/firearm-handgun-revolver-gun-53351.jpeg?auto=compress&cs=tinysrgb&w=1260&h=750&dpr=2'
+});
+
+/*<div class="product-card">
+        <img src="https://images.pexels.com/photos/276517/pexels-photo-276517.jpeg?auto=compress&cs=tinysrgb&dpr=2&h=650&w=940" alt="">
+        <div class="product-info">
+          <div>
+            <p>$120,00</p>
+            <p>Bike</p>
+          </div>
+          <figure>
+            <img src="./icons/bt_add_to_cart.svg" alt="">
+          </figure>
+        </div>
+      </div> */ 
+
+
+for (product of productslist){ // es un atajo el cual un for recorre todo un array sin necesidad de crear la variable i 
+    const productCard = document.createElement('div'); // creamos los div o elementos necesarios
+    productCard.classList.add('product-card'); // ya creado el div o el objeto le asignamos su clase 
+
+    // añadimos la imagen
+    const img = document.createElement('img'); // creamos la imagen 
+    img.setAttribute('src', product.Image); // como es una imagen le añadimos atributo y la imagen ya existe en el array
+
+   
+   
+    // creamos el otro div
+    const productInfo = document.createElement('div');
+    productInfo.classList.add('product-info');
+
+    
+
+
+    const productInfoDiv = document.createElement('div'); // todo esto es basado al div de la linea 58
+
+    const productPrice = document.createElement('p'); // creamos parrafo para el precio
+    productPrice.innerText = '$' + product.price; // ya que el precio es texto lo añadimos con inner text
+    const productName = document.createElement('p');// igualmente con name 
+    productName.innerText = product.name;
+
+    
+
+    const productFigure = document.createElement('figure'); // simplemento creamos el figure como estaba en el html
+    const productImgCart = document.createElement('img'); // la imagen
+    productImgCart.setAttribute('src', './icons/bt_add_to_cart.svg'); // y se añade la imagen la cual tenemos guardada
+
+    productFigure.appendChild(productImgCart); //aqui encapsulamos o organisamos una dentro de otra
+    productCard.appendChild(img); // no estan en orden peroo se hace entender
+    productCard.appendChild(productInfo);// es como las muñecas rusas basicamente
+    productInfo.appendChild(productInfoDiv); // para mi esto deberia ser lo ultimo para que el programe no falle
+    productInfo.appendChild(productFigure);
+    productInfoDiv.appendChild(productPrice);
+    productInfoDiv.appendChild(productName);
+    cardsContainer.appendChild(productCard);
+
+    }
