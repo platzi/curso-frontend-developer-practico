@@ -13,7 +13,7 @@ body {
     margin: 0;
     font-family: 'Quicksand', sans-serif;
     background-color: var(--hospital-green);
-    background-image: url(/icons/bt_add_to_cart.svg);
+    background-image: url("./icons/bt_add_to_cart.svg");
     background-size: 2.5%;
     width: 100%;
     height: 100%;
