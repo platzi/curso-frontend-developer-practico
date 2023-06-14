@@ -123,8 +123,10 @@
 
   .mobile-menu {
     position: absolute;
-    width: calc(100% - 24px);
+    box-sizing: border-box;
+    width: 100%;
     top: 61px;
+    left: 0;
     padding-left: 24px;
     background-color: var(--white);
   }
