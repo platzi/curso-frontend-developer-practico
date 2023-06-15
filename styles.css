@@ -65,6 +65,7 @@
     margin-right: 12px;
   }
   .navbar-shopping-cart {
+    cursor: pointer;
     position: relative;
   }
   .navbar-shopping-cart div {
@@ -123,6 +124,7 @@
 
 /* Mobile Menu */
 .mobile-menu {
+  background-color: var(--white);
     position: absolute;
     top: 60px;
     padding: 24px;
@@ -156,6 +158,7 @@
   /* Aside (product detail and shopping cart */
 
   .product-detail {
+    background-color: var(--white);
     width: 360px;
     padding: 0 24px;
     box-sizing: border-box;
