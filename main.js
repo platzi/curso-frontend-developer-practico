@@ -1,14 +1,18 @@
 const menuEmail = document.querySelector(".navbar-email");
 const menuHamIcon = document.querySelector(".menu");
 const menuCarritoIcon = document.querySelector(".navbar-shopping-cart");
+const productDetailCloseIcon = document.querySelector(".product-detail-close")
 const desktopMenu = document.querySelector(".desktop-menu");
 const mobileMenu = document.querySelector(".mobile-menu");
 const shoppingCartContainer = document.querySelector("#shoppingCartContainer");
 const cardscontainer = document.querySelector(".cards-container");
+const productDetailContainer = document.querySelector("#productDetail");
+
 
 menuEmail.addEventListener("click", toggleDesktopMenu);
 menuHamIcon.addEventListener("click", toggleMobileMenu);
 menuCarritoIcon.addEventListener("click", toggleCarritoAside);
+productDetailContainer.addEventListener("click", closeProductDetailAside);
 
 
 function toggleDesktopMenu(){ //esta función hará que la clase inactive aparezca o desaparezca (lo cual hará que así mismo el menú aparezca o no)
@@ -24,22 +28,38 @@ function toggleMobileMenu(){
     if (!isAsideClosed){
         shoppingCartContainer.classList.add("inactive")
     } 
-    
-    mobileMenu.classList.toggle("inactive");
+    closeProductDetailAside()
+  mobileMenu.classList.toggle("inactive");
 }
 
 function toggleCarritoAside(){
-    //Lógica: primero cerramos el menú mobile siempre:
+    //Lógica: primero creamos el apuntador donde el  menú mobile está cerrado:
     const isMobileMenuClosed = mobileMenu.classList.contains("inactive");
    
     //Lógica: si el menú no estaba cerrado, entonces lo cerramos.
     if (!isMobileMenuClosed){
                 mobileMenu.classList.add("inactive")
             } 
+        
+
+    //Lógica: primero creamos el apuntador donde el product detail está cerrado:
+
+    const isProductDetailClosed  = productDetailContainer.classList.contains("inactive");
+   
+    //Lógica: si el produdc detail no estaba cerrado, entonces lo cerramos.
+    if (!isProductDetailClosed){
+        productDetailContainer.classList.add("inactive")
+            } 
         shoppingCartContainer.classList.toggle("inactive");
 }
 
-
+function openProductDetailAside(){
+    shoppingCartContainer.classList.add("inactive")
+    productDetailContainer.classList.remove("inactive");
+}
+function closeProductDetailAside(){
+    productDetailContainer.classList.add("inactive");
+}
 
 //Vamos a crear un array con los objetos a recibir para simular que estamos haciendo las peticiones al backend.
 
@@ -71,6 +91,7 @@ function renderProducts(arr){
     //Luego creamos el img y además le agregamos el atributo src donde el link va a venir dentro del objeto en su propiedad image
     const productImg = document.createElement("img");
     productImg.setAttribute("src", product.image);
+    productImg.addEventListener("click", openProductDetailAside);
 
     //Luego agregamos el contenedor de product info
     const productInfo = document.createElement("div");
