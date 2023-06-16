@@ -3,7 +3,7 @@ const menuHamIcon = document.querySelector(".menu");
 const menuCarritoIcon = document.querySelector(".navbar-shopping-cart");
 const desktopMenu = document.querySelector(".desktop-menu");
 const mobileMenu = document.querySelector(".mobile-menu");
-const aside = document.querySelector(".product-detail");
+const shoppingCartContainer = document.querySelector("#shoppingCartContainer");
 const cardscontainer = document.querySelector(".cards-container");
 
 menuEmail.addEventListener("click", toggleDesktopMenu);
@@ -12,17 +12,17 @@ menuCarritoIcon.addEventListener("click", toggleCarritoAside);
 
 
 function toggleDesktopMenu(){ //esta función hará que la clase inactive aparezca o desaparezca (lo cual hará que así mismo el menú aparezca o no)
-    const isAsideClosed = aside.classList.contains("inactive");
+    const isAsideClosed = shoppingCartContainer.classList.contains("inactive");
     if (!isAsideClosed){
-        aside.classList.add("inactive")
+        shoppingCartContainer.classList.add("inactive")
     } 
     desktopMenu.classList.toggle("inactive");
 }
 
 function toggleMobileMenu(){
-    const isAsideClosed = aside.classList.contains("inactive");
+    const isAsideClosed = shoppingCartContainer.classList.contains("inactive");
     if (!isAsideClosed){
-        aside.classList.add("inactive")
+        shoppingCartContainer.classList.add("inactive")
     } 
     
     mobileMenu.classList.toggle("inactive");
@@ -36,7 +36,7 @@ function toggleCarritoAside(){
     if (!isMobileMenuClosed){
                 mobileMenu.classList.add("inactive")
             } 
-        aside.classList.toggle("inactive");
+        shoppingCartContainer.classList.toggle("inactive");
 }
 
 
@@ -83,7 +83,7 @@ function renderProducts(arr){
     const productPrice = document.createElement("p");
     productPrice.innerText = "$" + product.price;
     const productName = document.createElement("p");
-    productPrice.innerText = product.name;
+    productName.innerText = product.name;
 
     //Luego creamos el figure
     const productInfoFigure = document.createElement("figure");
