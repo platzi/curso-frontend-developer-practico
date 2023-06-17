@@ -20,9 +20,15 @@ function toggleDesktopUser(event) {
 }
 
 function toggleMobileMenu() {
+  if (!products_car.classList.contains("inactive")) {
+    products_car.classList.add("inactive");
+  }
   mobile_menu.classList.toggle("inactive");
 }
 
 function toggleProductsCar() {
+    if (!mobile_menu.classList.contains("inactive")) {
+        mobile_menu.classList.add("inactive");
+      }
   products_car.classList.toggle("inactive");
 }
