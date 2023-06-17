@@ -38,3 +38,76 @@ function toggleProductsCar() {
   }
   products_car.classList.toggle("inactive");
 }
+
+// Products Cards
+const productsList = [];
+productsList.push({
+  name: "Bike",
+  precio: 130,
+  image:
+    "https://images.pexels.com/photos/276517/pexels-photo-276517.jpeg?auto=compress&cs=tinysrgb&dpr=2&h=650&w=940",
+});
+productsList.push({
+  name: "Pantalla",
+  precio: 210,
+  image:
+    "https://images.pexels.com/photos/276517/pexels-photo-276517.jpeg?auto=compress&cs=tinysrgb&dpr=2&h=650&w=940",
+});
+productsList.push({
+  name: "Llanta",
+  precio: 80,
+  image:
+    "https://images.pexels.com/photos/276517/pexels-photo-276517.jpeg?auto=compress&cs=tinysrgb&dpr=2&h=650&w=940",
+});
+
+{
+  /* <div class="product-card">
+                <img src="https://images.pexels.com/photos/276517/pexels-photo-276517.jpeg?auto=compress&cs=tinysrgb&dpr=2&h=650&w=940"
+                    alt="">
+                <div class="product-info">
+                    <div>
+                        <p>$120,00</p>
+                        <p>Bike</p>
+                    </div>
+                    <figure>
+                        <img src="./icons/bt_add_to_cart.svg" alt="">
+                    </figure>
+                </div>
+            </div> */
+}
+
+const cardsContainer = document.querySelector(".cards-container");
+
+renderProducts(productsList);
+
+function renderProducts(productsList) {
+  for (product of productsList) {
+    const productCard = document.createElement("div");
+    productCard.classList.add("product-card");
+    cardsContainer.append(productCard);
+
+    const imageProduct = document.createElement("img");
+    imageProduct.setAttribute("src", product.image);
+    productCard.append(imageProduct);
+
+    const productoInfo = document.createElement("div");
+    productoInfo.classList.add("product-info");
+    productCard.append(productoInfo);
+
+    const productoInfoDiv = document.createElement("div");
+    productoInfo.append(productoInfoDiv);
+    const productoInfoDivPrice = document.createElement("p");
+
+    const productoInfoDivName = document.createElement("p");
+    productoInfoDiv.append(productoInfoDivPrice, productoInfoDivName);
+
+    productoInfoDivPrice.innerText = "$" + product.precio;
+    productoInfoDivName.innerHTML = product.name;
+
+    const figure_product = document.createElement("figure");
+    const img_shopping_car = document.createElement("img");
+    img_shopping_car.setAttribute("src", "./icons/bt_add_to_cart.svg");
+    productoInfo.append(figure_product);
+    figure_product.append(img_shopping_car);
+  }
+}
