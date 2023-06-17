@@ -16,6 +16,9 @@ return_products_car.addEventListener("click", toggleProductsCar);
 
 function toggleDesktopUser(event) {
   event.preventDefault();
+  if (!products_car.classList.contains("inactive")) {
+    products_car.classList.add("inactive");
+  }
   desktop_menu.classList.toggle("inactive");
 }
 
@@ -27,8 +30,11 @@ function toggleMobileMenu() {
 }
 
 function toggleProductsCar() {
-    if (!mobile_menu.classList.contains("inactive")) {
-        mobile_menu.classList.add("inactive");
-      }
+  if (!mobile_menu.classList.contains("inactive")) {
+    mobile_menu.classList.add("inactive");
+  }
+  if (!desktop_menu.classList.contains("inactive")) {
+    desktop_menu.classList.add("inactive");
+  }
   products_car.classList.toggle("inactive");
 }
