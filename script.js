@@ -1,10 +1,17 @@
 const desktop_menu = document.querySelector(".desktop-menu");
 const email = document.querySelector(".navbar-email a");
 
-email.addEventListener("click", toggleDesktopMenu);
+const mobile_menu = document.querySelector(".mobile-menu");
+const icon_menu = document.querySelector(".menu");
 
-function toggleDesktopMenu(event) {
+email.addEventListener("click", toggleDesktopUser);
+icon_menu.addEventListener("click", toggleMobileMenu);
+
+function toggleDesktopUser(event) {
   event.preventDefault();
-  desktop_menu.classList.toggle('inactive');
-  desktop_menu.setAttribute('style','animation: alternate;')
+  desktop_menu.classList.toggle("inactive");
+}
+
+function toggleMobileMenu() {
+  mobile_menu.classList.toggle("inactive");
 }
