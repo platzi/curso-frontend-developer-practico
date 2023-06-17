@@ -201,6 +201,7 @@ aside {
 .title-container img {
   transform: rotate(180deg);
   margin-right: 14px;
+  cursor: pointer;
 }
 
 .title {
@@ -286,10 +287,10 @@ aside {
   width: 14px;
   height: 14px;
   position: absolute;
-  top: 24px;
+  top: 12px;
   left: 24px;
   z-index: 2;
-  padding: 12px;
+  padding: 10px;
   border-radius: 50%;
 }
 
@@ -301,7 +302,6 @@ aside {
   width: 100%;
   height: 360px;
   object-fit: cover;
-  border-radius: 0 0 20px 20px;
 }
 
 #productDetail .product-info {
