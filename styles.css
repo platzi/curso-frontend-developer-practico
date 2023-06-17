@@ -277,6 +277,7 @@
     place-content: center;
   }
   .product-card {
+    cursor: pointer;
     width: 240px;
   }
   .product-card img {
