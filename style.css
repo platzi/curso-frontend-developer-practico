@@ -137,6 +137,9 @@ nav {
 
 /* mobile - menu */
 .mobile-menu {
+    background-color: var(--white);
+    width: 100%;
+    height: 100%;
     padding: 24px;
     position: absolute;
 }
@@ -145,7 +148,6 @@ nav {
     text-decoration: none;
     color: var(--black);
     font-weight: bold;
-    /* margin-bottom: 24px; */
 }
 
 .mobile-menu ul {
@@ -174,12 +176,16 @@ nav {
 
 /* Carrito de Compras */
 
-.product-detail {
+aside {
+    background-color: var(--white);
     width: 360px;
-    padding: 0 24px 24px 24px;
     box-sizing: border-box;
     position: absolute;
     right: 0;
+}
+
+.products-car {
+    padding: 0 24px 24px 24px;
 }
 
 .title-container {
@@ -263,7 +269,7 @@ nav {
     height: 50px;
 }
 
-/* Products Cards */
+/* Products Cards - Galeria de Productos */
 .main-container {
     padding-top: 20px;
     padding-bottom: 20px;
@@ -277,6 +283,7 @@ nav {
 }
 
 .product-card {
+    background-color: var(--white);
     width: 240px;
 }
 
@@ -318,11 +325,8 @@ nav {
 }
 
 /* Detalle del producto */
-.product-detail {
-    width: 360px;
-    padding-bottom: 24px;
-    position: absolute;
-    right: 0;
+.product-detail{
+    width: 400px;
 }
 
 .product-detail-close {
@@ -341,32 +345,34 @@ nav {
     cursor: pointer;
 }
 
-.product-detail>img:nth-child(2) {
+aside>img:nth-child(2) {
     width: 100%;
     height: 360px;
     object-fit: cover;
     border-radius: 0 0 20px 20px;
 }
 
-.product-info {
+.product-detail .product-info {
     margin: 24px 24px 0 24px;
+    flex-direction: column;
+    align-items: flex-start;
 }
 
-.product-info p:nth-child(1) {
+.product-detail .product-info p:nth-child(1) {
     font-weight: bold;
     font-size: var(--md);
     margin-top: 0;
     margin-bottom: 4px;
 }
 
-.product-info p:nth-child(2) {
+.product-detail .product-info p:nth-child(2) {
     color: var(--very-light-pink);
     font-size: var(--md);
     margin-top: 0;
     margin-bottom: 36px;
 }
 
-.product-info p:nth-child(3) {
+.product-detail .product-info p:nth-child(3) {
     color: var(--very-light-pink);
     font-size: var(--sm);
     margin-top: 0;
@@ -392,7 +398,7 @@ nav {
 }
 
 @media (max-width: 640px) {
-    .product-detail {
+    aside {
         width: 100%;
     }
 

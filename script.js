@@ -5,7 +5,7 @@ const mobile_menu = document.querySelector(".mobile-menu");
 const icon_menu = document.querySelector(".menu");
 
 const shopping_car = document.querySelector(".navbar-shopping-cart");
-const products_car = document.querySelector(".product-detail");
+const products_car = document.querySelector(".products-car");
 const return_products_car = document.querySelector(".title-container img");
 
 email.addEventListener("click", toggleDesktopUser);
