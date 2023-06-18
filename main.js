@@ -11,6 +11,7 @@ function toggleDesktopMenu(){
 
 menu.addEventListener('mouseenter', removeMobileMenu );
 mobileMenu.addEventListener('mouseleave', addMobileMenu );
+menu.addEventListener('click', addMobileMenu );
 
 function removeMobileMenu(){
     console.log('entro el mouse')
@@ -19,4 +20,8 @@ function removeMobileMenu(){
 function addMobileMenu(){
     console.log('salio del mouse')
     mobileMenu.classList.add('inactive');
+}
+function addMobileMenu(){
+    console.log('salio del mouse')
+    mobileMenu.classList.toggle('inactive');
 }
