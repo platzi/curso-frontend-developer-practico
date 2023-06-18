@@ -9,7 +9,9 @@
     --lg: 18px;
 }
 
-body {
+*{
+    box-sizing: border-box;
+    padding: 0;
     margin: 0;
     font-family: 'Quicksand', sans-serif;
 }
@@ -94,41 +96,41 @@ nav {
     display: none;
 }
 
-.desktop-menu {
-    width: 115px;
+.user-menu {
+    width: 160px;
     position: absolute;
     background-color: var(--white);
-    border: 1px solid var(--very-light-pink);
+    /* border: 1px solid var(--very-light-pink); */
     border-radius: 6px;
     padding: 20px 20px 0 20px;
 }
 
-.desktop-menu ul {
+.user-menu ul {
     list-style: none;
     padding: 0;
     margin: 0;
 }
 
-.desktop-menu ul li {
+.user-menu ul li {
     text-align: end;
 }
 
-.desktop-menu ul li:nth-child(1),
-.desktop-menu ul li:nth-child(2) {
+.user-menu ul li:nth-child(1),
+.user-menu ul li:nth-child(2) {
     font-weight: bold;
 }
 
-.desktop-menu ul li:last-child {
+.user-menu ul li:last-child {
     padding-top: 20px;
     border-top: 1px solid var(--very-light-pink);
 }
 
-.desktop-menu ul li:last-child a {
+.user-menu ul li:last-child a {
     color: var(--hospital-green);
     font-size: var(--sm);
 }
 
-.desktop-menu ul li a {
+.user-menu ul li a {
     color: var(--back);
     text-decoration: none;
     margin-bottom: 20px;
@@ -185,11 +187,12 @@ aside {
 }
 
 .products-car {
-    padding: 0 24px 24px 24px;
+    padding: 24px;
 }
 
 .title-container {
     display: flex;
+    margin-bottom: 20px;
 }
 
 .title-container img {
@@ -208,7 +211,6 @@ aside {
     grid-template-columns: auto 1fr;
     gap: 16px;
     align-items: center;
-    background-color: var(--text-input-field);
     margin-bottom: 24px;
     border-radius: 8px;
     padding: 0 24px;
@@ -397,7 +399,7 @@ aside>img:nth-child(2) {
     justify-content: center;
 }
 
-@media (max-width: 640px) {
+@media (max-width: 780px) {
     aside {
         width: 100%;
     }
@@ -426,7 +428,7 @@ aside>img:nth-child(2) {
     }
 }
 
-@media (min-width: 641px) {
+@media (min-width: 781px) {
     .mobile-menu {
         display: none;
     }
