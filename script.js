@@ -1,25 +1,8 @@
 const user_menu = document.querySelector(".user-menu");
 const email = document.querySelector(".navbar-email a");
+email.addEventListener("click", toggleUserMenu);
 
-const mobile_menu = document.querySelector(".mobile-menu");
-const icon_menu = document.querySelector(".menu");
-
-const shopping_car = document.querySelector(".navbar-shopping-cart");
-const products_car = document.querySelector(".products-car");
-const return_products_car = document.querySelector(".title-container img");
-
-const productDetailContainer = document.querySelector(".product-detail");
-const productDetailClose = document.querySelector(".product-detail-close");
-
-email.addEventListener("click", toggleDesktopUser);
-icon_menu.addEventListener("click", toggleMobileMenu);
-
-shopping_car.addEventListener("click", toggleProductsCar);
-return_products_car.addEventListener("click", toggleProductsCar);
-
-productDetailClose.addEventListener("click", closeProductDetailAside);
-
-function toggleDesktopUser(event) {
+function toggleUserMenu(event) {
   event.preventDefault();
   if (!products_car.classList.contains("inactive")) {
     products_car.classList.add("inactive");
@@ -30,6 +13,9 @@ function toggleDesktopUser(event) {
   user_menu.classList.toggle("inactive");
 }
 
+const mobile_menu = document.querySelector(".mobile-menu");
+const icon_menu = document.querySelector(".menu");
+
 function toggleMobileMenu() {
   if (!products_car.classList.contains("inactive")) {
     products_car.classList.add("inactive");
@@ -39,6 +25,10 @@ function toggleMobileMenu() {
   }
   mobile_menu.classList.toggle("inactive");
 }
+
+const shopping_car = document.querySelector(".navbar-shopping-cart");
+const products_car = document.querySelector(".products-car");
+const return_products_car = document.querySelector(".title-container img");
 
 function toggleProductsCar() {
   if (!mobile_menu.classList.contains("inactive")) {
@@ -52,6 +42,9 @@ function toggleProductsCar() {
   }
   products_car.classList.toggle("inactive");
 }
+
+const productDetailContainer = document.querySelector(".product-detail");
+const productDetailClose = document.querySelector(".product-detail-close");
 
 function openProductDetailAside() {
   productDetailContainer.classList.remove("inactive");
@@ -69,26 +62,39 @@ function closeProductDetailAside() {
   productDetailContainer.classList.add("inactive");
 }
 
+icon_menu.addEventListener("click", toggleMobileMenu);
+
+shopping_car.addEventListener("click", toggleProductsCar);
+return_products_car.addEventListener("click", toggleProductsCar);
+
+productDetailClose.addEventListener("click", closeProductDetailAside);
+
+
+
+
+
 // Products Cards
-const productsList = [];
-productsList.push({
-  name: "Bike",
-  precio: 130,
-  image:
-    "https://images.pexels.com/photos/276517/pexels-photo-276517.jpeg?auto=compress&cs=tinysrgb&dpr=2&h=650&w=940",
-});
-productsList.push({
-  name: "Pantalla",
-  precio: 210,
-  image:
-    "https://images.pexels.com/photos/276517/pexels-photo-276517.jpeg?auto=compress&cs=tinysrgb&dpr=2&h=650&w=940",
-});
-productsList.push({
-  name: "Llanta",
-  precio: 80,
-  image:
-    "https://images.pexels.com/photos/276517/pexels-photo-276517.jpeg?auto=compress&cs=tinysrgb&dpr=2&h=650&w=940",
-});
+{
+  const productsList = [];
+  productsList.push({
+    name: "Bike",
+    precio: 130,
+    image:
+      "https://images.pexels.com/photos/276517/pexels-photo-276517.jpeg?auto=compress&cs=tinysrgb&dpr=2&h=650&w=940",
+  });
+  productsList.push({
+    name: "Pantalla",
+    precio: 210,
+    image:
+      "https://images.pexels.com/photos/276517/pexels-photo-276517.jpeg?auto=compress&cs=tinysrgb&dpr=2&h=650&w=940",
+  });
+  productsList.push({
+    name: "Llanta",
+    precio: 80,
+    image:
+      "https://images.pexels.com/photos/276517/pexels-photo-276517.jpeg?auto=compress&cs=tinysrgb&dpr=2&h=650&w=940",
+  });
+}
 
 {
   /* <div class="product-card">
