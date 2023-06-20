@@ -40,24 +40,24 @@ showMenu();
 function showMenu() {
 	let desktopMenu;
 	let navbarRight;
-  
+
 	desktopMenu = document.querySelector('.desktop-menu');
 	navbarRight = document.querySelector('.navbar-right');
-  
-	 function openMenu() {
-	  desktopMenu.setAttribute("class", "desktop-menu");
+
+	function openMenu() {
+		desktopMenu.setAttribute("class", "desktop-menu");
 	};
-  
+
 	function hideMenu() {
-	  desktopMenu.setAttribute("class", "desktop-menu inactive");
+		desktopMenu.setAttribute("class", "desktop-menu inactive");
 	};
-  
+
 	navbarRight.addEventListener('mouseenter', openMenu);
 	navbarRight.addEventListener('mouseleave', hideMenu);
 	desktopMenu.addEventListener('mouseenter', openMenu);
 	desktopMenu.addEventListener('mouseleave', hideMenu);
-  }
-  
+}
+
 showMenu();
 
 //////////REUSABLE FUNCTION: 
@@ -83,3 +83,25 @@ function toggleMenu(menuElement, triggerElement) {
   // Ejemplo de uso
   toggleMenu('.desktop-menu', '.navbar-right');
   */
+
+////////////////////MOBILE MENU DISPLAY
+
+function showHideOnClick() {
+	const iconMenu = document.querySelector('.menu');
+	const mobileMenu = document.querySelector('.mobile-menu');
+  
+	function toggleMobileMenu() {
+	  mobileMenu.classList.toggle('inactive');
+	}
+  
+	function handleDocumentClick(event) {
+	  if (!mobileMenu.contains(event.target) && !iconMenu.contains(event.target)) {
+		mobileMenu.classList.add('inactive');
+	  }
+	}
+  
+	iconMenu.addEventListener('click', toggleMobileMenu);
+	document.addEventListener('click', handleDocumentClick);
+  }
+
+showHideOnClick();
