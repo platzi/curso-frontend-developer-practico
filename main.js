@@ -8,7 +8,7 @@ menuHamIcon.addEventListener('click', toggleMobileMenu);
 
 
 function toggleDesktopMenu() {
-    desktopMenu.classList.toggle('inactive');
+    desktopMenu.classList.toggle('oculto-men-desktop');
 }
 
 function toggleMobileMenu() {
