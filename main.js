@@ -1,20 +1,45 @@
-const menuEmail = document.querySelector('.navbar-email')
-const desktopMenu = document.querySelector('.desktop-menu')
-const menuHamIcon = document.querySelector('.menu')
-const mobileMenu = document.querySelector('.mobile-menu')
+const menuEmail = document.querySelector(".navbar-email");
+const desktopMenu = document.querySelector(".desktop-menu");
+const menuHamIcon = document.querySelector(".menu");
+const menuCarritoIcon = document.querySelector(".navbar-shopping-cart");
+const mobileMenu = document.querySelector(".mobile-menu");
+const asideProductDetail = document.querySelector(".product-detail");
 
-menuEmail.addEventListener('click', () => toggleMenu(desktopMenu))
-menuHamIcon.addEventListener('click', () => toggleMenu(mobileMenu))
+menuEmail.addEventListener("click", toggleDesktopMenu);
+menuHamIcon.addEventListener("click", toggleMobileMenu);
+menuCarritoIcon.addEventListener("click", toggleCarritoAside);
 
-function toggleMenu(menu) {
-    menu.classList.toggle('inactive')
+function toggleDesktopMenu() {
+  const isAsideClosed = asideProductDetail.classList.contains("inactive");
+
+  if (!isAsideClosed) {
+    asideProductDetail.classList.add("inactive");
+  }
+
+  desktopMenu.classList.toggle("inactive");
 }
 
-// Código usado en el curso.
-// function toggleDesktopMenu() {
-//     desktopMenu.classList.toggle('inactive')
-// }
+function toggleMobileMenu() {
+  const isAsideClosed = asideProductDetail.classList.contains("inactive");
 
-// function toggleMobileMenu() {
-//     mobileMenu.classList.toggle('inactive')
-// }
+  if (!isAsideClosed) {
+    asideProductDetail.classList.add("inactive");
+  }
+
+  mobileMenu.classList.toggle("inactive");
+}
+
+function toggleCarritoAside() {
+  const isMobileMenuClosed = mobileMenu.classList.contains("inactive");
+  const isDesktopMenuClosed = desktopMenu.classList.contains("inactive");
+
+  if (!isMobileMenuClosed) {
+    mobileMenu.classList.add("inactive");
+  }
+
+  if (!isDesktopMenuClosed) {
+    desktopMenu.classList.add("inactive");
+  }
+
+  asideProductDetail.classList.toggle("inactive");
+}
