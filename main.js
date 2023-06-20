@@ -60,3 +60,26 @@ function showMenu() {
   
 showMenu();
 
+//////////REUSABLE FUNCTION: 
+/*
+function toggleMenu(menuElement, triggerElement) {
+	const menu = document.querySelector(menuElement);
+	const trigger = document.querySelector(triggerElement);
+  
+	const handleMouseEnter = function () {
+	  menu.setAttribute("class", "desktop-menu");
+	};
+  
+	const handleMouseLeave = function () {
+	  menu.setAttribute("class", "desktop-menu inactive");
+	};
+  
+	trigger.addEventListener('mouseenter', handleMouseEnter);
+	trigger.addEventListener('mouseleave', handleMouseLeave);
+	menu.addEventListener('mouseenter', handleMouseEnter);
+	menu.addEventListener('mouseleave', handleMouseLeave);
+  }
+  
+  // Ejemplo de uso
+  toggleMenu('.desktop-menu', '.navbar-right');
+  */
