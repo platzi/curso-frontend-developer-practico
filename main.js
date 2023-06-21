@@ -3,7 +3,7 @@ const desktopMenu = document.querySelector('.desktop-menu');
 const mobileMenu = document.querySelector('.mobile-menu');
 const burgerMenu = document.querySelector('.menu');
 const menuCarritoIcon = document.querySelector('.navbar-shopping-cart');
-const aside = document.querySelector('.product-detail');
+const shoppingCartContainer = document.querySelector('#shoppingCartContainer');
 const cardContainer = document.querySelector('.cards-container')
 
 const productList = [];
@@ -11,7 +11,7 @@ const productList = [];
 
 menuEmail.addEventListener('click', toggleMailMenu);
 burgerMenu.addEventListener('click', toggleMobileMenu);
-menuCarritoIcon.addEventListener('click', toggleCarritoAside)
+menuCarritoIcon.addEventListener('click', toggleCarritoShoppingCartContainer)
 
 // Vamos a crear nuestras funciones a partir de:
 // * si uno de nuestros elementos contiene la clase "inactive" (está cerrado),
@@ -20,29 +20,29 @@ menuCarritoIcon.addEventListener('click', toggleCarritoAside)
 // Con esto evitamos que los menues se pisen.
 
 function toggleMailMenu(){
-    aside.classList.add('inactive');
+    shoppingCartContainer.classList.add('inactive');
     desktopMenu.classList.toggle('inactive');
 
 }
 
 function toggleMobileMenu(){
-    const isAsideClosed = aside.classList.contains('inactive');
+    const isShoppingCartContainerClosed = shoppingCartContainer.classList.contains('inactive');
 
-    if(!isAsideClosed){
-        aside.classList.add('inactive');
+    if(!isShoppingCartContainerClosed){
+        shoppingCartContainer.classList.add('inactive');
     }
 
     mobileMenu.classList.toggle('inactive');
 }
 
-function toggleCarritoAside(){
+function toggleCarritoShoppingCartContainer(){
     const isMobileMenuClosed = mobileMenu.classList.contains('inactive');   
 
     if(!isMobileMenuClosed) {
         mobileMenu.classList.add('inactive');
     }
     desktopMenu.classList.add('inactive');
-    aside.classList.toggle('inactive');
+    shoppingCartContainer.classList.toggle('inactive');
 }
 
 // Para evitar hardcodear nuestros productos en nuestro html, vamos a crearlos con js
