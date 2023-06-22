@@ -3,7 +3,7 @@ const menuHamIcon = document.querySelector('.menu');
 const menuCarritoIcon = document.querySelector('.navbar-shopping-cart');
 const desktopMenu = document.querySelector('.desktop-menu');
 const mobileMenu = document.querySelector('.mobile-menu');
-const aside = document.querySelector('.product-detail');
+const aside = document.querySelector('.product-detail-carrito');
 const cardsContainer = document.querySelector('.cards-container');
 
 menuEmail.addEventListener('click', toggleDesktopMenu);
@@ -67,8 +67,8 @@ function renderProducts(arr) {
     const productImg = document.createElement('img');
     productImg.setAttribute('src', product.image);
 
-    const productInfo = document.createElement('div');
-    productInfo.classList.add('product-info');
+    const productInfoList = document.createElement('div');
+    productInfoList.classList.add('product-info-list');
 
     const productInfoDiv = document.createElement('div');
 
@@ -86,11 +86,11 @@ function renderProducts(arr) {
 
     productInfoFigure.appendChild(productImgCart);
 
-    productInfo.appendChild(productInfoDiv);
-    productInfo.appendChild(productInfoFigure);
+    productInfoList.appendChild(productInfoDiv);
+    productInfoList.appendChild(productInfoFigure);
 
     productCard.appendChild(productImg);
-    productCard.appendChild(productInfo);
+    productCard.appendChild(productInfoList);
 
     cardsContainer.appendChild(productCard);
   }
