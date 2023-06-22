@@ -28,7 +28,8 @@ nav {
     border-bottom: 1px solid var(--very-light-pink);
 }
 
-.menu {
+.hamMenu {
+    cursor: pointer;
     display: none;
 }
 
@@ -78,6 +79,7 @@ nav {
 
 .navbar-shopping-cart {
     position: relative;
+    cursor: pointer;
 }
 
 .navbar-shopping-cart div {
@@ -183,7 +185,6 @@ nav {
 
 .product-detail {
     background-color: var(--white) ;
-    cursor: pointer;
     width: 360px;
     padding: 0 24px;
     box-sizing: border-box;
@@ -272,7 +273,7 @@ nav {
 }
 
 @media (max-width: 640px) {
-    .menu {
+    .hamMenu {
         display: block;
     }
 
@@ -294,9 +295,7 @@ nav {
 }
 
 @media (min-width: 641px) {
-    .hamMenu {
-        display: none;
-    }
+
     .mobile-menu {
         display: none;
     }
