@@ -59,6 +59,7 @@ function showMenu() {
 	desktopMenu.addEventListener('mouseenter', openMenu);
 	desktopMenu.addEventListener('mouseleave', hideMenu);
 	cartIcon.addEventListener('click', hideMenu);
+	cartIcon.addEventListener('mouseenter', hideMenu);
 };
 
 
@@ -117,21 +118,13 @@ function shoppingCart() {
 	let isCartMenuOpen = false;
   
 	function showShoppingMenu() {
+
 	  shoppingCartMenu.classList.toggle('inactive');
-	  isCartMenuOpen = true;
-  
-	  if (isCartMenuOpen) {
-		desktopMenu.style.visibility = 'hidden'; //Alternative to: setAttribute...
-	  } else {
-		desktopMenu.style.visibility = 'visible';
-	  }
 	}
   
 	function handleDocumentClick(event) {
 	  if (!shoppingCartMenu.contains(event.target) && !shoppingCartIcon.contains(event.target)) {
 		shoppingCartMenu.classList.add('inactive');
-		isCartMenuOpen = false;
-		desktopMenu.style.visibility = 'visible';
 	  }
 	}
   
