@@ -163,7 +163,7 @@
   #shoppingCartContainer {
     padding: 0 24px;
   }
-  #product-detail-close {
+  .product-detail-close {
     background: var(--white);
     width: 14px;
     height: 14px;
@@ -174,7 +174,7 @@
     padding: 12px;
     border-radius: 50%;
   }
-  #product-detail-close:hover {
+  .product-detail-close:hover {
     cursor: pointer;
   }
   #product-detail > img:nth-child(2) {

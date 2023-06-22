@@ -3,12 +3,16 @@ const desktopMenu = document.querySelector('.desktop-menu')
 const menuHamIcon = document.querySelector('.menu')
 const mobileMenu = document.querySelector('.mobile-menu')
 const menuCarrito = document.querySelector('.navbar-shopping-cart')
+const productDetailCloseIcon = document.querySelector(".product-detail-close")
 const shoppingCartContainer = document.querySelector('#shoppingCartContainer')
+const productDetailContainer = document.querySelector('#product-detail')
 const cardsContainer = document.querySelector('.cards-container')
 
 menuEmail.addEventListener('click', toggleDesktopMenu)
 menuHamIcon.addEventListener('click', toggleMobileMenu)
 menuCarrito.addEventListener('click', toggleMenuCarrito)
+productDetailCloseIcon.addEventListener('click', closeProductDetailAside)
+
 
 function toggleDesktopMenu() {
     const isShoppingCartContainerClose = shoppingCartContainer.classList.contains('inactive')
@@ -23,17 +27,32 @@ function toggleMobileMenu() {
         shoppingCartContainer.classsList.add('inactive')
     }
     mobileMenu.classList.toggle('inactive')
+    closeProductDetailAside()
 }
 function toggleMenuCarrito() {
     const isDesktopMenuClose = desktopMenu.classList.contains('inactive')
     const isMobileMenuOpen = mobileMenu.classList.contains('inactive')
+    const isShoppingCartContainerClose = shoppingCartContainer.classList.contains('inactive')
     if (!isDesktopMenuClose){
         desktopMenu.classList.add('inactive')
     }
     else if (!isMobileMenuOpen){
         mobileMenu.classList.add('inactive')
     }
+    
+    else if (!isShoppingCartContainerClose){
+        productDetailContainer.classsList.add('inactive')
+    }
     shoppingCartContainer.classList.toggle("inactive")
+}
+
+function openProductDetail(){
+    productDetailContainer.classList.remove("inactive")
+}
+
+function closeProductDetailAside(){
+    productDetailContainer.classList.add("inactive")
+    shoppingCartContainer.classList.add('inactive')
 }
 
 const productList = []
@@ -60,6 +79,7 @@ function renderProduct(arr){
     for (product of arr){
         const productCard = document.createElement('div')
         productCard.classList.add('product-card')
+        productCard.addEventListener('click', openProductDetail)
      
         const productImg = document.createElement('img')
         productImg.setAttribute('src', product.image)
