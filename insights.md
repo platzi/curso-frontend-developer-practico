@@ -1,0 +1,1 @@
+--> Sometimes, the easiest solution is the best.
