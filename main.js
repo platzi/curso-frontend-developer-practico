@@ -85,7 +85,7 @@ function renderProducts(array) {
     const productImg = document.createElement("img");
 
     // Modificación de atributos
-    productImg.src = product.image;
+    productImg.setAttribute('src', product.image);
     priceParagraph.innerText = `$${product.price}`;
     nameParagraph.innerText = product.name;
     figureImg.setAttribute("src", "./icons/bt_add_to_cart.svg");
