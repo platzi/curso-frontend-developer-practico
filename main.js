@@ -106,7 +106,7 @@ function renderProducts(arr) {
     
         const productInfoFigure = document.createElement('figure');
         const productImgCart = document.createElement('img');
-        productImgCart.setAttribute('src', 'https://images.pexels.com/photos/276517/pexels-photo-276517.jpeg?auto=compress&cs=tinysrgb&dpr=2&h=650&w=940');
+        productImgCart.setAttribute('src', './icons/bt_add_to_cart.svg');
     
         productInfoFigure.appendChild(productImgCart);
     
