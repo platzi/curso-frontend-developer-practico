@@ -14,6 +14,11 @@ function toggleDesktopMenu(){
 }
 
 function toggleMobileMenu(){
+    const isAsideClosed = aside.classList.contains('inactive');   
+    if (!isAsideClosed){
+        aside.classList.add('inactive');
+    }
+
     mobileMenu.classList.toggle('inactive');
 }
 
