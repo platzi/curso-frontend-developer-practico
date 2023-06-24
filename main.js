@@ -49,10 +49,10 @@ const productList = [];
 // La idea de hacerlo así es que en el futuro se pueda llenar con una API.
 
 productList.push({
-  name: "Bike",
+  name: "Teclado Gamer",
   price: 120,
   image:
-    "https://images.pexels.com/photos/276517/pexels-photo-276517.jpeg?auto=compress&cs=tinysrgb&dpr=2&h=650&w=940",
+    "https://xavierventas.com/wp-content/uploads/2021/11/Combo-Teclado-Gamer-ONIKUMA-G26-CW905-6.jpg",
 });
 
 productList.push({
@@ -63,7 +63,7 @@ productList.push({
 });
 
 productList.push({
-  name: "Monitor",
+  name: "Monitor Gamer",
   price: 250,
   image: "https://i.blogs.es/19315c/mejores-monitores-gaming/840_560.jpeg",
 });
