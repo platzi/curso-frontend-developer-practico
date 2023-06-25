@@ -1,0 +1,515 @@
+/*Variables generales*/
+
+:root { /*Esto dice que van a haber variables en css*/
+    --black: #000000;
+    --white:#FFFFFF;
+    --very-light-pink:#C7C7C7;
+    --text-input-field:#f7f7f7;
+    --hospital-green:#ACD9B2;
+    /*Estas variables ya están predeterminadas por los standars del proyecto*/
+    --lg:18px; /*tamaño de letras*/
+    --md:16px;
+    --sm:14px;
+}
+body {
+    margin: 0px;
+    font-family: 'Quicksand', sans-serif;
+}
+
+.inactive { /*Pone esta clase para ocultar cualquier cosa*/
+    display: none !important;
+}
+
+/*Navbar general*/
+nav {
+    display: flex;
+    justify-content: space-between;
+    margin:0px 20px;
+    border-bottom: 1px solid var(--very-light-pink);
+}
+
+.menu {
+    display: none;  /*Ocultar algo*/
+}
+
+.logo {
+    width: 100px;
+}
+
+.navbar-left {
+    display: flex;
+}
+
+.navbar-left ul {
+    margin-left: 12px;
+}
+
+.navbar-left ul,
+.navbar-right ul {
+    height: 60px;
+    align-items: center;
+    list-style: none;
+    padding: 0px;
+    display: flex;
+    margin: 0px;
+}
+
+.navbar-left ul li a,
+.navbar-right ul li a{
+    margin-right: 8px;
+    text-decoration: none;
+    color: var(--very-light-pink);
+    border: 4px solid var(--white);
+    padding: 8px;
+    border-radius: 8px;
+}
+
+.navbar-left ul li a:hover,
+.navbar-right ul li a:hover{
+    margin-right: 8px;
+    color: var(--hospital-green);
+    border: 4px solid var(--hospital-green);
+}
+
+.navbar-right ul li {
+    margin-right: 16px;
+    color: var(--very-light-pink);
+    font-size: var(--sm);
+}
+
+.navbar-sopping-card {
+    position: relative /*Para poner el icono
+    verde sobre el carrito */
+}
+
+.navbar-sopping-card div {
+    position: absolute;
+    top: -8px;
+    right: -8px;/*Recuerda, esto es importante.*/
+    height: 16px;
+    width: 16px;
+    font-size: var(--sm);
+    border-radius: 8px;
+    color: var(--white);
+    font-weight: bold;
+    background-color: var(--hospital-green);
+    display: flex; /*Centrar el dos con el eje Y y X*/
+    justify-content: center; /*X*/
+    align-items: center; /*Y*/
+}
+
+.navbar-sopping-card:hover {
+    cursor: pointer;
+}
+
+
+/*Estilos de lista desplegable al hacer clic sobre el correo*/
+
+.desk-menu {
+    position: absolute; /*Habilita las opciones top, left etc*/
+    top: 59.8px;
+    right: 64px;
+    background-color: var(--white);
+    width: 100px;
+    height: auto;
+    border: 1px solid var(--very-light-pink);
+    border-radius: 8px;
+    padding: 20px 20px 0px 20px;
+}
+
+.desk-menu ul { /*Quitar las viñetas de la lista desplegable*/
+    list-style: none;
+    padding: 0px;
+    margin: 0px
+}
+
+.desk-menu ul li { /*Posicionar las opciones*/
+    text-align: end;
+}     
+
+.desk-menu ul li:nth-child(1),
+.desk-menu ul li:nth-child(2) { 
+    font-weight: bold;
+}     
+
+.desk-menu ul li:last-child {
+    padding-top: 20px;
+    border-top: 1px solid var(--very-light-pink);
+}
+
+.desk-menu ul li a {
+    color: var(--black);
+    text-decoration: none;
+    margin-bottom: 20px;
+    display: inline-block; /*Hay ocasiones en las que los margin-btm... 
+    no funcionan porque hay etiquetas que son tipo inline y no tienen 
+    propiedades verticales. Por eso, se le pone esta propiedad*/
+}
+
+.desk-menu ul li:last-child a {
+    color: var(--hospital-green);
+    font-size: var(--sm);
+}
+
+.mail:hover {
+    cursor: pointer;
+    color: var(--hospital-green)
+}
+
+/*menú lateral izquierdo del mobile*/
+
+.mobile-menu {
+    display: flex;
+    flex-direction: column;
+    justify-content: space-between;
+    position: absolute; /*No interfiere con el navbar*/
+    height: 90vh;
+    width: 100%;
+    top: 60px;
+    left: 0px;
+    background-color: var(--white);
+    padding: 24px; 
+}
+.mobile-menu a {
+    color: var(--black);
+    text-decoration: none;
+    font-weight: bold;
+    /*Cuando NO podemos darle un bottom desde un selector 
+    tipo line, intenta ver su padre, tal vez desde ahí podamos ponerle propiedades block*/
+}
+.mobile-menu ul {
+    list-style: none;
+    margin: 40px 0px 0px 0px;
+    padding: 0px;
+}
+.mobile-menu ul:nth-child(1) {
+    border-bottom: 1px solid var(--very-light-pink);
+}
+.mobile-menu ul li {
+    margin-bottom: 20px; /*Para hacer que los a tengan bottom*/
+    
+}
+
+.email {
+    font-size: var(--sm);
+    font-weight: 300 !important;
+}
+.sign-out {
+    color: var(--hospital-green) !important;
+    font-size: var(--sm);
+}
+
+/*General*/
+aside {
+    width: 340px;
+    position: absolute;
+    right: 0px;
+    box-sizing: border-box;
+    background-color: var(--white);
+}
+
+/*Aside carrito de compras*/
+
+.my-order {
+    width: 100%;
+    height: 100%;
+    display:grid;
+    place-items: center;   
+}
+
+.container {
+    display: grid;
+    grid-template-rows: auto 1fr auto;
+    width: 300px;
+}
+
+.title-container {
+    display: flex; /*Alinear la imágen con el texto*/
+    padding: 0px 24px 24px 24px;
+}
+
+.title-container img {
+    transform: rotate(180deg); /*Girar una imágen*/
+    margin-right: 14px;
+}
+
+.title {
+    font-size: var(--lg);
+    font-weight: bold;
+}
+
+.order p:nth-child(1) {
+    display: flex;
+    flex-direction: column;
+    margin-bottom: 8px;
+}
+
+.order p span:nth-child(1) {
+    font-size: var(--md);
+    font-weight: bold;
+}
+
+.order p span:nth-child(2) {
+    font-size: var(--sm);
+    color: var(--very-light-pink);
+}
+
+.order p:nth-child(2) {
+    text-align: end;
+    font-weight: bold;
+}
+
+.shopping-card {
+    display: grid;
+    grid-template-columns: auto 1fr auto auto;
+    gap: 16px;
+    margin-bottom: 24px;
+    align-items:center;
+    padding: 0px 24px;
+}
+
+.shopping-card figure img{
+    width: 70px;
+    height: 70px;
+    border-radius: 12px;
+    object-fit: cover;
+}
+
+.shopping-card figure {
+    margin: 0px;
+}
+
+.shopping-card p:nth-child(2) {
+    color: var(--very-light-pink);
+}
+
+.shopping-card p:nth-child(3) {
+    font-weight: bold;
+    font-size: var(--md);
+}
+
+.icon-close {
+    cursor: pointer;
+}
+
+.my-order-content {
+    display: flex;
+    flex-direction: column;
+}
+
+.order {
+    display: grid;
+    grid-template-columns: auto 1fr;
+    gap: 16px;
+    align-items: center;
+    background-color: var(--text-input-field);
+    border-radius: 12px;
+    margin-bottom: 20px;
+    padding: 0px 24px;
+}
+
+.primary-button {
+    display: flex;
+    align-items: center; /*Y*/
+    justify-content: center; /*X*/
+    background-color: var(--hospital-green);
+    border-radius: 8px;
+    border: none;
+    color: var(--white);
+    font-size: var(--md);
+    font-weight: bold;
+    width: 100%;
+    height: 48px;
+    cursor:pointer;
+    margin-top: 20px;
+    margin-bottom: 30px;
+    padding: 24px;
+}
+
+/*Lista de Productos*/
+
+.product-card {
+    width: 140px;
+    
+}
+
+.img-art {
+    width: 100%;
+    height: 140px;
+    border-radius: 12px;
+}
+
+body {
+    font-family: 'Quicksand', sans-serif; /*Así no se repite lo mismo en n 
+    cantidad de etiquetas, y es más especifico*/
+    margin: 0;
+}
+
+.cards-container {
+    display: grid;
+    grid-template-columns: repeat(auto-fill, 240px); /*Hace que haya una columba cada 240px*/
+    gap: 24px; /*No funciona sin una grid, y manipula el tamaño de las canaletas que separan las cards*/
+    place-content: center; /*No funciona sin una grid. Y centra la tabla*/
+    margin-top: 20px;
+}
+
+.product-card {
+    width: 240px;
+}
+
+.img-art {
+    width: 100%;
+    height: 240px;
+    border-radius: 16px;
+    object-fit: cover; /*Permite que la imágen tenga su tamaño original, independientemente de su height y width*/
+}
+
+.product-inf {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    margin-top: 12px;
+}
+
+.icon-status {
+    margin:auto 0px;
+    width: 36px;
+    height: 36px;
+}
+
+.icon-status {
+    width: 36px;
+    height: 36px;
+}
+.product-inf div p:nth-child(1) {
+    font-size: var(--md);
+    color: var(--black);
+    font-weight: bold;
+    margin-top: 0px;
+    margin-bottom: 4px;
+}
+
+.product-inf div p:nth-child(2) {
+    font-size: var(--sm);
+    color: var(--very-light-pink);
+    margin-top: 0px;
+    margin-bottom: 0px;
+}
+
+/* Detalles del producto */
+
+#product-detail {
+    top: 60px;
+}
+
+.close-product-inf {
+    background-color: var(--white);
+    position: absolute;
+    width: 8px;
+    height: 8px;
+    margin: 0px;
+    padding: 8px;
+    border-radius: 50%;
+    top:12px;
+    left: 12px;
+    z-index: 2;
+}
+
+.close-product-inf:hover {
+    cursor: pointer;
+}
+
+.product-img {
+    width: 100%;
+    height: 360px;
+    border-radius: 0px 0px 20px 20px;
+    object-fit: cover;
+}
+
+.product-info {
+    margin:24px 24px 0px 24px;
+}
+.product-info p:nth-child(1) {
+    font-weight: bold;
+    font-size: var(--md);
+    margin-top: 8px;
+    margin-bottom: 4px;
+}
+
+.product-info p:nth-child(2) {
+    color: var(--very-light-pink);
+    font-size: var(--md);
+    margin-top: 0px;
+    margin-bottom: 36px;
+}
+
+.product-info p:nth-child(3) {
+    color: var(--very-light-pink);
+    font-size: var(--sm);
+    margin-top: 0px;
+    margin-bottom: 36px;
+}
+
+.primary-button {
+    display: flex;
+    align-items: center; /*Y*/
+    justify-content: center; /*X*/
+    background-color: var(--hospital-green);
+    border-radius: 8px;
+    border: none;
+    color: var(--white);
+    font-size: var(--md);
+    font-weight: bold;
+    width: 100%;
+    height: 48px;
+    cursor:pointer;
+    margin-top: 20px;
+    margin-bottom: 30px;
+    padding: 24px;
+}
+
+@media (max-width:620px) {
+    nav {
+        width: 100%;
+    }
+    .menu {
+        display: block; /*Mostrar lo que se ocultaba
+        En este caso, el icono lateral izquierdo*/
+    }
+
+    .navbar-left ul,
+    .mail,
+    .desk-menu  {
+        display: none;
+    }
+
+    aside {
+        width: 100%;
+    }            
+    .container {
+        width: 520px;
+    }
+
+    .cards-container {
+        grid-template-columns: repeat(auto-fill, 140px); /*Hace que haya una columba cada 240px*/
+        gap: 12px; /*No funciona sin una grid, y manipula el tamaño de las canaletas que separan las cards*/
+    }
+
+    .product-card {
+        width: 140px;
+    }
+
+    .img-art {
+        width: 100%;
+        height: 140px;
+        border-radius: 12px;
+    }
+}
+
+@media (min-width:619px) {
+    .mobile-menu {
+        display: none;
+    }
+
+}
+

@@ -1,0 +1,211 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <!--Esto viene de google fonts-->
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Quicksand:wght@300;500;700&display=swap" rel="stylesheet">
+    <!--Ver la linea __ de estilos, body para agregar esa fuente al html-->
+    
+    <link rel="stylesheet" href="./styles.css">
+
+    <title>YardSale: online store</title>
+    
+</head>
+<body>
+    <nav>
+        <img src="./icons/icon_menu.svg" alt="menu" class="menu">
+        <div class="navbar-left">
+            <img src="./logos/logo_yard_sale.svg" alt="icon" class="logo">
+            <ul>
+                <li> 
+                    <a href="/">All</a>
+                </li>
+                <li> 
+                    <a href="/">Clothes</a>
+                </li>
+                <li> 
+                    <a href="/">Electronics</a>
+                </li>
+                <li> 
+                    <a href="/">Furniturres</a>
+                </li>
+                <li> 
+                    <a href="/">Toys</a>
+                </li>
+                <li> 
+                    <a href="/">Others</a>
+                </li>
+            </ul>
+        </div>
+        <div class="navbar-right">
+            <ul>
+                <li class="mail">
+                    example.server.com
+                </li>
+                <li class="navbar-sopping-card"> 
+                    <img src="./icons/icon_shopping_cart.svg" alt="shopping-car">                
+                    <div>2</div>
+                </li>
+            </ul>
+        </div>
+
+        <div class="desk-menu inactive"> <!--Inactive es para mostrar o ocultar el contenido con js-->
+            <ul>
+                <li>
+                    <a href="/" class="title">My orders</a>
+                </li>
+                <li>
+                    <a href="/">My account</a>
+                </li>
+                <li>
+                    <a href="/">Sign out</a>
+                </li>
+    
+            </ul>
+        </div>
+
+        <div class="mobile-menu inactive">
+            <ul>
+                <li>
+                    <a href="/">CATEGORIES</a>
+                </li>
+                <li>
+                    <a href="/">All</a>
+                </li>
+                <li>
+                    <a href="/">Clothes</a>
+                </li>
+                <li>
+                    <a href="/">Electronics</a>
+                </li>
+                <li>
+                    <a href="/">Furnitures</a>
+                </li>
+                <li>
+                    <a href="/">Toys</a>
+                </li>
+                <li>
+                    <a href="/">Others</a>
+                </li>
+            </ul>
+    
+            <ul>
+                <li>
+                    <a href="/">My orders</a>
+                </li>
+                <li>
+                    <a href="/">My account</a>
+                </li>
+            </ul>
+    
+            <ul>
+                <li>
+                    <a href="/" class="email">example@gmal.com</a>
+                </li>
+                <li>
+                    <a href="/" class="sign-out">Sign out</a>
+                </li>
+            </ul>
+        
+        </div>
+
+    </nav>
+
+    <aside id="shopping-cart-cont" class="inactive">
+
+        <div class="my-order">
+            <div class="container">
+                <div class="title-container">
+                    <img src="./icons/flechita.svg" alt="back">
+                    <p class="title">Shopping cart</p>
+                </div>
+    
+                <section class="shopping-card">
+                    <figure>
+                        <img src="https://images.pexels.com/photos/276517/pexels-photo-276517.jpeg?auto=compress&cs=tinysrgb&dpr=2&h=650&w=940" alt="bike"/>
+                    </figure>
+                    <p>Bike</p>
+                    <p>$20,00</p>
+                    <img src="./icons/icon_close.png" class="icon-close" alt="close">
+                </section>
+    
+                <section class="shopping-card">
+                    <figure>
+                        <img src="https://images.pexels.com/photos/276517/pexels-photo-276517.jpeg?auto=compress&cs=tinysrgb&dpr=2&h=650&w=940" alt="bike"/>
+                    </figure>
+                    <p>Bike</p>
+                    <p>$20,00</p>
+                    <img src="./icons/icon_close.png" class="icon-close" alt="close">
+                </section>
+    
+                <section class="shopping-card">
+                    <figure>
+                        <img src="https://images.pexels.com/photos/276517/pexels-photo-276517.jpeg?auto=compress&cs=tinysrgb&dpr=2&h=650&w=940" alt="bike"/>
+                    </figure>
+                    <p>Bike</p>
+                    <p>$20,00</p>
+                    <img src="./icons/icon_close.png" class="icon-close" alt="close">
+                </section>
+    
+                <section class="my-order-content"> <!--La parte gris que indica la fecha, el total y la cantidad de arículos-->
+                    <div class="order">
+                        <p>
+                            <span>04.01.2021</span>
+                            <span>6 articles</span>
+                        </p>
+                        <p>$560.00</p>
+                    </div>
+                    <button class="primary-button">
+                        Checkout
+                    </button>
+                </section>
+            </div>
+        </div>            
+    </aside>
+
+    <section class="main-container"> <!--Todo lo visible-->
+        <div class="cards-container"> <!-- El sistema de grids, no va directamente el section -->
+        <!--    <div class="product-card"> El contenido de los productos
+                <img class="img-art" src="https://images.pexels.com/photos/276517/pexels-photo-276517.jpeg?auto=compress&cs=tinysrgb&dpr=2&h=650&w=940" alt="">
+                <div class="product-inf"> Hace que el flexbox se divida en dos
+                    <div>
+                        <p>$120,00</p>
+                        <p> Bike</p>
+                    </div>
+                    <figure class="icon-status">
+                        <img src="./icons/bt_add_to_cart.svg"/>
+                    </figure>
+                </div>
+            </div>  -->
+        </div>
+    </section> 
+
+    <aside id="product-detail" class="inactive">
+        <figure class="close-product-inf">
+            <img src="./icons/icon_close.png" alt="close">
+        </figure>
+        
+            <img class="product-img" src="https://images.pexels.com/photos/276517/pexels-photo-276517.jpeg?auto=compress&cs=tinysrgb&dp
+            r=2&h=650&w=940" alt="bike">
+        
+        <div class="product-info">
+            <p>$120,0</p>
+            <p>Bike</p>
+            <p>Wish its functional and practical interior, this
+                bike also fulfills a decorative function.
+            </p>
+            <button class="primary-button">
+                <img src="./icons/bt_add_to_cart.svg" alt="Add
+                to cart">
+                Add to cart
+            </button>
+        </div>
+    </aside>
+
+    <script src="./main.js"></script>
+</body>
+</html>
