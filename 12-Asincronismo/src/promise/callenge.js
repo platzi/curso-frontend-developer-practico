@@ -5,18 +5,16 @@ function fetchData( urlApi ) {
   return fetch( urlApi )
 }
 
-// fetchData( `${ API }/products` )
-//   .then( response => response.json() )
-//   .then( products => {
-//     console.log( products );
-//   })
-//   .catch( error => console.log( error ));
-
 fetchData( `${ API }/products` )
   .then( response => response.json() )
   .then( products => {
-    console.log( products );
-    return fetchData( `${ API }/products/${ products[ 0 ].id }` )
+    const product = products.find( item => item.id === 19 )
+    console.log( product );
+    if( product ) {
+      return fetchData( `${ API }/products/${ products.id }` )
+    } else {
+      throw new Error( 'El producto no existe' )
+    }
   })
   .then( response => response.json() )
   .then( product => {
