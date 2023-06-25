@@ -159,13 +159,16 @@ nav {
 /*menú lateral izquierdo del mobile*/
 
 .mobile-menu {
-    padding: 24px; 
     display: flex;
     flex-direction: column;
     justify-content: space-between;
-    height: 90vh;
     position: absolute; /*No interfiere con el navbar*/
+    height: 90vh;
+    width: 100%;
     top: 60px;
+    left: 0px;
+    background-color: var(--white);
+    padding: 24px; 
 }
 .mobile-menu a {
     color: var(--black);
@@ -196,15 +199,16 @@ nav {
     font-size: var(--sm);
 }
 
-/*Aside carrito de compras*/
-
-.product-detail {
+/*General*/
+aside {
     width: 340px;
     position: absolute;
     right: 0px;
     box-sizing: border-box;
     background-color: var(--white);
 }
+
+/*Aside carrito de compras*/
 
 .my-order {
     width: 100%;
@@ -326,6 +330,7 @@ nav {
 
 .product-card {
     width: 140px;
+    
 }
 
 .img-art {
@@ -391,6 +396,78 @@ body {
     margin-bottom: 0px;
 }
 
+/* Detalles del producto */
+
+#product-detail {
+    top: 60px;
+}
+
+.close-product-inf {
+    background-color: var(--white);
+    position: absolute;
+    width: 8px;
+    height: 8px;
+    margin: 0px;
+    padding: 8px;
+    border-radius: 50%;
+    top:12px;
+    left: 12px;
+    z-index: 2;
+}
+
+.close-product-inf:hover {
+    cursor: pointer;
+}
+
+.product-img {
+    width: 100%;
+    height: 360px;
+    border-radius: 0px 0px 20px 20px;
+    object-fit: cover;
+}
+
+.product-info {
+    margin:24px 24px 0px 24px;
+}
+.product-info p:nth-child(1) {
+    font-weight: bold;
+    font-size: var(--md);
+    margin-top: 8px;
+    margin-bottom: 4px;
+}
+
+.product-info p:nth-child(2) {
+    color: var(--very-light-pink);
+    font-size: var(--md);
+    margin-top: 0px;
+    margin-bottom: 36px;
+}
+
+.product-info p:nth-child(3) {
+    color: var(--very-light-pink);
+    font-size: var(--sm);
+    margin-top: 0px;
+    margin-bottom: 36px;
+}
+
+.primary-button {
+    display: flex;
+    align-items: center; /*Y*/
+    justify-content: center; /*X*/
+    background-color: var(--hospital-green);
+    border-radius: 8px;
+    border: none;
+    color: var(--white);
+    font-size: var(--md);
+    font-weight: bold;
+    width: 100%;
+    height: 48px;
+    cursor:pointer;
+    margin-top: 20px;
+    margin-bottom: 30px;
+    padding: 24px;
+}
+
 @media (max-width:620px) {
     nav {
         width: 100%;
@@ -406,7 +483,7 @@ body {
         display: none;
     }
 
-    .product-detail {
+    aside {
         width: 100%;
     }            
     .container {
