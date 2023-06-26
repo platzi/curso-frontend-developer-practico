@@ -19,9 +19,11 @@
     justify-content: space-between;
     padding: 0 24px;
     border-bottom: 1px solid var(--very-light-pink);
+    background-color: var(--white);
     }
   .menu {
     display: none;
+    cursor: pointer;
     }
   .logo {
     width: 100px;
@@ -80,6 +82,7 @@
   @media (max-width: 640px) {
     .menu {
       display: block;
+
     }
     .navbar-left ul {
       display: none;
@@ -89,6 +92,7 @@
     }
   }
 
+  /* Menu en tamaño escritorio, para el mail del usuario */
   .desktop-menu {
     display: flex;
     flex-direction: row;
@@ -102,7 +106,6 @@
     padding: 20px 20px 0 20px;
     position: absolute;
     background-color: var(--white);
-
   }
   .desktop-menu ul {
     list-style: none;
@@ -129,4 +132,54 @@
     text-decoration: none;
     margin-bottom: 20px;
     display: inline-block;
+  }
+  @media (max-width: 640px) {
+    .desktop-menu {
+        display: none !important;
+        }  
+  }
+
+/* Menu en tamaño mobile, para el icono hamburguesa */
+  .mobile-menu {
+    display: flex;
+    flex-direction: column;
+    padding: 24px;
+    position: absolute;
+    display: none;
+    top: 61px;
+    left: 0;
+    background-color: var(--white);
+    box-shadow: 0 1px 10px 0 rgb(0, 0, 0, 0.2);
+    z-index: -1;
+    height: calc(100% - 109px);
+  }
+  @media (min-width: 641px) {
+    .mobile-menu {
+        display:none !important;
+        }
+  }
+  .mobile-menu a {
+    text-decoration: none;
+    color: var(--black);
+    font-weight: bold;
+    /* margin-bottom: 24px; */
+  }
+  .mobile-menu ul {
+    padding: 0;
+    margin: 24px 0 0;
+    list-style: none;
+  }
+  .mobile-menu ul:nth-child(1) {
+    border-bottom: 1px solid var(--very-light-pink);
+  }
+  .mobile-menu ul li {
+    margin-bottom: 24px;
+  }
+  .email {
+    font-size: var(--sm);
+    font-weight: 300 !important;
+  }
+  .sign-out {
+    font-size: var(--sm);
+    color: var(--hospital-green) !important;
   }
