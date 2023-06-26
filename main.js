@@ -69,32 +69,107 @@ function cartIcon() {
 	let shoppingCartIcon = document.querySelector('.navbar-shopping-cart');
 	let shoppingCartMenu = document.querySelector('.product-detail');
 	let desktopMenu = document.querySelector('.desktop-menu');
-  
+
 	function showShoppingMenu() {
-	  shoppingCartMenu.classList.toggle('inactive');
-	  if (shoppingCartMenu.classList.contains('inactive')) {
-		desktopMenu.style.visibility = "visible";
-	  } else {
-		desktopMenu.style.visibility = "hidden";
-	  }
+		shoppingCartMenu.classList.toggle('inactive');
+		if (shoppingCartMenu.classList.contains('inactive')) {
+			desktopMenu.style.visibility = "visible";
+		} else {
+			desktopMenu.style.visibility = "hidden";
+		}
 	}
-  
+
 	function handleDocumentClick(event) {
-	  if (!shoppingCartMenu.contains(event.target) && !shoppingCartIcon.contains(event.target)) {
-		shoppingCartMenu.classList.add('inactive');
-		desktopMenu.style.visibility = "visible";
-	  }
+		if (!shoppingCartMenu.contains(event.target) && !shoppingCartIcon.contains(event.target)) {
+			shoppingCartMenu.classList.add('inactive');
+			desktopMenu.style.visibility = "visible";
+		}
 	}
-  
+
 	shoppingCartIcon.addEventListener('click', showShoppingMenu);
 	document.addEventListener('click', handleDocumentClick);
-  }
+}
+
 
 emailMenu();
 mobileHamburgerMenu();
 cartIcon();
 
+//This is where I should query a database to get a resultSet/row/table of results that match an object
+//If this were java(of strongly typed lang), a class with all the specific data types would be necessary 
+//to store all the columns of the database into each object.
+const productList = [];
+productList.push(
+	{
+		name: "Rainbow Five",
+		price: 99.95,
+		urlImg: "https://img.freepik.com/free-photo/cool-roller-skate-still-life_23-2150304799.jpg?t=st=1687778130~exp=1687778730~hmac=241b2465aa354253729ebfd64ce065b2c5f8d329e07fa8a3784ef3ca49f52e52&w=740"
+	},
 
+	{
+		name: "Rainbow Six",
+		price: 119.95,
+		urlImg: "https://img.freepik.com/free-photo/cool-roller-skate-still-life_23-2150304807.jpg?t=st=1687772830~exp=1687773430~hmac=987166a4afcbe72f190a078bd4ff7f9a03a5a025041a361ce2ae9c1e00435598&w=740"
+	},
+	{
+		name: "Pink Future",
+		price: 132.95,
+		urlImg: "https://img.freepik.com/free-photo/cool-roller-skate-still-life_23-2150304791.jpg?t=st=1687772878~exp=1687773478~hmac=ab016b44dddeb854d4e4b0c5ccda4dd473c7fe40c6c64ba3da6485f16679b572&w=740"
+	},
+	{
+		name: "Purple Future",
+		price: 159.99,
+		urlImg: "https://img.freepik.com/free-photo/cool-roller-skate-still-life_23-2150304795.jpg?t=st=1687772953~exp=1687773553~hmac=8d26c5da92d5c2c656613bd44a485387f18006168f64c861c845c267fac656ee&w=740"
+	},
+	{
+		name: "Blue classic",
+		price: 99.99,
+		urlImg: "https://img.freepik.com/free-photo/cool-roller-skate-still-life_23-2150304805.jpg?t=st=1687773119~exp=1687773719~hmac=f0bba25cb1566af0070e23d5860e4d3714be0603c64e13d9fbf8a1e86c343c27&w=740"
+	},
+	{
+		name: "Cream Classic",
+		price: 89.95,
+		urlImg: "https://img.freepik.com/free-photo/cool-roller-skate-still-life_23-2150304814.jpg?t=st=1687773185~exp=1687773785~hmac=0a8867a1d7398dc826aed29a7a88a8e5ab2a04692d8d710df466bf56dc71581b&w=740"
+	}
+);
+for (product of productList) {
+	const cardsContainer = document.querySelector('.cards-container');
+
+	const productCard = document.createElement('div');
+	productCard.classList.add('product-card');
+
+	const productImg = document.createElement('img');
+	productImg.setAttribute('src', product.urlImg);
+	productImg.setAttribute('alt', 'Ups, error loading product image.')
+
+	const productData = document.createElement('div');
+	productData.classList.add('product-info');
+
+	const productDataChild = document.createElement('div');
+
+	const productPrice = document.createElement('p');
+	productPrice.innerText = '$' + product.price;
+
+	const productName = document.createElement('p');
+	productName.innerText = product.name;
+
+	const productIconFigure = document.createElement('figure');
+	const productIconImg = document.createElement('img');
+	productIconImg.setAttribute('src', './icons/bt_add_to_cart.svg')
+	productIconImg.setAttribute('alt', 'Cart Icon');
+
+	/*append() seems to easier, but appendChild() might be better in some cases: 
+	1-Old browsers compatibility
+	2-Performance when adding only 1 element/node. DOM native function
+	3-Some libraries integrate it instead of append().
+
+	Return value: append() returns undefined, while appendChild() returns the child node added.*/
+	productData.append(productDataChild, productIconFigure);
+	productDataChild.append(productPrice, productName);
+	productIconFigure.append(productIconImg);
+	productCard.append(productImg, productData);
+	cardsContainer.append(productCard);
+};
 
 //////////EXAMPLE OF REUSABLE FUNCTION: 
 /*
