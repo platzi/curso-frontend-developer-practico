@@ -274,6 +274,10 @@ aside {
   object-fit: cover;
   border-radius: 0 0 20px 20px;
 }
+/* #productDetail > img:hover {
+  cursor: pointer;
+} */
+
 #productDetail .product-info {
   margin: 24px 24px 0 24px;
 }

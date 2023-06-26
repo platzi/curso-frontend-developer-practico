@@ -1,16 +1,22 @@
 const menuEmail =document.querySelector('.navbar-email');
 const menuHamIcon = document.querySelector('.menu');
 const menuCarritoIcon = document.querySelector('.navbar-shopping-cart');
+const productDetailCloseIcon = document.querySelector('.product-detail-close');
+
+
 const desktopMenu = document.querySelector('.desktop-menu');
 const mobileMenu = document.querySelector('.mobile-menu');
 //const aside = document.querySelector('.product-detail');
 const shoppingCartContainer = document.querySelector('#shoppingCartContainer');
+const productDetailContainer = document.querySelector('#productDetail');
+
 const cardsContainer = document.querySelector('.cards-container');
 
 /*Evento que despliega u oculta el sub menu al hacer click en el mail*/ 
 menuEmail.addEventListener('click',toggleDesktopMenu);
 menuHamIcon.addEventListener('click',toggleMobileMenu);
 menuCarritoIcon.addEventListener('click',toggleCarritoAside);
+productDetailCloseIcon.addEventListener('click',closeProductDetailAside);
 
 /*Evento que despliega u oculta el sub menu al hacer click en el mail*/ 
 function toggleDesktopMenu(){ 
@@ -31,13 +37,16 @@ function toggleMobileMenu(){
         shoppingCartContainer.classList.add('inactive');
     }
 
+    closeProductDetailAside(); //cierra la información del producto siempre y cuando hagamos click en el menu de la version mobile
+
     mobileMenu.classList.toggle('inactive');
 }
 
 /*Evento que despliega u oculta el menu del carrito de compras (aside)*/ 
 function toggleCarritoAside(){
-    const isMobileMenuClosed = mobileMenu.classList.contains('inactive'); 
+    const isMobileMenuClosed = mobileMenu.classList.contains('inactive'); //contains valida si un elmento HTML tiene alguna clase con el metodo classList
     const isDesktopMenuClosed = desktopMenu.classList.contains('inactive');
+    const isProductDetailClosed = productDetailContainer.classList.contains('inactive');
         
     if (!isMobileMenuClosed) {
         mobileMenu.classList.add('inactive');
@@ -46,10 +55,25 @@ function toggleCarritoAside(){
     if(!isDesktopMenuClosed) {
         desktopMenu.classList.add('inactive');
     }
+
+    if(!isProductDetailClosed) {
+        productDetailContainer.classList.add('inactive');
+    }
     
     shoppingCartContainer.classList.toggle('inactive');    
     
 }
+
+/*Eventos para abrir y cerrar el detalle del producto haciendo click (no toggle)*/
+function openProductDetailAside(){
+    shoppingCartContainer.classList.add('inactive');
+    productDetailContainer.classList.remove('inactive');
+}
+
+function closeProductDetailAside(){
+    productDetailContainer.classList.add('inactive');
+}
+
 
 //Hardcode de productos (Esto se debe consultar de una Base de Datos con API Rest)
 const productList = [];
@@ -98,6 +122,8 @@ function renderProducts(arr) {
     
         const productImg = document.createElement('img');
         productImg.setAttribute('src',product.image);
+        //productImg.classList.add('cursor-pointer');
+        productImg.addEventListener('click',openProductDetailAside);
     
         const productInfo = document.createElement('div');
         productInfo.classList.add('product-info');
