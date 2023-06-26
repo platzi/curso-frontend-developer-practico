@@ -1,3 +1,6 @@
+// Generamos los selectores que nos permitan interactuar con el DOM
+// mediante las clases o id's... de nuestras etiquetas html
+
 const menuEmail = document.querySelector('.navbar-email');
 const desktopMenu = document.querySelector('.desktop-menu');
 const mobileMenu = document.querySelector('.mobile-menu');
@@ -5,19 +8,24 @@ const burgerMenu = document.querySelector('.menu');
 const menuCarritoIcon = document.querySelector('.navbar-shopping-cart');
 const shoppingCartContainer = document.querySelector('#shoppingCartContainer');
 const cardContainer = document.querySelector('.cards-container')
+const productDetailAsideContainer = document.querySelector('#productDetail')
+const productDetailCloseBtn = document.querySelector('.product-detail-close')
 
+// Array productList donde vamos a pushear nuestros productos
+// creamdos mediante js
 const productList = [];
 
-
+// Eventos que se desencadenan mediante, en estos casos la acción de click
 menuEmail.addEventListener('click', toggleMailMenu);
 burgerMenu.addEventListener('click', toggleMobileMenu);
-menuCarritoIcon.addEventListener('click', toggleCarritoShoppingCartContainer)
-
+menuCarritoIcon.addEventListener('click', toggleCarritoAside)
+productDetailCloseBtn.addEventListener('click', closeProductDetailAside) 
 // Vamos a crear nuestras funciones a partir de:
 // * si uno de nuestros elementos contiene la clase "inactive" (está cerrado),
 // el otro va a poder abrirse, pero en el caso de que no la contenga (está abierto),
 // la apertura de un elemento va a quitarle la clase a otro.
 // Con esto evitamos que los menues se pisen.
+// toggle (para abrir y cerrar el menú)
 
 function toggleMailMenu(){
     shoppingCartContainer.classList.add('inactive');
@@ -33,16 +41,30 @@ function toggleMobileMenu(){
     }
 
     mobileMenu.classList.toggle('inactive');
+
+    closeProductDetailAside();
 }
 
-function toggleCarritoShoppingCartContainer(){
+function toggleCarritoAside(){
     const isMobileMenuClosed = mobileMenu.classList.contains('inactive');   
+    const isProductDetailClosed = productDetailAsideContainer.classList.contains('inactive');
 
     if(!isMobileMenuClosed) {
         mobileMenu.classList.add('inactive');
+    }else if(!isProductDetailClosed) {
+        productDetailAsideContainer.classList.add('inactive');
     }
     desktopMenu.classList.add('inactive');
     shoppingCartContainer.classList.toggle('inactive');
+}
+
+function openProductDetailAside(){
+    productDetailAsideContainer.classList.remove('inactive');
+    shoppingCartContainer.classList.add('inactive');
+}
+
+function closeProductDetailAside(){
+    productDetailAsideContainer.classList.add('inactive')
 }
 
 // Para evitar hardcodear nuestros productos en nuestro html, vamos a crearlos con js
@@ -87,6 +109,14 @@ for (product of arr){
     const productImg = document.createElement('img');
     // y les asignamos los atributoa
     productImg.setAttribute('src', product.image);
+
+    // Referenciamos el evento que nos permita abrir cuando clickeamos la imagen
+    // del producto con su detalle mediante un aside
+    productImg.addEventListener('click', openProductDetailAside)
+
+    // Referenciamos el evento que nos permita cerrar el detalle de nuestros
+    // productos, mediante el evento click en el botón de cierre
+    productDetailCloseBtn.addEventListener('click', closeProductDetailAside)
 
     // Con esto generamos el contenedor para la infor del producto
     const productInfo = document.createElement('div');
