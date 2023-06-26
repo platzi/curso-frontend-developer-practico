@@ -20,6 +20,7 @@
     padding: 0 24px;
     border-bottom: 1px solid var(--very-light-pink);
     background-color: var(--white);
+    z-index: 2;
     }
   .menu {
     display: none;
@@ -64,6 +65,7 @@
   }
   .navbar-shopping-cart {
     position: relative;
+    cursor: pointer;
   }
   .navbar-shopping-cart div {
     width: 16px;
@@ -105,7 +107,8 @@
     border-radius: 6px;
     padding: 20px 20px 0 20px;
     position: absolute;
-    background-color: var(--white);
+    background-color: rgb(999, 999, 999, .5);
+    backdrop-filter: blur(10px);
   }
   .desktop-menu ul {
     list-style: none;
@@ -148,10 +151,11 @@
     display: none;
     top: 61px;
     left: 0;
-    background-color: var(--white);
+    background-color: rgb(999, 999, 999, .5);
+    backdrop-filter: blur(10px);
     box-shadow: 0 1px 10px 0 rgb(0, 0, 0, 0.2);
-    z-index: -1;
     height: calc(100% - 109px);
+    z-index: -1;
   }
   @media (min-width: 641px) {
     .mobile-menu {
@@ -182,4 +186,98 @@
   .sign-out {
     font-size: var(--sm);
     color: var(--hospital-green) !important;
+  }
+
+
+  /* Clase 13, Carrito de compras que se ve de costado en desktop y full screen en mobile */
+  .product-detail {
+    display: none;
+    flex-direction: column;
+    width: 360px;
+    padding: 24px;
+    box-sizing: border-box;
+    position: absolute;
+    right: 0;
+    height: calc(100vh - 61px);
+    z-index: -2;
+  }
+  .title-container {
+    display: flex;
+  }
+  .title-container img {
+    transform: rotate(180deg);
+    margin-right: 14px;
+  }
+  .title {
+    font-size: var(--lg);
+    font-weight: bold;
+  }
+  .my-order-content {
+    display: flex;
+    flex-direction: column;
+    justify-content: flex-start;
+    height: 100%;
+  }
+  .order {
+    margin-top: auto;
+    display: grid;
+    grid-template-columns: auto 1fr;
+    gap: 16px;
+    align-items: center;
+    background-color: var(--text-input-field);
+    margin-bottom: 24px;
+    border-radius: 8px;
+    padding: 0 24px;
+
+  }
+  .order p:nth-child(1) {
+    display: flex;
+    flex-direction: column;
+  }
+  .order p span:nth-child(1) {
+    font-size: var(--md);
+    font-weight: bold;
+  }
+  .order p:nth-child(2) {
+    text-align: end;
+    font-weight: bold;
+  }
+  .shopping-cart {
+    display: grid;
+    grid-template-columns: auto 1fr auto auto;
+    gap: 16px;
+    margin-bottom: 24px;
+    align-items: center;
+  }
+  .shopping-cart figure {
+    margin: 0;
+  }
+  .shopping-cart figure img {
+    width: 70px;
+    height: 70px;
+    border-radius: 20px;
+    object-fit: cover;
+  }
+  .shopping-cart p:nth-child(2) {
+    color: var(--very-light-pink);
+  }
+  .shopping-cart p:nth-child(3) {
+    font-size: var(--md);
+    font-weight: bold;
+  }
+  .primary-button {
+    background-color: var(--hospital-green);
+    border-radius: 8px;
+    border: none;
+    color: var(--white);
+    width: 100%;
+    cursor: pointer;
+    font-size: var(--md);
+    font-weight: bold;
+    height: 50px;
+  }
+  @media (max-width: 640px) {
+    .product-detail {
+      width: 100%;
+    }
   }

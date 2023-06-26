@@ -1,30 +1,45 @@
-const menuEmail = document.querySelector('.navbar-email');
-const menuBurger = document.querySelector('.menu');
-const desktopMenu = document.querySelector('.desktop-menu');
-const mobileMenu = document.querySelector('.mobile-menu');
-const title = document.querySelector('.title');
+const menuBurgerIcon = document.querySelector('.menu');
+const menuUserIcon = document.querySelector('.navbar-email');
+const asideShopIcon = document.querySelector('.navbar-shopping-cart');
 
-menuEmail.addEventListener('click', toggleDesktopMenu);
-menuBurger.addEventListener('click', toggleMobileMenu);
+const userMenu = document.querySelector('.desktop-menu');
+const burgerMenu = document.querySelector('.mobile-menu');
+const shopAside = document.querySelector('.product-detail');
+
+menuBurgerIcon.addEventListener('click', toggleBurgerMenu);
+menuUserIcon.addEventListener('click', toggleUserMenu);
+asideShopIcon.addEventListener('click', toggleShopAside);
+
+function toggleBurgerMenu(event) {
+    event.preventDefault();
+    if (burgerMenu.style.display === 'none') {
+        burgerMenu.style.display = 'flex';
+    } else {
+        burgerMenu.style.display = 'none';
+}};
+function toggleUserMenu(event) {
+    event.preventDefault();
+    if (userMenu.style.display === 'none') {
+        userMenu.style.display = 'flex';
+    } else {
+        userMenu.style.display = 'none';
+}};
+function toggleShopAside(event) {
+    event.preventDefault();
+    if (shopAside.style.display === 'none') {
+        shopAside.style.display = 'flex';
+    } else {
+        shopAside.style.display = 'none';
+    }};
+
+
+
+
+
+
+
+/*const title = document.querySelector('.title');
 title.addEventListener('click', changingText);
-
-
-function toggleDesktopMenu(event) {
-    event.preventDefault();
-    if (desktopMenu.style.display === 'none') {
-        desktopMenu.style.display = 'flex';
-    } else {
-        desktopMenu.style.display = 'none';
-}};
-
-
-function toggleMobileMenu(event) {
-    event.preventDefault();
-    if (mobileMenu.style.display === 'none') {
-        mobileMenu.style.display = 'flex';
-    } else {
-        mobileMenu.style.display = 'none';
-}};
 
 function changingText(event) {
     event.preventDefault();
@@ -32,4 +47,4 @@ function changingText(event) {
     title.innerText = "Hola";
 } else {
     title.innerText = "My orders";	
-}};
+}};*/
