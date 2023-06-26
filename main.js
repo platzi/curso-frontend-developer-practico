@@ -132,6 +132,8 @@ productList.push(
 		urlImg: "https://img.freepik.com/free-photo/cool-roller-skate-still-life_23-2150304814.jpg?t=st=1687773185~exp=1687773785~hmac=0a8867a1d7398dc826aed29a7a88a8e5ab2a04692d8d710df466bf56dc71581b&w=740"
 	}
 );
+//Making this code a reusable function will be a closer approach to a professional js-doc or practice.
+//The parameter would be the array fetched from a database or another doc.
 for (product of productList) {
 	const cardsContainer = document.querySelector('.cards-container');
 
@@ -158,12 +160,7 @@ for (product of productList) {
 	productIconImg.setAttribute('src', './icons/bt_add_to_cart.svg')
 	productIconImg.setAttribute('alt', 'Cart Icon');
 
-	/*append() seems to easier, but appendChild() might be better in some cases: 
-	1-Old browsers compatibility
-	2-Performance when adding only 1 element/node. DOM native function
-	3-Some libraries integrate it instead of append().
-
-	Return value: append() returns undefined, while appendChild() returns the child node added.*/
+	//
 	productData.append(productDataChild, productIconFigure);
 	productDataChild.append(productPrice, productName);
 	productIconFigure.append(productIconImg);
