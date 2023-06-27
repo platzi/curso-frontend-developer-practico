@@ -22,10 +22,9 @@ function emailMenu() {
 		desktopMenu.setAttribute("class", "desktop-menu inactive");
 	};
 
-	//screenSize check: alternatives->  if (window.innerWidth <= 640) //INCLUDES BAR //
-	// if (window.matchMedia("(max-width: 640px)").matches)  ///NOT INCLUDES BAR  --//-- $(window).width()  // WHEN USING JQUERY
+	//screenSize check alternatives-> window.innerWidth // window.matchMedia("(max-width: 770px)").matches //  $(window).width()
 	function screenSize() {
-		if (document.documentElement.clientWidth <= 640) {
+		if (document.documentElement.clientWidth < 770) {
 			desktopMenu.style.visibility = "hidden";
 		} else {
 			desktopMenu.style.visibility = "visible";
@@ -72,7 +71,8 @@ function cartIcon() {
 
 	function showShoppingMenu() {
 		shoppingCartMenu.classList.toggle('inactive');
-		if (shoppingCartMenu.classList.contains('inactive')) {
+		//For mobile width desktop-menu will always be hidden
+		if (shoppingCartMenu.classList.contains('inactive') && document.documentElement.clientWidth > 770) {
 			desktopMenu.style.visibility = "visible";
 		} else {
 			desktopMenu.style.visibility = "hidden";
@@ -80,11 +80,18 @@ function cartIcon() {
 	}
 
 	function handleDocumentClick(event) {
-		if (!shoppingCartMenu.contains(event.target) && !shoppingCartIcon.contains(event.target)) {
-			shoppingCartMenu.classList.add('inactive');
-			desktopMenu.style.visibility = "visible";
-		}
-	}
+    const isShoppingCartMenuClicked = shoppingCartMenu.contains(event.target);
+    const isShoppingCartIconClicked = shoppingCartIcon.contains(event.target);
+    const isDocumentWideEnough = document.documentElement.clientWidth > 770;
+
+    if (!isShoppingCartMenuClicked && !isShoppingCartIconClicked) {
+        shoppingCartMenu.classList.add('inactive');
+    }
+
+    if (!isShoppingCartMenuClicked && !isShoppingCartIconClicked && isDocumentWideEnough) {
+        desktopMenu.style.visibility = "visible";
+    }
+}
 
 	shoppingCartIcon.addEventListener('click', showShoppingMenu);
 	document.addEventListener('click', handleDocumentClick);
@@ -132,6 +139,8 @@ productList.push(
 		urlImg: "https://img.freepik.com/free-photo/cool-roller-skate-still-life_23-2150304814.jpg?t=st=1687773185~exp=1687773785~hmac=0a8867a1d7398dc826aed29a7a88a8e5ab2a04692d8d710df466bf56dc71581b&w=740"
 	}
 );
+//Making this code a reusable function will be a closer approach to a professional js-doc or practice.
+//The parameter would be the array fetched from a database or another doc.
 for (product of productList) {
 	const cardsContainer = document.querySelector('.cards-container');
 
@@ -158,12 +167,7 @@ for (product of productList) {
 	productIconImg.setAttribute('src', './icons/bt_add_to_cart.svg')
 	productIconImg.setAttribute('alt', 'Cart Icon');
 
-	/*append() seems to easier, but appendChild() might be better in some cases: 
-	1-Old browsers compatibility
-	2-Performance when adding only 1 element/node. DOM native function
-	3-Some libraries integrate it instead of append().
-
-	Return value: append() returns undefined, while appendChild() returns the child node added.*/
+	//
 	productData.append(productDataChild, productIconFigure);
 	productDataChild.append(productPrice, productName);
 	productIconFigure.append(productIconImg);
