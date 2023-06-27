@@ -4,20 +4,20 @@
   <meta charset="UTF-8">
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
   <link rel="stylesheet" href="styles.css">
-  <title>Michis App</title>
+  <title>Perritos App</title>
 </head>
 <body>
   <div class="portada">
-    <span class="msj-guardado-gatito">Gatito guardado en favoritos</span>
+    <span class="msj-guardado-gatito">Perrito guardado en favoritos</span>
 
     <div class="container-portada">
-      <h1>Michis App</h1>
+      <h1>Perritos App</h1>
     </div>
   </div>
 
   <div class="container">
     <section id="random-gatitos" class="random-gatitos">
-      <h2>Random Michis</h2>
+      <h2>Random Perritos</h2>
 
       <span id="status-error" class="status-error"></span>
 
@@ -45,7 +45,7 @@
       <h2>Sube la foto de tu michi</h2>
 
       <form id="uploadingForm">
-        <input type="file" name="file" id="file">
+        <input type="file" name="file" id="file" />
         <button type="button" onclick="uploadMichiPhoto()">Subir foto</button>
       </form>
     </section>
@@ -56,6 +56,9 @@
     </section>
 
   </div>
-  <script src="./index.js"></script>
+
+  <script src="https://cdn.jsdelivr.net/npm/axios/dist/axios.min.js"></script>
+  <!-- <script src="./indexFetch.js"></script> -->
+  <script src="./indexAxios.js"></script>
 </body>
 </html>

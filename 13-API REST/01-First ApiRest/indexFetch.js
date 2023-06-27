@@ -1,6 +1,7 @@
-const URL_RANDOM = 'https://api.thecatapi.com/v1/images/search?limit=3';
-const URL_FAVORITES = 'https://api.thecatapi.com/v1/favourites';
-const URL_FAVORITES_DELETE = ( id ) => `https://api.thecatapi.com/v1/favourites/${id}?api_key=live_diUN3U5Us7yXuEg81yRAhJTYNk0vJrl4Q7n6yIWIwOLZtSViUMZfwq1a2o6rfE9d`;
+const URL_RANDOM = 'https://api.thedogapi.com/v1/images/search?limit=3';
+const URL_FAVORITES = 'https://api.thedogapi.com/v1/favourites';
+const URL_UPLOAD = 'https://api.thedogapi.com/v1/images/upload';
+const URL_FAVORITES_DELETE = ( id ) => `https://api.thedogapi.com/v1/favourites/${id}?api_key=live_G7gOFhH5EAiXsA9p9cbadRBWe48QA8H8MSnkT5aNvYeGlCmU7nnZauEhquNvRJhN`;
 
 const spanError = document.getElementById( 'status-error' );
 
@@ -8,6 +9,8 @@ const reload = document.getElementById( 'reload' );
 const img1 = document.getElementById( 'img1' );
 const img2 = document.getElementById( 'img2' );
 const img3 = document.getElementById( 'img3' );
+
+const apiKey = 'live_G7gOFhH5EAiXsA9p9cbadRBWe48QA8H8MSnkT5aNvYeGlCmU7nnZauEhquNvRJhN'
 
 const mensajeGuardadoFavorito = document.querySelector( '.msj-guardado-gatito' );
 
@@ -35,7 +38,7 @@ async function favoritesCats() {
   const response = await fetch( URL_FAVORITES, {
     method: 'GET',
     headers: {
-      'X-API-KEY': 'live_diUN3U5Us7yXuEg81yRAhJTYNk0vJrl4Q7n6yIWIwOLZtSViUMZfwq1a2o6rfE9d'
+      'X-API-KEY': apiKey
     }
   });
   const data = await response.json();
@@ -75,7 +78,7 @@ async function saveFavoriteCat( id ) {
     method: 'POST',
     headers: {
       'Content-Type': 'application/json',
-      'X-API-KEY': 'live_diUN3U5Us7yXuEg81yRAhJTYNk0vJrl4Q7n6yIWIwOLZtSViUMZfwq1a2o6rfE9d'
+      'X-API-KEY': apiKey
     },
     body: JSON.stringify({
       image_id: id
@@ -102,7 +105,7 @@ async function deleteFavoriteCat( id ) {
   const response = await fetch( URL_FAVORITES_DELETE( id ), {
     method: 'DELETE',
     headers: {
-      'X-API-KEY': 'live_diUN3U5Us7yXuEg81yRAhJTYNk0vJrl4Q7n6yIWIwOLZtSViUMZfwq1a2o6rfE9d'
+      'X-API-KEY': apiKey
     }
   });
 
@@ -117,7 +120,24 @@ async function deleteFavoriteCat( id ) {
 }
 
 async function uploadMichiPhoto() {
-  
+  const form = document.getElementById('uploadingForm');
+  const formData = new FormData(form)
+  const res = await fetch(URL_UPLOAD, {
+    method : 'POST',
+    headers: {
+      'x-api-key' : apiKey,
+    },
+    body: formData,
+  })
+  const data = await res.json();
+
+  if ( res.status  !== 201 ){
+    spanError.innerText = "Hubo un error: " + res.status + " "  + data.message
+  }else{
+    console.log("Michi cargado correctamente");
+    favoritesCats()
+    saveFavoriteCat(data.id)
+  }
 }
 
 reload.addEventListener( 'click', getCats )

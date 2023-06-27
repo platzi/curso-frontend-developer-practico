@@ -5,7 +5,7 @@
 }
 
 body {
-  background-color: #2c3249;
+  background-color: #f6f6f6;
 }
 
 .portada .container-portada {
@@ -25,7 +25,7 @@ section {
 }
 
 .portada {
-  background-image: url( 'https://wallpapers.com/images/featured/g9rdx9uk2425fip2.jpg' );
+  background-image: url( 'https://images2.alphacoders.com/131/1319231.jpeg' );
   background-size: cover;
   background-repeat: no-repeat;
   background-position-y: 20%;
