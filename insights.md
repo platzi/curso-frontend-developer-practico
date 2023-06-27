@@ -18,3 +18,9 @@ Using event delegation: Instead of assigning an event listener to each individua
 		3- Some libraries integrate it instead of append().
 		4- Return value: append() returns undefined, while appendChild() returns the child node added.
 
+
+## Screen size options:
+	1- const isDocumentWideEnough = document.documentElement.clientWidth > 640; 	*Sidebar included*
+	2- const isDocumentWideEnough = window.innerWidth > 640; 	*Sidebar included*
+	3- const isDocumentWideEnough = window.matchMedia("(max-width: 640px)").matches; 	*Sidebar NOT included*
+	4- const isDocumentWideEnough = $(window).width();		*WHEN USING JQUERY*

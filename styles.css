@@ -21,8 +21,9 @@ body {
 nav {
 	display: flex;
 	justify-content: space-between;
-	padding: 0 24px;
+	padding: 0 34px;
 	border-bottom: 1px solid var(--very-light-pink);
+	
 }
 
 .menu {
@@ -41,6 +42,7 @@ nav {
 	display: flex;
 	align-items: center;
 	height: 60px;
+
 }
 
 .navbar-left {
@@ -142,6 +144,7 @@ nav {
 	padding: 24px;
 	position: absolute;
 	top: 60px;
+	background: var(--white);
 }
 
 .mobile-menu a {
@@ -181,6 +184,7 @@ nav {
 	box-sizing: border-box;
 	position: absolute;
 	right: 0;
+	background: var(--white);
 }
 
 .title-container {
@@ -266,17 +270,19 @@ nav {
 /******PRODUCT CARDS******/
 .cards-container {
 	display: grid;
-	grid-template-columns: repeat(auto-fill, 240px);
+	grid-template-columns: repeat(auto-fill, 320px);
 	gap: 26px;
 	place-content: center;
-	margin-top: 25px;
+	margin-top: 26px;
+	margin-right: 26px;
+	margin-left: 26px;
   }
   .product-card {
-	width: 240px;
+	width: 320px;
   }
   .product-card img {
-	width: 240px;
-	height: 240px;
+	width: 320px;
+	height: 320px;
 	border-radius: 20px;
 	object-fit: cover;
   }
@@ -307,11 +313,14 @@ nav {
   }
 
 
-@media (max-width: 640px) {
+@media (max-width: 770px) {
 	.menu {
 		display: block;
 	}
 
+	nav {
+		padding: 0 16px;
+	}
 	.navbar-left ul {
 		display: none;
 	}
@@ -330,18 +339,18 @@ nav {
 	}
 
 	.cards-container {
-        grid-template-columns: repeat(auto-fill, 140px);
+        grid-template-columns: repeat(auto-fill, 200px);
       }
       .product-card {
-        width: 140px;
+        width: 200px;
       }
       .product-card img {
-        width: 140px;
-        height: 140px;
+        width: 200px;
+        height: 200px;
       }
 }
 
-@media (min-width: 641px) {
+@media (min-width: 771px) {
 	.mobile-menu {
 		display: none;
 	}

@@ -22,10 +22,9 @@ function emailMenu() {
 		desktopMenu.setAttribute("class", "desktop-menu inactive");
 	};
 
-	//screenSize check: alternatives->  if (window.innerWidth <= 640) //INCLUDES BAR //
-	// if (window.matchMedia("(max-width: 640px)").matches)  ///NOT INCLUDES BAR  --//-- $(window).width()  // WHEN USING JQUERY
+	//screenSize check alternatives-> window.innerWidth // window.matchMedia("(max-width: 770px)").matches //  $(window).width()
 	function screenSize() {
-		if (document.documentElement.clientWidth <= 640) {
+		if (document.documentElement.clientWidth < 770) {
 			desktopMenu.style.visibility = "hidden";
 		} else {
 			desktopMenu.style.visibility = "visible";
@@ -72,7 +71,8 @@ function cartIcon() {
 
 	function showShoppingMenu() {
 		shoppingCartMenu.classList.toggle('inactive');
-		if (shoppingCartMenu.classList.contains('inactive')) {
+		//For mobile width desktop-menu will always be hidden
+		if (shoppingCartMenu.classList.contains('inactive') && document.documentElement.clientWidth > 770) {
 			desktopMenu.style.visibility = "visible";
 		} else {
 			desktopMenu.style.visibility = "hidden";
@@ -80,11 +80,18 @@ function cartIcon() {
 	}
 
 	function handleDocumentClick(event) {
-		if (!shoppingCartMenu.contains(event.target) && !shoppingCartIcon.contains(event.target)) {
-			shoppingCartMenu.classList.add('inactive');
-			desktopMenu.style.visibility = "visible";
-		}
-	}
+    const isShoppingCartMenuClicked = shoppingCartMenu.contains(event.target);
+    const isShoppingCartIconClicked = shoppingCartIcon.contains(event.target);
+    const isDocumentWideEnough = document.documentElement.clientWidth > 770;
+
+    if (!isShoppingCartMenuClicked && !isShoppingCartIconClicked) {
+        shoppingCartMenu.classList.add('inactive');
+    }
+
+    if (!isShoppingCartMenuClicked && !isShoppingCartIconClicked && isDocumentWideEnough) {
+        desktopMenu.style.visibility = "visible";
+    }
+}
 
 	shoppingCartIcon.addEventListener('click', showShoppingMenu);
 	document.addEventListener('click', handleDocumentClick);
