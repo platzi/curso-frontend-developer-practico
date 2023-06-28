@@ -2,13 +2,16 @@ const menuEmail = document.querySelector(".navbar-email");
 const desktopMenu = document.querySelector(".desktop-menu");
 const menuCarritoIcon = document.querySelector(".navbar-shopping-cart");
 const menuHamIcon = document.querySelector(".menu");
+const productDetailClosedIcon = document.querySelector(".product-detail-close")
 const mobileMenu = document.querySelector(".mobile-menu");
 const shoppingCartContainer = document.querySelector("#shoppingCartContainer");
+const productDetailContainer = document.querySelector("#productDetail");
 const cartsContainer = document.querySelector('.cards-container');
 
 menuEmail.addEventListener('click', toggleDesktopMenu);
 menuHamIcon.addEventListener('click', toggleMobileMenu);
 menuCarritoIcon.addEventListener('click', toggleCarritoAside);
+productDetailClosedIcon.addEventListener('click', closeProductDetailAside);
 
 function toggleDesktopMenu(){
     desktopMenu.classList.toggle('inactive');
@@ -20,6 +23,7 @@ function toggleMobileMenu(){
         shoppingCartContainer.classList.add('inactive');
     }
 
+    closeProductDetailAside();
     mobileMenu.classList.toggle('inactive');
 }
 
@@ -29,9 +33,23 @@ function toggleCarritoAside(){
     if (!isMobileMenuClosed){
         mobileMenu.classList.add('inactive');
     }
-        // si el mobilMenu esta abierto hay que cerrarlo
+    // si el mobilMenu esta abierto hay que cerrarlo
     
+    const isProductDetailClosed = productDetailContainer.classList.contains('inactive');   
+    // abrir el aside 
+    if (!isProductDetailClosed){
+        productDetailContainer.classList.add('inactive');
+    }
     shoppingCartContainer.classList.toggle('inactive');
+}
+
+function openProductDetailAside () {
+    shoppingCartContainer.classList.add('inactive');
+    productDetailContainer.classList.remove('inactive')
+}
+
+function closeProductDetailAside() {
+    productDetailContainer.classList.add ('inactive')
 }
 
 const productList = [];
@@ -104,8 +122,10 @@ function renderProducts (arr){
         productCart.classList.add('product-card');
     
         //crea la etiqueta img con la imagen dentro
-        const producImg = document.createElement('img');
-        producImg.setAttribute('src', product.image);
+        
+        const productImg = document.createElement('img');
+        productImg.setAttribute('src', product.image);
+        productImg.addEventListener('click', openProductDetailAside);
         // product = {name, price, image} -> product.image
     
         //crea la etiqueta info
@@ -130,7 +150,7 @@ function renderProducts (arr){
     
         productInfo.appendChild(productInfoDiv);
         productInfo.appendChild(productInfoFigure);
-        productCart.appendChild(producImg);
+        productCart.appendChild(productImg);
         productCart.appendChild(productInfo);
     
         cartsContainer.appendChild(productCart);
