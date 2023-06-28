@@ -148,8 +148,8 @@ nav {
     position: absolute;
     top: 60px;
     left: 0;
-    width: 100%;
-    padding: 24px;
+    width: calc(100% - 24px);
+    padding-left: 24px;
 
 }
 
@@ -416,7 +416,11 @@ aside {
         display: none;
     }
 
-    .product-detail {
+    #shoppingCartContainer {
+        width: 100%;
+    }
+
+    #productDetail {
         width: 100%;
     }
 
