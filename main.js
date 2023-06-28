@@ -126,13 +126,14 @@ function renderProducts (arr){
         const productImg = document.createElement('img');
         productImg.setAttribute('src', product.image);
         productImg.addEventListener('click', openProductDetailAside);
+        
         // product = {name, price, image} -> product.image
     
         //crea la etiqueta info
         const productInfo = document.createElement('div');
         productInfo.classList.add('product-info');
     
-            // insertar en el html con valor de texto el precio y el nombre
+        // insertar en el html con valor de texto el precio y el nombre
         const productInfoDiv = document.createElement('div');
         const productPrice = document.createElement('p');
         productPrice.innerText = '$' + product.price;
