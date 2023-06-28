@@ -56,6 +56,29 @@ function toggleProductDetail(event) {
     asideProductDetail.style.display = 'none';
 };
 
+/*
+var productList = [];
+
+let product = function(name, price, image){
+    this.name = name;
+    this.price = price;
+    this.image = image;
+    productList.push(this);
+    };
+
+
+
+const product1 = new product(
+    'Hola',
+    999,
+    'https://images.pexels.com/photos/276517/pexels-photo-276517.jpeg?auto=compress&cs=tinysrgb&dpr=2&h=650&w=940'
+);
+
+const product2
+
+console.log(productList);
+*/
+
 const productList = [];
 productList.push({
     name: 'Venzo Carbono Bike',
@@ -97,6 +120,7 @@ productList.push({
     price: 3499,
     image: 'https://static0.gamerantimages.com/wordpress/wp-content/uploads/2023/06/apple-vision-pro-gaming.jpg'
 });
+
 
 for (product of productList) {
     var productCard = document.createElement('div');

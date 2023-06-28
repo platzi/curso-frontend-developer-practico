@@ -82,7 +82,7 @@
     justify-content: center;
     align-items: center;
   }
-  @media (max-width: 640px) {
+  @media (max-width: 740px) {
     .menu {
       display: block;
 
@@ -159,7 +159,7 @@
     height: calc(100vh - 109px);
     z-index: 1;
   }
-  @media (min-width: 641px) {
+  @media (min-width: 741px) {
     .mobile-menu {
         display:none !important;
         }
@@ -293,11 +293,86 @@
     height: 50px;
   }
 
+/* Estilo para el contenido de Product-detail*/
+.product-detail-close {
+    display: flex;
+      align-items: center;
+      justify-content: center;
+      background: var(--white);
+      width: 36px;
+      height: 36px;
+      position: absolute;
+      top: 30px;
+      left: 30px;
+      z-index: 2;
+      border-radius: 50%;
+      box-sizing: border-box;
+    }
+    .closeIcon {
+        height: 14px;
+        width: 14px;
+    }
+    .product-detail-close:hover {
+      cursor: pointer;
+    }
+    .product-detail > img:nth-child(2) {
+      width: 100%;
+      height: 660px;
+      object-fit: cover;
+      border-radius: 20px 20px 20px 20px;
+    }
+    .product-detail-info {
+        display: flex;
+        flex-direction: column;
+        padding: 18px 12px 0px 12px;
+        height: 100%;
 
+    }
+    .product-detail-info p:nth-child(1) {
+      font-weight: bold;
+      font-size: var(--md);
+      margin-top: 0;
+      margin-bottom: 4px;
+    }
+    .product-detail-info p:nth-child(2) {
+      color: var(--black);
+      font-size: var(--md);
+      margin-top: 0;
+      margin-bottom: 36px;
+    }
+    .product-detail-info p:nth-child(3) {
+      color: var(--black);
+      font-size: var(--sm);
+      margin-top: 0;
+      margin-bottom: 36px;
+    }
+    .product-detail-info .primary-button {
+        margin-top: auto;
+        background-color: var(--hospital-green);
+        border-radius: 8px;
+        border: none;
+        color: var(--white);
+        width: 100%;
+        cursor: pointer;
+        font-size: var(--md);
+        font-weight: bold;
+        height: 50px;
+    }
+    .add-to-cart-button {
+      display: flex;
+      align-items: center;
+      justify-content: center;
+    }
+    @media (max-width: 640px) {
+      .product-detail {
+        width: 100%;
+      }
+    }
 
-  /* Contenedor de Productos para comprar */
+/* Contenedor de Productos para comprar */
 .main-container {
     position: relative;
+    width: 100vw;
 }
     .cards-container {
       display: grid;
