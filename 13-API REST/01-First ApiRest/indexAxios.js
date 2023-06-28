@@ -108,11 +108,11 @@ async function uploadMichiPhoto( ) {
   const { status } = await apiAxios.post( URL_UPLOAD, formData)
 
   if ( status  !== 201 ){
-    spanError.innerText = "Hubo un error: " + status + " " + data.message
+    spanError.innerText = "Hubo un error: " + status;
   }else{
     console.log("Perrito cargado correctamente");
-    favoritesDogs()
-    saveFavoriteDog(data.id)
+    favoritesDogs();
+    saveFavoriteDog();
   }
 }
 
