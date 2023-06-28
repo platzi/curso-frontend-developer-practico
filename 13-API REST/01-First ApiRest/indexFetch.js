@@ -119,7 +119,7 @@ async function deleteFavoriteCat( id ) {
   }
 }
 
-async function uploadMichiPhoto() {
+async function uploadPerritoPhoto() {
   const form = document.getElementById('uploadingForm');
   const formData = new FormData(form)
   const res = await fetch(URL_UPLOAD, {

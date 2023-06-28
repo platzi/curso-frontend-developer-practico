@@ -101,7 +101,7 @@ async function deleteFavoriteDog( id ) {
   }
 }
 
-async function uploadMichiPhoto( ) {
+async function uploadPerritoPhoto( ) {
   const form = document.getElementById('uploadingForm');
   const formData = new FormData(form)
 
