@@ -10,6 +10,8 @@ const menuCarritoIcon = document.querySelector('.navbar-shopping-cart');
 
 const cardscontainer = document.querySelector('.cards-container');
 
+const asideIndividual = document.querySelector('.product-detail-individual');
+
 menuEmail.addEventListener('click', toggleDesktopMenu);
 iconHamMenu.addEventListener('click', toggleMobileMenu);
 menuCarritoIcon.addEventListener('click', toggleCarritoAside);
