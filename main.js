@@ -1,14 +1,18 @@
 const menuEmail = document.querySelector('.navbar-email')
 const menuHamIcon = document.querySelector('.menu')
 const menuCarritoIcon = document.querySelector('.navbar-shopping-cart')
+const productDetailCloseIcon = document.querySelector('.product-detail-close')
 const desktopMenu = document.querySelector('.desktop-menu')
 const mobileMenu = document.querySelector('.mobile-menu')
 const shoppingCartContainer = document.querySelector('#shoppingCartContainer')
+const productDetailContainer = document.querySelector('#productDetail')
 const cardsContainer = document.querySelector('.cards-container')
+
 
 menuEmail.addEventListener('click', toggleDesktopMenu)
 menuHamIcon.addEventListener('click', toggleMobileMenu)
 menuCarritoIcon.addEventListener('click', toggleCarritoAside)
+productDetailCloseIcon.addEventListener('click', closeProductDetailAside)
 
 
 // Funciones de menus displays
@@ -17,6 +21,7 @@ function toggleDesktopMenu() {
   if (!isAsideClosed) {
     shoppingCartContainer.classList.add('inactive')
   }
+  closeProductDetailAside();
   desktopMenu.classList.toggle('inactive')
 }
 
@@ -25,6 +30,7 @@ function toggleMobileMenu() {
   if (!isAsideClosed) {
     shoppingCartContainer.classList.add('inactive')
   }
+  closeProductDetailAside();
   mobileMenu.classList.toggle('inactive')
 }
 
@@ -35,11 +41,18 @@ function toggleCarritoAside() {
   if (!isMobileMenuClosed) {
     mobileMenu.classList.add('inactive')
   } 
-  shoppingCartContainer.classList.toggle('inactive')
 
   if (!isDesktopmenuClose){
     desktopMenu.classList.toggle('inactive')
   }
+
+  const isproductDetailClose = productDetailContainer.classList.contains('inactive');
+
+  if (!isproductDetailClose) {
+    productDetailContainer.classList.add('inactive')
+  }
+
+  shoppingCartContainer.classList.toggle('inactive')
 } 
 
 // Agregar carritos desde un Array
@@ -64,6 +77,16 @@ productList.push({
   
 });
 
+function openProductDetailAside(){
+  shoppingCartContainer.classList.add('inactive')
+  desktopMenu.classList.add('inactive')
+  productDetailContainer.classList.remove('inactive')
+}
+
+function closeProductDetailAside(){
+  productDetailContainer.classList.add('inactive')
+}
+
 function renderProducts(arr){
   for (product of arr){
     console.log(product.name)
@@ -77,6 +100,7 @@ function renderProducts(arr){
     // Aqui vamos a agregar el atributo que ya venia desde
     // el objeto osea product.image -> product{name,price,image}
     productimg.setAttribute('src', product.image)
+    productimg.addEventListener('click', openProductDetailAside)
   
     const productinfo = document.createElement('div');
     productinfo.classList.add('product-info');
@@ -108,7 +132,6 @@ function renderProducts(arr){
     cardsContainer.appendChild(productcard)
   }
 }
-
 
 // Creamos una funcion para poder utilizar el for cuanto queramos
 renderProducts(productList)
