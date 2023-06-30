@@ -8,6 +8,7 @@ const menuHamIcon = document.querySelector('.menu');
 const mobileMenu = document.querySelector('.mobile-menu');
 const cardsContainer = document.querySelector('.cards-container');
 
+
 menuEmail.addEventListener('click', toggleDesktopMenu)
 menuHamIcon.addEventListener('click', toggleMobileMenu)
 menuCarritoIcon.addEventListener('click', toggleCarritoAside)
@@ -142,6 +143,7 @@ function renderProducts(arr) {
         productCard.append(productImg, productInfo);
       
         cardsContainer.appendChild(productCard);
+       
       
         
       }
