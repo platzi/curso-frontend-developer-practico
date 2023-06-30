@@ -32,8 +32,10 @@
     .mobile-menu {
         padding: 24px;
         position: absolute;
-        top: 60px;
+        top: 61px;
         left: 0px;
+        background-color: var(--white);
+        border-radius: 0 0 6px 6px;
     }
     .mobile-menu a {
         text-decoration: none;
@@ -123,10 +125,13 @@
         box-sizing: border-box;
         position: absolute;
         right: 0;
-        top: 60px;
+        top: 61px;
+        background-color: var(--white);
+        border-radius: 0 0 6px 6px;
     }
     .title-container {
         display: flex;
+        margin-block-end: 20px;
     }
     .title-container img {
         transform: rotate(180deg);
@@ -135,6 +140,10 @@
     .title {
         font-size: var(--lg);
         font-weight: bold;
+    }
+    .my-order-content{
+        display: grid;
+        row-gap: 42px;
     }
     .order {
         display: grid;
@@ -162,7 +171,6 @@
         display: grid;
         grid-template-columns: auto 1fr auto auto;
         gap: 16px;
-        margin-bottom: 24px;
         align-items: center;
     }
     .shopping-cart figure {
@@ -202,6 +210,7 @@
         border: 1px solid var(--very-light-pink);
         border-radius: 0 0 6px 6px;
         padding: 20px 20px 0 20px;
+        background-color: var(--white);
     }
     .desktop-menu ul {
         list-style: none;
@@ -229,12 +238,15 @@
         margin-bottom: 20px;
         display: inline-block;
     }
-
+    .main-container{
+        display: block;
+    }
     .cards-container {
         display: grid;
         grid-template-columns: repeat(auto-fill, 240px);
         gap: 26px;
         place-content: center;
+        margin-block-start: 40px;
     }
     .product-card {
         width: 240px;
