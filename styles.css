@@ -139,7 +139,7 @@
   left: 0;
   width: calc(100% - 24px);
   padding-left: 24px;
-  height: 100vh;
+
 }
 .mobile-menu a {
   text-decoration: none;
@@ -178,7 +178,6 @@ aside {
   box-sizing: border-box;
   position: absolute;
   right: 0;
-  height: 100vh;
 }
 /*Shopping Cart*/
 #shoppingCartContainer{
