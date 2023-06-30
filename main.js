@@ -11,40 +11,71 @@ const menuCarritoIcon = document.querySelector('.navbar-shopping-cart');
 const cardscontainer = document.querySelector('.cards-container');
 
 const asideIndividual = document.querySelector('.product-detail-individual');
+const botonCloseAside = document.querySelector('.product-detail-close');
 
 menuEmail.addEventListener('click', toggleDesktopMenu);
 iconHamMenu.addEventListener('click', toggleMobileMenu);
 menuCarritoIcon.addEventListener('click', toggleCarritoAside);
+botonCloseAside.addEventListener('click', closeProductDetailAside);
 
 function toggleDesktopMenu() {
     const isAsideClosed = aside.classList.contains('inactive');
+    const isAsideIndividualClosed = desktopMenu.classList.contains('inactive');
     if (!isAsideClosed) {
         aside.classList.add('inactive');
     }
     // si inactive está presente la elimina, de lo contrario la añade
     desktopMenu.classList.toggle('inactive');
+
+    if (!isAsideIndividualClosed) {
+        asideIndividual.classList.add('inactive');
+    }
+    asideIndividual.classList.add('inactive');
 }
 
 function toggleMobileMenu () {
     const isAsideClosed = aside.classList.contains('inactive');
+    const isAsideIndividualClosed = desktopMenu.classList.contains('inactive');
+
     if (!isAsideClosed) {
         aside.classList.add('inactive');
     }
     mobileMenu.classList.toggle('inactive');
+
+    if (!isAsideIndividualClosed) {
+        asideIndividual.classList.add('inactive');
+    }
+    asideIndividual.classList.add('inactive');
 }
 
 function toggleCarritoAside () {
     const isMobileMenuClosed = mobileMenu.classList.contains('inactive');
     const isMenuDesktopClosed = desktopMenu.classList.contains('inactive');
+    const isAsideIndividualClosed = desktopMenu.classList.contains('inactive');
     
     if (!isMobileMenuClosed) {
         mobileMenu.classList.add('inactive');  
     }
     aside.classList.toggle('inactive');
+    
+    if (!isAsideIndividualClosed) {
+        asideIndividual.classList.add('inactive');
+    }
+    asideIndividual.classList.add('inactive');
 
     if (!isMenuDesktopClosed) {
         desktopMenu.classList.add('inactive');
     }
+}
+
+function openProductDetailAside () {
+    asideIndividual.classList.remove('inactive');
+    desktopMenu.classList.add('inactive');
+    aside.classList.add('inactive');
+}
+
+function closeProductDetailAside () {
+    asideIndividual.classList.add('inactive');
 }
 
 const productList = [];
@@ -56,12 +87,12 @@ productList.push({
 productList.push({
     name: 'Pantalla',
     price: 500,
-    image: 'https://images.pexels.com/photos/276517/pexels-photo-276517.jpeg?auto=compress&cs=tinysrgb&dpr=2&h=650&w=940'
+    image: 'https://images.pexels.com/photos/5202925/pexels-photo-5202925.jpeg'
 });
 productList.push({
     name: 'Computadora',
     price: 750,
-    image: 'https://images.pexels.com/photos/276517/pexels-photo-276517.jpeg?auto=compress&cs=tinysrgb&dpr=2&h=650&w=940'
+    image: 'https://images.pexels.com/photos/7238759/pexels-photo-7238759.jpeg?auto=compress&cs=tinysrgb&w=1260&h=750&dpr=1'
 });
 
 
@@ -73,6 +104,7 @@ function renderProducts (articulo) {
      
         const productImg = document.createElement('img');
         productImg.setAttribute('src', product.image);
+        productImg.addEventListener('click', openProductDetailAside);
      
         const productInfo = document.createElement('div');
         productInfo.classList.add('product-info');
