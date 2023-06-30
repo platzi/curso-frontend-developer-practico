@@ -372,6 +372,27 @@ othersButton.addEventListener("click", () => {
   showProductsByCategory("others");
 });
 
+
+
+//GENERAR UN CONJUNTO DE IMAGENES PARA NUEVOS PRODUCTOS DE DIFERENTES TIPOS (SI NO ENCUENTRO, IR A LO FACIL, OTROS PRODUCTOS QUE SI HAYA EN FREEPIK);
+
+
+
+/*
+Next steps:
+Añadir: cambios al header/navbars, hacerlo más vistoso y grande, añadir las funcionalidades restantes:
+	-Añadir al carrito y que se modifique el contenido del carrito.
+	-pagina de login
+	-pagina de logout
+	-pagina my orders
+	-pagina my account
+
+*/
+
+
+
+
+
 //////////EXAMPLE OF REUSABLE FUNCTION:
 /*
 function toggleMenu(menuElement, triggerElement) {
