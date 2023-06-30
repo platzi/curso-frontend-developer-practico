@@ -372,6 +372,19 @@ othersButton.addEventListener("click", () => {
   showProductsByCategory("others");
 });
 
+/*
+Next steps:
+Añadir: cambios al header/navbars, hacerlo más vistoso y grande, añadir las funcionalidades restantes:
+	-Añadir al carrito y que se modifique el contenido del carrito.
+	-pagina de login
+	-pagina de logout
+	-pagina my orders
+	-pagina my account
+
+*/
+
+
+
 //////////EXAMPLE OF REUSABLE FUNCTION:
 /*
 function toggleMenu(menuElement, triggerElement) {
