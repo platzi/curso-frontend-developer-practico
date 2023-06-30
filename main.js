@@ -372,6 +372,7 @@ othersButton.addEventListener("click", () => {
   showProductsByCategory("others");
 });
 
+
 /*
 Next steps:
 Añadir: cambios al header/navbars, hacerlo más vistoso y grande, añadir las funcionalidades restantes:
@@ -382,8 +383,6 @@ Añadir: cambios al header/navbars, hacerlo más vistoso y grande, añadir las f
 	-pagina my account
 
 */
-
-
 
 //////////EXAMPLE OF REUSABLE FUNCTION:
 /*
