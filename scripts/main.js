@@ -9,9 +9,14 @@ const asideProducts = document.querySelector('.product-detail');
 
 const cardsContainer = document.querySelector('.cards-container');
 
+const productDetailContainer = document.querySelector('.product-detail-secundary');
+const productDetailCloseIcon = document.querySelector('.product-detail-close');
+
+
 menuEmail.addEventListener('click', toggleDesktopMenu);
 menuHamIcon.addEventListener('click', toggleMobileMenu);
 menuCarritoIcon.addEventListener('click', toggleCarritoMenu);
+productDetailCloseIcon.addEventListener('click', closeProductDetailAside);
 
 
 function toggleDesktopMenu(){
@@ -21,9 +26,14 @@ function toggleDesktopMenu(){
         asideProducts.classList.add('inactive');
     }
 
-    desktopMenu.classList.toggle('inactive');
-}
+    const isProductDetailClosed = productDetailContainer.classList.contains('inactive');
 
+    if(!isProductDetailClosed){
+        productDetailContainer.classList.add('inactive');
+    }
+
+    desktopMenu.classList.toggle('inactive');    
+}
 
 function toggleMobileMenu(){
     const isAsideProductsClosed = asideProducts.classList.contains('inactive');
@@ -32,9 +42,10 @@ function toggleMobileMenu(){
         asideProducts.classList.add('inactive');
     }
 
+    closeProductDetailAside();
+
     mobileMenu.classList.toggle('inactive');
 }
-
 
 function toggleCarritoMenu(){
     const isMobileMenuClosed = mobileMenu.classList.contains('inactive');
@@ -48,7 +59,17 @@ function toggleCarritoMenu(){
         desktopMenu.classList.add('inactive');
     }
 
+    closeProductDetailAside();
+
     asideProducts.classList.toggle('inactive');
+}
+
+function openProductDetailAside(){
+    productDetailContainer.classList.remove('inactive');
+}
+
+function closeProductDetailAside(){
+    productDetailContainer.classList.add('inactive');
 }
 
 
@@ -71,18 +92,6 @@ ProductList.push({
     image: 'https://images.pexels.com/photos/276517/pexels-photo-276517.jpeg?auto=compress&cs=tinysrgb&dpr=2&h=650&w=940',
 })
 
-/* <div class="product-card">
-        <img src="https://images.pexels.com/photos/276517/pexels-photo-276517.jpeg?auto=compress&cs=tinysrgb&dpr=2&h=650&w=940" alt="">
-        <div class="product-info">
-          <div>
-            <p>$120,00</p>
-            <p>Bike</p>
-          </div>
-          <figure>
-            <img src="./icons/bt_add_to_cart.svg" alt="">
-          </figure>
-        </div>
-    </div> */
 
 for (product of ProductList){
     const productCard = document.createElement('div');
@@ -90,6 +99,7 @@ for (product of ProductList){
 
     const productImage = document.createElement('img');
     productImage.setAttribute('src', product.image);
+    productImage.addEventListener('click', openProductDetailAside);
 
     const productInfo = document.createElement('div');
     productInfo.classList.add('product-info');
