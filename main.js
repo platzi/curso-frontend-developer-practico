@@ -4,6 +4,10 @@ const burgerMenu = document.querySelector('.menu');
 const mobileMenu = document.querySelector('.mobile-menu');
 const menuCarritoIcon= document.querySelector('.navbar-shopping-cart');
 const productDetailCloseIcon = document.querySelector('.product-detail-close');
+const addToCartBtn = document.querySelector('.card-btn-add-to-cart');
+const countProductsCart = document.querySelector('.count-products-in-cart');
+
+
 /**/
 const imagen = document.querySelector("#img_product");
 const priceProduct = document.querySelector("#prudct_price");
@@ -12,7 +16,6 @@ const priceProduct = document.querySelector("#prudct_price");
 const shoppingCartContainer = document.querySelector('#shoppingCartContainer');
 const cardsContainer = document.querySelector('.cards-container');
 const productDetailContainer = document.querySelector('#productDetail');
-
 
 
 menuEmail.addEventListener('click',toggleDesktopMenu);
@@ -79,6 +82,13 @@ function openProductDetailAside(event){
 function closeProductDetailAside(){
     productDetailContainer.classList.add('inactive');
 }
+let clicks = 0;
+function increment(){
+    clicks++;
+    console.log(clicks);
+    countProductsCart.innerText=clicks;
+}
+
 
 
 const productList = [];
@@ -154,6 +164,8 @@ function renderProducts(arr){
         const productInfoFigure = document.createElement('figure');
         const productImgCart = document.createElement('img');
         productImgCart.setAttribute('src','./icons/bt_add_to_cart.svg')
+        productImgCart.classList.add('card-btn-add-to-cart')
+        productImgCart.addEventListener('click',increment)
     
         productInfoFigure.appendChild(productImgCart);
     
