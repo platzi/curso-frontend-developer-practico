@@ -3,62 +3,79 @@ const desktopMenu = document.querySelector('.desktop-menu');
 const menuHamburguer = document.querySelector('.menu');
 const mobileMenu = document.querySelector('.mobile-menu');
 const shoppingCart = document.querySelector('.navbar-shopping-cart');
-const productDetail = document.querySelector('.product-detail');
+const shoppingCartContainer = document.querySelector('#shoppingCartContainer');
 const cardsContainer = document.querySelector('.cards-container');
-// experimento abajo
 const productContainer = document.querySelector('.cards-container');
-// 
+const productDetail = document.querySelector('#productDetail');
+const productDetailClose = document.querySelector('.product-detail-close');
+
+
 navbarEmail.addEventListener('click', desktopMenuToggle);
 menuHamburguer.addEventListener('click', mobileMenuToggle);
-shoppingCart.addEventListener('click', productDetailAside);
+shoppingCart.addEventListener('click', shoppingCartContainerAside);
+productDetailClose.addEventListener('click', closeProductDetailContainer);
+
 
 
 function desktopMenuToggle() {
     desktopMenu.classList.toggle('inactive');
-    productDetail.classList.add('inactive-aside');
+    shoppingCartContainer.classList.add('inactive-aside');
+    productDetail.classList.add('inactive')
+
 }
 function mobileMenuToggle() {
     mobileMenu.classList.toggle('inactive-mobile');
-    productDetail.classList.add('inactive-aside');
+    shoppingCartContainer.classList.add('inactive-aside');
     desktopMenu.classList.add('inactive');
+    productDetail.classList.add('inactive')
+
 
 
     if (mobileMenu.classList.contains('inactive-mobile')) {
         cardsContainer.style.display = 'grid';
 
-    }else{
+    }else if(mobileMenu.classList.contains('mobile-menu')){
         cardsContainer.style.display = 'none';
+    }
+}
+function shoppingCartContainerAside() {
+    shoppingCartContainer.classList.toggle('inactive-aside');
+    desktopMenu.classList.add('inactive');
+    productDetail.classList.add('inactive')
 
+    mobileMenu.classList.add('inactive-mobile');
+    if (cardsContainer.style.display = 'none') {
+        cardsContainer.style.display = 'grid'
     }
 
+    // if (window.matchMedia('(max-width: 766px)').matches) {
+    //     cardsContainer.style.display = 'none'; 
+    // }
+    
 }
-function productDetailAside() {
-    productDetail.classList.toggle('inactive-aside');
+function openDetailProductContainer() {
+    productDetail.classList.remove('inactive')
+    shoppingCartContainer.classList.add('inactive-aside')
     desktopMenu.classList.add('inactive');
     mobileMenu.classList.add('inactive-mobile');
 
 
-    if (productDetail.classList.contains('inactive-aside')) {
+// if (window.matchMedia('(max-width: 766px)').matches) {
+//     cardsContainer.style.display = 'none'; 
+// }else if (window.matchMedia('(min-width: 768px)').matches) {
+//     cardsContainer.style.display = 'grid';
+// }
+
+
+}
+function closeProductDetailContainer() {
+    productDetail.classList.add('inactive')
+
+
+    if (window.matchMedia('(max-width: 766px)').matches) {
         cardsContainer.style.display = 'grid';
-    }else{
-        cardsContainer.style.display = 'none';
     }
 }
-// Experimento abajo
-
-
-// {/* <div class="product-card">
-// <img src="https://images.pexels.com/photos/276517/pexels-photo-276517.jpeg?auto=compress&cs=tinysrgb&dpr=2&h=650&w=940" alt="">
-// <div class="product-info">
-//     <div>
-//     <p>$120,00</p>
-//     <p>Bike</p>
-//     </div>
-//     <figure>
-//     <img src="./icons/bt_add_to_cart.svg" alt="">
-//     </figure>
-// </div>
-// </div>  */}
 
 const productList = [];
     productList.push({
@@ -114,6 +131,8 @@ function card(arr) {
 
         const productCardImg = document.createElement('img');
             productCardImg.setAttribute('src', product.img);
+            productCardImg.addEventListener('click',openDetailProductContainer)
+
 
         const productInfo = document.createElement('div');
             productInfo.classList.add('product-info');
