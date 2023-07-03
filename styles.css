@@ -327,6 +327,7 @@ aside {
   height: 240px;
   border-radius: 20px;
   object-fit: cover;
+  cursor: pointer;
 }
 .product-card .product-info {
   display: flex;
@@ -336,6 +337,7 @@ aside {
 }
 .product-card .product-info figure {
   margin: 0;
+  cursor: pointer;
 }
 .product-card .product-info figure img {
   width: 35px;

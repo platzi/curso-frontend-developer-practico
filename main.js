@@ -4,14 +4,14 @@ const burgerMenu = document.querySelector('.menu');
 const mobileMenu = document.querySelector('.mobile-menu');
 const menuCarritoIcon= document.querySelector('.navbar-shopping-cart');
 const productDetailCloseIcon = document.querySelector('.product-detail-close');
-const addToCartBtn = document.querySelector('.card-btn-add-to-cart');
 const countProductsCart = document.querySelector('.count-products-in-cart');
+const myOrderContent = document.querySelector('.my-order-content-list');
+const subTotalCart = document.querySelector('#subTotal');
 
 
-/**/
+/*product detail aside*/
 const imagen = document.querySelector("#img_product");
 const priceProduct = document.querySelector("#prudct_price");
-
 
 const shoppingCartContainer = document.querySelector('#shoppingCartContainer');
 const cardsContainer = document.querySelector('.cards-container');
@@ -68,6 +68,10 @@ function toggleCarritoAside(){
     }
     
     shoppingCartContainer.classList.toggle('inactive');
+
+
+
+
 }
 
 function openProductDetailAside(event){
@@ -83,11 +87,11 @@ function closeProductDetailAside(){
     productDetailContainer.classList.add('inactive');
 }
 let clicks = 0;
-function increment(){
-    clicks++;
-    console.log(clicks);
-    countProductsCart.innerText=clicks;
-}
+// function increment(){
+//     clicks++;
+//     console.log(clicks);
+//     countProductsCart.innerText=clicks;
+// }
 
 
 
@@ -165,7 +169,7 @@ function renderProducts(arr){
         const productImgCart = document.createElement('img');
         productImgCart.setAttribute('src','./icons/bt_add_to_cart.svg')
         productImgCart.classList.add('card-btn-add-to-cart')
-        productImgCart.addEventListener('click',increment)
+        productImgCart.addEventListener('click',renderProductsCart)
     
         productInfoFigure.appendChild(productImgCart);
     
@@ -177,8 +181,70 @@ function renderProducts(arr){
     
     
         cardsContainer.appendChild(productCard);
-    
+
     }
 }
 
 renderProducts(productList);
+
+
+/* <div class="shopping-cart">
+        <figure>
+          <img src="https://images.pexels.com/photos/276517/pexels-photo-276517.jpeg?auto=compress&cs=tinysrgb&dpr=2&h=650&w=940" alt="bike">
+        </figure>
+        <p>Bike</p>
+        <p>$30,00</p>
+        <img src="./icons/icon_close.png" alt="close">
+      </div> */
+
+const productCartList = [];
+function renderProductsCart(event){
+    clicks++;
+    console.log(clicks);
+    countProductsCart.innerText=clicks;
+
+    const shoppingCart = document.createElement('div');
+    shoppingCart.classList.add('shopping-cart')
+
+    const figureCart = document.createElement('figure');
+    figureCart.classList.add('figure-cart');
+
+
+    const productImgCart = document.createElement('img');
+    productImgCart.setAttribute('src',event.target.parentNode.parentNode.parentElement.firstChild.attributes.src.nodeValue);
+
+    figureCart.appendChild(productImgCart);
+    
+
+    var text = event.target.parentNode.parentNode.innerText;
+    var parts = text.split('\n');
+    var price = parts[0].substring(1); // Elimina el símbolo del dólar "$"
+    var product = parts[2];
+
+    const productNameCart = document.createElement('p');
+    productNameCart.innerText = product;
+
+    const productPriceCart = document.createElement('p');
+    productPriceCart.innerText = "$ "+price;
+
+    const deleteProductCart = document.createElement('img');
+    deleteProductCart.setAttribute('src','./icons/icon_close.png');
+
+    shoppingCart.appendChild(figureCart);
+    shoppingCart.appendChild(productNameCart);
+    shoppingCart.appendChild(productPriceCart);
+    shoppingCart.appendChild(deleteProductCart);
+
+    myOrderContent.appendChild(shoppingCart);
+    var suma = 0;
+    for(var i =0; i<myOrderContent.children.length;i++){
+        suma += +(myOrderContent.children[i].childNodes[2].innerText.substring(2));
+    }
+
+    subTotalCart.innerText='$ '+suma+'.00';
+
+
+};
+
+
+
