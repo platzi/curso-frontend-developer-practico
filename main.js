@@ -1,14 +1,22 @@
+// Obtención de elementos HTML.
 const menuEmail = document.querySelector(".navbar-email");
 const desktopMenu = document.querySelector(".desktop-menu");
 const menuHamIcon = document.querySelector(".menu");
 const menuCarritoIcon = document.querySelector(".navbar-shopping-cart");
 const mobileMenu = document.querySelector(".mobile-menu");
 const asideProductDetail = document.querySelector(".product-detail");
+const asideProductDescription = document.querySelector(".product-description");
+const productDescriptionClose = document.querySelector(
+  ".product-description-close"
+);
 
+// Asignación de escuchadores de eventos.
 menuEmail.addEventListener("click", toggleDesktopMenu);
 menuHamIcon.addEventListener("click", toggleMobileMenu);
 menuCarritoIcon.addEventListener("click", toggleCarritoAside);
+productDescriptionClose.addEventListener("click", closeProductDescription);
 
+// Creación de funciones.
 function toggleDesktopMenu() {
   const isAsideClosed = asideProductDetail.classList.contains("inactive");
 
@@ -26,12 +34,15 @@ function toggleMobileMenu() {
     asideProductDetail.classList.add("inactive");
   }
 
+  closeProductDescription();
   mobileMenu.classList.toggle("inactive");
 }
 
 function toggleCarritoAside() {
   const isMobileMenuClosed = mobileMenu.classList.contains("inactive");
   const isDesktopMenuClosed = desktopMenu.classList.contains("inactive");
+  const isProductDescriptionClosed =
+    asideProductDescription.classList.contains("inactive");
 
   if (!isMobileMenuClosed) {
     mobileMenu.classList.add("inactive");
@@ -41,7 +52,21 @@ function toggleCarritoAside() {
     desktopMenu.classList.add("inactive");
   }
 
+  if (!isProductDescriptionClosed) {
+    asideProductDescription.classList.add("inactive");
+  }
+
   asideProductDetail.classList.toggle("inactive");
+}
+
+function openProductDescription() {
+  asideProductDetail.classList.add("inactive");
+
+  asideProductDescription.classList.remove("inactive");
+}
+
+function closeProductDescription() {
+  asideProductDescription.classList.add("inactive");
 }
 
 const productList = [];
@@ -85,10 +110,13 @@ function renderProducts(array) {
     const productImg = document.createElement("img");
 
     // Modificación de atributos
-    productImg.setAttribute('src', product.image);
+    productImg.setAttribute("src", product.image);
     priceParagraph.innerText = `$${product.price}`;
     nameParagraph.innerText = product.name;
     figureImg.setAttribute("src", "./icons/bt_add_to_cart.svg");
+
+    // Asignación de escuchadores de eventos
+    productImg.addEventListener("click", openProductDescription);
 
     // Unión de elementos HTML
     cardsContainer.appendChild(productCard);
