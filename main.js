@@ -10,15 +10,22 @@ components and interactions between them.
 ////////EMAIL MENU///////
 function emailMenu() {
   let desktopMenu = document.querySelector(".desktop-menu");
+  let navbarEmail = document.querySelector(".navbar-email");
   let navbarRight = document.querySelector(".navbar-right");
   let cartIcon = document.querySelector(".navbar-shopping-cart");
+  let mainContainer = document.querySelector(".main-container");
+  let menuOpen = false;
 
   function openMenu() {
     desktopMenu.setAttribute("class", "desktop-menu");
+    menuOpen = true;
   }
 
   function hideMenu() {
-    desktopMenu.setAttribute("class", "desktop-menu inactive");
+    if (menuOpen) {
+      desktopMenu.setAttribute("class", "desktop-menu inactive");
+      menuOpen = false;
+    }
   }
 
   //screenSize check alternatives-> window.innerWidth // window.matchMedia("(max-width: 770px)").matches //  $(window).width()
@@ -29,12 +36,19 @@ function emailMenu() {
       desktopMenu.style.visibility = "visible";
     }
   }
-  navbarRight.addEventListener("mouseenter", openMenu);
-  navbarRight.addEventListener("mouseleave", hideMenu);
-  desktopMenu.addEventListener("mouseenter", openMenu);
-  desktopMenu.addEventListener("mouseleave", hideMenu);
+
+  navbarEmail.addEventListener("click", () => {
+    if (menuOpen) {
+      hideMenu();
+    } else {
+      openMenu();
+    }
+  });
   cartIcon.addEventListener("click", hideMenu);
   cartIcon.addEventListener("mouseenter", hideMenu);
+
+  mainContainer.addEventListener("mouseenter", hideMenu);
+
   window.addEventListener("load", screenSize);
   window.addEventListener("resize", screenSize);
   /*The last two eventListeners are in charge of not showing the desktop-menu if the size of the display is mobile.
@@ -174,38 +188,118 @@ productList.push(
     urlImg:
       "https://img.freepik.com/free-photo/cool-roller-skate-still-life_23-2150304814.jpg?t=st=1687773185~exp=1687773785~hmac=0a8867a1d7398dc826aed29a7a88a8e5ab2a04692d8d710df466bf56dc71581b&w=740",
     description:
-      "Experience the epitome of elegance with our Cream Classic roller skates. These skates combine a vintage aesthetic with modern comfort, creating a perfect blend of style and functionality. The creamy color exudes sophistication, while ensuring a smooth and enjoyable ride. Step into these skates and let your inner grace shine on the rink!",
-  },
-  {
-    id: 6,
-    category: "roller",
-    name: "Cream Classic",
-    price: 89.95,
-    urlImg:
-      "https://img.freepik.com/free-photo/cool-roller-skate-still-life_23-2150304814.jpg?t=st=1687773185~exp=1687773785~hmac=0a8867a1d7398dc826aed29a7a88a8e5ab2a04692d8d710df466bf56dc71581b&w=740",
-    description:
-      "Experience the epitome of elegance with our Cream Classic roller skates. These skates combine a vintage aesthetic with modern comfort, creating a perfect blend of style and functionality. The creamy color exudes sophistication, while ensuring a smooth and enjoyable ride. Step into these skates and let your inner grace shine on the rink!",
+      "Experience the epitome of elegance with our Cream Classic roller skates. These skates combine a vintage aesthetic with modern comfort, creating a perfect blend of style and functionality. The creamy color exudes sophistication, while ensuring a smooth and enjoyable ride. Step into these skates and let your inner grace shine on the rink.",
   },
   ///////////////////
   {
+    id: 6,
+    category: "skate",
+    name: "Legacy Bird",
+    price: 68.99,
+    urlImg:
+      "https://img.freepik.com/premium-photo/pair-skateboards-with-black-crow-front_900370-12480.jpg?w=826",
+    description:
+      "Experience timeless appeal and optimal performance with our Retro Cruiser skateboard. The sleek black color and iconic crow graphic give it a distinctive look. Whether you're a beginner or a seasoned rider, this skateboard guarantees a smooth and enjoyable experience. Carve your own path with style.",
+  },
+  {
     id: 7,
     category: "skate",
-    name: "Cream Classic",
-    price: 89.95,
+    name: "Stormtrooper Helmet",
+    price: 99.95,
     urlImg:
-      "https://img.freepik.com/free-photo/cool-roller-skate-still-life_23-2150304814.jpg?t=st=1687773185~exp=1687773785~hmac=0a8867a1d7398dc826aed29a7a88a8e5ab2a04692d8d710df466bf56dc71581b&w=740",
+      "https://img.freepik.com/premium-photo/two-skateboards-with-one-that-has-storm-trooper-it_900370-12467.jpg?w=740",
     description:
-      "Experience the epitome of elegance with our Cream Classic roller skates. These skates combine a vintage aesthetic with modern comfort, creating a perfect blend of style and functionality. The creamy color exudes sophistication, while ensuring a smooth and enjoyable ride. Step into these skates and let your inner grace shine on the rink!",
+      "Unleash the force of style with our Galactic Rider skateboard. Inspired by the legendary Stormtrooper helmet, this skateboard features a sleek black and white design with an iconic graphic. Join the ranks of the skateboarding elite and showcase your individuality with this extraordinary skateboard!",
   },
   {
     id: 8,
-    category: "surfskate",
-    name: "Cream Classic",
+    category: "skate",
+    name: "Skull Mex Skate",
     price: 89.95,
     urlImg:
-      "https://img.freepik.com/free-photo/cool-roller-skate-still-life_23-2150304814.jpg?t=st=1687773185~exp=1687773785~hmac=0a8867a1d7398dc826aed29a7a88a8e5ab2a04692d8d710df466bf56dc71581b&w=740",
+      "https://img.freepik.com/premium-photo/two-skateboards-with-skulls-them-one-which-has-skull-it_900370-12483.jpg?w=740",
     description:
-      "Experience the epitome of elegance with our Cream Classic roller skates. These skates combine a vintage aesthetic with modern comfort, creating a perfect blend of style and functionality. The creamy color exudes sophistication, while ensuring a smooth and enjoyable ride. Step into these skates and let your inner grace shine on the rink!",
+      "Dominate the streets with Mexican flow. Embrace the rebellious spirit and unleash your inner strength with this edgy ride. The captivating skull graphic adds a touch of attitude. Whether grinding rails or mastering tricks, the Skull will accompany you on your journey to skateboarding greatness!",
+  },
+  {
+    id: 9,
+    category: "skate",
+    name: "Ghilbli Style",
+    price: 59.95,
+    urlImg:
+      "https://img.freepik.com/premium-photo/two-skateboards-with-picture-giant-monster-bottom_900370-12466.jpg?w=740",
+    description:
+      "Embark on an anime-inspired adventure with our Anime Cruiser skateboard. Featuring captivating artwork and vibrant colors, this skateboard brings the magic of Ghibli films to life. With its smooth ride and sturdy construction, it's perfect for both beginners and anime enthusiasts. Let your imagination soar with this eye-catching skateboard.",
+  },
+  {
+    id: 10,
+    category: "skate",
+    name: "Dragon Ball Flip",
+    price: 79.95,
+    urlImg:
+      "https://img.freepik.com/premium-photo/skateboard-with-cartoon-image-woman-with-green-hair_900370-12470.jpg?w=740",
+    description:
+      "Unleash your inner power with our Super Saiyan Shredder skateboard. Featuring a captivating design inspired by anime, this skateboard is perfect for expressing your style. Whether you're cruising or performing tricks, it delivers an exceptional ride. Embrace the energy and stand out from the crowd with this powerful skateboard",
+  },
+  {
+    id: 11,
+    category: "surfskate",
+    name: "Black PantherY",
+    price: 129.95,
+    urlImg:
+      "https://yowsurf.com/wp-content/uploads/yow-medina-panthera-33.5-surfskate-bottom-scaled.jpg",
+    description:
+      "Discover the vibrant world of surf skating with our Colorful Stars board. Its eye-catching design features a burst of colorful stars that will turn heads as you ride. Experience the perfect combination of style and performance, allowing you to carve and cruise with ease. Get ready to shine on the streets and elevate your surf skating game with this captivating board!",
+  },
+  {
+    id: 12,
+    category: "surfskate",
+    name: "Classic Wood",
+    price: 139.95,
+    urlImg:
+      "https://yowsurf.com/wp-content/uploads/yow-lowers-34-surfskate-bottom.jpg",
+    description:
+      "Embrace the captivating world of surf skating with our Colorful Geometry board. Its dynamic geometric pattern adds a modern touch to your ride, while providing a stable and responsive experience. The high-quality construction ensures durability and smooth gliding. Unleash your creativity and conquer the streets with this stunning board that combines style and functionality!",
+  },
+  {
+    id: 13,
+    category: "surfskate",
+    name: "Beginners Enthusiasm",
+    price: 110.95,
+    urlImg:
+      "https://yowsurf.com/wp-content/uploads/yow-grom-mundaka-32-surfskate-bottom-2.jpg",
+    description:
+      "Experience the joy of surf skating with our Colorful Dots board. Its playful design features a vibrant array of dots that will bring energy to your rides. The board's smooth performance and responsive handling make it a perfect choice for riders of all levels. Stand out from the crowd and express your individuality with this fun and reliable surf skate!",
+  },
+  {
+    id: 14,
+    category: "surfskate",
+    name: "Begginers Luck",
+    price: 89.95,
+    urlImg:
+      "https://yowsurf.com/wp-content/uploads/yow-coxos-31-surfskate-bottom-2.jpg",
+    description:
+      "Ride with confidence and style on our Green Hexagons surf skate. Its captivating design features a pattern of green hexagons that exudes a modern and fresh vibe. With its smooth gliding and responsive maneuverability, this board allows you to explore new tricks and techniques. Let your true colors shine.",
+  },
+  {
+    id: 15,
+    category: "other",
+    name: "Basic Toolbox",
+    price: 39.95,
+    urlImg:
+      "https://img.freepik.com/premium-photo/toolbox-set-with-everything-you-need-any-job_829136-808.jpg?w=826",
+    description:
+      "Maintain and repair your roller skates, skateboards, and surfskates with ease using our comprehensive toolbox set. It includes a wide range of essential tools for adjustments, repairs, and maintenance. Whether you're a beginner or a pro skater, this set provides everything you need to keep your gear in optimal condition and ensure flawless performance during every session. Get ready for worry-free skating.",
+  },
+  {
+    id: 16,
+    category: "other",
+    name: "Premium Toolbox",
+    price: 55.95,
+    urlImg:
+      "https://img.freepik.com/premium-photo/toolbox-with-everything-you-need-any-job_829136-799.jpg?w=826",
+    description:
+      "Take your maintenance and repair game to the next level with our premium toolbox set. Designed for the most discerning enthusiasts, this set offers high-quality tools that guarantee durability and precision for every adjustment and repair. From heavy-duty wrenches and screwdrivers to specialized tools for bearings and axles, this comprehensive kit provides everything you need to maintain and repair your roller skates, skateboards, and surfskates with the utmost excellence. Become an equipment care expert and enjoy unparalleled skating experiences.",
   }
 );
 //Making this code a reusable function will be a closer approach to a professional js-doc or practice.
@@ -314,6 +408,7 @@ for (product of productList) {
   const productIconFigure = document.createElement("figure");
   const productIconImg = document.createElement("img");
   productIconImg.setAttribute("src", "./icons/bt_add_to_cart.svg");
+  productIconImg.setAttribute("onclick", "addToCart(" + product.id + ")");
   productIconImg.setAttribute("alt", "Cart Icon");
 
   //
@@ -331,10 +426,10 @@ for (product of productList) {
 
 ///////////HIDING AND SHOWING PRODUCT-CARDS BY CATEGORY///////////
 const allButton = document.querySelector("#all");
-const skatesButton = document.querySelector("#skate");
-const surfskatesButton = document.querySelector("#surfskate");
-const rollersButton = document.querySelector("#roller");
-const othersButton = document.querySelector("#other");
+const skateButton = document.querySelector("#skate");
+const surfskateButton = document.querySelector("#surfskate");
+const rollerButton = document.querySelector("#roller");
+const otherButton = document.querySelector("#other");
 
 function showProductsByCategory(category) {
   const productCards = document.querySelectorAll(".product-card");
@@ -356,40 +451,116 @@ allButton.addEventListener("click", () => {
   showProductsByCategory("all");
 });
 
-skatesButton.addEventListener("click", () => {
+skateButton.addEventListener("click", () => {
   showProductsByCategory("skate");
 });
 
-surfskatesButton.addEventListener("click", () => {
+surfskateButton.addEventListener("click", () => {
   showProductsByCategory("surfskate");
 });
 
-rollersButton.addEventListener("click", () => {
+rollerButton.addEventListener("click", () => {
   showProductsByCategory("roller");
 });
 
-othersButton.addEventListener("click", () => {
-  showProductsByCategory("others");
+otherButton.addEventListener("click", () => {
+  showProductsByCategory("other");
 });
+
+
+/////////PRODUCT DETAIL LIST FOR THE ASIDE/////////
+//La producción de cada elemento que se incruste debe ser disparada por hacer click en añadir al carrito tanto icono como en modal, entonces es cuando se añade
+// si ya está añadido, no crear otro, sino añadir el número/precio sumar
+//acticonst una función si se hace click en esos elementos, en la función, crear elemento, añadir al contenedor padre y controlar que todo funcione ok
+
+// Variable para almacenar el total del precio
+let totalPrice = 0;
+// Objeto para realizar el seguimiento de la cantidad de cada producto en el carrito
+const cartItems = {};
+
+// Función para añadir un producto al carrito
+function addToCart(productIndex) {
+  const product = productList[productIndex]; // Asegúrate de tener una variable "productList" definida con los productos
+
+  const myOrderContent = document.querySelector(".my-order-content");
+
+  // Verificar si el producto ya está en el carrito///////////REPASAR ESTO ni zorra de que hace
+  if (cartItems.hasOwnProperty(product.name)) {
+    // Incrementar la cantidad del producto en el carrito
+    cartItems[product.name]++;
+    // Obtener el elemento del producto en el carrito
+    const existingCartItem = document.querySelector(`.shopping-cart[data-product="${product.name}"]`);
+    // Actualizar la cantidad en el elemento existente
+    const quantityElement = existingCartItem.querySelector('.quantity');
+    quantityElement.textContent = `x${cartItems[product.name]}`;
+  } else {
+    const shoppingCartDiv = document.createElement("div");
+    shoppingCartDiv.classList.add("shopping-cart");
+    shoppingCartDiv.setAttribute('data-product', product.name);
+
+    const figure = document.createElement("figure");
+    const image = document.createElement("img");
+    image.src = product.urlImg;
+    image.alt = product.name;
+    figure.appendChild(image);
+    shoppingCartDiv.appendChild(figure);
+
+    // Crear el elemento p para el nombre del producto
+    const name = document.createElement("p");
+    name.textContent = product.name;
+    shoppingCartDiv.appendChild(name);
+
+    // Crear el elemento p para la cantidad del producto
+    const quantity = document.createElement("p");
+    quantity.classList.add("quantity");
+    quantity.textContent = "x1";
+    shoppingCartDiv.appendChild(quantity);
+
+    // Crear el elemento p para el precio del producto
+    const price = document.createElement("p");
+    price.textContent = product.price;
+    shoppingCartDiv.appendChild(price);
+
+    // Crear el elemento img para el botón de cerrar
+    const closeButton = document.createElement("img");
+    closeButton.src = "./icons/icon_close.png";
+    closeButton.alt = "close";
+    shoppingCartDiv.appendChild(closeButton);
+
+    // Agregar el elemento div del carrito de compras al DOM
+    myOrderContent.insertBefore(shoppingCartDiv, myOrderContent.firstChild);
+
+    // Agregar el producto al objeto cartItems con cantidad 1
+    cartItems[product.name] = 1;
+  }
+
+  totalPrice += product.price;
+
+  // Actualización del contenido del elemento de total
+  let totalPriceElement = document.getElementById("total-price");
+  totalPriceElement.textContent = "$" + totalPrice.toFixed(2);
+}
+
+
 
 //////////EXAMPLE OF REUSABLE FUNCTION:
 /*
 function toggleMenu(menuElement, triggerElement) {
-	const menu = document.querySelector(menuElement);
-	const trigger = document.querySelector(triggerElement);
+  const menu = document.querySelector(menuElement);
+  const trigger = document.querySelector(triggerElement);
   
-	const handleMouseEnter = function () {
-	  menu.setAttribute("class", "desktop-menu");
-	};
+  const handleMouseEnter = function () {
+    menu.setAttribute("class", "desktop-menu");
+  };
   
-	const handleMouseLeave = function () {
-	  menu.setAttribute("class", "desktop-menu inactive");
-	};
+  const handleMouseLeave = function () {
+    menu.setAttribute("class", "desktop-menu inactive");
+  };
   
-	trigger.addEventListener('mouseenter', handleMouseEnter);
-	trigger.addEventListener('mouseleave', handleMouseLeave);
-	menu.addEventListener('mouseenter', handleMouseEnter);
-	menu.addEventListener('mouseleave', handleMouseLeave);
+  trigger.addEventListener('mouseenter', handleMouseEnter);
+  trigger.addEventListener('mouseleave', handleMouseLeave);
+  menu.addEventListener('mouseenter', handleMouseEnter);
+  menu.addEventListener('mouseleave', handleMouseLeave);
   }
   
   // Ejemplo de uso

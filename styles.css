@@ -4,7 +4,7 @@
   --very-light-pink: #c7c7c7;
   --text-input-field: #f7f7f7;
   --hospital-green: #acd9b2;
-  --sm: 14px;
+  --sm: 15px;
   --md: 16px;
   --lg: 18px;
 }
@@ -21,8 +21,14 @@ body {
 nav {
   display: flex;
   justify-content: space-between;
-  padding: 0 34px;
-  border-bottom: 1px solid var(--very-light-pink);
+  padding: 0 34;
+  border-bottom: 1px solid var(--hospital-green);
+  position: fixed;
+  top: 0;
+  left: 0;
+  width: 100%;
+  background-color: #fff;
+  z-index: 9999;
 }
 
 .menu {
@@ -37,7 +43,9 @@ nav {
 .navbar-right ul {
   list-style: none;
   padding: 0;
+  padding-right: 17px;
   margin: 0;
+  margin-top: 4px;
   display: flex;
   align-items: center;
   height: 60px;
@@ -47,8 +55,9 @@ nav {
   display: flex;
 }
 
+
 .navbar-left ul {
-  margin-left: 12px;
+  margin-left: 17px;
 }
 
 .navbar-left ul li div,
@@ -56,7 +65,7 @@ nav {
   text-decoration: none;
   color: var(--very-light-pink);
   border: 1px solid var(--white);
-  padding: 8px;
+  padding: 12px;
   border-radius: 8px;
   cursor: pointer;
 }
@@ -65,6 +74,11 @@ nav {
 .navbar-right ul li a:hover {
   border: 1px solid var(--hospital-green);
   color: var(--hospital-green);
+}
+
+.navbar-left img {
+  width: 200px;
+  height: cover;
 }
 
 .navbar-email {
@@ -97,7 +111,7 @@ nav {
 /*******DESKTOP MENU **********/
 .desktop-menu {
   position: absolute;
-  top: 60px;
+  top: 67px;
   right: 55px;
   background: var(--white);
   width: 100px;
@@ -173,18 +187,32 @@ nav {
   font-weight: 300 !important;
 }
 
-.sign-out {
+.sign-in {
   font-size: var(--sm);
   color: var(--hospital-green) !important;
 }
-/*********CARRITO***********/
+
+/*********CART***********/
 .product-detail {
   width: 360px;
   padding: 0 24px;
   box-sizing: border-box;
-  position: absolute;
+  position: fixed;
   right: 0;
+  border-bottom-left-radius: 8px;
   background: var(--white);
+  border: 1px solid var(--hospital-green);
+  border-top: none;
+  z-index: 999;
+  top: 60px;
+  max-height: 700px;
+  /* Establece la altura máxima deseada */
+  overflow-y: auto;
+  /* Habilita la barra de desplazamiento vertical */
+}
+
+.my-order-content {
+  flex-direction: column-reverse;
 }
 
 .title-container {
@@ -253,6 +281,7 @@ nav {
 .shopping-cart p:nth-child(3) {
   font-size: var(--md);
   font-weight: bold;
+  text-align: justify;
 }
 
 .primary-button {
@@ -265,6 +294,7 @@ nav {
   font-size: var(--md);
   font-weight: bold;
   height: 50px;
+  margin-bottom: 24px;
 }
 
 /******PRODUCT CARDS******/
@@ -273,10 +303,11 @@ nav {
   grid-template-columns: repeat(auto-fill, 320px);
   gap: 26px;
   place-content: center;
-  margin-top: 26px;
+  margin-top: 100px;
   margin-right: 26px;
   margin-left: 26px;
 }
+
 .product-card {
   width: 320px;
 }
@@ -286,35 +317,38 @@ nav {
   height: 320px;
   border-radius: 20px;
   object-fit: cover;
-
   transition: 0.5s;
   cursor: pointer;
-
 }
 
 .product-card img:hover {
   transform: scale(1.05);
   box-shadow: 0 0 7px 4px rgba(164, 164, 164, 0.7);
 }
+
 .product-info {
   display: flex;
   justify-content: space-between;
   align-items: center;
   margin-top: 12px;
 }
+
 .product-info figure {
   margin: 0;
 }
+
 .product-info figure img {
   width: 35px;
   height: 35px;
 }
+
 .product-info div p:nth-child(1) {
   font-weight: bold;
   font-size: var(--md);
   margin-top: 0;
   margin-bottom: 4px;
 }
+
 .product-info div p:nth-child(2) {
   font-size: var(--sm);
   margin-top: 0;
@@ -362,13 +396,16 @@ nav {
   z-index: 2;
   padding: 12px;
   border-radius: 50%;
+  border: 2px solid var(--hospital-green);
+
 }
 
 .product-modal-close:hover {
   cursor: pointer;
+  box-shadow: 0 0 7px 4px rgba(164, 164, 164, 0.7);
 }
 
-.product-modal > img:nth-child(2) {
+.product-modal>img:nth-child(2) {
   width: 100%;
   height: 520px;
   object-fit: cover;
@@ -394,11 +431,11 @@ nav {
   font-weight: bold;
 }
 
-.product-info-modal-modal p:nth-child(3) {
-  color: var(--very-light-pink);
+.product-info-modal p:nth-child(3) {
   font-size: var(--sm);
   margin-top: 0;
   margin-bottom: 36px;
+  text-align: justify;
 }
 
 .primary-button {
@@ -420,6 +457,7 @@ nav {
   margin-bottom: 20px;
 }
 
+
 @media (max-width: 770px) {
   .menu {
     display: block;
@@ -428,8 +466,21 @@ nav {
   nav {
     padding: 0 16px;
   }
+
   .navbar-left ul {
     display: none;
+  }
+
+  .navbar-left img {
+    width: cover;
+    height: cover;
+  }
+
+  .mobile-menu {
+    width: 100%;
+    border: 1px solid var(--hospital-green);
+    margin-top: 7.8px;
+    border-top: none;
   }
 
   .navbar-email {
@@ -443,20 +494,27 @@ nav {
 
   .product-detail {
     width: 100%;
+    height: 400px;
+    /* Establece la altura máxima deseada */
+    overflow-y: auto;
+    /* Habilita la barra de desplazamiento vertical */
   }
 
   .cards-container {
     grid-template-columns: repeat(auto-fill, 200px);
   }
+
   .product-card {
     width: 200px;
   }
+
   .product-card img {
     width: 200px;
     height: 200px;
   }
+
   .product-modal {
-    width: 90%;
+    width: 100%;
   }
 }
 
