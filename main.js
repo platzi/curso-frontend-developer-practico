@@ -468,6 +468,7 @@ otherButton.addEventListener("click", () => {
 });
 
 
+<<<<<<< HEAD
 /////////PRODUCT DETAIL LIST FOR THE ASIDE/////////
 //La producción de cada elemento que se incruste debe ser disparada por hacer click en añadir al carrito tanto icono como en modal, entonces es cuando se añade
 // si ya está añadido, no crear otro, sino añadir el número/precio sumar
@@ -542,6 +543,18 @@ function addToCart(productIndex) {
 }
 
 
+=======
+/*
+Next steps:
+Añadir: cambios al header/navbars, hacerlo más vistoso y grande, añadir las funcionalidades restantes:
+	-Añadir al carrito y que se modifique el contenido del carrito.
+	-pagina de login
+	-pagina de logout
+	-pagina my orders
+	-pagina my account
+
+*/
+>>>>>>> f353274d1b4a29cd246657885f7a2dd0f8b7db7c
 
 //////////EXAMPLE OF REUSABLE FUNCTION:
 /*
