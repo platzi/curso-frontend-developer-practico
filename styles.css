@@ -358,7 +358,7 @@ aside {
   color: var(--very-light-pink);
 }
 
-@media (max-width: 640px) {
+@media (max-width: 750px) {
   .menu {
     display: block;
     padding-right: 11px;
@@ -387,7 +387,7 @@ aside {
   }
 }
 
-@media (min-width: 641px){
+@media (min-width: 751px){
   .mobile-menu{
     display: none;
   }

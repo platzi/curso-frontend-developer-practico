@@ -166,46 +166,4 @@ function renderProducts(arr){
     cardsContainer.appendChild(productCard);
   }
 }
-
 renderProducts(productList);
-
-// function renderProductsDetails(arr){
-//   for(product of arr){
-//     const productDetailClose = document.createElement('div');
-//     productDetailClose.classList.add('product-detail-close');
-  
-//     const closeImg = document.createElement('img');
-//     closeImg.setAttribute('src', './icons/icon_close.png');
-//     closeImg.addEventListener('click', closeProductDetailAside);
-
-//     const productImgDetail = document.createElement('img');
-//     productImgDetail.classList.add('product-info');
-//     productImgDetail.setAttribute('src', product.image);
-  
-//     const productInfoDetail = document.createElement('div');
-//     productInfoDetail.classList.add('product-info');
-
-//     const productPriceDetail= document.createElement('p');
-//     productPriceDetail.innerText = '$' + product.price;
-//     const productNameDetail = document.createElement('p');
-//     productNameDetail.innerText = product.name;
-//     const productDescription = document.createElement('p');
-//     productDescription.innerText = product.description;
-
-//     const productDetailButton= document.createElement('button');
-//     productDetailButton.classList.add('primary-button', 'add-to-cart-button');
-//     productDetailButton.innerHTML = `<img src="./icons/bt_add_to_cart.svg" alt="add to cart">Add to cart`;
-
-//     productDetail.appendChild(productDetailClose);
-//     productDetail.appendChild(productImgDetail);
-//     productDetail.appendChild(productInfoDetail);
-
-//     productDetailClose.appendChild(closeImg);
-
-//     productInfoDetail.appendChild(productPriceDetail);
-//     productInfoDetail.appendChild(productNameDetail);
-//     productInfoDetail.appendChild(productDescription);
-//     productInfoDetail.appendChild(productDetailButton);
-//   }
-// }
-// renderProductsDetails(productList);
