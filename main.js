@@ -4,9 +4,9 @@ const menuMobile = document.querySelector('.mobile-menu');
 const iconShopingCart = document.querySelector('.navbar-shopping-cart');
 const BurgerIconMobile = document.querySelector('.iconBurgerMenu');
 const asideCart = document.querySelector('.product-detail');
-const mainCardsContainer = document.querySelector('.main-container');
 
-const elements = [];
+const mainCardsContainer = document.querySelector('.cards-container');
+const productList = [];
 
 //event of navbar email for desktop Menu
 navBarEmail.addEventListener('click', function(){
@@ -24,3 +24,52 @@ iconShopingCart.addEventListener('click', function(){
     desktopMenu.classList.add('inactive');
     asideCart.classList.toggle('inactive');
 });
+
+class Product{
+    constructor(name, image, price){
+        this.name = name;
+        this.image = image;
+        this.price = price;
+    };
+};
+
+let bike = new Product('Bike', 'https://images.pexels.com/photos/276517/pexels-photo-276517.jpeg?auto=compress&cs=tinysrgb&dpr=2&h=650&w=940', '120,00');
+let tv = new Product('TV old', 'https://images.pexels.com/photos/5721910/pexels-photo-5721910.jpeg?auto=compress&cs=tinysrgb&w=1260&h=750&dpr=1', '400,00');
+let laptop = new Product('Laptop', 'https://images.pexels.com/photos/5703527/pexels-photo-5703527.jpeg?auto=compress&cs=tinysrgb&w=1260&h=750&dpr=1', '350,00');
+let fridge = new Product('Fridge', 'https://images.pexels.com/photos/2962002/pexels-photo-2962002.jpeg?auto=compress&cs=tinysrgb&w=1260&h=750&dpr=1', '850,00');
+let shirt = new Product('Pink shirt', 'https://images.pexels.com/photos/2249248/pexels-photo-2249248.jpeg?auto=compress&cs=tinysrgb&w=1260&h=750&dpr=1', '50,00');
+let pants = new Product('Pants', 'https://images.pexels.com/photos/1598507/pexels-photo-1598507.jpeg?auto=compress&cs=tinysrgb&w=1260&h=750&dpr=1', '70,00');
+let plant = new Product('Plant', 'https://images.pexels.com/photos/4505447/pexels-photo-4505447.jpeg?auto=compress&cs=tinysrgb&w=1260&h=750&dpr=1', '10,00');
+let clock = new Product('Clock', 'https://images.pexels.com/photos/177154/pexels-photo-177154.jpeg?auto=compress&cs=tinysrgb&w=1260&h=750&dpr=1', '100,00');
+productList.push(bike, tv, laptop, fridge, shirt, pants, plant, clock);
+
+function renderProducts(arr){
+    for (const product of arr) {
+        const productCard = document.createElement('div');
+        productCard.classList.add('product-card');
+        const productImage = document.createElement('img');
+        productImage.setAttribute('src', product.image);
+
+        
+        const productInfo = document.createElement('div');
+        productInfo.classList.add('product-info');
+        productCard.append(productImage, productInfo);
+        
+        const divInfo = document.createElement('div');
+        const productPrice = document.createElement('p');
+        productPrice.innerText = product.price;
+        const productName = document.createElement('p');
+        productName.innerText = product.name;
+
+        divInfo.append(productPrice, productName);
+        
+        const productFigure = document.createElement('figure');
+        const figureImage = document.createElement('img');
+        figureImage.setAttribute('src', './icons/bt_add_to_cart.svg');
+        productFigure.appendChild(figureImage);
+        productInfo.append(divInfo, productFigure);
+
+        mainCardsContainer.appendChild(productCard);
+      }
+}
+renderProducts(productList);
