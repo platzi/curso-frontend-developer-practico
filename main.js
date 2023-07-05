@@ -13,7 +13,7 @@ let currentProduct = null;
 menuEmail.addEventListener('click', toggleDesktopMenu);
 menuHamIcon.addEventListener('click', toggleMobileMenu);
 menuCarritoIcon.addEventListener('click', toggleCarritoAside);
-// productDetailCloseIcon.addEventListener('click', closeProductDetailAside);
+
 
 function toggleDesktopMenu() {
   const isAsideClosed = shoppingCartContainer.classList.contains('inactive');
@@ -53,19 +53,15 @@ function toggleCarritoAside(){
   shoppingCartContainer.classList.toggle('inactive');
 }
 
-function openProductDetailAside(productIndex){
-  const clickedProduct = productList[productIndex];
-
-  if (currentProduct !== null && currentProduct === clickedProduct) {
-    return; // Evitar abrir el mismo producto nuevamente
-  }
-
-  currentProduct = clickedProduct;
-
+function openProductDetailAside(event){
   shoppingCartContainer.classList.add('inactive');
   ProductDetailContainer.classList.remove('inactive');
 
   productDetail.innerHTML = '';
+
+  const product = productList.find(prod => {
+    return prod.image == event.srcElement.getAttribute("src")
+});
 
     const productDetailClose = document.createElement('div');
     productDetailClose.classList.add('product-detail-close');
@@ -76,21 +72,25 @@ function openProductDetailAside(productIndex){
 
     const productImgDetail = document.createElement('img');
     productImgDetail.classList.add('product-info');
-    productImgDetail.setAttribute('src', clickedProduct.image);
+    productImgDetail.setAttribute('src', product.image);
   
     const productInfoDetail = document.createElement('div');
     productInfoDetail.classList.add('product-info');
 
     const productPriceDetail= document.createElement('p');
-    productPriceDetail.innerText = '$' + clickedProduct.price;
+    productPriceDetail.innerText = '$' + product.price;
     const productNameDetail = document.createElement('p');
-    productNameDetail.innerText = clickedProduct.name;
+    productNameDetail.innerText = product.name;
     const productDescription = document.createElement('p');
-    productDescription.innerText = clickedProduct.description;
+    productDescription.innerText = product.description;
 
     const productDetailButton= document.createElement('button');
     productDetailButton.classList.add('primary-button', 'add-to-cart-button');
-    productDetailButton.innerHTML = `<img src="./icons/bt_add_to_cart.svg" alt="add to cart">Add to cart`;
+    const imgAddToCart = document.createElement("img")
+    imgAddToCart.setAttribute("src", "./icons/bt_add_to_cart.svg")
+    imgAddToCart.setAttribute("alt","Add to cart")
+    productDetailButton.appendChild(imgAddToCart)
+    productDetailButton.innerHTML += "Add to cart";
 
     productDetail.appendChild(productDetailClose);
     productDetail.appendChild(productImgDetail);
@@ -136,7 +136,7 @@ function renderProducts(arr){
   
     const productImg = document.createElement('img');
     productImg.setAttribute('src', product.image);
-    productImg.addEventListener('click', () => openProductDetailAside(arr.indexOf(product)));// probando
+    productImg.addEventListener('click', openProductDetailAside);
   
     const productInfo = document.createElement('div');
     productInfo.classList.add('product-info');
