@@ -237,6 +237,7 @@ nav {
 /* ProductDetail */
 .product-detail-secondary {
   width: 360px;
+  background-color: var(--white);
   padding-bottom: 24px;
   position: absolute;
   right: 0;
