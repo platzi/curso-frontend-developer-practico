@@ -5,6 +5,8 @@ const menuBurger = document.querySelector('.menu');
 const shoppingCart = document.querySelector('.navbar-shopping-cart');
 const shoppingCartContainer = document.querySelector('#shoppingCartContainer');
 const cardsContainer = document.querySelector('.cards-container');
+const productDetailContainer = document.querySelector('#productDetail');
+const productDetailClose = document.querySelector('.product-detail-close');
 
 
 menuEmail.addEventListener('click', toggleDesktopMenu);
@@ -15,18 +17,32 @@ shoppingCart.addEventListener('click', toggleProductDetail);
 function toggleDesktopMenu() {
     shoppingCartContainer.classList.add('inactive');
     desktopMenu.classList.toggle('inactive');
+    productDetailContainer.classList.add('inactive');
 }
 
 function toggleMobileMenu() {
     shoppingCartContainer.classList.add('inactive');
     mobileMenu.classList.toggle('inactive');
+    productDetailContainer.classList.add('inactive');
 }
 
 function toggleProductDetail() {
     mobileMenu.classList.add('inactive');
     desktopMenu.classList.add('inactive');
     shoppingCartContainer.classList.toggle('inactive');
+    productDetailContainer.classList.add('inactive');
 
+}
+
+function openProductDetailAside() {
+    mobileMenu.classList.add('inactive');
+    desktopMenu.classList.add('inactive');
+    shoppingCartContainer.classList.add('inactive');
+    productDetailContainer.classList.remove('inactive');
+}
+
+function closeProductDetailAside() {
+    productDetailContainer.classList.add('inactive');
 }
 
 const productsList = [];
@@ -125,6 +141,8 @@ function renderProducts(arr){
     
         const productImage = document.createElement('img');
         productImage.setAttribute('src', product.image);
+        productImage.addEventListener('click', openProductDetailAside)
+        productDetailClose.addEventListener('click', closeProductDetailAside);
     
         const productInfo = document.createElement('div');
         productInfo.classList.add('product-info');
