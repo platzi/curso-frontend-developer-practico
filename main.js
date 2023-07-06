@@ -5,12 +5,17 @@ const burgerMenuIcon = document.querySelector('.menu');
 const carritoMenuIcon = document.querySelector('.navbar-shopping-cart');
 const carritoMenu = document.querySelector('#compra-detail');
 const cardContainer = document.querySelector('.cards-container');
+const productDetailAside = document.querySelector('#product-detail');
+const productDetailCloseIcon = document.querySelector('.product-detail-close');
 
 // *Escuchamos los eventos de click de Icon
 
 emailMenu.addEventListener('click', toggleDesktopMenu);
 burgerMenuIcon.addEventListener('click', toggleBurgerMobileMenu);
 carritoMenuIcon.addEventListener('click', toggleCarritoMenu);
+productDetailCloseIcon.addEventListener('click', closeProductDetailAside);
+
+
 
 function toggleDesktopMenu() {
 
@@ -43,6 +48,7 @@ function toggleCarritoMenu() {
 
     const isMobileMenuClosed = burgerMobileMenu.classList.contains('inactive');
     const isdesktopMenuClosed = desktopMenu.classList.contains('inactive');
+    const isProductDetailClosed = productDetailAside.classList.contains('inactive');
 
     if (!isMobileMenuClosed) {
         burgerMobileMenu.classList.add('inactive');
@@ -50,6 +56,10 @@ function toggleCarritoMenu() {
 
     if (!isdesktopMenuClosed) {
         desktopMenu.classList.add('inactive');
+    }
+
+    if (!isProductDetailClosed) {
+        productDetailAside.classList.add('inactive');
     }
 
     carritoMenu.classList.toggle('inactive');
@@ -104,6 +114,8 @@ function renderProducts(arr) {
         // *product = {name, price, image} --> product.image;
         const productImage = document.createElement('img');
         productImage.setAttribute('src', product.image);
+        productImage.addEventListener('click', openProductDetailAside);
+        // toggle es abrir y cerrar
 
         const productInfo = document.createElement('div');
         productInfo.classList.add('product-info');
@@ -132,10 +144,31 @@ function renderProducts(arr) {
 
         cardContainer.appendChild(productCard);
     }
+
 }
 
 // ?Podemos activar la función renderProducts() para que se ejecute al undir un botón 
 renderProducts(productList);
+
+function openProductDetailAside(event) {
+    const isCarritoMenuClosed = carritoMenu.classList.contains('inactive');
+
+    if (!isCarritoMenuClosed) {
+        carritoMenu.classList.add('inactive');
+    }
+
+    productDetailAside.classList.remove('inactive');
+}
+
+function closeProductDetailAside(event) {
+    productDetailAside.classList.add('inactive');
+}
+
+
+// const isProductDetailClosed = productDetailAside.classList.contains('inactive');
+
+// if (!isProductDetailClosed) {
+//     productDetailAside.classList.add('inactive');
 
 
 
