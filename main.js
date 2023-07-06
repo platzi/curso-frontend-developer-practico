@@ -6,6 +6,7 @@ const BurgerIconMobile = document.querySelector('.iconBurgerMenu');
 const asideShoppingCart = document.querySelector('#shoppingCartContainer');
 const asideProductDetail = document.querySelector('#product-detail');
 const botonCerrarAside = document.querySelector('.product-detail-close');
+const buttonBackShopingCart = document.querySelector('.arrowback');
 
 const mainCardsContainer = document.querySelector('.cards-container');
 const productList = [];
@@ -32,6 +33,10 @@ iconShopingCart.addEventListener('click', function(){
 //event close aside
 botonCerrarAside.addEventListener('click', function(){
     asideProductDetail.classList.add('inactive');
+});
+//event close shopingCart
+buttonBackShopingCart.addEventListener('click', function(){
+    asideShoppingCart.classList.add('inactive');
 });
 
 class Product{

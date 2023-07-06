@@ -179,6 +179,7 @@ aside {
 .title-container img {
   transform: rotate(180deg);
   margin-right: 14px;
+  cursor: pointer;
 }
 .title {
   font-size: var(--lg);
@@ -243,7 +244,8 @@ aside {
 
 /* Produc Detail*/
 #product-detail{
-  padding-bottom: 24px;
+  margin-bottom: 22px;
+  margin-right: 10px;
 }
 .product-detail-close {
   background: var(--white);
@@ -373,6 +375,10 @@ aside {
   .product-card img {
     width: 140px;
     height: 140px;
+  }
+  #product-detail{
+    margin-right: 0;
+    padding-bottom: 20px;
   }
 }
 @media (min-width:641px) {
