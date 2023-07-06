@@ -3,7 +3,7 @@ const desktopMenu = document.querySelector('.desktop-menu');
 const burgerMobileMenu = document.querySelector('.mobile-menu');
 const burgerMenuIcon = document.querySelector('.menu');
 const carritoMenuIcon = document.querySelector('.navbar-shopping-cart');
-const carritoMenu = document.querySelector('.product-detail');
+const carritoMenu = document.querySelector('#compra-detail');
 const cardContainer = document.querySelector('.cards-container');
 
 // *Escuchamos los eventos de click de Icon
