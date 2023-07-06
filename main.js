@@ -5,6 +5,7 @@ const iconShopingCart = document.querySelector('.navbar-shopping-cart');
 const BurgerIconMobile = document.querySelector('.iconBurgerMenu');
 const asideShoppingCart = document.querySelector('#shoppingCartContainer');
 const asideProductDetail = document.querySelector('#product-detail');
+const botonCerrarAside = document.querySelector('.product-detail-close');
 
 const mainCardsContainer = document.querySelector('.cards-container');
 const productList = [];
@@ -27,6 +28,10 @@ iconShopingCart.addEventListener('click', function(){
     desktopMenu.classList.add('inactive');
     asideProductDetail.classList.add('inactive');
     asideShoppingCart.classList.toggle('inactive');
+});
+//event close aside
+botonCerrarAside.addEventListener('click', function(){
+    asideProductDetail.classList.add('inactive');
 });
 
 class Product{
@@ -76,7 +81,7 @@ function renderProducts(arr){
         mainCardsContainer.appendChild(productCard);
 
         productImage.addEventListener('click', function(){
-          asideProductDetail.classList.toggle('inactive');
+          asideProductDetail.classList.remove('inactive');
         })
       }
 }
