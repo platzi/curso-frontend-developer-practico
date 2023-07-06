@@ -3,7 +3,7 @@ const desktopMenu = document.querySelector('.desktop-menu');
 const menuHamIcon = document.querySelector('.menu');
 const mobileMenu = document.querySelector('.mobile-menu');
 const menuCarritoIcon = document.querySelector('.navbar-shopping-cart');
-const aside = document.querySelector('.product-detail');
+const shoppingCartContainer = document.querySelector('#shoppingCartContainer');
 const cardsContainer = document.querySelector('.cards-container');
 
 menuEmail.addEventListener('click', toggleDesktopMenu);
@@ -16,12 +16,12 @@ function toggleDesktopMenu() {
 
 function toggleMobileMenu() {
     mobileMenu.classList.toggle('oculto-mobile');
-    aside.classList.add('oculto-aside');
+    shoppingCartContainer.classList.add('oculto-aside');
 
 }
 
 function toggleCarritoAside() {
-    aside.classList.toggle('oculto-aside');
+    shoppingCartContainer.classList.toggle('oculto-aside');
     mobileMenu.classList.add('oculto-mobile');
 }
 
@@ -35,7 +35,7 @@ productList.push({
 productList.push({
     name: 'Computer',
     price: 250,
-    image: 'https://pixabay.com/get/g5e24b23a4cfaf9346f842685bce364321521af3d4057a904594f84dccf3039ea92d19417ce00ca4c2baff9d47a2aeabd6f0784305533a3a2fc40bcbce8ecf05a_1280.jpg',
+    image: 'https://images.unsplash.com/photo-1587302912306-cf1ed9c33146?ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D&auto=format&fit=crop&w=380&q=80',
 });
 
 productList.push({
