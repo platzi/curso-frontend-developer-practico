@@ -172,6 +172,7 @@ aside {
 
 #shoppingCartContainer{
   padding: 0 24px 24px 24px;
+  background-color: var(--white);
 }
 .title-container {
   display: flex;
@@ -352,6 +353,9 @@ aside {
   margin-top: 0;
   margin-bottom: 0;
   color: var(--very-light-pink);
+}
+.opacity-elements{
+  opacity: 50%;
 }
 
 @media (max-width: 640px) {

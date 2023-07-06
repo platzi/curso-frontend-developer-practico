@@ -8,6 +8,7 @@ const asideProductDetail = document.querySelector('#product-detail');
 const botonCerrarAside = document.querySelector('.product-detail-close');
 const buttonBackShopingCart = document.querySelector('.arrowback');
 
+const menuContainer = document.querySelector('.main-container');
 const mainCardsContainer = document.querySelector('.cards-container');
 const productList = [];
 
@@ -15,6 +16,7 @@ const productList = [];
 navBarEmail.addEventListener('click', function(){
     asideShoppingCart.classList.add('inactive');
     asideProductDetail.classList.add('inactive');
+    mainCardsContainer.classList.add('opacity-elements');
     desktopMenu.classList.toggle('inactive');
 });
 //event of navbar mobile
@@ -80,6 +82,7 @@ function renderProducts(arr){
         const productFigure = document.createElement('figure');
         const figureImage = document.createElement('img');
         figureImage.setAttribute('src', './icons/bt_add_to_cart.svg');
+        figureImage.classList.add('buttonAddCart');
         productFigure.appendChild(figureImage);
         productInfo.append(divInfo, productFigure);
 
@@ -91,3 +94,13 @@ function renderProducts(arr){
       }
 }
 renderProducts(productList);
+
+let elementsInCart = []
+function counterOfCart(){  
+    let counterCart = elementsInCart.length
+    const numOfElements = document.querySelector('.counterCart');
+    const spanCounter = document.createElement('span');
+    spanCounter.innerText = counterCart
+    numOfElements.appendChild(spanCounter);
+};
+counterOfCart();
