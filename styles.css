@@ -257,12 +257,13 @@ nav {
   }
 
   /*? Lista de Productos (clase 6) */
-  .cards-container {
-    display: grid;
-    grid-template-columns: repeat(auto-fill, 240px);
-    gap: 26px;
-    place-content: center;
-  }
+    .cards-container {
+      margin-top: 30px;
+      display: grid;
+      grid-template-columns: repeat(auto-fill, 240px);
+      gap: 26px;
+      place-content: center;
+    }
   .product-card {
     width: 240px;
   }
