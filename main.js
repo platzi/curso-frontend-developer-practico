@@ -3,7 +3,7 @@ const desktopMenu = document.querySelector(".desktop-menu") //menu mail
 const menu = document.querySelector('.menu')
 const mobileMenu = document.querySelector('.mobile-menu')   //menu telefono
 const menuCarritoIcon = document.querySelector('.navbar-shopping-cart')
-const productDetail = document.querySelector('.product-detail') // carrito
+const shoppingCartContainer = document.querySelector('#shoppingCartContainer') // carrito
 const cardsContainer = document.querySelector('.cards-container')
 
 menuEmail.addEventListener('click', toggleDesktopMenu);
@@ -15,10 +15,10 @@ menuCarritoIcon.addEventListener('click', toggleCarritoDeCompras)
 
 function toggleDesktopMenu(){
    //const si carrito de compras = carritodos de compra inactivo
-    const isProductDetailClose = productDetail.classList.contains('inactive')
+    const isshoppingCartContainerClose = shoppingCartContainer.classList.contains('inactive')
 //si carrito de compra no esta inactivo osea activo
-    if (!isProductDetailClose) {
-        productDetail.classList.add("inactiv") // inacticvar carrito de compra
+    if (!isshoppingCartContainerClose) {
+        shoppingCartContainer.classList.add("inactiv") // inacticvar carrito de compra
     }
         desktopMenu.classList.toggle("inactiv")
 
@@ -26,10 +26,10 @@ function toggleDesktopMenu(){
 
 function toggleMenu(){
    
-    const isProductDetailClose = productDetail.classList.contains('inactive')
+    const isshoppingCartContainerClose = shoppingCartContainer.classList.contains('inactive')
 
-    if (!isProductDetailClose) {
-        productDetail.classList.add("inactiv")
+    if (!isshoppingCartContainerClose) {
+        shoppingCartContainer.classList.add("inactiv")
     }
 
     mobileMenu.classList.toggle("inactiv")
@@ -49,7 +49,7 @@ function toggleCarritoDeCompras(){
         desktopMenu.classList.add("inactiv")
     }
 
-    productDetail.classList.toggle("inactiv")
+    shoppingCartContainer.classList.toggle("inactiv")
 
 
 }
@@ -87,13 +87,14 @@ productList.push({ //creo un objeto dentro del arreglo para el producto.
             </div>
           </div>*/
 
-for (product of productList) {//por cada producto de la lista de producto
+function renderProducts(arr) {// funcion de renderizar los productos.
+    for (product of productList) {//por cada producto de la lista de producto
    
     const productCard = document.createElement('div') //creo el div principal
     productCard.classList.add ('product-card') // le agrego la clase al div
    
-    const img = document.createElement('img') // creo la imagen.
-    img.setAttribute('src', product.image) //modifico el atributo scr de la img y defino q utilice la imagen del producto
+    const productImg = document.createElement('img') // creo la imagen.
+    productImg.setAttribute('src', product.image) //modifico el atributo scr de la img y defino q utilice la imagen del producto
 
     const productInfo = document.createElement('div') //creo el div de product-info
     productInfo.classList.add ('product-info') // le agrego la clase al div product-info
@@ -118,8 +119,10 @@ for (product of productList) {//por cada producto de la lista de producto
     productInfo.appendChild(productInfoDiv)
     productInfo.appendChild(productInfofigure)
 
-    productCard.appendChild(img)
+    productCard.appendChild(productImg)
     productCard.appendChild(productInfo)   
 
-    cardsContainer.appendChild(productCard)
-}
+     cardsContainer.appendChild(productCard)
+}}
+
+renderProducts(productList)//llamo a la funcion dandole la lista de productos
