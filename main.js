@@ -41,7 +41,9 @@ function toggleBurgerMobileMenu() {
     }
 
     burgerMobileMenu.classList.toggle('inactive');
-}
+    // TODO Ejecuto mi función cerrar detail product, sin embargo si queda abierto debo darle doble click al menú para abrirlo, un click cerrar, y el otro para volver abrir 
+    closeProductDetailAside();
+}   
 
 
 function toggleCarritoMenu() {
@@ -151,13 +153,11 @@ function renderProducts(arr) {
 renderProducts(productList);
 
 function openProductDetailAside(event) {
-    const isCarritoMenuClosed = carritoMenu.classList.contains('inactive');
-
-    if (!isCarritoMenuClosed) {
-        carritoMenu.classList.add('inactive');
-    }
-
+    // En esta parte en vez de colocar el condicional If, utilicé la función add para cerrar el menú del carrito, cuando abra mi product detail, en caso de estar abierto
+    carritoMenu.classList.add('inactive');
+    burgerMobileMenu.classList.add('inactive');
     productDetailAside.classList.remove('inactive');
+
 }
 
 function closeProductDetailAside(event) {
