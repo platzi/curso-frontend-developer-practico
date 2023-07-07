@@ -186,6 +186,15 @@ aside {
   font-size: var(--lg);
   font-weight: bold;
 }
+.productPrice{
+  font-weight: bold;
+}
+.productName {
+  color: var(--very-light-pink);
+}
+.iconClose{
+  cursor: pointer;
+}
 .order {
   display: grid;
   grid-template-columns: auto 1fr;

@@ -11,6 +11,9 @@ const buttonBackShopingCart = document.querySelector('.arrowback');
 const menuContainer = document.querySelector('.main-container');
 const mainCardsContainer = document.querySelector('.cards-container');
 const productList = [];
+const shoppingCart = document.querySelector('.shopping-cart');
+const containerCart = document.querySelector('.containerCart');
+let elementsInCart = []//Array que guarda los elementos añadidos al carrito.
 
 //event of navbar email for desktop Menu
 navBarEmail.addEventListener('click', function(){
@@ -91,16 +94,40 @@ function renderProducts(arr){
         productImage.addEventListener('click', function(){
           asideProductDetail.classList.remove('inactive');
         })
+        figureImage.addEventListener('click', function(){
+            elementsInCart.push(product);
+            renderProductsCart(elementsInCart);
+        });
       }
+      
 }
 renderProducts(productList);
 
-let elementsInCart = []
-function counterOfCart(){  
-    let counterCart = elementsInCart.length
-    const numOfElements = document.querySelector('.counterCart');
-    const spanCounter = document.createElement('span');
-    spanCounter.innerText = counterCart
-    numOfElements.appendChild(spanCounter);
+function renderProductsCart(arr){
+    shoppingCart.textContent = '';
+
+    for (const product of arr) {
+        const figureCart = document.createElement('figure');
+        const imageProduct = document.createElement('img');
+        imageProduct.setAttribute('src', product.image);
+        figureCart.appendChild(imageProduct);
+        const productName = document.createElement('p');
+        productName.classList.add('productName');
+        productName.innerText = product.name;
+        const productPrice = document.createElement('p');
+        productPrice.classList.add('productPrice')
+        productPrice.innerText = product.price;
+        const iconClose = document.createElement('img');
+        iconClose.classList.add('iconClose');
+        iconClose.setAttribute('src', './icons/icon_close.png');
+
+        shoppingCart.append(figureCart, productName, productPrice, iconClose);
+    }
 };
-counterOfCart();
+renderProductsCart(elementsInCart);
+
+/* const cartCounter = document.querySelector('.counterCart');
+let spanCounter = document.createElement('span');
+let counterElements = elementsInCart.length;
+spanCounter.textContent = counterElements;
+cartCounter.appendChild(spanCounter); */
