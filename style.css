@@ -296,6 +296,8 @@ aside {
   display: flex;
   align-items: center;
   justify-content: center;
+  gap: 20px;
+  margin-bottom: 20px;
 }
 
 /* Produc list*/
@@ -305,6 +307,7 @@ aside {
   gap: 26px;
   place-content: center;
   margin-top: 20px;
+  margin-bottom: 40px;
 }
 .product-card {
   width: 240px;
