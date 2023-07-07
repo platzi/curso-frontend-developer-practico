@@ -1,9 +1,9 @@
 :root {
   --white: #ffffff;
   --black: #000000;
-  --very-light-pink: #c7c7c7;
+  --very-light-pink: #fa6ad6;
   --text-input-field: #f7f7f7;
-  --hospital-green: #acd9b2;
+  --hospital-green: #ffc1dd;
   --sm: 14px;
   --md: 16px;
   --lg: 18px;
@@ -19,7 +19,7 @@ nav {
   display: flex;
   justify-content: space-between;
   padding: 0 24px;
-  border-bottom: 1px solid var(--very-light-pink);
+  background-color: #ffbbd9;
 }
 .menu {
   display: none;
@@ -45,25 +45,26 @@ nav {
 .navbar-left ul li a,
 .navbar-right ul li a {
   text-decoration: none;
-  color: var(--very-light-pink);
-  border: 1px solid var(--white);
+  color: var(--white);
   padding: 8px;
   border-radius: 8px;
 }
 .navbar-left ul li a:hover,
 .navbar-right ul li a:hover {
-  border: 1px solid var(--hospital-green);
-  color: var(--hospital-green);
+  border: 1px solid #ff50a5;
+  color: #ff50a5;
+  transform: scale(1.2);
 }
 .navbar-email {
-  color: var(--very-light-pink);
+  color: var(--white);
   font-size: var(--sm);
   margin-right: 12px;
   cursor: pointer;
 }
 
 .navbar-email:hover {
-  color: var(--hospital-green);
+  color: #ff50a5;
+  transform: scale(1.2);
 }
 .navbar-shopping-cart {
   position: relative;
@@ -71,7 +72,7 @@ nav {
 .navbar-shopping-cart div {
   width: 16px;
   height: 16px;
-  background-color: var(--hospital-green);
+  background-color: white;
   border-radius: 50%;
   font-size: var(--sm);
   font-weight: bold;
