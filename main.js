@@ -122,10 +122,19 @@ function renderProductsCart(arr){
         iconClose.setAttribute('src', './icons/icon_close.png');
 
         shoppingCart.append(figureCart, productName, productPrice, iconClose);
+        iconClose.addEventListener('click', deleteProducts);
     }
 };
 renderProductsCart(elementsInCart);
 
+function deleteProducts(){
+  const selectedIndex = elementsInCart.findIndex((product) => product.id === this.dataset.productId);
+  console.log(selectedIndex);
+  if (selectedIndex !== -1) {
+    elementsInCart.splice(selectedIndex, 1);
+    renderProductsCart(elementsInCart);
+  }
+};
 /* const cartCounter = document.querySelector('.counterCart');
 let spanCounter = document.createElement('span');
 let counterElements = elementsInCart.length;
