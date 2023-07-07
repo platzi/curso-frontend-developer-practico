@@ -110,7 +110,7 @@ productList.push({
 });
 productList.push({
   name: "two pieces yellow",
-  price: 876,
+  price: 900,
   image:
     "https://www.likeme.com.co/media/catalog/product/p/a/pacifika598573_1_1.jpg?quality=80&bg-color=255,255,255&fit=bounds&height=600&width=400&canvas=400:600",
 });
