@@ -127,11 +127,12 @@
 
   .mobile-menu {
     background: var(--white);
+    box-sizing: border-box;
     position: absolute;
     top: 61px;
+    width: 100% ;
     padding: 24px;
     left:0;
-    width: 100%;
   }
   .mobile-menu a {
     text-decoration: none;
