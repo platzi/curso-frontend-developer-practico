@@ -4,6 +4,7 @@ const menu = document.querySelector('.menu')
 const mobileMenu = document.querySelector('.mobile-menu')   //menu telefono
 const menuCarritoIcon = document.querySelector('.navbar-shopping-cart')
 const productDetail = document.querySelector('.product-detail') // carrito
+const cardsContainer = document.querySelector('.cards-container')
 
 menuEmail.addEventListener('click', toggleDesktopMenu);
 
@@ -51,4 +52,74 @@ function toggleCarritoDeCompras(){
     productDetail.classList.toggle("inactiv")
 
 
+}
+
+const productList = []; //creo un arreglo para listado de productos
+productList.push({ //creo un objeto dentro del arreglo para el producto.
+    name: 'Bike',
+    price: 120,
+    image: 'https://images.pexels.com/photos/276517/pexels-photo-276517.jpeg?auto=compress&cs=tinysrgb&dpr=2&h=650&w=940',
+
+})
+productList.push({ //creo un objeto dentro del arreglo para el producto.
+    name: 'tele',
+    price: 180,
+    image: 'https://images.pexels.com/photos/276517/pexels-photo-276517.jpeg?auto=compress&cs=tinysrgb&dpr=2&h=650&w=940',
+
+})
+productList.push({ //creo un objeto dentro del arreglo para el producto.
+    name: 'compu',
+    price: 230,
+    image: 'https://images.pexels.com/photos/276517/pexels-photo-276517.jpeg?auto=compress&cs=tinysrgb&dpr=2&h=650&w=940',
+
+})
+
+/* <div class="product-card">
+            <img src="https://images.pexels.com/photos/276517/pexels-photo-276517.jpeg?auto=compress&cs=tinysrgb&dpr=2&h=650&w=940" alt="">
+            <div class="product-info">
+              <div>
+                <p>$120,00</p>
+                <p>Bike</p>
+              </div>
+              <figure>
+                <img src="./icons/bt_add_to_cart.svg" alt="">
+              </figure>
+            </div>
+          </div>*/
+
+for (product of productList) {//por cada producto de la lista de producto
+   
+    const productCard = document.createElement('div') //creo el div principal
+    productCard.classList.add ('product-card') // le agrego la clase al div
+   
+    const img = document.createElement('img') // creo la imagen.
+    img.setAttribute('src', product.image) //modifico el atributo scr de la img y defino q utilice la imagen del producto
+
+    const productInfo = document.createElement('div') //creo el div de product-info
+    productInfo.classList.add ('product-info') // le agrego la clase al div product-info
+   
+    const productInfoDiv = document.createElement('div') //creo el div donde se encuentra el precio y el nombre
+   
+    const productPrice = document.createElement('p') //creo el parerafo donde va el precio
+    productPrice.innerText = '$' + product.price // inserto y concadeno $ y valor del producto
+
+    const productName = document.createElement('p') //creo el parerafo donde va el precio
+    productName.innerText = product.name //inserto nombre del producto
+
+    const productInfofigure = document.createElement('figure')//creo etiqueta figure
+    productInfoFigureImage = document.createElement('img') //creo etiqueta de imagen
+    productInfoFigureImage.setAttribute ('scr', './icons/bt_add_to_cart.svg') // modifico atributo scr agregando imagen.
+
+    productInfofigure.appendChild(productInfoFigureImage) // inserto la imagen dentro del figure
+
+    productInfoDiv.appendChild(productName) //inserto nombre dentro del div
+    productInfoDiv.appendChild(productPrice) //inserto precio dentro del div
+
+    productInfo.appendChild(productInfoDiv)
+    productInfo.appendChild(productInfofigure)
+
+    productCard.appendChild(img)
+    productCard.appendChild(productInfo)   
+
+    cardsContainer.appendChild(productCard)
 }
