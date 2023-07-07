@@ -114,6 +114,12 @@ productList.push({
   image:
     "https://www.likeme.com.co/media/catalog/product/p/a/pacifika598573_1_1.jpg?quality=80&bg-color=255,255,255&fit=bounds&height=600&width=400&canvas=400:600",
 });
+productList.push({
+  name: "two pieces pink",
+  price: 400,
+  image:
+    "https://down-co.img.susercontent.com/file/c664fd664874f8ae2348f914ea3fceb9_tn",
+});
 
 /*<div class="product-card">
 <img src="https://images.pexels.com/photos/276517/pexels-photo-276517.jpeg?auto=compress&cs=tinysrgb&dpr=2&h=650&w=940" alt="">
