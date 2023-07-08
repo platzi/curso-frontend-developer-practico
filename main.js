@@ -6,8 +6,8 @@ const menuCarritoIcon = document.querySelector('.navbar-shopping-cart');
 const aside = document.querySelector('.product-detail');
 
 menuEmail.addEventListener('click', toggleDesktopMenu);
-menuHamIcon.addEventListener('click',toggleMobileMenu)
-menuCarritoIcon.addEventListener('click',toggleCarritoAside)
+menuHamIcon.addEventListener('click',toggleMobileMenu);
+menuCarritoIcon.addEventListener('click',toggleCarritoAside);
 
 function toggleDesktopMenu(){
     const isAsideClosed = aside.classList.contains('inactive');
