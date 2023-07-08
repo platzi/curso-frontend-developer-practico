@@ -5,24 +5,24 @@ const menuHamIcon = document.querySelector(".menu");
 const mobileMenu = document.querySelector(".mobile-menu");
 
 const menuCarritoIcon = document.querySelector(".navbar-shopping-cart");
-const asideProductDetail = document.querySelector(".product-detail")
+const shoppingCartContainer = document.querySelector("#shoppingCartContainer")
 
 const cardsContainer=document.querySelector(".cards-container")
 
 
 navEmail.addEventListener('click', function () {
-    let carritoOpen = !asideProductDetail.classList.contains("inactive");
+    let carritoOpen = !shoppingCartContainer.classList.contains("inactive");
     if (carritoOpen) {
-        asideProductDetail.classList.add("inactive")
+        shoppingCartContainer.classList.add("inactive")
     }
     toggleDisplay(desktopMenu);
 });
 
 menuHamIcon.addEventListener('click', function () {
     // toggleDisplay(mobileMenu);
-    let carritoOpen = !asideProductDetail.classList.contains("inactive");
+    let carritoOpen = !shoppingCartContainer.classList.contains("inactive");
     if (carritoOpen) {
-        asideProductDetail.classList.add("inactive")
+        shoppingCartContainer.classList.add("inactive")
     }
     mobileMenu.classList.toggle("inactive")
 });
@@ -33,7 +33,7 @@ menuCarritoIcon.addEventListener('click', function () {
     if (mobileMenuOpen) {
         mobileMenu.classList.add("inactive")
     }
-    asideProductDetail.classList.toggle("inactive")
+    shoppingCartContainer.classList.toggle("inactive")
     desktopMenu.classList.add("inactive")
 });
 // desactivar o activar el display de un contenedor
