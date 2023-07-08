@@ -3,20 +3,21 @@ const desktopMenu = document.querySelector('.desktop-menu');
 const menuHamIcon = document.querySelector('.menu');
 const mobileMenu = document.querySelector('.mobile-menu');
 const menuCarritoIcon = document.querySelector('.navbar-shopping-cart');
-const aside = document.querySelector('.product-detail');
+const shoppingCartContainer = document.querySelector('#shoppingCartContainer');
 const cardsContainer = document.querySelector('.cards-container');
+const productDetail = document.querySelector('#productDetail');
 
 menuEmail.addEventListener('click', toggleDesktopMenu);
 menuHamIcon.addEventListener('click',toggleMobileMenu);
 menuCarritoIcon.addEventListener('click',toggleCarritoAside);
 
 function toggleDesktopMenu(){
-    const isAsideClosed = aside.classList.contains('inactive');
+    const isAsideClosed = shoppingCartContainer.classList.contains('inactive');
     const isMenuEmailClosed = menuHamIcon.classList.contains('inactive');
     
     if (!isAsideClosed){
-        //Cerrar aside
-        aside.classList.toggle('inactive');
+        //Cerrar shoppingCartContainer
+        shoppingCartContainer.classList.toggle('inactive');
     } 
     if (!isMenuEmailClosed){
         //Cerrar menu
@@ -27,11 +28,11 @@ function toggleDesktopMenu(){
 }
 
 function toggleMobileMenu(){
-    const isAsideClosed = aside.classList.contains('inactive');
+    const isAsideClosed = shoppingCartContainer.classList.contains('inactive');
 
     if (!isAsideClosed){
-        //Cerrar aside
-        aside.classList.toggle('inactive');
+        //Cerrar shoppingCartContainer
+        shoppingCartContainer.classList.toggle('inactive');
     } 
     mobileMenu.classList.toggle('inactive');
 }
@@ -43,12 +44,12 @@ function toggleCarritoAside(){
     if (!isMobileMenuClosed){
         //cerrar el menu mobile
         mobileMenu.classList.toggle('inactive');
-    }
+    }shoppingCartContainer
     if (!isDesktopMenuClosed){
         //cerrar el menu desktop
         desktopMenu.classList.toggle('inactive');
     }
-    aside.classList.toggle('inactive');
+    shoppingCartContainer.classList.toggle('inactive');
 }
 
 const productList = [];
