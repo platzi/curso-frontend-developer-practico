@@ -8,12 +8,17 @@ const menuCarritoIcon = document.querySelector(".navbar-shopping-cart");
 const shoppingCartContainer = document.querySelector("#shoppingCartContainer")
 
 const cardsContainer=document.querySelector(".cards-container")
-
+const productDetailContainer= document.querySelector("#productDetail")
+const productDetailCloseIcon= document.querySelector(".product-detail-close")
 
 navEmail.addEventListener('click', function () {
     let carritoOpen = !shoppingCartContainer.classList.contains("inactive");
+    let productDetailOpen= !productDetailContainer.classList.contains("inactive")
     if (carritoOpen) {
         shoppingCartContainer.classList.add("inactive")
+    }
+    if (productDetailOpen) {
+        productDetailContainer.classList.add("inactive")
     }
     toggleDisplay(desktopMenu);
 });
@@ -21,25 +26,40 @@ navEmail.addEventListener('click', function () {
 menuHamIcon.addEventListener('click', function () {
     // toggleDisplay(mobileMenu);
     let carritoOpen = !shoppingCartContainer.classList.contains("inactive");
+    let productDetailOpen= !productDetailContainer.classList.contains("inactive")
+    
     if (carritoOpen) {
         shoppingCartContainer.classList.add("inactive")
+    }
+    if (productDetailOpen) {
+        productDetailContainer.classList.add("inactive")
     }
     mobileMenu.classList.toggle("inactive")
 });
 menuCarritoIcon.addEventListener('click', function () {
-
     let mobileMenuOpen = !mobileMenu.classList.contains("inactive");
+    let productDetailOpen= !productDetailContainer.classList.contains("inactive")
 
     if (mobileMenuOpen) {
         mobileMenu.classList.add("inactive")
     }
+    if (productDetailOpen) {
+        productDetailContainer.classList.add("inactive")
+    }
+
+
     shoppingCartContainer.classList.toggle("inactive")
     desktopMenu.classList.add("inactive")
 });
+productDetailCloseIcon.addEventListener('click',function(){
+    productDetailContainer.classList.add("inactive")
+})
+
 // desactivar o activar el display de un contenedor
 function toggleDisplay(contenedor) {
     contenedor.classList.toggle("inactive");
 };
+
 
 const productList = [];
 productList.push({
@@ -75,21 +95,56 @@ productList.push({
 
 function renderProducts(arr){
     arr.forEach((producto) => {
-        let carta=`<div class="product-card">
-            <img src=${producto.image} alt="">
-            <div class="product-info">
-                <div>
-                 <p>$ ${producto.price}</p>
-                 <p>${producto.name}</p>
-                </div>
-                <figure>
-                    <img src="./icons/bt_add_to_cart.svg" alt="">
-                </figure>
-            </div>
-        </div>`
+        const productCard=document.createElement("div")
+        productCard.classList.add('product-card')
     
-        // para que sea visible es necesario por cada iteracion ir acumulando las cartas en el contenedor
-        cardsContainer.innerHTML+=carta
+        const img= document.createElement("img")
+        img.setAttribute('src',producto.image)
+        img.addEventListener('click',function(){
+            let carritoOpen = !shoppingCartContainer.classList.contains("inactive");
+            let desktopMenuOpen= !desktopMenu.classList.contains("inactive")
+            let mobileMenuOpen = !mobileMenu.classList.contains("inactive");
+
+            if (carritoOpen) {
+                shoppingCartContainer.classList.add("inactive")
+            }
+            if (desktopMenuOpen) {
+                desktopMenu.classList.add("inactive")
+            }
+            if (mobileMenuOpen) {
+                mobileMenu.classList.add("inactive")
+            }
+
+            productDetailContainer.classList.remove("inactive")
+        })
+    
+        const productInfo=document.createElement("div")
+        productInfo.classList.add('product-info')
+    
+        const productInfoDiv=document.createElement("div")
+    
+        const productPrice=document.createElement("p")
+        productPrice.innerText="$"+producto.price
+        const productName=document.createElement("p")
+        productName.innerText=producto.name
+    
+        productInfoDiv.appendChild(productPrice)
+        productInfoDiv.appendChild(productName)
+    
+        const productInfoFigure=document.createElement("figure")
+        const productImgCart=document.createElement("img")
+        productImgCart.setAttribute('src','./icons/bt_add_to_cart.svg')
+    
+        productInfoFigure.appendChild(productImgCart)
+    
+        productInfo.appendChild(productInfoDiv)
+        productInfo.appendChild(productInfoFigure)
+    
+        productCard.appendChild(img)
+        productCard.appendChild(productInfo)
+    
+        cardsContainer.appendChild(productCard)
+    
     })
 }
 renderProducts(productList)
