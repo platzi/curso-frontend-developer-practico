@@ -519,7 +519,6 @@ function addToCart(productIndex) {
   let totalPriceElement = document.getElementById("total-price");
   const myOrderContent = document.querySelector(".my-order-content");
 
-
   if (cartItems.hasOwnProperty(product.name)) {
 
     cartItems[product.name]++;
@@ -544,18 +543,15 @@ function addToCart(productIndex) {
     figure.appendChild(image);
     shoppingCartDiv.appendChild(figure);
 
-    // Crear el elemento p para el nombre del producto
     const name = document.createElement("p");
     name.textContent = product.name;
     shoppingCartDiv.appendChild(name);
 
-    // Crear el elemento p para la cantidad del producto
     const quantity = document.createElement("p");
     quantity.classList.add("quantity");
     quantity.textContent = "x1";
     shoppingCartDiv.appendChild(quantity);
-
-    // Crear el elemento p para el precio del producto
+    
     const price = document.createElement("p");
     price.textContent = product.price;
     shoppingCartDiv.appendChild(price);
@@ -569,7 +565,7 @@ function addToCart(productIndex) {
     closeButton.addEventListener("click", ()=>{
     cartItems[product.name];
     })
-    // Agregar el elemento div del carrito de compras al DOM !!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!
+   ////////IMPORTANT: insertBefore useful to add new html blocks or nodes before an already existing element.
     myOrderContent.insertBefore(shoppingCartDiv, myOrderContent.firstChild);
 
     // Agregar el producto al objeto cartItems con cantidad 1
@@ -582,22 +578,7 @@ function addToCart(productIndex) {
   totalPrice += product.price;
 
   totalPriceElement.textContent = "$" + totalPrice.toFixed(2);
-
 }
-
-
-
-
-/*
-Next steps:
-Añadir: cambios al header/navbars, hacerlo más vistoso y grande, añadir las funcionalidades restantes:
-  -Añadir al carrito y que se modifique el contenido del carrito.
-  -pagina de login
-  -pagina de logout
-  -pagina my orders
-  -pagina my account
-
-*/
 
 //////////EXAMPLE OF REUSABLE FUNCTION:
 /*
