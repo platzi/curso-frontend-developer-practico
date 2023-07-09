@@ -11,7 +11,7 @@ components and interactions between them.
 function emailMenu() {
   let desktopMenu = document.querySelector(".desktop-menu");
   let navbarEmail = document.querySelector(".navbar-email");
-  let navbarRight = document.querySelector(".navbar-right");
+  // let navbarRight = document.querySelector(".navbar-right");
   let cartIcon = document.querySelector(".navbar-shopping-cart");
   let mainContainer = document.querySelector(".main-container");
   let menuOpen = false;
@@ -332,7 +332,7 @@ for (product of productList) {
   productInfoModal.classList.add("product-info-modal");
 
   const productPrice = document.createElement("p");
-  productPrice.textContent = product.price;
+  productPrice.textContent = "$" + product.price;
 
   const productName = document.createElement("p");
   productName.textContent = product.name;
@@ -342,6 +342,7 @@ for (product of productList) {
 
   const addToCartButton = document.createElement("button");
   addToCartButton.classList.add("primary-button", "add-to-cart-button");
+  addToCartButton.setAttribute("onclick", "addToCart(" + product.id + ")");
 
   const cartIcon = document.createElement("img");
   cartIcon.src = "./icons/bt_add_to_cart.svg";
@@ -468,33 +469,70 @@ otherButton.addEventListener("click", () => {
 });
 
 
-<<<<<<< HEAD
+
+///////////HIDING AND SHOWING PRODUCT-CARDS BY CATEGORY///////////
+const allButtonMobile = document.querySelector("#all-mobile");
+const skateButtonMobile = document.querySelector("#skate-mobile");
+const surfskateButtonMobile = document.querySelector("#surfskate-mobile");
+const rollerButtonMobile = document.querySelector("#roller-mobile");
+const otherButtonMobile = document.querySelector("#other-mobile");
+//Once category clicked, mobile menu hides.
+const mobileMenu = document.querySelector(".mobile-menu");
+
+allButtonMobile.addEventListener("click", () => {
+  showProductsByCategory("all");
+  mobileMenu.classList.add("inactive");
+});
+
+skateButtonMobile.addEventListener("click", () => {
+  showProductsByCategory("skate");
+  mobileMenu.classList.add("inactive");
+});
+
+surfskateButtonMobile.addEventListener("click", () => {
+  showProductsByCategory("surfskate");
+  mobileMenu.classList.add("inactive");
+});
+
+rollerButtonMobile.addEventListener("click", () => {
+  showProductsByCategory("roller");
+  mobileMenu.classList.add("inactive");
+});
+
+otherButtonMobile.addEventListener("click", () => {
+  showProductsByCategory("other");
+  mobileMenu.classList.add("inactive");
+});
+
 /////////PRODUCT DETAIL LIST FOR THE ASIDE/////////
 //La producción de cada elemento que se incruste debe ser disparada por hacer click en añadir al carrito tanto icono como en modal, entonces es cuando se añade
 // si ya está añadido, no crear otro, sino añadir el número/precio sumar
 //acticonst una función si se hace click en esos elementos, en la función, crear elemento, añadir al contenedor padre y controlar que todo funcione ok
-
-// Variable para almacenar el total del precio
 let totalPrice = 0;
-// Objeto para realizar el seguimiento de la cantidad de cada producto en el carrito
+let count = 0;
+//Object to track the amount of a specific product
 const cartItems = {};
 
-// Función para añadir un producto al carrito
 function addToCart(productIndex) {
   const product = productList[productIndex]; // Asegúrate de tener una variable "productList" definida con los productos
-
+  const productCount = document.querySelector("#count");
+  let totalPriceElement = document.getElementById("total-price");
   const myOrderContent = document.querySelector(".my-order-content");
 
-  // Verificar si el producto ya está en el carrito///////////REPASAR ESTO ni zorra de que hace
+
   if (cartItems.hasOwnProperty(product.name)) {
-    // Incrementar la cantidad del producto en el carrito
+
     cartItems[product.name]++;
     // Obtener el elemento del producto en el carrito
     const existingCartItem = document.querySelector(`.shopping-cart[data-product="${product.name}"]`);
     // Actualizar la cantidad en el elemento existente
     const quantityElement = existingCartItem.querySelector('.quantity');
     quantityElement.textContent = `x${cartItems[product.name]}`;
-  } else {
+    //Cart icon count
+    count += 1;
+    productCount.textContent = count.toString();
+  } else { //If the product wasn't added yet, the html element will be created and inserted.
+      
     const shoppingCartDiv = document.createElement("div");
     shoppingCartDiv.classList.add("shopping-cart");
     shoppingCartDiv.setAttribute('data-product', product.name);
@@ -524,37 +562,42 @@ function addToCart(productIndex) {
 
     // Crear el elemento img para el botón de cerrar
     const closeButton = document.createElement("img");
+    closeButton.setAttribute("id", product.name);
     closeButton.src = "./icons/icon_close.png";
     closeButton.alt = "close";
     shoppingCartDiv.appendChild(closeButton);
-
-    // Agregar el elemento div del carrito de compras al DOM
+    closeButton.addEventListener("click", ()=>{
+    cartItems[product.name];
+    })
+    // Agregar el elemento div del carrito de compras al DOM !!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!
     myOrderContent.insertBefore(shoppingCartDiv, myOrderContent.firstChild);
 
     // Agregar el producto al objeto cartItems con cantidad 1
     cartItems[product.name] = 1;
+
+    count += 1;
+    productCount.textContent = count.toString();
   }
 
   totalPrice += product.price;
 
-  // Actualización del contenido del elemento de total
-  let totalPriceElement = document.getElementById("total-price");
   totalPriceElement.textContent = "$" + totalPrice.toFixed(2);
+
 }
 
 
-=======
+
+
 /*
 Next steps:
 Añadir: cambios al header/navbars, hacerlo más vistoso y grande, añadir las funcionalidades restantes:
-	-Añadir al carrito y que se modifique el contenido del carrito.
-	-pagina de login
-	-pagina de logout
-	-pagina my orders
-	-pagina my account
+  -Añadir al carrito y que se modifique el contenido del carrito.
+  -pagina de login
+  -pagina de logout
+  -pagina my orders
+  -pagina my account
 
 */
->>>>>>> f353274d1b4a29cd246657885f7a2dd0f8b7db7c
 
 //////////EXAMPLE OF REUSABLE FUNCTION:
 /*

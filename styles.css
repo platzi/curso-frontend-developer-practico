@@ -35,10 +35,6 @@ nav {
   display: none;
 }
 
-.logo {
-  width: 100px;
-}
-
 .navbar-left ul,
 .navbar-right ul {
   list-style: none;
@@ -161,10 +157,12 @@ nav {
   background: var(--white);
 }
 
+.mobile-menu div,
 .mobile-menu a {
   text-decoration: none;
   color: var(--black);
   font-weight: bold;
+  cursor: pointer;
   /* margin-bottom: 24px; */
 }
 
@@ -380,6 +378,22 @@ nav {
   transform: translate(-50%, -50%) scale(0);
   background-color: #fff;
   border-radius: 20px;
+
+ /* Establece una altura máxima según tus necesidades */
+  overflow-y: auto;
+  
+}
+.product-modal::-webkit-scrollbar {
+  width: 4px; /* Ancho de la barra de desplazamiento */
+}
+
+.product-modal::-webkit-scrollbar-track {
+  background: transparent; /* Color de fondo de la barra de desplazamiento */
+}
+
+.product-modal::-webkit-scrollbar-thumb {
+  background: #888; /* Color del pulgar de la barra de desplazamiento */
+  border-radius: 4px; /* Radio de la esquina del pulgar de la barra de desplazamiento */
 }
 
 .product-modal.active {
@@ -407,7 +421,7 @@ nav {
 
 .product-modal>img:nth-child(2) {
   width: 100%;
-  height: 520px;
+  height: 540px;
   object-fit: cover;
   border-radius: 10px 10px 30px 30px;
 }
@@ -464,7 +478,7 @@ nav {
   }
 
   nav {
-    padding: 0 16px;
+    padding: 0 10px;
   }
 
   .navbar-left ul {
@@ -495,9 +509,8 @@ nav {
   .product-detail {
     width: 100%;
     height: 400px;
-    /* Establece la altura máxima deseada */
     overflow-y: auto;
-    /* Habilita la barra de desplazamiento vertical */
+
   }
 
   .cards-container {
@@ -515,7 +528,22 @@ nav {
 
   .product-modal {
     width: 100%;
+    height: 100%;
+    margin-top: 60px;
+    
   }
+  .product-modal>img:nth-child(2) {
+    width: 100%;
+    height: 400px;
+    object-fit: cover;
+    border-radius: 10px 10px 30px 30px;
+  }
+
+  .navbar-left img {
+    width: 127px;
+    height: 64px;
+  }
+ 
 }
 
 @media (min-width: 771px) {
