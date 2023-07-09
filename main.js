@@ -3,17 +3,20 @@ const desktopMenu = document.querySelector('.desktop-menu');
 const menuHamIcon = document.querySelector('.menu');
 const mobileMenu = document.querySelector('.mobile-menu');
 const menuCarritoIcon = document.querySelector('.navbar-shopping-cart');
+const productDetailCloseIcon = document.querySelector('.product-detail-close');
 const shoppingCartContainer = document.querySelector('#shoppingCartContainer');
+const productDetailContainer = document.querySelector('#productDetail');
 const cardsContainer = document.querySelector('.cards-container');
-const productDetail = document.querySelector('#productDetail');
 
 menuEmail.addEventListener('click', toggleDesktopMenu);
 menuHamIcon.addEventListener('click',toggleMobileMenu);
 menuCarritoIcon.addEventListener('click',toggleCarritoAside);
+productDetailCloseIcon.addEventListener('click',closeProductDetailAside);
 
 function toggleDesktopMenu(){
     const isAsideClosed = shoppingCartContainer.classList.contains('inactive');
     const isMenuEmailClosed = menuHamIcon.classList.contains('inactive');
+    const isProductDetailClosed = productDetailContainer.classList.contains('inactive');
     
     if (!isAsideClosed){
         //Cerrar shoppingCartContainer
@@ -23,23 +26,34 @@ function toggleDesktopMenu(){
         //Cerrar menu
         menuHamIcon.classList.toggle('inactive');
     } 
+    if (!isProductDetailClosed){
+        //Cerrar productDetailContainer
+        productDetailContainer.classList.toggle('inactive');
+    }
 
     desktopMenu.classList.toggle('inactive')
 }
 
 function toggleMobileMenu(){
     const isAsideClosed = shoppingCartContainer.classList.contains('inactive');
+    const isProductDetailClosed = productDetailContainer.classList.contains('inactive');
 
     if (!isAsideClosed){
         //Cerrar shoppingCartContainer
         shoppingCartContainer.classList.toggle('inactive');
     } 
+    if (!isProductDetailClosed){
+        //Cerrar productDetailContainer
+        productDetailContainer.classList.toggle('inactive');
+    }
+
     mobileMenu.classList.toggle('inactive');
 }
 
 function toggleCarritoAside(){
     const isMobileMenuClosed = mobileMenu.classList.contains('inactive');
     const isDesktopMenuClosed = desktopMenu.classList.contains('inactive');
+    const isProductDetailClosed = productDetailContainer.classList.contains('inactive');
     
     if (!isMobileMenuClosed){
         //cerrar el menu mobile
@@ -49,7 +63,42 @@ function toggleCarritoAside(){
         //cerrar el menu desktop
         desktopMenu.classList.toggle('inactive');
     }
+    if (!isProductDetailClosed){
+        //cerrar el aside
+        productDetailContainer.classList.toggle('inactive');
+    }
+
     shoppingCartContainer.classList.toggle('inactive');
+}
+
+function openProductDetailAside(){
+    const isDesktopMenuClosed = desktopMenu.classList.contains('inactive');
+    const isAsideClosed = shoppingCartContainer.classList.contains('inactive');
+    const isMobileMenuClosed = mobileMenu.classList.contains('inactive');
+    const isMenuEmailClosed = menuHamIcon.classList.contains('inactive');
+
+    if (!isDesktopMenuClosed){
+        //cerrar el menu desktop
+        desktopMenu.classList.toggle('inactive');
+    }
+    if (!isAsideClosed){
+        //cerrar el aside
+        shoppingCartContainer.classList.toggle('inactive');
+    }
+    if (!isMobileMenuClosed){
+        //cerrar el menu mobile
+        mobileMenu.classList.toggle('inactive');
+    }
+    if (!isMenuEmailClosed){
+        //cerrar el menu email
+        menuHamIcon.classList.toggle('inactive');
+    }
+
+    productDetailContainer.classList.remove('inactive');
+}
+
+function closeProductDetailAside(){
+    productDetailContainer.classList.add('inactive');
 }
 
 const productList = [];
@@ -79,6 +128,7 @@ function renderProducts(productList){
         const productImg = document.createElement('img');
         productImg.src = product.image;
         productImg.alt = product.name;
+        productImg.addEventListener('click', openProductDetailAside)
     
         // Crea el contenedor de información del producto
         const productInfo = document.createElement('div');
