@@ -57,12 +57,12 @@
           <a href="/" class="title">My orders</a>
         </li>
   
-        <li>
-          <a href="/">My account</a>
+        <li id="btnlogin">
+          <a >My account</a>
         </li>
   
-        <li>
-          <a href="/">Sign out</a>
+        <li id="btnss">
+          <a>Sign out</a>
         </li>
       </ul>
     </div>
@@ -110,7 +110,6 @@
         </li>
       </ul>
     </div>
-
   </nav>
 
   <aside id="shoppingCartContainer" class="inactive">
@@ -161,6 +160,50 @@
   </div>
   </aside>
 
+  <div id="my-order" class="inactive">
+    <div class="my-order-container">
+      <h1 class="title">My orders</h1>
+
+      <div class="my-order-content">
+        <div class="order">
+          <p>
+            <span>03.25.21</span>
+            <span>6 articles</span>
+          </p>
+          <p>$560.00</p>
+          <img src="./icons/flechita.svg" alt="arrow">
+        </div>
+
+        <div class="order">
+          <p>
+            <span>03.25.21</span>
+            <span>6 articles</span>
+          </p>
+          <p>$560.00</p>
+          <img src="./icons/flechita.svg" alt="arrow">
+        </div>
+
+        <div class="order">
+          <p>
+            <span>03.25.21</span>
+            <span>6 articles</span>
+          </p>
+          <p>$560.00</p>
+          <img src="./icons/flechita.svg" alt="arrow">
+        </div>
+
+        <div class="order">
+          <p>
+            <span>03.25.21</span>
+            <span>6 articles</span>
+          </p>
+          <p>$560.00</p>
+          <img src="./icons/flechita.svg" alt="arrow">
+        </div>
+      </div>
+    </div>
+  </div>
+
   <aside id="productDetail" class="inactive">
     <div class="product-detail-close">
       <img src="./icons/icon_close.png" alt="close">
@@ -179,22 +222,111 @@
 
   <section class="main-container">
     <div class="cards-container">
-
-      <!-- <div class="product-card">
-        <img src="https://images.pexels.com/photos/276517/pexels-photo-276517.jpeg?auto=compress&cs=tinysrgb&dpr=2&h=650&w=940" alt="">
-        <div class="product-info">
-          <div>
-            <p>$120,00</p>
-            <p>Bike</p>
-          </div>
-          <figure>
-            <img src="./icons/bt_add_to_cart.svg" alt="">
-          </figure>
-        </div>
-      </div> -->
-      
     </div>
   </section>
+
+  <div id="login" class="inactive">
+    <div class="form-container">
+      <h1 class="title">My account</h1>
+
+      <form action="/" class="form">
+        <div>
+          <label for="name" class="label">Name</label>
+          <p class="value">Camila Yokoo</p>
+
+          <label for="email" class="label">Email</label>
+          <p class="value">camilayokoo@gmail.com</p>
+
+          <label for="password" class="label">Password</label>
+          <p class="value">*********</p>
+        </div>
+
+        <input type="button" value="Edit" class="secondary-button login-button">
+      </form>
+    </div>
+  </div>
+
+  <div id="edit" class="inactive">
+    <div class="form-container">
+      <h1 class="title">My account</h1>
+
+      <form action="/" class="form">
+        <div>
+          <label for="name" class="label">Name</label>
+          <input type="text" id="name" placeholder="Teff" class="input input-name">
+
+          <label for="email" class="label">Email</label>
+          <input type="text" id="email" placeholder="platzi@example.com" class="input input-email">
+
+          <label for="password" class="label">Password</label>
+          <input type="password" id="password" placeholder="*********" class="input input-password">
+        </div>
+
+        <input type="submit" value="Create" class="primary-button login-button">
+      </form>
+    </div>
+  </div>
+
+  <div class="sign-main inactive">
+    <div class="form-container">
+      <img src="./logos/logo_yard_sale.svg" alt="logo" class="logo">
+
+      <form action="/" class="form">
+        <label for="email" class="label">Email address</label>
+        <input type="text" id="email" placeholder="platzi@example.cm" class="input input-email">
+
+        <label for="password" class="label">Password</label>
+        <input type="password" id="password" placeholder="*********" class="input input-password">
+
+        <input type="button" value="Log in" class="email-send primary-button login-button">
+        <a class="btn-pass">Forgot my password</a>
+      </form>
+
+      <button class="edit-button">Sign up</button>
+
+    </div>
+  </div>
+  
+  <div class="emailsend inactive">
+    <div class="form-container">
+      <img src="./logos/logo_yard_sale.svg" alt="logo" class="logo">
+
+      <h1 class="title">Email has been sent!</h1>
+      <p class="subtitle">Please check your inbox for instructions on how to reset the password</p>
+
+      <div class="email-image">
+        <img src="./icons/email.svg" alt="email">
+      </div>
+
+      <button class="btn-fin primary-button">Volver al menu</button>
+
+      <p class="resend">
+        <span>Didn't receive the email?</span>
+        <a href="/">Resend</a>
+      </p>
+    </div>
+  </div>
+
+  <div class="pass inactive">
+    <div class="form-container">
+      <img src="./logos/logo_yard_sale.svg" alt="logo" class="logo">
+
+      <h1 class="title">Create a new password</h1>
+      <p class="subtitle">Enter a new password for you account</p>
+
+      <form action="/Users/banda/Desktop/portafolio%201/curso-frontend-developer-javascript/" class="form">
+        <label for="password" class="label">Password</label>
+        <input type="password" id="password" placeholde5r="*********" class="input input-password">
+
+        <label for="new-password" class="label">Password</label>
+        <input type="password" id="new-password" placeholder="*********" class="input input-password">
+
+        <input type="button" value="Confirm" class="btn-pass-main primary-button login-button">
+      </form>
+    </div>
+  </div>
+
+  
 
 
 

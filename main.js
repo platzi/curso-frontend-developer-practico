@@ -7,12 +7,36 @@ const mobileMenu = document.querySelector('.mobile-menu')
 const shoppingCartContainer = document.querySelector('#shoppingCartContainer')
 const productDetailContainer = document.querySelector('#productDetail')
 const cardsContainer = document.querySelector('.cards-container')
+const myOrderList = document.querySelector('#my-order')
+const btnOrderList = document.querySelector('.primary-button')
+const mainContainer = document.querySelector('.main-container')
+const btnlogin = document.querySelector('#btnlogin')
+const loginMenu = document.querySelector('#login')
+const btnEdit = document.querySelector('.login-button')
+const editMenu = document.querySelector('#edit')
+const btnsout = document.querySelector('#btnss')
+const mainSignMenu = document.querySelector('.sign-main')
+const btnBackMain = document.querySelector('.edit-button')
+const btnPass = document.querySelector('.btn-pass')
+const passMenu = document.querySelector('.pass')
+const btnPassMenuBack = document.querySelector('.btn-pass-main')
+const btnEmailSend = document.querySelector('.email-send')
+const menuSend = document.querySelector('.emailsend')
+const btnf = document.querySelector('.btn-fin')
 
 
 menuEmail.addEventListener('click', toggleDesktopMenu)
 menuHamIcon.addEventListener('click', toggleMobileMenu)
 menuCarritoIcon.addEventListener('click', toggleCarritoAside)
 productDetailCloseIcon.addEventListener('click', closeProductDetailAside)
+btnOrderList.addEventListener('click',toggleMyOrderList)
+btnlogin.addEventListener('click',openLogin)
+btnEdit.addEventListener('click',Edit)
+btnsout.addEventListener('click',openEdit)
+btnBackMain.addEventListener('click',backMain)
+btnPass.addEventListener('click',openPassword)
+btnEmailSend.addEventListener('click',openEmailSend)
+
 
 
 // Funciones de menus displays
@@ -77,6 +101,7 @@ productList.push({
   
 });
 
+// mas funciones
 function openProductDetailAside(){
   shoppingCartContainer.classList.add('inactive')
   desktopMenu.classList.add('inactive')
@@ -135,3 +160,60 @@ function renderProducts(arr){
 
 // Creamos una funcion para poder utilizar el for cuanto queramos
 renderProducts(productList)
+
+// Funciones de carrito display
+function toggleMyOrderList() {
+  myOrderList.classList.toggle('inactive')
+
+  const isAsideClosed = shoppingCartContainer.classList.contains('inactive')
+  if (!isAsideClosed) {
+    shoppingCartContainer.classList.add('inactive')
+  }
+}
+
+// Login
+function openLogin() {
+  loginMenu.classList.toggle('inactive')
+  mainContainer.classList.toggle('inactive')
+}
+
+function Edit() {
+  editMenu.classList.toggle('inactive')
+  loginMenu.classList.add('inactive')
+  console.log('hola') 
+}
+
+function openEdit() {
+  mainSignMenu.classList.toggle('inactive')
+  const isMainCerrada = mainContainer.classList.contains('inactive')
+  
+
+
+  if (!isMainCerrada) {
+    mainContainer.classList.add('inactive')
+  } else {
+    mainContainer.classList.toggle('inactive')
+  }
+
+
+}
+
+function backMain() {
+  window.location.href = "index.html";
+  console.log('hola')
+}
+
+function openPassword() {
+  passMenu.classList.toggle('inactive')
+  mainSignMenu.classList.add('inactive')
+
+  btnPassMenuBack.addEventListener('click',backMain)
+
+}
+
+function openEmailSend(){
+  mainSignMenu.classList.add('inactive')
+  menuSend.classList.remove('inactive')
+
+  btnf.addEventListener('click',backMain)
+}
