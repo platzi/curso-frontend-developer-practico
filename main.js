@@ -1,4 +1,5 @@
 const menuEmail = document.querySelector('.navbar-email')
+const mainsCont = document.querySelector('.main-container')
 const menuHamIcon = document.querySelector('.menu')
 const menuCarritoIcon = document.querySelector('.navbar-shopping-cart')
 const productDetailCloseIcon = document.querySelector('.product-detail-close')
@@ -21,8 +22,14 @@ const btnPass = document.querySelector('.btn-pass')
 const passMenu = document.querySelector('.pass')
 const btnPassMenuBack = document.querySelector('.btn-pass-main')
 const btnEmailSend = document.querySelector('.email-send')
-const menuSend = document.querySelector('.emailsend')
+const menuSend = document.querySelector('.emailsend') 
 const btnf = document.querySelector('.btn-fin')
+
+//mconst mobile version
+const btnmobile1 = document.querySelector('.btnMobile1')
+const btnmobile2 = document.querySelector('.btnMobile2')
+const btnmobile3 = document.querySelector('.emailMobile')
+const btnmobile4 = document.querySelector('.signMobile')
 
 
 menuEmail.addEventListener('click', toggleDesktopMenu)
@@ -36,8 +43,11 @@ btnsout.addEventListener('click',openEdit)
 btnBackMain.addEventListener('click',backMain)
 btnPass.addEventListener('click',openPassword)
 btnEmailSend.addEventListener('click',openEmailSend)
+btnmobile4.addEventListener('click',openSignMobile)
 
-
+// escucahr eventos en mobile
+btnmobile1.addEventListener('click',openMyOrdersMobile)
+btnmobile2.addEventListener('click',openLoginMobile)
 
 // Funciones de menus displays
 function toggleDesktopMenu() {
@@ -170,6 +180,42 @@ function toggleMyOrderList() {
     shoppingCartContainer.classList.add('inactive')
   }
 }
+
+
+// funciones mobile
+function openMyOrdersMobile(){
+  myOrderList.classList.toggle('inactive')
+
+  toggleMobileMenu()
+
+  if (!mainContainer.classList.contains('inactive')){
+    mainContainer.classList.toggle('inactive')
+  } else {
+    backMain()
+  }
+}
+function openLoginMobile() {
+  loginMenu.classList.toggle('inactive')
+  mainContainer.classList.toggle('inactive')
+
+  const isAsideClosed = shoppingCartContainer.classList.contains('inactive')
+  if (!isAsideClosed) {
+    shoppingCartContainer.classList.add('inactive')
+  }
+  closeProductDetailAside();
+  mobileMenu.classList.toggle('inactive')
+
+}
+function openSignMobile() {
+  openEdit()
+  const isAsideClosed = shoppingCartContainer.classList.contains('inactive')
+  if (!isAsideClosed) {
+    shoppingCartContainer.classList.add('inactive')
+  }
+  closeProductDetailAside();
+  mobileMenu.classList.toggle('inactive')
+}
+
 
 // Login
 function openLogin() {

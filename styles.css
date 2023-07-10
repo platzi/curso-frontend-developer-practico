@@ -17,6 +17,13 @@ body {
   display: none;
 }
 
+/* butones */
+.emailMobile:hover,
+.signMobile:hover,
+.btnMobile2:hover,
+.btnMobile1:hover {
+  cursor: pointer;
+}
 
 /* Navbar (general) */
 nav {
