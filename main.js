@@ -45,21 +45,23 @@ buttonBackShopingCart.addEventListener('click', function(){
 });
 
 class Product{
-    constructor(name, image, price){
+    constructor(name, image, price, id, desciption){
         this.name = name;
         this.image = image;
         this.price = price;
+        this.id = id;
+        this.desciption = desciption;
     };
 };
 
-let bike = new Product('Bike', 'https://images.pexels.com/photos/276517/pexels-photo-276517.jpeg?auto=compress&cs=tinysrgb&dpr=2&h=650&w=940', '120,00');
-let tv = new Product('TV old', 'https://images.pexels.com/photos/5721910/pexels-photo-5721910.jpeg?auto=compress&cs=tinysrgb&w=1260&h=750&dpr=1', '400,00');
-let laptop = new Product('Laptop', 'https://images.pexels.com/photos/5703527/pexels-photo-5703527.jpeg?auto=compress&cs=tinysrgb&w=1260&h=750&dpr=1', '350,00');
-let fridge = new Product('Fridge', 'https://images.pexels.com/photos/2962002/pexels-photo-2962002.jpeg?auto=compress&cs=tinysrgb&w=1260&h=750&dpr=1', '850,00');
-let shirt = new Product('Pink shirt', 'https://images.pexels.com/photos/2249248/pexels-photo-2249248.jpeg?auto=compress&cs=tinysrgb&w=1260&h=750&dpr=1', '50,00');
-let pants = new Product('Pants', 'https://images.pexels.com/photos/1598507/pexels-photo-1598507.jpeg?auto=compress&cs=tinysrgb&w=1260&h=750&dpr=1', '70,00');
-let plant = new Product('Plant', 'https://images.pexels.com/photos/4505447/pexels-photo-4505447.jpeg?auto=compress&cs=tinysrgb&w=1260&h=750&dpr=1', '10,00');
-let clock = new Product('Clock', 'https://images.pexels.com/photos/177154/pexels-photo-177154.jpeg?auto=compress&cs=tinysrgb&w=1260&h=750&dpr=1', '100,00');
+let bike = new Product('Bike', 'https://images.pexels.com/photos/276517/pexels-photo-276517.jpeg?auto=compress&cs=tinysrgb&dpr=2&h=650&w=940', '120,00', 0, "Lorem ipsum dolor sit amet consectetur adipisicing elit. Dolor nemo architecto quos? Ipsam totam nihil odio a quisquam asperiores vero. Obcaecati explicabo, earum sapiente dolore ipsa perspiciatis reiciendis veniam perferendis.");
+let tv = new Product('TV old', 'https://images.pexels.com/photos/5721910/pexels-photo-5721910.jpeg?auto=compress&cs=tinysrgb&w=1260&h=750&dpr=1', '400,00', 1, "Lorem ipsum dolor sit amet consectetur adipisicing elit. Dolor nemo architecto quos? Ipsam totam nihil odio a quisquam asperiores vero. Obcaecati explicabo, earum sapiente dolore ipsa perspiciatis reiciendis veniam perferendis.");
+let laptop = new Product('Laptop', 'https://images.pexels.com/photos/5703527/pexels-photo-5703527.jpeg?auto=compress&cs=tinysrgb&w=1260&h=750&dpr=1', '350,00', 2, "Lorem ipsum dolor sit amet consectetur adipisicing elit. Dolor nemo architecto quos? Ipsam totam nihil odio a quisquam asperiores vero. Obcaecati explicabo, earum sapiente dolore ipsa perspiciatis reiciendis veniam perferendis.");
+let fridge = new Product('Fridge', 'https://images.pexels.com/photos/2962002/pexels-photo-2962002.jpeg?auto=compress&cs=tinysrgb&w=1260&h=750&dpr=1', '850,00', 3, "Lorem ipsum dolor sit amet consectetur adipisicing elit. Dolor nemo architecto quos? Ipsam totam nihil odio a quisquam asperiores vero. Obcaecati explicabo, earum sapiente dolore ipsa perspiciatis reiciendis veniam perferendis.");
+let shirt = new Product('Pink shirt', 'https://images.pexels.com/photos/2249248/pexels-photo-2249248.jpeg?auto=compress&cs=tinysrgb&w=1260&h=750&dpr=1', '50,00', 4, "Lorem ipsum dolor sit amet consectetur adipisicing elit. Dolor nemo architecto quos? Ipsam totam nihil odio a quisquam asperiores vero. Obcaecati explicabo, earum sapiente dolore ipsa perspiciatis reiciendis veniam perferendis.");
+let pants = new Product('Pants', 'https://images.pexels.com/photos/1598507/pexels-photo-1598507.jpeg?auto=compress&cs=tinysrgb&w=1260&h=750&dpr=1', '70,00', 5, "Lorem ipsum dolor sit amet consectetur adipisicing elit. Dolor nemo architecto quos? Ipsam totam nihil odio a quisquam asperiores vero. Obcaecati explicabo, earum sapiente dolore ipsa perspiciatis reiciendis veniam perferendis.");
+let plant = new Product('Plant', 'https://images.pexels.com/photos/4505447/pexels-photo-4505447.jpeg?auto=compress&cs=tinysrgb&w=1260&h=750&dpr=1', '10,00', 6, "Lorem ipsum dolor sit amet consectetur adipisicing elit. Dolor nemo architecto quos? Ipsam totam nihil odio a quisquam asperiores vero. Obcaecati explicabo, earum sapiente dolore ipsa perspiciatis reiciendis veniam perferendis.");
+let clock = new Product('Clock', 'https://images.pexels.com/photos/177154/pexels-photo-177154.jpeg?auto=compress&cs=tinysrgb&w=1260&h=750&dpr=1', '100,00', 7, "Lorem ipsum dolor sit amet consectetur adipisicing elit. Dolor nemo architecto quos? Ipsam totam nihil odio a quisquam asperiores vero. Obcaecati explicabo, earum sapiente dolore ipsa perspiciatis reiciendis veniam perferendis.");
 productList.push(bike, tv, laptop, fridge, shirt, pants, plant, clock);
 
 function renderProducts(arr){
@@ -91,10 +93,10 @@ function renderProducts(arr){
 
         mainCardsContainer.appendChild(productCard);
 
-        productImage.addEventListener('click', function(){
+        productImage.addEventListener('click', ()=>{
           asideProductDetail.classList.remove('inactive');
         })
-        figureImage.addEventListener('click', function(){
+        figureImage.addEventListener('click', ()=>{
             elementsInCart.push(product);
             renderProductsCart(elementsInCart);
         });
@@ -120,23 +122,15 @@ function renderProductsCart(arr){
         const iconClose = document.createElement('img');
         iconClose.classList.add('iconClose');
         iconClose.setAttribute('src', './icons/icon_close.png');
-
+        iconClose.setAttribute('data-product-id', product.id);
+        
         shoppingCart.append(figureCart, productName, productPrice, iconClose);
-        iconClose.addEventListener('click', deleteProducts);
-    }
+        iconClose.addEventListener('click', ()=>{
+            let indexValues = elementsInCart.indexOf(product);
+            elementsInCart.splice(indexValues, 1);
+            renderProductsCart(elementsInCart);
+        });
+    }   
 };
 renderProductsCart(elementsInCart);
 
-function deleteProducts(){
-  const selectedIndex = elementsInCart.findIndex((product) => product.id === this.dataset.productId);
-  console.log(selectedIndex);
-  if (selectedIndex !== -1) {
-    elementsInCart.splice(selectedIndex, 1);
-    renderProductsCart(elementsInCart);
-  }
-};
-/* const cartCounter = document.querySelector('.counterCart');
-let spanCounter = document.createElement('span');
-let counterElements = elementsInCart.length;
-spanCounter.textContent = counterElements;
-cartCounter.appendChild(spanCounter); */
