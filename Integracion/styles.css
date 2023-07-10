@@ -1,3 +1,4 @@
+/* General */
 :root{
     --white: #FFFFFF;
     --black: #000000;
@@ -8,27 +9,63 @@
     --md: 16px;
     --lg: 18px;
 }
+*{
+    box-sizing: border-box;
+}
 body{
     font-family: 'Quicksand', sans-serif;
     margin: 0;
     padding: 0;
 }
-
 .inactive{
     display: none;
 }
 
-
+/* Menu Mobile */
 .menu{
     display: none;
     margin-left: 40px;
+    cursor: pointer;
 }
+.mobile-menu {
+    padding: 24px;
+    position: absolute;
+    top: 100px;
+    background: var(--white);
+    width: 100%;
+  }
+.mobile-menu a {
+    text-decoration: none;
+    color: var(--black);
+    font-weight: bold;
+    /* margin-bottom: 24px; */
+  }
+.mobile-menu ul {
+    padding: 0;
+    margin: 24px 0 0;
+    list-style: none;
+  }
+.mobile-menu ul:nth-of-type(1) {
+    border-bottom: 1px solid var(--very--light-pink);
+  }
+.mobile-menu ul li {
+    margin-bottom: 24px;
+  }
+.email {
+    font-size: var(--sm);
+    font-weight: 300 !important;
+  }
+.sign-out {
+    font-size: var(--sm);
+    color: var(--hospital-green) !important;
+  }
+
+
+  /* Navbar (General) */
 .logo{
-    width: 150px;
-    padding: 4px 0 4px 0 ;
-
-
-}
+      width: 150px;
+      padding: 4px 0 4px 0 ;
+  }
 nav{
     display: flex;
     height: 100px;
@@ -70,18 +107,15 @@ nav{
     margin-right: 8px;
 
 }
-
 .navbar-right ul li:nth-of-type(1){
     color: var(--very--light-pink);
 
 }
-
 .navbar-left ul li a:hover{
     border: 1px solid var(--hospital-green);
     border-radius: 8px;
     color: var(--hospital-green);
 }
-
 .navbar-email:hover{
     cursor: pointer;
 }
@@ -109,6 +143,7 @@ nav{
 
 }
 
+/* Menu Desktop (Email) */
 .desktop-menu{
     width: 150px;
     height: auto;
@@ -127,15 +162,13 @@ nav{
     flex-direction:column;
     align-items: flex-end;
 }
-
-ul li{
+.desktop-menu ul li{
     width: 100%;
     text-align: end;
     padding-top: 16px;
     padding-bottom: 16px;
 
 }
-
 .desktop-menu ul li:nth-of-type(3){
     margin-top: 0;
     padding-top: 24px;
@@ -143,28 +176,21 @@ ul li{
     color: var(--hospital-green);
     border-top: 1px solid var(--very--light-pink);
 }
-
 .desktop-menu ul li:nth-of-type(2){
     margin-bottom: 16px;
 
 }
-
 .desktop-menu ul li a{
     color: var(--black);
     font-weight: bold;
     text-decoration: none;
 }
-
 .desktop-menu ul li:nth-of-type(3) a{
     color: var(--hospital-green);
 }
 
 
-
-
-
-
-
+/* Media Queries */
 @media(max-width: 970px){
     .menu{
         display: block;
@@ -173,6 +199,14 @@ ul li{
         display: none;
     }
     .navbar-right ul li:nth-of-type(1){
+        display: none;
+    }
+    .desktop-menu{
+        display: none;
+    }
+}
+@media(min-width: 971px){
+    .mobile-menu{
         display: none;
     }
 }
