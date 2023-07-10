@@ -109,11 +109,17 @@ nav {
       display: inline-block;
     }
 
+    .inactive {
+      display: none;
+    }
     
     .desktop-menu {
       position: absolute;
+      top: 60px;
+      right: 0;
       width: 100px;
       height: auto;
+      background: var(--white);
       border: 1px solid var(--very-light-pink);
       border-radius: 6px;
       padding: 20px 20px 0 20px;
