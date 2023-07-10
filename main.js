@@ -2,9 +2,12 @@ const menuEmail = document.querySelector(".navbar-email");
 const desktopMenu = document.querySelector(".desktop-menu") //menu mail
 const menu = document.querySelector('.menu')
 const mobileMenu = document.querySelector('.mobile-menu')   //menu telefono
+const productDetailCloseIco = document.querySelector('.product-detail-close') // cierra detalle de producto
 const menuCarritoIcon = document.querySelector('.navbar-shopping-cart')
 const shoppingCartContainer = document.querySelector('#shoppingCartContainer') // carrito
+const productDetailContainer = document.querySelector('#productDetail') // descripcion del producto
 const cardsContainer = document.querySelector('.cards-container')
+
 
 menuEmail.addEventListener('click', toggleDesktopMenu);
 
@@ -12,6 +15,7 @@ menu.addEventListener('click', toggleMenu)
 
 menuCarritoIcon.addEventListener('click', toggleCarritoDeCompras)
 
+productDetailCloseIco.addEventListener('click', closeProductDetailAside) // escucho el clic de cerrar detalle de producto
 
 function toggleDesktopMenu(){
    //const si carrito de compras = carritodos de compra inactivo
@@ -20,8 +24,15 @@ function toggleDesktopMenu(){
     if (!isshoppingCartContainerClose) {
         shoppingCartContainer.classList.add("inactiv") // inacticvar carrito de compra
     }
-        desktopMenu.classList.toggle("inactiv")
+    
+    const isProductDetailContainer= productDetailContainer.classList.contains('inactive')
 
+    if (!isProductDetailContainer) {
+        productDetailContainer.classList.add("inactiv")
+}
+    
+    desktopMenu.classList.toggle("inactiv")
+        
 }
 
 function toggleMenu(){
@@ -31,6 +42,12 @@ function toggleMenu(){
     if (!isshoppingCartContainerClose) {
         shoppingCartContainer.classList.add("inactiv")
     }
+
+    const isProductDetailContainer= productDetailContainer.classList.contains('inactive')
+
+    if (!isProductDetailContainer) {
+        productDetailContainer.classList.add("inactiv")
+}
 
     mobileMenu.classList.toggle("inactiv")
 
@@ -49,10 +66,42 @@ function toggleCarritoDeCompras(){
         desktopMenu.classList.add("inactiv")
     }
 
+    const isProductDetailContainer= productDetailContainer.classList.contains('inactive')
+
+    if (!isProductDetailContainer) {
+        productDetailContainer.classList.add("inactiv")
+}
     shoppingCartContainer.classList.toggle("inactiv")
 
 
 }
+function openProductDetailAside (){//abre detalle de producto.
+    productDetailContainer.classList.remove('inactiv')
+
+    const isMovileMenuclose = mobileMenu.classList.contains('inactive')
+
+    if (!isMovileMenuclose) {
+        mobileMenu.classList.add("inactiv")
+    }
+
+    const isdesktopMenClose = desktopMenu.classList.contains('inactive')
+
+    if (!isdesktopMenClose) {
+        desktopMenu.classList.add("inactiv")
+    }
+
+    const isshoppingCartContainerClose = shoppingCartContainer.classList.contains('inactive')
+
+    if (!isshoppingCartContainerClose) {
+        shoppingCartContainer.classList.add("inactiv")
+    }
+}
+function closeProductDetailAside () {
+    productDetailContainer.classList.add('inactiv') // cierro detalle de producto. 
+}
+
+
+
 
 const productList = []; //creo un arreglo para listado de productos
 productList.push({ //creo un objeto dentro del arreglo para el producto.
@@ -95,7 +144,8 @@ function renderProducts(arr) {// funcion de renderizar los productos.
    
     const productImg = document.createElement('img') // creo la imagen.
     productImg.setAttribute('src', product.image) //modifico el atributo scr de la img y defino q utilice la imagen del producto
-
+    productImg.addEventListener('click',openProductDetailAside )//escuchar click de la imagen. mando a llamar funcion para abrir detalle de producto.
+    
     const productInfo = document.createElement('div') //creo el div de product-info
     productInfo.classList.add ('product-info') // le agrego la clase al div product-info
    
