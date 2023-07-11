@@ -120,8 +120,10 @@
   .mobile-menu {
     padding: 24px;
     position: absolute;
-    
-    background: var(--white);
+    top: 60px;
+    background-color: var(--white);
+    left: 0px;
+    width: 100%;
   }
   .mobile-menu a {
     text-decoration: none;
@@ -165,11 +167,14 @@
   aside {
     width: 360px;
     height: 100%;
-    padding: 24px;
+    
     box-sizing: border-box;
     position: absolute;
     background: var(--white);
     right: 0;
+  }
+  #shoppingCardContainer{
+    padding: 24px;
   }
   .title-container {
     display: flex;
