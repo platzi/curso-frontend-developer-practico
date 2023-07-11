@@ -112,7 +112,7 @@
           </div>
     </nav>
 
-    <aside class="product-detail inactive">
+    <aside id="shoppingCartContainer" class="inactive">
         <div class="title-container">
             <img class="cart-icon" src="/icons/flechita.svg" alt="arrow">
             <h1 class="title">Shopping Cart</h1>
@@ -161,21 +161,27 @@
         </div>
     </aside>
 
+    <aside id="productDetail" class="inactive">
+    </div>
+    <img src="/icons/icon_close.png" alt="close">
+
+    <img src="https://images.pexels.com/photos/4542852/pexels-photo-4542852.jpeg?auto=compress&cs=tinysrgb&w=1260&h=750&dpr=1" alt="bike">
+
+    <div class="product-info">
+        <p>$35.00</p>
+        <p>Bike</p>
+        <p>
+            Lorem ipsum dolor sit amet consectetur adipisicing elit. Officia tenetur, maiores deleniti porro error excepturi voluptas suscipit fugiat assumenda iste consequatur molestiae quidem ipsum rerum cum numquam repudiandae temporibus unde?
+        </p>
+
+        <button class="primary-button add-to-cart-button">
+            <img src="/icons/bt_add_to_cart.svg" alt="add to cart">
+        </button>
+    </div>
+</aside>
+
     <section class="main-container">
-        <div class="card-container">
-            <!-- <div class="product-card">
-                <img src="https://images.pexels.com/photos/13738406/pexels-photo-13738406.jpeg?auto=compress&cs=tinysrgb&w=1260&h=750&dpr=1" alt="" class="product">
-                <div class="product-info">
-                    <div>
-                        <p>$120,00</p>
-                        <p>Bike</p>
-                    </div>
-                    <figure>
-                        <img src="/icons/bt_add_to_cart.svg" alt="">
-                    </figure>
-                </div>
-            </div> -->
-        </div>
+        <div class="card-container"></div>
     </section>
 
     <script src="/Integracion/main.js"></script>
