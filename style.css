@@ -136,6 +136,7 @@ nav {
 	padding: 24px;
 	left: 0px;
 	width: 100%;
+	box-sizing: border-box;
 	
 	/* Transform: translateX */
 	transition: transform 1000ms;
