@@ -5,17 +5,23 @@ const menuMobile = document.querySelector(".mobile-menu");
 const cartIcon = document.querySelector(".navbar-shopping-cart");
 const menuCart = document.querySelector("#shoppingCartContainer");
 const cardContainer = document.querySelector(".card-container");
+const productDetailContainer = document.querySelector("#productDetail");
+const productDetailClose = document.querySelector(".product-detail-close");
 
 
 menuEmail.addEventListener('click', toggleDesktopMenu);
 menuBars.addEventListener('click', toggleMobileMenu);
 cartIcon.addEventListener('click', toggleCartMenu);
+productDetailClose.addEventListener('click', closeProductDetail)
 
 function toggleDesktopMenu() {
     const isAsideClosed = menuCart.classList.contains('inactive');
+    const isProductDetailClosed = productDetailContainer.classList.contains('inactive');
 
     if(!isAsideClosed){
         menuCart.classList.add('inactive');
+    } else if(!isProductDetailClosed){
+        productDetailContainer.classList.add('inactive');
     };
 
     desktopMenu.classList.toggle('inactive');
@@ -23,10 +29,13 @@ function toggleDesktopMenu() {
 
 function toggleMobileMenu() {
     const isAsideClosed = menuCart.classList.contains('inactive');
+    const isProductDetailOpen = !productDetailContainer.classList.contains('inactive');
 
     //si esta abierto el carrito, lo cierra
     if(!isAsideClosed){
         menuCart.classList.add('inactive');
+    } else if (isProductDetailOpen){
+        closeProductDetail();
     };
     menuMobile.classList.toggle('inactive');
 };
@@ -34,16 +43,39 @@ function toggleMobileMenu() {
 function toggleCartMenu() {
     const isMobileMenuClosed = menuMobile.classList.contains('inactive');
     const isDesktopMenuClosed = desktopMenu.classList.contains('inactive');
+    const isProductDetailClosed = productDetailContainer.classList.contains('inactive');
 
     //si esta abierto el menu mobile o desktop, lo cierra
     if(!isMobileMenuClosed){
         menuMobile.classList.add('inactive');
     } else if(!isDesktopMenuClosed){
         desktopMenu.classList.add('inactive');
+    } else if(!isProductDetailClosed){
+        productDetailContainer.classList.add('inactive');
     }
 
     menuCart.classList.toggle('inactive');
 };
+
+function openProductDetail() {
+    productDetailContainer.classList.remove('inactive');
+
+    const isDesktopMenuOpen = !desktopMenu.classList.contains('inactive');
+    const isMobileMenuOpen = !menuMobile.classList.contains('inactive');
+    const isCartMenuOpen = !menuCart.classList.contains('inactive');
+
+    if(isDesktopMenuOpen){
+        desktopMenu.classList.add('inactive');
+    } else if (isMobileMenuOpen){
+        menuMobile.classList.add('inactive');
+    } else if (isCartMenuOpen) {
+        menuCart.classList.add('inactive');
+    }
+}
+
+function closeProductDetail() {
+    productDetailContainer.classList.add('inactive');
+}
 
 
 const productList = []; //Esto es lo que traeria al hacer una consulta API Rest a la BD
@@ -83,6 +115,8 @@ function renderProducts(arr){
         const productImg = document.createElement('img');
         //Cada iteración: product = {name, price, image}
         productImg.setAttribute('src',product.image);
+        productImg.addEventListener('click', openProductDetail);
+        productImg.addEventListener('mouseover', productImg.classList.add('pointer'));
 
         const productInfo = document.createElement('div');
         productInfo.classList.add('product-info');
@@ -116,8 +150,11 @@ function renderProducts(arr){
     };
 }
 
+
+
 //de esta forma no se carga automatico sino cuando yo quiera llamar la función: un click, hover...
 renderProducts(productList);
+
 
 
 

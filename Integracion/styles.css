@@ -20,6 +20,9 @@ body{
 .inactive{
     display: none;
 }
+.pointer:hover{
+    cursor: pointer;
+}
 
 /* Menu Mobile */
 .menu{
@@ -153,7 +156,7 @@ nav{
     background-color: var(--white);
     position: absolute;
     right: 92px;
-    top:100px ;
+    top:99px ;
 }
 .desktop-menu ul{
     list-style: none;
@@ -390,8 +393,8 @@ aside  > img:nth-of-type(1){
     margin: 8px 0 0 0;
 }
 .product-card .product-info figure img{
-    width: 50px;
-    height: 50px;
+    width: 40px;
+    height: 40px;
     object-fit: cover;
 }
 .product-card .product-info div:nth-child(1){
@@ -430,7 +433,7 @@ aside  > img:nth-of-type(1){
         width: 100%;
     }
     .card-container{
-        grid-template-columns: repeat(auto-fill,120px);
+        grid-template-columns: repeat(auto-fit,120px);
         margin: 32px 8px 128px 8px;
     }
     .product-card{
@@ -440,10 +443,10 @@ aside  > img:nth-of-type(1){
         height: 120px;
 
     }
-    .product-info{
+    .product-card .product-info{
         margin: 0 4px 0 4px;
     }
-    .product-info figure img{
+    .product-card .product-info figure img{
     width: 35px;
     height: 35px;
     }
