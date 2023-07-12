@@ -150,11 +150,66 @@ function renderProducts(arr){
     };
 }
 
-
-
 //de esta forma no se carga automatico sino cuando yo quiera llamar la función: un click, hover...
 renderProducts(productList);
 
+
+
+// function renderProductsDetail(arr2) {
+//     for (product of arr2){
+
+//         const productDetail = document.querySelector('#productDetail');
+//         const productDetailImg = document.createElement('img');
+//         productDetailImg.setAttribute('src', product.image);
+
+//         const productDetailInfo = document.createElement('div');
+//         productDetailInfo.classList.add('product-info');
+
+//         const productDetailPrice = document.createElement('p');
+//         productDetailPrice.innerText = product.price;
+
+//         const productDetailName = document.createElement('p');
+//         productDetailName.innerText = product.name;
+
+//         const productDetailDescription = document.createElement('p');
+//         productDetailDescription.innerText = 'Lorem ipsum dolor sit amet consectetur adipisicing elit. Officia tenetur, maiores deleniti porro error excepturi voluptas suscipit fugiat assumenda iste consequatur molestiae quidem ipsum rerum cum numquam repudiandae';
+
+//         const addBtn = document.createElement('button');
+//         addBtn.classList.add('primary-button');
+//         addBtn.classList.add('add-to-cart-button');
+
+
+//         const addBtnIcon = document.createElement('img');
+//         addBtnIcon.setAttribute('src','/icons/bt_add_to_cart.svg');
+
+//         addBtn.appendChild(addBtnIcon);
+
+//         productDetailInfo.appendChild(productDetailPrice);
+//         productDetailInfo.appendChild(productDetailName);
+//         productDetailInfo.appendChild(productDetailDescription);
+
+//         productDetail.appendChild(addBtn);
+//         productDetail.appendChild(productDetailInfo);
+//         productDetail.appendChild(productDetailImg);
+//     }
+// }
+
+// renderProductsDetail(productList);
+
+
+{/* <img src="https://images.pexels.com/photos/4542852/pexels-photo-4542852.jpeg?auto=compress&cs=tinysrgb&w=1260&h=750&dpr=1" alt="bike">
+
+<div class="product-info">
+    <p>$35.00</p>
+    <p>Bike</p>
+    <p>
+        Lorem ipsum dolor sit amet consectetur adipisicing elit. Officia tenetur, maiores deleniti porro error excepturi voluptas suscipit fugiat assumenda iste consequatur molestiae quidem ipsum rerum cum numquam repudiandae temporibus unde?
+    </p>
+
+    <button class="primary-button add-to-cart-button">
+        <img src="/icons/bt_add_to_cart.svg" alt="add to cart">
+    </button>
+</div> */}
 
 
 
