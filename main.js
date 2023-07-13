@@ -97,6 +97,7 @@ productList.push({
     image: 'https://ichef.bbci.co.uk/news/640/cpsprodpb/110CC/production/_90463896_ccc.jpg'
 });
 
+//CREACION DE UNA FUNCION PARA RENDERIZAR UN GRUPO DE IMAGENES
 function renderProducts(arreglo){
     for (product of arreglo) {
         const productCard = document.createElement('div');
