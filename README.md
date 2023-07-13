@@ -1,11 +1,11 @@
-# curso-frontend-developer-js-practico
+# Curso-frontend-developer-js-practico
 Este repositorio es una contribución al proyecto echo en el curso práctico de JavaScript en Platzi.
 
 [![](https://static.platzi.com/cdn-cgi/image/width=1024,quality=35,format=auto/media/landing-projects/img-Practico-Javascript.png)](https://static.platzi.com/cdn-cgi/image/width=1024,quality=35,format=auto/media/landing-projects/img-Practico-Javascript.png)
 
 ------------
 
-#####En el cual hicimos la fusión de diversos componentes tales como:
+##### En el cual hicimos la fusión de diversos componentes tales como:
 - La barra de navegación.
 - Menú tanto de desktop como de Mobile.
 - Un carrito de compras.
@@ -17,7 +17,7 @@ Fuera de eso me tome el tiempo de hacer que todo esto sea dinámico y responsive
 ------------
 
 
-#####Los cambios fueron:
+##### Los cambios fueron:
 - Posibilidad de añadir elementos al carrito, tanto con el botón de añadir fuera de su descripción como dentro del aside de información de cada producto.
 - Contador de Elementos en el carrito, de esta forma saber cuantos productos llevamos sin necesidad de abrir el carrito.
 - Posibilidad también de Eliminar esos elementos o productos de nuestro carrito, reduciendo el valor del contador.
@@ -38,6 +38,6 @@ Recomiendo estás páginas que me fueron de gran ayuda y también practicar much
 
 ----------
 
-#####Estas son mis redes de contacto:
+##### Estas son mis redes de contacto:
 [Mi perfil de Platzi](https://platzi.com/p/cngaleano56/ "Mi perfil de Platzi")👈
 [Mi twitter](https://twitter.com/Nahuel_Galean0 "Mi twitter")👈
