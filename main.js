@@ -14,7 +14,6 @@ const shoppingCart = document.querySelector('.shopping-cart');
 const containerCart = document.querySelector('.containerCart');
 const counterShoppingCart = document.querySelector('.counterCart');
 let elementsInCart = []//Array que guarda los elementos añadidos al carrito.
-//let longitudCart = 0
 //event of navbar email for desktop Menu
 navBarEmail.addEventListener('click', function(){
     asideShoppingCart.classList.add('inactive');
@@ -34,10 +33,6 @@ iconShopingCart.addEventListener('click', function(){
     asideProductDetail.classList.add('inactive');
     asideShoppingCart.classList.toggle('inactive');
 });
-//event close aside
-/* asideProductDetail.addEventListener('click', function(){
-    asideProductDetail.classList.add('inactive');
-}); */
 //event close shopingCart
 buttonBackShopingCart.addEventListener('click', function(){
     asideShoppingCart.classList.add('inactive');
@@ -134,17 +129,17 @@ function renderProducts(arr){
         })
         figureImage.addEventListener('click', ()=>{
             elementsInCart.push(product);
-            //longitudCart++
+            sumarProductos();
             renderProductsCart(elementsInCart);
         });
         
       }
 }
 renderProducts(productList);
-
+let longitudCart = 0;
 function renderProductsCart(arr){
     shoppingCart.textContent = '';
-
+    
     for (const product of arr) {
         const figureCart = document.createElement('figure');
         const imageProduct = document.createElement('img');
@@ -166,10 +161,24 @@ function renderProductsCart(arr){
             //elimina los objetos no deseados.
             let indexValues = elementsInCart.indexOf(product);
             elementsInCart.splice(indexValues, 1);
-            //longitudCart--
+            restarElementos();
             renderProductsCart(elementsInCart);
         });
-
     }   
 };
 renderProductsCart(elementsInCart);
+
+function sumarProductos(){
+    counterShoppingCart.textContent = ''
+    const contador = document.createElement('p');
+    longitudCart++;
+    contador.textContent = longitudCart;
+    counterShoppingCart.appendChild(contador);
+};
+function restarElementos(){
+        counterShoppingCart.textContent = '';
+        const contador = document.createElement('p');
+        longitudCart--;
+        contador.textContent = longitudCart;
+        counterShoppingCart.appendChild(contador);
+};
