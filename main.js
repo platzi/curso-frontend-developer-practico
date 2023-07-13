@@ -15,26 +15,26 @@ productDetailCloseIcon.addEventListener('click', toggleProductDetail);
 
 function toggleDesktopMenu() {
     desktopMenu.classList.toggle('oculto-men-desktop');
-    productDetailContainer.classList.add('inactive');
+    productDetailContainer.classList.add('oculto-aside');
     shoppingCartContainer.classList.add('oculto-aside');
 }
 
 function toggleMobileMenu() {
     mobileMenu.classList.toggle('oculto-mobile');
     shoppingCartContainer.classList.add('oculto-aside');
-    productDetailContainer.classList.add('inactive');
+    productDetailContainer.classList.add('oculto-aside');
 
 }
 
 function toggleCarritoAside() {
     shoppingCartContainer.classList.toggle('oculto-aside');
     mobileMenu.classList.add('oculto-mobile');
-    productDetailContainer.classList.add('inactive');
+    productDetailContainer.classList.add('oculto-aside');
     desktopMenu.classList.add('oculto-men-desktop');
 }
 
 function toggleProductDetail() {
-    productDetailContainer.classList.toggle('inactive');
+    productDetailContainer.classList.toggle('oculto-aside');
     shoppingCartContainer.classList.add('oculto-aside');
     desktopMenu.classList.add('oculto-men-desktop');
     mobileMenu.classList.add('oculto-mobile');
