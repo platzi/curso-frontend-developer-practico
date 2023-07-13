@@ -33,8 +33,6 @@ menuEmail.addEventListener('click', toggleDesktopMenu);
 menuHamIcon.addEventListener('click', toggleMobileMenu);
 menuCarritoIcon.addEventListener('click',toggleCarritoAside);
 
-console.log(menuEmail.addEventListener('click', toggleDesktopMenu))
-
 function toggleDesktopMenu() {
     desktopMenu.classList.toggle('inactive');
 }
@@ -62,11 +60,11 @@ function toggleCarritoAside(){
     const isMobileMenuClose = mobileMenu.classList.contains('inactive');
     
     //SI EL VALOR EL VALOR DEL MENU MOBILE ES NEGATIVO 'ESTA CERRADO' SE PROCEDE A ABRIR 
-    //AÑADIENDO LA CLASE INACTIVE PARA SU VISIBILIDAD
+    //AÑADIENDO LA CLASE INACTIVE PARA SU VISIBILIDAD PROCEDE A NEGAR PARA QUE SIEMPRE APLIQUE EL ESTADO INACTIVE
     if(!isMobileMenuClose){
         mobileMenu.classList.add('inactive');
     }
-    
+    //DE LO CONTRARIO SE APLICA DE IGUAL FORMA EL ESTADO INACTIVE
     
     aside.classList.toggle('inactive');
     
