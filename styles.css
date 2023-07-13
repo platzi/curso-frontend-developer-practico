@@ -39,7 +39,7 @@ nav {
   height: 60px;
 }
 .navbar-left {
-  display: flex;
+    display: flex;
 }
 .navbar-left ul {
   margin-left: 12px;
@@ -118,15 +118,57 @@ nav {
     margin-bottom: 20px;
     display: inline-block;
   }
+/*Estilos para el menu que sale en mobile*/
+.mobile-menu {
+    position: absolute;
+    top: 60px;
+    padding: 24px;
+  }
+  .mobile-menu a {
+    text-decoration: none;
+    color: var(--black);
+    font-weight: bold;
+    /* margin-bottom: 24px; */
+  }
+  .mobile-menu ul {
+    padding: 0;
+    margin: 24px 0 0;
+    list-style: none;
+  }
+  .mobile-menu ul:nth-child(1) {
+    border-bottom: 1px solid var(--very-light-pink);
+  }
+  .mobile-menu ul li {
+    margin-bottom: 24px;
+  }
+  .email {
+    font-size: var(--sm);
+    font-weight: 300 !important;
+  }
+  .sign-out {
+    font-size: var(--sm);
+    color: var(--hospital-green) !important;
+  }
+
 
 @media (max-width: 640px) {
     .menu {
     display: block;
+    cursor: pointer;
     }
     .navbar-left ul {
     display: none;
     }
     .navbar-email {
     display: none;
+    }
+    .desktop-menu{
+        display: none;
+    }
+}
+
+@media (min-width: 641px) {
+    .mobile-menu{
+        display: none;
     }
 }
