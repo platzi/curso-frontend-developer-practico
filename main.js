@@ -3,7 +3,7 @@ const menuHamburguerIcon = document.querySelector('.menu');//para conectar con e
 const menuCarritoIcon = document.querySelector('.navbar-shopping-cart');//
 const mobileMenu = document.querySelector('.mobile-menu');//para conectar con el menu mobile
 const desktopMenu = document.querySelector('.desktop-menu');//para conectar con el menu desktop
-const aside = document.querySelector('.product-detail');//
+const shoppingCartContainer = document.querySelector('#shoppingCartContainer');//
 const cardsContainer = document.querySelector('.cards-container');
 
 
@@ -14,18 +14,18 @@ menuCarritoIcon.addEventListener('click', toggleCarritoAside);
 
 function toggleDesktopMenu(){
     console.log('clickeando menu desktop');
-    const isAsideClosed = aside.classList.contains('inactive');
+    const isAsideClosed = shoppingCartContainer.classList.contains('inactive');
     if(!isAsideClosed){
-        aside.classList.add('inactive');
+        shoppingCartContainer.classList.add('inactive');
     }
     desktopMenu.classList.toggle('inactive');//toggle -> permite intercambiar
 }
 
 function toggleMobileMenu(){
     console.log('clickeando el menu mobile');
-    const isAsideClosed = aside.classList.contains('inactive');
+    const isAsideClosed = shoppingCartContainer.classList.contains('inactive');
     if(!isAsideClosed){
-        aside.classList.add('inactive');
+        shoppingCartContainer.classList.add('inactive');
     }
     mobileMenu.classList.toggle('inactive');//toggle -> permite intercambiar
 }
@@ -42,7 +42,7 @@ function toggleCarritoAside(){
     if(!isdesktopMenuClosed){
         desktopMenu.classList.add('inactive');
     }
-    aside.classList.toggle('inactive');//toggle -> permite intercambiar
+    shoppingCartContainer.classList.toggle('inactive');//toggle -> permite intercambiar
 }
 
 const productList = [];
