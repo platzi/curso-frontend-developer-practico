@@ -1,3 +1,12 @@
+
+var i = 1;
+var lista = "";
+var copiaLista = [];
+var total = 0;
+
+// const API = "https://api.escuelajs.co/api/v1";
+const API = "https://fakestoreapi.com";
+
 // Barra de navegacion sesiones
 var navEmail = document.querySelector(".navbar-email");
 var panelEmail = document.querySelector(".desktop-menu");
@@ -9,6 +18,8 @@ var menuMovil = document.querySelector(".mobile-menu");
 // carrito
 var navOrdenCar = document.querySelector(".navbar-shopping-cart");
 var productoDetalle = document.querySelector(".product-detail");
+var containerDetail = document.querySelector("#order-content-product");
+var numDetail = document.getElementById("num-detail");
 
 // Detalle de productos
 var detailProducOne = document.querySelector(".product-detail-one");
@@ -16,76 +27,43 @@ var imgDetail = document.querySelector(".product-detail-close");
 var imgDetailProduct = document.querySelector(".img-detail-product");
 var datailPrice = document.querySelector(".price");
 var detailName = document.querySelector(".name");
+var detailDescription = document.querySelector(".content-description");
+var totalDetail = document.querySelector("#totalDetail");
 
+// --------------------------- GET PRODUCTOS FETCH ---------------------------
+function getProducts() {
+    const xhr = new XMLHttpRequest();
+    const url = "./js/products.txt";
 
-const productList = [];
-productList.push ({
-    num:'1785962',
-    name:'Bike',
-    price: 12700,
-    image: 'https://images.pexels.com/photos/276517/pexels-photo-276517.jpeg?auto=compress&cs=tinysrgb&dpr=2&h=650&w=940'
-});
-productList.push ({
-    num:'896v0987b',
-    name:'Bicycle helmet',
-    price: 1200,
-    image: 'https://assets.specialized.com/i/specialized/60821-104_HLMT_ALIGN-II-HLMT-MIPS-CE-BLK-BLKREFL-S-M_HERO?bg=rgb(241,241,241)&w=1600&h=900&fmt=auto'
-});
-productList.push ({
-    num:'8fydtgauis',
-    name:'Bicycle helmet',
-    price: 1600,
-    image: 'https://m.media-amazon.com/images/I/61eExL-rIAL._AC_SL1001_.jpg'
-});
-productList.push ({
-    num:'7asd85f',
-    name:'Bicycle helmet',
-    price: 1500,
-    image: 'https://assets.specialized.com/i/specialized/60822-140_HLMT_CHAMONIX-HLMT-MIPS-CE-MRN-M-L_HERO?bg=rgb(241,241,241)&w=1600&h=900&fmt=auto'
-});
-productList.push ({
-    num:'cax98032457',
-    name:'Seat',
-    price: 300,
-    image: 'https://m.media-amazon.com/images/I/61e+sZ9rgNL._AC_SL1500_.jpg'
-});
-productList.push ({
-    num:'097e213',
-    name:'Tennis Montain Bike',
-    price: 2200,
-    image: 'https://assets.adidas.com/images/h_840,f_auto,q_auto,fl_lossy,c_fill,g_auto/8ea578f6c07847fca2d0ac85011d7f1f_9366/Tenis_para_Mountain_Bike_Five_Ten_Freerider_Negro_FW2835_01_standard.jpg'
-});
-productList.push ({
-    num:'891324jba',
-    name:'Sunglasses',
-    price: 800,
-    image: 'https://cdn.siroko.com/s/files/1/1220/6874/products/gafas-siroko-tech-k3s-london-lateral/1200x/crop_center.jpg?v=1635209602'
-});
-productList.push ({
-    num:'dww8q96345',
-    name:'Sunglasses',
-    price: 600,
-    image: 'https://cdn.siroko.com/s/files/1/1220/6874/products/siroko-tech-k3s-clearfog-lente-antiniebla-frontal/1200x/crop_center.jpg?v=1635209603'
-});
-productList.push ({
-    num:'1945nkm4b',
-    name:'Bicycle seat bag',
-    price: 876,
-    image: 'https://m.media-amazon.com/images/I/81k2Gmal+VL._AC_SL1500_.jpg'
-});
+    xhr.open("GET", url);
+    xhr.send();
+    xhr.onreadystatechange = function () {
+        if (xhr.readyState == 4 && xhr.status == 200) {
+            lista = this.responseText;
+            mostrarProductos(JSON.parse(this.responseText));
+        }
+    }
+}
 
+fetch(`${API}/products`)
+    .then(response => response.json())
+    .then(productos => {
+        lista = productos;
+        mostrarProductos(productos);
+    })
 
 // --------------------------- MOSTRAR PRODUCTOS ---------------------------
-window.addEventListener("load", function() { mostrarProductos(productList) });
+// getProducts();
+
 
 // --------------------------- MENU LATERAL DERECHO DE SESIONES PC ---------------------------
-navEmail.addEventListener("click", function() {
+navEmail.addEventListener("click", function () {
     const isMobileMenuClose = productoDetalle.classList.contains('ocultar');
     const isDetailProd = detailProducOne.classList.contains('ocultar');
 
-    if(!isMobileMenuClose) {
+    if (!isMobileMenuClose) {
         productoDetalle.classList.add('ocultar');
-    } else if(!isDetailProd) {
+    } else if (!isDetailProd) {
         detailProducOne.classList.add('ocultar');
     }
 
@@ -93,13 +71,13 @@ navEmail.addEventListener("click", function() {
 });
 
 // --------------------------- MENU LATERAL IZQUIERDO MOVIL ---------------------------
-navMenu.addEventListener("click", function() {
+navMenu.addEventListener("click", function () {
     const isMobileMenuClose = productoDetalle.classList.contains('ocultar');
     const isDetailProd = detailProducOne.classList.contains('ocultar');
 
-    if(!isMobileMenuClose) {
+    if (!isMobileMenuClose) {
         productoDetalle.classList.add('ocultar');
-    } else if(!isDetailProd) {
+    } else if (!isDetailProd) {
         detailProducOne.classList.add('ocultar');
     }
 
@@ -107,16 +85,16 @@ navMenu.addEventListener("click", function() {
 });
 
 // --------------------------- MENU ORDEN CARRITO ---------------------------
-navOrdenCar.addEventListener("click", function() {
+navOrdenCar.addEventListener("click", function () {
     const isMobileMenuClose = menuMovil.classList.contains('ocultar');
     const isPcPanelSesion = panelEmail.classList.contains('ocultar');
     const isDetailProd = detailProducOne.classList.contains('ocultar');
 
-    if(!isMobileMenuClose) {
+    if (!isMobileMenuClose) {
         menuMovil.classList.add('ocultar');
-    } else if(!isPcPanelSesion) {
+    } else if (!isPcPanelSesion) {
         panelEmail.classList.add('ocultar');
-    } else if(!isDetailProd) {
+    } else if (!isDetailProd) {
         detailProducOne.classList.add('ocultar');
     }
 
@@ -126,41 +104,140 @@ navOrdenCar.addEventListener("click", function() {
 // --------------------------- PRODUCTOS ---------------------------
 function mostrarProductos(lista) {
     const contenedorProd = document.querySelector(".cards-container");
-    var productos = ``;
 
-    for(listProd of lista) {
-        productos = `<div class="product-card">
-                        <img src="${listProd.image}" onclick="openDetailProduc('${listProd.image}', ${listProd.price}, '${listProd.name}')" alt="">
-                        <div class="product-info">
-                            <div>
-                                <p>$${listProd.price}.00</p>
-                                <p>${listProd.name}</p>
-                            </div>
-                            <figure>
-                                <img src="./icons/bt_add_to_cart.svg" alt="">
-                            </figure>
-                        </div>
-                    </div>`;
+    for (listProd of lista) {
 
-        contenedorProd.innerHTML += productos;
+        var div1 = document.createElement('div');
+            div1.classList.add('product-card');
+
+            var img1 = document.createElement('img');
+            img1.setAttribute("src", listProd.image);
+            img1.setAttribute("onclick", "openDetailProduc("+JSON.stringify(listProd.image)+","+JSON.stringify(listProd.price)+","+JSON.stringify(listProd.title)+","+JSON.stringify(listProd.description)+")");
+            div1.appendChild(img1);
+        
+            var div2 = document.createElement('div');
+            div2.classList.add('product-info');
+
+                var div3 = document.createElement('div');
+                    var p1 = document.createElement('p');
+                    p1.innerText = "$" + listProd.price;
+                    div3.appendChild(p1);
+                    var p2 = document.createElement('p');
+                    p2.innerText = listProd.title;
+                    div3.appendChild(p2);
+                div2.appendChild(div3);
+
+                var button = document.createElement('button');
+                    button.setAttribute("type", "button");
+                    button.setAttribute("onclick", "addDetail("+ listProd.id +","+listProd.price+")");
+                    var img2 = document.createElement('img');
+                    img2.setAttribute("src", "./icons/bt_add_to_cart.svg");
+                    img2.setAttribute("alt", "boton de agregar al carrito");
+                    button.appendChild(img2);
+                div2.appendChild(button);
+
+        div1.appendChild(div2);
+        contenedorProd.append(div1);
     }
 }
 
-// --------------------------- DETALLE DEL PRODUCTO ---------------------------
-imgDetail.addEventListener("click", function() { detailProducOne.classList.add("ocultar"); });
+function addDetail(id, price) {
+    numDetail.classList.add("visual-number-detail");
+    numDetail.innerText = i++;
 
-function openDetailProduc(img, price, name) {
+    var results = copiaLista.filter(function (copiaLista) {
+        return copiaLista.id == Number(id);
+    });
+
+    if(results == "") {
+        addProductDetail(id);
+    } else {
+        var priceX = document.querySelector(`[id='${price}']`).innerText;
+        let count = document.getElementById(id).innerText;
+        let num = Number(priceX) + price;
+        document.getElementById(id).innerHTML = ++count;
+        document.querySelector(`[id='${price}']`).innerHTML = num.toFixed(2);
+        
+        modiyListCount(id, count);
+        ViewPrice(price);
+    }
+}
+
+function modiyListCount(id, count) {
+    for (let index = 0; index < copiaLista.length; index++) {
+        if(copiaLista[index].id == id) {
+            copiaLista[index].count = count;
+            break;
+        }
+        console.log('1s');
+    }
+}
+
+function addProductDetail(id) {
+    for(respuesta of lista) {
+        if(respuesta.id == Number(id)) {
+            copiaLista.push({
+                id: respuesta.id,
+                title: respuesta.title,
+                price: respuesta.price,
+                image: respuesta.image,
+                count: 1
+            });
+
+            ViewProductsDetail(copiaLista);
+            ViewPrice(respuesta.price);
+            break;
+        }
+    }
+}
+
+function ViewProductsDetail(list) {
+    var orderDetail = ``;
+    
+    for (let index = 0; index < list.length; index++) {
+        let num = list[index].price;
+        orderDetail = `<div class="shopping-cart">
+                            <figure>
+                                <img src="${list[index].image}" alt="imagen">
+                            </figure>
+                            <p>${list[index].title}</p>
+                            <p>X<span id="${list[index].id}">1</span></p>
+                            <p>$<span id="${list[index].price}">${num.toFixed(2)}</span></p>
+                            <img src="./icons/icon_close.png" alt="close">
+                        </div>`;
+    }
+    containerDetail.innerHTML += orderDetail;
+
+}
+
+function ViewPrice(price) {
+    total = total + Number(price);
+    totalDetail.innerText = "$" + total.toFixed(2);
+}
+
+// function accionReemplazar() {
+//     for(resp of copiaLista) {
+
+//     }
+// }
+
+
+// --------------------------- DETALLE DEL PRODUCTO ---------------------------
+imgDetail.addEventListener("click", function () { detailProducOne.classList.add("ocultar"); });
+
+function openDetailProduc(img, price, name, description) {
     const isMobileMenuClose = productoDetalle.classList.contains('ocultar');
     const isPcPanelSesion = panelEmail.classList.contains('ocultar');
 
     imgDetailProduct.src = img;
-    datailPrice.innerText = "$"+price+".00";
+    datailPrice.innerText = "$" + price;
     detailName.innerText = name;
+    detailDescription.innerText = description;
 
 
-    if(!isMobileMenuClose) {
+    if (!isMobileMenuClose) {
         productoDetalle.classList.add('ocultar');
-    } else if(!isPcPanelSesion) {
+    } else if (!isPcPanelSesion) {
         panelEmail.classList.add('ocultar');
     }
 

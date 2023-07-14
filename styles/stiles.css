@@ -94,7 +94,6 @@ nav {
 .navbar-shopping-cart div {
     width: 16px;
     height: 16px;
-    background-color: var(--hospital-green);
     border-radius: 50%;
     font-size: var(--sm);
     font-weight: bold;
@@ -104,6 +103,10 @@ nav {
     display: flex;
     justify-content: center;
     align-items: center;
+}
+
+.visual-number-detail {
+    background-color: var(--hospital-green);
 }
 
 /* --------------------------- COMPONENTE VENTANA DE INICIO DE SESIÓN -------------------------------- */
@@ -224,6 +227,12 @@ nav {
     font-weight: bold;
 }
 
+#order-content-product {
+    overflow: auto;
+    padding-right: 10px;
+    max-height: 350px;
+}
+
 .order {
     display: grid;
     grid-template-columns: auto 1fr;
@@ -302,6 +311,7 @@ nav {
     border: 1px solid var(--very-light-pink);
     border-radius: 20px;
     z-index: 1;
+    overflow: auto;
 }
 
 .product-detail-close {
@@ -402,13 +412,16 @@ nav {
     margin-top: 12px;
 }
 
-.product-info figure {
+.product-info button {
     margin: 0;
+    background-color: #00000000;
+    border: 0px solid;
 }
 
-.product-info figure img {
+.product-info button img {
     width: 35px;
     height: 35px;
+    cursor: pointer;
 }
 
 .product-info div p:nth-child(1) {
