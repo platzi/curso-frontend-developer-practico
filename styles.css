@@ -203,6 +203,7 @@ aside {
     right: 0;
     background: var(--white);
     border-radius: 12px 0 0 12px;
+
 }
 aside  img:nth-of-type(2){
     width: 100%;

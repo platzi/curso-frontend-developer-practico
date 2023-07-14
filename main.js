@@ -237,3 +237,33 @@ function renderCartProducts(allProducts){
         valorTotal.innerHTML = `$ ${total}`;
         countProducts.innerHTML = allProducts.length;
 }
+
+
+
+//cuando se haga click en otra imagen se debe borrar lo que habia antes
+
+cardContainer.addEventListener('click', ev => {
+     const isImgClicked = ev.target.classList.contains('product-img');
+
+
+     if(isImgClicked){
+         const img = ev.target.getAttribute('src');
+         const productIndex = productList.find(function (producto){
+            return producto.image == img;
+        });
+        console.log(productIndex);
+        renderProductDetail(productIndex);
+     }
+} )
+
+
+function renderProductDetail(product) {
+    const detailImg = document.querySelector('.detail-img');
+    detailImg.setAttribute('src', product.image);
+
+    const productPrice = document.querySelector('.product__price');
+    productPrice.innerText = `$ ${product.price}`;
+
+    const productName = document.querySelector('.product__name');
+    productName.innerText = product.name;
+};
