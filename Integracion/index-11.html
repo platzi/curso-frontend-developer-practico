@@ -1,0 +1,167 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+        <link rel="preconnect" href="https://fonts.googleapis.com">
+        <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+        <link href="https://fonts.googleapis.com/css2?family=Quicksand:wght@300;500;700&display=swap" rel="stylesheet">
+    <title>Document</title>
+    <style>
+        :root{
+            --white: #FFFFFF;
+            --black: #000000;
+            --very--light-pink: #C7C7C7;
+            --text-input-field: #f7f7f7;
+            --hospital-green: #ACD9B2;
+            --sm: 14px;
+            --md: 16px;
+            --lg: 18px;
+        }
+        body{
+            font-family: 'Quicksand', sans-serif;
+            margin: 0;
+            padding: 0;
+        }
+        .menu{
+            display: none;
+            margin-left: 40px;
+        }
+        .logo{
+            width: 150px;
+            padding: 4px 0 4px 0 ;
+
+
+        }
+        nav{
+            display: flex;
+            width: 100%;
+            justify-content: space-between;
+            align-items: center;
+            border-bottom: 1px solid var(--text-input-field);
+
+        }
+        .navbar-left{
+            display: flex;
+            align-items: center;
+            margin-left: 40px;
+
+
+        }
+        .navbar-right{
+            display: flex;
+            align-items: center;
+            margin-right: 40px;
+        }
+        .navbar-left ul{
+            margin-left: 64px;
+
+        }
+        .navbar-left ul,
+        .navbar-right ul {
+            list-style: none;
+            padding: 0;
+            margin-top: 24px;
+            display: flex;
+            align-items: center;
+        }
+        .navbar-left ul li a,
+        .navbar-right ul li a{
+            text-decoration: none;
+            color: var(--very--light-pink);
+            padding: 4px 8px 4px 8px;
+            margin-right: 8px;
+
+        }
+
+        .navbar-right ul li:nth-of-type(1){
+            color: var(--very--light-pink);
+
+        }
+
+        .navbar-left ul li a:hover{
+            border: 1px solid var(--hospital-green);
+            border-radius: 8px;
+            color: var(--hospital-green);
+        }
+        .navbar-shopping-cart{
+            display:flex;
+            align-items: center;
+            position: relative;
+        }
+        .navbar-shopping-cart img{
+            margin-left: 24px;
+
+        }
+        .navbar-shopping-cart div{
+            width: 20px;
+            height: 20px;
+            background-color: var(--hospital-green);
+            border-radius: 60px;
+            text-align: center;
+            font-weight: bold;
+            color: var(--white);
+            font-size: var(--sm);
+            position: absolute;
+            top: -9px;
+            left: 38px;
+
+        }
+        @media(max-width: 970px){
+            .menu{
+                display: block;
+            }
+            .navbar-left ul{
+                display: none;
+            }
+            .navbar-right ul li:nth-of-type(1){
+                display: none;
+            }
+        }
+    </style>
+</head>
+<body>
+<nav>
+    <img src="/icons/icon_menu.svg" alt="menu" class="menu">
+
+    <div class="navbar-left">
+        <img src="/logos/logo_yard_sale.svg" alt="logo" class="logo">
+
+        <ul>
+            <li>
+                <a href="/">All</a>
+            </li>
+            <li>
+                <a href="/">Clothes</a>
+            </li>
+            <li>
+                <a href="/">Electronics</a>
+            </li>
+            <li>
+                <a href="/">Furniture</a>
+            </li>
+            <li>
+                <a href="/">Toys</a>
+            </li>
+            <li>
+                <a href="/">Others</a>
+            </li>
+        </ul>
+
+
+    </div>
+
+    <div class="navbar-right">
+        <ul>
+            <li>santiago@gmail.com</li>
+            <li class="navbar-shopping-cart">
+                <img src="/icons/icon_shopping_cart.svg" alt="">
+                <div>2</div>
+            </li>
+        </ul>
+
+    </div>
+</nav>
+</body>
+</html>
