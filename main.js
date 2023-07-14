@@ -7,12 +7,12 @@ const menuCart = document.querySelector("#shoppingCartContainer");
 const cardContainer = document.querySelector(".card-container");
 const productDetailContainer = document.querySelector("#productDetail");
 const productDetailClose = document.querySelector(".product-detail-close");
-
+const myOrderContent = document.querySelector('.my-order-content');
 
 menuEmail.addEventListener('click', toggleDesktopMenu);
 menuBars.addEventListener('click', toggleMobileMenu);
 cartIcon.addEventListener('click', toggleCartMenu);
-productDetailClose.addEventListener('click', closeProductDetail)
+productDetailClose.addEventListener('click', closeProductDetail);
 
 function toggleDesktopMenu() {
     const isAsideClosed = menuCart.classList.contains('inactive');
@@ -52,7 +52,7 @@ function toggleCartMenu() {
         desktopMenu.classList.add('inactive');
     } else if(!isProductDetailClosed){
         productDetailContainer.classList.add('inactive');
-    }
+    };
 
     menuCart.classList.toggle('inactive');
 };
@@ -70,12 +70,12 @@ function openProductDetail() {
         menuMobile.classList.add('inactive');
     } else if (isCartMenuOpen) {
         menuCart.classList.add('inactive');
-    }
-}
+    };
+};
 
 function closeProductDetail() {
     productDetailContainer.classList.add('inactive');
-}
+};
 
 
 const productList = []; //Esto es lo que traeria al hacer una consulta API Rest a la BD
@@ -115,6 +115,8 @@ function renderProducts(arr){
         const productImg = document.createElement('img');
         //Cada iteración: product = {name, price, image}
         productImg.setAttribute('src',product.image);
+        productImg.classList.add('product-img');
+
         productImg.addEventListener('click', openProductDetail);
         productImg.addEventListener('mouseover', productImg.classList.add('pointer'));
 
@@ -125,8 +127,12 @@ function renderProducts(arr){
 
         const productPrice = document.createElement('p');
         productPrice.innerText = '$' + product.price;
+        productPrice.classList.add('product-price');
+
         const productName = document.createElement('p');
         productName.innerText = product.name;
+        productName.classList.add('product-name');
+
 
         productInfoDiv.appendChild(productPrice);
         productInfoDiv.appendChild(productName);
@@ -135,6 +141,10 @@ function renderProducts(arr){
 
         const productImgCart = document.createElement('img');
         productImgCart.setAttribute('src', '/icons/bt_add_to_cart.svg');
+        productImgCart.classList.add('btn-add-cart');
+        productImgCart.classList.add('pointer');
+
+
 
         productInfoFigure.appendChild(productImgCart);
 
@@ -148,68 +158,82 @@ function renderProducts(arr){
         cardContainer.appendChild(productCard);
 
     };
-}
+};
 
 //de esta forma no se carga automatico sino cuando yo quiera llamar la función: un click, hover...
 renderProducts(productList);
 
 
-
-// function renderProductsDetail(arr2) {
-//     for (product of arr2){
-
-//         const productDetail = document.querySelector('#productDetail');
-//         const productDetailImg = document.createElement('img');
-//         productDetailImg.setAttribute('src', product.image);
-
-//         const productDetailInfo = document.createElement('div');
-//         productDetailInfo.classList.add('product-info');
-
-//         const productDetailPrice = document.createElement('p');
-//         productDetailPrice.innerText = product.price;
-
-//         const productDetailName = document.createElement('p');
-//         productDetailName.innerText = product.name;
-
-//         const productDetailDescription = document.createElement('p');
-//         productDetailDescription.innerText = 'Lorem ipsum dolor sit amet consectetur adipisicing elit. Officia tenetur, maiores deleniti porro error excepturi voluptas suscipit fugiat assumenda iste consequatur molestiae quidem ipsum rerum cum numquam repudiandae';
-
-//         const addBtn = document.createElement('button');
-//         addBtn.classList.add('primary-button');
-//         addBtn.classList.add('add-to-cart-button');
+const shoppingCart = document.querySelector(".shopping-cart");
 
 
-//         const addBtnIcon = document.createElement('img');
-//         addBtnIcon.setAttribute('src','/icons/bt_add_to_cart.svg');
+//Array con los productos que añaden al carrito
+let allProducts= [];
 
-//         addBtn.appendChild(addBtnIcon);
+const valorTotal = document.querySelector('.valor-total');
+const countProducts = document.querySelector('.count-products');
 
-//         productDetailInfo.appendChild(productDetailPrice);
-//         productDetailInfo.appendChild(productDetailName);
-//         productDetailInfo.appendChild(productDetailDescription);
+//añade al array los productos que undimos add to cart
+cardContainer.addEventListener('click', e => {
+    const isBtnClicked = e.target.classList.contains('btn-add-cart');
 
-//         productDetail.appendChild(addBtn);
-//         productDetail.appendChild(productDetailInfo);
-//         productDetail.appendChild(productDetailImg);
-//     }
-// }
-
-// renderProductsDetail(productList);
-
-
-{/* <img src="https://images.pexels.com/photos/4542852/pexels-photo-4542852.jpeg?auto=compress&cs=tinysrgb&w=1260&h=750&dpr=1" alt="bike">
-
-<div class="product-info">
-    <p>$35.00</p>
-    <p>Bike</p>
-    <p>
-        Lorem ipsum dolor sit amet consectetur adipisicing elit. Officia tenetur, maiores deleniti porro error excepturi voluptas suscipit fugiat assumenda iste consequatur molestiae quidem ipsum rerum cum numquam repudiandae temporibus unde?
-    </p>
-
-    <button class="primary-button add-to-cart-button">
-        <img src="/icons/bt_add_to_cart.svg" alt="add to cart">
-    </button>
-</div> */}
+    if(isBtnClicked){
+        const product = e.target.parentElement.parentElement.parentElement;
+        productDetailContainer.classList.add('inactive');
+        desktopMenu.classList.add('inactive');
+        menuCart.classList.remove('inactive');
 
 
+        const infoProduct = {
+            quantity: 1,
+            title: product.querySelector('.product-name').innerText,
+            price: product.querySelector('.product-price').innerText,
+            image: product.querySelector('.product-img').getAttribute('src')
+        }
+        allProducts.push(infoProduct);
+        renderCartProducts(allProducts);
+    }
+    console.log(allProducts);
+})
 
+
+function renderCartProducts(allProducts){
+
+    myOrderContent.innerHTML = '';
+    let total = 0;
+    let totalOfProducts = 0;
+
+    for(product of allProducts){
+
+        const shoppingProductCart = document.createElement('div');
+        shoppingProductCart.classList.add('shopping-cart');
+
+        const figure = document.createElement('figure');
+
+        const productCartImg = document.createElement('img');
+        productCartImg.setAttribute('src', product.image);
+
+        const productCartTitle = document.createElement('p');
+        productCartTitle.innerText = product.title;
+
+        const productCartPrice = document.createElement('p');
+        productCartPrice.innerText = product.price;
+
+        const deleteProductCart = document.createElement('img');
+        deleteProductCart.setAttribute('src', "/icons/icon_close.png" );
+
+        figure.appendChild(productCartImg);
+
+        shoppingProductCart.appendChild(figure);
+        shoppingProductCart.appendChild(productCartTitle);
+        shoppingProductCart.appendChild(productCartPrice);
+        shoppingProductCart.appendChild(deleteProductCart);
+
+        myOrderContent.appendChild(shoppingProductCart);
+
+        total = total + parseInt(product.price.slice(1));
+        }
+        console.log(allProducts);
+        valorTotal.innerHTML = `$ ${total}`;
+        countProducts.innerHTML = allProducts.length;
+}
