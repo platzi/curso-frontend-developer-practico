@@ -140,7 +140,7 @@ function renderProducts(arr){
         const productInfoFigure = document.createElement('figure');
 
         const productImgCart = document.createElement('img');
-        productImgCart.setAttribute('src', '/icons/bt_add_to_cart.svg');
+        productImgCart.setAttribute('src', 'icons/bt_add_to_cart.svg');
         productImgCart.classList.add('btn-add-cart');
         productImgCart.classList.add('pointer');
 
@@ -220,7 +220,7 @@ function renderCartProducts(allProducts){
         productCartPrice.innerText = product.price;
 
         const deleteProductCart = document.createElement('img');
-        deleteProductCart.setAttribute('src', "/icons/icon_close.png" );
+        deleteProductCart.setAttribute('src', "icons/icon_close.png" );
 
         figure.appendChild(productCartImg);
 
