@@ -4,6 +4,8 @@
     --very-light-pink: #C7C7C7;
     --text-input-field: #F7F7F7;
     --hospital-green: #ACD9B2;
+    --hospital-green-force: #5edd6f;
+    --hospital-green-force-n: #2e6636;
     --sm: 14px;
     --md: 16px;
     --lg: 18px;
@@ -166,6 +168,7 @@ nav {
     top: 60px;
     background-color: var(--white);
     border-bottom: 1px solid var(--very-light-pink);
+    overflow: auto;
     z-index: 10;
 }
 
@@ -215,6 +218,10 @@ nav {
 
 .title-container {
     display: flex;
+}
+
+.title-container > img, p {
+    cursor: pointer;
 }
 
 .title-container img {
@@ -299,6 +306,11 @@ nav {
     height: 50px;
 }
 
+.button-active:hover {
+    background-color: var(--hospital-green-force);
+    border: 1px solid var(--hospital-green-force-n);
+}
+
 /* --------------------------- ASIDE DE DETALLE DE PRODUCTO -------------------------------- */
 .product-detail-one {
     width: 360px;
@@ -330,7 +342,11 @@ nav {
     cursor: pointer;
 }
 
-.product-detail-one>img:nth-child(2) {
+.container-detail-main {
+    overflow: auto;
+}
+
+.product-detail-one .container-detail-main > img {
     width: 100%;
     height: 360px;
     object-fit: cover;
@@ -440,6 +456,8 @@ nav {
     margin-top: 0;
     margin-bottom: 0;
     color: var(--very-light-pink);
+    text-overflow: ellipsis;
+    overflow: hidden;
 }
 
 
@@ -512,10 +530,27 @@ nav {
         left: 0;
         margin: auto;
     }
+    .product-info div p:nth-child(2) {
+        max-height: 100px;
+        max-width: 100px;
+    }
+    .container-detail-main {
+        overflow: auto;
+        max-height: 410px;
+        width: 100%;
+    }
 }
 
 @media (min-width: 741px) {
     .mobile-menu {
         display: none;
+    }
+    .product-info div p:nth-child(2) {
+        max-height: 100px;
+        max-width: 200px;
+    }
+    .container-detail-main {
+        overflow: auto;
+        max-height: 560px;
     }
 }
