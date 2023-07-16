@@ -21,22 +21,21 @@
 
         <div class="navbar-left">
             <img src="./logos/logo_yard_sale.svg" alt="logo" class="logo">
-
             <ul>
                 <li>
-                    <a href="/">All</a>
+                    <a class="pocess" href="#all" id="all">All</a>
                 </li>
                 <li>
-                    <a href="/">Electronics</a>
+                    <a class="pocess" href="#electronics" id="electronics">Electronics</a>
                 </li>
                 <li>
-                    <a href="/">Jewelery</a>
+                    <a class="pocess" href="#jewelery" id="jewelery">Jewelery</a>
                 </li>
                 <li>
-                    <a href="/">Men's</a>
+                    <a class="pocess" href="#mensclothing" id="men's clothing">Men's</a>
                 </li>
                 <li>
-                    <a href="/">Women's</a>
+                    <a class="pocess" href="#womenclothing" id="women's clothing">Women's</a>
                 </li>
             </ul>
         </div>
@@ -68,22 +67,22 @@
         <div class="mobile-menu ocultar">
             <ul>
                 <li>
-                    <a href="/">CATEGORIES</a>
+                    <p>CATEGORIES</p>
                 </li>
                 <li>
-                    <a href="/">All</a>
+                    <a class="pocess" id="all" href="#all">All</a>
                 </li>
                 <li>
-                    <a href="/">Electronics</a>
+                    <a class="pocess" id="electronics" href="#electronics">Electronics</a>
                 </li>
                 <li>
-                    <a href="/">Jewelery</a>
+                    <a class="pocess" id="jewelery" href="#jewelery">Jewelery</a>
                 </li>
                 <li>
-                    <a href="/">Men's</a>
+                    <a class="pocess" id="men's clothing" href="#mensclothing">Men's</a>
                 </li>
                 <li>
-                    <a href="/">Women's</a>
+                    <a class="pocess" id="women's clothing" href="#womenclothing">Women's</a>
                 </li>
             </ul>
         
@@ -148,6 +147,17 @@
     <section class="main-container">
         <div class="cards-container"></div>
     </section>
+
+    <div class="base-pagination" hidden>
+        <ul class="pagination">
+            <li class="page-item">
+                <button id="prev">Previus</button>
+            </li>
+            <li class="page-item">
+                <button id="next">Next</button>
+            </li>
+          </ul>
+    </div>
 
     <script src="./js/main.js"></script>
 </body>

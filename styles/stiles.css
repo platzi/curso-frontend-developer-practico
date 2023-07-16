@@ -396,6 +396,9 @@ nav {
 
 .product-card {
     width: 240px;
+    padding: 5px;
+    border-radius: 20px 0;
+    box-shadow: 0px 0px 5px 0px rgba(0, 0, 0, 0.377);
 }
 
 .product-card img {
@@ -403,6 +406,7 @@ nav {
     height: 240px;
     border-radius: 20px;
     object-fit: cover;
+    cursor: pointer;
 }
 
 .product-info {
@@ -439,6 +443,35 @@ nav {
 }
 
 
+/* --------------------------------------- PAGINATION --------------------------------------- */
+
+.base-pagination ul{
+    list-style: none;
+    display: flex;
+    flex-flow: row nowrap;
+    justify-content: center;
+    margin-top: 40px;
+    margin-bottom: 40px;
+}
+.base-pagination ul li button {
+    text-decoration: none;
+    color: var(--very-light-pink);
+    background-color: transparent;
+    border: 1px solid var(--white);
+    padding: 8px;
+    border-radius: 8px;
+    margin: 0 5px 0 5px;
+    font-size: 16px;
+}
+.base-pagination ul li button:hover {
+    border: 1px solid #ACD9B2;
+    color: #ACD9B2;
+}
+.active-pag {
+    border: 1px solid #ACD9B2;
+    color: #ACD9B2;
+}
+
 /* --------------------------------------- MEDIAS QUERYS --------------------------------------- */
 
 @media (max-width: 740px) {
@@ -461,7 +494,7 @@ nav {
     .product-detail {
         width: 100%;
     }
-    /* productos */
+    /* --------------------------------------- productos --------------------------------------- */
     .cards-container {
         grid-template-columns: repeat(auto-fill, 140px);
     }
