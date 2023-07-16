@@ -2,36 +2,38 @@ const menuEmail = document.querySelector(".navbar-email");
 const desktopMenu = document.querySelector(".desktop-menu");
 const mobileMenu = document.querySelector(".mobile-menu");
 const menuHamIcon = document.querySelector(".menu");
-const aside = document.querySelector(".product-detail");
+const shoppingCartContainer = document.querySelector("#shoppingCartContainer");
 const menuShoppingCart = document.querySelector(".navbar-shopping-cart");
 const cardsContainer = document.querySelector(".cards-container");
 
-
+//ESCUCHAR EVENTOS. 
 menuEmail.addEventListener("click",toggleDesktopMenu);
 menuHamIcon.addEventListener("click",toggleMobileMenu);
 menuShoppingCart.addEventListener("click",toggleMyOrderMenu);
 
+
+//FUNCION PARA DESPLEGAR EL DESKTOPMENU
 function toggleDesktopMenu(){
-     let isAsideClose=aside.classList.contains("inactive");
+     let isAsideClose=shoppingCartContainer.classList.contains("inactive");
      
 
      if(!isAsideClose){
-          aside.classList.add("inactive");
+          shoppingCartContainer.classList.add("inactive");
 
      }
      desktopMenu.classList.toggle("inactive");
      
 }
-
+//FUNCION PARA DESPLEGAR EL MOBILEMENU
 function toggleMobileMenu(){
-     let isAsideClose=aside.classList.contains("inactive");
+     let isAsideClose=shoppingCartContainer.classList.contains("inactive");
 
      if(!isAsideClose){
-          aside.classList.add("inactive");
+          shoppingCartContainer.classList.add("inactive");
      }
      mobileMenu.classList.toggle("inactive");
 }
-
+//FUNCION PARA DESPLEGAR EL ORDERMENU
 function toggleMyOrderMenu(){
      let isMobileMenuClose = mobileMenu.classList.contains("inactive");
      let isDesktopMenuClose = desktopMenu.classList.contains("inactive");
@@ -40,9 +42,10 @@ function toggleMyOrderMenu(){
           mobileMenu.classList.add("inactive");
           desktopMenu.classList.add("inactive");
      }
-     aside.classList.toggle("inactive");
+     shoppingCartContainer.classList.toggle("inactive");
 }
 
+// ARRAY DE OBJETOS, (SIMULA UN ARRAY QUE NOS DEVOLVERIA CON TODOS LOS OBJETOS DE UNA TIENDA)
 const productList = [];
 
 productList.push({
@@ -68,7 +71,7 @@ productList.push({
      image: "https://http2.mlstatic.com/D_NQ_NP_931987-MLA44698863174_012021-O.webp"
 })
 
-
+// FUNCION PARA REPETIR LOS PRODUCTOS
 function renderProducts(arr){
      for(product of arr){
           const productCard = document.createElement("div");// Creas un elemento.
@@ -108,5 +111,4 @@ function renderProducts(arr){
           cardsContainer.appendChild(productCard);
      }
 }
-
 renderProducts(productList)
