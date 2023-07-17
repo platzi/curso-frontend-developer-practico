@@ -1,6 +1,7 @@
 const menuEmail = document.querySelector(".navbar-email");
 const desktopMenu = document.querySelector(".desktop-menu");
 const menuCarIcon = document.querySelector(".navbar-shopping-cart");
+const shoppingCartNumber = document.querySelector(".shopping-cart-number");
 const productDetailCloseIcon =document.querySelector(".product-detail-close");
 const menuEmailMobile = document.querySelector(".menu");
 const mobileMenu = document.querySelector(".mobile-menu");
@@ -144,13 +145,22 @@ function renderProducts(arr) {
         const productName = document.createElement("p");
         productName.innerText = product.name;
 
+       
         productInfoDiv.appendChild(productPrice);
         productInfoDiv.appendChild(productName);
-
+        let number = 0;
+        let suma = 0;
         const productInfoFigure = document.createElement("figure");
-        const productImgCard = document.createElement("img")
+        const productImgCard = document.createElement("img");
         productImgCard.setAttribute("src", "./icons/bt_add_to_cart.svg");
-
+        productImgCard.addEventListener("click", function numberCart(){ 
+            for (let i = 0; i < 1; i++) {
+                number++;
+                suma += number
+                shoppingCartNumber.innerHTML = number;
+            }        
+        });
+    
         productInfoFigure.appendChild(productImgCard);
 
         productInfo.appendChild(productInfoDiv);
