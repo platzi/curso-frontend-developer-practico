@@ -210,7 +210,7 @@ function ViewProductsDetail(list) {
                             <p>${list[index].title}</p>
                             <p>X<span id="${list[index].id}">1</span></p>
                             <p>$<span id="${list[index].id}-price">${num.toFixed(2)}</span></p>
-                            <img src="./icons/icon_close.png" alt="close">
+                            <img src="./icons/icon_close.png"id="${list[index].id}-close" alt="close">
                         </div>`;
     }
     containerDetail.innerHTML += orderDetail;
@@ -221,13 +221,6 @@ function ViewPrice(price) {
     total = total + Number(price);
     totalDetail.innerText = total.toFixed(2);
 }
-
-// function accionReemplazar() {
-//     for(resp of copiaLista) {
-
-//     }
-// }
-
 
 // --------------------------- DETALLE DEL PRODUCTO ---------------------------
 imgDetail.addEventListener("click", function () { detailProducOne.classList.add("ocultar"); });
