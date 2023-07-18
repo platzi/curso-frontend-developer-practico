@@ -2,8 +2,8 @@ const path = require('path');
 const HtmlWebpackPlugin = require('html-webpack-plugin');
 const MiniCssExtractPlugin = require('mini-css-extract-plugin');
 const CopyPlugin = require('copy-webpack-plugin');
-const CssMinimizerPlugin=require('css-minimizer-webpack-plugin');
-const TerserPlugin=require('terser-webpack-plugin');
+const CssMinimizerPlugin = require('css-minimizer-webpack-plugin');
+const TerserPlugin = require('terser-webpack-plugin');
 const Dotenv = require('dotenv-webpack');
 const { CleanWebpackPlugin } = require('clean-webpack-plugin');
 
@@ -13,13 +13,13 @@ module.exports = {
         path: path.resolve(__dirname, 'dist'),//crea la direccion de la carpeta
         filename: '[name].[contenthas].js',
     },
-    
+
     resolve: {
         extensions: ['.js'],
-        alias:{
-            '@icons':path.resolve(__dirname,'icons/'),
-            '@logos':path.resolve(__dirname,'logos/'),
-            '@estilos':path.resolve(__dirname,'estilos/'),
+        alias: {
+            '@icons': path.resolve(__dirname, 'icons/'),
+            '@logos': path.resolve(__dirname, 'logos/'),
+            '@estilos': path.resolve(__dirname, 'estilos/'),
         }
     },
 
@@ -36,7 +36,7 @@ module.exports = {
                 test: /\.(png|svg|jpg|jpeg|gif|ico)$/i,
                 type: 'asset/resource',
                 generator: {
-                  filename: 'static/images/[hash][ext][query]',
+                    filename: 'static/images/[hash][ext][query]',
                 }
             }
         ]
@@ -46,7 +46,9 @@ module.exports = {
         new HtmlWebpackPlugin({
             inject: true,
             template: 'tester.html',
-            filename: './index.html'
+            filename: './index.html',
+            favicon: './icons/favicon.ico'
+
         }),
 
         new MiniCssExtractPlugin({
@@ -55,7 +57,7 @@ module.exports = {
         }),
 
         new CopyPlugin({
-            patterns:[{
+            patterns: [{
                 from: path.resolve(__dirname, "icons"),
                 to: "assets/icons",
             },
@@ -68,7 +70,7 @@ module.exports = {
         new Dotenv(),
         new CleanWebpackPlugin(),
     ],
-    optimization:{
+    optimization: {
         minimize: true,
         minimizer: [
             new CssMinimizerPlugin(),

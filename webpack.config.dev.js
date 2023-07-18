@@ -44,7 +44,9 @@ module.exports = {
         new HtmlWebpackPlugin({
             inject: true,
             template: 'tester.html',
-            filename: './index.html'
+            filename: './index.html',
+            favicon: './icons/favicon.ico'
+
         }),
 
         new MiniCssExtractPlugin({
