@@ -1,8 +1,8 @@
 :root {
   --white: #FFFFFF;
   --black: #000000;
-  --very-light-pink: #C7C7C7;
-  --text-input-field: #F7F7F7;
+  --very-light-pink: #2e2e2e;
+  --text-input-field: #ecebeb;
   --hospital-green: #63c26f;
   --sm: 14px;
   --md: 16px;
@@ -18,7 +18,7 @@ nav {
   display: flex;
   justify-content: space-between;
   padding: 0 24px;
-  border-bottom: 1px solid var(--very-light-pink);
+  border-bottom: 1px solid var(--text-input-field);
 }
 
 .menu {

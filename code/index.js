@@ -4,23 +4,24 @@ import '@estilos/styles.css';
 
 
 
-import bt_add_to_cart from '@icons/bt_add_to_cart.svg'
-import icon_close from     '@icons/icon_close.png'
-import icon_menu from      '@icons/icon_menu.svg'
-import icon_shopping_cart from '@icons/icon_shopping_cart.svg'
-import flechita from       '@icons/flechita.svg'
-import closeDetail from    '@icons/icon_close.png'
-import AddCart from        '@icons/bt_add_to_cart.svg'
+import bt_add_to_cart from '@icons/carrito-de-compras.png'
+import icon_close from '@icons/icon_close.png'
+import icon_menu from '@icons/icon_menu.svg'
+import icon_shopping_cart from '@icons/bolsa-de-la-compra.png'
+import flechita from '@icons/flechita.svg'
+import closeDetail from '@icons/icon_close.png'
+import AddCart from '@icons/carrito-de-compras.png'
+// import icono from '@icons/favicon.ico'
 
 import logo_yard_sale from '@logos/logo_yard_sale.svg'
 
-const imgMenu     = document.querySelector(".menu")
-const imgLogo     = document.querySelector(".logo")
+const imgMenu = document.querySelector(".menu")
+const imgLogo = document.querySelector(".logo")
 const imgCartshop = document.querySelector(".cart-shop")
-const imgArrow    = document.querySelector(".arrowImg")
-const imgClose    = document.querySelector(".imgClose")
-const imgAddCart    = document.querySelector(".imgAddCart")
-
+const imgArrow = document.querySelector(".arrowImg")
+const imgClose = document.querySelector(".imgClose")
+const imgAddCart = document.querySelector(".imgAddCart")
+// const  icon = document.querySelector(".favicon")
 
 imgMenu.src = `${icon_menu}`;
 imgLogo.src = `${logo_yard_sale}`;
@@ -28,6 +29,7 @@ imgCartshop.src = `${icon_shopping_cart}`;
 imgArrow.src = `${flechita}`;
 imgClose.src = `${closeDetail}`;
 imgAddCart.src = `${AddCart}`;
+// icon.src = `${icono}`;
 
 
 
@@ -85,62 +87,62 @@ function toogleMyOrder() {
 const productList = [];
 
 
-productList.push({
-    name: "pulsera con diseño minimalista",
-    price: 40,
-    image: "https://i.pinimg.com/564x/77/52/08/775208fd2388787d11bf9b1d489e5b0a.jpg",
-    info: "👉👉👉👉👉 CORRECCIÓN ✅✅ 🔅POR FAVOR LOS HILOS SON EL PRIMERO QUE ES DE LA MUÑECA DE 56 CM REEMPLAZARLO POR 112 CENTÍMETROSY PARA EL SEGUNDO QUE ES PARA EL",
-    code: "https://pin.it/1ekzFT8"
-});
+productList.push(
+    {
+        name: "Bolso rojo",
+        price: 200,
+        image: "https://i.pinimg.com/564x/77/52/08/775208fd2388787d11bf9b1d489e5b0a.jpg",
+        info: "👉👉👉👉👉 CORRECCIÓN ✅✅ 🔅POR FAVOR LOS HILOS SON EL PRIMERO QUE ES DE LA MUÑECA DE 56 CM REEMPLAZARLO POR 112 CENTÍMETROSY PARA EL SEGUNDO QUE ES PARA EL",
+        code: "https://pin.it/1ekzFT8"
+    },
+    {
+        name: "Red Decenario Knotted Rosary Stylish Pulseras Trendy Celebrity Bracelet ",
+        info: "https://www.etsy.com/listing/594948397/red-decenario-knotted-rosary-stylish?epik=dj0yJnU9TDVHdGZUczZNSkpwTDhlVU9iVTZDcGxaZUFvaFRPQmYmcD0wJm49eEczNXBkUFlVdWdUSnNKNEt4TFREdyZ0PUFBQUFBR1F2UmJn \n\n Esta pulsera rosario está hecha de cordón y tiene una cruz de macramé. Las diez Avemarías también son un diseño de macramé. Como se trata de una pulsera ajustable, es perfecta para niños, adolescentes y adultos. Está muy bien hecho y es una manera fácil de tener un rosario contigo en todo momento.",
+        price: 200,
+        image:
+            "https://i.pinimg.com/564x/4a/f5/aa/4af5aaf23e653fcad8cb9dab212727ce.jpg",
+        code: "RDKRPTC"
 
-productList.push({
-    name: "Red Decenario Knotted Rosary Stylish Pulseras Trendy Celebrity Bracelet ",
-    info: "https://www.etsy.com/listing/594948397/red-decenario-knotted-rosary-stylish?epik=dj0yJnU9TDVHdGZUczZNSkpwTDhlVU9iVTZDcGxaZUFvaFRPQmYmcD0wJm49eEczNXBkUFlVdWdUSnNKNEt4TFREdyZ0PUFBQUFBR1F2UmJn \n\n Esta pulsera rosario está hecha de cordón y tiene una cruz de macramé. Las diez Avemarías también son un diseño de macramé. Como se trata de una pulsera ajustable, es perfecta para niños, adolescentes y adultos. Está muy bien hecho y es una manera fácil de tener un rosario contigo en todo momento.",
-    price: 45,
-    image:
-        "https://i.pinimg.com/564x/4a/f5/aa/4af5aaf23e653fcad8cb9dab212727ce.jpg",
-    code: "RDKRPTC"
+    },{
 
-});
+        info: "Collar nuevo y estetico",
+        name: "Collar eco-Friendly",
+        price: 200,
+        image:
+            "https://i.pinimg.com/564x/11/11/1d/11111dbce6164b2735c2a3ddbd58bdca.jpg",
+        code: "https://pin.it/5aq5NHv"
+    
+    },{
+        info: "Este hermoso collar en forma de corazón es una pieza única que seguramente llamará la atención de todos. El colgante en forma de corazón está hecho de un material de alta calidad, con un acabado suave y brillante que refleja la luz de manera espectacular.",
+        name: "Collar corazon for you",
+        price: 200,
+        image:
+            "https://i.pinimg.com/564x/94/6b/bc/946bbc13955bb8e294e86c8661a82781.jpg",
+        code: "CORA123"
+    
+    },{
+        info: "Collar con tematica de los vengadores",
+        name: "Collar con tema de LOKI",
+        price: 200,
+        image:
+            "https://i.pinimg.com/564x/f0/d0/6e/f0d06ef71fb66bd3e54c79073060b5f0.jpg",
+        code: "LoKi12"
+    },
+    {
+        info: "¡Estas pulseras serían el regalo más dulce para cualquier amante de los superhéroes! Este listado es para una pulsera. Cada pulsera está encordada dos veces a mano en un cordón elástico para garantizar la calidad y la durabilidad. ✨¿Necesitas ayuda con qué talla de pulsera elegir? Use una cinta métrica flexible o una tira de papel para envolver su muñeca. Debe quedar ajustado pero no demasiado apretado. Si usa una hoja de papel, marque el tamaño con un bolígrafo y use una regla para ver la medida. Recomiendo dimensionar hasta la media pulgada más cercana.",
+        name: "pulsera para niños",
+        price: 200,
+        image:
+            "https://i.pinimg.com/564x/4c/e4/dd/4ce4ddf1a40d2176168c6cbfeb1ea364.jpg",
+        code: "PSNI1"
+    }
 
-productList.push({
-    info: "Collar nuevo y estetico",
-    name: "Collar eco-Friendly",
-    price: 30,
-    image:
-        "https://i.pinimg.com/564x/11/11/1d/11111dbce6164b2735c2a3ddbd58bdca.jpg",
-    code: "https://pin.it/5aq5NHv"
+);
 
-});
 
-productList.push({
-    info: "Este hermoso collar en forma de corazón es una pieza única que seguramente llamará la atención de todos. El colgante en forma de corazón está hecho de un material de alta calidad, con un acabado suave y brillante que refleja la luz de manera espectacular.",
-    name:"Collar corazon for you",
-    price: 40,
-    image:
-        "https://i.pinimg.com/564x/94/6b/bc/946bbc13955bb8e294e86c8661a82781.jpg",
-    code: "CORA123"
 
-});
 
-productList.push({
-    info: "Collar con tematica de los vengadores",
-    name: "Collar con tema de LOKI",
-    price: 60,
-    image:
-        "https://i.pinimg.com/564x/f0/d0/6e/f0d06ef71fb66bd3e54c79073060b5f0.jpg",
-    code: "LoKi12"
 
-});
-
-productList.push({
-    info: "¡Estas pulseras serían el regalo más dulce para cualquier amante de los superhéroes! Este listado es para una pulsera. Cada pulsera está encordada dos veces a mano en un cordón elástico para garantizar la calidad y la durabilidad. ✨¿Necesitas ayuda con qué talla de pulsera elegir? Use una cinta métrica flexible o una tira de papel para envolver su muñeca. Debe quedar ajustado pero no demasiado apretado. Si usa una hoja de papel, marque el tamaño con un bolígrafo y use una regla para ver la medida. Recomiendo dimensionar hasta la media pulgada más cercana.",
-    name: "pulsera para niños",
-    price: 35,
-    image:
-        "https://i.pinimg.com/564x/4c/e4/dd/4ce4ddf1a40d2176168c6cbfeb1ea364.jpg",
-    code: "PSNI1"
-});
 
 
 
