@@ -368,7 +368,9 @@
      .desktop-menu{
       display: none;
      }
-     .product-detail {
+     .product-detail,
+     #productDetail, 
+      #shoppingCartContainer{
       width: 100%;
     }
     .cards-container {
