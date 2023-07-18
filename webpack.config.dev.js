@@ -10,13 +10,13 @@ module.exports = {
         path: path.resolve(__dirname, 'dist'),//crea la direccion de la carpeta
         filename: '[name].[contenthas].js',
     },
-    
+
     resolve: {
         extensions: ['.js'],
-        alias:{
-            '@icons':path.resolve(__dirname,'icons/'),
-            '@logos':path.resolve(__dirname,'logos/'),
-            '@estilos':path.resolve(__dirname,'estilos/'),
+        alias: {
+            '@icons': path.resolve(__dirname, 'icons/'),
+            '@logos': path.resolve(__dirname, 'logos/'),
+            '@estilos': path.resolve(__dirname, 'estilos/'),
         }
     },
     mode: 'development',
@@ -31,10 +31,10 @@ module.exports = {
                 ]
             },
             {
-                test: /\.(png|svg|jpg|jpeg|gif)$/i,
+                test: /\.(png|svg|jpg|jpeg|gif|ico)$/i,
                 type: 'asset/resource',
                 generator: {
-                  filename: 'static/images/[hash][ext][query]',
+                    filename: 'static/images/[hash][ext][query]',
                 }
             }
         ]
@@ -53,7 +53,7 @@ module.exports = {
         }),
 
         new CopyPlugin({
-            patterns:[{
+            patterns: [{
                 from: path.resolve(__dirname, "icons"),
                 to: "assets/icons",
             },
@@ -65,5 +65,5 @@ module.exports = {
         })
 
     ],
-   
+
 }
