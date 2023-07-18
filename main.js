@@ -87,13 +87,26 @@ function closeProductDetailAside(){
     productDetailContainer.classList.add('inactive');
 }
 let clicks = 0;
-// function increment(){
-//     clicks++;
-//     console.log(clicks);
-//     countProductsCart.innerText=clicks;
-// }
 
+function removeProductToCart(event){
+    console.log(event);
+    var hijo_eliminado = event.target.parentNode;
+    var padre_eliminador = event.target.parentNode.parentElement;
+    padre_eliminador.removeChild(hijo_eliminado);
+    adittionProducts();
+    clicks--;
+    console.log(clicks);
+    countProductsCart.innerText=clicks;
+}
 
+function adittionProducts(){
+    var suma = 0;
+    for(var i =0; i<myOrderContent.children.length;i++){
+        suma += +(myOrderContent.children[i].childNodes[2].innerText.substring(2));
+    }
+
+    subTotalCart.innerText='$ '+suma+'.00';
+}
 
 const productList = [];
 productList.push({
@@ -229,6 +242,8 @@ function renderProductsCart(event){
 
     const deleteProductCart = document.createElement('img');
     deleteProductCart.setAttribute('src','./icons/icon_close.png');
+    deleteProductCart.classList.add('remove-cart-button');
+    deleteProductCart.addEventListener('click',removeProductToCart);
 
     shoppingCart.appendChild(figureCart);
     shoppingCart.appendChild(productNameCart);
@@ -236,15 +251,15 @@ function renderProductsCart(event){
     shoppingCart.appendChild(deleteProductCart);
 
     myOrderContent.appendChild(shoppingCart);
-    var suma = 0;
-    for(var i =0; i<myOrderContent.children.length;i++){
-        suma += +(myOrderContent.children[i].childNodes[2].innerText.substring(2));
-    }
 
-    subTotalCart.innerText='$ '+suma+'.00';
+    adittionProducts();
+    // var suma = 0;
+    // for(var i =0; i<myOrderContent.children.length;i++){
+    //     suma += +(myOrderContent.children[i].childNodes[2].innerText.substring(2));
+    // }
+
+    // subTotalCart.innerText='$ '+suma+'.00';
 
 
 };
-
-
 

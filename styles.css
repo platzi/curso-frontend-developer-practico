@@ -239,6 +239,9 @@ aside {
   font-size: var(--md);
   font-weight: bold;
 }
+.remove-cart-button{
+  cursor: pointer;
+}
 .primary-button {
   background-color: var(--hospital-green);
   border-radius: 8px;
