@@ -1,0 +1,25 @@
+// Imprimir el NOMBRE (of) de cada producto de un arreglo de productos 
+for product of productsList {
+    console.log(product.name)
+}
+//out 
+bike
+pantalla compu 
+// Imprimir el INDICE (in) de cada producto de un arreglo de productos 
+for product in productsList {
+    console.log(product)
+} 
+// out 
+0 
+1
+2 
+
+Identar a la izquierda 
+    Mayus + Tab
+
+-----------------------------------------------------------------        
+Con Element.append() podemos agregar varios nodos y texto.
+Mientras que con Element.appendChild() solo podemos agregar un nodo.:
+
+productInfoDiv.append(productPrice, productName)
+-----------------------------------------------------------------  
