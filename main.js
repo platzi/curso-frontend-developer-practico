@@ -1,32 +1,49 @@
 const menuEmail = document.querySelector('.navbar-email')
 const menuHamIcon = document.querySelector('.menu')
 const menuCarritoIcon = document.querySelector('.navbar-shopping-cart')
+const productDetailCloseIcon = document.querySelector('.product-detail-close')
 const desktopMenu = document.querySelector('.desktop-menu')
 const mobileMenu = document.querySelector('.mobile-menu')
 const shoppingCartContainer = document.querySelector('#shoppingCartContainer')
+const productDetailContainer = document.querySelector('#productDetail')
 const cardsContainer = document.querySelector('.cards-container')
 
 menuEmail.addEventListener('click', toggleDesktopMenu);
 menuHamIcon.addEventListener('click', toggleMobileMenu);
 menuCarritoIcon.addEventListener('click', toggleCarritoAside);
+productDetailCloseIcon.addEventListener('click', closeProductDetailAside)
 
 //toggle actúa como un Switch
 function toggleDesktopMenu() {
     desktopMenu.classList.toggle('inactive');
-    shoppingCartContainer.classList.add('inactive')        
+    shoppingCartContainer.classList.add('inactive')
+    mobileMenu.classList.add('inactive')    
+    productDetailContainer.classList.add('inactive')
 }
 
 function toggleMobileMenu() {
     mobileMenu.classList.toggle('inactive');
     shoppingCartContainer.classList.add('inactive')
+    productDetailContainer.classList.add('inactive')
 }
 
 function toggleCarritoAside() {
    shoppingCartContainer.classList.toggle('inactive');
    mobileMenu.classList.add('inactive')
    desktopMenu.classList.add('inactive')
+   productDetailContainer.classList.add('inactive')
 }
 
+//Pinchamos en una imagen para que los detalles del producto se muestren  
+function openProductDetailAside() {
+    productDetailContainer.classList.remove('inactive')
+    shoppingCartContainer.classList.add('inactive') 
+}
+
+//cerramos el product detail con el x de la ventana product detail
+function closeProductDetailAside () {
+    productDetailContainer.classList.add('inactive') 
+}
 
 // comentamos el código HTML que vamos a contruir con JS 
 {/* <div class="product-card">
@@ -65,9 +82,11 @@ function renderProducts(arr) {
     for (product of arr) {
         const productCard = document.createElement('div');
         productCard.classList.add('product-card')
+
         //product = {name, price, image} -> product.image
         const productImg = document.createElement('img');
         productImg.setAttribute('src', product.image);
+        productImg.addEventListener('click', openProductDetailAside);
     
         const productInfo = document.createElement('div');
         productInfo.classList.add('product-info')
