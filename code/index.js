@@ -367,7 +367,7 @@ function cerrar() {
 
 function sendWhatsappMessage(productosEnCarr) {
     // Número de teléfono y mensaje que se quiere enviar
-    const phoneNumber = '9622167188';
+    const phoneNumber = '9621860689';
     let url = '';
 
     let name = "";
