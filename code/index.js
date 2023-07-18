@@ -93,7 +93,7 @@ productList.push(
         price: 200,
         image: "https://i.pinimg.com/564x/77/52/08/775208fd2388787d11bf9b1d489e5b0a.jpg",
         info: "👉👉👉👉👉 CORRECCIÓN ✅✅ 🔅POR FAVOR LOS HILOS SON EL PRIMERO QUE ES DE LA MUÑECA DE 56 CM REEMPLAZARLO POR 112 CENTÍMETROSY PARA EL SEGUNDO QUE ES PARA EL",
-        code: "https://pin.it/1ekzFT8"
+        code: "B1GBZ"
     },
     {
         name: "Red Decenario Knotted Rosary Stylish Pulseras Trendy Celebrity Bracelet ",
@@ -103,31 +103,31 @@ productList.push(
             "https://i.pinimg.com/564x/4a/f5/aa/4af5aaf23e653fcad8cb9dab212727ce.jpg",
         code: "RDKRPTC"
 
-    },{
+    }, {
 
-        info: "Collar nuevo y estetico",
-        name: "Collar eco-Friendly",
-        price: 200,
-        image:
-            "https://i.pinimg.com/564x/11/11/1d/11111dbce6164b2735c2a3ddbd58bdca.jpg",
-        code: "https://pin.it/5aq5NHv"
-    
-    },{
-        info: "Este hermoso collar en forma de corazón es una pieza única que seguramente llamará la atención de todos. El colgante en forma de corazón está hecho de un material de alta calidad, con un acabado suave y brillante que refleja la luz de manera espectacular.",
-        name: "Collar corazon for you",
-        price: 200,
-        image:
-            "https://i.pinimg.com/564x/94/6b/bc/946bbc13955bb8e294e86c8661a82781.jpg",
-        code: "CORA123"
-    
-    },{
-        info: "Collar con tematica de los vengadores",
-        name: "Collar con tema de LOKI",
-        price: 200,
-        image:
-            "https://i.pinimg.com/564x/f0/d0/6e/f0d06ef71fb66bd3e54c79073060b5f0.jpg",
-        code: "LoKi12"
-    },
+    info: "Collar nuevo y estetico",
+    name: "Collar eco-Friendly",
+    price: 200,
+    image:
+        "https://i.pinimg.com/564x/11/11/1d/11111dbce6164b2735c2a3ddbd58bdca.jpg",
+    code: "https://pin.it/5aq5NHv"
+
+}, {
+    info: "Este hermoso collar en forma de corazón es una pieza única que seguramente llamará la atención de todos. El colgante en forma de corazón está hecho de un material de alta calidad, con un acabado suave y brillante que refleja la luz de manera espectacular.",
+    name: "Collar corazon for you",
+    price: 200,
+    image:
+        "https://i.pinimg.com/564x/94/6b/bc/946bbc13955bb8e294e86c8661a82781.jpg",
+    code: "CORA123"
+
+}, {
+    info: "Collar con tematica de los vengadores",
+    name: "Collar con tema de LOKI",
+    price: 200,
+    image:
+        "https://i.pinimg.com/564x/f0/d0/6e/f0d06ef71fb66bd3e54c79073060b5f0.jpg",
+    code: "LoKi12"
+},
     {
         info: "¡Estas pulseras serían el regalo más dulce para cualquier amante de los superhéroes! Este listado es para una pulsera. Cada pulsera está encordada dos veces a mano en un cordón elástico para garantizar la calidad y la durabilidad. ✨¿Necesitas ayuda con qué talla de pulsera elegir? Use una cinta métrica flexible o una tira de papel para envolver su muñeca. Debe quedar ajustado pero no demasiado apretado. Si usa una hoja de papel, marque el tamaño con un bolígrafo y use una regla para ver la medida. Recomiendo dimensionar hasta la media pulgada más cercana.",
         name: "pulsera para niños",
@@ -187,13 +187,20 @@ function renderizar(productList) {
         imgproductcard.addEventListener('click', function () {
             mostrarInfoProduct(product.image, product.price, product.name, product.info)
             openProductDetail()
+            // detalles.scrollIntoView({ behavior: 'smooth', block: 'start' });
+    // Obtener la posición superior del detalle del producto
+    const detalleOffset = detalles.offsetTop;
 
-            console.log(
-                "name es ", product.name,
-                "\n precio es ", product.price,
-                "\n info es ", product.info,
-                "\n imagen es ", product.image
-            );
+    // Desplazarse a la posición del detalle del producto con desplazamiento suave
+    window.scrollTo({ top: detalleOffset, behavior: 'smooth' });
+
+
+            // console.log(
+            //     "name es ", product.name,
+            //     "\n precio es ", product.price,
+            //     "\n info es ", product.info,
+            //     "\n imagen es ", product.image
+            // );
 
 
         });
@@ -369,14 +376,14 @@ function sendWhatsappMessage(productosEnCarr) {
     let image = "";
     let codigo = "";
 
-    let message = `Me interesaron estos artículos \n ${name} con código: ${codigo}`;
+    let message = `Me interesaron estos artículos \n`;
 
     for (let i = 0; i < productosEnCarr.length; i++) {
+        codigo = productosEnCarr[i].code;
         name = productosEnCarr[i].name;
         info = productosEnCarr[i].info;
         price = productosEnCarr[i].price;
         image = productosEnCarr[i].image;
-        codigo = productosEnCarr[i].code;
 
         console.log("Me interesó el artículo: ", name,
             "\n precio", price,
