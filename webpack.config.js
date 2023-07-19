@@ -20,6 +20,7 @@ module.exports = {
             '@icons': path.resolve(__dirname, 'icons/'),
             '@logos': path.resolve(__dirname, 'logos/'),
             '@estilos': path.resolve(__dirname, 'estilos/'),
+            '@images': path.resolve(__dirname, 'images/'),
         }
     },
 
@@ -64,6 +65,10 @@ module.exports = {
             {
                 from: path.resolve(__dirname, "logos"),
                 to: "assets/logos"
+            },
+            {
+                from: path.resolve(__dirname, "images"),
+                to: "assets/images"
             }
             ]
         }),

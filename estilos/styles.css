@@ -93,7 +93,7 @@ nav {
 }
 
 
-@media (max-width: 640px) {
+@media (max-width: 690px) {
   .menu {
     display: block;
   }
@@ -110,7 +110,7 @@ nav {
     display: none;
   }
 
-   aside {
+  aside {
     width: 90%;
     padding-right: 10px;
 
@@ -135,7 +135,7 @@ nav {
     display: none;
   }
 
-   aside {
+  aside {
     width: 360px;
 
   }
@@ -245,7 +245,7 @@ nav {
 
 /* de carrito de compras  */
 
- aside  {
+aside {
   /* width: 360px; */
   /* 
   padding: 0px 24px;
@@ -260,7 +260,7 @@ nav {
   right: 0;
   /* width: calc(100% - 24px); */
   padding-left: 20px;
-padding-bottom: 20px;
+  padding-bottom: 20px;
   margin-right: 10px;
   margin-left: 0px;
   border-radius: 10px;
@@ -354,22 +354,29 @@ padding-bottom: 20px;
 
 /* productos card */
 .cards-container {
+
   display: grid;
   grid-template-columns: repeat(auto-fill, 240px);
   gap: 26px;
+
+
+  /* display: grid; */
+  /* gap: 26px; */
   place-content: center;
   margin-top: 20px;
+  padding-bottom: 4rem;
+  /* Agrega el valor de padding deseado */
+
 }
 
 .product-card {
-  width: 240px;
+  width: 210px;
 }
 
 .product-card img {
-  width: 240px;
+  width: 210px;
   height: 240px;
   border-radius: 10px;
-  
   /* object-fit: cover; */
   transition: transform 0.5s ease-out;
 }
@@ -415,7 +422,7 @@ padding-bottom: 20px;
 
 
 /* detalles de compra */
-.product-detail-close{
+.product-detail-close {
   background: var(--white);
   width: 14px;
   height: 14px;
@@ -432,7 +439,7 @@ padding-bottom: 20px;
 
 }
 
-#productDetail > img:nth-child(2) {
+#productDetail>img:nth-child(2) {
   width: 90%;
   height: auto;
   max-height: 350px;
@@ -445,24 +452,28 @@ padding-bottom: 20px;
 .product-info {
   margin: 24px 24px 0 24px;
 }
+
 .product-info p:nth-child(1) {
   font-weight: bold;
   font-size: var(--md);
   margin-top: 0;
   margin-bottom: 4px;
 }
+
 .product-info p:nth-child(2) {
   color: var(--very-light-pink);
   font-size: var(--md);
   margin-top: 0;
   margin-bottom: 36px;
 }
+
 .product-info p:nth-child(3) {
   color: var(--very-light-pink);
   font-size: var(--sm);
   margin-top: 0;
   margin-bottom: 36px;
 }
+
 .primary-button {
   background-color: var(--hospital-green);
   border-radius: 8px;
@@ -474,6 +485,7 @@ padding-bottom: 20px;
   font-weight: bold;
   height: 50px;
 }
+
 .add-to-cart-button {
   display: flex;
   align-items: center;

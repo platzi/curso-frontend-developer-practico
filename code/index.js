@@ -13,10 +13,45 @@ import closeDetail from '@icons/icon_close.png'
 import AddCart from '@icons/carrito-de-compras.png'
 // import icono from '@icons/favicon.ico'
 
-import logo_yard_sale from '@logos/logo_yard_sale.svg'
+import bolsa1 from '/images/bolsa1.jpg'
+import bolsa2 from '/images/bolsa2.jpg'
+import bolsa3 from '/images/bolsa3.jpg'
+import bolsa4 from '/images/bolsa4.jpg'
+import bolsa5 from '/images/bolsa5.jpg'
+import bolsa6 from '/images/bolsa6.jpg'
+import bolsa7 from '/images/bolsa7.jpg'
+import bolsa8 from '/images/bolsa8.jpg'
+import bolsa9 from '/images/bolsa9.jpg'
+import bolsa10 from '/images/bolsa10.jpg'
+import bolsa11 from '/images/bolsa11.jpg'
+import bolsa12 from '/images/bolsa12.jpg'
+import bolsa13 from '/images/bolsa13.jpg'
+import bolsa14 from '/images/bolsa14.jpg'
+import bolsa15 from '/images/bolsa15.jpg'
 
+import bolsa16 from '/images/bolsa16.jpg'
+import bolsa17 from '/images/bolsa17.jpg'
+import bolsa18 from '/images/bolsa18.jpg'
+import bolsa19 from '/images/bolsa19.jpg'
+import bolsa20 from '/images/bolsa20.jpg'
+import bolsa21 from '/images/bolsa21.jpg'
+import bolsa22 from '/images/bolsa22.jpg'
+import bolsa221 from '/images/bolsa221.jpg'
+import bolsa23 from '/images/bolsa23.jpg'
+import bolsa24 from '/images/bolsa24.jpg'
+import bolsa25 from '/images/bolsa25.jpg'
+import bolsa26 from '/images/bolsa26.jpg'
+import bolsa27 from '/images/bolsa27.jpg'
+import bolsa28 from '/images/bolsa28.jpg'
+import bolsa29 from '/images/bolsa29.jpg'
+
+
+
+
+
+// import logo_yard_sale from '@logos/logo_yard_sale.svg'
 const imgMenu = document.querySelector(".menu")
-const imgLogo = document.querySelector(".logo")
+// const imgLogo = document.querySelector(".logo")
 const imgCartshop = document.querySelector(".cart-shop")
 const imgArrow = document.querySelector(".arrowImg")
 const imgClose = document.querySelector(".imgClose")
@@ -24,7 +59,7 @@ const imgAddCart = document.querySelector(".imgAddCart")
 // const  icon = document.querySelector(".favicon")
 
 imgMenu.src = `${icon_menu}`;
-imgLogo.src = `${logo_yard_sale}`;
+// imgLogo.src = `${logo_yard_sale}`;
 imgCartshop.src = `${icon_shopping_cart}`;
 imgArrow.src = `${flechita}`;
 imgClose.src = `${closeDetail}`;
@@ -89,53 +124,225 @@ const productList = [];
 
 productList.push(
     {
-        name: "Bolso rojo",
+        name: "Mochila infantil Hello Kitty ",
         price: 200,
-        image: "https://i.pinimg.com/564x/77/52/08/775208fd2388787d11bf9b1d489e5b0a.jpg",
-        info: "👉👉👉👉👉 CORRECCIÓN ✅✅ 🔅POR FAVOR LOS HILOS SON EL PRIMERO QUE ES DE LA MUÑECA DE 56 CM REEMPLAZARLO POR 112 CENTÍMETROSY PARA EL SEGUNDO QUE ES PARA EL",
-        code: "B1GBZ"
+        image: bolsa1,
+        info: "mochila de Hello Kitty 3 en 1",
+        code: "KFA001"
     },
     {
-        name: "Red Decenario Knotted Rosary Stylish Pulseras Trendy Celebrity Bracelet ",
-        info: "https://www.etsy.com/listing/594948397/red-decenario-knotted-rosary-stylish?epik=dj0yJnU9TDVHdGZUczZNSkpwTDhlVU9iVTZDcGxaZUFvaFRPQmYmcD0wJm49eEczNXBkUFlVdWdUSnNKNEt4TFREdyZ0PUFBQUFBR1F2UmJn \n\n Esta pulsera rosario está hecha de cordón y tiene una cruz de macramé. Las diez Avemarías también son un diseño de macramé. Como se trata de una pulsera ajustable, es perfecta para niños, adolescentes y adultos. Está muy bien hecho y es una manera fácil de tener un rosario contigo en todo momento.",
+        name: "Mochila infantil Frozen",
         price: 200,
-        image:
-            "https://i.pinimg.com/564x/4a/f5/aa/4af5aaf23e653fcad8cb9dab212727ce.jpg",
-        code: "RDKRPTC"
-
-    }, {
-
-    info: "Collar nuevo y estetico",
-    name: "Collar eco-Friendly",
-    price: 200,
-    image:
-        "https://i.pinimg.com/564x/11/11/1d/11111dbce6164b2735c2a3ddbd58bdca.jpg",
-    code: "https://pin.it/5aq5NHv"
-
-}, {
-    info: "Este hermoso collar en forma de corazón es una pieza única que seguramente llamará la atención de todos. El colgante en forma de corazón está hecho de un material de alta calidad, con un acabado suave y brillante que refleja la luz de manera espectacular.",
-    name: "Collar corazon for you",
-    price: 200,
-    image:
-        "https://i.pinimg.com/564x/94/6b/bc/946bbc13955bb8e294e86c8661a82781.jpg",
-    code: "CORA123"
-
-}, {
-    info: "Collar con tematica de los vengadores",
-    name: "Collar con tema de LOKI",
-    price: 200,
-    image:
-        "https://i.pinimg.com/564x/f0/d0/6e/f0d06ef71fb66bd3e54c79073060b5f0.jpg",
-    code: "LoKi12"
-},
+        image: bolsa2,
+        info: "mochila de frozen cuenta con su correa para su transporte 3 en 1",
+        code: "KFA002"
+    },
     {
-        info: "¡Estas pulseras serían el regalo más dulce para cualquier amante de los superhéroes! Este listado es para una pulsera. Cada pulsera está encordada dos veces a mano en un cordón elástico para garantizar la calidad y la durabilidad. ✨¿Necesitas ayuda con qué talla de pulsera elegir? Use una cinta métrica flexible o una tira de papel para envolver su muñeca. Debe quedar ajustado pero no demasiado apretado. Si usa una hoja de papel, marque el tamaño con un bolígrafo y use una regla para ver la medida. Recomiendo dimensionar hasta la media pulgada más cercana.",
-        name: "pulsera para niños",
+        name: "Mochila infantil Moana",
         price: 200,
-        image:
-            "https://i.pinimg.com/564x/4c/e4/dd/4ce4ddf1a40d2176168c6cbfeb1ea364.jpg",
-        code: "PSNI1"
-    }
+        image: bolsa3,
+        info: "mochila de Moana cuenta con su correa para su transporte 3 en 1",
+        code: "KFA003"
+    },
+    {
+        name: "Mochila infantil Lilo",
+        price: 200,
+        image: bolsa4,
+        info: "mochila de Moana cuenta con su correa para su transporte 3 en 1",
+        code: "KFA004"
+    },
+    {
+        name: "Mochila infantil Miraculous",
+        price: 200,
+        image: bolsa5,
+        info: "mochila de Miraculous cuenta con su correa para su transporte 3 en 1",
+        code: "KFA005"
+    },
+    {
+        name: "Mochila infantil mickey mouse",
+        price: 200,
+        image: bolsa6,
+        info: "mochila de mickey mouse cuenta con su correa para su transporte 3 en 1",
+        code: "KFA006"
+    },
+    {
+        name: "Bolso juvenil 3 en 1 celeste/amarilla",
+        price: 200,
+        image: bolsa7,
+        info: "Bolso con su correa para hacerse mochila estampado estrellas plateadas.",
+        code: "KFA021"
+    },
+    {
+        name: "Bolso juvenil 3 en 1 color rosa",
+        price: 200,
+        image: bolsa8,
+        info: "Bolso con su correa para hacerse mochila color rosa",
+        code: "KFA022"
+    },
+    {
+        name: "Bolso juvenil 3 en 1 estampado Myckey",
+        price: 200,
+        image: bolsa9,
+        info: "Bolso con su correa para hacerse mochila color cafe con estampado de Myckey mouse",
+        code: "KFA023"
+    },
+    {
+        name: "Bolso juvenil 3 en 1  Azul estampado",
+        price: 200,
+        image: bolsa10,
+        info: "Bolso Color azul rey con combinaciones amarillas y estampado de estrellas plateadas con su correa para hacerse mochila ",
+        code: "KFA024"
+    },
+   
+    {
+        name: "Bolsa chica Rosa Palo",
+        price: 150,
+        image: bolsa11,
+        info: "Bolso color rosa Palo con su hermosa correa para que lo lleves a todas partes con medidas de 20cm de largo x 24cm de ancho",
+        code: "KFA041"
+    },
+   
+    {
+        name: "Bolsa chica Cafe",
+        price: 150,
+        image: bolsa12,
+        info: "Bolso color cafe con su hermosa correa para que lo lleves a todas partes con medidas de largo 20cm x 24cm de ancho",
+        code: "KFA042"
+    },
+   
+    {
+        name: "Bolsa chica Verde / Menta",
+        price: 150,
+        image: bolsa13,
+        info: "Bolso color Verde / menta con su hermosa correa para que lo lleves a todas partes con medidas de largo 20cm x 24cm de ancho",
+        code: "KFA043"
+    },
+    {
+        name: "Bolsa chica Rosa",
+        price: 150,
+        image: bolsa14,
+        info: "Bolso color Rosa con su hermosa correa para que lo lleves a todas partes con medidas de largo 20cm x 24cm de ancho",
+        code: "KFA044"
+    },
+   
+    {
+        name: "Bolsa chica Azul Marino",
+        price: 150,
+        image: bolsa15,
+        info: "Bolso color Azul Marino con su hermosa correa para que lo lleves a todas partes con medidas de largo 20cm x 24cm de ancho",
+        code: "KFA045"
+    },
+   
+    {
+        name: "Bolsa mediana para dama Azul",
+        price: 200,
+        image: bolsa16,
+        info: "Bolsa para hermosa damas tamaño mediano.",
+        code: "KFA061"
+    },
+    {
+        name: "Bolsa mediana para dama Lila",
+        price: 200,
+        image: bolsa17,
+        info: "Bolsa con hermoso Color lila tamaño mediano.",
+        code: "KFA062"
+    },
+    {
+        name: "Bolsa mediana para dama Celeste ",
+        price: 200,
+        image: bolsa18,
+        info: "Bolsa con lineas de colores negra y blanca.",
+        code: "KFA063"
+    },
+    {
+        name: "Bolsa mediana para dama Amarrilla ",
+        price: 200,
+        image: bolsa19,
+        info: "Bolsa con lineas de color Azul y rosa.",
+        code: "KFA064"
+    },
+    {
+        name: "Bolsa Mediana para dama Mostaza",
+        price: 200,
+        image: bolsa22,
+        info: "Bolsa con color hermoso color Moztaza con su correa para mejor comodidad.",
+        code: "KFA067"
+    },
+    {
+        name: "Bolso Mediano Color Negro",
+        price: 200,
+        image: bolsa25,
+        info: "Bolsa con color hermoso color Negro con su correa para mejor comodidad.",
+        code: "KFA068"
+    },
+   
+   
+    {
+        name: "Bolsa MaxiBolsa para dama negro/blanco/rojo",
+        price: 200,
+        image: bolsa20,
+        info: "Bolsa con 3 colores precioso, con un tamaño un poco mayor alas demas para que lleves todas tus cosas.",
+        code: "KFA065"
+    },
+   
+    {
+        name: "Bolsa MaxiBolsa para dama Vino",
+        price: 200,
+        image: bolsa21,
+        info: "Bolsa con color vino y linea blanca con cafe, con un tamaño un poco mayor alas demas para que lleves todas tus cosas.",
+        code: "KFA066"
+    },
+    {
+        name: "Mochila Juvenil 3 en 1 color Cafe",
+        price: 200,
+        image: bolsa221,
+        info: "Bolsa con color hermoso color Moztaza con su correa para mejor comodidad.",
+        code: "KFA025"
+    },
+    {
+        name: "Mochila Juvenil 3 en 1 color Azul marino",
+        price: 200,
+        image: bolsa23,
+        info: "Bolsa con color hermoso color Moztaza con su correa para mejor comodidad.",
+        code: "KFA026"
+    },
+   
+    {
+        name: "Bolso chico Color Negro",
+        price: 200,
+        image: bolsa24,
+        info: "Bolsa con color hermoso color Negro con su correa para mejor comodidad, de material rigido estilo maletin.",
+        code: "KFA056"
+    },
+    {
+        name: "Bolso estilo Bordado Azul Marino",
+        price: 200,
+        image: bolsa26,
+        info: "Bolsa con color hermoso color Negro y su estilo bordado para resaltar.",
+        code: "KFA081"
+    },
+    {
+        name: "Bolso estilo Bordado Rosa/Negro",
+        price: 200,
+        image: bolsa27,
+        info: "Bolsa con color hermoso color Rosa y negro y su estilo bordado.",
+        code: "KFA082"
+    },
+    {
+        name: "Bolso con flores color cafe",
+        price: 200,
+        image: bolsa28,
+        info: "Bolsa con color cafe y su hermoso estilo de flores para este hermoso verano.",
+        code: "KFA083"
+    },
+    {
+        name: "Bolso rosa con flores de colores",
+        price: 200,
+        image: bolsa29,
+        info: "Bolsa con color rosa y su hermoso estilo de flores de variado colores para combinar con todo los estilos de ropa.",
+        code: "KFA084"
+    },
+   
 
 );
 
@@ -188,11 +395,11 @@ function renderizar(productList) {
             mostrarInfoProduct(product.image, product.price, product.name, product.info)
             openProductDetail()
             // detalles.scrollIntoView({ behavior: 'smooth', block: 'start' });
-    // Obtener la posición superior del detalle del producto
-    const detalleOffset = detalles.offsetTop;
+            // Obtener la posición superior del detalle del producto
+            const detalleOffset = detalles.offsetTop;
 
-    // Desplazarse a la posición del detalle del producto con desplazamiento suave
-    window.scrollTo({ top: detalleOffset, behavior: 'smooth' });
+            // Desplazarse a la posición del detalle del producto con desplazamiento suave
+            window.scrollTo({ top: detalleOffset, behavior: 'smooth' });
 
 
             // console.log(
