@@ -28,3 +28,69 @@ function closeOtherMenus(activeMenu) {
     if (activeMenu != burguerMenu && isBurguerMenuOpen) { burguerMenu.classList.add('inactive') };
     if (activeMenu != asideCartMenu && isAsideCartMenuOpen) { asideCartMenu.classList.add('inactive') };
 }
+
+
+const productList = [];
+productList.push({
+    nombre: 'Bici',
+    precio: 1500,
+    imagen: 'https://images.pexels.com/photos/276517/pexels-photo-276517.jpeg?auto=compress&cs=tinysrgb&dpr=2&h=650&w=940',
+});
+productList.push({
+    nombre: 'Moto',
+    precio: 25000,
+    imagen: 'https://m.media-amazon.com/images/I/71iqabw1iXL._AC_SL1500_.jpg',
+});
+productList.push({
+    nombre: 'Carro',
+    precio: 340000,
+    imagen: 'https://cdn.pixabay.com/photo/2021/09/20/23/03/car-6642036_1280.jpg',
+});
+
+const cardsContainer = document.querySelector('.cards-container');
+
+for (product of productList) {
+    const productCard = document.createElement('div');
+    productCard.classList.add('product-card');
+    
+    const productImage = document.createElement('img');
+    productImage.setAttribute('src', product.imagen);
+    //productImage.src = product.imagen;
+
+    const productInfo = document.createElement('div');
+    productInfo.classList.add('product-info');
+
+    const productInfoDiv = document.createElement('div');
+
+    const productName = document.createElement('p');
+    productName.innerText = product.nombre;
+    const productPrice = document.createElement('p');
+    productPrice.innerText = '$' + product.precio;
+    
+    const productFigure = document.createElement('figure');
+    
+    const productCartIcon = document.createElement('img');
+    productCartIcon.setAttribute('src', './icons/bt_add_to_cart.svg');
+
+    productFigure.appendChild(productCartIcon);
+    productInfoDiv.append(productPrice, productName);
+    productInfo.append(productInfoDiv, productFigure);
+    // productImage.appendChild(productInfo);
+    productCard.append(productImage, productInfo);
+    cardsContainer.appendChild(productCard);
+}
+/*
+<div class="product-card">
+    <img src="https://images.pexels.com/photos/276517/pexels-photo-276517.jpeg?auto=compress&cs=tinysrgb&dpr=2&h=650&w=940"
+        alt="">
+        <div class="product-info">
+            <div>
+                <p>$120,00</p>
+                <p>Bike</p>
+            </div>
+            <figure>
+                <img src="./icons/bt_add_to_cart.svg" alt="">
+            </figure>
+        </div>
+</div>
+*/
