@@ -336,10 +336,10 @@ productList.push(
         code: "KFA083"
     },
     {
-        name: "Bolsa bordada rosa con flores de colores",
+        name: "Bolsa bordada roja con flores de colores",
         price: 200,
         image: bolsa29,
-        info: "Bolsa con color rosa y su hermoso estilo de flores de variado colores para combinar con todo los estilos de ropa.",
+        info: "Bolsa con color roja y su hermoso estilo de flores de variado colores para combinar con todo los estilos de ropa.",
         code: "KFA084"
     },
    
