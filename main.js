@@ -4,6 +4,8 @@ const nodoMenuCarritoItem = document.querySelector('li.navbar-shopping-cart');
 const DesktopMenu = document.querySelector('div.desktop-menu');
 const nodoMobileMenu = document.querySelector('div.mobile-menu');
 const shoppingCartContainer = document.querySelector('#shoppingCartContainer');
+const productDetail = document.querySelector('#productDetail');
+const productDetailClose = document.querySelector('.product-detail-close');
 const nodoCardsContainer = document.querySelector('div.cards-container');
 
 const productList = [];
@@ -25,24 +27,44 @@ productList.push({
 
 nodoEmail.addEventListener('click', toggleDesktopMenu);
 nodoMenuHamIcon.addEventListener('click', toggleMobileMenu);
-nodoMenuCarritoItem.addEventListener('click', toggleCarritoAside)
+nodoMenuCarritoItem.addEventListener('click', toggleCarritoAside);
+productDetailClose.addEventListener('click', closeProductDetailAside );
 
 function toggleDesktopMenu() {
     if (!nodoMobileMenu.classList.contains('inactive')) nodoMobileMenu.classList.add('inactive');
     if (!shoppingCartContainer.classList.contains('inactive')) shoppingCartContainer.classList.add('inactive');
+    if (!productDetail.classList.contains('inactive')) productDetail.classList.add('inactive');
+   
     DesktopMenu.classList.toggle('inactive');
 }
 
 function toggleMobileMenu() {
     if (!DesktopMenu.classList.contains('inactive')) DesktopMenu.classList.add('inactive');
     if (!shoppingCartContainer.classList.contains('inactive')) shoppingCartContainer.classList.add('inactive');
+    if (!productDetail.classList.contains('inactive')) productDetail.classList.add('inactive');
+   
     nodoMobileMenu.classList.toggle('inactive');
 }
 
 function toggleCarritoAside() {
     if (!DesktopMenu.classList.contains('inactive')) DesktopMenu.classList.add('inactive');
     if (!nodoMobileMenu.classList.contains('inactive')) nodoMobileMenu.classList.add('inactive');
+    if (!productDetail.classList.contains('inactive')) productDetail.classList.add('inactive');
+   
     shoppingCartContainer.classList.toggle('inactive');
+}
+
+function openProductDetailAside() {
+
+    if (!DesktopMenu.classList.contains('inactive')) DesktopMenu.classList.add('inactive');
+    if (!nodoMobileMenu.classList.contains('inactive')) nodoMobileMenu.classList.add('inactive');
+    if (!shoppingCartContainer.classList.contains('inactive')) shoppingCartContainer.classList.add('inactive');
+    
+    productDetail.classList.remove('inactive');
+}
+
+function closeProductDetailAside() {
+    productDetail.classList.add('inactive');
 }
 
 function renderProducts(array = []) {
@@ -52,6 +74,8 @@ function renderProducts(array = []) {
 
         const productCardImg = document.createElement('img');
         productCardImg.setAttribute('src', product.image);
+
+        productCardImg.addEventListener('click', openProductDetailAside );
 
         const productInfo = document.createElement('div');
         productInfo.classList.add('product-info');
