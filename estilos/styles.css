@@ -95,7 +95,7 @@ nav {
 
 @media (max-width: 690px) {
   .menu {
-    display: block;
+    display: none;
   }
 
   .navbar-left ul {

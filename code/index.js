@@ -329,14 +329,14 @@ productList.push(
         code: "KFA082"
     },
     {
-        name: "Bolso con flores color cafe",
+        name: "Bolsa bordada con flores color cafe",
         price: 200,
         image: bolsa28,
         info: "Bolsa con color cafe y su hermoso estilo de flores para este hermoso verano.",
         code: "KFA083"
     },
     {
-        name: "Bolso rosa con flores de colores",
+        name: "Bolsa bordada rosa con flores de colores",
         price: 200,
         image: bolsa29,
         info: "Bolsa con color rosa y su hermoso estilo de flores de variado colores para combinar con todo los estilos de ropa.",
