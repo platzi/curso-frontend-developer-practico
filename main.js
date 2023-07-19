@@ -1,13 +1,22 @@
 const menuEmail = document.querySelector('.navbar-email');
 const desktopMenu = document.querySelector('.desktop-menu');
 const menuHamIcon = document.querySelector('.menu');
-const MobilMenu = document.querySelector('.mobile-menu');
+const mobilMenu = document.querySelector('.mobile-menu');
 const menuCarritoIcon = document.querySelector('.navbar-shopping-cart');
 const shoppingCartContainer = document.querySelector('#shoppingCartContainer');
+const productDetailAside = document.querySelector('#productDetail');
+const productDetailCloseIcon = document.querySelector('.product-detail-close');
+
+
 
 menuHamIcon.addEventListener('click',toggleMobilMenu)
 menuEmail.addEventListener('click',toggleDesktopMenu);
 menuCarritoIcon.addEventListener('click',toggleCarritoAside)
+productDetailCloseIcon.addEventListener('click', closeProductDetailAside);
+
+
+
+
 function toggleDesktopMenu(){
 
     const isMenuDesktopClosed =   shoppingCartContainer.classList.toggle('inactive');
@@ -24,17 +33,36 @@ function toggleMobilMenu(){
     if(!isAsideMenuClosed){
         shoppingCartContainer.classList.add('inactive');
     }
-    MobilMenu.classList.toggle('inactive');
+    // closeProductDetailAside();
+    mobilMenu.classList.toggle('inactive');
 }
 
 function toggleCarritoAside(){
-    const isMobilMenuClosed =   MobilMenu.classList.toggle('inactive');
+    const isMobilMenuClosed =   mobilMenu.classList.contains('inactive');
     
     if(!isMobilMenuClosed){
-        MobilMenu.classList.add('inactive');
+        mobilMenu.classList.add('inactive');
+    }
+
+    const isProductDetailClosed =   productDetailAside.classList.contains('inactive');
+    
+    if(!isProductDetailClosed){
+        productDetailAside.classList.add('inactive');
     }
     
+    
     shoppingCartContainer.classList.toggle('inactive');
+}
+
+function openProductDetailAside() {
+
+    shoppingCartContainer.classList.add('inactive');
+
+    productDetailAside.classList.remove('inactive');
+}
+
+function closeProductDetailAside(){
+    productDetailAside.classList.add('inactive');
 }
 
 const productList = [];
@@ -56,41 +84,8 @@ productList.push({
     precio: 20,
     image:'https://images.pexels.com/photos/276517/pexels-photo-276517.jpeg?auto=compress&cs=tinysrgb&dpr=2&h=650&w=940' 
 });
-productList.push({
-    name:'bike',
-    precio: 120,
-    image:'https://images.pexels.com/photos/276517/pexels-photo-276517.jpeg?auto=compress&cs=tinysrgb&dpr=2&h=650&w=940' 
-});
 
-productList.push({
-    name:'moto',
-    precio: 220,
-    image:'https://images.pexels.com/photos/276517/pexels-photo-276517.jpeg?auto=compress&cs=tinysrgb&dpr=2&h=650&w=940' 
-});
 
-productList.push({
-    name:'car',
-    precio: 20,
-    image:'https://images.pexels.com/photos/276517/pexels-photo-276517.jpeg?auto=compress&cs=tinysrgb&dpr=2&h=650&w=940' 
-});
-
-productList.push({
-    name:'bike',
-    precio: 120,
-    image:'https://images.pexels.com/photos/276517/pexels-photo-276517.jpeg?auto=compress&cs=tinysrgb&dpr=2&h=650&w=940' 
-});
-
-productList.push({
-    name:'moto',
-    precio: 220,
-    image:'https://images.pexels.com/photos/276517/pexels-photo-276517.jpeg?auto=compress&cs=tinysrgb&dpr=2&h=650&w=940' 
-});
-
-productList.push({
-    name:'car',
-    precio: 20,
-    image:'https://images.pexels.com/photos/276517/pexels-photo-276517.jpeg?auto=compress&cs=tinysrgb&dpr=2&h=650&w=940' 
-});
 function renderProduct(arry){
 
     for(product of arry){
@@ -101,7 +96,9 @@ function renderProduct(arry){
     
         const img = document.createElement('img');
         img.setAttribute('src', product.image);
-    
+        
+        img.addEventListener('click', openProductDetailAside);
+
         const productInfo = document.createElement('div');
         productInfo.classList.add('product-info');
     
