@@ -285,20 +285,20 @@ productList.push(
         code: "KFA065"
     },
    
-    //{
-      //name: "Bolsa MaxiBolsa para dama Vino",
-    //price: 200,
-   // image: bolsa21,
- //   info: "Bolsa con color vino y linea blanca con cafe, con un tamaño un poco mayor alas demas para que lleves todas tus cosas.",
-   //     code: "KFA066"
-   // },
     {
-        name: "Mochila Juvenil 3 en 1 color Cafe",
-        price: 200,
-        image: bolsa221,
-        info: "Bolsa con color hermoso color Moztaza con su correa para mejor comodidad.",
-        code: "KFA025"
+name: "Bolsa MaxiBolsa para dama Vino",
+price: 200,
+    image: bolsa21,
+    info: "Bolsa con color vino y linea blanca con cafe, con un tamaño un poco mayor alas demas para que lleves todas tus cosas.",
+        code: "KFA066"
     },
+  //  {
+    //    name: "Mochila Juvenil 3 en 1 color Cafe",
+    //  price: 200,
+    //  image: bolsa221,
+    //  info: "Bolsa con color hermoso color Moztaza con su correa para mejor comodidad.",
+    //  code: "KFA025"
+    //},
     {
         name: "Mochila Juvenil 3 en 1 color Azul marino",
         price: 200,
