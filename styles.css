@@ -336,6 +336,7 @@ nav {
 
 /* aside specific product details */
 .specific-product-detail {
+    background: var(--white);
     width: 360px;
     padding-bottom: 24px;
     position: absolute;
