@@ -4,11 +4,15 @@ const menuMovil = document.querySelector(".mobile-menu");
 const menuAmburgeza = document.querySelector(".menu");
 const carritoCon = document.querySelector(".navbar-shopping-cart");
 const shoppingCartContainer = document.querySelector("#shoppingCartContainer");
+const productDetailCloseIcon = document.querySelector("#productDetail");
+const productoDatailConatiner = document.querySelector("#productDetail");
+
 const cardContainer = document.querySelector(".cards-container");
 
 menuEmail.addEventListener("click", toggleMenu);
 menuAmburgeza.addEventListener("click", toggleMenuAmburgeza);
 carritoCon.addEventListener("click", toggleMenuCon);
+productDetailCloseIcon.addEventListener("click", closeProductDealAside);
 
 /*menu desplegable email*/
 function toggleMenu() {
@@ -17,6 +21,7 @@ function toggleMenu() {
   if (!isMenuEmail) {
     shoppingCartContainer.classList.add("inactivo");
   }
+
   desktopMenu.classList.toggle("inactivo");
 }
 /*menu desplegable */
@@ -26,19 +31,33 @@ function toggleMenuAmburgeza() {
   if (!isMenuCon) {
     shoppingCartContainer.classList.add("inactivo");
   }
+
+  closeProductDealAside();
   menuMovil.classList.toggle("inactivo");
 }
 /*menu desplegable carrito */
 function toggleMenuCon() {
   const isMenuMovil = menuMovil.classList.contains("inactivo");
   const isMenuEmailC = desktopMenu.classList.contains("inactivo");
+  const isProductDetailClosed =
+    productoDatailConatiner.classList.contains("inactivo");
 
-  if (!isMenuMovil || !isMenuEmailC) {
+  if (!isMenuMovil || !isMenuEmailC || !isProductDetailClosed) {
     menuMovil.classList.add("inactivo");
     desktopMenu.classList.add("inactivo");
+    productoDatailConatiner.classList.add("inactivo");
   }
 
   shoppingCartContainer.classList.toggle("inactivo");
+}
+
+/*Abrir imagen de producto */
+function openProductDealAside() {
+  shoppingCartContainer.classList.add("inactivo");
+  productoDatailConatiner.classList.remove("inactivo");
+}
+function closeProductDealAside() {
+  productDetailCloseIcon.classList.add("inactivo");
 }
 
 /* productos */
@@ -81,36 +100,40 @@ producList.push({
   </div>
 */
 
-for (product of producList) {
-  const productCard = document.createElement("div");
-  productCard.classList.add("product-card");
+function renderProducts(arr) {
+  for (product of producList) {
+    const productCard = document.createElement("div");
+    productCard.classList.add("product-card");
 
-  const productimg = document.createElement("img");
-  productimg.setAttribute("src", product.imagen);
+    const productimg = document.createElement("img");
+    productimg.setAttribute("src", product.imagen);
+    productimg.addEventListener("click", openProductDealAside);
 
-  const productInfo = document.createElement("div");
-  productInfo.classList.add("product-info");
+    const productInfo = document.createElement("div");
+    productInfo.classList.add("product-info");
 
-  const productInfoDiv = document.createElement("div");
-  const productPrecio = document.createElement("p");
-  productPrecio.innerText = "$" + product.precio;
-  const productNombre = document.createElement("p");
-  productNombre.innerText = product.nombre;
+    const productInfoDiv = document.createElement("div");
+    const productPrecio = document.createElement("p");
+    productPrecio.innerText = "$" + product.precio;
+    const productNombre = document.createElement("p");
+    productNombre.innerText = product.nombre;
 
-  productInfoDiv.appendChild(productPrecio);
-  productInfoDiv.appendChild(productNombre);
+    productInfoDiv.appendChild(productPrecio);
+    productInfoDiv.appendChild(productNombre);
 
-  const productFigure = document.createElement("figure");
-  const figureimg = document.createElement("img");
-  figureimg.setAttribute("src", "./icons/bt_add_to_cart.svg");
+    const productFigure = document.createElement("figure");
+    const figureimg = document.createElement("img");
+    figureimg.setAttribute("src", "./icons/bt_add_to_cart.svg");
 
-  productFigure.appendChild(figureimg);
+    productFigure.appendChild(figureimg);
 
-  productInfo.appendChild(productInfoDiv);
-  productInfo.appendChild(productFigure);
+    productInfo.appendChild(productInfoDiv);
+    productInfo.appendChild(productFigure);
 
-  productCard.appendChild(productimg);
-  productCard.appendChild(productInfo);
+    productCard.appendChild(productimg);
+    productCard.appendChild(productInfo);
 
-  cardContainer.appendChild(productCard);
+    cardContainer.appendChild(productCard);
+  }
 }
+renderProducts(producList);
