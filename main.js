@@ -5,7 +5,7 @@ const burgerMenuIcon = document.querySelector('.menu');
 const burguerMenu = document.querySelector('.mobile-menu');
 
 const cartMenuIcon = document.querySelector('.navbar-shopping-cart');
-const asideCartMenu = document.querySelector('.product-detail');
+const asideCartMenu = document.querySelector('.shopping-cart-detail');
 
 // Funcion anonima y de flecha para llamar una funcion con la posibilidad de poder enviar
 // argumentos para asi reutilizar la funcion y no crear una diferente para cada elemento
@@ -79,18 +79,3 @@ for (product of productList) {
     productCard.append(productImage, productInfo);
     cardsContainer.appendChild(productCard);
 }
-/*
-<div class="product-card">
-    <img src="https://images.pexels.com/photos/276517/pexels-photo-276517.jpeg?auto=compress&cs=tinysrgb&dpr=2&h=650&w=940"
-        alt="">
-        <div class="product-info">
-            <div>
-                <p>$120,00</p>
-                <p>Bike</p>
-            </div>
-            <figure>
-                <img src="./icons/bt_add_to_cart.svg" alt="">
-            </figure>
-        </div>
-</div>
-*/
