@@ -123,13 +123,13 @@ const productList = [];
 
 
 productList.push(
-    {
-        name: "Mochila infantil Hello Kitty ",
-        price: 200,
-        image: bolsa1,
-        info: "mochila de Hello Kitty 3 en 1",
-        code: "KFA001"
-    },
+   // {
+    //    name: "Mochila infantil Hello Kitty ",
+    //    price: 200,
+    //    image: bolsa1,
+    //    info: "mochila de Hello Kitty 3 en 1",
+    //    code: "KFA001"
+    //},
     {
         name: "Mochila infantil Frozen",
         price: 200,
@@ -151,13 +151,13 @@ productList.push(
         info: "mochila de Moana cuenta con su correa para su transporte 3 en 1",
         code: "KFA004"
     },
-    {
-        name: "Mochila infantil Miraculous",
-        price: 200,
-        image: bolsa5,
-        info: "mochila de Miraculous cuenta con su correa para su transporte 3 en 1",
-        code: "KFA005"
-    },
+    //{
+      //  name: "Mochila infantil Miraculous",
+      //  price: 200,
+      //  image: bolsa5,
+      //  info: "mochila de Miraculous cuenta con su correa para su transporte 3 en 1",
+      //  code: "KFA005"
+    //},
     {
         name: "Mochila infantil mickey mouse",
         price: 200,
@@ -277,13 +277,13 @@ productList.push(
     },
    
    
-    {
-        name: "Bolsa MaxiBolsa para dama negro/blanco/rojo",
-        price: 200,
-        image: bolsa20,
-        info: "Bolsa con 3 colores precioso, con un tamaño un poco mayor alas demas para que lleves todas tus cosas.",
-        code: "KFA065"
-    },
+    //{
+        //name: "Bolsa MaxiBolsa para dama negro/blanco/rojo",
+       // price: 200,
+      //  image: bolsa20,
+     //   info: "Bolsa con 3 colores precioso, con un tamaño un poco mayor alas demas para que lleves todas tus cosas.",
+    //    code: "KFA065"
+  //  },
    
     {
 name: "Bolsa MaxiBolsa para dama Vino",
