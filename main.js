@@ -3,7 +3,7 @@ const desktopMenu     = document.querySelector('.desktop-menu');       // Selecc
 const menuHamIcon     = document.querySelector('.menu'); 
 const mobileMenu      = document.querySelector('.mobile-menu'); 
 const menuCarritoIcon = document.querySelector('.navbar-shopping-cart');
-const menuCarrito     = document.querySelector('.product-detail');
+const menuCarrito     = document.querySelector('#shoppingCartContainer');
 const cardsContainer  = document.querySelector('.cards-container')
 
 menuEmail.addEventListener('click', toggleDescktopMenu);         //Seleccionamos la propiedad addEventListener para escucha cuando demos un click sobre el elemento
