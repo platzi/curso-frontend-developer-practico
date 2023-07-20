@@ -130,13 +130,13 @@ productList.push(
     //    info: "mochila de Hello Kitty 3 en 1",
     //    code: "KFA001"
     //},
-    {
-        name: "Mochila infantil Frozen",
-        price: 200,
-        image: bolsa2,
-        info: "mochila de frozen cuenta con su correa para su transporte 3 en 1",
-        code: "KFA002"
-    },
+    //{
+      //  name: "Mochila infantil Frozen",
+       // price: 200,
+       // image: bolsa2,
+      //  info: "mochila de frozen cuenta con su correa para su transporte 3 en 1",
+      //  code: "KFA002"
+    //},
     {
         name: "Mochila infantil Moana",
         price: 200,
@@ -202,13 +202,13 @@ productList.push(
         code: "KFA041"
     },
    
-    {
-        name: "Bolsa chica Cafe",
-        price: 150,
-        image: bolsa12,
-        info: "Bolso color cafe con su hermosa correa para que lo lleves a todas partes con medidas de largo 20cm x 24cm de ancho",
-        code: "KFA042"
-    },
+//    {
+//        name: "Bolsa chica Cafe",
+//        price: 150,
+//        image: bolsa12,
+//        info: "Bolso color cafe con su hermosa correa para que lo lleves a todas partes con medidas de largo 20cm x 24cm de ancho",
+//        code: "KFA042"
+//    },
    
     {
         name: "Bolsa chica Verde / Menta",
