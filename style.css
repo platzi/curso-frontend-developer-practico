@@ -166,6 +166,10 @@ aside {
   box-sizing: border-box;
   background: var(--white);
 }
+#productDetail{
+  position: fixed;
+  height: 100vh;
+}
 #shoppingCartContainer{
   padding: 0 24px;
 }

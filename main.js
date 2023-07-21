@@ -4,31 +4,43 @@ const  contDeskMenu = document.querySelector('.desktop-menu');
 /*Mobile menu */
 const menuMobile = document.querySelector('.menu');
 const mobileMenu = document.querySelector('.mobile-menu');
-/*product detail */
+
 const shoppingCar = document.querySelector('.navbar-shopping-cart');
 const shoppingCarContainer = document.querySelector('#shoppingCartContainer');
-/*card container*/
+const productDetail = document.querySelector('#productDetail');
+const productDetailClosed = document.querySelector('.product-detail-close');
 const cardContainer = document.querySelector('.cards-container');
 
 menuEmail.addEventListener('click', toggleDeskMenu);
+menuMobile.addEventListener('click',toggleMobilekMenu);
+productDetailClosed.addEventListener('click', closedDetailAside);
+shoppingCar.addEventListener('click', functProductDetail);
+
+
 function toggleDeskMenu(){
     shoppingCarContainer.classList.add('inactive');
     contDeskMenu.classList.toggle('inactive');
+    productDetail.classList.add('inactive');
 }
-
-/*Mobile menu */
-menuMobile.addEventListener('click',toggleMobilekMenu);
 function toggleMobilekMenu(){
     shoppingCarContainer.classList.add('inactive');
+    productDetail.classList.add('inactive')
     mobileMenu.classList.toggle('inactive');
 }
-
-/*product detail */
-shoppingCar.addEventListener('click', functProductDetail);
 function functProductDetail(){
     mobileMenu.classList.add('inactive');
+    productDetail.classList.add('inactive')
     shoppingCarContainer.classList.toggle('inactive');
 }
+function openProductDetailAside(){
+    productDetail.classList.remove('inactive');
+    shoppingCarContainer.classList.add('inactive');
+    contDeskMenu.classList.add('inactive');
+}
+function closedDetailAside(){
+    productDetail.classList.add('inactive')
+}
+
 /*product array*/
 const productList = [];
 
@@ -77,34 +89,43 @@ productList.push ({
     price: 876,
     image: 'https://m.media-amazon.com/images/I/81k2Gmal+VL._AC_SL1500_.jpg'
 }); 
-for(product of productList){
-    const productCard = document.createElement('div');
-    productCard.classList.add('product-card'); 
 
-    const productImage = document.createElement('img');
-    productImage.setAttribute('src', product.image);
-    const productInfo = document.createElement('div');
-    productInfo.classList.add('product-info');
+/*funcion que s eocupa para renderizar los productos */
 
-    const productInfoDiv = document.createElement('div');
-    const productPrice = document.createElement('p');
-    productPrice.innerText = '$' + product.price;
-    const productName = document.createElement('p');
-    productName.innerText  = product.name;
-/*appendChild lo que hace es apregar un nodo en el DOM */
-    productInfoDiv.appendChild(productPrice);
-    productInfoDiv.appendChild(productName);
-
-    const productFigure = document.createElement('figure');
-    const imageFigure = document.createElement('img');
-    imageFigure.setAttribute('src', './icons/bt_add_to_cart.svg');
-    productFigure.appendChild(imageFigure);
-
-    productInfo.appendChild(productInfoDiv);
-    productInfo.appendChild(productFigure);
-
-    productCard.appendChild(productImage);
-    productCard.appendChild(productInfo);
-
-    cardContainer.appendChild(productCard);
+function renderProducts(arr){
+    for(product of productList){
+        const productCard = document.createElement('div');
+        productCard.classList.add('product-card'); 
+    
+        const productImage = document.createElement('img');
+        productImage.setAttribute('src', product.image);
+        //escuchamos el evento de la imagen
+        productImage.addEventListener('click', openProductDetailAside);
+        const productInfo = document.createElement('div');
+        productInfo.classList.add('product-info');
+    
+        const productInfoDiv = document.createElement('div');
+        const productPrice = document.createElement('p');
+        productPrice.innerText = '$' + product.price;
+        const productName = document.createElement('p');
+        productName.innerText  = product.name;
+    /*appendChild lo que hace es apregar un nodo en el DOM */
+        productInfoDiv.appendChild(productPrice);
+        productInfoDiv.appendChild(productName);
+    
+        const productFigure = document.createElement('figure');
+        const imageFigure = document.createElement('img');
+        imageFigure.setAttribute('src', './icons/bt_add_to_cart.svg');
+        productFigure.appendChild(imageFigure);
+    
+        productInfo.appendChild(productInfoDiv);
+        productInfo.appendChild(productFigure);
+    
+        productCard.appendChild(productImage);
+        productCard.appendChild(productInfo);
+    
+        cardContainer.appendChild(productCard);
+    }
 }
+//tenemos que llamar la funcion con el arreglo que necesitamos para moestrarlo
+renderProducts(productList);
