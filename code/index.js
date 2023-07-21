@@ -123,7 +123,7 @@ const productList = [];
 
 
 productList.push(
-   // {
+    // {
     //    name: "Mochila infantil Hello Kitty ",
     //    price: 200,
     //    image: bolsa1,
@@ -131,32 +131,32 @@ productList.push(
     //    code: "KFA001"
     //},
     //{
-      //  name: "Mochila infantil Frozen",
-       // price: 200,
-       // image: bolsa2,
-      //  info: "mochila de frozen cuenta con su correa para su transporte 3 en 1",
-      //  code: "KFA002"
+    //  name: "Mochila infantil Frozen",
+    // price: 200,
+    // image: bolsa2,
+    //  info: "mochila de frozen cuenta con su correa para su transporte 3 en 1",
+    //  code: "KFA002"
     //},
-    {
-        name: "Mochila infantil Moana",
-        price: 200,
-        image: bolsa3,
-        info: "mochila de Moana cuenta con su correa para su transporte 3 en 1",
-        code: "KFA003"
-    },
-    {
-        name: "Mochila infantil Lilo",
-        price: 200,
-        image: bolsa4,
-        info: "mochila de Moana cuenta con su correa para su transporte 3 en 1",
-        code: "KFA004"
-    },
+    // {
+    //     name: "Mochila infantil Moana",
+    //     price: 200,
+    //     image: bolsa3,
+    //     info: "mochila de Moana cuenta con su correa para su transporte 3 en 1",
+    //     code: "KFA003"
+    // },
+    // {
+    //     name: "Mochila infantil Lilo",
+    //     price: 200,
+    //     image: bolsa4,
+    //     info: "mochila de Moana cuenta con su correa para su transporte 3 en 1",
+    //     code: "KFA004"
+    // },
     //{
-      //  name: "Mochila infantil Miraculous",
-      //  price: 200,
-      //  image: bolsa5,
-      //  info: "mochila de Miraculous cuenta con su correa para su transporte 3 en 1",
-      //  code: "KFA005"
+    //  name: "Mochila infantil Miraculous",
+    //  price: 200,
+    //  image: bolsa5,
+    //  info: "mochila de Miraculous cuenta con su correa para su transporte 3 en 1",
+    //  code: "KFA005"
     //},
     {
         name: "Mochila infantil mickey mouse",
@@ -165,20 +165,20 @@ productList.push(
         info: "mochila de mickey mouse cuenta con su correa para su transporte 3 en 1",
         code: "KFA006"
     },
-    {
-        name: "Bolso juvenil 3 en 1 celeste/amarilla",
-        price: 200,
-        image: bolsa7,
-        info: "Bolso con su correa para hacerse mochila estampado estrellas plateadas.",
-        code: "KFA021"
-    },
-    {
-        name: "Bolso juvenil 3 en 1 color rosa",
-        price: 200,
-        image: bolsa8,
-        info: "Bolso con su correa para hacerse mochila color rosa",
-        code: "KFA022"
-    },
+    // {
+    //     name: "Bolso juvenil 3 en 1 celeste/amarilla",
+    //     price: 200,
+    //     image: bolsa7,
+    //     info: "Bolso con su correa para hacerse mochila estampado estrellas plateadas.",
+    //     code: "KFA021"
+    // },
+    // {
+    //     name: "Bolso juvenil 3 en 1 color rosa",
+    //     price: 200,
+    //     image: bolsa8,
+    //     info: "Bolso con su correa para hacerse mochila color rosa",
+    //     code: "KFA022"
+    // },
     {
         name: "Bolso juvenil 3 en 1 estampado Myckey",
         price: 200,
@@ -193,23 +193,23 @@ productList.push(
         info: "Bolso Color azul rey con combinaciones amarillas y estampado de estrellas plateadas con su correa para hacerse mochila ",
         code: "KFA024"
     },
-   
-    {
-        name: "Bolsa chica Rosa Palo",
-        price: 150,
-        image: bolsa11,
-        info: "Bolso color rosa Palo con su hermosa correa para que lo lleves a todas partes con medidas de 20cm de largo x 24cm de ancho",
-        code: "KFA041"
-    },
-   
-//    {
-//        name: "Bolsa chica Cafe",
-//        price: 150,
-//        image: bolsa12,
-//        info: "Bolso color cafe con su hermosa correa para que lo lleves a todas partes con medidas de largo 20cm x 24cm de ancho",
-//        code: "KFA042"
-//    },
-   
+
+    // {
+    //     name: "Bolsa chica Rosa Palo",
+    //     price: 150,
+    //     image: bolsa11,
+    //     info: "Bolso color rosa Palo con su hermosa correa para que lo lleves a todas partes con medidas de 20cm de largo x 24cm de ancho",
+    //     code: "KFA041"
+    // },
+
+    //    {
+    //        name: "Bolsa chica Cafe",
+    //        price: 150,
+    //        image: bolsa12,
+    //        info: "Bolso color cafe con su hermosa correa para que lo lleves a todas partes con medidas de largo 20cm x 24cm de ancho",
+    //        code: "KFA042"
+    //    },
+
     {
         name: "Bolsa chica Verde / Menta",
         price: 150,
@@ -224,7 +224,7 @@ productList.push(
         info: "Bolso color Rosa con su hermosa correa para que lo lleves a todas partes con medidas de largo 20cm x 24cm de ancho",
         code: "KFA044"
     },
-   
+
     {
         name: "Bolsa chica Azul Marino",
         price: 150,
@@ -232,21 +232,21 @@ productList.push(
         info: "Bolso color Azul Marino con su hermosa correa para que lo lleves a todas partes con medidas de largo 20cm x 24cm de ancho",
         code: "KFA045"
     },
-   
-    {
-        name: "Bolsa mediana para dama Azul",
-        price: 200,
-        image: bolsa16,
-        info: "Bolsa para hermosa damas tamaño mediano.",
-        code: "KFA061"
-    },
-    {
-        name: "Bolsa mediana para dama Lila",
-        price: 200,
-        image: bolsa17,
-        info: "Bolsa con hermoso Color lila tamaño mediano.",
-        code: "KFA062"
-    },
+
+    // {
+    //     name: "Bolsa mediana para dama Azul",
+    //     price: 200,
+    //     image: bolsa16,
+    //     info: "Bolsa para hermosa damas tamaño mediano.",
+    //     code: "KFA061"
+    // },
+    // {
+    //     name: "Bolsa mediana para dama Lila",
+    //     price: 200,
+    //     image: bolsa17,
+    //     info: "Bolsa con hermoso Color lila tamaño mediano.",
+    //     code: "KFA062"
+    // },
     {
         name: "Bolsa mediana para dama Celeste ",
         price: 200,
@@ -254,45 +254,45 @@ productList.push(
         info: "Bolsa con lineas de colores negra y blanca.",
         code: "KFA063"
     },
-    {
-        name: "Bolsa mediana para dama Amarrilla ",
-        price: 200,
-        image: bolsa19,
-        info: "Bolsa con lineas de color Azul y rosa.",
-        code: "KFA064"
-    },
-    {
-        name: "Bolsa Mediana para dama Mostaza",
-        price: 200,
-        image: bolsa22,
-        info: "Bolsa con color hermoso color Moztaza con su correa para mejor comodidad.",
-        code: "KFA067"
-    },
-    {
-        name: "Bolso Mediano Color Negro",
-        price: 200,
-        image: bolsa25,
-        info: "Bolsa con color hermoso color Negro con su correa para mejor comodidad.",
-        code: "KFA068"
-    },
-   
-   
+    // {
+    //     name: "Bolsa mediana para dama Amarrilla ",
+    //     price: 200,
+    //     image: bolsa19,
+    //     info: "Bolsa con lineas de color Azul y rosa.",
+    //     code: "KFA064"
+    // },
+    // {
+    //     name: "Bolsa Mediana para dama Mostaza",
+    //     price: 200,
+    //     image: bolsa22,
+    //     info: "Bolsa con color hermoso color Moztaza con su correa para mejor comodidad.",
+    //     code: "KFA067"
+    // },
+    // {
+    //     name: "Bolso Mediano Color Negro",
+    //     price: 200,
+    //     image: bolsa25,
+    //     info: "Bolsa con color hermoso color Negro con su correa para mejor comodidad.",
+    //     code: "KFA068"
+    // },
+
+
     //{
-        //name: "Bolsa MaxiBolsa para dama negro/blanco/rojo",
-       // price: 200,
-      //  image: bolsa20,
-     //   info: "Bolsa con 3 colores precioso, con un tamaño un poco mayor alas demas para que lleves todas tus cosas.",
+    //name: "Bolsa MaxiBolsa para dama negro/blanco/rojo",
+    // price: 200,
+    //  image: bolsa20,
+    //   info: "Bolsa con 3 colores precioso, con un tamaño un poco mayor alas demas para que lleves todas tus cosas.",
     //    code: "KFA065"
-  //  },
-   
+    //  },
+
     {
-name: "Bolsa MaxiBolsa para dama Vino",
-price: 200,
-    image: bolsa21,
-    info: "Bolsa con color vino y linea blanca con cafe, con un tamaño un poco mayor alas demas para que lleves todas tus cosas.",
+        name: "Bolsa MaxiBolsa para dama Vino",
+        price: 200,
+        image: bolsa21,
+        info: "Bolsa con color vino y linea blanca con cafe, con un tamaño un poco mayor alas demas para que lleves todas tus cosas.",
         code: "KFA066"
     },
-  //  {
+    //  {
     //    name: "Mochila Juvenil 3 en 1 color Cafe",
     //  price: 200,
     //  image: bolsa221,
@@ -306,7 +306,7 @@ price: 200,
         info: "Bolsa con color hermoso color Moztaza con su correa para mejor comodidad.",
         code: "KFA026"
     },
-   
+
     {
         name: "Bolso chico Color Negro",
         price: 200,
@@ -321,28 +321,29 @@ price: 200,
         info: "Bolsa con color hermoso color Negro y su estilo bordado para resaltar.",
         code: "KFA081"
     },
-    {
-        name: "Bolso estilo Bordado Rosa/Negro",
-        price: 200,
-        image: bolsa27,
-        info: "Bolsa con color hermoso color Rosa y negro y su estilo bordado.",
-        code: "KFA082"
-    },
-    {
-        name: "Bolsa bordada con flores color cafe",
-        price: 200,
-        image: bolsa28,
-        info: "Bolsa con color cafe y su hermoso estilo de flores para este hermoso verano.",
-        code: "KFA083"
-    },
-    {
-        name: "Bolsa bordada roja con flores de colores",
-        price: 200,
-        image: bolsa29,
-        info: "Bolsa con color roja y su hermoso estilo de flores de variado colores para combinar con todo los estilos de ropa.",
-        code: "KFA084"
-    },
-   
+    
+    // {
+    //     name: "Bolso estilo Bordado Rosa/Negro",
+    //     price: 200,
+    //     image: bolsa27,
+    //     info: "Bolsa con color hermoso color Rosa y negro y su estilo bordado.",
+    //     code: "KFA082"
+    // },
+    // {
+    //     name: "Bolsa bordada con flores color cafe",
+    //     price: 200,
+    //     image: bolsa28,
+    //     info: "Bolsa con color cafe y su hermoso estilo de flores para este hermoso verano.",
+    //     code: "KFA083"
+    // },
+    // {
+    //     name: "Bolsa bordada roja con flores de colores",
+    //     price: 200,
+    //     image: bolsa29,
+    //     info: "Bolsa con color roja y su hermoso estilo de flores de variado colores para combinar con todo los estilos de ropa.",
+    //     code: "KFA084"
+    // },
+
 
 );
 
