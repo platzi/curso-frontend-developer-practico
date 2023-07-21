@@ -4,11 +4,14 @@ const hamburgerMenu = document.querySelector('.menu');
 const mobileMenu = document.querySelector('.mobile-menu');
 const menuCartIcon = document.querySelector('.navbar-shopping-cart');
 const shoppingCartContainer = document.querySelector('#shoppingCartContainer');
-const cardsContainer = document.querySelector('.cards-container')
+const productDetailContainer = document.querySelector('#productDetail');
+const productDetailCloseIcon = document.querySelector('#closeAll');
+const cardsContainer = document.querySelector('.cards-container');
 
 navEmail.addEventListener('click', toggleDesktopMenu);
 hamburgerMenu.addEventListener('click', togglehamburgerMenu);
 menuCartIcon.addEventListener('click', toggleCartMenu);
+productDetailCloseIcon.addEventListener('click', closeProductDetailAside);
 
 function toggleDesktopMenu(){
   // navDesktopMenu.classList.remove('inactive') Este lo hice yo pensando en remover la clase
@@ -25,6 +28,8 @@ function togglehamburgerMenu(){
   if(!isshoppingCartContainerClose){
     shoppingCartContainer.classList.add('inactive');
   }
+  
+  closeProductDetailAside();
 
   mobileMenu.classList.toggle('inactive');
 }
@@ -40,10 +45,24 @@ function toggleCartMenu(){
     navDesktopMenu.classList.add('inactive');
   }
 
+  const isProductDetailClose = productDetailContainer.classList.contains('inactive');
+  if(!isProductDetailClose){
+    productDetailContainer.classList.add('inactive');
+  }
+
   shoppingCartContainer.classList.toggle('inactive');
 
 }
 
+function openProductDetailAside(){
+  shoppingCartContainer.classList.add('inactive');
+
+  productDetailContainer.classList.toggle('inactive');
+}
+
+function closeProductDetailAside(){
+  productDetailContainer.classList.add('inactive');
+}
 
 const productList = [];
 productList.push({
@@ -81,6 +100,7 @@ function renderProdcuts(array){
   
     const productImg = document.createElement('img');
     productImg.setAttribute('src', product.image);
+    productImg.addEventListener('click', openProductDetailAside)
     // product = {name,price,image}
   
     const productInfo = document.createElement('div');
