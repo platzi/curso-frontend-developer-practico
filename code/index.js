@@ -179,13 +179,13 @@ productList.push(
     //     info: "Bolso con su correa para hacerse mochila color rosa",
     //     code: "KFA022"
     // },
-    {
-        name: "Bolso juvenil 3 en 1 estampado Myckey",
-        price: 200,
-        image: bolsa9,
-        info: "Bolso con su correa para hacerse mochila color cafe con estampado de Myckey mouse",
-        code: "KFA023"
-    },
+    // {
+    //     name: "Bolso juvenil 3 en 1 estampado Myckey",
+    //     price: 200,
+    //     image: bolsa9,
+    //     info: "Bolso con su correa para hacerse mochila color cafe con estampado de Myckey mouse",
+    //     code: "KFA023"
+    // },
     {
         name: "Bolso juvenil 3 en 1  Azul estampado",
         price: 200,
@@ -194,13 +194,13 @@ productList.push(
         code: "KFA024"
     },
 
-    // {
-    //     name: "Bolsa chica Rosa Palo",
-    //     price: 150,
-    //     image: bolsa11,
-    //     info: "Bolso color rosa Palo con su hermosa correa para que lo lleves a todas partes con medidas de 20cm de largo x 24cm de ancho",
-    //     code: "KFA041"
-    // },
+    {
+        name: "Bolsa chica Rosa Palo",
+        price: 150,
+        image: bolsa11,
+        info: "Bolso color rosa Palo con su hermosa correa para que lo lleves a todas partes con medidas de 20cm de largo x 24cm de ancho",
+        code: "KFA041"
+    },
 
     //    {
     //        name: "Bolsa chica Cafe",
@@ -297,23 +297,23 @@ productList.push(
     //  price: 200,
     //  image: bolsa221,
     //  info: "Bolsa con color hermoso color Moztaza con su correa para mejor comodidad.",
-    //  code: "KFA025"
+    //  code: "KFA023"
     //},
     {
         name: "Mochila Juvenil 3 en 1 color Azul marino",
         price: 200,
         image: bolsa23,
-        info: "Bolsa con color hermoso color Moztaza con su correa para mejor comodidad.",
-        code: "KFA026"
+        info: "Bolsa con color hermoso color marino con su correa para mejor comodidad.",
+        code: "KFA025"
     },
 
-    {
-        name: "Bolso chico Color Negro",
-        price: 200,
-        image: bolsa24,
-        info: "Bolsa con color hermoso color Negro con su correa para mejor comodidad, de material rigido estilo maletin.",
-        code: "KFA056"
-    },
+    // {
+    //     name: "Bolso chico Color Negro",
+    //     price: 200,
+    //     image: bolsa24,
+    //     info: "Bolsa con color hermoso color Negro con su correa para mejor comodidad, de material rigido estilo maletin.",
+    //     code: "KFA046"
+    // },
     {
         name: "Bolso estilo Bordado Azul Marino",
         price: 200,
@@ -321,7 +321,7 @@ productList.push(
         info: "Bolsa con color hermoso color Negro y su estilo bordado para resaltar.",
         code: "KFA081"
     },
-    
+
     // {
     //     name: "Bolso estilo Bordado Rosa/Negro",
     //     price: 200,
