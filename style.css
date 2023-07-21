@@ -111,7 +111,7 @@
     top: 60px;
     right: 3vw;
     background-color: var(--white) ;
-    width: 100px;
+    width: 10vw;
     height: auto;
     border: 1px solid var(--very-light-pink);
     border-radius: 0px 0px 6px 6px;
@@ -155,6 +155,8 @@
     left: 0px;
     width: 100%;
     transition: 400ms;
+    box-shadow: 5px 5px 10px var(--very-light-pink);
+    border-radius: 0 0 10px 10px;
   }
 
   .slide-left{
@@ -201,12 +203,17 @@
 
   #product-detail {
     width: 360px;
+    padding-top: 5px;
     padding-bottom: 24px;
     position: absolute;
     right: 0;
+    box-shadow: 5px 5px 10px var(--very-light-pink);
+    border-radius: 10px;
+    text-align: center;
   }
+
   .product-detail-close {
-    background: var(--white);
+    background: black;
     width: 14px;
     height: 14px;
     position: absolute;
@@ -215,15 +222,21 @@
     z-index: 2;
     padding: 12px;
     border-radius: 50%;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    cursor: pointer;
+    
   }
+  
   #product-detail-close:hover {
     cursor: pointer;
   }
   #product-detail > img:nth-child(2) {
-    width: 100%;
+    width: 97%;
     height: 360px;
-    object-fit: cover;
-    border-radius: 0 0 20px 20px;
+    /*object-fit: cover;*/
+    border-radius: 10px;
   }
   
   .title-container {
@@ -245,7 +258,7 @@
     background-color: var(--text-input-field);
     margin-bottom: 24px;
     border-radius: 8px;
-    padding: 0 24px;
+    padding: 0px 24px;
   }
   .order p:nth-child(1) {
     display: flex;
@@ -263,7 +276,9 @@
 
   /*SHOPPING-CART*/
   #shopping-cart-container{
-    padding: 0 24px;
+    padding: 0 24px 15px 24px;
+    box-shadow: 5px 5px 10px var(--very-light-pink);
+    border-radius: 10px;
   }
 
   .shopping-cart {
@@ -317,16 +332,19 @@
     box-shadow: 5px 5px 10px var(--very-light-pink);
     border-radius: 10px;
     overflow: hidden;
+    padding: 0.5vw;
   }
 
   .product-card img {
-    width: 240px;
+    width: 100%;
     height: 280px;
+    border-radius: 10px;
+    cursor: pointer;
   }
   
   .product-card .product-info {
     display: flex;
-    justify-content: space-around;
+    justify-content: space-between;
     align-items: center;
     margin-top: 12px;
   }
@@ -417,6 +435,7 @@
     }
     .product-card {
       width: 140px;
+      padding: 1px;
     }
     .product-card img {
       width: 140px;
