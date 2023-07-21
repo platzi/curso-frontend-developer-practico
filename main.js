@@ -47,13 +47,31 @@ productList.push({
     name: 'Moto',
     price: 25000,
     imageURL: 'https://media.gq.com.mx/photos/5ff4909934f0ef41de7cf420/16:9/w_2560%2Cc_limit/FOTO%2520PORTADA.jpg',
-    description: 'Moto de dos ruedas muy buena, bonita y barata'
+    description: 'Moto para verte cool muy buena, bonita y barata'
 });
 productList.push({
     name: 'Carro',
     price: 340000,
     imageURL: 'https://cdn.pixabay.com/photo/2021/09/20/23/03/car-6642036_1280.jpg',
-    description: 'Carro de cuatro ruedas muy bueno, bonito y barato'
+    description: 'Carro para nada lujoso muy bueno, bonito y barato'
+});
+productList.push({
+    name: 'Cuatrimoto',
+    price: 45000,
+    imageURL: 'https://radamotors.mx/media/2022/10/955_12616_desktop.jpeg',
+    description: 'Cuatrimoto todoterreno para hacer arrancones muy buena, bonita y barata'
+});
+productList.push({
+    name: 'Camión',
+    price: 1500000,
+    imageURL: 'https://cloudfront-us-east-1.images.arcpublishing.com/infobae/TSA6JK2HYBETRIGJYDHXWSENVQ.jpg',
+    description: 'Camión grande y espacioso muy bueno, bonito y no tan barato'
+});
+productList.push({
+    name: 'Scooter',
+    price: 15000,
+    imageURL: 'https://i.blogs.es/3055fe/xiaomi-mijia-m365-fotos-1/1366_2000.jpg',
+    description: 'Scooter Eléctrico para ciudad. No garantizamos que no te persigan los perros.'
 });
 
 const cardsContainer = document.querySelector('.cards-container');
