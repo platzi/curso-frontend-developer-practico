@@ -6,20 +6,20 @@ const menuMobile = document.querySelector('.menu');
 const mobileMenu = document.querySelector('.mobile-menu');
 /*product detail */
 const shoppingCar = document.querySelector('.navbar-shopping-cart');
-const productDetail = document.querySelector('.product-detail');
+const shoppingCarContainer = document.querySelector('#shoppingCartContainer');
 /*card container*/
 const cardContainer = document.querySelector('.cards-container');
 
 menuEmail.addEventListener('click', toggleDeskMenu);
 function toggleDeskMenu(){
-    productDetail.classList.add('inactive');
+    shoppingCarContainer.classList.add('inactive');
     contDeskMenu.classList.toggle('inactive');
 }
 
 /*Mobile menu */
 menuMobile.addEventListener('click',toggleMobilekMenu);
 function toggleMobilekMenu(){
-    productDetail.classList.add('inactive');
+    shoppingCarContainer.classList.add('inactive');
     mobileMenu.classList.toggle('inactive');
 }
 
@@ -27,7 +27,7 @@ function toggleMobilekMenu(){
 shoppingCar.addEventListener('click', functProductDetail);
 function functProductDetail(){
     mobileMenu.classList.add('inactive');
-    productDetail.classList.toggle('inactive');
+    shoppingCarContainer.classList.toggle('inactive');
 }
 /*product array*/
 const productList = [];
@@ -77,20 +77,6 @@ productList.push ({
     price: 876,
     image: 'https://m.media-amazon.com/images/I/81k2Gmal+VL._AC_SL1500_.jpg'
 }); 
-/*
-   <div class="product-card">
-      <img src="https://images.pexels.com/photos/276517/pexels-photo-276517.jpeg?auto=compress&cs=tinysrgb&dpr=2&h=650&w=940" alt="">
-      <div class="product-info">
-        <div>
-          <p>$120,00</p>
-          <p>Bike</p>
-        </div>
-        <figure>
-          <img src="./icons/bt_add_to_cart.svg" alt="">
-        </figure>
-      </div>
-    </div> */
-//procedemos a recorrer el array para mostrarlo
 for(product of productList){
     const productCard = document.createElement('div');
     productCard.classList.add('product-card'); 
