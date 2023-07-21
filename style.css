@@ -158,7 +158,7 @@
   }
 
   .slide-left{
-    left: -400px;
+    left: -100%;
   }
 
   .mobile-menu a {

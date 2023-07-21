@@ -2,7 +2,9 @@ const menuEmail = document.querySelector('.navbar-email');
 const desktopMenu = document.querySelector('.desktop-menu');
 const menuHambIcon = document.querySelector('.menu');
 const menuCarritoIcon = document.querySelector('.navbar-shopping-cart');
+const productDetailCloseIcon = document.querySelector('.product-detail-close');
 const shoppingCartContainer = document.querySelector('#shopping-cart-container');
+const productDetailContainer = document.querySelector('#product-detail');
 const mobileMenu = document.querySelector('.mobile-menu');
 const cardsContainer = document.querySelector('.cards-container');
 
@@ -10,6 +12,7 @@ const cardsContainer = document.querySelector('.cards-container');
 menuEmail.addEventListener('click', toggleDesktopMenu);
 menuHambIcon.addEventListener('click', toggleMobileMenu);
 menuCarritoIcon.addEventListener('click', toggleCarritoAside);
+productDetailCloseIcon.addEventListener('click', closeProductDetailAside);
 
 function toggleDesktopMenu(){
 
@@ -25,14 +28,16 @@ function toggleMobileMenu(){
     const isAsideClosed = shoppingCartContainer.classList.contains('inactive');
     if (!isAsideClosed) {
         shoppingCartContainer.classList.add('inactive');
+        
     }
-    
+    closeProductDetailAside();
     mobileMenu.classList.toggle('slide-left');
 }
 
 function toggleCarritoAside(){
     const isMobileMenuClosed = mobileMenu.classList.contains('slide-left');
     const isDesktopMenuClosed = desktopMenu.classList.contains('inactive');
+    const isProductDetailClosed = productDetailContainer.classList.contains('inactive');
 
    if (!isMobileMenuClosed) {
         mobileMenu.classList.add('slide-left');
@@ -42,10 +47,25 @@ function toggleCarritoAside(){
         desktopMenu.classList.add('inactive');
     }
 
+    if (!isProductDetailClosed) {
+        productDetailContainer.classList.add('inactive');
+    }
+
     shoppingCartContainer.classList.toggle('inactive');
 }
 
+function openProductDetailAside(){
+    shoppingCartContainer.classList.add('active');
+    mobileMenu.classList.add('slide-left');
+    productDetailContainer.classList.remove('inactive');
+}
+
+function closeProductDetailAside(){
+    productDetailContainer.classList.add('inactive');
+}
+
 const productList = [];
+
 productList.push({
     name: 'Bike',
     price: '120',
@@ -106,14 +126,13 @@ productList.push({
 
 function renderProducts(arr){
     for (product of arr){
-        //Forma del Profesor
-
-       /*const productCard = document.createElement('div');
+       
+        const productCard = document.createElement('div');
         productCard.classList.add('product-card');
 
         const productImg = document.createElement('img');
         productImg .setAttribute('src', product.image);
-
+        productImg.addEventListener('click', openProductDetailAside);
         const productInfo = document.createElement('div');
         productInfo.classList.add('product-info');
 
@@ -140,23 +159,8 @@ function renderProducts(arr){
         productCard.appendChild(productImg);
         productCard.appendChild(productInfo);
 
-        cardsContainer.appendChild(productCard);*/
+        cardsContainer.appendChild(productCard);
 
-    //Forma Propia.   
-    const productCard = `<div class="product-card">
-        <img src= ${product.image}>
-        <div class="product-info">
-        <div>
-            <p>$ ${product.price}</p>
-            <p>${product.name}</p>
-        </div>
-        <figure>
-        <img src="./icons/bt_add_to_cart.svg" alt="">
-        </figure>
-        </div>
-    </div>`
-
-   cardsContainer.innerHTML += productCard;
    }
 }
 
