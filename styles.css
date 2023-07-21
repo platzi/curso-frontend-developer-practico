@@ -312,13 +312,13 @@ nav {
 }
 
 .product-info figure {    
+    margin-top: 0;
+    margin-bottom: 8px;
+    margin-left: 0;
     margin-right: 8px;
-    margin-bottom: 16px;
-    margin-top: 8px;
 }
 
 .product-info figure img {
-    align-items: center;
     width: 35px;
     height: 35px;
 }

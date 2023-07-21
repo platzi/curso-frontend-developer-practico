@@ -46,7 +46,7 @@ productList.push({
 productList.push({
     name: 'Moto',
     price: 25000,
-    imageURL: 'https://m.media-amazon.com/images/I/71iqabw1iXL._AC_SL1500_.jpg',
+    imageURL: 'https://media.gq.com.mx/photos/5ff4909934f0ef41de7cf420/16:9/w_2560%2Cc_limit/FOTO%2520PORTADA.jpg',
     description: 'Moto de dos ruedas muy buena, bonita y barata'
 });
 productList.push({
