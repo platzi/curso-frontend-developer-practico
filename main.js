@@ -4,7 +4,7 @@ const menuEmail = document.querySelector ('.navbar-email')
 const hambIconMenu = document.querySelector ('.menu')
 const mobileMenu = document.querySelector ('.mobile-menu')
 
-const menuCarrito = document.querySelector ('.product-detail')
+const menuCarrito = document.querySelector ('#shoppingCartContainer')
 const carritobtn = document.querySelector ('.navbar-shopping-cart')
 
 const cardsContainer = document.querySelector('.cards-container')
