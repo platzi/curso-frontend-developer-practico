@@ -342,6 +342,9 @@ aside {
   align-items: center;
   margin-top: 12px;
 }
+
+
+
 .cards-container .product-info figure {
   margin: 0;
 }
@@ -402,4 +405,11 @@ aside {
     width: 140px;
     height: 140px;
   }
+
+  .cards-container .product-info div{
+
+  width: 100%;
+  display: flex;
+  flex-direction: column;
+}
 }
