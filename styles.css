@@ -345,10 +345,7 @@
     margin-bottom: 0;
     color: var(--very-light-pink);
   }
-  @media (max-width: 640px) {
-    
-  }
-
+  
   @media (max-width: 640px) {
     .menu {
       display: block;
@@ -374,6 +371,9 @@
     .product-card img {
       width: 140px;
       height: 140px;
+    }
+    #productDetail {
+      margin: 0;
     }
   }
   @media (min-width: 641px){
