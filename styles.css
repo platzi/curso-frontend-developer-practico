@@ -208,6 +208,8 @@ aside {
     gap: 16px;
     margin-bottom: 24px;
     align-items: center;
+    margin-right: 15px;
+    margin-left: 15px;
 }
 .shopping-cart figure {
     margin: 0;
