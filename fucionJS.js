@@ -1,10 +1,36 @@
 // EN ESTE EJEMPLO RELIZAMOS UNA FUNCION COMO OCULTAR Y APARECER UN MENU UTILIZANDO UN NUEVO ELEMENTO (toggle) COMO VEMOS EN EL EJEMPLO TAMBIEN UTILIZAMOS (addEventListener) 
 
 
-const navbarEmail = document.querySelector(`.navbar-email`);
+// const menuEmail = document.querySelector(`.navbar-email`);
+// const desktopMenu = document.querySelector(`.desktop-menu`);
+// const menuHamIcon = document.querySelector(`.menu`);
+// const mobileMenu = document.querySelector(`.mobile-menu`);
+
+// menuEmail.addEventListener(`click`, toggleDesktopMenu);
+// menuHamIcon.addEventListener(`click`, toggleMobileMenu);
+
+// function toggleDesktopMenu() {
+//     desktopMenu.classList.toggle(`inactive`);
+// }
+
+
+// function toggleMobileMenu() {
+//     mobileMenu.classList.toggle(`inactive`);
+// }
+
+const menuEmail = document.querySelector(`.navbar-email`);
 const desktopMenu = document.querySelector(`.desktop-menu`);
-navbarEmail.addEventListener(`click`, toggleDesktopMenu);
+const menuHamIcon = document.querySelector(`.menu`);
+const mobileMenu = document.querySelector(`.mobile-menu`);
+
+menuEmail.addEventListener(`click`, toggleDesktopMenu);
+menuHamIcon.addEventListener(`click`, toggleMobileMenu );
 
 function toggleDesktopMenu() {
     desktopMenu.classList.toggle(`inactive`);
 }
+
+function toggleMobileMenu() {
+    mobileMenu.classList.toggle(`inactive`);
+}
+
