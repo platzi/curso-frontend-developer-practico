@@ -366,4 +366,7 @@
     .navbar-shopping-cart {
         cursor: pointer;
     }
+    .product-card img {
+        cursor: pointer;
+    }
   }
