@@ -267,6 +267,8 @@ nav {
   color: var(--very-light-pink);
 }
 
+/* Product Details */
+
 @media (max-width: 640px) {
   .menu {
     display: block;
