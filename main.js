@@ -46,6 +46,8 @@ function toggleMobileMenu() {
     }
     mobilemenu.classList.toggle('inactive');
 
+    closeProductDetailAside();
+
 }
 
 menucarrito.addEventListener('click', toggleNavegacionCompras);
@@ -60,7 +62,14 @@ function toggleNavegacionCompras() {
         mobilemenu.classList.add('inactive');
     }
 
+    const isProductDetailClosed = productDetailContainer.classList.contains('inactive');
+
+
+    if (!isProductDetailClosed) {
+        productDetailContainer.classList.add('inactive');
+    }
     shoppingCartContainer.classList.toggle('inactive');
+
 
 }
 
@@ -133,6 +142,7 @@ productList.push({
 */
 
 function openProductDetailAside(){
+    shoppingCartContainer.classList.add('inactive');
     productDetailContainer.classList.remove('inactive');
 }
 
