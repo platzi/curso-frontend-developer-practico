@@ -10,8 +10,6 @@ const productDetailContainer = document.querySelector('#product-detail');
 const cardsContainer = document.querySelector('.cards-container');
 
 
-
-
 menuEmail.addEventListener('click', toggleDesktopMenu);
 /*
 menuEmail.addEventListener('click', toggleDesktopMenu);: 

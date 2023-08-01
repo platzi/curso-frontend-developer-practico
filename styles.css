@@ -153,7 +153,7 @@ nav {
   width: 100%;
   top: 60px;
   padding: 24px;
-  background-color: var(--white);
+  background-color: #ACD9B2;
   
 }
 
@@ -204,7 +204,10 @@ aside {
 /* ShoppingCart */
 
 #shoppingCartContainer{
-  padding: 0 24px;
+  padding: 0 24px 20px;
+  background-color: white;
+  border: 1px solid var(--very-light-pink);
+  border-radius: 2%;
 }
 
 .title-container {
