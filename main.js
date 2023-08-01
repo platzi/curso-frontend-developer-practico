@@ -11,24 +11,30 @@ menuBurger.addEventListener(`click`, toggleMobileMenu);
 menuCarrito.addEventListener(`click`, toggleCarritoAside);
 
 function toggleDesktopMenu() {
+    const isAsideClosed = aside.classList.contains ('inactive');
+
+    if (!isAsideClosed){
+        aside.classList.add('inactive');
+    }
+
     desktopMenu.classList.toggle(`inactive`);
 }
 
 function toggleMobileMenu() {
-    const isAsideClosed = aside.classList.contains('inactive')
+    const isAsideClosed = aside.classList.contains('inactive');
 
     if (!isAsideClosed){
-        aside.classList.add('inactive')
+        aside.classList.add('inactive');
     }
 
-    mobileMenu.classList.toggle('inactive')
+    mobileMenu.classList.toggle('inactive');
 }
 
 function toggleCarritoAside() {
     const isMobileMenuClose = mobileMenu.classList.contains('inactive');
 
     if (!isMobileMenuClose){
-        mobileMenu.classList.add('inactive')
+        mobileMenu.classList.add('inactive');
     }
 
     aside.classList.toggle(`inactive`);

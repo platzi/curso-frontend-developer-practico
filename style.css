@@ -157,7 +157,7 @@
 
 /* Aside (product detaiil y carrito) */
 .product-detail {
-    background-color: var (--white);
+    background-color: var(--white);
     width: 360px;
     padding: 0 24px;
     box-sizing: border-box;
