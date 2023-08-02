@@ -16,6 +16,8 @@ body {
   font-family: 'Quicksand', sans-serif;
 }
 
+
+
 .inactive {
   display: none;
 }
@@ -193,12 +195,13 @@ nav {
 aside {
   background-color: var(--white);
   cursor: pointer;
-  top: 60px;
+ height: 84%;
   width: 360px;
- 
+  top: 50%; /* Cambiar "top" a 50% para centrar verticalmente */
+  left: 50%; /* Agregar "left" a 50% para centrar horizontalmente */
   box-sizing: border-box;
   position: absolute;
-  right: 0;
+  transform: translate(-50%, -50%); /* Agregar "transform" para ajustar el centro del elemento */
 }
 
 /* ShoppingCart */
@@ -207,7 +210,7 @@ aside {
   padding: 0 24px 20px;
   background-color: white;
   border: 1px solid var(--very-light-pink);
-  border-radius: 2%;
+  border-radius: 6px;
 }
 
 .title-container {
@@ -291,6 +294,25 @@ aside {
 }
 
 /* Productos Detail */
+
+/* Estilos para oscurecer el fondo cuando se abre el product-detail */
+.overlay {
+  position: fixed;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 100%;
+  background-color: rgba(0, 0, 0, 0.5); /* Este valor controla la opacidad del oscurecimiento */
+  z-index: 9999; /* Asegura que la superposición aparezca por encima de otros elementos */
+  display: none; /* Inicialmente, el overlay estará oculto */
+}
+
+/* Estilo para mostrar el detalle del producto */
+.product-detail-open .overlay {
+  display: block;
+}
+
+
 .product-detail-close {
   background: var(--white);
   width: 14px;

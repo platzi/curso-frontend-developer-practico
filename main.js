@@ -8,7 +8,7 @@ const productDetailCloseIcon = document.querySelector('.product-detail-close');
 const shoppingCartContainer = document.querySelector('#shoppingCartContainer');
 const productDetailContainer = document.querySelector('#product-detail');
 const cardsContainer = document.querySelector('.cards-container');
-
+const overlay = document.querySelector('.overlay');
 
 menuEmail.addEventListener('click', toggleDesktopMenu);
 /*
@@ -142,10 +142,13 @@ productList.push({
 function openProductDetailAside(){
     shoppingCartContainer.classList.add('inactive');
     productDetailContainer.classList.remove('inactive');
+    overlay.classList.add('product-detail-open');
 }
 
 function closeProductDetailAside(){
     productDetailContainer.classList.add('inactive');
+      // Remover la clase del elemento de superposición en lugar del body
+  overlay.classList.remove('product-detail-open');
 }
 
 function renderProduct(arr){
@@ -232,4 +235,18 @@ for (product of productList){
     cardsContainer.appendChild(productCard);
 }
 */
+
+
+  
+
+
+
+
+
+
+
+
+
+
+
 
