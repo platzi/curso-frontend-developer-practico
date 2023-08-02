@@ -1,5 +1,5 @@
-# curso-frontend-javascript-developer-practico
+# Store
 Webpage: 
 https://lautiayub.github.io/curso-frontend-javascript-developer-practico/
 
-Curso en el que desarrollé la primer parte de una app de ventas
+En este proyecto desarrollé la primer parte de una app de ventas.
