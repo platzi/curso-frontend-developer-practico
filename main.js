@@ -4,8 +4,9 @@ const mobileMenu = document.querySelector('.mobile-menu');
 const menuHamIcon = document.querySelector('.menu');
 const menuCarritoIcon = document.querySelector('.navbar-shopping-cart');
 const shoppingCartContainer = document.querySelector('#shoppingCartContainer');
-
+const productDetailContainer = document.querySelector('#productDetail');
 const cardsContainer = document.querySelector('.cards-container');
+const productDetailClose = document.querySelector('.product-detail-close');
 //creacion de productos 
 const productList = [];
 productList.push({
@@ -32,9 +33,11 @@ window.onload = renderProducts(productList);
 menuEmail.addEventListener('click', toggleDesktopMenu);
 menuHamIcon.addEventListener('click', toggleMobileMenu);
 menuCarritoIcon.addEventListener('click',toggleCarritoAside);
-
+productDetailClose.addEventListener('click', detailClose);
 function toggleDesktopMenu() {
-    desktopMenu.classList.toggle('inactive');
+    productDetailContainer.classList.add('inactive');
+    desktopMenu.classList.toggle('inactive');  
+
 }
 
 //MENU LATERAL
@@ -43,6 +46,9 @@ function toggleMobileMenu() {
     const isAsideClosed = shoppingCartContainer.classList.contains('inactive');
     console.log(isAsideClosed);
     
+    //PARA ABRIR EL MENU MOBILE TAMBIEN HABRA QUE CERRAR OTRAS OPCIONES ABIERTAS COMO LOS DETALLES DEL CARRITO
+    detailClose();
+
     //SI EL VALOR EL VALOR DEL ASIDE DEL CARRITO ES NEGATIVO 'ESTA CERRADO' SE 
     //PROCEDE A ABRIR AÑADIENDO LA CLASE INACTIVE PARA SU VISIBILIDAD
     if(!isAsideClosed){
@@ -50,6 +56,21 @@ function toggleMobileMenu() {
     }
     //SI 
     mobileMenu.classList.toggle('inactive');
+}
+
+
+//funcion para abrir los detalles de un producto
+function openProductDetailAside(){
+    //antes de abrir los detalles del carrito, primero cerramos cualquier pestaña en este caso la del carrito ya que esto puede genenrar problemas al usuario
+    shoppingCartContainer.classList.add('inactive');
+    //Le quitamos le inactive de tal manera que permita quitar el display none y puedamos ver los detalles
+    productDetailContainer.classList.remove('inactive');
+    //cerrar la lista de opciones del email para escritorio
+    desktopMenu.classList.add('inactive');
+}
+//funcion para cerrar los detalles de un producto
+function detailClose(){
+    productDetailContainer.classList.add('inactive');
 }
 
 //MENU CARRITO DETALLES
@@ -65,10 +86,18 @@ function toggleCarritoAside(){
         mobileMenu.classList.add('inactive');
     }
     //DE LO CONTRARIO SE APLICA DE IGUAL FORMA EL ESTADO INACTIVE
-    
     shoppingCartContainer.classList.toggle('inactive');
+
+    
+    const isProductDetailClose = productDetailContainer.classList.contains('inactive');
+    
+    if(!isProductDetailClose){
+        productDetailContainer.classList.add('inactive');
+    }
     
 }
+
+
 
 function renderProducts(producto){
 
@@ -94,7 +123,7 @@ function renderProducts(producto){
     const productImg = document.createElement('img'); 
     //metodo para añadir una imagen
     productImg.setAttribute('src', producto.imagen);
-    
+    productImg.addEventListener('click', openProductDetailAside);
     
     
     

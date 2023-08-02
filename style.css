@@ -161,7 +161,8 @@ aside {
 
 /*shoppingCart*/
 #shoppingCartContainer{
-  padding: 0 24p
+  padding: 0 20px;
+  background-color: white;
 }
   .title-container {
     display: flex;
@@ -204,13 +205,16 @@ aside {
     align-items: center;
   }
   .shopping-cart figure {
-    margin: 0;
+    margin: 0 0 20px 0;
   }
   .shopping-cart figure img {
     width: 70px;
     height: 70px;
     border-radius: 20px;
     object-fit: cover;
+  }
+  .shopping-cart p{
+    margin: 25px 0 0 25px;
   }
   .shopping-cart p:nth-child(2) {
     color: var(--very-light-pink);
