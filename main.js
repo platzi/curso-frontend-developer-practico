@@ -5,7 +5,7 @@ const menu = document.querySelector(".menu")
 const mobileMenu= document.querySelector(".mobile-menu")
 
 const shoppingCart = document.querySelector(".navbar-shopping-cart")
-const productDetail = document.querySelector(".product-detail")
+const shoppingCartContainer = document.querySelector("#shopping-cart-container")
 
 const cardsContainer = document.querySelector(".cards-container")
 
@@ -18,10 +18,10 @@ function toggleMenu(){
 menu.addEventListener("click", toggleMobileMenu)
 
 function toggleMobileMenu(){
-  const productDetailClass = productDetail.classList
+  const shoppingCartContainerClass = shoppingCartContainer.classList
 
-  if (!productDetailClass.contains('inactive')) {
-    productDetailClass.toggle('inactive')
+  if (!shoppingCartContainerClass.contains('inactive')) {
+    shoppingCartContainerClass.toggle('inactive')
   }
 
   mobileMenu.classList.toggle('inactive')
@@ -36,7 +36,7 @@ function toggleShoppingCar(){
     mobileClass.toggle('inactive')
   }
 
-  productDetail.classList.toggle('inactive')
+  shoppingCartContainer.classList.toggle('inactive')
 }
 
 const productList = [];
