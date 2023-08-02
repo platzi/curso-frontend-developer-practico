@@ -3,7 +3,7 @@ const desktopMenu = document.querySelector('.desktop-menu');
 const mobileMenu = document.querySelector('.mobile-menu');
 const menuHamIcon = document.querySelector('.menu');
 const menuCarritoIcon = document.querySelector('.navbar-shopping-cart');
-const aside = document.querySelector('.product-detail');
+const shoppingCartContainer = document.querySelector('#shoppingCartContainer');
 
 const cardsContainer = document.querySelector('.cards-container');
 //creacion de productos 
@@ -42,13 +42,13 @@ function toggleDesktopMenu() {
 //MENU LATERAL
 function toggleMobileMenu() {
     //CREAMOS UNA VARIABLE PARA UBICAR EL VALOR BOOLEANO DE SU INACTIVE 
-    const isAsideClosed = aside.classList.contains('inactive');
+    const isAsideClosed = shoppingCartContainer.classList.contains('inactive');
     console.log(isAsideClosed);
     
     //SI EL VALOR EL VALOR DEL ASIDE DEL CARRITO ES NEGATIVO 'ESTA CERRADO' SE 
     //PROCEDE A ABRIR AÑADIENDO LA CLASE INACTIVE PARA SU VISIBILIDAD
     if(!isAsideClosed){
-        aside.classList.add('inactive');    
+        shoppingCartContainer.classList.add('inactive');    
     }
     //SI 
     mobileMenu.classList.toggle('inactive');
@@ -68,7 +68,7 @@ function toggleCarritoAside(){
     }
     
     
-    aside.classList.toggle('inactive');
+    shoppingCartContainer.classList.toggle('inactive');
     
 }
 
