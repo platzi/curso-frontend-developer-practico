@@ -1,30 +1,47 @@
 const menuEmail = document.querySelector('.navbar-email');
 const menuHamIcon = document.querySelector('.menu');
 const menuCarritoIcon = document.querySelector('.navbar-shopping-cart');
+const productDetailCloseIcon = document.querySelector('.product-detail-close')
 const desktopMenu = document.querySelector('.desktop-menu');
 const mobileMenu = document.querySelector('.mobile-menu');
 const shoppingCartContainer = document.querySelector('#shoppingCartContainer');
+const productDetailContainer = document.querySelector('#productDetail');
 const cardsContainer = document.querySelector('.cards-container');
 
-menuEmail.addEventListener('click', toggleDesktopMenu);
-menuHamIcon.addEventListener('click', toggleMobileMenu);
-menuCarritoIcon.addEventListener('click', toggleCarritoAside);
 
 function toggleDesktopMenu() {
+  productDetailContainer.classList.add('inactive')
   shoppingCartContainer.classList.add('inactive')
   desktopMenu.classList.toggle('inactive')
 }
 
 function toggleMobileMenu() {
+  productDetailContainer.classList.add('inactive')
   shoppingCartContainer.classList.add('inactive')
   mobileMenu.classList.toggle('inactive')
 }
 
 function toggleCarritoAside() {
+  productDetailContainer.classList.add('inactive')
   mobileMenu.classList.add('inactive')
   desktopMenu.classList.add('inactive')
   shoppingCartContainer.classList.toggle('inactive')
 }
+
+const openProductDetailAside = () => {
+  desktopMenu.classList.add('inactive')
+  shoppingCartContainer.classList.add('inactive')
+  productDetailContainer.classList.remove('inactive')
+}
+
+const closeProductDetailAside = () => {
+  productDetailContainer.classList.add('inactive')
+}
+
+menuEmail.addEventListener('click', toggleDesktopMenu);
+menuHamIcon.addEventListener('click', toggleMobileMenu);
+menuCarritoIcon.addEventListener('click', toggleCarritoAside);
+productDetailCloseIcon.addEventListener('click', closeProductDetailAside);
 
 const productList = [];
 productList.push({
@@ -43,6 +60,7 @@ productList.push({
   image: 'https://images.pexels.com/photos/276517/pexels-photo-276517.jpeg?auto=compress&cs=tinysrgb&dpr=2&h=650&w=940',
 });
 
+
 function renderProducts(arr) {
   for (product of arr) {
     const productCard = document.createElement('div');
@@ -51,6 +69,7 @@ function renderProducts(arr) {
     // product= {name, price, image} -> product.image
     const productImg = document.createElement('img');
     productImg.setAttribute('src', product.image);
+    productImg.addEventListener('click', openProductDetailAside);
   
     const productInfo = document.createElement('div');
     productInfo.classList.add('product-info');
