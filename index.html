@@ -15,7 +15,7 @@
 
 <body>
   
-  <nav>
+  <nav class="no-overlay">
     <img src="./icons/icon_menu.svg" alt="menu" class="menu" onclick="toggleMenuIcon()">
 
     <div class="navbar-left">
@@ -55,7 +55,7 @@
     </div>
 
 
-    <div class="overlay"> <!-- Agrega esta línea -->
+    
     <div class="desktop-menu inactive">
       <ul>
         <li>
@@ -123,6 +123,8 @@
         <p class="title">Mis órdenes</p>
       </div>
 
+
+        <!-- Menu de Shopping Car-->
       <div class="my-order-content">
         <div class="shopping-cart">
           <figure>
@@ -165,13 +167,14 @@
         </div>
 
         <button class="primary-button">
-          Checkout
+          Comprar
         </button>
       </div>
       </div>
     </aside>
 
-    <aside id="product-detail" class="inactive">
+    
+    <aside id="product-detail" class="inactive no-overlay">
       <div class="product-detail-close">
         <img src="./icons/icon_close.png" alt="close">
       </div>
@@ -190,6 +193,8 @@
     </aside>
 
   </nav>
+
+  <div class="overlay inactive" id="overlay"></div>
 
   <section class="main-container">
     <div class="cards-container">
@@ -215,9 +220,9 @@
 
     </div>
   </section>
-</div>
+ 
   <script src="./main.js"></script>
-  
+
 </body>
 
 </html>

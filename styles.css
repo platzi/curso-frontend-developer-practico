@@ -296,22 +296,58 @@ aside {
 /* Productos Detail */
 
 /* Estilos para oscurecer el fondo cuando se abre el product-detail */
+
+
+/* Estilos generales para el overlay */
 .overlay {
   position: fixed;
   top: 0;
   left: 0;
   width: 100%;
   height: 100%;
-  background-color: rgba(0, 0, 0, 0.5); /* Este valor controla la opacidad del oscurecimiento */
-  z-index: 9999; /* Asegura que la superposición aparezca por encima de otros elementos */
-  display: none; /* Inicialmente, el overlay estará oculto */
+  background-color: rgba(0, 0, 0, 0.5);
+  z-index: 9999;
+  display: none;
 }
 
-/* Estilo para mostrar el detalle del producto */
-.product-detail-open .overlay {
+/* Estilos para activar el overlay */
+.overlay-active {
   display: block;
 }
 
+/* Asegurar que el overlay esté por encima del resto del contenido */
+.overlay-active ~ * {
+  pointer-events: none;
+}
+
+/* Asegurar que el carrito de compras esté por encima del overlay */
+.product-detail-open {
+  z-index: 10000;
+}
+
+
+/* Estilos para el fondo del detalle de producto abierto */
+.no-overlay.product-detail-open {
+  background-color: white;
+}
+
+
+/* Estilos para el fondo oscurecido cuando se abre el detalle del producto */
+.active {
+  display: block;
+  background-color: rgba(0, 0, 0, 0.5); /* Este valor controla la opacidad del fondo oscurecido */
+  position: absolute;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 100%;
+}
+
+/* Estilos para el fondo oscurecido cuando se abre el detalle del producto, pero sin afectar al nav */
+.active:not(#product-detail) {
+  background-color: rgba(0, 0, 0, 0.5);
+}
+ 
 
 .product-detail-close {
   background: var(--white);

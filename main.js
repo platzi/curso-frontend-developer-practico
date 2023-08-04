@@ -10,6 +10,10 @@ const productDetailContainer = document.querySelector('#product-detail');
 const cardsContainer = document.querySelector('.cards-container');
 const overlay = document.querySelector('.overlay');
 
+
+
+
+
 menuEmail.addEventListener('click', toggleDesktopMenu);
 /*
 menuEmail.addEventListener('click', toggleDesktopMenu);: 
@@ -139,18 +143,18 @@ productList.push({
     </div>
 */
 
-function openProductDetailAside(){
-    shoppingCartContainer.classList.add('inactive');
+function openProductDetailAside() {
+    productDetailContainer.classList.add('product-detail-open');
     productDetailContainer.classList.remove('inactive');
-    overlay.classList.add('product-detail-open');
-}
-
-function closeProductDetailAside(){
+    overlay.classList.add('active'); // Cambia 'overlay-active' por 'active'
+  }
+  
+  function closeProductDetailAside() {
+    shoppingCartContainer.classList.remove('product-detail-open');
     productDetailContainer.classList.add('inactive');
-      // Remover la clase del elemento de superposición en lugar del body
-  overlay.classList.remove('product-detail-open');
-}
-
+    overlay.classList.remove('active'); // Cambia 'overlay-active' por 'no active'
+  }
+  
 function renderProduct(arr){
     for (product of arr){
         const productCard = document.createElement('div');
