@@ -1,9 +1,11 @@
 let nav_email = document.querySelector(".navbar-email");
 let desktopMenu = document.querySelector(".desktop-menu");
-let MovileMenu = document.querySelector(".mobile-menu")
-let menuMovile = document.querySelector(".menu")
-let detalleProducto = document.querySelector(".product-detail")
-let carritoCompras = document.querySelector(".navbar-shopping-cart")
+let MovileMenu = document.querySelector(".mobile-menu");
+let menuMovile = document.querySelector(".menu");
+let detalleProducto = document.querySelector(".product-detail");
+let carritoCompras = document.querySelector(".navbar-shopping-cart");
+let cardsContainer = document.querySelector(".cards-container");
+let otros = document.querySelector(".otros");
 
 let mostrarcarrito = detalleProducto.classList.contains("inactive")
 let mostrarMenuDesktop = desktopMenu.classList.contains("inactive")
@@ -48,5 +50,102 @@ function aparacerDetalleDeCompra()
 
    detalleProducto.classList.toggle("inactive")  
 }
+
+// Insertr array Aquí se crean los productos y la spropiedades que tiene cada uno de ellos.
+
+let productList = [];
+
+productList.push ({
+   name: "Bike",
+   price: 120,
+   image: "https://images.pexels.com/photos/276517/pexels-photo-276517.jpeg?auto=compress&cs=tinysrgb&dpr=2&h=650&w=940",
+});
+
+productList.push ({
+   name: "Tires",
+   price: 90,
+   image: "https://images.pexels.com/photos/276517/pexels-photo-276517.jpeg?auto=compress&cs=tinysrgb&dpr=2&h=650&w=940",
+});
+
+productList.push ({
+   name: "Breaks",
+   price: 30,
+   image: "https://images.pexels.com/photos/276517/pexels-photo-276517.jpeg?auto=compress&cs=tinysrgb&dpr=2&h=650&w=940",
+});
+
+
+// esta es la estructura del contenido que debe aparecer en HTML
+
+// div class="product-card">
+//         <img src="https://images.pexels.com/photos/276517/pexels-photo-276517.jpeg?auto=compress&cs=tinysrgb&dpr=2&h=650&w=940" alt="">
+//         <div class="product-info">
+//           <div>
+//             <p>$120,00</p>
+//             <p>Bike</p>
+//           </div>
+//           <figure>
+//             <img src="./icons/bt_add_to_cart.svg" alt="">
+//           </figure>
+//         </div>
+//       </div>
+
+
+// Se puede meter el ciclo for dentro de una función, para poder reutilizar el ciclo en cualquier otra parte del proyecto
+
+
+
+
+function renderProducts (productList)
+
+// Crea un producto de la lista de productos, el producto es crear la estructura HTML 
+
+{
+   for (product of productList)
+{
+   // Creación del div contenedor product card
+   let productCard = document.createElement("div");
+   productCard.classList.add("product-card");
+   // Creación de la imagen, en este caso no se adiciona una clase, en cambio se añade el atributo e buscar la imagen y
+   //  la propiedad image
+
+   let imagens = document.createElement("img");
+   imagens.setAttribute("src" , product.image);
+
+   // Creación del div de la información del producto
+   let productInfo = document.createElement("div");
+   productInfo.classList.add("product-info");
+   
+// Creación del div contenedor product card
+   let datosProduct = document.createElement("div");
+    
+   let productPrice = document.createElement("p");
+   productPrice.innerText = "$" + product.price
+
+   let productName = document.createElement("p");
+   productName.innerText =  product.name
+
+   let productFigure = document.createElement("figure");
+   let productFigureImage = document.createElement("img");
+   productFigureImage.setAttribute("src" , "./icons/bt_add_to_cart.svg" );
+
+   productFigure.appendChild(productFigureImage);
+    
+   datosProduct.appendChild(productName);
+   datosProduct.appendChild(productPrice);
+
+   productInfo.appendChild(datosProduct);
+   productInfo.appendChild(productFigure);
+
+   productCard.appendChild(imagens);
+   productCard.appendChild(productInfo);
+
+   cardsContainer.appendChild(productCard);
+}
+
+}
+
+otros.addEventListener("click" , renderProducts);
+
+
 
 
