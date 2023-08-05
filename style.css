@@ -18,7 +18,7 @@ body {
     display: none;
 }
 
- /* NAvbar (general)  */
+ /* Navbar (general)  */
 
 nav {
     display: flex;
@@ -126,6 +126,7 @@ display: inline-block;
 
 /* Mobile menu */
 .mobile-menu {
+    background-color: var(--white);
     position: absolute;
     top: 60px;
     padding: 24px;
@@ -159,6 +160,7 @@ color: var(--hospital-green) !important;
 /* Aside (product detail y carrito */
 
 .product-detail {
+    background-color: var(--white);
     width: 360px;
     padding: 24px;
     box-sizing: border-box;
