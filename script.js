@@ -5,11 +5,15 @@ const menuMobile = document.querySelector('.mobile-menu')
 const aside = document.querySelector('.product-detail')
 const menuCarritoIcon = document.querySelector('.navbar-shopping-cart')
 const cardsContainer = document.querySelector('.cards-container')
+const productDetailSecundary = document.querySelector('.product-detail-secundary')
+const productDetailSecundaryIcon = document.querySelector('.product-detail-close')
 
 
 menuEmail.addEventListener('click', toggleDesktopMenu);
 menuBurger.addEventListener('click', toggleMobileMenu);
 menuCarritoIcon.addEventListener('click', toggleCarritoAside)
+productDetailSecundaryIcon.addEventListener('click', closeProductDetailSecundary);
+
 
 function toggleDesktopMenu(){
     const isAsideClosed = aside.classList.contains('inactive')
@@ -29,6 +33,8 @@ function toggleMobileMenu(){
         aside.classList.add('inactive')
     }
 
+    closeProductDetailSecundary()
+
     menuMobile.classList.toggle('inactive');
 }
 
@@ -39,9 +45,26 @@ function toggleCarritoAside(){
         menuMobile.classList.add('inactive')
     }
 
+    const isProductDetailSecundaryClosed = productDetailSecundary.classList.contains('inactive')
+
+    if(!isProductDetailSecundaryClosed){
+        productDetailSecundary.classList.add('inactive')
+    }
+
     aside.classList.toggle('inactive')
 }
 
+function openProductDetailSecundary(){
+
+    aside.classList.add('inactive')
+
+    productDetailSecundary.classList.remove('inactive')
+}
+
+function closeProductDetailSecundary(){
+    productDetailSecundary.classList.add('inactive')
+
+}
 
 
 // LISTA DE PRODUCTOS
@@ -76,6 +99,7 @@ function renderProducts(arr){
         // IMAGEN
         const productImg = document.createElement('img');
         productImg.setAttribute('src', product.image);
+        productImg.addEventListener('click', openProductDetailSecundary);
     
     
         //CONTENEDOR DE DATOS

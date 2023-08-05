@@ -248,12 +248,13 @@ nav {
   height: 50px;
 }
 
-/* ----ASIDE - SECUNDARY -----*/
+/* ----ASIDE - DETALLES DEL PRODUCTO AL COMPRAR -----*/
 .product-detail-secundary {
   width: 360px;
   padding-bottom: 24px;
   position: absolute;
   right: 0;
+  background-color: var(--white);
 }
 .product-detail-close {
   background: var(--white);
