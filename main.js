@@ -59,39 +59,42 @@ const productList = [
   },
 ]
 
-for (product of productList) {
-  console.log(product.name)
-  const cardsContainer = document.querySelector(".cards-container")
+function renderProducts(arr) {
+  for (product of arr) {
+    const cardsContainer = document.querySelector(".cards-container")
 
-  const productCart = document.createElement("div")
-  productCart.classList.add("product-card")
+    const productCart = document.createElement("div")
+    productCart.classList.add("product-card")
 
-  const img = document.createElement("img")
-  img.setAttribute("src", product.img)
-  productCart.appendChild(img)
-  cardsContainer.appendChild(productCart)
+    const img = document.createElement("img")
+    img.setAttribute("src", product.img)
+    productCart.appendChild(img)
+    cardsContainer.appendChild(productCart)
 
-  const productInfo = document.createElement("div")
-  productInfo.classList.add("product-info")
-  productCart.appendChild(productInfo)
+    const productInfo = document.createElement("div")
+    productInfo.classList.add("product-info")
+    productCart.appendChild(productInfo)
 
-  const productInfoDiv = document.createElement("div")
+    const productInfoDiv = document.createElement("div")
 
-  const priceProduct = document.createElement("p")
-  priceProduct.innerText = "$" + product.price
-  productInfoDiv.appendChild(priceProduct)
+    const priceProduct = document.createElement("p")
+    priceProduct.innerText = "$" + product.price
+    productInfoDiv.appendChild(priceProduct)
 
-  const nameProduct = document.createElement("p")
-  nameProduct.innerText = product.name
-  productInfoDiv.appendChild(nameProduct)
+    const nameProduct = document.createElement("p")
+    nameProduct.innerText = product.name
+    productInfoDiv.appendChild(nameProduct)
 
-  productInfo.appendChild(productInfoDiv)
+    productInfo.appendChild(productInfoDiv)
 
-  const iconProduct = document.createElement("figure")
+    const productInfoFigure = document.createElement("figure")
 
-  const imgIconProduct = document.createElement("img")
-  imgIconProduct.setAttribute("src", "./icons/bt_add_to_cart.svg")
-  iconProduct.appendChild(imgIconProduct)
+    const imgProductInfoFigure = document.createElement("img")
+    imgProductInfoFigure.setAttribute("src", "./icons/bt_add_to_cart.svg")
+    productInfoFigure.appendChild(imgProductInfoFigure)
 
-  productInfo.appendChild(iconProduct)
+    productInfo.appendChild(productInfoFigure)
+  }
 }
+
+renderProducts(productList)
