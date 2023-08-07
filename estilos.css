@@ -175,8 +175,8 @@
       right: 0;
       background-color: var(--white);
     }
-    #shoppinCard {
-      padding: 0 24px;
+    #shoppingCard {
+      padding: 0px 24px;
     }
     #shoppingCard .title-container {
       display: flex;
