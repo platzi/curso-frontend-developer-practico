@@ -5,14 +5,16 @@ const mobileMenu = document.querySelector('.mobile-menu');
 const menuCarritoIcon = document.querySelector('.navbar-shopping-cart');
 const detailProduct = document.querySelector('#shoppingCard');
 const cardContainer = document.querySelector('.cards-container');
-
-const productDetailBuy= document.querySelector('.product-detail-buy');
+const productDetailContainer = document.querySelector('#product-detail')
+const productDetailBuy = document.querySelector('.product-detail-buy');
+const cerrarDetalle = document.querySelector('.product-detail-close')
 
 
 
 menuEmail.addEventListener('click', toggleLittleMenu);
 iconMenu.addEventListener('click', toggleMobileMenu);
 menuCarritoIcon.addEventListener('click', togglcarrito);
+cerrarDetalle.addEventListener('click', closeProductDetail);
 
 
 /**
@@ -41,7 +43,7 @@ function toggleMobileMenu(){
     if(!inDetailproductClose){
         detailProduct.classList.add('inactive')
     }
-
+    closeProductDetail();
     mobileMenu.classList.toggle('inactive');
 }
 
@@ -53,7 +55,8 @@ function toggleMobileMenu(){
  * */
 function togglcarrito(){
     const isMobileMenuClose = mobileMenu.classList.contains('inactive');
-    const isDesktopMenuClose = desktopMenu.classList.contains('inactive')
+    const isDesktopMenuClose = desktopMenu.classList.contains('inactive');
+    const isDetailProductClose = productDetailContainer.classList.contains('inactive')
     
     //si el mobileMenu está open, hay que cerrarlo
     if(!isMobileMenuClose){
@@ -63,6 +66,10 @@ function togglcarrito(){
     //si el desktopMenu está open, hay que cerrarlo
     if(!isDesktopMenuClose){
         desktopMenu.classList.add('inactive');
+    }
+
+    if(!isDetailProductClose){
+        productDetailContainer.classList.add('inactive')
     }
 
     detailProduct.classList.toggle('inactive');
@@ -96,6 +103,26 @@ function togglDetail(){
     productDetailBuy.classList.toggle('inactive');
 
 }
+
+/**
+ * Esta funcion abre la ventana de detalle de productos.
+ */
+function openProductDetailAside(){
+
+    detailProduct.classList.add('inactive')
+
+    productDetailContainer.classList.remove('inactive');
+}
+/**
+ * Esta funcion verifica si la ventana de detalle de producto esta activa, de ser asi la cierra
+ */
+function closeProductDetail(){
+    productDetailContainer.classList.add('inactive')
+}
+
+
+
+
 
 //Lista de productos  vacia 
 const productsList =[ ];
@@ -136,6 +163,7 @@ function renderProducts(listaDeProductos){
         
         const image = document.createElement('img');
         image.setAttribute('src', product.Image);
+        image.addEventListener('click', openProductDetailAside)
     
         const productInfo = document.createElement('div');
         productInfo.classList.add('product-info');
