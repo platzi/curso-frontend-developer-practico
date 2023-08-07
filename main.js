@@ -4,9 +4,9 @@ const desktopMenu = document.querySelector(".desktop-menu")
 navbarEmail.addEventListener("click", toogleDesktopMenu)
 
 function toogleDesktopMenu() {
-  const isAsideMenuOpen = !aside.classList.contains("inactive")
+  const isAsideMenuOpen = !asideShoppingCart.classList.contains("inactive")
   if (isAsideMenuOpen) {
-    aside.classList.toggle("inactive")
+    asideShoppingCart.classList.toggle("inactive")
   }
   desktopMenu.classList.toggle("inactive")
 }
@@ -15,15 +15,15 @@ const hamburguerMenu = document.querySelector(".menu")
 const mobileMenu = document.querySelector(".mobile-menu")
 hamburguerMenu.addEventListener("click", toggleMobileMenu)
 function toggleMobileMenu() {
-  const isAsideMenuOpen = !aside.classList.contains("inactive")
+  const isAsideMenuOpen = !asideShoppingCart.classList.contains("inactive")
   if (isAsideMenuOpen) {
-    aside.classList.toggle("inactive")
+    asideShoppingCart.classList.toggle("inactive")
   }
   mobileMenu.classList.toggle("inactive")
 }
 
 const navbarShoppingCart = document.querySelector(".navbar-shopping-cart")
-const aside = document.querySelector(".product-detail")
+const asideShoppingCart = document.querySelector("#asideShoppingCart")
 navbarShoppingCart.addEventListener("click", toggleCartAside)
 function toggleCartAside() {
   const isMobileMenuOpen = !mobileMenu.classList.contains("inactive")
@@ -33,13 +33,28 @@ function toggleCartAside() {
   } else if (isDesktopMenuOpen) {
     toogleDesktopMenu()
   }
-  aside.classList.toggle("inactive")
+  asideShoppingCart.classList.toggle("inactive")
 }
 
 const productList = [
   {
     name: "Bike",
     price: 130,
+    img: "https://images.pexels.com/photos/276517/pexels-photo-276517.jpeg?auto=compress&cs=tinysrgb&dpr=2&h=650&w=940",
+  },
+  {
+    name: "Polo",
+    price: 50,
+    img: "https://images.pexels.com/photos/276517/pexels-photo-276517.jpeg?auto=compress&cs=tinysrgb&dpr=2&h=650&w=940",
+  },
+  {
+    name: "Pizza",
+    price: 15,
+    img: "https://images.pexels.com/photos/276517/pexels-photo-276517.jpeg?auto=compress&cs=tinysrgb&dpr=2&h=650&w=940",
+  },
+  {
+    name: "Muela",
+    price: 5,
     img: "https://images.pexels.com/photos/276517/pexels-photo-276517.jpeg?auto=compress&cs=tinysrgb&dpr=2&h=650&w=940",
   },
   {
