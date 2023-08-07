@@ -3,27 +3,30 @@ const desktopMenu = document.querySelector(".desktop-menu");
 const burgerMenuIcon = document.querySelector(".menu");
 const mobileMenu = document.querySelector(".mobile-menu");
 const shoppingCartIcon = document.querySelector(".navbar-shopping-cart");
-const productDetail = document.querySelector(".product-detail");
+const shoppingCartDetail = document.querySelector(".shopping-cart");
 const cardsContainer = document.querySelector('.cards-container');
 
 menuEmail.addEventListener("click", toggleDesktopMenu);
 burgerMenuIcon.addEventListener("click", toggleMobileMenu);
-shoppingCartIcon.addEventListener("click", toggleProductDetail);
+shoppingCartIcon.addEventListener("click", toggleshoppingCartDetail);
 
 function toggleDesktopMenu() {
   desktopMenu.classList.toggle("inactive");
-  productDetail.classList.add("inactive");
+  shoppingCartDetail.classList.add("inactive");
+  mobileMenu.classList.add('inactive')
 }
 
 function toggleMobileMenu() {
   mobileMenu.classList.toggle("inactive");
-  productDetail.classList.add("inactive");
+  shoppingCartDetail.classList.add("inactive");
+  desktopMenu.classList.add('inactive')
 }
-function toggleProductDetail() {
-  productDetail.classList.toggle("inactive");
+function toggleshoppingCartDetail() {
+  shoppingCartDetail.classList.toggle("inactive");
   mobileMenu.classList.add("inactive");
   desktopMenu.classList.add("inactive");
 }
+
 
 function renderProducts(productList){
   for (product of productList){
