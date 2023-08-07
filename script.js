@@ -3,7 +3,7 @@ const desktopMenu = document.querySelector('.desktop-menu');
 const iconBurgerMenu = document.querySelector('.menu');
 const mobileMenu = document.querySelector('.mobile-menu');
 const iconCarMenu = document.querySelector('.navbar-shopping-cart');
-const myCarMenu = document.querySelector('.product-detail');
+const myCarMenu = document.querySelector('#shopping-cart-container');
 const cardsContainer = document.querySelector('.cards-container');
 
 // const toggleDesktopMenu = () => desktopMenu.classList.toggle("inactive");
