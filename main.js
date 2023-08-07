@@ -1,3 +1,4 @@
+// Seleccionar elementos del DOM
 const menuEmail  = document.querySelector('.navbar-email');
 const desktopMenu  = document.querySelector('.desktop-menu');
 
@@ -14,12 +15,14 @@ const productDetailSecondaryButomClose = document.querySelector('.product-detail
 
 
 
-
+// Agregar event listeners a los elementos seleccionados
 menuEmail.addEventListener('click', toggleDesktopMenu);
 menuHamButon.addEventListener('click', toggleMobileMenu);
 carMenuButon.addEventListener('click', togglecarMenuContainer);
 productDetailSecondaryButomClose.addEventListener('click', closeProductDetailSecondary)
 
+
+// Función para mostrar/ocultar el menú en pantalla de escritorio
 function toggleDesktopMenu() {
     const carMenuContainerClosed = carMenuContainer.classList.contains('inactive');
 
@@ -30,6 +33,7 @@ function toggleDesktopMenu() {
     desktopMenu.classList.toggle('inactive');
 }
 
+// Función para mostrar/ocultar el menú en pantalla de móvil
 function toggleMobileMenu() {
     const carMenuContainerClosed = carMenuContainer.classList.contains('inactive');
     const productDetailSecondaryClosed = productDetailSecondary.classList.contains('inactive');
@@ -44,6 +48,7 @@ function toggleMobileMenu() {
     mobileMenu.classList.toggle('inactive');
 }
 
+// Función para mostrar/ocultar el carrito de compras
 function togglecarMenuContainer() {
     const mobileMenuClosed = mobileMenu.classList.contains('inactive');
     const desktopMenuClosed = desktopMenu.classList.contains('inactive');
@@ -62,6 +67,7 @@ function togglecarMenuContainer() {
     carMenuContainer.classList.toggle('inactive');
 }
 
+// Función para abrir el detalle del producto secundario
 function openProductDetailSecondary() {
     const mobileMenuClosed = mobileMenu.classList.contains('inactive');
     const carMenuContainerClosed = carMenuContainer.classList.contains('inactive');
@@ -76,10 +82,13 @@ function openProductDetailSecondary() {
     productDetailSecondary.classList.remove('inactive');
 }
 
+
+// Función para cerrar el detalle del producto secundario
 function closeProductDetailSecondary() {
     productDetailSecondary.classList.add('inactive');
 }
 
+// Array de productos
 const productList = [];
 productList.push({
     name: 'Zapatilla Nike roja',
@@ -136,6 +145,7 @@ productList.push({
 
 });
 
+// Función para renderizar los productos en la interfaz
 function renderProducts (arr) {
     for (product of productList) {
 
@@ -175,6 +185,7 @@ function renderProducts (arr) {
     }
 }
 
+// Llamar a la función para renderizar productos
 renderProducts(productList);
 
 
