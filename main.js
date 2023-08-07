@@ -9,13 +9,23 @@ const aside = document.querySelector('.product-detail');
 
 const cardsContainer = document.querySelector('.cards-container');
 
+const productDescriptionContainer = document.querySelector('.product-description');
+const productDescriptionCloseIcon = document.querySelector('.product-description-close');
+
 menuEmail.addEventListener('click', toggleDesktopMenu);
 
 burgerMenu.addEventListener('click', toggleMobileMenu);
 
 menuCarritoIcon.addEventListener('click', toggleCarrito);
 
+productDescriptionCloseIcon.addEventListener('click', closeProductDescription);
+
 function toggleDesktopMenu() {
+    const isProductDescriptionContainerClose = productDescriptionContainer.classList.contains('inactive');
+    if(!isProductDescriptionContainerClose){
+        productDescriptionContainer.classList.add('inactive');
+    }
+    
     desktopMenu.classList.toggle('inactive');
     aside.classList.add('inactive');
 }
@@ -27,6 +37,8 @@ function toggleMobileMenu() {
         aside.classList.add('inactive');
     }
     
+    closeProductDescription();
+
     mobileMenu.classList.toggle('inactive');
 }
 
@@ -41,10 +53,41 @@ function toggleCarrito() {
         desktopMenu.classList.add('inactive');
     }
     
+    const isProductDescriptionClosed = productDescriptionContainer.classList.contains('inactive');
+    
+    if(!isProductDescriptionClosed){
+        productDescriptionContainer.classList.add('inactive');
+    }
+
     aside.classList.toggle('inactive');
 }
 
+function openProductDescription(){
+    aside.classList.add('inactive');
+    productDescriptionContainer.classList.remove('inactive');
+    desktopMenu.classList.add('inactive');
+}
+
+function closeProductDescription(){
+    productDescriptionContainer.classList.add('inactive');
+}
+
 const productList = [];
+productList.push({
+    name: 'Bike',
+    precio: 120,
+    image: 'https://images.pexels.com/photos/276517/pexels-photo-276517.jpeg?auto=compress&cs=tinysrgb&dpr=2&h=650&w=940',
+});
+productList.push({
+    name: 'Mountain Bike',
+    precio: 220,
+    image: 'https://images.pexels.com/photos/276517/pexels-photo-276517.jpeg?auto=compress&cs=tinysrgb&dpr=2&h=650&w=940',
+});
+productList.push({
+    name: 'Street Bike',
+    precio: 140,
+    image: 'https://images.pexels.com/photos/276517/pexels-photo-276517.jpeg?auto=compress&cs=tinysrgb&dpr=2&h=650&w=940',
+});
 productList.push({
     name: 'Bike',
     precio: 120,
@@ -69,6 +112,7 @@ function renderProducts (arr) {
     
         const productImg = document.createElement('img');
         productImg.setAttribute('src', product.image);
+        productImg.addEventListener('click', openProductDescription);
     
         const productInfo = document.createElement('div');
         productInfo.classList.add('product-info');
