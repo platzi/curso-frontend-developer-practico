@@ -9,13 +9,13 @@ const iconShoppingCart = document.querySelector('.navbar-shopping-cart');
 const shoppingCart = document.querySelector('.shopping-cart-container')
 
 navEmail.addEventListener('click', activeDesktopMenu);
-navEmail.addEventListener('blur', inactiveDesktopMenu,true,);
+// navEmail.addEventListener('blur', inactiveDesktopMenu,true,);
 
 iconMobilMenu.addEventListener('click', activeMobilMenu);
-iconMobilMenu.addEventListener('blur', inactiveMobilMenu,true,);
+// iconMobilMenu.addEventListener('blur', inactiveMobilMenu,true,);
 
 iconShoppingCart.addEventListener('click',activeShoppingCart);
-iconShoppingCart.addEventListener('blur', inactiveShoppingCart,true,);
+// iconShoppingCart.addEventListener('blur', inactiveShoppingCart,true,);
 
 document.body.onresize = function(){
     hideAllMenus();
@@ -28,7 +28,8 @@ function hideAllMenus() {
 }
 
 function activeDesktopMenu(){
-    hideAllMenus()
+    inactiveMobilMenu();
+    inactiveShoppingCart();
     navEmail.style.color = 'black';
     navEmail.style.fontWeight = 'bold';
     desktopMenu.classList.toggle('inactiveDesktopMenu');
@@ -39,7 +40,8 @@ function inactiveDesktopMenu(){
 }
 
 function activeMobilMenu(){
-    hideAllMenus()
+    inactiveDesktopMenu();
+    inactiveShoppingCart();
     mobilMenu.classList.toggle('inactiveMobilMenu');
 }
 function inactiveMobilMenu(){
@@ -47,7 +49,8 @@ function inactiveMobilMenu(){
 }
 
 function activeShoppingCart(){
-    hideAllMenus()
+    inactiveDesktopMenu();
+    inactiveMobilMenu();
     shoppingCart.classList.toggle('inactiveShoppingCart');
 }
 function inactiveShoppingCart(){
