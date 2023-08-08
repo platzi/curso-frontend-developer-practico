@@ -6,6 +6,7 @@
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
   <link rel="preconnect" href="https://fonts.googleapis.com">
   <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Material+Symbols+Sharp:opsz,wght,FILL,GRAD@20..48,100..700,0..1,-50..200" />
   <link href="https://fonts.googleapis.com/css2?family=Quicksand:wght@300;500;700&display=swap" rel="stylesheet">
   <title>Document</title>
   <style>
@@ -14,7 +15,7 @@
       --black: #000000;
       --very-light-pink: #C7C7C7;
       --text-input-field: #F7F7F7;
-      --hospital-green: #ACD9B2;
+      --hospital-green: #67b672;
       --sm: 14px;
       --md: 16px;
       --lg: 18px;
@@ -24,55 +25,50 @@
       font-family: 'Quicksand', sans-serif;
     }
     .desktop-menu {
-      width: 100px;
+      width: 150px;
       height: auto;
       border: 1px solid var(--very-light-pink);
       border-radius: 6px;
       padding: 20px 20px 0 20px;
     }
-    .desktop-menu ul {
-      list-style: none;
-      padding: 0;
-      margin: 0;
-    }
-    .desktop-menu ul li {
-      text-align: end;
-    }
-    .desktop-menu ul li:nth-child(1),
-    .desktop-menu ul li:nth-child(2) {
-      font-weight: bold;
-    }
-    .desktop-menu ul li:last-child {
-      padding-top: 20px;
-      border-top: 1px solid var(--very-light-pink);
-    }
-    .desktop-menu ul li:last-child a {
-      color: var(--hospital-green);
-      font-size: var(--sm);
-    }
-    .desktop-menu ul li a {
-      color: var(--back);
+
+    .desktop-menu .menu a{
       text-decoration: none;
-      margin-bottom: 20px;
-      display: inline-block;
+      color: var(--black);
+      display: flex;
+      gap: 1rem;
+      position: relative;
+      transition: all 300ms ease;
     }
+    .desktop-menu .menu a:hover{
+      border-radius: 5px;
+      background-color: var(--hospital-green);
+      color: var(--white);
+    }
+    .menu{
+      width: 100%;
+      margin: 10px;
+    }
+    #signUp a{
+      color: var(--hospital-green);
+      background: var(--white);
+    }
+    
   </style>
 </head>
 <body>
   <div class="desktop-menu">
-    <ul>
-      <li>
-        <a href="/" class="title">My orders</a>
-      </li>
+        <div class="menu">
+          <a href="/" class="title"><span class="material-symbols-sharp">list_alt</span>My orders</a>
+        </div>
+        
+        <div class="menu">
+          <a href="/"><span class="material-symbols-sharp">person</span>My account</a>
+        </div>
 
-      <li>
-        <a href="/">My account</a>
-      </li>
-
-      <li>
-        <a href="/">Sign out</a>
-      </li>
-    </ul>
+        <div id="signUp" class="menu">
+          <a href="/"><span class="material-symbols-sharp">logout</span>Sign out</a>
+        </div>  
   </div>
 </body>
 </html>

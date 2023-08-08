@@ -4,6 +4,7 @@
   <meta charset="UTF-8">
   <meta http-equiv="X-UA-Compatible" content="IE=edge">
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Material+Symbols+Sharp:opsz,wght,FILL,GRAD@20..48,100..700,0..1,-50..200" />
   <link rel="preconnect" href="https://fonts.googleapis.com">
   <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
   <link href="https://fonts.googleapis.com/css2?family=Quicksand:wght@300;500;700&display=swap" rel="stylesheet">
@@ -14,88 +15,124 @@
       --black: #000000;
       --very-light-pink: #C7C7C7;
       --text-input-field: #F7F7F7;
-      --hospital-green: #ACD9B2;
+      --hospital-green-light: #cdfbd4;
+      --hospital-green: #67b672;
       --sm: 14px;
       --md: 16px;
       --lg: 18px;
     }
+    /* :nth-child(1) */
     body {
       margin: 0;
       font-family: 'Quicksand', sans-serif;
     }
+    #categories{
+      background: var(--hospital-green-light);
+      color: var(--hospital-green);
+    }
+    #categories p{
+      padding: 3px;
+      margin-left: 10px;
+    }
     .mobile-menu {
+      border: 1px solid var(--very-light-pink);
+      width: 250px;
       padding: 24px;
     }
-    .mobile-menu a {
+    .menu{
+      width: 100%;
+      margin: 10px;
+    }
+    .mobile-menu #cuenta{
+      border-top: 1px solid var(--very-light-pink);
+    }
+    .mobile-menu .menu a{
+      margin-top: 20px;
+      text-decoration: none;
+      display: flex;
       text-decoration: none;
       color: var(--black);
-      font-weight: bold;
-      /* margin-bottom: 24px; */
+      display: flex;
+      gap: 1rem;
+      position: relative;
+      transition: all 300ms ease;
+      padding-left: 7px;
     }
-    .mobile-menu ul {
-      padding: 0;
-      margin: 24px 0 0;
-      list-style: none;
+    .mobile-menu .menu a:hover{
+      border-radius: 5px;
+      background-color: var(--hospital-green);
+      color: var(--white);
+      margin-left: 5px;
     }
-    .mobile-menu ul:nth-child(1) {
-      border-bottom: 1px solid var(--very-light-pink);
-    }
-    .mobile-menu ul li {
-      margin-bottom: 24px;
-    }
-    .email {
-      font-size: var(--sm);
-      font-weight: 300 !important;
-    }
-    .sign-out {
-      font-size: var(--sm);
-      color: var(--hospital-green) !important;
+.email{
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+}
+.email img{
+  width: 40px;
+}
+.email a{
+  color: var(--very-light-pink);
+  text-decoration: none;
+}
+  
+    #signUp a{
+      color: var(--hospital-green);
+      background: var(--white);
     }
   </style>
 </head>
 <body>
   <div class="mobile-menu">
-    <ul>
-      <li>
-        <a href="/">CATEGORIES</a>
-      </li>
-      <li>
-        <a href="/">All</a>
-      </li>
-      <li>
-        <a href="/">Clothes</a>
-      </li>
-      <li>
-        <a href="/">Electronics</a>
-      </li>
-      <li>
-        <a href="/">Furnitures</a>
-      </li>
-      <li>
-        <a href="/">Toys</a>
-      </li>
-      <li>
-        <a href="/">Other</a>
-      </li>
+
+      <div id="categories" class="menu">
+        <p>CATEGORIES</p>
+      </div>
+
+      <div class="menu">
+        <a href="/"><span class="material-symbols-sharp">apps</span>All</a>
+      </div>
+
+      <div class="menu">
+        <a href="/"><span class="material-symbols-sharp">checkroom</span>Clothes</a>
+      </div>
+
+      <div class="menu">
+        <a href="/"><span class="material-symbols-sharp">cable</span>Electronics</a>
+      </div>
+
+      <div class="menu">
+        <a href="/"><span class="material-symbols-sharp">night_shelter</span>Furnitures</a>
+      </div>
+      
+      <div class="menu">
+        <a href="/"><span class="material-symbols-sharp">toys_fan</span>Toys</a>
+      </div>
+
+      <div class="menu">
+        <a href="/"><span class="material-symbols-sharp">dynamic_feed</span>Other</a>
+      </div>
     </ul>
 
-    <ul>
-      <li>
-        <a href="/">My orders</a>
-      </li>
-      <li>
-        <a href="/">My account</a>
-      </li>
-    </ul>
 
-    <ul>
-      <li>
+      <div id="cuenta" class="menu">
+        <a href="/" class="title"><span class="material-symbols-sharp">list_alt</span>My orders</a>
+      </div>
+      
+      <div class="menu">
+        <a href="/"><span class="material-symbols-sharp">person</span>My account</a>
+      </div>
+
+      <div id="signUp" class="menu">
+        <a href="/"><span class="material-symbols-sharp">logout</span>Sign out</a>
+      </div>  
+
+      <div class="email">
+        <img src="icons/icons8-bad-bunny-50.png" alt="">
         <a href="/" class="email">platzi@example.com</a>
-      </li>
-      <li>
-        <a href="/" class="sign-out">Sign out</a>
-      </li>
-    </ul>
+      </div>
+  
   </div>
 </body>
 </html>
