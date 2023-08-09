@@ -431,6 +431,16 @@ aside.inactive {
     color: var(--very-light-pink);
 }
 
+.contenedorEnConstruccion {
+    display: flex;
+    justify-content: center;
+}
+
+.enConstruccion {
+    width: 85vw;
+    height: 85vh;
+}
+
 /* Media querys */
 @media (max-width: 640px) {
     .menu {

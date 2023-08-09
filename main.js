@@ -125,9 +125,7 @@ function closeProductDetailAside() {
         desktopMenu.classList.add('inactive')
     }
 
-    if (!isShoppingCartMenuClosed) {
-        shoppingCartMenu.classList.replace('active', 'inactive')
-    }
+    
 
     productDetailContainer.classList.add('inactive');
 }
