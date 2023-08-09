@@ -486,13 +486,13 @@ productList.push(
 
 
 
-    {
-        name: "Bolsa color amarilla con su correa",
-        price: 200,
-        image: bolsa46,
-        info: "Bolsa color amarilla con su correa para que se ajuste a su comodidad.",
-        code: "AK017"
-    },
+    // {
+    //     name: "Bolsa color amarilla con su correa",
+    //     price: 200,
+    //     image: bolsa46,
+    //     info: "Bolsa color amarilla con su correa para que se ajuste a su comodidad.",
+    //     code: "AK017"
+    // },
     {
         name: "Bolsa grande color cafe",
         price: 200,
