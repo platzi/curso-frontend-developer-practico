@@ -69,7 +69,7 @@ body{
 .inactiveShoppingCart {
     display: none;
 }
-.product-detail {
+.inactive-product-detail {
     display: none;
 }
 /*---------------CSS del nav-------------------------*/
@@ -370,11 +370,8 @@ nav {
     height: 240px;
     border-radius: 20px;
     object-fit: cover;
+    cursor: pointer;
 }
-/* body{
-    margin: 0;
-    font-family: 'Quicksand', sans-serif;
-} */
 .cards-container{
     display: grid;
     grid-template-columns: repeat(auto-fill, 240px);
@@ -534,7 +531,9 @@ nav {
     /* @media del detalle del producto */
     .product-detail {
         width: 100%;
+        height: 91vh;
     }
+
 }
 
 @media (min-width: 857px){
