@@ -5,6 +5,7 @@ const mobileMenu = document.querySelector('.mobile-menu');
 const mobileMenuLine = document.querySelector('mobile-menu ul:nth-child(1)');
 const menuShopppingCartIcon = document.querySelector('.navbar-shopping-cart');
 const shoppingCartMenu = document.querySelector('.product-detail');
+const cardsContainer = document.querySelector('.cards-container');
 
 menuEmail.addEventListener('click', toggleDesktopMenu);
 burgerMenu.addEventListener('click', toggleMobileMenu);
@@ -64,3 +65,71 @@ function toggleShoppingCartMenu() {
         shoppingCartMenu.classList.replace('active', 'inactive')
     }
 }
+
+const productList = [];
+productList.push({
+    name: 'Bitcoin Diamond',
+    price: 0.06,
+    image: './icons/bcd.svg'
+});
+productList.push({
+    name: 'SushiSwap',
+    price: 0.71,
+    image: './icons/sushi.svg',
+});
+productList.push({
+    name: 'Uniswap',
+    price: 6.12,
+    image: './icons/uni.svg',
+});
+productList.push({
+    name: 'Santiment Network Token',
+    price: 0.06,
+    image: './icons/san.svg',
+});
+productList.push({
+    name: '1inch Network',
+    price: 0.30,
+    image: './icons/1inch.svg',
+});
+productList.push({
+    name: 'SafeMoon',
+    price: 0.000000005,
+    image: './icons/safemoon.svg',
+});
+
+function renderProducts(arr) {
+    for (product of arr) {
+        const productCard = document.createElement('div');
+        productCard.classList.add('product-card');
+    
+        const productImg = document.createElement('img');
+        productImg.setAttribute('src', product.image)
+    
+        const productInfo = document.createElement('div');
+        productInfo.classList.add('product-info');
+    
+        const productInfoDiv = document.createElement('div');
+    
+        const productPrice = document.createElement('p');
+        productPrice.innerText = '$' + product.price;
+        const productName = document.createElement('p');
+        productName.innerText = product.name;
+    
+        productInfoDiv.append(productPrice, productName);
+    
+        const productInfoFigure = document.createElement('figure');
+        const productImgCart = document.createElement('img');
+        productImgCart.setAttribute('src', './icons/bt_add_to_cart.svg');
+    
+        productInfoFigure.appendChild(productImgCart);
+        
+        productInfo.append(productInfoDiv, productInfoFigure);
+    
+        productCard.append(productImg, productInfo);
+
+        cardsContainer.appendChild(productCard)
+    }
+}
+
+renderProducts(productList);
