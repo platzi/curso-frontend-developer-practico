@@ -4,7 +4,7 @@ const burgerMenu = document.querySelector('.menu');
 const mobileMenu = document.querySelector('.mobile-menu');
 const mobileMenuLine = document.querySelector('mobile-menu ul:nth-child(1)');
 const menuShopppingCartIcon = document.querySelector('.navbar-shopping-cart');
-const shoppingCartMenu = document.querySelector('.product-detail');
+const shoppingCartMenu = document.querySelector('#shoppingCartContainer');
 const cardsContainer = document.querySelector('.cards-container');
 
 menuEmail.addEventListener('click', toggleDesktopMenu);
@@ -94,7 +94,7 @@ productList.push({
 });
 productList.push({
     name: 'SafeMoon',
-    price: 0.000000005,
+    price: 0.000005,
     image: './icons/safemoon.svg',
 });
 
