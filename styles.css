@@ -48,6 +48,7 @@ nav {
 }
 .menu {
     display: none;
+    cursor: pointer;
 }
 .logo {
     width: 100px;
@@ -92,6 +93,8 @@ nav {
 }
 .navbar-shopping-cart {
     position: relative;
+    user-select: none;
+    cursor: pointer;
 }
 .navbar-shopping-cart div {
     width: 16px;
@@ -106,6 +109,8 @@ nav {
     display: flex;
     justify-content: center;
     align-items: center;
+    user-select: none;
+    cursor: pointer;
 }
 
 /* Menu en desktop */
