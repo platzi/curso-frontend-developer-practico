@@ -60,6 +60,9 @@ function inactiveMobilMenu(){
 }
 
 function activeShoppingCart(){
+
+    
+    //------------------------------------
     inactiveDesktopMenu();
     inactiveMobilMenu();
     cerraDetail();
@@ -70,6 +73,8 @@ function activeShoppingCart(){
         else
             displayProductsList();
     } 
+
+
 }
 function inactiveShoppingCart(){
     shoppingCart.classList.add('inactiveShoppingCart');
@@ -116,14 +121,14 @@ var i =0;
 //--renderiza la lista de productos a partir del array productList
 for(product of productList){
     const productCart = `<div id="${i}" class="product-card">
-                            <img src=${product.image} alt=${product.name}">
+                            <img src=${product.image} alt=${product.name}" class="product-img" id="${i}img">
                             <div class="product-info">
                                 <div>
                                     <p>$ ${product.price}</p>
                                     <p>${product.name}</p>
                                 </div>
                                 <figure>
-                                    <img src="./icons/bt_add_to_cart.svg" alt="">
+                                    <img src="./icons/bt_add_to_cart.svg" alt="shopping-cart" class="icon-cart" id="${i}icon">
                                 </figure>
                             </div>
                         </div>`
@@ -132,10 +137,15 @@ for(product of productList){
     cardsContainer.innerHTML += productCart;
     i++;
 }
-//--------------agrega Eventlistener a cada producto----------------------------
-const prodList = document.querySelectorAll('.product-card');
+//--------------agrega Eventlistener a la imagen de cada producto----------------------------
+const prodList = document.querySelectorAll('.product-card .product-img');
 for(p of prodList){
     p.addEventListener('click', mostrarDetalle);
+}
+//--------------agrega Eventlistener al icono carrito de cada producto------------------
+const prodCartIcon = document.querySelectorAll('.product-card .icon-cart');
+for(p of prodCartIcon){
+    p.addEventListener('click', addToCart);
 }
 // código para mostral el detalle del producto cuando se hace click sobre la imagen
 const detalleProducto = document.querySelector('.product-detail');
@@ -145,13 +155,14 @@ function mostrarDetalle(){
     inactiveShoppingCart();
 
     const productDetailImg = document.querySelector(".product-detail .foto");
-    productDetailImg.setAttribute("src", productList[this.id].image);
+    // console.log(this.id.slice(0,1));   obtiene el primer caracter (X) del atributo id=Ximg
+    productDetailImg.setAttribute("src", productList[this.id.slice(0,1)].image);
 
     const productDetailPrice = document.querySelector(".product-detail .priceP");
-    productDetailPrice.textContent = productList[this.id].price;
+    productDetailPrice.textContent = productList[this.id.slice(0,1)].price;
 
     const productDetailName = document.querySelector(".product-detail .nameP");
-    productDetailName.textContent = productList[this.id].name;
+    productDetailName.textContent = productList[this.id.slice(0,1)].name;
 
     //redimensionando main-container;
     document.querySelector('.main-container').style.width = "100%";
@@ -182,4 +193,28 @@ function hiddenProductsList() {
 }
 function displayProductsList(){
     document.querySelector('.cards-container').style.display = "grid";
+}
+
+var arrayCart = [];
+function addToCart(){
+    indice = this.id.slice(0,1)
+    if (!arrayCart.includes(productList[indice])){
+        arrayCart.push(productList[indice]);
+        //--cargar los productos del carrito-----------
+        const productCart = `<div id="${this.id.slice(0,1)}p" class="shopping-cart">
+                                <figure>
+                                    <img src="${productList[indice].image}" alt="${productList[indice].name}">
+                                </figure>
+                                <p>${productList[indice].name}</p>
+                                <p>$ ${productList[indice].price}</p>
+                                <img src="./icons/icon_close.png" alt="delete" class="icon-detete" id="${this.id.slice(0,1)}ic">
+                            </div>`
+        //------incrementamos total productos en icono carrito--------
+        const totalProducts = document.querySelector('.navbar-shopping-cart #total-products');
+        totalProducts.textContent = arrayCart.length;
+        //----se inserta el productos al html de el carrito-----
+        const cardsContainer = document.querySelector('.my-order-container');
+        cardsContainer.innerHTML += productCart;
+    } 
+    
 }
