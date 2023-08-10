@@ -131,7 +131,7 @@ display: inline-block;
     top: 60px;
     padding: 24px;
     left: 0;
-    width: 100%;
+    width: calc(100% - 48px);
   }
 .mobile-menu a {
 text-decoration: none;
