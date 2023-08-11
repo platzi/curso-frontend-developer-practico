@@ -358,6 +358,18 @@ aside{
   .desktop-menu{
       display: none;
   }
+  aside {
+    width: 360px;
+    box-sizing: border-box;
+    position: absolute;
+    right: 0;
+    background: var(--white);
+    height: 100%;
+    width: 100%;
+  }
+  .product-info{
+    margin: 0 20px;
+  }
   .product-detail {
     width: 100%;
   }
