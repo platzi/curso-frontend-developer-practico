@@ -300,7 +300,6 @@ nav {
 
 .product-card {
     width: 240px;
-    cursor: pointer;
 }
 
 .product-card img {
@@ -308,6 +307,7 @@ nav {
     height: 240px;
     border-radius: 20px;
     object-fit: cover;
+    cursor: pointer;
 }
 
 .product-info {

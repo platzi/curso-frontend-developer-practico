@@ -66,7 +66,7 @@ function generateCards(products){
         figure.appendChild(cartImg);
         productInfo.appendChild(figure);
 
-        pCard.addEventListener('click', () => {
+        img.addEventListener('click', () => {
             const infoPrice = document.querySelector('.pInfo p:nth-child(1)');
             infoPrice.innerText = '$' + product.price;
             const infoName = document.querySelector('.pInfo p:nth-child(2)');
@@ -106,4 +106,4 @@ cartIcon.addEventListener('click', () => {
 
 productInfoClose.addEventListener('click', () => {
     ifActiveElement([productInfo]);
-})
+});
