@@ -5,6 +5,7 @@ var mobileMenu = document.querySelector('.mobile-menu');
 var productDetail = document.querySelector('.product-detail');
 var imgShoppingCart = document.querySelector('.img_shopping-cart');
 var cardsContainer = document.querySelector('.cards-container');
+var closeDetails = document.querySelector('.product-detail-close');
 
 //Función para agregar clases
 function addClase(elemento,clase){
@@ -19,7 +20,6 @@ function newElement(etq){
 function mostrar(elemento){
     elemento.classList.toggle('d-none');
 }
-
 //Función para ocultar elementos
 function ocultar(elemento){
     if(!elemento.classList.contains('d-none'))addClase(elemento,'d-none');
@@ -57,16 +57,25 @@ function printProducto(name,price,image){
 navbarEmail.addEventListener('click', function(){
     mostrar(desktopMenu);
     ocultar(productDetail);
+    ocultar(closeDetails)
 })
 iconMenu.addEventListener('click', function(){
     mostrar(mobileMenu);
     ocultar(productDetail);
+    ocultar(closeDetails);
 })
 imgShoppingCart.addEventListener('click', function(){
     mostrar(productDetail);
     ocultar(mobileMenu);
     ocultar(desktopMenu);
+    ocultar(closeDetails);
 
+})
+closeDetails.addEventListener('click', function(){
+    mostrar(closeDetails);
+    ocultar(productDetail);
+    ocultar(mobileMenu);
+    ocultar(desktopMenu);
 })
 //Nuevos productos
 const productList=[];
@@ -79,8 +88,8 @@ var libro = new nuevoProducto('Libro',120,"https://images.pexels.com/photos/2765
 productList.push(bici, pantalla, portatil, libro);
 
 //Bucle para imprimir los productos del array en pantalla
-for (const iterator of productList) {
-    printProducto(iterator.name,iterator.price,iterator.image)
+for (const producto of productList) {
+    printProducto(producto.name,producto.price,producto.image)
 }
 
 
