@@ -70,7 +70,27 @@ producList.push({
 
 function renderProducts(arr) {
     for (const product of arr) {
-        const productCard = document.createElement('div');
+
+        const htmlCards = `
+        
+        <div class="product-card">
+        <img src= ${product.image} class="product-img" alt="">
+        <div class="product-info">
+          <div>
+            <p>$${product.price}</p>
+            <p>${product.price}</p>
+          </div>
+          <figure>
+            <img src="./icons/bt_add_to_cart.svg" alt="">
+          </figure>
+        </div>
+      </div>
+
+        `
+        cardsContainer.innerHTML += htmlCards
+
+
+        /* const productCard = document.createElement('div');
         productCard.classList.add('product-card');
     
         const productImg = document.createElement('img');
@@ -103,7 +123,7 @@ function renderProducts(arr) {
         productCard.appendChild(productImg);
         productCard.appendChild(productInfo);
     
-        cardsContainer.appendChild(productCard);
+        cardsContainer.appendChild(productCard); */
     
     }
 }
