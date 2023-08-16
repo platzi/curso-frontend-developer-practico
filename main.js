@@ -5,12 +5,15 @@ let menuMovile = document.querySelector(".menu");
 let detalleProducto = document.querySelector(".product-detail");
 let carritoCompras = document.querySelector(".navbar-shopping-cart");
 let cardsContainer = document.querySelector(".cards-container");
-let otros = document.querySelector(".otros");
+let infoDelProducto = document.querySelector(".product-detail-info");
+let cerrarInfoProducto = document.querySelector(".product-detail-close");
 
-let mostrarcarrito = detalleProducto.classList.contains("inactive")
-let mostrarMenuDesktop = desktopMenu.classList.contains("inactive")
-let mostrarMenuMobile = MovileMenu.classList.contains("inactive")
+// let otros = document.querySelector(".otros");
 
+let mostrarcarrito = detalleProducto.classList.contains("inactive");
+let mostrarMenuDesktop = desktopMenu.classList.contains("inactive");
+let mostrarMenuMobile = MovileMenu.classList.contains("inactive");
+let mostrarInfoDelProducto = infoDelProducto.classList.contains("inactive");
 
 nav_email.addEventListener("click" , aparecer);
 
@@ -50,6 +53,22 @@ function aparacerDetalleDeCompra()
 
    detalleProducto.classList.toggle("inactive")  
 }
+
+// Aparecer y desaparecer información del producto.
+
+function aparacerinfoproducto()
+{
+   infoDelProducto.classList.remove("inactive")
+};
+
+cerrarInfoProducto.addEventListener("click" , cerrarinformacion);
+
+function cerrarinformacion()
+{
+   infoDelProducto.classList.add("inactive");
+}
+
+
 
 // Insertr array Aquí se crean los productos y la spropiedades que tiene cada uno de ellos.
 
@@ -94,12 +113,12 @@ productList.push ({
 
 
 
+// otros.addEventListener("click" , renderProducts);
+// function renderProducts ()
 
-function renderProducts (productList)
+// // Crea un producto de la lista de productos, el producto es crear la estructura HTML 
 
-// Crea un producto de la lista de productos, el producto es crear la estructura HTML 
-
-{
+// {
    for (product of productList)
 {
    // Creación del div contenedor product card
@@ -110,6 +129,7 @@ function renderProducts (productList)
 
    let imagens = document.createElement("img");
    imagens.setAttribute("src" , product.image);
+   imagens.addEventListener("click" , aparacerinfoproducto)
 
    // Creación del div de la información del producto
    let productInfo = document.createElement("div");
@@ -142,9 +162,9 @@ function renderProducts (productList)
    cardsContainer.appendChild(productCard);
 }
 
-}
 
-otros.addEventListener("click" , renderProducts);
+
+
 
 
 
