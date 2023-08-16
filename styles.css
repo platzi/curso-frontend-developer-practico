@@ -165,7 +165,6 @@ nav {
   box-sizing: border-box;
   position: absolute;
   right: 0;
-  padding-bottom: 24px;
 }
 .product-list {
   padding: 0 24px;
@@ -282,9 +281,9 @@ nav {
 }
 
 /*detalle del producto*/
-/* .product-detail {
-
-} */
+.product-detail {
+  padding-bottom: 24px;
+}
 .product-detail-close {
   background: var(--white);
   width: 14px;
