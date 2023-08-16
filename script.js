@@ -1,12 +1,12 @@
 const menuEmail = document.querySelector('.navbar-email');
 const menuSelection = document.querySelector('.menu');
 const menuShoppingCart = document.querySelector('.navbar-shopping-cart');
-//const desktopMenu = document.querySelector('.desktop-menu');
+//const desktopMenu = document.querySelector('.product-detail');
 
 
 const desktopMenu = document.querySelector('.desktop-menu');
 const mobileMenu = document.querySelector('.mobile-menu');
-const asideCart = document.querySelector('.product-detail');
+const asideCart = document.querySelector('.product-list');
 const cardsContainer = document.querySelector('.cards-container');
 
 
@@ -89,4 +89,3 @@ function renderProducts(arr) {
 }
 
 renderProducts(producList);
-
