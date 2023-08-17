@@ -1,0 +1,270 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Quicksand:wght@300;500;700&display=swap" rel="stylesheet">
+    <style>
+        :root{
+            --very-light-pink:#C7C7C7;
+            --text-input-field: #F7F7F7;
+            --hospital-green:#ACD9B2;
+            --white:#FFFFFF;
+            --black:#000000;
+            --sm:14px;
+            --md:16;
+            --lg:18;
+        }
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+        }
+        body{
+            font-family: 'Quicksand', sans-serif;
+            min-width: 320px;
+        }
+        .shopping-cart-container{
+            width: 355px;
+            position: absolute;
+            right: 0;
+            top: 60px;
+            margin: 0 15px 0 15px;
+            border-bottom: 1px solid var(--text-input-field);
+            box-shadow: 1px 5px 10px 5px var(--text-input-field);
+        }
+        .shopping-cart-head {
+            width: 100%;
+            display: flex;
+            justify-content: center;
+            padding: 0 15px 0;
+        }
+        .shopping-cart-head .menu {
+            cursor: pointer;
+        }
+        .shopping-cart-head .title {
+            width: 100%;
+            margin: 8px;
+            text-align: center;
+        }
+        .my-order {
+            display: flex;
+            flex-direction: column;
+            justify-content:space-between;
+            align-content: center;
+            margin: 30px 15px 30px 15px;
+            width: 320px;
+            height: 60vh;
+        }
+        .my-order-container{
+            display: grid;
+            grid-template-rows: auto 1fr auto;
+            width: 100%;
+            /* height: 100%; */
+            padding: 0 15px 0 15px;
+            overflow: hidden;
+            overflow-y: auto;
+        }
+
+
+        .my-order-container::-webkit-scrollbar {
+            width: 10px;
+        }
+
+        .my-order-container::-webkit-scrollbar-track {
+            background-color: #e4e4e4;
+            border-radius: 100px;
+        }
+
+        .my-order-container::-webkit-scrollbar-thumb {
+            background-color: var(--hospital-green);
+            border-radius: 100px;
+        }
+
+
+
+
+        .order {
+            display: grid;
+            grid-template-columns: auto 1fr;
+            gap: 10px;
+            align-items: center;
+            background-color: var(--text-input-field);
+            margin-bottom: 24px;
+            border-radius: 10px;
+            padding: 0 24px;
+        }
+        .order p:nth-child(1){
+            display: flex;
+            flex-direction: column;
+            
+        }
+        .order p span:nth-child(1){
+            font-size: var(--md);
+            font-weight: bold;
+        }
+        .order p span:nth-child(2){
+            font-size: var(--sm);
+            color: var(--very-light-pink);
+            
+        }
+        .order p:nth-child(2){
+            text-align: end;
+            font-weight: bold;
+        }
+        .shopping-cart {
+            display: grid;
+            grid-template-columns: auto 1fr auto auto;
+            gap: 15px;
+            margin-bottom: 24px;
+            align-items: center;
+        }
+        .shopping-cart figure {
+            margin: 0;
+        }
+        .shopping-cart figure img {
+            width: 70px;
+            height: 70px;
+            border-radius: 15px;
+            object-fit: cover;
+        }
+        .shopping-cart p:nth-child(2){
+            color: var(--very-light-pink);
+            font-size: var(--sm);
+            font-weight: 300px;
+        }
+        .shopping-cart p:nth-child(3){
+            font-size: var(--md);
+            font-weight: bold;
+        }
+        .total {
+            display: flex;
+            width: 100%;
+            height: 50px;
+            justify-content: space-between;
+            align-items: center;
+            margin-bottom: 20px;
+            font-size: var(--md);
+            font-weight: bold;
+            background: var(--text-input-field);
+            border-radius: 10px;
+            margin-top: 10px;
+        }
+        .total p:nth-child(1){
+            margin-left: 15px;
+        }
+        .total p:nth-child(2){
+            margin-right: 15px;
+        }
+        .primary-button{
+            background-color: var(--hospital-green);
+            border-radius: 8px;
+            border: none;
+            color: var(--white);
+            width: 100%;
+            height: 50px;
+            cursor: pointer;
+            font-size: var(--md);
+            font-weight: bold;
+            font-family: inherit;
+            letter-spacing: 1px;
+            margin: 0 auto;
+        }
+       
+        @media(max-width: 640px){
+            body {
+                margin: 0;
+                justify-content: center;
+            }
+        }
+    </style>
+</head>
+<body>
+    <div class="shopping-cart-container">
+        <div class="shopping-cart-head">
+            <img src="./icons/flehaizquierda.svg" alt="menu" class="menu">
+            <h1 class="title">Shopping cart</h1>
+        </div>
+        <div class="my-order">
+            <div class="my-order-container">
+                <div class="shopping-cart">
+                    <figure>
+                        <img src="https://images.pexels.com/photos/276517/pexels-photo-276517.jpeg?auto=compress&cs=tinysrgb&w=1260&h=750&dpr=1" alt="">
+                    </figure>
+                    <p>Round shelf</p>
+                    <p>$ 30,00</p>
+                    <a href="/"><img src="./icons/icon_close.png" alt=""></a>
+                </div>
+                <div class="shopping-cart">
+                    <figure>
+                        <img src="https://images.pexels.com/photos/276517/pexels-photo-276517.jpeg?auto=compress&cs=tinysrgb&w=1260&h=750&dpr=1" alt="">
+                    </figure>
+                    <p>Bike</p>
+                    <p>$ 30,00</p>
+                    <a href="/"><img src="./icons/icon_close.png" alt=""></a>
+                </div>
+                <div class="shopping-cart">
+                    <figure>
+                        <img src="https://images.pexels.com/photos/276517/pexels-photo-276517.jpeg?auto=compress&cs=tinysrgb&w=1260&h=750&dpr=1" alt="">
+                    </figure>
+                    <p>Round shelf</p>
+                    <p>$ 30,00</p>
+                    <a href="/"><img src="./icons/icon_close.png" alt=""></a>
+                </div>
+                <div class="shopping-cart">
+                    <figure>
+                        <img src="https://images.pexels.com/photos/276517/pexels-photo-276517.jpeg?auto=compress&cs=tinysrgb&w=1260&h=750&dpr=1" alt="">
+                    </figure>
+                    <p>Bike</p>
+                    <p>$ 30,00</p>
+                    <a href="/"><img src="./icons/icon_close.png" alt=""></a>
+                </div>
+                <div class="shopping-cart">
+                    <figure>
+                        <img src="https://images.pexels.com/photos/276517/pexels-photo-276517.jpeg?auto=compress&cs=tinysrgb&w=1260&h=750&dpr=1" alt="">
+                    </figure>
+                    <p>Round shelf</p>
+                    <p>$ 30,00</p>
+                    <a href="/"><img src="./icons/icon_close.png" alt=""></a>
+                </div>
+                <div class="shopping-cart">
+                    <figure>
+                        <img src="https://images.pexels.com/photos/276517/pexels-photo-276517.jpeg?auto=compress&cs=tinysrgb&w=1260&h=750&dpr=1" alt="">
+                    </figure>
+                    <p>Bike</p>
+                    <p>$ 30,00</p>
+                    <a href="/"><img src="./icons/icon_close.png" alt=""></a>
+                </div>
+                <div class="shopping-cart">
+                    <figure>
+                        <img src="https://images.pexels.com/photos/276517/pexels-photo-276517.jpeg?auto=compress&cs=tinysrgb&w=1260&h=750&dpr=1" alt="">
+                    </figure>
+                    <p>Round shelf</p>
+                    <p>$ 30,00</p>
+                    <a href="/"><img src="./icons/icon_close.png" alt=""></a>
+                </div>
+                <div class="shopping-cart">
+                    <figure>
+                        <img src="https://images.pexels.com/photos/276517/pexels-photo-276517.jpeg?auto=compress&cs=tinysrgb&w=1260&h=750&dpr=1" alt="">
+                    </figure>
+                    <p>Bike</p>
+                    <p>$ 30,00</p>
+                    <a href="/"><img src="./icons/icon_close.png" alt=""></a>
+                </div>
+            </div>
+            <div>
+                <div class="total">
+                    <p>Total</p>
+                    <p>$ 560.00</p>
+                </div>
+                <button class="primary-button add-to-cart-button">
+                    Checkout
+                </button>
+            </div>
+        </div>
+    </div>
+</body>
+</html>
