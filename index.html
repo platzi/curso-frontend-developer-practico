@@ -1,0 +1,176 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>YardSale: tienda online</title>
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Quicksand:wght@300;500;700&display=swap" rel="stylesheet">
+    <link rel="stylesheet" href="./styles.css">
+</head>
+<body>
+    <nav>
+        <img src="./icons/icon_menu.svg" alt="menu" class="iconMobilMenu">
+
+        <div class="navbar-left">
+            <img src="./logos/logo_yard_sale.svg" alt="logo" class="logo">
+
+            <ul>
+                <li>
+                    <a href="/">All</a>
+                </li>
+                <li>
+                    <a href="/">Clothes</a>
+                </li>
+                <li>
+                    <a href="/">Electronics</a>
+                </li>
+                <li>
+                    <a href="/">Furnitures</a>
+                </li>
+                <li>
+                    <a href="/">Toys</a>
+                </li>
+                <li>
+                    <a href="/">Others</a>
+                </li>
+            </ul>
+        </div>
+        <div class="navbar-right">
+            <ul>
+                <li class="navbar-email">platzi@example.com <span><img src="./icons/flechita.svg" alt=""></span>
+                </li>
+                
+                <li class="navbar-shopping-cart">
+                    <img src="./icons/icon_shopping_cart.svg" alt="">
+                    <div id="total-products">0</div>
+                </li> 
+            </ul>
+        </div>
+        <!-- Menú Desktop -->
+        <div class="desktop-menu inactiveDesktopMenu">
+            <ul>
+                <li>
+                    <a href="/" class="title">My orders</a>
+                </li>
+                <li>
+                    <a href="/" class="title">My account</a>
+                </li>
+                <li>
+                    <a href="/" class="title">Sing out</a>
+                </li>
+            </ul>
+        </div>
+        <!-- menú mobile -->
+        <div class="mobile-menu inactiveMobilMenu">
+            <ul>
+                <li>
+                    <a href="/">CATEGORIES</a>
+                </li>
+                <li>
+                    <a href="/">All</a>
+                </li>
+                <li>
+                    <a href="/">Clothes</a>
+                </li>
+                <li>
+                    <a href="/">Electronics</a>
+                </li>
+                <li>
+                    <a href="/">Furnitures</a>
+                </li>
+                <li>
+                    <a href="/">Toys</a>
+                </li>
+                <li>
+                    <a href="/">Others</a>
+                </li>
+            </ul>
+            <ul>
+                <li>
+                    <a href="/">My orders</a>
+                </li>
+                <li>
+                    <a href="/">My accounts</a>
+                </li>
+            </ul>
+            <ul>
+                <li>
+                    <a href="/" class="email">camilayokooi@gmail.com</a>
+                </li>
+                <li>
+                    <a href="/" class="sing-out">Sing out</a>
+                </li>
+            </ul>
+        </div>
+        <!-- Shopping cart -->
+        <div class="shopping-cart-container inactiveShoppingCart">
+            <div class="shopping-cart-head">
+                <img src="./icons/flehaizquierda.svg" alt="menu" class="menu">
+                <h1 class="title">Shopping cart</h1>
+            </div>
+            <div class="my-order">
+                <div class="my-order-container">
+                    <!-- <div class="shopping-cart">
+                        <figure>
+                            <img src="https://images.pexels.com/photos/276517/pexels-photo-276517.jpeg?auto=compress&cs=tinysrgb&w=1260&h=750&dpr=1" alt="">
+                        </figure>
+                        <p>Round shelf</p>
+                        <p>$ 30,00</p>
+                        <a href="/"><img src="./icons/icon_close.png" alt=""></a>
+                    </div> -->
+
+                </div>
+                <div class="shopping-footer">
+                    <div class="total">
+                        <p>Total</p>
+                        <p id="totalCart">$ 0.00</p>
+                    </div>
+                    <button class="primary-button add-to-cart-button">
+                        Checkout
+                    </button>
+                </div>
+            </div>
+        </div>
+    </nav> 
+    
+    <!-- CÓDIGO HTML de la LISTA DE PRODUCTOS -->
+    <section class="main-container">
+        <div class="cards-container">
+            <!-- <div class="product-card">
+                <img src="https://images.pexels.com/photos/276517/pexels-photo-276517.jpeg?auto=compress&cs=tinysrgb&w=1260&h=750&dpr=1" alt="">
+                <div class="product-info">
+                    <div>
+                        <p >$120,00</p>
+                        <p>Bike</p>
+                    </div>
+                    <figure>
+                        <img src="./icons/bt_add_to_cart.svg" alt="">
+                    </figure>
+                </div>
+            </div>-->
+        </div>
+    </section>
+
+    <!-- CÓDIGO DEL DETALLE DEL PRODUCTO SELECCIONADO -->
+    <aside class="product-detail inactive-product-detail">
+        <div class="product-detail-close">
+            <img src="./icons/icon_close.png" alt="">
+        </div>
+        <img src="https://images.pexels.com/photos/276517/pexels-photo-276517.jpeg?auto=compress&cs=tinysrgb&w=1260&h=750&dpr=1" alt="" class="foto">
+        <div class="product-information">
+            <p class="priceP">$ 35,00</p>
+            <p class="nameP">Bike</p>
+            <p>Whit its practical this bike also fultills a decorative function, as your hall or workspace.</p>
+            <button class="primary-button add-to-cart-button">
+                <img src="./icons/Shape.svg" alt="add to cart">
+                Add to cart
+            </button>
+        </div>
+    </aside>
+
+
+    <script src="./main.js"></script>
+</body>
+</html>
