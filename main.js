@@ -23,10 +23,16 @@ function aparecer()
 {
    if(mostrarcarrito)
    {
-      detalleProducto.classList.add("inactive");
+      detalleProducto.classList.add("inactive") 
    } 
+
+   desktopMenu.classList.toggle("inactive");
+
+   if(mostrarInfoDelProducto)
+{
+   infoDelProducto.classList.add("inactive");
+}
    
-   desktopMenu.classList.toggle("inactive")
 }
 
 menuMovile.addEventListener("click" , aparecerMenu );
@@ -39,6 +45,11 @@ if(mostrarMenuMobile)
 }
 
    MovileMenu.classList.toggle("inactive");
+
+if(mostrarInfoDelProducto)
+{
+   infoDelProducto.classList.add("inactive");
+}
 }
 
 carritoCompras.addEventListener("click" , aparacerDetalleDeCompra)
@@ -52,20 +63,44 @@ function aparacerDetalleDeCompra()
    }
 
    detalleProducto.classList.toggle("inactive")  
+
+   if(mostrarInfoDelProducto)
+   {
+      infoDelProducto.classList.add("inactive");
+   }
 }
 
 // Aparecer y desaparecer información del producto.
 
 function aparacerinfoproducto()
 {
+ 
    infoDelProducto.classList.remove("inactive")
+
+   if(mostrarcarrito)
+   {
+      detalleProducto.classList.add("inactive") 
+   }
+   
+   if(mostrarMenuDesktop)
+   {
+      desktopMenu.classList.add("inactive");
+   }
+
+   if(mostrarMenuMobile)
+   {
+      MovileMenu.classList.add("inactive");
+   }
+  
 };
 
 cerrarInfoProducto.addEventListener("click" , cerrarinformacion);
 
 function cerrarinformacion()
-{
+{   
+   
    infoDelProducto.classList.add("inactive");
+  
 }
 
 
