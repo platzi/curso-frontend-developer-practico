@@ -1,3 +1,4 @@
+/* General */
 :root {
   --white: #ffffff;
   --black: #000000;
@@ -14,6 +15,7 @@ body {
   font-family: "Quicksand", sans-serif;
 }
 
+/* NavBar General */
 nav {
   display: flex;
   justify-content: space-between;
@@ -92,6 +94,8 @@ nav {
   align-items: center;
 }
 
+/* Navbar Desktop */
+
 .desktop-menu {
   position: absolute;
   top: 60px;
@@ -130,9 +134,46 @@ nav {
   display: inline-block;
 }
 
+/* Navbar Mobile */
+.mobile-menu {
+  padding: 24px;
+  position: absolute;
+  top: 60px;
+}
+.mobile-menu a {
+  text-decoration: none;
+  color: var(--black);
+  font-weight: bold;
+  /* margin-bottom: 24px; */
+}
+.mobile-menu ul {
+  padding: 0;
+  margin: 24px 0 0;
+  list-style: none;
+}
+.mobile-menu ul:nth-child(1) {
+  border-bottom: 1px solid var(--very-light-pink);
+}
+.mobile-menu ul li {
+  margin-bottom: 24px;
+}
+.email {
+  font-size: var(--sm);
+  font-weight: 300 !important;
+}
+.sign-out {
+  font-size: var(--sm);
+  color: var(--hospital-green) !important;
+}
+
+/* Responsive Media queries */
 @media (max-width: 640px) {
   .menu {
     display: block;
+  }
+
+  .desktop-menu {
+    display: none;
   }
 
   .navbar-left ul {
@@ -140,6 +181,15 @@ nav {
   }
 
   .navbar-email {
+    display: none;
+  }
+  .product-detail {
+    width: 100%;
+  }
+}
+
+@media screen and (min-width: 641px) {
+  .mobile-menu {
     display: none;
   }
 }
