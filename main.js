@@ -124,7 +124,10 @@ for(product of productList){
                             <img src=${product.image} alt=${product.name}" class="product-img" id="${i}img">
                             <div class="product-info">
                                 <div>
-                                    <p>$ ${product.price}</p>
+                                    <p>${product.price.toLocaleString("en", {
+                                        style: "currency",
+                                        currency: "USD"
+                                    })}</p>
                                     <p>${product.name}</p>
                                 </div>
                                 <figure>
@@ -177,6 +180,11 @@ function mostrarDetalle(){
 
     //se muestra el detalle del producto
     detalleProducto.classList.remove('inactive-product-detail');
+
+
+    const primaryButton = document.querySelector('.product-information .add-to-cart-button');
+    primaryButton.setAttribute('id',`${this.id.slice(0,1)}but`);
+    primaryButton.addEventListener('click', addToCart);
 }
 //-----función cerrar product-detail al hacer click en X
 const btnCerrarDetail = document.querySelector('.product-detail-close');
@@ -201,20 +209,75 @@ function addToCart(){
     if (!arrayCart.includes(productList[indice])){
         arrayCart.push(productList[indice]);
         //--cargar los productos del carrito-----------
-        const productCart = `<div id="${this.id.slice(0,1)}p" class="shopping-cart">
+        const productCart = `<div id="${indice}p" class="shopping-cart">
                                 <figure>
                                     <img src="${productList[indice].image}" alt="${productList[indice].name}">
                                 </figure>
                                 <p>${productList[indice].name}</p>
-                                <p>$ ${productList[indice].price}</p>
-                                <img src="./icons/icon_close.png" alt="delete" class="icon-detete" id="${this.id.slice(0,1)}ic">
+                                <p>${productList[indice].price.toLocaleString("en", {
+                                    style: "currency",
+                                    currency: "USD"
+                                })}</p>
+                                <img src="./icons/icon_close.png" alt="delete" class="icon-delete" id="${indice}ic">
                             </div>`
         //------incrementamos total productos en icono carrito--------
         const totalProducts = document.querySelector('.navbar-shopping-cart #total-products');
         totalProducts.textContent = arrayCart.length;
-        //----se inserta el productos al html de el carrito-----
+        //----se inserta productos al html del carrito-----
         const cardsContainer = document.querySelector('.my-order-container');
         cardsContainer.innerHTML += productCart;
+        
+        //agregando eventListener a la x del producto agregado
+        // document.getElementById(`${indice}ic`).addEventListener('click', deleteProductCart);
+        // document.getElementById(`${indice}ic`).style.cursor = "pointer";
+        // iconDeleteProduct.addEventListener('click', deleteProductCart);
+
+
+        const iconsDelete = document.querySelectorAll('.shopping-cart .icon-delete');
+        for(q of iconsDelete){
+            q.addEventListener('click', deleteProductCart);
+            q.style.cursor = "pointer";
+        }
+
+
+        // actualizamos el total del carrito
+        const campoTotal = document.querySelector('#totalCart');
+        let totalCart = arrayCart.reduce((sum, element)=> sum + element.price, 0).toLocaleString("en", {
+            style: "currency",
+            currency: "USD"
+        });
+        campoTotal.textContent = totalCart;
     } 
-    
+
+    //cerramos detalle del producto si es que estuviera abierto
+    if(!document.querySelector('.inactive-product-detail')){
+        cerraDetail();
+    }
+}
+
+// función para eliminar un producto del carrito
+function deleteProductCart(){
+    let indice = this.id.slice(0,1);
+    // console.log(indice);
+    //se elimina el elemento de arrayCart
+    for(let i=0;i<arrayCart.length;i++){
+        if(arrayCart[i].name == productList[indice].name){
+          arrayCart.splice(i,1);
+        }
+    }
+    //se eliminar el html del producto
+    const node = document.getElementById(`${indice}p`);
+    node.parentNode.removeChild(node);
+    // console.log(arrayCart);
+    // actualizamos el total del carrito
+    const campoTotal = document.querySelector('#totalCart');
+    let totalCart = arrayCart.reduce((sum, element)=> sum + element.price, 0).toLocaleString("en", {
+        style: "currency",
+        currency: "USD"
+    });
+    campoTotal.textContent = totalCart;
+
+    //------incrementamos total productos en icono carrito--------
+    const totalProducts = document.querySelector('.navbar-shopping-cart #total-products');
+    totalProducts.textContent = arrayCart.length;
 }

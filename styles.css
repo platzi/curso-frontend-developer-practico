@@ -238,7 +238,7 @@ nav {
     right: 0;
     border-radius: 20px;
     border: 1px solid var(--hospital-green);
-    box-shadow: 1px 5px 10px 5px var(--text-input-field);
+    /* box-shadow: 1px 5px 10px 5px var(--text-input-field); */
 }
 .shopping-cart-head {
     width: 100%;
@@ -375,7 +375,7 @@ nav {
 .cards-container{
     display: grid;
     grid-template-columns: repeat(auto-fill, 240px);
-    gap: 20px;
+    gap: 30px;
     margin-top: 25px;
     place-content: center;
 }
@@ -383,7 +383,10 @@ nav {
     display: flex;
     justify-content: space-between;
     align-items: center;
-    margin-top: 12px;
+    margin-top: 5px;
+    padding-left: 15px;
+    padding-right: 15px;
+    
 }
 .product-info figure {
     margin: 0;
