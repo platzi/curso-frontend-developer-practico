@@ -49,49 +49,8 @@ productList.push({
 });
 
 console.log(productList);
-/* 
-for (product of productList) {
-    const productCard = document.createElement('div');
-    productCard.classList.add('product-card');
-    const img = document.createElement('img');
-    img.setAttribute('src', product.imge);
 
-
-    const producInfo = document.createElement('div');
-    producInfo.classList.add('produc-info');
-
-    productCard.appendChild(img);
-    productCard.appendChild(producInfo);
-    
-  
-    
-
-    const divPFather = document.createElement('div');
-
-
-    producInfo.appendChild(divPFather);
-
-    const PPrice = document.createElement('p');
-    PPrice.innerText =' $ ' + product.price;
-    const PProduct = document.createElement('p');
-    PProduct.innerText = product.name;
-    divPFather.appendChild(PPrice);
-    divPFather.appendChild(PProduct);
-    const InfoFigure= document.createElement('figure');
-    producInfo.appendChild(InfoFigure);
-
-    const productImgCart = document.createElement('img');
-    productImgCart.setAttribute('src', './icons/bt_add_to_cart.svg' );
-    InfoFigure.appendChild(productImgCart);
-
-    CardsContainer.appendChild(producInfo);
-    CardsContainer.appendChild(img);
-    
-}
-
-
-
-
+/*
 <div class="product-card">
     <img src="https://images.pexels.com/photos/276517/pexels-photo-276517.jpeg?auto=compress&cs=tinysrgb&dpr=2&h=650&w=940" alt="">
     <div class="product-info">
