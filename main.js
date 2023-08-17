@@ -3,19 +3,24 @@ const desktopMenu = document.querySelector('.desktop-menu');
 const menuHamburguer = document.querySelector('.menu');
 const mobileMenu = document.querySelector('.mobile-menu');
 const menuCarritoIcon = document.querySelector('.navbar-shopping-cart');
+const prodcutDetailCloseIcon = document.querySelector('.product-detail-close');
 const shoppingCartContainer = document.querySelector('#shoppingCartContainer');
 const cardsContainer = document.querySelector('.cards-container');
+const prodcutDetailContainer = document.querySelector('#productDetail');
 
 menuEmail.addEventListener('click', toggleDesktopMenu);
 menuHamburguer.addEventListener('click', toggleMobilepMenu);
 menuCarritoIcon.addEventListener('click', toggleCarritoAside);
+prodcutDetailCloseIcon.addEventListener('click',closeProductDetailAside);
 
 function toggleDesktopMenu() {
     const isAsideClosed = shoppingCartContainer.classList.contains('inactive');
+    const isProductDetailClosed = prodcutDetailContainer.classList.contains('inactive');
 
     //Si el aside esta abierto lo cerramos al hacer click al menu hamburguesa
-    if (!isAsideClosed) {
+    if (!isAsideClosed || !isProductDetailClosed) {
         shoppingCartContainer.classList.add('inactive');
+        prodcutDetailContainer.classList.add('inactive');
     }
 
     desktopMenu.classList.toggle('inactive');
@@ -23,11 +28,15 @@ function toggleDesktopMenu() {
 
 function toggleMobilepMenu() {
     const isAsideClosed = shoppingCartContainer.classList.contains('inactive');
+    const isProductDetailClosed = prodcutDetailContainer.classList.contains('inactive');
+    
 
     //Si el aside esta abierto lo cerramos al hacer click al menu hamburguesa
-    if (!isAsideClosed) {
+    if (!isAsideClosed || !isProductDetailClosed) {
         shoppingCartContainer.classList.add('inactive');
+        prodcutDetailContainer.classList.add('inactive');
     }
+
 
     mobileMenu.classList.toggle('inactive');
 }
@@ -35,15 +44,28 @@ function toggleMobilepMenu() {
 function toggleCarritoAside() {
     const isMobileMenuClosed = mobileMenu.classList.contains('inactive'); //contains: pregunta si existe cierta clase. Nos devuelve true o false
     const isDesktopMenuClosed = desktopMenu.classList.contains('inactive');
+    const isProductDetailClosed = prodcutDetailContainer.classList.contains('inactive');
 
     //Si el menu mobile esta abierto lo cerramos al hacer click al carrito
-    if (!isMobileMenuClosed || !isDesktopMenuClosed) {
+    if (!isMobileMenuClosed || !isDesktopMenuClosed || !isProductDetailClosed) {
         mobileMenu.classList.add('inactive');
         desktopMenu.classList.add('inactive');
+        prodcutDetailContainer.classList.add('inactive');
     }
 
 
     shoppingCartContainer.classList.toggle('inactive');
+}
+
+function openProductDetailAside() {
+    shoppingCartContainer.classList.add('inactive');
+    prodcutDetailContainer.classList.remove('inactive');
+    mobileMenu.classList.add('inactive');
+    desktopMenu.classList.add('inactive');
+}
+
+function closeProductDetailAside () {
+    prodcutDetailContainer.classList.add('inactive');
 }
 
 
@@ -92,6 +114,7 @@ const renderProducts = arr => { //Funcion para maquetar la lista de productos di
     
         const productImg = document.createElement('img'); //Creando un img
         productImg.setAttribute('src', prodcut.image); //Con product.image le agregamos el url correspondiente a cada producto. Estos url se encuentrar en los objetos que estan dentro del array productList
+        productImg.addEventListener('click', openProductDetailAside); //Abrir la informacion de producto al hacer click en la imagen
     
         const productInfo = document.createElement('div'); //Creando un div
         productInfo.classList.add('product-info'); //Agregando una clase al div
