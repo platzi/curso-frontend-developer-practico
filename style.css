@@ -132,7 +132,7 @@
     position: absolute;
     top: 61px;
     left: 0;
-    width: 100%;
+    width: calc(100% - 24px);
     height: 100%;
     padding: 24px;
     
