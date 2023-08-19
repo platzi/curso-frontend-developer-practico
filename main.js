@@ -14,6 +14,10 @@ const shoppingCartAside = document.querySelector("#shoppingCartContainer");
 const productDetailContainer = document.querySelector("#productDetail");
 const productDetailInfoContainer =
   productDetailContainer.querySelector(".product-info");
+const myOrderContent = shoppingCartAside.querySelector(".my-order-content");
+const shoppingCartTotal = shoppingCartAside.querySelector(
+  ".cart-footer .order p:nth-child(2)"
+);
 
 const productDetailImg =
   productDetailContainer.querySelector("img.product-image");
@@ -79,6 +83,21 @@ function openProductDetailAside(e) {
   });
 
   collisionManager([desktopMenu, mobileMenu, shoppingCartAside]);
+}
+
+function addItemToCart(e) {
+  const itemAsin = e.target.parentNode.dataset.asin;
+
+  // if the item isn't in the list add it
+  if (!shoppingCart.find((element) => element.asin == itemAsin)) {
+    const grabData = productsList.find((item) => item.asin == itemAsin);
+    shoppingCart.push(grabData);
+  }
+  //Update counter
+  updateShoppingCartNumberIcon();
+
+  // Update Shopping Cart Items to be displayed
+  renderShoppingCart();
 }
 
 const productsList = [];
@@ -180,7 +199,7 @@ Up to 32-core GPU with up to 13x faster performance for graphics-intensive apps 
  * @param {array} arr - Data feed of products
  */
 function renderProducts(arr) {
-  for (product of productsList) {
+  for (product of arr) {
     const productCard = document.createElement("div");
     productCard.classList.add("product-card");
     productCard.setAttribute("data-asin", product.asin);
@@ -208,9 +227,12 @@ function renderProducts(arr) {
     productInfoDiv.append(productPrice, productName);
 
     const figure = document.createElement("figure");
+    figure.classList.add("add-to-cart");
+    figure.setAttribute("data-asin", product.asin);
     const addButtonImage = document.createElement("img");
     addButtonImage.setAttribute("src", "./icons/bt_add_to_cart.svg");
-    addButtonImage.setAttribute("alt", "Add to Cart");
+    addButtonImage.setAttribute("alt", `Add ${product.nombre} to Cart`);
+    addButtonImage.addEventListener("pointerdown", addItemToCart);
 
     figure.appendChild(addButtonImage);
 
@@ -246,4 +268,76 @@ function displayMoneyWithLocale(
     style: options.style,
     currency: options.currency,
   });
+}
+
+// Shopping Cart
+const shoppingCart = [];
+
+function updateShoppingCartNumberIcon() {
+  shoppingCartQty.innerText = shoppingCart.length;
+}
+updateShoppingCartNumberIcon();
+
+/**
+ * Remove from shopping cart the element by index of the selected item
+ *
+ * @param {*} e - Element that launch the event
+ */
+function removeItemFromShoppingCart(e) {
+  const itemToRemove = e.target.parentElement.dataset.asin;
+
+  const indexToRemove = shoppingCart.findIndex(
+    (element) => element.asin == itemToRemove
+  );
+
+  shoppingCart.splice(indexToRemove, 1);
+
+  // Update shopping Cart Number
+  updateShoppingCartNumberIcon();
+
+  // Update items in the list displayed
+  renderShoppingCart();
+}
+
+/**
+ * Render the shopping cart values based on the products Added to the shopping cart
+ */
+function renderShoppingCart() {
+  myOrderContent.innerHTML = "";
+  let shoppingCartTotalAmount = 0;
+  shoppingCart.length == 0 ? (shoppingCartTotal.innerText = "$0.00") : "";
+
+  for (cartItem of shoppingCart) {
+    const shoppingCartItem = document.createElement("div");
+    shoppingCartItem.classList.add("shopping-cart");
+    shoppingCartItem.setAttribute("data-asin", cartItem.asin);
+
+    const figure = document.createElement("figure");
+    const productThumbnail = document.createElement("img");
+    productThumbnail.setAttribute("src", cartItem.image);
+    productThumbnail.setAttribute("alt", cartItem.image_alt);
+
+    figure.appendChild(productThumbnail);
+
+    const productName = document.createElement("p");
+    productName.innerText = cartItem.nombre;
+    const productPrice = document.createElement("p");
+    productPrice.innerText = displayMoneyWithLocale(cartItem.precio);
+
+    const closeImg = document.createElement("img");
+    closeImg.setAttribute("src", "./icons/icon_close.png");
+    closeImg.setAttribute("alt", `Delete this item from the shopping cart`);
+    closeImg.addEventListener("pointerdown", removeItemFromShoppingCart);
+
+    shoppingCartItem.append(figure, productName, productPrice, closeImg);
+
+    // Display the order products
+    myOrderContent.appendChild(shoppingCartItem);
+
+    // Footer
+    shoppingCartTotalAmount += cartItem.precio;
+    shoppingCartTotal.innerText = displayMoneyWithLocale(
+      shoppingCartTotalAmount
+    );
+  }
 }
