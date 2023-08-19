@@ -1,11 +1,12 @@
+// Selectors
 const menuMail = document.querySelector(".navbar-email");
 const desktopMenu = document.querySelector(".desktop-menu");
-
 const menuCarritoIcon = document.querySelector(".navbar-shopping-cart");
 const menuHamIcon = document.querySelector(".menu");
-const productDetailCloseIcon = document.querySelector(".product-detail-close");
-
 const mobileMenu = document.querySelector(".mobile-menu");
+
+// Asides selectors
+const productDetailCloseIcon = document.querySelector(".product-detail-close");
 const shoppingCartAside = document.querySelector("#shoppingCartContainer");
 const productDetailContainer = document.querySelector("#productDetail");
 const productDetailInfoContainer =
@@ -23,6 +24,11 @@ menuMail.addEventListener("click", toggleDesktopMenu);
 menuHamIcon.addEventListener("click", toggleMobileMenu);
 menuCarritoIcon.addEventListener("click", toggleShoppingCart);
 
+/**
+ * if the current DOM selector is active then it will add the inactive class
+ *
+ * @param {} arrToClose - array of DOM selectors to manage
+ */
 function collisionManager(arrToClose) {
   for (windowToClose of arrToClose) {
     windowToClose.classList.contains("inactive") == true
@@ -165,21 +171,12 @@ Up to 32-core GPU with up to 13x faster performance for graphics-intensive apps 
   }
 );
 
+/**
+ * Displays the product grid based on the array of data pased
+ *
+ * @param {array} arr - Data feed of products
+ */
 function renderProducts(arr) {
-  // <!-- <div class="product-card">
-  //     <img src="https://images.pexels.com/photos/276517/pexels-photo-276517.jpeg?auto=compress&cs=tinysrgb&dpr=2&h=650&w=940"
-  //         alt="">
-  //     <div class="product-info">
-  //         <div>
-  //             <p>$120,00</p>
-  //             <p>Bike</p>
-  //         </div>
-  //         <figure>
-  //             <img src="./icons/bt_add_to_cart.svg" alt="">
-  //         </figure>
-  //     </div>
-  // </div> -->
-
   const cardsContainer = document.querySelector(".cards-container");
   for (product of productsList) {
     const productCard = document.createElement("div");
@@ -228,10 +225,14 @@ function renderProducts(arr) {
 renderProducts(productsList);
 
 /**
- * Returns a String of a formated number as a currency
- * @param {*} precio
- * @param {*} options
- * @returns
+ * Formats a numeric value as currency with locale-specific formatting.
+ *
+ * @param {number} precio - The numeric value to be formatted as currency.
+ * @param {object} [options] - Formatting options.
+ * @param {string} [options.locale="en-US"] - The locale to use for formatting.
+ * @param {string} [options.currency="USD"] - The currency code.
+ * @param {string} [options.style="currency"] - The formatting style.
+ * @returns {string} The formatted currency value.
  */
 function displayMoneyWithLocale(
   precio,
