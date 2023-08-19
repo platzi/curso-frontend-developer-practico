@@ -4,6 +4,9 @@ const desktopMenu = document.querySelector(".desktop-menu");
 const menuCarritoIcon = document.querySelector(".navbar-shopping-cart");
 const menuHamIcon = document.querySelector(".menu");
 const mobileMenu = document.querySelector(".mobile-menu");
+const shopingCartBtn = document.querySelector(".navbar-shopping-cart");
+const shoppingCartQty = shopingCartBtn.querySelector("div");
+const cardsContainer = document.querySelector(".cards-container");
 
 // Asides selectors
 const productDetailCloseIcon = document.querySelector(".product-detail-close");
@@ -177,7 +180,6 @@ Up to 32-core GPU with up to 13x faster performance for graphics-intensive apps 
  * @param {array} arr - Data feed of products
  */
 function renderProducts(arr) {
-  const cardsContainer = document.querySelector(".cards-container");
   for (product of productsList) {
     const productCard = document.createElement("div");
     productCard.classList.add("product-card");
