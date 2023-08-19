@@ -240,7 +240,7 @@ aside {
   font-size: var(--md);
   font-weight: bold;
 }
-.primary-button {
+.cart-footer .primary-button {
   background-color: var(--hospital-green);
   border-radius: 8px;
   border: none;
