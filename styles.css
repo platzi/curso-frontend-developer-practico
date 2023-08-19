@@ -178,6 +178,7 @@ aside {
   box-sizing: border-box;
   position: absolute;
   right: 0;
+  border: solid 1px rgba(0, 0, 0, 0.05);
 }
 #shoppingCartContainer {
   padding: 0 24px;
@@ -262,18 +263,28 @@ aside {
 .product-card {
   width: 240px;
 }
-.product-card img {
-  width: 240px;
-  height: 240px;
+.product-card .product-image {
+  width: 100%;
+  aspect-ratio: 1 / 1;
   border-radius: 20px;
   object-fit: cover;
   border: solid 0.5px rgba(0, 0, 0, 0.1);
   cursor: pointer;
+  background-color: rgba(0, 0, 0, 0.02);
+  overflow: hidden;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+}
+.product-card .product-image img {
+  width: 95%;
+  height: 95%;
+  object-fit: contain;
 }
 .product-card .product-info {
   display: flex;
   justify-content: space-between;
-  align-items: center;
+  align-items: top;
   margin-top: 12px;
 }
 .product-card .product-info figure {
