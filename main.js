@@ -3,28 +3,28 @@ const desktopMenu = document.querySelector('.desktop-menu');
 const bntMenuMobile = document.querySelector('.menu');
 const menuMobile = document.querySelector('.mobile-menu');
 const btnShoppingCart = document.querySelector('.navbar-shopping-cart');
-const asideProductDetail = document.querySelector('.product-detail');
+const shoppingCartContainer = document.querySelector('#shoppingCartContainer');
 const cardContainer = document.querySelector('.cards-container');
 
 navEmail.addEventListener('click', toggleDesktopMenu);
 bntMenuMobile.addEventListener('click', toggleMobileMenu);
-btnShoppingCart.addEventListener('click', toggleAsideProductDetail);
+btnShoppingCart.addEventListener('click', toggleShoppingCartContainer);
 
 function toggleDesktopMenu(){
-    const isAsideProductDetailClosed = asideProductDetail.classList.contains('inactive');
-    if(!isAsideProductDetailClosed){
-        asideProductDetail.classList.add('inactive');
+    const isShoppingCartContainerClosed = shoppingCartContainer.classList.contains('inactive');
+    if(!isShoppingCartContainerClosed){
+        shoppingCartContainer.classList.add('inactive');
     }
     desktopMenu.classList.toggle('inactive');
 }
 function toggleMobileMenu(){
-    const isAsideProductDetailClosed = asideProductDetail.classList.contains('inactive');
-    if(!isAsideProductDetailClosed){
-        asideProductDetail.classList.add('inactive');
+    const isShoppingCartContainerClosed = shoppingCartContainer.classList.contains('inactive');
+    if(!isShoppingCartContainerClosed){
+        shoppingCartContainer.classList.add('inactive');
     }
     menuMobile.classList.toggle('inactive');
 }
-function toggleAsideProductDetail(){
+function toggleShoppingCartContainer(){
     const isMenuMobileClosed = menuMobile.classList.contains('inactive');
     const isDestopMenuClosed = desktopMenu.classList.contains('inactive')
     if(!isDestopMenuClosed){
@@ -33,7 +33,7 @@ function toggleAsideProductDetail(){
     if(!isMenuMobileClosed){
         menuMobile.classList.add('inactive');
     }
-    asideProductDetail.classList.toggle('inactive');
+    shoppingCartContainer.classList.toggle('inactive');
 }
 
 /* Lista de productos */
