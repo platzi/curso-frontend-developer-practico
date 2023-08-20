@@ -274,7 +274,7 @@
     color: var(--very-light-pink);
   }
 
-  /* Mediaquery */
+  /* Mediaquery mobile*/
   @media (max-width: 640px) {
     .product-detail {
         width: 100%;
@@ -302,6 +302,8 @@
         height: 140px;
     }
   }
+  
+  /* Mediaquery desktop*/
   @media (min-width: 641px){
     .mobile-menu {
         display: none;
