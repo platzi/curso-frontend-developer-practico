@@ -440,7 +440,10 @@ nav {
     }
     .product-detail-cart {
         width: 100%;
+        height: 100%;
+        position: fixed;
     }
+
 }
 
 @media (min-width: 641px) {

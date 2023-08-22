@@ -6,24 +6,38 @@ const shoppingCartIcon = document.querySelector('.navbar-shopping-cart')
 const aside = document.querySelector('.product-detail')
 const logo = document.querySelector('.logo')
 const cardsContainer = document.querySelector('.cards-container')
+const detailCart = document.querySelector('.product-detail-cart')
+const detailCartClose = document.querySelector('.product-detail-close')
 
 emailMenu.addEventListener('click', toggleDesktopMenu)
 burgerIcon.addEventListener('click', toggleMobileMenu)
 shoppingCartIcon.addEventListener('click', toggleAside)
+detailCartClose.addEventListener('click', toggleAsideCart)
 
 function toggleDesktopMenu() {
     aside.classList.add('inactive')
     desktopMenu.classList.toggle('inactive')
+    detailCart.classList.add('inactive')
 }
 
 function toggleMobileMenu() {
     aside.classList.add('inactive')
     mobileMenu.classList.toggle('inactive')
+    detailCart.classList.add('inactive')
+
 }
 function toggleAside() {
     desktopMenu.classList.add('inactive')
     mobileMenu.classList.add('inactive')
     aside.classList.toggle('inactive')
+    detailCart.classList.add('inactive')
+
+}
+function toggleAsideCart() {
+    detailCart.classList.toggle('inactive')
+    desktopMenu.classList.add('inactive')
+    aside.classList.add('inactive')
+
 }
 
 const productList = []
@@ -91,6 +105,8 @@ function renderProducts(arr) {
         const productImg = document.createElement('img')
         productImg.setAttribute('src', product.image)
         productImg.setAttribute('alt', product.name)
+
+        productImg.addEventListener('click', toggleAsideCart)
 
         const productInfo = document.createElement('div')
         productInfo.classList.add('product-info')
