@@ -285,9 +285,10 @@ nav {
 /*Product detail cart*/
 
 .product-detail-cart {
+    position: fixed;
     width: 360px;
+    height: 100%;
     padding-bottom: 24px;
-    position: absolute;
     right: 0;
     background-color: var(--white);
 }
@@ -451,5 +452,8 @@ nav {
     .mobile-menu,
     .mobile-menu img {
         display: none;
+    }
+    .detail-cart-open {
+        width: 76%;
     }
 }

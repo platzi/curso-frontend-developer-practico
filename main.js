@@ -34,68 +34,50 @@ function toggleAside() {
 
 }
 function toggleAsideCart() {
+    cardsContainer.classList.toggle('detail-cart-open')
     detailCart.classList.toggle('inactive')
     desktopMenu.classList.add('inactive')
     aside.classList.add('inactive')
-
 }
 
 const productList = []
 productList.push({
     name: 'Bike',
     price: 380,
-    image: 'https://m.media-amazon.com/images/I/91MqcxxSzFL.__AC_SY300_SX300_QL70_FMwebp_.jpg'
+    image: 'https://m.media-amazon.com/images/I/91MqcxxSzFL.__AC_SY300_SX300_QL70_FMwebp_.jpg',
+    description: "The dream bike, the Fixie is well-built, comfortable and stylish, making it the ideal companion for short commutes. Though at a competitive price, there are no corners cut and the never-ending pursuit to quality is evident. We're sure you'll have a smile on your face every time you hop on for your commutes, hangouts, workouts and beyond"
 })
 productList.push({
     name: 'Gaming Desk',
     price: 420,
-    image: 'https://m.media-amazon.com/images/I/71SMNFiD9bL._AC_SX569_.jpg'
+    image: 'https://m.media-amazon.com/images/I/71SMNFiD9bL._AC_SX569_.jpg',
+    description: "Only for gaming? No! It also serves as a large and stury computer desk/ office workstation! Thanks to the amazing carbon fiber top material and heavy duty metal desk legs, and those added humanized designs, this desk is much more multifunctional compared to other basic computer desk/ office workstation."
 })
 productList.push({
     name: 'Coffee Cup',
     price: 11,
-    image: 'https://m.media-amazon.com/images/I/71ijLyRmNXL.__AC_SY300_SX300_QL70_FMwebp_.jpg'
+    image: 'https://m.media-amazon.com/images/I/71ijLyRmNXL.__AC_SY300_SX300_QL70_FMwebp_.jpg',
+    description: "This coffee mug is perfect for any coffee lover. It is made of high quality ceramic and has a classic shape that you are sure to love. The mug has a comfortable handle that makes it easy to hold, even when filled with hot coffee. The mug is also dishwasher safe, making it easy to clean."
 })
 productList.push({
     name: 'Git and Github',
     price: 14.99,
-    image: 'https://pbs.twimg.com/media/FubgrSEWYAATGTr.jpg'
+    image: 'https://pbs.twimg.com/media/FubgrSEWYAATGTr.jpg',
+    description: "This step-by-step guide will help you understand the fundamentals, while you learn the theory and apply it in practice, thanks to the course included in the book. A 5-hour video course that you can access for free from mouredev.com/git-github."
 })
 productList.push({
     name: 'Learning JavaScript',
     price: 14.85,
-    image: 'https://d2sofvawe08yqg.cloudfront.net/aprendiendo-javascript/s_hero2x?1620475858'
+    image: 'https://d2sofvawe08yqg.cloudfront.net/aprendiendo-javascript/s_hero2x?1620475858',
+    description: "This book is a comprehensive resource for learning JavaScript, one of the world's most popular programming languages. It is written in a clear and concise style, and is full of examples and practical exercises. The book starts with the basics of JavaScript, such as variables, functions, and loops, and then moves on to more advanced topics, such as objects, events, and animations. The book also covers more recent topics, such as asynchronous programming and web applications with React."
 })
 productList.push({
-    name: 'Bike',
+    name: 'Tesla Coil',
     price: 79.99,
-    image: 'https://i5.walmartimages.com.mx/mg/gm/3pp/asr/b2b10812-dbea-4cdd-823c-22d67ed22215.caad0e2aa520aa4be27909fe53de6adf.jpeg?odnHeight=612&odnWidth=612&odnBg=FFFFFF'
+    image: 'https://i5.walmartimages.com.mx/mg/gm/3pp/asr/b2b10812-dbea-4cdd-823c-22d67ed22215.caad0e2aa520aa4be27909fe53de6adf.jpeg?odnHeight=612&odnWidth=612&odnBg=FFFFFF',
+    description: "A musical Tesla coil is a Tesla coil that has been modified to reproduce musical notes. This is done by modulating the frequency of the current that is applied to the primary coil. When the frequency of the current matches the natural frequency of the secondary coil, a resonance occurs, which causes the secondary coil to emit a sound."
 })
-productList.push({
-    name: 'Git and Github',
-    price: 14.99,
-    image: 'https://pbs.twimg.com/media/FubgrSEWYAATGTr.jpg'
-})
-productList.push({
-    name: 'Learning JavaScript',
-    price: 14.85,
-    image: 'https://d2sofvawe08yqg.cloudfront.net/aprendiendo-javascript/s_hero2x?1620475858'
-})
-productList.push({
-    name: 'Bike',
-    price: 79.99,
-    image: 'https://i5.walmartimages.com.mx/mg/gm/3pp/asr/b2b10812-dbea-4cdd-823c-22d67ed22215.caad0e2aa520aa4be27909fe53de6adf.jpeg?odnHeight=612&odnWidth=612&odnBg=FFFFFF'
-})
-productList.push({
-    name: 'Bike',
-    price: 79.99,
-    image: 'https://i5.walmartimages.com.mx/mg/gm/3pp/asr/b2b10812-dbea-4cdd-823c-22d67ed22215.caad0e2aa520aa4be27909fe53de6adf.jpeg?odnHeight=612&odnWidth=612&odnBg=FFFFFF'
-})
-productList.push({
-    name: 'Bike',
-    price: 79.99,
-    image: 'https://i5.walmartimages.com.mx/mg/gm/3pp/asr/b2b10812-dbea-4cdd-823c-22d67ed22215.caad0e2aa520aa4be27909fe53de6adf.jpeg?odnHeight=612&odnWidth=612&odnBg=FFFFFF'
-})
+
 
 function renderProducts(arr) {
     for (product of productList) {
@@ -119,7 +101,7 @@ function renderProducts(arr) {
         productName.innerText = product.name
 
         const productFigure = document.createElement('figure')
-        
+
         const productFigureCart = document.createElement('img')
         productFigureCart.setAttribute('src', './icons/bt_add_to_cart.svg')
         productFigureCart.setAttribute('alt', 'Add to Cart')
@@ -134,7 +116,53 @@ function renderProducts(arr) {
         productCard.append(productImg, productInfo)
 
         cardsContainer.append(productCard)
+
+        productImg.addEventListener('click', (event) => {
+            let elementSrc = event.target.src
+
+            for (let i = 0; i < productList.length; i++) {
+                if (productList[i].image === elementSrc) {
+                    let details = productList[i]
+
+                    const imgCloseICon = document.createElement('img')
+                    imgCloseICon.setAttribute('src', 'https://images.pexels.com/photos/276517/pexels-photo-276517.jpeg?auto=compress&cs=tinysrgb&dpr=2&h=650&w=940')
+                    imgCloseICon.setAttribute('alt', 'Close')
+
+                    const productDetailImg = document.createElement('img')
+                    productDetailImg.setAttribute('src', elementSrc)
+                    productDetailImg.setAttribute('alt', details.name)
+
+                    const productDetailInfo = document.createElement('div')
+                    productDetailInfo.classList.add('product-info-cart')
+
+                    const productDetailPrice = document.createElement('p')
+                    productDetailPrice.innerText = '$' + details.price
+                    const productDetailName = document.createElement('p')
+                    productDetailName.innerText = details.name
+                    const productDetailDescription = document.createElement('p')
+                    productDetailDescription.innerText = details.description
+
+                    const productButton = document.createElement('button')
+                    productButton.classList.add('primary-button')
+                    productButton.classList.add('add-to-cart-button')
+                    productButton.innerHTML = 'Add to cart'
+
+                    const addToCartIcon = document.createElement('img')
+                    addToCartIcon.setAttribute('src', './icons/bt_add_to_cart.svg')
+                    addToCartIcon.setAttribute('alt', 'add to cart')
+
+                    productButton.appendChild(addToCartIcon)
+
+                    productDetailInfo.append(productDetailPrice, productDetailName, productDetailDescription,productButton)
+
+                    detailCart.append(productDetailImg,
+                    productDetailInfo)
+                }
+            }
+        })
     }
 }
 
 renderProducts(productList)
+
+//Quedamos en averiguar como eliminar los elementos del HTML, para que cuando se seleccione uno nuevo no quede guardado el viejo y salga el nuevo
