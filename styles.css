@@ -169,6 +169,10 @@ aside {
 #shoppingCar {
    padding: 0 24px; 
 }
+.arrow-container {
+    display: flex;
+    cursor: pointer;
+}
 .title-container {
     display: flex;
 }
@@ -350,6 +354,9 @@ justify-content: center;
     }
     .navbar-email {
       display: none;
+    }
+    .navbar-shopping-cart {
+        cursor: pointer;
     }
     .desktop-menu {
         display: none;

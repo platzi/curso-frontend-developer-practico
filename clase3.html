@@ -58,7 +58,7 @@
     }
     .input {
       background-color: var(--text-input-field);
-      border: none;
+      border: 1px solid var(--very-light-pink);
       border-radius: 8px;
       height: 30px;
       font-size: var(--md);
@@ -114,11 +114,17 @@
         <input type="password" id="password" placeholder="*********" class="input input-password">
 
         <input type="submit" value="Log in" class="primary-button login-button">
-        <a href="/">Forgot my password</a>
+        <a href="./clase2.html">Forgot my password</a>
       </form>
 
       <button class="secondary-button signup-button">Sign up</button>
     </div>
   </div>
+
+  <script>
+    document.querySelector('.signup-button').onclick = function() {
+        window.location.href = "./clase4.html";
+    };
+    </script>
 </body>
 </html>
