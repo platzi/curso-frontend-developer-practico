@@ -3,7 +3,7 @@ const desktopmenu = document.querySelector('.desktop-menu');
 const menuicon = document.querySelector('.menu');
 const mobilemenu = document.querySelector('.mobile-menu');
 const shoppingicon = document.querySelector('.navbar-shopping-cart');
-const shoppingmenu = document.querySelector('.product-detail');
+const shoppingmenu = document.querySelector('#shoppingCartContainer');
 const cardscontainer = document.querySelector('.cards-container')
 
 menuemail.addEventListener('click',toggleDesktopmenu);
@@ -75,7 +75,7 @@ function renderproducts(productlist){
         cardscontainer.appendChild(productcard);
     }
 };
-    
+
 const productlist = [];
 
 productlist.push(
