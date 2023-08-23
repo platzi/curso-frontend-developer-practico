@@ -68,7 +68,8 @@ productList.push({
         </div>
       </div> */
 
-for (product of productList){
+function renderProduct(arr){
+for (product of arr){
     const productCard = document.createElement('div');
     productCard.classList.add('product-card');
 
@@ -102,3 +103,5 @@ for (product of productList){
 
     cardsContainer.appendChild(productCard);
 }
+}
+renderProduct(productList)
