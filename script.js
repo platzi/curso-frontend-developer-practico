@@ -5,6 +5,9 @@ const mobileMenu = document.querySelector(".mobile-menu");
 const clickCarrito = document.querySelector(".navbar-shopping-cart");
 const productDetail = document.querySelector(".product-detail");
 const cardsContainer = document.querySelector(".cards-container");
+const productDetailCard = document.querySelector(".product-detail--card");
+const clickProductCard = document.querySelector(".product-card");
+const productDetailClose = document.querySelector(".product-detail-close")
 
 
 clickEmail.addEventListener("click", mostrarMenu);
@@ -12,6 +15,7 @@ clickEmail.addEventListener("click", mostrarMenu);
 function mostrarMenu(){
     if(!desktopMenu.classList.toggle("inactive")){
         productDetail.classList.add("inactive");
+        productDetailCard.classList.add("inactive")
     }
 }
 
@@ -21,6 +25,7 @@ clickMenu.addEventListener("click", mostrarMenuMobile);
 function mostrarMenuMobile(){
     if(!mobileMenu.classList.toggle("inactive")){
         productDetail.classList.add("inactive");
+        productDetailCard.classList.add("inactive")
     }   
 }
 
@@ -31,7 +36,23 @@ function mostrarMenuCarrito(){
     if(!productDetail.classList.toggle("inactive")){
         desktopMenu.classList.add("inactive");
         mobileMenu.classList.add("inactive");
+        productDetailCard.classList.add("inactive")
     }
+}
+
+
+ function mostrarDetailProduct(){
+     if(!productDetailCard.classList.remove("inactive")){
+        desktopMenu.classList.add("inactive");
+        productDetail.classList.add("inactive");
+        mobileMenu.classList.add("inactive");
+     }
+ }
+
+ productDetailClose.addEventListener("click", closeAside);
+
+function closeAside(){
+    productDetailCard.classList.add("inactive");
 }
 
 const productList = [];
@@ -111,6 +132,7 @@ function renderProducts(arr){
 
         const productCard = document.createElement("div");
         productCard.classList.add("product-card");
+        productCard.addEventListener("click", mostrarDetailProduct)
         
         const productImg = document.createElement("img");
         productImg.setAttribute("src", element.image);

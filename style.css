@@ -347,6 +347,7 @@ nav {
   justify-content: center;
 }
 
+
 @media (max-width: 640px) {
   .menu {
     display: block;
@@ -372,6 +373,9 @@ nav {
   .product-card img {
     width: 140px;
     height: 140px;
+  }
+  .product-detail--card {
+    width: 100%;
   }
 }
 
