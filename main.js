@@ -9,11 +9,13 @@ const shoppingCartContainer = document.querySelector('#shoppingCartContainer');
 const cardsContainer = document.querySelector('.cards-container');
 const productDetailContainer = document.querySelector('#productDetail')
 
+
 navEmail.addEventListener('click', toggleDesktopMenu);
 menuHamIcon.addEventListener('click', toggleMobileMenu);
 shoppingCart.addEventListener('click', toggleShoppingCart);
 shoppingCartIcon.addEventListener('click', closeShoppingCart);
 productDetailCloseIcon.addEventListener('click', productDetailCloseAside);
+
 
 function openProductDetailAside () {
     shoppingCartContainer.classList.add('inactive');

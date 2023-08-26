@@ -32,6 +32,7 @@
   }
   .logo {
     width: 100px;
+    cursor: pointer;
   }
   .navbar-left ul,
   .navbar-right ul {
@@ -67,9 +68,16 @@
     margin-right: 12px;
     cursor: pointer;
   }
+  .navbar-email:hover {
+    opacity: 0.7;
+  }
   .navbar-shopping-cart {
     position: relative;
     cursor: pointer;
+  }
+  .navbar-shopping-cart img:hover {
+    transform: scale(0.80);
+    transition: transform .5s;
   }
   .navbar-shopping-cart div {
     width: 16px;
@@ -97,6 +105,7 @@
     border: 1px solid var(--very-light-pink);
     border-radius: 6px;
     padding: 20px 20px 0 20px;
+    z-index: 3;
   }
   .desktop-menu ul {
     list-style: none;
@@ -167,6 +176,7 @@
     box-sizing: border-box;
     position: absolute;
     right: 0;
+    z-index: 3;
   }
   .title-container {
     display: flex;
@@ -311,6 +321,10 @@
   .product-card {
     width: 240px;
     box-shadow: 0 7px 10px rgb(0 0 0 / 0.2);
+    transition: transform 1s;
+  }
+  .product-card:hover {
+    transform: scale(0.90);
   }
   .product-card img {
     width: 240px;
