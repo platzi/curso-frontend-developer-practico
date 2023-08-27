@@ -188,7 +188,8 @@
   }
   .title-container img {
     transform: rotate(180deg);
-    margin-right: 14px;
+    margin-right: 12px;
+    margin-left: 8px;
     cursor: pointer;
   }
   .title {
@@ -266,7 +267,7 @@
     border-radius: 12px;
   }
   .product-detail-close {
-    background: var(--white);
+    background: var(--black);
     width: 14px;
     height: 14px;
     position: absolute;
