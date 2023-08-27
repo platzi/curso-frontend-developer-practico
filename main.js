@@ -3,27 +3,27 @@ const desktopMenu = document.querySelector('.desktop-menu');
 const iconMenu = document.querySelector('.menu');
 const mobileMenu = document.querySelector('.mobile-menu');
 const cartMenuIcon = document.querySelector('.navbar-shopping-cart');
-const aside = document.querySelector('.product-detail');
+const shoppingCartContainer = document.querySelector('#shoppingCartContainer');
 const cardsContainer = document.querySelector('.cards-container');
 
 menuEmail.addEventListener('click', toggleDesktopMenu);
 iconMenu.addEventListener('click', toggleMobileMenu);
-cartMenuIcon.addEventListener('click', toggleAside);
+cartMenuIcon.addEventListener('click', toggleshoppingCartContainer);
 
 function toggleDesktopMenu(){
-    aside.classList.add('inactive');
+    shoppingCartContainer.classList.add('inactive');
     desktopMenu.classList.toggle('inactive');
 }
 
 function toggleMobileMenu(){
     mobileMenu.classList.toggle('inactive');
-    aside.classList.add('inactive');
+    shoppingCartContainer.classList.add('inactive');
 }
 
-function toggleAside(){
+function toggleshoppingCartContainer(){
     mobileMenu.classList.add('inactive');
     desktopMenu.classList.add('inactive');
-    aside.classList.toggle('inactive');
+    shoppingCartContainer.classList.toggle('inactive');
 }
 
 const productList = [];
@@ -66,10 +66,10 @@ for (product of productList) {
     const productImgCart = document.createElement('img');
     productImgCart.setAttribute('src', './icons/bt_add_to_cart.svg');
 
-    productInfoFigure.appendChild(productImgCart);
+    productInfoFigure.appendChild(productImgCart)
 
-    productInfo.append(productInfoDiv, productInfoFigure);
-    productCard.append(productImg, productInfo);
+    productInfo.append(productInfoDiv, productInfoFigure)
+    productCard.append(productImg, productInfo)
 
-    cardsContainer.appendChild(productCard);
+    cardsContainer.appendChild(productCard)
 }
