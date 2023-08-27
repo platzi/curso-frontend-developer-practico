@@ -7,7 +7,9 @@ const mobileMenu = document.querySelector('.mobile-menu');
 const shoppingCart = document.querySelector('.navbar-shopping-cart');
 const shoppingCartContainer = document.querySelector('#shoppingCartContainer');
 const cardsContainer = document.querySelector('.cards-container');
-const productDetailContainer = document.querySelector('#productDetail')
+const productDetailContainer = document.querySelector('#productDetail');
+
+cardsContainer.classList.remove('opacity');
 
 
 navEmail.addEventListener('click', toggleDesktopMenu);
@@ -17,23 +19,28 @@ shoppingCartIcon.addEventListener('click', closeShoppingCart);
 productDetailCloseIcon.addEventListener('click', productDetailCloseAside);
 
 
+
 function openProductDetailAside () {
     shoppingCartContainer.classList.add('inactive');
     desktopMenu.classList.add('inactive');
     mobileMenu.classList.add('inactive');
 
     productDetailContainer.classList.remove('inactive');
+    cardsContainer.classList.add('opacity');
 }
 
 function toggleDesktopMenu () {
     shoppingCartContainer.classList.add('inactive');
     productDetailContainer.classList.add('inactive');
+    cardsContainer.classList.remove('opacity');
 
     desktopMenu.classList.toggle('inactive');
+
 }
 
 function productDetailCloseAside () {
     productDetailContainer.classList.add('inactive');
+    cardsContainer.classList.remove('opacity');
 }
 
 function toggleMobileMenu () {
@@ -44,16 +51,26 @@ function toggleMobileMenu () {
 }
 
 function toggleShoppingCart () {
+    const isproductDetailContainerClosed = productDetailContainer.classList.contains('inactive');
+
     mobileMenu.classList.add('inactive');
     desktopMenu.classList.add('inactive');
     productDetailContainer.classList.add('inactive');
 
     shoppingCartContainer.classList.toggle('inactive');
+    cardsContainer.classList.toggle('opacity');
+
+    if (!isproductDetailContainerClosed) {
+        shoppingCartContainer.classList.add('inactive');
+        cardsContainer.classList.remove('opacity');
+    }
 }
 
 function closeShoppingCart () {
     shoppingCartContainer.classList.add('inactive');
+    cardsContainer.classList.remove('opacity');
 }
+
 
 const productList = [];
 productList.push({

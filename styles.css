@@ -30,6 +30,10 @@
     display: none;
     cursor: pointer;
   }
+  .menu:active {
+    opacity: 0.5;
+    transform: scale(0.9);
+  }
   .logo {
     width: 100px;
     cursor: pointer;
@@ -75,9 +79,9 @@
     position: relative;
     cursor: pointer;
   }
-  .navbar-shopping-cart img:hover {
-    transform: scale(0.80);
-    transition: transform .5s;
+  .navbar-shopping-cart img:active {
+    opacity: 0.5;
+    transform: scale(0.9);
   }
   .navbar-shopping-cart div {
     width: 16px;
@@ -170,13 +174,14 @@
   }
 
   /*Aside product-detail, carrito de compras*/
-  aside {
+  #shoppingCartContainer {
     background: var(--white);
     width: 360px;
     box-sizing: border-box;
     position: absolute;
     right: 0;
     z-index: 3;
+    border-radius: 8px;
   }
   .title-container {
     display: flex;
@@ -249,13 +254,24 @@
   }
 
   /*productDetail*/
+  #productDetail {
+    position: fixed;
+    transform: translate(-50%, -50%);
+    left: 50%;
+    top: 50%;
+    width: 351px;
+    background: var(--white);
+    z-index: 5;
+    padding-bottom: 16px;
+    border-radius: 12px;
+  }
   .product-detail-close {
     background: var(--white);
     width: 14px;
     height: 14px;
     position: absolute;
-    top: 24px;
-    left: 24px;
+    top: 32px;
+    left: 32px;
     z-index: 2;
     padding: 12px;
     border-radius: 50%;
@@ -266,11 +282,14 @@
   .product-detail-close:hover {
     cursor: pointer;
   }
-  #productDetail > img:nth-child(2) {
-    width: 100%;
+  #productDetail img:nth-child(2) {
+    width: 300px;
     height: 360px;
     object-fit: cover;
-    border-radius: 0 0 20px 20px;
+    border-radius: 20px;
+    position: relative;
+    left: 25px;
+    top: 25px;
   }
   #productDetail .product-info {
     margin: 24px 24px 0 24px;
@@ -318,13 +337,20 @@
     place-content: center;
     padding-top: 20px;
   }
+  .opacity {
+    background: var(--black);
+    filter: brightness(20%);
+  }
   .product-card {
     width: 240px;
     box-shadow: 0 7px 10px rgb(0 0 0 / 0.2);
     transition: transform 1s;
   }
   .product-card:hover {
-    transform: scale(0.90);
+    transform: scale(0.99);
+  }
+  .product-card:active {
+    transform: scale(0.5);
   }
   .product-card img {
     width: 240px;
@@ -347,6 +373,10 @@
     width: 35px;
     height: 35px;
     padding-right: 5px;
+  }
+
+  .product-card .product-info figure img:hover {
+    opacity: 0.7;
   }
   .product-card .product-info div p:nth-child(1) {
     font-weight: bold;
@@ -377,6 +407,14 @@
     }
     aside {
       width: 100%;
+    }
+    #productDetail {
+      width: 100%;
+      height: 100%;
+    }
+    #productDetail img:nth-child(2) {
+      width: 100%;
+      left: 0;
     }
   }
 
