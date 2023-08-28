@@ -3,30 +3,28 @@ const desktopMenu = document.querySelector('.desktop-menu');
 const menuHamIcon = document.querySelector('.menu');
 const mobileMenu = document.querySelector('.mobile-menu');
 const menuCarritoIcon = document.querySelector('.navbar-shopping-cart');
-const aside = document.querySelector('.product-detail');
+const shoppingCartContainer = document.querySelector('#shoppingCartContainer');
 const cardsContainer = document.querySelector('.cards-container');
 
 menuEmail.addEventListener('click', toggleDesktopMenu);
 menuHamIcon.addEventListener('click', toggleMobileMenu);
 menuCarritoIcon.addEventListener('click', toggleCarritoAside);
 
-
 function toggleDesktopMenu(){
-
-    const isAsideClose = aside.classList.contains('inactive');
+    const isAsideClose = shoppingCartContainer.classList.contains('inactive');
 
     if(!isAsideClose){
-        aside.classList.add('inactive');
+        shoppingCartContainer.classList.add('inactive');
     }  
 
     desktopMenu.classList.toggle('inactive');
 }
 
 function toggleMobileMenu(){    
-    const isAsideClose = aside.classList.contains('inactive');
+    const isAsideClose = shoppingCartContainer.classList.contains('inactive');
 
     if(!isAsideClose){
-        aside.classList.add('inactive');
+        shoppingCartContainer.classList.add('inactive');
     }     
     
     mobileMenu.classList.toggle('inactive');
@@ -39,7 +37,7 @@ function toggleCarritoAside(){
         mobileMenu.classList.add('inactive');
     }
     
-    aside.classList.toggle('inactive');    
+    shoppingCartContainer.classList.toggle('inactive');    
 }
 
 const productList = [];
@@ -51,25 +49,13 @@ productList.push({
 productList.push({
     name: 'Pantalla',
     price: 220,
-    image: 'https://th.bing.com/th/id/OIP.2Zglk1C4wZ295_NYeFWi7AAAAA?pid=ImgDet&rs=1',
+    image: 'https://th.bing.com/th/id/OIP.4Wfee2syV7M5ERf2sOve3wHaGG?pid=ImgDet&rs=1',
 });
 productList.push({
     name: 'Computador',
     price: 620,
     image: 'https://cdn5.dibujos.net/dibujos/pintados/201721/un-ordenador-portatil-la-casa-la-habitacion-11013974.jpg',
 });
-
-/*<div class="product-card">
-        <img src="https://images.pexels.com/photos/276517/pexels-photo-276517.jpeg?auto=compress&cs=tinysrgb&dpr=2&h=650&w=940" alt="">
-        <div class="product-info">
-          <div>
-            <p>$120,00</p>
-            <p>Bike</p>
-          </div>
-          <figure>
-            <img src="./icons/bt_add_to_cart.svg" alt="">
-          </figure>
-        </div> */
 
 for (product of productList){
     const productCard = document.createElement('div');
