@@ -32,7 +32,7 @@ opc_email.addEventListener('mouseout', () => {
 opc_email.addEventListener('mouseover', () => {
     clearTimeout(mouseoutTimeout);
     desktop_menu_email.classList.remove('inactive'); // Eliminar la clase 'inactive'
-
+    close_product_detail();
     if(!shopping_card_container.classList.contains('inactive')){
         shopping_card_container.classList.toggle('inactive')
     }
@@ -55,6 +55,7 @@ desktop_menu_email.addEventListener('mouseover', () => {
 /*evento menu mobile */ 
 mob_menu_img.addEventListener('click', () => {
     mob_menu.classList.toggle('inactive')
+    close_product_detail();
     if(!shopping_card_container.classList.contains('inactive')){
         shopping_card_container.classList.toggle('inactive')
     }
@@ -64,16 +65,18 @@ mob_menu_img.addEventListener('click', () => {
 /*evento menu de carrito de compra*/
 
 shopping_card_container_img.addEventListener('click', () => {
-    shopping_card_container.classList.toggle('inactive')
-
+    shopping_card_container.classList.toggle('inactive'); 
+    close_product_detail(); // aseguro que siempre se cierre detalles de producto
     if(!mob_menu.classList.contains('inactive')){
-        mob_menu.classList.toggle('inactive')
+        mob_menu.classList.toggle('inactive');
     }
     
 });
 
 /*evento cerrar detalle de producto*/
 product_detail_close.addEventListener('click', close_product_detail);
+
+
 
 // se maneja for ** of *** para valores o for ** in *** para indices
 // representa lo que viene de la BDD basicamente
@@ -96,6 +99,9 @@ product_list.push({
 
 function open_product_detail(){
     product_detail.classList.remove('inactive');
+    if(!shopping_card_container.classList.contains('inactive')){
+        shopping_card_container.classList.toggle('inactive')
+    }
 }
 
 function close_product_detail(){
