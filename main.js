@@ -7,17 +7,23 @@ const aside = document.querySelector('.product-detail')
 const logo = document.querySelector('.logo')
 const cardsContainer = document.querySelector('.cards-container')
 const detailCart = document.querySelector('.product-detail-cart')
-const detailCartClose = document.querySelector('.product-detail-close')
+const infoCart = document.querySelector('.product-info-cart')
+const detailCartClose = document.querySelector('.product-detail-close img:nth-child(1)')
+const closeShoppingCart = document.querySelector('.title-container img')
+// const detailsButtonAdd = document.querySelector('.add-to-cart-button')
 
 emailMenu.addEventListener('click', toggleDesktopMenu)
 burgerIcon.addEventListener('click', toggleMobileMenu)
 shoppingCartIcon.addEventListener('click', toggleAside)
+detailCart.addEventListener('click', openAsideCart)
 detailCartClose.addEventListener('click', toggleAsideCart)
+closeShoppingCart.addEventListener('click', toggleAsideClose)
 
 function toggleDesktopMenu() {
     aside.classList.add('inactive')
     desktopMenu.classList.toggle('inactive')
     detailCart.classList.add('inactive')
+    cardsContainer.classList.remove('detail-cart-open')
 }
 
 function toggleMobileMenu() {
@@ -27,18 +33,27 @@ function toggleMobileMenu() {
 
 }
 function toggleAside() {
+    cardsContainer.classList.add('detail-cart-open')
     desktopMenu.classList.add('inactive')
     mobileMenu.classList.add('inactive')
-    aside.classList.toggle('inactive')
+    aside.classList.remove('inactive')
     detailCart.classList.add('inactive')
-
+}
+function toggleAsideClose() {
+    cardsContainer.classList.remove('detail-cart-open')
+    aside.classList.add('inactive')
 }
 function toggleAsideCart() {
-    cardsContainer.classList.toggle('detail-cart-open')
-    detailCart.classList.toggle('inactive')
+    cardsContainer.classList.add('detail-cart-open')
+    detailCart.classList.remove('inactive')
     desktopMenu.classList.add('inactive')
     aside.classList.add('inactive')
 }
+function openAsideCart() {
+    cardsContainer.classList.remove('detail-cart-open')
+    detailCart.classList.add('inactive')
+}
+
 
 const productList = []
 productList.push({
@@ -69,7 +84,7 @@ productList.push({
     name: 'Learning JavaScript',
     price: 14.85,
     image: 'https://d2sofvawe08yqg.cloudfront.net/aprendiendo-javascript/s_hero2x?1620475858',
-    description: "This book is a comprehensive resource for learning JavaScript, one of the world's most popular programming languages. It is written in a clear and concise style, and is full of examples and practical exercises. The book starts with the basics of JavaScript, such as variables, functions, and loops, and then moves on to more advanced topics, such as objects, events, and animations. The book also covers more recent topics, such as asynchronous programming and web applications with React."
+    description: "This book is a comprehensive resource for learning JavaScript, one of the world's most popular programming languages. It is written in a clear and concise style, and is full of examples and practical exercises. The book starts with the basics of JavaScript, such as variables, functions, and loops, and then moves on to more advanced topics, such as objects, events, and animations."
 })
 productList.push({
     name: 'Tesla Coil',
@@ -77,7 +92,6 @@ productList.push({
     image: 'https://i5.walmartimages.com.mx/mg/gm/3pp/asr/b2b10812-dbea-4cdd-823c-22d67ed22215.caad0e2aa520aa4be27909fe53de6adf.jpeg?odnHeight=612&odnWidth=612&odnBg=FFFFFF',
     description: "A musical Tesla coil is a Tesla coil that has been modified to reproduce musical notes. This is done by modulating the frequency of the current that is applied to the primary coil. When the frequency of the current matches the natural frequency of the secondary coil, a resonance occurs, which causes the secondary coil to emit a sound."
 })
-
 
 function renderProducts(arr) {
     for (product of productList) {
@@ -124,39 +138,26 @@ function renderProducts(arr) {
                 if (productList[i].image === elementSrc) {
                     let details = productList[i]
 
-                    const imgCloseICon = document.createElement('img')
-                    imgCloseICon.setAttribute('src', 'https://images.pexels.com/photos/276517/pexels-photo-276517.jpeg?auto=compress&cs=tinysrgb&dpr=2&h=650&w=940')
-                    imgCloseICon.setAttribute('alt', 'Close')
+                    let imgDetails = detailCart.querySelector('img:nth-child(2)')
+                    let imgDetailsClick = document.createElement('img')
+                    imgDetailsClick.setAttribute('src', details.image)
+                    imgDetailsClick.setAttribute('alt', details.name)
+                    detailCart.replaceChild(imgDetailsClick, imgDetails)
 
-                    const productDetailImg = document.createElement('img')
-                    productDetailImg.setAttribute('src', elementSrc)
-                    productDetailImg.setAttribute('alt', details.name)
+                    let priceDetails = detailCart.querySelector('p:nth-child(1)')
+                    let priceDetailsClick = document.createElement('p')
+                    priceDetailsClick.innerText = '$' + details.price
+                    infoCart.replaceChild(priceDetailsClick, priceDetails)
 
-                    const productDetailInfo = document.createElement('div')
-                    productDetailInfo.classList.add('product-info-cart')
+                    let nameDetails = detailCart.querySelector('p:nth-child(2)')
+                    let nameDetailsClick = document.createElement('p')
+                    nameDetailsClick.innerText = details.name
+                    infoCart.replaceChild(nameDetailsClick, nameDetails)
 
-                    const productDetailPrice = document.createElement('p')
-                    productDetailPrice.innerText = '$' + details.price
-                    const productDetailName = document.createElement('p')
-                    productDetailName.innerText = details.name
-                    const productDetailDescription = document.createElement('p')
-                    productDetailDescription.innerText = details.description
-
-                    const productButton = document.createElement('button')
-                    productButton.classList.add('primary-button')
-                    productButton.classList.add('add-to-cart-button')
-                    productButton.innerHTML = 'Add to cart'
-
-                    const addToCartIcon = document.createElement('img')
-                    addToCartIcon.setAttribute('src', './icons/bt_add_to_cart.svg')
-                    addToCartIcon.setAttribute('alt', 'add to cart')
-
-                    productButton.appendChild(addToCartIcon)
-
-                    productDetailInfo.append(productDetailPrice, productDetailName, productDetailDescription,productButton)
-
-                    detailCart.append(productDetailImg,
-                    productDetailInfo)
+                    let descriptionDetails = detailCart.querySelector('p:nth-child(3)')
+                    let descriptionDetailsClick = document.createElement('p')
+                    descriptionDetailsClick.innerText = details.description
+                    infoCart.replaceChild(descriptionDetailsClick, descriptionDetails)
                 }
             }
         })
@@ -164,5 +165,3 @@ function renderProducts(arr) {
 }
 
 renderProducts(productList)
-
-//Quedamos en averiguar como eliminar los elementos del HTML, para que cuando se seleccione uno nuevo no quede guardado el viejo y salga el nuevo
