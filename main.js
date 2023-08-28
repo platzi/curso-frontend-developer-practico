@@ -16,8 +16,8 @@ opc_email.addEventListener('mouseover', () => {
     clearTimeout(mouseoutTimeout);
     desktop_menu_email.classList.remove('inactive'); // Eliminar la clase 'inactive'
 
-    if(!product_detail.classList.contains('inactive')){
-        product_detail.classList.toggle('inactive')
+    if(!shopping_card_container.classList.contains('inactive')){
+        shopping_card_container.classList.toggle('inactive')
     }
 });
 
@@ -41,19 +41,19 @@ const mob_menu = document.querySelector('.mobile-menu')
 
 mob_menu_img.addEventListener('click', () => {
     mob_menu.classList.toggle('inactive')
-    if(!product_detail.classList.contains('inactive')){
-        product_detail.classList.toggle('inactive')
+    if(!shopping_card_container.classList.contains('inactive')){
+        shopping_card_container.classList.toggle('inactive')
     }
     
 });
 
 /* carrito de compra */
 
-const product_detail_img = document.querySelector('.navbar-shopping-cart');
-const product_detail = document.querySelector('.product-detail');
+const shopping_card_container_img = document.querySelector('.navbar-shopping-cart');
+const shopping_card_container = document.querySelector('#shopping-cart-container');
 
-product_detail_img.addEventListener('click', () => {
-    product_detail.classList.toggle('inactive')
+shopping_card_container_img.addEventListener('click', () => {
+    shopping_card_container.classList.toggle('inactive')
 
     if(!mob_menu.classList.contains('inactive')){
         mob_menu.classList.toggle('inactive')
