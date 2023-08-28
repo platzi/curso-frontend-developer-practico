@@ -49,8 +49,8 @@ mob_menu_img.addEventListener('click', () => {
 
 /* carrito de compra */
 
-const product_detail_img = document.querySelector('.navbar-shopping-cart')
-const product_detail = document.querySelector('.product-detail')
+const product_detail_img = document.querySelector('.navbar-shopping-cart');
+const product_detail = document.querySelector('.product-detail');
 
 product_detail_img.addEventListener('click', () => {
     product_detail.classList.toggle('inactive')
@@ -60,3 +60,60 @@ product_detail_img.addEventListener('click', () => {
     }
     
 });
+// se maneja for ** of *** para valores o for ** in *** para indices
+// representa lo que viene de la BDD basicamente
+product_list = [];
+product_list.push({
+    name: 'Bike',
+    price: '120',
+    image: 'https://images.pexels.com/photos/276517/pexels-photo-276517.jpeg?auto=compress&cs=tinysrgb&dpr=2&h=650&w=940',
+});
+product_list.push({
+    name: 'Auto',
+    price: '1500',
+    image: 'https://images.pexels.com/photos/276517/pexels-photo-276517.jpeg?auto=compress&cs=tinysrgb&dpr=2&h=650&w=940',
+});
+product_list.push({
+    name: 'Balls',
+    price: '400',
+    image: 'https://images.pexels.com/photos/276517/pexels-photo-276517.jpeg?auto=compress&cs=tinysrgb&dpr=2&h=650&w=940',
+});
+/*creamos cada elemento HTML correspondiente para los atributos del producto*/
+cards_container = document.querySelector('.cards-container')
+
+
+function render_products(products_list){
+    for(product of products_list){
+
+        const product_card = document.createElement('div');
+        product_card.classList.add('product-card');
+     
+        const img = document.createElement('img');
+        img.setAttribute('src', product.image);
+     
+        const product_info = document.createElement('div');
+        product_info.classList.add('product-info');
+     
+        const product_info_div = document.createElement('div');
+     
+        const product_price = document.createElement('p');
+        product_price.innerText = '$' + product.price;
+        const product_name = document.createElement('p');
+        product_name.innerText = product.name; 
+     
+        const figure = document.createElement('figure');
+        const img_logo_cart = document.createElement('img');
+        img_logo_cart.setAttribute('src','./icons/bt_add_to_cart.svg');
+     
+        figure.appendChild(img_logo_cart);
+        product_info_div.append(product_price, product_name);
+        product_info.append(figure, product_info_div);
+        product_card.append(img, product_info);
+        /*product_card.appendChild(img);
+        product_card.appendChild(product_info);*/
+         
+        cards_container.appendChild(product_card);
+     }
+}
+
+render_products(product_list);
