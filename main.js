@@ -11,25 +11,37 @@ menuCartIcon.addEventListener('click', toggleCartAside);
 
 
 function toggleDesktopMenu() {
+    const isAsideClosed = aside.classList.contains('inactive');
+
+    if(!isAsideClosed) {
+        aside.classList.add('inactive');
+    }
+
     desktopMenu.classList.toggle('inactive');
 }
 
 function toggleMobileMenu() {
+    const isAsideClosed = aside.classList.contains('inactive');
+
+    if(!isAsideClosed) {
+        aside.classList.add('inactive');
+    }
+
     mobileMenu.classList.toggle('inactive');
 }
 
 function toggleCartAside() {
-    const isMobileMenuClosed = !mobileMenu.classList.contains('inactive');
-    const isAsideClosed = !aside.classList.contains('inactive');
+    const isMobileMenuClosed = mobileMenu.classList.contains('inactive');
+    const isDesktopMenuClosed = desktopMenu.classList.contains('inactive');
 
-    if (!isMobileMenuClosed) {
+    if(!isMobileMenuClosed) {
         mobileMenu.classList.add('inactive');
     }
 
-    if(isAsideClosed) {
-        // abrir el aside
-        // Si mobileMenu esta open, hay que cerrarlo
-    } else {
-        aside.classList.add('inactive');
+    if(!isDesktopMenuClosed) {
+        desktopMenu.classList.add('inactive');
     }
+
+    aside.classList.toggle('inactive')
 }
+
