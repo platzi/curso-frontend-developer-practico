@@ -372,7 +372,12 @@
     .product-card img {
       width: 140px;
       height: 140px;
-    }  
+    } 
+    #productDetail {
+      width: 100%;
+      padding: 0;
+      margin: 0;
+    } 
   }
 
   @media (min-width: 641px) {
