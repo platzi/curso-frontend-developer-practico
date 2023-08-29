@@ -76,7 +76,7 @@ nav {
     cursor: pointer;
     color: var(--very-light-pink);
     font-size: var(--sm);
-    margin-right: 12px;
+    margin-right: 32px;
 }
 
 .navbar-shopping-cart {
@@ -287,7 +287,7 @@ nav {
 
 .product-detail-cart {
     position: fixed;
-    width: 360px;
+    width: 26%;
     height: 100%;
     padding-bottom: 24px;
     right: 0;
@@ -369,6 +369,7 @@ nav {
     gap: 26px;
     place-content: center;
     margin: 20px 0px;
+    width: auto;
 }
 
 .product-card {

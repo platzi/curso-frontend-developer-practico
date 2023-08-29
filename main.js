@@ -7,15 +7,14 @@ const aside = document.querySelector('.product-detail')
 const logo = document.querySelector('.logo')
 const cardsContainer = document.querySelector('.cards-container')
 const detailCart = document.querySelector('.product-detail-cart')
+const detailCartClose = document.querySelector('.product-detail-close')
 const infoCart = document.querySelector('.product-info-cart')
-const detailCartClose = document.querySelector('.product-detail-close img:nth-child(1)')
 const closeShoppingCart = document.querySelector('.title-container img')
 // const detailsButtonAdd = document.querySelector('.add-to-cart-button')
 
 emailMenu.addEventListener('click', toggleDesktopMenu)
 burgerIcon.addEventListener('click', toggleMobileMenu)
 shoppingCartIcon.addEventListener('click', toggleAside)
-detailCart.addEventListener('click', openAsideCart)
 detailCartClose.addEventListener('click', toggleAsideCart)
 closeShoppingCart.addEventListener('click', toggleAsideClose)
 
@@ -44,14 +43,10 @@ function toggleAsideClose() {
     aside.classList.add('inactive')
 }
 function toggleAsideCart() {
-    cardsContainer.classList.add('detail-cart-open')
-    detailCart.classList.remove('inactive')
-    desktopMenu.classList.add('inactive')
-    aside.classList.add('inactive')
-}
-function openAsideCart() {
     cardsContainer.classList.remove('detail-cart-open')
     detailCart.classList.add('inactive')
+    desktopMenu.classList.add('inactive')
+    aside.classList.add('inactive')
 }
 
 
@@ -102,8 +97,6 @@ function renderProducts(arr) {
         productImg.setAttribute('src', product.image)
         productImg.setAttribute('alt', product.name)
 
-        productImg.addEventListener('click', toggleAsideCart)
-
         const productInfo = document.createElement('div')
         productInfo.classList.add('product-info')
 
@@ -132,6 +125,8 @@ function renderProducts(arr) {
         cardsContainer.append(productCard)
 
         productImg.addEventListener('click', (event) => {
+            cardsContainer.classList.add('detail-cart-open')
+            detailCart.classList.remove('inactive')
             let elementSrc = event.target.src
 
             for (let i = 0; i < productList.length; i++) {
