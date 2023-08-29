@@ -82,20 +82,43 @@ product_detail_close.addEventListener('click', close_product_detail);
 // representa lo que viene de la BDD basicamente
 product_list = [];
 product_list.push({
-    name: 'Bike',
-    price: '120',
-    image: 'https://images.pexels.com/photos/276517/pexels-photo-276517.jpeg?auto=compress&cs=tinysrgb&dpr=2&h=650&w=940',
+    name: 'Bicicleta Montañera',
+    price: '180',
+    image: 'https://http2.mlstatic.com/D_NQ_NP_2X_622456-MLV47573234374_092021-F.webp',
+    descripcion: '- CUADRO DE ALUMINIO SUPER LIVIANO CON CABLEADO INTERNO HORQUILLA SUSPENSION CON BLOQUEO FRENOS DE DISCOS MECANICOS COMPONENTES SHIMANO MANDO DE CAMBIOS 7x3 CON FRENOS INTEGRADAS',
 });
 product_list.push({
-    name: 'Auto',
-    price: '1500',
-    image: 'https://images.pexels.com/photos/276517/pexels-photo-276517.jpeg?auto=compress&cs=tinysrgb&dpr=2&h=650&w=940',
+    name: 'Powerhouse Ups 1500w',
+    price: '504',
+    image: 'https://http2.mlstatic.com/D_NQ_NP_2X_717980-MLV47977090096_102021-F.webp',
+    descripcion: 'sistema de alimentación ininterrumpida (UPS), en un cerramiento, montado y probado en fábrica, diseñado para todo tipo de entornos.'
 });
 product_list.push({
-    name: 'Balls',
-    price: '400',
-    image: 'https://images.pexels.com/photos/276517/pexels-photo-276517.jpeg?auto=compress&cs=tinysrgb&dpr=2&h=650&w=940',
+    name: 'Camara Digital Sony Ilce',
+    price: '390',
+    image: 'https://http2.mlstatic.com/D_NQ_NP_2X_745276-MLV52320264720_112022-F.webp',
+    descripcion: 'Enfoque Tipo de enfoque: AF con detección de contraste Punto de enfoque: 25 puntos Lente Sensor CMOS Exmor Número de píxeles: 20,1 MP'
 });
+
+/*
+    <aside id = 'product-detail' class="inactive">
+      <div class="product-detail-close">
+        <img src="./icons/icon_close.png" alt="close">
+      </div>
+      <img src="https://images.pexels.com/photos/276517/pexels-photo-276517.jpeg?auto=compress&cs=tinysrgb&dpr=2&h=650&w=940" alt="bike">
+      <div class="product-info">
+        <p>$35,00</p>
+        <p>Bike</p>
+        <p>With its practical position, this bike also fulfills a decorative function, add your hall or workspace.</p>
+        <button class="primary-button add-to-cart-button">
+          <img src="./icons/bt_add_to_cart.svg" alt="add to cart">
+          Add to cart
+        </button>
+      </div>
+    </aside>
+    function open_product_detail(name, price, image, description){
+        img.addEventListener('click', open_product_detail(product.name, product.price, product.image, product.description ));
+*/
 
 function open_product_detail(){
     product_detail.classList.remove('inactive');
