@@ -69,8 +69,7 @@ shopping_card_container_img.addEventListener('click', () => {
     close_product_detail(); // aseguro que siempre se cierre detalles de producto
     if(!mob_menu.classList.contains('inactive')){
         mob_menu.classList.toggle('inactive');
-    }
-    
+    } 
 });
 
 /*evento cerrar detalle de producto*/
@@ -85,19 +84,19 @@ product_list.push({
     name: 'Bicicleta Montañera',
     price: '180',
     image: 'https://http2.mlstatic.com/D_NQ_NP_2X_622456-MLV47573234374_092021-F.webp',
-    descripcion: '- CUADRO DE ALUMINIO SUPER LIVIANO CON CABLEADO INTERNO HORQUILLA SUSPENSION CON BLOQUEO FRENOS DE DISCOS MECANICOS COMPONENTES SHIMANO MANDO DE CAMBIOS 7x3 CON FRENOS INTEGRADAS',
+    description: 'CUADRO DE ALUMINIO SUPER LIVIANO CON CABLEADO INTERNO HORQUILLA SUSPENSION CON BLOQUEO FRENOS DE DISCOS MECANICOS ',
 });
 product_list.push({
     name: 'Powerhouse Ups 1500w',
     price: '504',
     image: 'https://http2.mlstatic.com/D_NQ_NP_2X_717980-MLV47977090096_102021-F.webp',
-    descripcion: 'sistema de alimentación ininterrumpida (UPS), en un cerramiento, montado y probado en fábrica, diseñado para todo tipo de entornos.'
+    description: 'sistema de alimentación ininterrumpida (UPS), en un cerramiento, montado y probado en fábrica, diseñado para todo tipo de entornos.'
 });
 product_list.push({
     name: 'Camara Digital Sony Ilce',
     price: '390',
     image: 'https://http2.mlstatic.com/D_NQ_NP_2X_745276-MLV52320264720_112022-F.webp',
-    descripcion: 'Enfoque Tipo de enfoque: AF con detección de contraste Punto de enfoque: 25 puntos Lente Sensor CMOS Exmor Número de píxeles: 20,1 MP'
+    description: 'Enfoque Tipo de enfoque: AF con detección de contraste Punto de enfoque: 25 puntos Lente Sensor CMOS Exmor Número de píxeles: 20,1 MP'
 });
 
 /*
@@ -120,11 +119,24 @@ product_list.push({
         img.addEventListener('click', open_product_detail(product.name, product.price, product.image, product.description ));
 */
 
-function open_product_detail(){
+function open_product_detail(name, price, description, image){
     product_detail.classList.remove('inactive');
-    if(!shopping_card_container.classList.contains('inactive')){
-        shopping_card_container.classList.toggle('inactive')
-    }
+        if(!shopping_card_container.classList.contains('inactive')){
+            shopping_card_container.classList.toggle('inactive')
+        }
+
+        const price_element  = document.querySelector('#product-detail .product-info p:nth-child(1)');
+        const name_element  = document.querySelector('#product-detail .product-info p:nth-child(2)');
+        const description_element  = document.querySelector('#product-detail .product-info p:nth-child(3)');
+        const imgElement = document.querySelector('#product-detail > img:nth-child(2)');
+        imgElement.src = image; // Cambia esto por la nueva URL que deseas usar
+        imgElement.alt = 'imagen del producto'; // Cambia el texto alternativo de la imagen
+
+        price_element.textContent = "$"+price;
+        name_element.textContent = name;
+        description_element.textContent = description;
+        
+  
 }
 
 function close_product_detail(){
@@ -134,14 +146,25 @@ function close_product_detail(){
 /* cargar los productos de la lista */
 
 function render_products(products_list){
-    for(product of products_list){
+    for(let product of products_list){
 
         const product_card = document.createElement('div');
         product_card.classList.add('product-card');
      
         const img = document.createElement('img');
         img.setAttribute('src', product.image);
-        img.addEventListener('click', open_product_detail);
+        img.addEventListener('click', () => {
+            open_product_detail(product.name, product.price, product.description, product.image);
+            console.log(product.image);
+        });
+
+        /* Crear un cierre (closure) para conservar los valores del producto esto se tenia product declaro como var, cosa que no es recomendable.
+        (function(name, price, description) {
+            img.addEventListener('click', () => {
+                open_product_detail(name, price, description);
+            });
+        })(product.name, product.price, product.description);
+        */
 
         const product_info = document.createElement('div');
         product_info.classList.add('product-info');
