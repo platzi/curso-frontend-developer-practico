@@ -13,6 +13,8 @@ const mob_menu = document.querySelector('.mobile-menu');
 
 const shopping_card_container_img = document.querySelector('.navbar-shopping-cart');
 const shopping_card_container = document.querySelector('#shopping-cart-container');
+const shopping_cart_button = document.querySelector('.add-to-cart-button');
+
 
 /*creamos cada elemento HTML correspondiente para los atributos del producto*/
 const cards_container = document.querySelector('.cards-container');
@@ -124,22 +126,28 @@ function open_product_detail(name, price, description, image){
         if(!shopping_card_container.classList.contains('inactive')){
             shopping_card_container.classList.toggle('inactive')
         }
-
+        
         const price_element  = document.querySelector('#product-detail .product-info p:nth-child(1)');
         const name_element  = document.querySelector('#product-detail .product-info p:nth-child(2)');
         const description_element  = document.querySelector('#product-detail .product-info p:nth-child(3)');
         const imgElement = document.querySelector('#product-detail > img:nth-child(2)');
-        imgElement.src = image; // Cambia esto por la nueva URL que deseas usar
-        imgElement.alt = 'imagen del producto'; // Cambia el texto alternativo de la imagen
 
         price_element.textContent = "$"+price;
         name_element.textContent = name;
         description_element.textContent = description;
+        imgElement.src = image; // Cambia esto por la nueva URL que deseas usar
+        imgElement.alt = 'imagen del producto'; // Cambia el texto alternativo de la imagen
         
-  
+        shopping_cart_button.addEventListener('click', () => {
+            add_shopping_cart(name, price, image);
+            product_detail.classList.add('inactive');
+            
+        });
+
 }
 
 function close_product_detail(){
+    console.log('el boton si funciona')
     product_detail.classList.add('inactive');
 }
 
@@ -153,19 +161,7 @@ function render_products(products_list){
      
         const img = document.createElement('img');
         img.setAttribute('src', product.image);
-        img.addEventListener('click', () => {
-            open_product_detail(product.name, product.price, product.description, product.image);
-            console.log(product.image);
-        });
-
-        /* Crear un cierre (closure) para conservar los valores del producto esto se tenia product declaro como var, cosa que no es recomendable.
-        (function(name, price, description) {
-            img.addEventListener('click', () => {
-                open_product_detail(name, price, description);
-            });
-        })(product.name, product.price, product.description);
-        */
-
+        
         const product_info = document.createElement('div');
         product_info.classList.add('product-info');
      
@@ -184,11 +180,46 @@ function render_products(products_list){
         product_info_div.append(product_price, product_name);
         product_info.append(figure, product_info_div);
         product_card.append(img, product_info);
-        /*product_card.appendChild(img);
-        product_card.appendChild(product_info);*/
-         
+
         cards_container.appendChild(product_card);
+
+        /*Evento de click*/
+
+        img.addEventListener('click', () => {
+            open_product_detail(product.name, product.price, product.description, product.image);
+        });
+        
+        /* Crear un cierre (closure) para conservar los valores del producto esto se tenia product declaro como var, cosa que no es recomendable.
+        (function(name, price, description) {
+            img.addEventListener('click', () => {
+                open_product_detail(name, price, description);
+            });
+        })(product.name, product.price, product.description);
+        */
      }
+}
+
+function add_shopping_cart(name, price, image) {
+    console.log('esta entrando en shopping cart y tiene name:'+name+' price: '+price+' imageurl: '+image);
+    const shopping_cart_item = document.createElement('div');
+    shopping_cart_item.classList.add('shopping-cart');
+
+    const figure = document.createElement('figure');
+    const img__shopping_cart = document.createElement('img');
+    img__shopping_cart.setAttribute('src', image );
+
+    const product_price = document.createElement('p');
+    product_price.innerText = '$' + price;
+    const product_name = document.createElement('p');
+    product_name.innerText = name;
+
+    const img__shopping_close = document.createElement('img');
+    img__shopping_close.setAttribute('src', './icons/icon_close.png');
+
+    figure.appendChild(img__shopping_cart);
+    shopping_cart_item.append(figure,product_name, product_price,img__shopping_close);
+
+    shopping_card_container.appendChild(shopping_cart_item);
 }
 
 render_products(product_list);

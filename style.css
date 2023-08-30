@@ -327,7 +327,9 @@
   }
   .product-detail-close:hover {
     cursor: pointer;
+    background-color:var(--hospital-green)
   }
+
   #product-detail > img:nth-child(2) {
     width: 100%;
     height: 330px;
@@ -376,6 +378,9 @@
     justify-content: center;
   }
 
+  .add-to-cart-button:hover {
+    background-color: var(--heal-green);
+  }
   @media (max-width: 640px) {
     .menu {
       display: block;
