@@ -3,14 +3,14 @@ const desktopMenu = document.querySelector('.desktop-menu')
 const burgerIcon = document.querySelector('.menu')
 const mobileMenu = document.querySelector('.mobile-menu')
 const shoppingCartIcon = document.querySelector('.navbar-shopping-cart')
-const aside = document.querySelector('.product-detail')
+const productDetails = document.querySelector('.product-detail')
 const logo = document.querySelector('.logo')
 const cardsContainer = document.querySelector('.cards-container')
 const detailCart = document.querySelector('.product-detail-cart')
 const detailCartClose = document.querySelector('.product-detail-close')
 const infoCart = document.querySelector('.product-info-cart')
 const closeShoppingCart = document.querySelector('.title-container img')
-// const detailsButtonAdd = document.querySelector('.add-to-cart-button')
+const myOrderContent = document.querySelector('.my-order-content')
 
 emailMenu.addEventListener('click', toggleDesktopMenu)
 burgerIcon.addEventListener('click', toggleMobileMenu)
@@ -19,14 +19,13 @@ detailCartClose.addEventListener('click', toggleAsideCart)
 closeShoppingCart.addEventListener('click', toggleAsideClose)
 
 function toggleDesktopMenu() {
-    aside.classList.add('inactive')
+    productDetails.classList.add('inactive')
     desktopMenu.classList.toggle('inactive')
     detailCart.classList.add('inactive')
     cardsContainer.classList.remove('detail-cart-open')
 }
-
 function toggleMobileMenu() {
-    aside.classList.add('inactive')
+    productDetails.classList.add('inactive')
     mobileMenu.classList.toggle('inactive')
     detailCart.classList.add('inactive')
 
@@ -35,53 +34,60 @@ function toggleAside() {
     cardsContainer.classList.add('detail-cart-open')
     desktopMenu.classList.add('inactive')
     mobileMenu.classList.add('inactive')
-    aside.classList.remove('inactive')
+    productDetails.classList.remove('inactive')
     detailCart.classList.add('inactive')
+    renderShoppingCart(shoppingList)
 }
 function toggleAsideClose() {
     cardsContainer.classList.remove('detail-cart-open')
-    aside.classList.add('inactive')
+    productDetails.classList.add('inactive')
 }
 function toggleAsideCart() {
     cardsContainer.classList.remove('detail-cart-open')
     detailCart.classList.add('inactive')
     desktopMenu.classList.add('inactive')
-    aside.classList.add('inactive')
+    productDetails.classList.add('inactive')
 }
 
 
 const productList = []
 productList.push({
+    id: 0,
     name: 'Bike',
     price: 380,
     image: 'https://m.media-amazon.com/images/I/91MqcxxSzFL.__AC_SY300_SX300_QL70_FMwebp_.jpg',
     description: "The dream bike, the Fixie is well-built, comfortable and stylish, making it the ideal companion for short commutes. Though at a competitive price, there are no corners cut and the never-ending pursuit to quality is evident. We're sure you'll have a smile on your face every time you hop on for your commutes, hangouts, workouts and beyond"
 })
 productList.push({
+    id: 1,
     name: 'Gaming Desk',
     price: 420,
     image: 'https://m.media-amazon.com/images/I/71SMNFiD9bL._AC_SX569_.jpg',
     description: "Only for gaming? No! It also serves as a large and stury computer desk/ office workstation! Thanks to the amazing carbon fiber top material and heavy duty metal desk legs, and those added humanized designs, this desk is much more multifunctional compared to other basic computer desk/ office workstation."
 })
 productList.push({
+    id: 2,
     name: 'Coffee Cup',
     price: 11,
     image: 'https://m.media-amazon.com/images/I/71ijLyRmNXL.__AC_SY300_SX300_QL70_FMwebp_.jpg',
     description: "This coffee mug is perfect for any coffee lover. It is made of high quality ceramic and has a classic shape that you are sure to love. The mug has a comfortable handle that makes it easy to hold, even when filled with hot coffee. The mug is also dishwasher safe, making it easy to clean."
 })
 productList.push({
+    id: 3,
     name: 'Git and Github',
     price: 14.99,
     image: 'https://pbs.twimg.com/media/FubgrSEWYAATGTr.jpg',
     description: "This step-by-step guide will help you understand the fundamentals, while you learn the theory and apply it in practice, thanks to the course included in the book. A 5-hour video course that you can access for free from mouredev.com/git-github."
 })
 productList.push({
+    id: 4,
     name: 'Learning JavaScript',
     price: 14.85,
     image: 'https://d2sofvawe08yqg.cloudfront.net/aprendiendo-javascript/s_hero2x?1620475858',
     description: "This book is a comprehensive resource for learning JavaScript, one of the world's most popular programming languages. It is written in a clear and concise style, and is full of examples and practical exercises. The book starts with the basics of JavaScript, such as variables, functions, and loops, and then moves on to more advanced topics, such as objects, events, and animations."
 })
 productList.push({
+    id: 5,
     name: 'Tesla Coil',
     price: 79.99,
     image: 'https://i5.walmartimages.com.mx/mg/gm/3pp/asr/b2b10812-dbea-4cdd-823c-22d67ed22215.caad0e2aa520aa4be27909fe53de6adf.jpeg?odnHeight=612&odnWidth=612&odnBg=FFFFFF',
@@ -125,7 +131,9 @@ function renderProducts(arr) {
         cardsContainer.append(productCard)
 
         productImg.addEventListener('click', (event) => {
+            productDetails.classList.add('inactive')
             cardsContainer.classList.add('detail-cart-open')
+            desktopMenu.classList.add('inactive')
             detailCart.classList.remove('inactive')
             let elementSrc = event.target.src
 
@@ -153,6 +161,26 @@ function renderProducts(arr) {
                     let descriptionDetailsClick = document.createElement('p')
                     descriptionDetailsClick.innerText = details.description
                     infoCart.replaceChild(descriptionDetailsClick, descriptionDetails)
+
+                    let detailsButtonAdd = document.createElement('button')
+                    detailsButtonAdd.classList.add('primary-button')
+                    detailsButtonAdd.classList.add('add-to-cart-button')
+                    detailsButtonAdd.setAttribute('id', details.id)
+                    detailsButtonAdd.innerText = 'Add to cart'
+
+                    let imgAddCart = document.createElement('img')
+                    imgAddCart.setAttribute('src', './icons/bt_add_to_cart.svg')
+                    imgAddCart.setAttribute('alt', 'add to cart')
+
+                    detailsButtonAdd.append(imgAddCart)
+
+                    detailCart.appendChild(detailsButtonAdd)
+
+                    detailsButtonAdd.addEventListener('click', () => {
+                        if (productList[i].id === details.id) {
+                            shoppingList.push(productList[i])
+                        }
+                    })
                 }
             }
         })
@@ -160,3 +188,35 @@ function renderProducts(arr) {
 }
 
 renderProducts(productList)
+
+const shoppingList = []
+
+function renderShoppingCart(arr) {
+    for (shopping of shoppingList) {
+
+        const shoppingCart = document.createElement('div')
+        shoppingCart.classList.add('shopping-cart')
+
+        const shoppingFigure = document.createElement('figure')
+
+        const shoppingImg = document.createElement('img')
+        shoppingImg.setAttribute('src', shopping.image)
+        shoppingImg.setAttribute('alt', shopping.name)
+
+        shoppingFigure.appendChild(shoppingImg)
+
+        const shoppingName = document.createElement('p')
+        shoppingName.innerText = shopping.name
+        const shoppingPrice = document.createElement('p')
+        shoppingPrice.innerText = '$' + shopping.price
+
+        const shoppingIcon = document.createElement('img')
+        shoppingIcon.setAttribute('src', './icons/icon_close.png')
+        shoppingIcon.setAttribute('alt', 'close')
+
+        shoppingCart.append(shoppingFigure, shoppingName, shoppingPrice, shoppingIcon)
+
+        myOrderContent.appendChild(shoppingCart)
+    }
+}
+
