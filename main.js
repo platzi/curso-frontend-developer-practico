@@ -77,6 +77,12 @@ shopping_card_container_img.addEventListener('click', () => {
 /*evento cerrar detalle de producto*/
 product_detail_close.addEventListener('click', close_product_detail);
 
+shopping_cart_button.addEventListener('click', () => {
+    new_product = list_cart.pop()
+    list_cart.length = 0;
+    add_shopping_cart(new_product[0], new_product[1], new_product[2]);
+    product_detail.classList.add('inactive');
+});
 
 
 // se maneja for ** of *** para valores o for ** in *** para indices
@@ -120,7 +126,7 @@ product_list.push({
     function open_product_detail(name, price, image, description){
         img.addEventListener('click', open_product_detail(product.name, product.price, product.image, product.description ));
 */
-
+const list_cart = [];
 function open_product_detail(name, price, description, image){
     product_detail.classList.remove('inactive');
         if(!shopping_card_container.classList.contains('inactive')){
@@ -137,12 +143,7 @@ function open_product_detail(name, price, description, image){
         description_element.textContent = description;
         imgElement.src = image; // Cambia esto por la nueva URL que deseas usar
         imgElement.alt = 'imagen del producto'; // Cambia el texto alternativo de la imagen
-        
-        shopping_cart_button.addEventListener('click', () => {
-            add_shopping_cart(name, price, image);
-            product_detail.classList.add('inactive');
-            
-        });
+        list_cart.push([name,price,image]);
 
 }
 
