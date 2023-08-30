@@ -159,7 +159,7 @@ nav {
   padding: 0 24px 24px 24px;
   background-color: var(--white);
   border: 1px solid var(--very-light-pink);
-  border-radius: 0 0 8px 8px;
+  border-radius: 0 0 0px 8px;
   box-sizing: border-box;
   position: absolute;
   top: 60px;
