@@ -9,9 +9,13 @@ const burgerMenu = document.querySelector("img.menu");
 const mobileMenu = document.querySelector(".mobile-menu");
 
 const navbarShoppingCrat = document.querySelector(".navbar-shopping-cart");
-const productDetail = document.querySelector(".product-detail");
+const shoppingCartContainer = document.querySelector("#shopping-cart-container");
 
 const cardsContainer = document.querySelector(".cards-container");
+
+const productDetailContainer = document.querySelector("#product-detail");
+const productDetailExitBtn = document.querySelector(".product-detail-close")
+
 
 const productsList = [];
 
@@ -46,7 +50,7 @@ function createSamplePorducts() {
 function loadProducts() {
   for (product of productsList) {
     const productCard = createProductCard(product);
-    console.log(productCard);
+    productCard.addEventListener('click', openProductDetailContainer);
   }
 }
 
@@ -90,26 +94,41 @@ function createProductCard(product) {
 
 menuEmail.addEventListener("click", toggleDesktopMenu);
 burgerMenu.addEventListener("click", toggleMobileMenu);
-navbarShoppingCrat.addEventListener("click", toggleProductDetail);
+navbarShoppingCrat.addEventListener("click", toggleShoppingCart);
+productDetailExitBtn.addEventListener('click', closeProductDetailContainer);
 
 /**
  * onClick events
  */
 
 function toggleDesktopMenu() {
-  checkToSwitchState(productDetail);
+  checkToSwitchState(shoppingCartContainer);
+  checkToSwitchState(productDetailContainer);
   toToggleOnClick(desktopMenu);
 }
 
 function toggleMobileMenu() {
-  checkToSwitchState(productDetail);
+  checkToSwitchState(shoppingCartContainer);
+  checkToSwitchState(productDetailContainer);
   toToggleOnClick(mobileMenu);
 }
 
-function toggleProductDetail() {
+function toggleShoppingCart() {
   checkToSwitchState(mobileMenu);
   checkToSwitchState(desktopMenu);
-  toToggleOnClick(productDetail);
+  checkToSwitchState(productDetailContainer);
+  toToggleOnClick(shoppingCartContainer);
+}
+
+function openProductDetailContainer(){
+  checkToSwitchState(mobileMenu);
+  checkToSwitchState(desktopMenu);
+  checkToSwitchState(shoppingCartContainer);
+  productDetailContainer.classList.remove('inactive');
+}
+
+function closeProductDetailContainer(){
+  productDetailContainer.classList.add('inactive');
 }
 
 /**
