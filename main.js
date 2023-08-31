@@ -13,13 +13,17 @@ const mob_menu = document.querySelector('.mobile-menu');
 
 const shopping_card_container_img = document.querySelector('.navbar-shopping-cart');
 const shopping_card_container = document.querySelector('#shopping-cart-container');
+const my_order_content = document.querySelector('.my-order-content');
 const shopping_cart_button = document.querySelector('.add-to-cart-button');
 
+//variable de lista de producto agg
+let all_products_cart = [];
 
-/*creamos cada elemento HTML correspondiente para los atributos del producto*/
+
+/*contenedor padre de productos*/
 const cards_container = document.querySelector('.cards-container');
 
-/*detalles de productos abrir - cerrar*/
+/*open/closed Detalles del producto*/
 const product_detail = document.querySelector('#product-detail');
 const product_detail_close = document.querySelector('.product-detail-close')
 
@@ -78,55 +82,29 @@ shopping_card_container_img.addEventListener('click', () => {
 product_detail_close.addEventListener('click', close_product_detail);
 
 shopping_cart_button.addEventListener('click', () => {
-    new_product = list_cart.pop()
-    list_cart.length = 0;
-    add_shopping_cart(new_product[0], new_product[1], new_product[2]);
-    product_detail.classList.add('inactive');
+    console.log('accion del boton');
 });
 
 
-// se maneja for ** of *** para valores o for ** in *** para indices
-// representa lo que viene de la BDD basicamente
-product_list = [];
-product_list.push({
-    name: 'Bicicleta Montañera',
-    price: '180',
-    image: 'https://http2.mlstatic.com/D_NQ_NP_2X_622456-MLV47573234374_092021-F.webp',
-    description: 'CUADRO DE ALUMINIO SUPER LIVIANO CON CABLEADO INTERNO HORQUILLA SUSPENSION CON BLOQUEO FRENOS DE DISCOS MECANICOS ',
-});
-product_list.push({
-    name: 'Powerhouse Ups 1500w',
-    price: '504',
-    image: 'https://http2.mlstatic.com/D_NQ_NP_2X_717980-MLV47977090096_102021-F.webp',
-    description: 'sistema de alimentación ininterrumpida (UPS), en un cerramiento, montado y probado en fábrica, diseñado para todo tipo de entornos.'
-});
-product_list.push({
-    name: 'Camara Digital Sony Ilce',
-    price: '390',
-    image: 'https://http2.mlstatic.com/D_NQ_NP_2X_745276-MLV52320264720_112022-F.webp',
-    description: 'Enfoque Tipo de enfoque: AF con detección de contraste Punto de enfoque: 25 puntos Lente Sensor CMOS Exmor Número de píxeles: 20,1 MP'
+cards_container.addEventListener('click', e=> {
+    if(e.target.classList.contains('btn_add_cart')){
+        const product = e.target.parentElement.parentElement;
+
+        const info_product = {
+            quantity: 1,
+            name: product.querySelector('div p:nth-child(2)').textContent,
+            price: product.querySelector('div p:nth-child(1)').textContent,
+            image: product.parentElement.querySelector('img').src,
+        }
+
+        all_products_cart = [...all_products_cart, info_product];
+        console.log(all_products_cart);
+
+        add_shopping_cart();
+    }
 });
 
-/*
-    <aside id = 'product-detail' class="inactive">
-      <div class="product-detail-close">
-        <img src="./icons/icon_close.png" alt="close">
-      </div>
-      <img src="https://images.pexels.com/photos/276517/pexels-photo-276517.jpeg?auto=compress&cs=tinysrgb&dpr=2&h=650&w=940" alt="bike">
-      <div class="product-info">
-        <p>$35,00</p>
-        <p>Bike</p>
-        <p>With its practical position, this bike also fulfills a decorative function, add your hall or workspace.</p>
-        <button class="primary-button add-to-cart-button">
-          <img src="./icons/bt_add_to_cart.svg" alt="add to cart">
-          Add to cart
-        </button>
-      </div>
-    </aside>
-    function open_product_detail(name, price, image, description){
-        img.addEventListener('click', open_product_detail(product.name, product.price, product.image, product.description ));
-*/
-const list_cart = [];
+
 function open_product_detail(name, price, description, image){
     product_detail.classList.remove('inactive');
         if(!shopping_card_container.classList.contains('inactive')){
@@ -143,12 +121,9 @@ function open_product_detail(name, price, description, image){
         description_element.textContent = description;
         imgElement.src = image; // Cambia esto por la nueva URL que deseas usar
         imgElement.alt = 'imagen del producto'; // Cambia el texto alternativo de la imagen
-        list_cart.push([name,price,image]);
-
 }
 
 function close_product_detail(){
-    console.log('el boton si funciona')
     product_detail.classList.add('inactive');
 }
 
@@ -175,6 +150,7 @@ function render_products(products_list){
      
         const figure = document.createElement('figure');
         const img_logo_cart = document.createElement('img');
+        img_logo_cart.classList.add('btn_add_cart');
         img_logo_cart.setAttribute('src','./icons/bt_add_to_cart.svg');
      
         figure.appendChild(img_logo_cart);
@@ -182,45 +158,72 @@ function render_products(products_list){
         product_info.append(figure, product_info_div);
         product_card.append(img, product_info);
 
-        cards_container.appendChild(product_card);
-
-        /*Evento de click*/
-
+        cards_container.appendChild(product_card);   
+        
         img.addEventListener('click', () => {
             open_product_detail(product.name, product.price, product.description, product.image);
         });
-        
-        /* Crear un cierre (closure) para conservar los valores del producto esto se tenia product declaro como var, cosa que no es recomendable.
-        (function(name, price, description) {
-            img.addEventListener('click', () => {
-                open_product_detail(name, price, description);
-            });
-        })(product.name, product.price, product.description);
-        */
      }
 }
 
-function add_shopping_cart(name, price, image) {
-    console.log('esta entrando en shopping cart y tiene name:'+name+' price: '+price+' imageurl: '+image);
-    const shopping_cart_item = document.createElement('div');
-    shopping_cart_item.classList.add('shopping-cart');
 
-    const figure = document.createElement('figure');
-    const img__shopping_cart = document.createElement('img');
-    img__shopping_cart.setAttribute('src', image );
+function add_shopping_cart() {
+    //limpiar el contenedor del carrito
+    const element = document.querySelector('.my-order-content');
+    while(element.firstChild){
+        element.removeChild(element.firstChild);
+    }
+    
+   // my_order_content.textContent = null; tambien se puede asi pero quedan los contenedores quedan vacios
 
-    const product_price = document.createElement('p');
-    product_price.innerText = '$' + price;
-    const product_name = document.createElement('p');
-    product_name.innerText = name;
+    all_products_cart.forEach(product=>{
+        const shopping_cart_item = document.createElement('div');
+        shopping_cart_item.classList.add('shopping-cart');
 
-    const img__shopping_close = document.createElement('img');
-    img__shopping_close.setAttribute('src', './icons/icon_close.png');
+        const figure = document.createElement('figure');
+        const img__shopping_cart = document.createElement('img');
+        img__shopping_cart.setAttribute('src', product.image );
 
-    figure.appendChild(img__shopping_cart);
-    shopping_cart_item.append(figure,product_name, product_price,img__shopping_close);
+        const product_price = document.createElement('p');
+        product_price.innerText = '$' + product.price;
+        const product_name = document.createElement('p');
+        product_name.innerText = product.name;
 
-    shopping_card_container.appendChild(shopping_cart_item);
+        const img__shopping_close = document.createElement('img');
+        img__shopping_close.setAttribute('src', './icons/icon_close.png');
+
+        figure.appendChild(img__shopping_cart);
+        shopping_cart_item.append(figure,product_name, product_price,img__shopping_close);
+
+        my_order_content.appendChild(shopping_cart_item);
+
+    });
+    
 }
+
+
+// se maneja for ** of *** para valores o for ** in *** para indices
+// representa lo que viene de la BDD basicamente
+const product_list = [];
+
+product_list.push({
+    name: 'Bicicleta Montañera',
+    price: '180',
+    image: 'https://http2.mlstatic.com/D_NQ_NP_2X_622456-MLV47573234374_092021-F.webp',
+    description: 'CUADRO DE ALUMINIO SUPER LIVIANO CON CABLEADO INTERNO HORQUILLA SUSPENSION CON BLOQUEO FRENOS DE DISCOS MECANICOS ',
+});
+product_list.push({
+    name: 'Powerhouse Ups 1500w',
+    price: '504',
+    image: 'https://http2.mlstatic.com/D_NQ_NP_2X_717980-MLV47977090096_102021-F.webp',
+    description: 'sistema de alimentación ininterrumpida (UPS), en un cerramiento, montado y probado en fábrica, diseñado para todo tipo de entornos.'
+});
+product_list.push({
+    name: 'Camara Digital Sony Ilce',
+    price: '390',
+    image: 'https://http2.mlstatic.com/D_NQ_NP_2X_745276-MLV52320264720_112022-F.webp',
+    description: 'Enfoque Tipo de enfoque: AF con detección de contraste Punto de enfoque: 25 puntos Lente Sensor CMOS Exmor Número de píxeles: 20,1 MP'
+});
+
 
 render_products(product_list);
