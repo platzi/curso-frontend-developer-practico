@@ -287,7 +287,7 @@ nav {
 
 .product-detail-cart {
     position: fixed;
-    width: 26%;
+    width: 360px;
     height: 100%;
     padding-bottom: 24px;
     right: 0;
@@ -397,6 +397,7 @@ nav {
 .product-info figure img {
     width: 35px;
     height: 35px;
+    cursor: pointer;
 }
 
 .product-info div p:nth-child(1) {

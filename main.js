@@ -38,17 +38,16 @@ function toggleAside() {
     detailCart.classList.add('inactive')
     renderShoppingCart(shoppingList)
 }
-function toggleAsideClose() {
-    cardsContainer.classList.remove('detail-cart-open')
-    productDetails.classList.add('inactive')
-}
 function toggleAsideCart() {
     cardsContainer.classList.remove('detail-cart-open')
     detailCart.classList.add('inactive')
     desktopMenu.classList.add('inactive')
     productDetails.classList.add('inactive')
 }
-
+function toggleAsideClose() {
+    cardsContainer.classList.remove('detail-cart-open')
+    productDetails.classList.add('inactive')
+}
 
 const productList = []
 productList.push({
@@ -118,17 +117,27 @@ function renderProducts(arr) {
         const productFigureCart = document.createElement('img')
         productFigureCart.setAttribute('src', './icons/bt_add_to_cart.svg')
         productFigureCart.setAttribute('alt', 'Add to Cart')
+        productFigureCart.setAttribute('id', product.id)
 
         productInfoDiv.append(productPrice, productName)
 
         productFigure.appendChild(productFigureCart)
-
 
         productInfo.append(productInfoDiv, productFigure)
 
         productCard.append(productImg, productInfo)
 
         cardsContainer.append(productCard)
+
+        productFigureCart.addEventListener('click', (event) => {
+            let idImg = event.target.id
+
+            for (let i = 0; i < productList.length; i++) {
+                if (productList[i].id == idImg) {
+                    shoppingList.push(productList[i])
+                }
+            }
+        })
 
         productImg.addEventListener('click', (event) => {
             productDetails.classList.add('inactive')
@@ -217,6 +226,10 @@ function renderShoppingCart(arr) {
         shoppingCart.append(shoppingFigure, shoppingName, shoppingPrice, shoppingIcon)
 
         myOrderContent.appendChild(shoppingCart)
+
+        closeShoppingCart.addEventListener('click', () => {
+            shoppingCart.remove()
+        })
     }
 }
 
