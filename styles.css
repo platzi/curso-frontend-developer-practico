@@ -5,6 +5,7 @@
     --very-light-pink: #3eb8de;
     --text-input-field: #f7f7f7;
     --hospital-green:  #285084;
+    --light-pink: #C7C7C7;
     --sm: 14px;
     --md: 16px;
     --lg: 18px;
@@ -22,7 +23,7 @@ nav {
     display: flex;
     justify-content: space-between;
     padding: 0 24px;
-    border-bottom: 1px solid var(--very-light-pink); 
+    border-bottom: 1px solid var(--light-pink); 
 }
 .menu {
     display: none;
@@ -48,7 +49,7 @@ nav {
 .navbar-left ul li a, 
 .navbar-right ul li a {
     text-decoration: none;
-    color: var(--very-light-pink);
+    color: var(--light-pink);
     border: 1px solid var(--white);
     padding: 8px;
     border-radius: 8px;
@@ -59,7 +60,7 @@ nav {
     color: var(--hospital-green);
 }
 .navbar-email {
-    color: var(--very-light-pink);
+    color: var(--light-pink);
     font-size: var(--sm);
     margin-right: 12px;
 }
@@ -89,7 +90,7 @@ nav {
     background: var(--white);
     width: 100px;
     height: auto;
-    border: 1px solid var(--very-light-pink);
+    border: 1px solid var(--light-pink);
     border-radius: 6px;
     padding: 20px 20px 0 20px;
 }
@@ -107,7 +108,7 @@ nav {
 }
 .desktop-menu ul li:last-child {
     padding-top: 20px;
-    border-top: 1px solid var(--very-light-pink);
+    border-top: 1px solid var(--light-pink);
 }
 .desktop-menu ul li:last-child a {
     color: var(--hospital-green);
@@ -151,7 +152,7 @@ nav {
     font-weight: 300 !important;
 }
 .mobile-menu ul:nth-child(1) {
-    border-bottom: 1px solid var(--very-light-pink);
+    border-bottom: 1px solid var(--light-pink);
 }
 .sign-out {
     font-size: var(--sm);
