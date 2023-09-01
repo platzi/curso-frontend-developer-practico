@@ -81,11 +81,6 @@ shopping_card_container_img.addEventListener('click', () => {
 /*evento cerrar detalle de producto*/
 product_detail_close.addEventListener('click', close_product_detail);
 
-shopping_cart_button.addEventListener('click', () => {
-    console.log('accion del boton');
-});
-
-
 cards_container.addEventListener('click', e=> {
     if(e.target.classList.contains('btn_add_cart')){
         const product = e.target.parentElement.parentElement;
@@ -97,6 +92,26 @@ cards_container.addEventListener('click', e=> {
             image: product.parentElement.querySelector('img').src,
         }
 
+        all_products_cart = [...all_products_cart, info_product];
+        console.log(all_products_cart);
+
+        add_shopping_cart();
+    }
+});
+
+product_detail.addEventListener('click', e=> {
+    if(e.target.classList.contains('add-to-cart-button')){
+        const product = e.target.parentElement;
+
+        const info_product = {
+            quantity: 1,
+            name: product.querySelector('div p:nth-child(2)').textContent,
+            price: product.querySelector('div p:nth-child(1)').textContent,
+            image: product.parentElement.querySelector('img:nth-child(2)').src,
+        }
+
+        console.log(info_product);
+        
         all_products_cart = [...all_products_cart, info_product];
         console.log(all_products_cart);
 
