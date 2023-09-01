@@ -1,6 +1,7 @@
 # Yard Sale
 
-😄  Yard Sale es una tienda online creada a partir del curso de css y html en Platzi
+Es una tienda online sobre venta de productos de segunda mano. La página cuenta con un diseño responsivo, conectado a una API Store de Platzi.
 
+#### Skills Tecnicos.
 
 #### Creditos : Jesus Nicolas Vite @jesusvittee
