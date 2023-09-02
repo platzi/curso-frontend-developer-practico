@@ -51,42 +51,42 @@ function toggleAsideClose() {
 
 const productList = []
 productList.push({
-    id: 0,
+    id: 1,
     name: 'Bike',
     price: 380,
     image: 'https://m.media-amazon.com/images/I/91MqcxxSzFL.__AC_SY300_SX300_QL70_FMwebp_.jpg',
     description: "The dream bike, the Fixie is well-built, comfortable and stylish, making it the ideal companion for short commutes. Though at a competitive price, there are no corners cut and the never-ending pursuit to quality is evident. We're sure you'll have a smile on your face every time you hop on for your commutes, hangouts, workouts and beyond"
 })
 productList.push({
-    id: 1,
+    id: 2,
     name: 'Gaming Desk',
     price: 420,
     image: 'https://m.media-amazon.com/images/I/71SMNFiD9bL._AC_SX569_.jpg',
     description: "Only for gaming? No! It also serves as a large and stury computer desk/ office workstation! Thanks to the amazing carbon fiber top material and heavy duty metal desk legs, and those added humanized designs, this desk is much more multifunctional compared to other basic computer desk/ office workstation."
 })
 productList.push({
-    id: 2,
+    id: 3,
     name: 'Coffee Cup',
     price: 11,
     image: 'https://m.media-amazon.com/images/I/71ijLyRmNXL.__AC_SY300_SX300_QL70_FMwebp_.jpg',
     description: "This coffee mug is perfect for any coffee lover. It is made of high quality ceramic and has a classic shape that you are sure to love. The mug has a comfortable handle that makes it easy to hold, even when filled with hot coffee. The mug is also dishwasher safe, making it easy to clean."
 })
 productList.push({
-    id: 3,
+    id: 4,
     name: 'Git and Github',
     price: 14.99,
     image: 'https://pbs.twimg.com/media/FubgrSEWYAATGTr.jpg',
     description: "This step-by-step guide will help you understand the fundamentals, while you learn the theory and apply it in practice, thanks to the course included in the book. A 5-hour video course that you can access for free from mouredev.com/git-github."
 })
 productList.push({
-    id: 4,
+    id: 5,
     name: 'Learning JavaScript',
     price: 14.85,
     image: 'https://d2sofvawe08yqg.cloudfront.net/aprendiendo-javascript/s_hero2x?1620475858',
     description: "This book is a comprehensive resource for learning JavaScript, one of the world's most popular programming languages. It is written in a clear and concise style, and is full of examples and practical exercises. The book starts with the basics of JavaScript, such as variables, functions, and loops, and then moves on to more advanced topics, such as objects, events, and animations."
 })
 productList.push({
-    id: 5,
+    id: 6,
     name: 'Tesla Coil',
     price: 79.99,
     image: 'https://i5.walmartimages.com.mx/mg/gm/3pp/asr/b2b10812-dbea-4cdd-823c-22d67ed22215.caad0e2aa520aa4be27909fe53de6adf.jpeg?odnHeight=612&odnWidth=612&odnBg=FFFFFF',
@@ -201,10 +201,12 @@ renderProducts(productList)
 const shoppingList = []
 
 function renderShoppingCart(arr) {
-    for (shopping of shoppingList) {
+    for (let i = 0; i < shoppingList.length; i++) {
+        let shopping = shoppingList[i]
 
         const shoppingCart = document.createElement('div')
         shoppingCart.classList.add('shopping-cart')
+        shoppingCart.setAttribute('id', i)
 
         const shoppingFigure = document.createElement('figure')
 
@@ -219,13 +221,25 @@ function renderShoppingCart(arr) {
         const shoppingPrice = document.createElement('p')
         shoppingPrice.innerText = '$' + shopping.price
 
-        const shoppingIcon = document.createElement('img')
-        shoppingIcon.setAttribute('src', './icons/icon_close.png')
-        shoppingIcon.setAttribute('alt', 'close')
+        const shoppingIconClose = document.createElement('img')
+        shoppingIconClose.setAttribute('src', './icons/icon_close.png')
+        shoppingIconClose.setAttribute('alt', 'close')
+        shoppingIconClose.setAttribute('id', i)
 
-        shoppingCart.append(shoppingFigure, shoppingName, shoppingPrice, shoppingIcon)
+        shoppingCart.append(shoppingFigure, shoppingName, shoppingPrice, shoppingIconClose)
 
         myOrderContent.appendChild(shoppingCart)
+
+        shoppingIconClose.addEventListener('click', (event) => {
+            let idImgClose = event.target.id
+            let index = shoppingList.indexOf(shopping)
+
+            if (i == idImgClose) {
+                shoppingList.splice(index, 1)
+                shoppingCart.remove()
+
+            }
+        })
 
         closeShoppingCart.addEventListener('click', () => {
             shoppingCart.remove()
