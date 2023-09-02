@@ -5,8 +5,8 @@ const desktop_menu_email = document.querySelector('.desktop-menu')
 const mob_menu_img = document.querySelector('.menu');
 const mob_menu = document.querySelector('.mobile-menu');
 /* carrito de compra */
-const shopping_card_container_img = document.querySelector('.navbar-shopping-cart');
-const shopping_card_container = document.querySelector('#shopping-cart-container');
+const shopping_cart_container_img = document.querySelector('.navbar-shopping-cart');
+const shopping_cart_container = document.querySelector('#shopping-cart-container');
 const my_order_content = document.querySelector('.my-order-content');
 const shopping_cart_button = document.querySelector('.add-to-cart-button');
 /*contenedor de productos*/
@@ -16,6 +16,7 @@ const product_detail = document.querySelector('#product-detail');
 const product_detail_close = document.querySelector('.product-detail-close')
 /*variable de lista de productos del carrito de compra*/
 let all_products_cart = [];
+let total = 0;
 /*tiempo de espera para cerrar menu de email*/
 let mouseoutTimeout;
 
@@ -30,8 +31,8 @@ opc_email.addEventListener('mouseover', () => {
     clearTimeout(mouseoutTimeout);
     desktop_menu_email.classList.remove('inactive'); // Eliminar la clase 'inactive'
     close_product_detail();
-    if(!shopping_card_container.classList.contains('inactive')){
-        shopping_card_container.classList.toggle('inactive')
+    if(!shopping_cart_container.classList.contains('inactive')){
+        shopping_cart_container.classList.toggle('inactive')
     }
 });
 // Evento mouseout y Evento mouseover en desktop_menu
@@ -48,25 +49,25 @@ desktop_menu_email.addEventListener('mouseover', () => {
 mob_menu_img.addEventListener('click', () => {
     mob_menu.classList.toggle('inactive')
     close_product_detail();
-    if(!shopping_card_container.classList.contains('inactive')){
-        shopping_card_container.classList.toggle('inactive')
+    if(!shopping_cart_container.classList.contains('inactive')){
+        shopping_cart_container.classList.toggle('inactive')
     }
     
 });
 //evento toggle carrito de compra
-shopping_card_container_img.addEventListener('click', () => {
-    shopping_card_container.classList.toggle('inactive'); 
+shopping_cart_container_img.addEventListener('click', () => {
+    shopping_cart_container.classList.toggle('inactive'); 
     close_product_detail(); // aseguro que siempre se cierre detalles de producto
     if(!mob_menu.classList.contains('inactive')){
         mob_menu.classList.toggle('inactive');
-    } 
+    }
 });
 //evento toggle detalle de producto
 cards_container.addEventListener('click', e=> {
     if(e.target.classList.contains('img-card')){
         product_detail.classList.remove('inactive');
-        if(!shopping_card_container.classList.contains('inactive')){
-            shopping_card_container.classList.toggle('inactive')
+        if(!shopping_cart_container.classList.contains('inactive')){
+            shopping_cart_container.classList.toggle('inactive')
         }
     }
 });
@@ -114,25 +115,27 @@ function render_products(products_list){
 
         cards_container.appendChild(product_card);   
      }
+     open_detail_product();
+     upload_cart();
+     delete_product_cart(); 
 }
-
 //evento mostrar detalle de producto - obtengo los datos a traves de html - aqui solo modifico HTML ya existente.
 function open_detail_product(){
     cards_container.addEventListener('click', e=> {
         if(e.target.classList.contains('img-card')){
             const product = e.target.parentElement;
-            
+            //obtengo los datos de cards(cartas contenedoras del main)
             const price_element = product.querySelector('.product-info:nth-child(2) p:nth-child(1)');
             const name_element  = product.querySelector('.product-info:nth-child(2) p:nth-child(2)');
             const description_element = product.querySelector('.product-info:nth-child(2) p:nth-child(3)');
             const imgElement = product.querySelector('.img-card').src;
-    
+            //obtengo la ubicacion de los elementos en detalles del producto
             const price  = document.querySelector('#product-detail .product-info p:nth-child(1)');
             const name  = document.querySelector('#product-detail .product-info p:nth-child(2)');
             const description  = document.querySelector('#product-detail .product-info p:nth-child(3)');
             const img = document.querySelector('#product-detail > img:nth-child(2)');
             
-            price.textContent = "$"+price_element.textContent ;
+            price.textContent = price_element.textContent ;
             name.textContent  = name_element.textContent ;
             description.textContent  = description_element.textContent ;
             img.src = imgElement; // Cambia esto por la nueva URL que deseas usar
@@ -142,9 +145,23 @@ function open_detail_product(){
         }
     });
 }
+// convertir el texto en numeros y quitar el simbolo $
+function conver_price(k){
+    return Number(k.slice(1));
+}
+function calculate_total(price , quantity, op){
 
+    if(op==='+'){
+        total = total + (conver_price(price) * +quantity);
+        const total_contain = document.querySelector('#shopping-cart-container .order .total');
+        total_contain.textContent = '$' + total;
+    }else if(op==='-'){
+        total = total - (conver_price(price) * +quantity);
+        const total_contain = document.querySelector('#shopping-cart-container .order .total');
+        total_contain.textContent = '$' + total;
+    }
+}
 /*eventos para cargar el carrito con los productos*/
-
 function upload_cart(){
     //desde las cards del menu principal
     cards_container.addEventListener('click', e=> {
@@ -157,10 +174,12 @@ function upload_cart(){
                 price: product.querySelector('div p:nth-child(1)').textContent,
                 image: product.parentElement.querySelector('img').src,
             }
-    
+            
             all_products_cart = [...all_products_cart, info_product];
 
-            view_shopping_cart();
+            render_shopping_cart();
+            calculate_total(info_product.price , info_product.quantity, '+');
+            shopping_cart_container.classList.remove('inactive');
         }
     });
     //desde la vista de detalles del producto
@@ -176,16 +195,32 @@ function upload_cart(){
             }
             
             all_products_cart = [...all_products_cart, info_product];
-    
-            view_shopping_cart();
-            close_product_detail();   
+            
+            render_shopping_cart();
+            calculate_total(info_product.price , info_product.quantity, '+');
+            close_product_detail();
+            shopping_cart_container.classList.remove('inactive');
         }
     });
     
 }
+/*elminar productos del carrito*/
+function delete_product_cart(){
+    my_order_content.addEventListener('click', e=> {
+        if(e.target.classList.contains('delete-product-cart')){
+            const product = e.target.parentElement;
+            const name_delete = product.querySelector('div p:nth-child(2)').textContent
+            const removed_product = all_products_cart.find((producto) => producto.name == name_delete);
 
+            calculate_total(removed_product.price , removed_product.quantity, '-');
+            all_products_cart = all_products_cart.filter((producto) => producto.name !== name_delete);
+
+            render_shopping_cart();
+        }
+    });
+}
 /*cargar los productos al carrito en el html */ 
-function view_shopping_cart() {
+function render_shopping_cart() {
     //limpiar el contenedor del carrito
     const element = document.querySelector('.my-order-content');
     while(element.firstChild){
@@ -209,14 +244,14 @@ function view_shopping_cart() {
 
         const img__shopping_close = document.createElement('img');
         img__shopping_close.setAttribute('src', './icons/icon_close.png');
+        img__shopping_close.classList.add('delete-product-cart');
 
         figure.appendChild(img__shopping_cart);
         shopping_cart_item.append(figure,product_name, product_price,img__shopping_close);
 
         my_order_content.appendChild(shopping_cart_item);
 
-    });
-    
+    });  
 }
 
 
@@ -243,7 +278,6 @@ product_list.push({
     description: 'Enfoque Tipo de enfoque: AF con detección de contraste Punto de enfoque: 25 puntos Lente Sensor CMOS Exmor Número de píxeles: 20,1 MP'
 });
 
-
 render_products(product_list);
-open_detail_product();
-upload_cart();
+
+

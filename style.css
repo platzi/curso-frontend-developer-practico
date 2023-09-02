@@ -377,10 +377,14 @@
     align-items: center;
     justify-content: center;
   }
-
   .add-to-cart-button:hover {
     background-color: var(--heal-green);
   }
+  .delete-product-cart:hover{
+    cursor: pointer;
+  }
+
+
   @media (max-width: 640px) {
     .menu {
       display: block;
