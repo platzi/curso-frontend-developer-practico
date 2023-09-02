@@ -5,7 +5,7 @@ const menuCarritoIcon= document.querySelector('.navbar-shopping-cart');
 
 const menuHamIcon= document.querySelector('.menu');
 const mobileMenu = document.querySelector('.mobile-menu');
-const aside = document.querySelector('.product-detail');
+const shoppingCartDetail = document.querySelector('#shoppingCartContainer');
 const cardContainer = document.querySelector('.cards-container')
 
 menuEmail.addEventListener('click',toggleDesktopMenu);
@@ -14,19 +14,19 @@ menuHamIcon.addEventListener('click',toggleMobileMenu);
 menuCarritoIcon.addEventListener('click',toggleAsideCarrito);
 
 function toggleDesktopMenu(){
-    const isAsideClosed = aside.classList.contains('inactive');
+    const isAsideClosed = shoppingCartDetail.classList.contains('inactive');
 
     if(!isAsideClosed){
-        aside.classList.add('inactive');
+        shoppingCartDetail.classList.add('inactive');
     }
     desktopMenu.classList.toggle('inactive');
 }
 function toggleMobileMenu (){
 
-    const isAsideClosed = aside.classList.contains('inactive');
+    const isAsideClosed = shoppingCartDetail.classList.contains('inactive');
 
     if(!isAsideClosed){
-        aside.classList.add('inactive');
+        shoppingCartDetail.classList.add('inactive');
     }
 
     mobileMenu.classList.toggle('inactive')
@@ -42,7 +42,7 @@ function toggleAsideCarrito(){
         desktopMenu.classList.add('inactive');
     }
 
-    aside.classList.toggle('inactive')
+    shoppingCartDetail.classList.toggle('inactive')
 }
 
 /*       <div class="product-card">
@@ -77,7 +77,7 @@ productList.push({
 
     name: 'PC',
     price:  920,
-    image: 'https://images.pexels.com/photos/276517/pexels-photo-276517.jpeg?auto=compress&cs=tinysrgb&dpr=2&h=650&w=940',
+    image: 'https://www.shutterstock.com/image-photo/african-girl-school-student-e-learning-1685909200',
 });
 productList.push({
 
