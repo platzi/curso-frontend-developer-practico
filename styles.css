@@ -12,6 +12,7 @@
 body {
   margin: 0;
   font-family: "Quicksand", sans-serif;
+  overflow: hidden;
 }
 .inactive {
   display: none;
@@ -122,9 +123,11 @@ nav {
 
 /* Menú en mobile */
 .mobile-menu {
+  width: 100%;
   background-color: var(--white);
   position: absolute;
   top: 61px;
+  left: 0;
   padding: 24px;
 }
 .mobile-menu a {
@@ -154,7 +157,7 @@ nav {
 }
 
 /* Aside (product detail y carrito) */
-.product-detail {
+aside {
   width: 360px;
   padding: 0 24px 24px 24px;
   background-color: var(--white);
@@ -287,7 +290,7 @@ nav {
     display: none;
   }
   /* PRODUCT DETAIL */
-  .product-detail {
+  aside {
     width: 100%;
   }
   /* PRODUCT LIST */
