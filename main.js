@@ -63,33 +63,33 @@ function closeProductDetailAside() {
 const productList = [];
 productList.push({
     name: 'Bike',
-    price: 120,
-    image: 'https://images.pexels.com/photos/276517/pexels-photo-276517.jpeg?auto=compress&cs=tinysrgb&dpr=2&h=650&w=940',
+    price: 150,
+    image: 'https://cdn.cikla.ec/wp-content/uploads/2022/01/13103219/roja-cikla-1500x1500-1-450x450.png',
 });
 productList.push({
     name: 'Monitor',
     price: 380,
-    image: 'https://images.pexels.com/photos/276517/pexels-photo-276517.jpeg?auto=compress&cs=tinysrgb&dpr=2&h=650&w=940',
+    image: 'https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcRmEVyH5GYsIwuvhsCwuFiqC-xerh6iYl1kGw&usqp=CAU',
 });
 productList.push({
     name: 'Computer',
     price: 750,
-    image: 'https://images.pexels.com/photos/276517/pexels-photo-276517.jpeg?auto=compress&cs=tinysrgb&dpr=2&h=650&w=940',
+    image: 'https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcSPSkN81e3cbRVEzG2IZReet7P0xuSyT8WS0A&usqp=CAU',
 });
 productList.push({
     name: 'Bike',
-    price: 120,
-    image: 'https://images.pexels.com/photos/276517/pexels-photo-276517.jpeg?auto=compress&cs=tinysrgb&dpr=2&h=650&w=940',
+    price: 799,
+    image: 'https://s3.amazonaws.com/rtvc-assets-senalcolombia.gov.co/s3fs-public/field/image/bicicletas-world-tour-2023.jpg',
 });
 productList.push({
     name: 'Monitor',
     price: 380,
-    image: 'https://images.pexels.com/photos/276517/pexels-photo-276517.jpeg?auto=compress&cs=tinysrgb&dpr=2&h=650&w=940',
+    image: 'https://s3.abcstatics.com/media/favorito/2021/11/29/mejores-monitores-PC-oferta-U72777153102iNy-620x349@abc.jpg',
 });
 productList.push({
     name: 'Computer',
     price: 750,
-    image: 'https://images.pexels.com/photos/276517/pexels-photo-276517.jpeg?auto=compress&cs=tinysrgb&dpr=2&h=650&w=940',
+    image: 'https://img.global.news.samsung.com/mx/wp-content/uploads/2019/01/Notebook-9-Pro-3.jpg',
 });
 
 /*
