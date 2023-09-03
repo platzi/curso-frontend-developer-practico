@@ -2,16 +2,19 @@ const menuEmail = document.querySelector('.navbar-email');
 const desktopMenu = document.querySelector('.desktop-menu');
 
 const menuCarritoIcon= document.querySelector('.navbar-shopping-cart');
-
 const menuHamIcon= document.querySelector('.menu');
+const productDetailCloseIcon = document.querySelector('.product-detail-close');
+
 const mobileMenu = document.querySelector('.mobile-menu');
 const shoppingCartDetail = document.querySelector('#shoppingCartContainer');
 const cardContainer = document.querySelector('.cards-container')
+const productDetailContainer = document.querySelector('#productDetail');
 
 menuEmail.addEventListener('click',toggleDesktopMenu);
 menuHamIcon.addEventListener('click',toggleMobileMenu);
 
 menuCarritoIcon.addEventListener('click',toggleAsideCarrito);
+productDetailCloseIcon.addEventListener('click',closeProductDetailAside);
 
 function toggleDesktopMenu(){
     const isAsideClosed = shoppingCartDetail.classList.contains('inactive');
@@ -28,6 +31,7 @@ function toggleMobileMenu (){
     if(!isAsideClosed){
         shoppingCartDetail.classList.add('inactive');
     }
+    closeProductDetailAside();
 
     mobileMenu.classList.toggle('inactive')
 }
@@ -38,11 +42,25 @@ function toggleAsideCarrito(){
     if(!isMobileMenuClosed){
         mobileMenu.classList.add('inactive');
     }
+
+    const isProductDetailClosed = productDetailContainer.classList.contains('inactive');
+
+    if(!isProductDetailClosed){
+        productDetailContainer.classList.add('inactive');
+    }
     if(!isDesktopMenuClosed){
         desktopMenu.classList.add('inactive');
     }
 
     shoppingCartDetail.classList.toggle('inactive')
+}
+function openProductDetailAside(){
+    shoppingCartDetail.classList.add('inactive');
+    productDetailContainer.classList.remove('inactive');
+    mobileMenu.classList.add('inactive');
+}
+function closeProductDetailAside(){
+    productDetailContainer.classList.add('inactive');
 }
 
 /*       <div class="product-card">
@@ -75,12 +93,6 @@ productList.push({
 });
 productList.push({
 
-    name: 'PC',
-    price:  920,
-    image: 'https://www.shutterstock.com/image-photo/african-girl-school-student-e-learning-1685909200',
-});
-productList.push({
-
     name: 'Bike',
     price:  220,
     image: 'https://images.pexels.com/photos/276517/pexels-photo-276517.jpeg?auto=compress&cs=tinysrgb&dpr=2&h=650&w=940',
@@ -105,6 +117,7 @@ function renderProducts(arr){
 
         const productImg = document.createElement('img');
         productImg.setAttribute('src', product.image);
+        productImg.addEventListener('click', openProductDetailAside);
 
         const productInfo = document.createElement('div');
         productInfo.classList.add('product-info');
@@ -139,4 +152,5 @@ function renderProducts(arr){
         
     }
 }
+
 renderProducts(productList);

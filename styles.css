@@ -160,9 +160,10 @@ aside {
     box-sizing: border-box;
     position: absolute;
     right: 0;
-  }
+   }
 /*Shoopping cart container*/
   #shoppingCartContainer{
+    background-color: var(--white);
     padding: 0 24px;
   }
   .title-container {
