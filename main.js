@@ -68,27 +68,27 @@ productList.push({
 });
 productList.push({
     name: 'Monitor',
-    price: 380,
+    price: 714,
     image: 'https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcRmEVyH5GYsIwuvhsCwuFiqC-xerh6iYl1kGw&usqp=CAU',
 });
 productList.push({
     name: 'Computer',
-    price: 750,
+    price: 825,
     image: 'https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcSPSkN81e3cbRVEzG2IZReet7P0xuSyT8WS0A&usqp=CAU',
 });
 productList.push({
     name: 'Bike',
-    price: 799,
+    price: 927,
     image: 'https://s3.amazonaws.com/rtvc-assets-senalcolombia.gov.co/s3fs-public/field/image/bicicletas-world-tour-2023.jpg',
 });
 productList.push({
     name: 'Monitor',
-    price: 380,
+    price: 688,
     image: 'https://s3.abcstatics.com/media/favorito/2021/11/29/mejores-monitores-PC-oferta-U72777153102iNy-620x349@abc.jpg',
 });
 productList.push({
     name: 'Computer',
-    price: 750,
+    price: 929,
     image: 'https://img.global.news.samsung.com/mx/wp-content/uploads/2019/01/Notebook-9-Pro-3.jpg',
 });
 
