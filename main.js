@@ -4,6 +4,8 @@ const menuBurger = document.querySelector('.menu-burger');
 const mobileMenu = document.querySelector('.mobile-menu');
 const iconCarrito = document.querySelector('.navbar-shopping-cart');
 const shoppingCartContainer = document.querySelector('#shoppingCartContainer');
+const productDetailContainer = document.querySelector('#productDetail');
+const productDetailCloseIcon = document.querySelector('.product-detail-close');
 const cardsContainer = document.querySelector('.cards-container');
 
 menuEmail.addEventListener('click', toggleDesktopMenu);//Evento de click en el menu de usuario de desktop
@@ -12,14 +14,17 @@ menuBurger.addEventListener('click', toggleMobileMenu);//Evento de click en el m
 
 iconCarrito.addEventListener('click', toggleshoppingCartContainer);//Evento de click en el detalle del producto
 
+productDetailCloseIcon.addEventListener('click', closeProductDetailAside);//Evento de click en el icono de cerrar
+
 function toggleMobileMenu() {
     //Constante que contiene Booleano de si esta inactivo el shoppingCartContainer
     const isshoppingCartContainerClosed = shoppingCartContainer.classList.contains('inactive');
-    
     // Si el Detalle del carrito esta abierto lo cerramos
     if (!isshoppingCartContainerClosed) {
         shoppingCartContainer.classList.add('inactive');
     }
+
+    closeProductDetailAside();
 
     mobileMenu.classList.toggle('inactive');
 }
@@ -39,21 +44,38 @@ function toggleDesktopMenu(){
 function toggleshoppingCartContainer(){
     //Constante que contiene Booleano de si esta inactivo el menu del Celular
     const isDesktopMenuClosed = desktopMenu.classList.contains('inactive');
-
-    //Constante que contiene Booleano de si esta inactivo el menu de usario de desktop
-    const isMobileMenuClosed = mobileMenu.classList.contains('inactive');
-
     //Si el menu de usuario de desktop esta activo lo cerramos
     if (!isDesktopMenuClosed){
         desktopMenu.classList.add('inactive');
     }
 
+    //Constante que contiene Booleano de si esta inactivo el menu de usario de desktop
+    const isMobileMenuClosed = mobileMenu.classList.contains('inactive');
     // Si el meunu Mobile esta abierto se cierra
     if (!isMobileMenuClosed){
         mobileMenu.classList.add('inactive');
     }
 
+    //Constante que contiene Booleano de si esta inactivo el detalle del producto
+    const isProductDetailCLosed = productDetailContainer.classList.contains('inactive');
+    // Si el detalle del producto esta abierto se cierra
+    if (!isProductDetailCLosed){
+        productDetailContainer.classList.add('inactive');
+    }
+
+
+
     shoppingCartContainer.classList.toggle('inactive');
+}
+
+function openProductDetailAside(){
+    shoppingCartContainer.classList.add('inactive');
+
+    productDetailContainer.classList.remove('inactive');
+}
+
+function closeProductDetailAside(){
+    productDetailContainer.classList.add('inactive');
 }
 
 const productList = [];
@@ -96,6 +118,7 @@ function RenderProduct (arr){
     
         const ProductImg = document.createElement('img');
         ProductImg.setAttribute('src', product.image);
+        ProductImg.addEventListener('click', openProductDetailAside);
     
         const productInfo = document.createElement('div');
         productInfo.classList.add('product-info');
