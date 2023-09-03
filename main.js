@@ -11,6 +11,7 @@ const detailCartClose = document.querySelector('.product-detail-close')
 const infoCart = document.querySelector('.product-info-cart')
 const closeShoppingCart = document.querySelector('.title-container img')
 const myOrderContent = document.querySelector('.my-order-content')
+const darken = document.querySelector('.darken')
 
 emailMenu.addEventListener('click', toggleDesktopMenu)
 burgerIcon.addEventListener('click', toggleMobileMenu)
@@ -23,11 +24,15 @@ function toggleDesktopMenu() {
     desktopMenu.classList.toggle('inactive')
     detailCart.classList.add('inactive')
     cardsContainer.classList.remove('detail-cart-open')
+    cardsContainer.classList.add('disable')
+    darken.classList.add('inactive')
 }
 function toggleMobileMenu() {
     productDetails.classList.add('inactive')
     mobileMenu.classList.toggle('inactive')
     detailCart.classList.add('inactive')
+    cardsContainer.classList.remove('disable')
+    darken.classList.add('inactive')
 
 }
 function toggleAside() {
@@ -36,6 +41,8 @@ function toggleAside() {
     mobileMenu.classList.add('inactive')
     productDetails.classList.remove('inactive')
     detailCart.classList.add('inactive')
+    cardsContainer.classList.add('disable')
+    darken.classList.remove('inactive')
     renderShoppingCart(shoppingList)
 }
 function toggleAsideCart() {
@@ -43,10 +50,14 @@ function toggleAsideCart() {
     detailCart.classList.add('inactive')
     desktopMenu.classList.add('inactive')
     productDetails.classList.add('inactive')
+    cardsContainer.classList.remove('disable')
+    darken.classList.add('inactive')
 }
 function toggleAsideClose() {
     cardsContainer.classList.remove('detail-cart-open')
     productDetails.classList.add('inactive')
+    cardsContainer.classList.remove('disable')
+    darken.classList.add('inactive')
 }
 
 const productList = []
@@ -142,6 +153,8 @@ function renderProducts(arr) {
         productImg.addEventListener('click', (event) => {
             productDetails.classList.add('inactive')
             cardsContainer.classList.add('detail-cart-open')
+            cardsContainer.classList.add('disable')
+            darken.classList.remove('inactive')
             desktopMenu.classList.add('inactive')
             detailCart.classList.remove('inactive')
             let elementSrc = event.target.src
@@ -242,6 +255,12 @@ function renderShoppingCart(arr) {
         })
 
         closeShoppingCart.addEventListener('click', () => {
+            shoppingCart.remove()
+        })
+        emailMenu.addEventListener('click', () => {
+            shoppingCart.remove()
+        })
+        burgerIcon.addEventListener('click', () => {
             shoppingCart.remove()
         })
     }

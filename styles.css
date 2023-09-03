@@ -18,6 +18,15 @@ body {
 .inactive {
     display: none;
 }
+.disable {
+    pointer-events: none;
+}
+.darken {
+    width: 100%;
+    height: calc(100%);
+    position: fixed;
+    background-color: rgba(0, 0, 0, 0.5);
+}
 
 /*Nav */
 nav {
@@ -113,7 +122,7 @@ nav {
     border: 1px solid var(--very-light-pink);
     border-radius: 0px 0px 6px 6px;
     padding: 20px 20px 0 20px;
-}
+    }
 
 .desktop-menu ul {
     list-style: none;
@@ -449,9 +458,6 @@ nav {
         height: 100%;
         position: fixed;
     }
-    .title-container img {
-        display: none;
-    }
 }
 
 @media (min-width: 641px) {
@@ -462,6 +468,7 @@ nav {
     }
     .detail-cart-open {
         width: 76%;
+
     }
     .product-detail {
         height: 100%;
