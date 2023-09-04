@@ -84,6 +84,7 @@ nav {
 
 /* Estilos menu mobile*/
 .mobile-menu {
+    background-color: var(--white);
     position: absolute;
     top: 60px;
     padding: 24px;
@@ -112,7 +113,6 @@ nav {
     font-size: var(--sm);
     color: var(--hospital-green) !important;
   }
-
 
 /*Estilos para menu de ordenes*/
 .desktop-menu {
@@ -156,7 +156,8 @@ nav {
 /*carrito de compras*/
 .product-detail {
     width: 360px;
-    padding: 24px;
+    padding: 0 24px;
+    background-color: var(--white);
     box-sizing: border-box;
     position: absolute;
     right: 0;
