@@ -8,7 +8,7 @@ const aside = document.querySelector('.product-detail');
 menuEmail.addEventListener('click', toggleDesktopMenu);
 menuBarIcon.addEventListener('click', toggleMobileMenu);
 carIcon.addEventListener('click', togglesaide);
-
+//Menu desplegable en el correo electronico
 function toggleDesktopMenu() {
     const isAsideClose = aside.classList.contains('inactive');
 
@@ -17,7 +17,7 @@ function toggleDesktopMenu() {
     }
     desktopMenu.classList.toggle('inactive');
 }
-
+// menu de barras en la version mobile
 function toggleMobileMenu() {
     const isAsideClose = aside.classList.contains('inactive');
 
@@ -26,8 +26,7 @@ function toggleMobileMenu() {
     }
     mobileMenu.classList.toggle('inactive');
 }
-
-
+// menu de carrito de compras
 function togglesaide() {
     const isMobileMenuClose = mobileMenu.classList.contains('inactive');
     const isDesktopMenuClose = desktopMenu.classList.contains('inactive');
