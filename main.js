@@ -12,6 +12,7 @@ const infoCart = document.querySelector('.product-info-cart')
 const closeShoppingCart = document.querySelector('.title-container img')
 const myOrderContent = document.querySelector('.my-order-content')
 const darken = document.querySelector('.darken')
+const counterItem = document.querySelector('.counter-item')
 
 emailMenu.addEventListener('click', toggleDesktopMenu)
 burgerIcon.addEventListener('click', toggleMobileMenu)
@@ -146,6 +147,7 @@ function renderProducts(arr) {
             for (let i = 0; i < productList.length; i++) {
                 if (productList[i].id == idImg) {
                     shoppingList.push(productList[i])
+                    counterItem.innerText = shoppingList.length
                 }
             }
         })
@@ -201,6 +203,7 @@ function renderProducts(arr) {
                     detailsButtonAdd.addEventListener('click', () => {
                         if (productList[i].id === details.id) {
                             shoppingList.push(productList[i])
+                            counterItem.innerText = shoppingList.length
                         }
                     })
                 }
@@ -250,7 +253,6 @@ function renderShoppingCart(arr) {
             if (i == idImgClose) {
                 shoppingList.splice(index, 1)
                 shoppingCart.remove()
-
             }
         })
 
