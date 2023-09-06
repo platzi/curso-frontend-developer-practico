@@ -9,6 +9,42 @@ const shoppingCartContainer = document.querySelector('#shoppingCartContainer');
 const cardsContainer = document.querySelector('.cards-container');
 const productDetailContainer = document.querySelector('#productDetail');
 
+const imgProduct = document.querySelector('#image-description');
+const priceProduct = document.querySelector('#price-description');
+const nameProduct = document.querySelector('#name-description');
+
+const productList = [];
+productList.push({
+    name: 'Bike',
+    price: 120,
+    image:' https://images.pexels.com/photos/276517/pexels-photo-276517.jpeg?auto=compress&cs=tinysrgb&dpr=2&h=650&w=940',
+});
+productList.push({
+    name: 'Pantalla',
+    price: 220,
+    image:' https://images.pexels.com/photos/1779487/pexels-photo-1779487.jpeg?auto=compress&cs=tinysrgb&w=1260&h=750&dpr=1',
+});
+productList.push({
+    name: 'Cumputador',
+    price: 620,
+    image:' https://images.pexels.com/photos/13564604/pexels-photo-13564604.jpeg?auto=compress&cs=tinysrgb&w=1260&h=750&dpr=1',
+});
+productList.push({
+    name: 'Reloj',
+    price: 90,
+    image:' https://images.pexels.com/photos/1217573/pexels-photo-1217573.jpeg?auto=compress&cs=tinysrgb&w=1260&h=750&dpr=1',
+});
+productList.push({
+    name: 'Guitarra',
+    price: 190,
+    image:' https://images.pexels.com/photos/164729/pexels-photo-164729.jpeg?auto=compress&cs=tinysrgb&w=1260&h=750&dpr=1',
+});
+productList.push({
+    name: 'Gafas',
+    price: 140,
+    image:' https://images.pexels.com/photos/185769/pexels-photo-185769.jpeg?auto=compress&cs=tinysrgb&w=1260&h=750&dpr=1',
+});
+
 
 //.addEventListener('click', );
 menuEmail.addEventListener('click', toggleDesktopMenu);
@@ -57,32 +93,22 @@ function toggleCarritoAside () {
     shoppingCartContainer.classList.toggle('inactive');
 }
 
-function openProductDetailAside() {
+function openProductDetailAside(event) {
     shoppingCartContainer.classList.add('inactive');
 
     productDetailContainer.classList.remove('inactive');
+
+    //
+    imgProduct.setAttribute('src', event.target.src);
+    // priceProduct.innerText = ;
+    //priceProduct.innerHTML = price;
 }
 
 function closeProductDetailAside() {
     productDetailContainer.classList.add('inactive');
 }
 
-const productList = [];
-productList.push({
-    name: 'Bike',
-    price: 120,
-    image:' https://images.pexels.com/photos/276517/pexels-photo-276517.jpeg?auto=compress&cs=tinysrgb&dpr=2&h=650&w=940',
-});
-productList.push({
-    name: 'Pantalla',
-    price: 220,
-    image:' https://images.pexels.com/photos/276517/pexels-photo-276517.jpeg?auto=compress&cs=tinysrgb&dpr=2&h=650&w=940',
-});
-productList.push({
-    name: 'Cumputador',
-    price: 620,
-    image:' https://images.pexels.com/photos/276517/pexels-photo-276517.jpeg?auto=compress&cs=tinysrgb&dpr=2&h=650&w=940',
-});
+
 
 function renderProcuts(arr) {
     for (product of arr) {
