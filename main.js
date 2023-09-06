@@ -27,6 +27,7 @@ function toggleDesktopMenu() {
     cardsContainer.classList.remove('detail-cart-open')
     cardsContainer.classList.add('disable')
     darken.classList.add('inactive')
+    shoppingCartIcon.classList.remove('disable')
 }
 function toggleMobileMenu() {
     productDetails.classList.add('inactive')
@@ -246,6 +247,8 @@ function renderShoppingCart(arr) {
 
         myOrderContent.appendChild(shoppingCart)
 
+        shoppingCartIcon.classList.add('disable')
+
         shoppingIconClose.addEventListener('click', (event) => {
             let idImgClose = event.target.id
             let index = shoppingList.indexOf(shopping)
@@ -258,6 +261,7 @@ function renderShoppingCart(arr) {
 
         closeShoppingCart.addEventListener('click', () => {
             shoppingCart.remove()
+            shoppingCartIcon.classList.remove('disable')
         })
         emailMenu.addEventListener('click', () => {
             shoppingCart.remove()
