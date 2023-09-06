@@ -1,116 +1,124 @@
 <!DOCTYPE html>
 <html lang="en">
 <head>
-  <meta charset="UTF-8">
-  <meta http-equiv="X-UA-Compatible" content="IE=edge">
-  <meta name="viewport" content="width=device-width, initial-scale=1.0">
-  <link rel="preconnect" href="https://fonts.googleapis.com">
-  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
-  <link href="https://fonts.googleapis.com/css2?family=Quicksand:wght@300;500;700&display=swap" rel="stylesheet">
-  <title>Document</title>
-  <style>
-    :root {
-      --white: #FFFFFF;
-      --black: #000000;
-      --very-light-pink: #C7C7C7;
-      --text-input-field: #F7F7F7;
-      --hospital-green: #ACD9B2;
-      --sm: 14px;
-      --md: 16px;
-      --lg: 18px;
+    <link rel="shortcut icon" href="./logos/favicon_yard_sale.svg" type="image/x-icon">
+    <meta charset="UTF-8">
+    <script src="./script.js" defer></script>
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Quicksand:wght@300;500;700&display=swap" rel="stylesheet">
+    <style>
+            *{
+        margin: 0;
+        padding: 0;
+        box-sizing: border-box;
     }
-    body {
-      margin: 0;
-      font-family: 'Quicksand', sans-serif;
+    :root{
+        /* VARIABLES */
+
+        --VeryLightPink: #c7c7c7;
+        --TextInputFiel: #f7f7f7;
+        --HospitalGreen: #ACD9B2;
+        --White: #ffffff;
+        --Black: #000000;
+
+        --sm: 14px;
+        --md: 16px;
+        --lg: 18px;
     }
-    .login {
-      width: 100%;
-      height: 100vh;
-      display: grid;
-      place-items: center;
+    body{
+        font-family: 'Quicksand', sans-serif;
     }
-    .form-container {
-      display: grid;
-      grid-template-rows: auto 1fr auto;
-      width: 300px;
+    .login{
+        width: 100%;
+        height: 100vh;
+        display: grid;
+        place-items: center;
+        }
+    .form{
+        display: flex;  
+        flex-direction: column;
     }
-    .logo {
-      width: 150px;
-      margin-bottom: 48px;
-      justify-self: center;
-      display: none;
+    .form-container{
+        display: grid;
+        grid-template-rows: auto 1fr auto;
+        width: 300px;
     }
-    .title {
-      font-size: var(--lg);
-      margin-bottom: 12px;
-      text-align: center;
+    .logo{
+        width: 150px;
+        margin: auto auto 48px;
+        display: none;
     }
-    .subtitle {
-      color: var(--very-light-pink);
-      font-size: var(--md);
-      font-weight: 300;
-      margin-top: 0;
-      margin-bottom: 32px;
-      text-align: center;
+    .title{
+        font-size: var(--lg);
+        margin-bottom: 12px;
+        text-align: center;
     }
-    .form {
-      display: flex;
-      flex-direction: column;
+    .subtitle{
+        color: var(--VeryLightPink);
+        font-size: var(--md);
+        font-weight: 300;
+        margin-top: 0;
+        margin-bottom: 32px;
+        text-align: center;
     }
-    .label {
-      font-size: var(--sm);
-      font-weight: bold;
-      margin-bottom: 4px;
+    .label{
+        font-size: var(--sm);
+        font-weight: bold;
+        margin-bottom: 4px;
     }
-    .input {
-      background-color: var(--text-input-field);
-      border: none;
-      border-radius: 8px;
-      height: 30px;
-      font-size: var(--md);
-      padding: 6px;
-      margin-bottom: 12px;
+    .input{
+        background-color: var(--TextInputFiel);
+        border: none;
+        border-radius: 8px;
+        height: 32px;
+        font-size: var(--md);
+        padding: 8px;
+        margin-bottom: 16px;
     }
-    .primary-button {
-      background-color: var(--hospital-green);
-      border-radius: 8px;
-      border: none;
-      color: var(--white);
-      width: 100%;
-      cursor: pointer;
-      font-size: var(--md);
-      font-weight: bold;
-      height: 50px;
+    .primary-button{
+        background-color: var(--HospitalGreen);
+        border-radius: 8px;
+        border: none;
+        color: var(--White);
+        width: 100%;
+        cursor: pointer;
+        font-size: var(--md);
+        font-weight: bold;
+        height: 50px;
     }
-    .login-button {
-      margin-top: 14px;
-      margin-bottom: 30px;
+    .login-button{
+        margin-top: 14px;
+        margin-bottom: 32px;
     }
     @media (max-width: 640px) {
-      .logo {
-        display: block;
-      }
+        .logo{
+            display: block;
+        }
     }
-  </style>
+    </style>
 </head>
 <body>
-  <div class="login">
-    <div class="form-container">
-      <img src="./logos/logo_yard_sale.svg" alt="logo" class="logo">
-
-      <h1 class="title">Create a new password</h1>
-      <p class="subtitle">Enter a new passwrd for yue account</p>
-
-      <form action="/" class="form">
-        <label for="password" class="label">Password</label>
-        <input type="password" id="password" placeholder="*********" class="input input-password">
-
-        <label for="new-password" class="label">Password</label>
-        <input type="password" id="new-password" placeholder="*********" class="input input-password">
-
-        <input type="submit" value="Confirm" class="primary-button login-button">
-      </form>
-    </div>
-  </div>
+    <div class="login">
+        <div class="form-container">
+            <img src="./logos/logo_yard_sale.svg" alt="logo" class="logo">
+            <h1 class="title">Create a new password</h1>
+            <p class="subtitle"> Enter a new password to you account</p>
+    
+            <form action="" class="form"></form>
+            <label for="password" class="label">Password</label>
+            <input type="password" name="" id="password" placeholder="********" class="input input-password">
+    
+            <label for="new-password" class="label">Re- enter password</label>
+            <input type="password" name="" id="new-password" placeholder="********" class="input input-password">
+    
+            <input type="submit" value="Confirm" class="primary-button login-button">
+    
+        </div>
+    </div>  
+   
+    
 </body>
 </html>
