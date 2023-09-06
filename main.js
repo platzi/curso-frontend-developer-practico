@@ -26,6 +26,7 @@ function toggleMobileMenu() {
 
 function toggleCarritoAside () {
     const isMobileMenuClosed = mobileMenu.classList.contains('inactive');
+    
     if (!isMobileMenuClosed) {
         mobileMenu.classList.add('inactive');
     } 

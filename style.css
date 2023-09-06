@@ -128,7 +128,7 @@ nav {
     position: absolute;
     top: 61px;
     padding: 24px;
-    /* width: 100%; */
+    width: 88%;
 }
 .mobile-menu a {
     text-decoration: none;
@@ -141,10 +141,10 @@ nav {
     margin: 24px 0 0;
     list-style: none;
 }
-/* .mobile-menu li:hover {
+.mobile-menu li:hover {
     width: 100%;
     border-bottom: 1px solid red;
-} */
+}
 
 .mobile-menu ul:nth-child(1) {
     border-bottom: 1px solid var(--very-light-pink);
@@ -283,7 +283,7 @@ nav {
     color: var(--very-light-pink);
 }
 
-@media (max-width: 640px) {
+@media (max-width: 734px) {
     .menu {
       display: block;
     }
