@@ -101,7 +101,7 @@ function openProductDetailAside(event) {
     //
     imgProduct.setAttribute('src', event.target.src);
     // priceProduct.innerText = ;
-    //priceProduct.innerHTML = price;
+    
 }
 
 function closeProductDetailAside() {
