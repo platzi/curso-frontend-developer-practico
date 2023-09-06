@@ -362,11 +362,7 @@ aside {
     .desktop-menu{
         display: none;
     }
-
-    .aside {
-        width: 100%;
-    }
-    #productDetail {
+    aside {
         width: 100%;
     }
     .cards-container {
