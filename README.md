@@ -11,7 +11,7 @@ The main point is learning the different ways to manipulate the DOM with JavaScr
 
 ## Conclussions
 Since this was my first approach to JavaScript I think I have learned many things that make this language so powerfull and ready to go. However, I felt a bit overwhelmed by the lack of a more structured design pattern or a basic class structure as a basic way to do things in other languages I know like Java and C#.
-There are many things I have to learned about Front-end and I get the feeling that the complexity of this part of the programming is greater than what is usually believed.
+There are many things I have to learned about Front-end and I get the feeling that it's complexity is greater than what is usually believed.
 
 ## Screenshots:
 ### Main view
