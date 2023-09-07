@@ -391,6 +391,9 @@ aside {
 }
 
 @media (max-width: 640px) {
+    aside {
+        width: 100%;
+    }
     .menu {
         display: block;
     }
