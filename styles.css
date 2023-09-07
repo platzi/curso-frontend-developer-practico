@@ -155,7 +155,7 @@ nav {
     display: inline-block;
 }
 
-/*estilos generales para aside*/
+/*estilos generales para los aside*/
 aside {
     width: 360px;
     background-color: var(--white);
@@ -163,6 +163,7 @@ aside {
     position: absolute;
     right: 0;
   }
+
   /*Estilos para shopping cart*/
   #shoppingCartContainer {
     padding: 0 24px;
