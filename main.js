@@ -9,6 +9,8 @@ let shoppingCartContainer = document.querySelector('#shoppingCartContainer');
 let cardsContainer = document.querySelector('.cards-container');
 let productDetailContainer = document.querySelector('#productDetail');
 
+let infoDelProduct = document.querySelector('#info-product');
+
 let imgProduct = document.querySelector('#image-description');
 let priceProduct = document.querySelector('#price-description');
 let nameProduct = document.querySelector('#name-description');
@@ -99,8 +101,8 @@ function openProductDetailAside(event) {
     productDetailContainer.classList.remove('inactive');
 
     //
-    imgProduct.setAttribute('src', event.target.src);
-    
+        
+    mostrarDetalles();
     
 }
 
@@ -109,7 +111,15 @@ function closeProductDetailAside() {
 }
 
 
+function mostrarDetalles() {
 
+    imgProduct.setAttribute('src', event.target.src);
+    priceProduct.textContent = '$' + product.price;
+    nameProduct.textContent = product.name;
+    
+    console.log("funciona");  
+   
+}
 
 
 function renderProcuts(arr) {
