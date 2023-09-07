@@ -14,37 +14,44 @@ let infoDelProduct = document.querySelector('#info-product');
 let imgProduct = document.querySelector('#image-description');
 let priceProduct = document.querySelector('#price-description');
 let nameProduct = document.querySelector('#name-description');
+let descriptionProduct = document.querySelector('#description');
 
 let productList = [];
 productList.push({
     name: 'Bike',
     price: 120,
     image:' https://images.pexels.com/photos/276517/pexels-photo-276517.jpeg?auto=compress&cs=tinysrgb&dpr=2&h=650&w=940',
+    parragraph: 'Lorem ipsum dolor, sit amet consectetur adipisicing elit. Corporis, voluptate?',
 });
 productList.push({
     name: 'Pantalla',
     price: 220,
     image:' https://images.pexels.com/photos/1779487/pexels-photo-1779487.jpeg?auto=compress&cs=tinysrgb&w=1260&h=750&dpr=1',
+    parragraph: 'Lorem ipsum dolor sit amet consectetur adipisicing elit. Ad, nobis.',
 });
 productList.push({
     name: 'Cumputador',
     price: 620,
     image:' https://images.pexels.com/photos/13564604/pexels-photo-13564604.jpeg?auto=compress&cs=tinysrgb&w=1260&h=750&dpr=1',
+    parragraph: 'Lorem ipsum dolor sit amet consectetur adipisicing elit. Laboriosam, expedita.',
 });
 productList.push({
     name: 'Reloj',
     price: 90,
     image:' https://images.pexels.com/photos/1217573/pexels-photo-1217573.jpeg?auto=compress&cs=tinysrgb&w=1260&h=750&dpr=1',
+    parragraph: 'Lorem ipsum dolor sit amet consectetur, adipisicing elit. Suscipit, impedit!',
 });
 productList.push({
     name: 'Guitarra',
     price: 190,
     image:' https://images.pexels.com/photos/164729/pexels-photo-164729.jpeg?auto=compress&cs=tinysrgb&w=1260&h=750&dpr=1',
+    parragraph: 'Lorem ipsum dolor, sit amet consectetur adipisicing elit. Quam, dolorum.',
 });
 productList.push({
     name: 'Gafas',
     price: 140,
     image:' https://images.pexels.com/photos/185769/pexels-photo-185769.jpeg?auto=compress&cs=tinysrgb&w=1260&h=750&dpr=1',
+    parragraph: 'Lorem ipsum dolor sit amet consectetur adipisicing elit. Quos, rem?',
 });
 
 
@@ -104,9 +111,10 @@ function openProductDetailAside(event) {
     const productIndex = event.target.dataset.index;
     const product = productList[productIndex];
     console.log(productIndex); 
+
      
-    mostrarDetalles();
-    
+    mostrarDetalles(product);
+    console.log(event.target.src)
 }
 
 function closeProductDetailAside() {
@@ -114,15 +122,13 @@ function closeProductDetailAside() {
 }
 
 
-function mostrarDetalles() {
-
-    imgProduct.innerHTML = productList.image;
-   // imgProduct.setAttribute('src', event.target.src);
+function mostrarDetalles(productList) {
+    // imgProduct.innerHTML = productList.image;
+    imgProduct.setAttribute('src', event.target.src);
     priceProduct.textContent = '$' + productList.price;
     nameProduct.textContent = productList.name;
-    
-    console.log("funciona");  
-   
+    descriptionProduct.textContent = productList.parragraph;  
+    console.log("funciona");   
 }
 
 
@@ -145,8 +151,11 @@ function renderProducts(arr) {
      
         let productPrice = document.createElement('p');
         productPrice.innerText = '$' + product.price;
+        productPrice.setAttribute('data-index', i);
+
         let productName = document.createElement('p');
         productName.innerText = product.name;
+        productPrice.setAttribute('data-index', i);
      
         productInfoDiv.appendChild(productPrice);
         productInfoDiv.appendChild(productName);

@@ -123,14 +123,17 @@
     <div class="my-order-content">
       <div class="shopping-cart">
         <figure>
-          <img src="https://images.pexels.com/photos/276517/pexels-photo-276517.jpeg?auto=compress&cs=tinysrgb&dpr=2&h=650&w=940" alt="bike">
+          <img id="orderImage">
+          <!-- src="https://images.pexels.com/photos/276517/pexels-photo-276517.jpeg?auto=compress&cs=tinysrgb&dpr=2&h=650&w=940" -->
         </figure>
-        <p>Bike</p>
-        <p>$30,00</p>
-        <img src="./icons/icon_close.png" alt="close">
+        <p id="orderName"></p>
+        <!-- Bike -->
+        <p id="orderPrice"></p>
+        <!-- $30,00 -->
+        <img id="orderClose" src="./icons/icon_close.png" alt="close">
       </div>
 
-      <div class="shopping-cart">
+      <!-- <div class="shopping-cart">
         <figure>
           <img src="https://images.pexels.com/photos/276517/pexels-photo-276517.jpeg?auto=compress&cs=tinysrgb&dpr=2&h=650&w=940" alt="bike">
         </figure>
@@ -146,13 +149,14 @@
         <p>Bike</p>
         <p>$30,00</p>
         <img src="./icons/icon_close.png" alt="close">
-      </div>
+      </div> -->
 
-      <div class="order">
+      <div id="orderTotal" class="order">
         <p>
           <span>Total</span>
         </p>
-        <p>$560.00</p>
+        <p id="totalPrice"></p>
+        <!-- $560.00 -->
       </div>
 
       <button class="primary-button">
@@ -174,7 +178,8 @@
       <!-- $35,00 -->
       <p id="name-description"></p>
       <!-- Bike -->
-      <p>With its practical position, this bike also fulfills a decorative function, add your hall or workspace.</p>
+      <p id="description"></p>
+      <!-- With its practical position, this bike also fulfills a decorative function, add your hall or workspace. -->
       <button class="primary-button add-to-cart-button">
         <img src="./icons/bt_add_to_cart.svg" alt="add to cart">
         Add to cart
