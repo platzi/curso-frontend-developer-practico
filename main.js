@@ -101,7 +101,10 @@ function openProductDetailAside(event) {
     productDetailContainer.classList.remove('inactive');
 
     //
-        
+    const productIndex = event.target.dataset.index;
+    const product = productList[productIndex];
+    console.log(productIndex); 
+     
     mostrarDetalles();
     
 }
@@ -113,23 +116,26 @@ function closeProductDetailAside() {
 
 function mostrarDetalles() {
 
-    imgProduct.setAttribute('src', event.target.src);
-    priceProduct.textContent = '$' + product.price;
-    nameProduct.textContent = product.name;
+    imgProduct.innerHTML = productList.image;
+   // imgProduct.setAttribute('src', event.target.src);
+    priceProduct.textContent = '$' + productList.price;
+    nameProduct.textContent = productList.name;
     
     console.log("funciona");  
    
 }
 
 
-function renderProcuts(arr) {
-    for (product of arr) {
+function renderProducts(arr) {
+    for (let i = 0; i < arr.length; i++) {
+        const product = arr[i];
         let productCard = document.createElement('div');
         productCard.classList.add('product-card');
      
         // product = {name, price, image} -> product.image
         let productimg = document.createElement('img');
         productimg.setAttribute('src', product.image);
+        productimg.setAttribute('data-index', i);
         productimg.addEventListener('click', openProductDetailAside);
      
         let productInfo = document.createElement('div');
@@ -161,4 +167,4 @@ function renderProcuts(arr) {
      }
 }
 
-renderProcuts(productList);
+renderProducts(productList);
