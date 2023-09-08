@@ -13,6 +13,7 @@ const closeShoppingCart = document.querySelector('.title-container img')
 const myOrderContent = document.querySelector('.my-order-content')
 const darken = document.querySelector('.darken')
 const counterItem = document.querySelector('.counter-item')
+const sumaTotal = document.querySelector('.suma-total')
 
 emailMenu.addEventListener('click', toggleDesktopMenu)
 burgerIcon.addEventListener('click', toggleMobileMenu)
@@ -25,7 +26,7 @@ function toggleDesktopMenu() {
     desktopMenu.classList.toggle('inactive')
     detailCart.classList.add('inactive')
     cardsContainer.classList.remove('detail-cart-open')
-    cardsContainer.classList.add('disable')
+    cardsContainer.classList.remove('disable')
     darken.classList.add('inactive')
     shoppingCartIcon.classList.remove('disable')
 }
@@ -35,7 +36,8 @@ function toggleMobileMenu() {
     detailCart.classList.add('inactive')
     cardsContainer.classList.remove('disable')
     darken.classList.add('inactive')
-
+    shoppingCartIcon.classList.remove('disable')
+    cardsContainer.classList.remove('detail-cart-open')
 }
 function toggleAside() {
     cardsContainer.classList.add('detail-cart-open')
@@ -46,6 +48,7 @@ function toggleAside() {
     cardsContainer.classList.add('disable')
     darken.classList.remove('inactive')
     renderShoppingCart(shoppingList)
+    sumaPrecio(shoppingList)
 }
 function toggleAsideCart() {
     cardsContainer.classList.remove('detail-cart-open')
@@ -67,43 +70,71 @@ productList.push({
     id: 1,
     name: 'Bike',
     price: 380,
-    image: 'https://m.media-amazon.com/images/I/91MqcxxSzFL.__AC_SY300_SX300_QL70_FMwebp_.jpg',
-    description: "The dream bike, the Fixie is well-built, comfortable and stylish, making it the ideal companion for short commutes. Though at a competitive price, there are no corners cut and the never-ending pursuit to quality is evident. We're sure you'll have a smile on your face every time you hop on for your commutes, hangouts, workouts and beyond"
+    image: 'https://images.pexels.com/photos/13684844/pexels-photo-13684844.jpeg?auto=compress&cs=tinysrgb&w=1260&h=750&dpr=1',
+    description: "Lorem ipsum dolor sit amet, consectetur adipiscing elit. Vestibulum gravida justo eu dui fermentum, et iaculis neque dapibus. Suspendisse lobortis semper leo id consectetur. Sed sed faucibus ligula, in bibendum dui. Sed tincidunt et turpis vel euismod."
 })
 productList.push({
     id: 2,
-    name: 'Gaming Desk',
-    price: 420,
-    image: 'https://m.media-amazon.com/images/I/71SMNFiD9bL._AC_SX569_.jpg',
-    description: "Only for gaming? No! It also serves as a large and stury computer desk/ office workstation! Thanks to the amazing carbon fiber top material and heavy duty metal desk legs, and those added humanized designs, this desk is much more multifunctional compared to other basic computer desk/ office workstation."
+    name: 'Computer desk',
+    price: 140,
+    image: 'https://images.pexels.com/photos/3937174/pexels-photo-3937174.jpeg?auto=compress&cs=tinysrgb&w=600',
+    description: "Lorem ipsum dolor sit amet, consectetur adipiscing elit. Vestibulum gravida justo eu dui fermentum, et iaculis neque dapibus. Suspendisse lobortis semper leo id consectetur. Sed sed faucibus ligula, in bibendum dui. Sed tincidunt et turpis vel euismod."
 })
 productList.push({
     id: 3,
     name: 'Coffee Cup',
     price: 11,
-    image: 'https://m.media-amazon.com/images/I/71ijLyRmNXL.__AC_SY300_SX300_QL70_FMwebp_.jpg',
-    description: "This coffee mug is perfect for any coffee lover. It is made of high quality ceramic and has a classic shape that you are sure to love. The mug has a comfortable handle that makes it easy to hold, even when filled with hot coffee. The mug is also dishwasher safe, making it easy to clean."
+    image: 'https://images.pexels.com/photos/3335613/pexels-photo-3335613.jpeg?auto=compress&cs=tinysrgb&w=600',
+    description: "Lorem ipsum dolor sit amet, consectetur adipiscing elit. Vestibulum gravida justo eu dui fermentum, et iaculis neque dapibus. Suspendisse lobortis semper leo id consectetur. Sed sed faucibus ligula, in bibendum dui. Sed tincidunt et turpis vel euismod."
 })
 productList.push({
     id: 4,
     name: 'Git and Github',
-    price: 14.99,
+    price: 15,
     image: 'https://pbs.twimg.com/media/FubgrSEWYAATGTr.jpg',
-    description: "This step-by-step guide will help you understand the fundamentals, while you learn the theory and apply it in practice, thanks to the course included in the book. A 5-hour video course that you can access for free from mouredev.com/git-github."
+    description: "Lorem ipsum dolor sit amet, consectetur adipiscing elit. Vestibulum gravida justo eu dui fermentum, et iaculis neque dapibus. Suspendisse lobortis semper leo id consectetur. Sed sed faucibus ligula, in bibendum dui. Sed tincidunt et turpis vel euismod."
 })
 productList.push({
     id: 5,
     name: 'Learning JavaScript',
-    price: 14.85,
-    image: 'https://d2sofvawe08yqg.cloudfront.net/aprendiendo-javascript/s_hero2x?1620475858',
-    description: "This book is a comprehensive resource for learning JavaScript, one of the world's most popular programming languages. It is written in a clear and concise style, and is full of examples and practical exercises. The book starts with the basics of JavaScript, such as variables, functions, and loops, and then moves on to more advanced topics, such as objects, events, and animations."
+    price: 15,
+    image: 'https://pbs.twimg.com/media/E2D-x8HXoAA34Wd?format=jpg&name=large',
+    description: "Lorem ipsum dolor sit amet, consectetur adipiscing elit. Vestibulum gravida justo eu dui fermentum, et iaculis neque dapibus. Suspendisse lobortis semper leo id consectetur. Sed sed faucibus ligula, in bibendum dui. Sed tincidunt et turpis vel euismod."
 })
 productList.push({
     id: 6,
-    name: 'Tesla Coil',
-    price: 79.99,
-    image: 'https://i5.walmartimages.com.mx/mg/gm/3pp/asr/b2b10812-dbea-4cdd-823c-22d67ed22215.caad0e2aa520aa4be27909fe53de6adf.jpeg?odnHeight=612&odnWidth=612&odnBg=FFFFFF',
-    description: "A musical Tesla coil is a Tesla coil that has been modified to reproduce musical notes. This is done by modulating the frequency of the current that is applied to the primary coil. When the frequency of the current matches the natural frequency of the secondary coil, a resonance occurs, which causes the secondary coil to emit a sound."
+    name: 'Phone',
+    price: 800,
+    image: 'https://images.pexels.com/photos/238541/pexels-photo-238541.jpeg?auto=compress&cs=tinysrgb&w=1260&h=750&dpr=1',
+    description: "Lorem ipsum dolor sit amet, consectetur adipiscing elit. Vestibulum gravida justo eu dui fermentum, et iaculis neque dapibus. Suspendisse lobortis semper leo id consectetur. Sed sed faucibus ligula, in bibendum dui. Sed tincidunt et turpis vel euismod."
+})
+productList.push({
+    id: 7,
+    name: 'Gamer keyboard',
+    price: 94,
+    image: 'https://images.pexels.com/photos/841228/pexels-photo-841228.jpeg?auto=compress&cs=tinysrgb&w=1260&h=750&dpr=1',
+    description: "Lorem ipsum dolor sit amet, consectetur adipiscing elit. Vestibulum gravida justo eu dui fermentum, et iaculis neque dapibus. Suspendisse lobortis semper leo id consectetur. Sed sed faucibus ligula, in bibendum dui. Sed tincidunt et turpis vel euismod."
+})
+productList.push({
+    id: 8,
+    name: 'Smart clock',
+    price: 250,
+    image: 'https://images.pexels.com/photos/267391/pexels-photo-267391.jpeg?auto=compress&cs=tinysrgb&w=1260&h=750&dpr=1',
+    description: "Lorem ipsum dolor sit amet, consectetur adipiscing elit. Vestibulum gravida justo eu dui fermentum, et iaculis neque dapibus. Suspendisse lobortis semper leo id consectetur. Sed sed faucibus ligula, in bibendum dui. Sed tincidunt et turpis vel euismod."
+})
+productList.push({
+    id: 9,
+    name: 'Car',
+    price: 45500,
+    image: 'https://images.pexels.com/photos/1805053/pexels-photo-1805053.jpeg?auto=compress&cs=tinysrgb&w=1260&h=750&dpr=1',
+    description: "Lorem ipsum dolor sit amet, consectetur adipiscing elit. Vestibulum gravida justo eu dui fermentum, et iaculis neque dapibus. Suspendisse lobortis semper leo id consectetur. Sed sed faucibus ligula, in bibendum dui. Sed tincidunt et turpis vel euismod."
+})
+productList.push({
+    id: 10,
+    name: 'Programmable robot',
+    price: 80,
+    image: 'https://images.pexels.com/photos/2085832/pexels-photo-2085832.jpeg?auto=compress&cs=tinysrgb&w=1260&h=750&dpr=1',
+    description: "Lorem ipsum dolor sit amet, consectetur adipiscing elit. Vestibulum gravida justo eu dui fermentum, et iaculis neque dapibus. Suspendisse lobortis semper leo id consectetur. Sed sed faucibus ligula, in bibendum dui. Sed tincidunt et turpis vel euismod."
 })
 
 function renderProducts(arr) {
@@ -256,6 +287,8 @@ function renderShoppingCart(arr) {
             if (i == idImgClose) {
                 shoppingList.splice(index, 1)
                 shoppingCart.remove()
+                counterItem.innerText = shoppingList.length
+                sumaPrecio()
             }
         })
 
@@ -272,3 +305,8 @@ function renderShoppingCart(arr) {
     }
 }
 
+function sumaPrecio(arr) {
+    let sumaPrecio = shoppingList.reduce((acc, shopping) => acc += shopping.price, 0)
+
+    sumaTotal.innerHTML = '$' + sumaPrecio
+}
