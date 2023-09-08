@@ -16,42 +16,54 @@ let priceProduct = document.querySelector('#price-description');
 let nameProduct = document.querySelector('#name-description');
 let descriptionProduct = document.querySelector('#description');
 
+let addProduct = document.querySelector('#btn-product');
+let imgOrder = document.querySelector('#order-image');
+let nameOrder = document.querySelector('#order-name');
+let priceOrder = document.querySelector('#order-price');
+
+
 let productList = [];
 productList.push({
     name: 'Bike',
     price: 120,
     image:' https://images.pexels.com/photos/276517/pexels-photo-276517.jpeg?auto=compress&cs=tinysrgb&dpr=2&h=650&w=940',
     parragraph: 'Lorem ipsum dolor, sit amet consectetur adipisicing elit. Corporis, voluptate?',
+    id: 11,
 });
 productList.push({
     name: 'Pantalla',
     price: 220,
     image:' https://images.pexels.com/photos/1779487/pexels-photo-1779487.jpeg?auto=compress&cs=tinysrgb&w=1260&h=750&dpr=1',
     parragraph: 'Lorem ipsum dolor sit amet consectetur adipisicing elit. Ad, nobis.',
+    id: 22,
 });
 productList.push({
     name: 'Cumputador',
     price: 620,
     image:' https://images.pexels.com/photos/13564604/pexels-photo-13564604.jpeg?auto=compress&cs=tinysrgb&w=1260&h=750&dpr=1',
     parragraph: 'Lorem ipsum dolor sit amet consectetur adipisicing elit. Laboriosam, expedita.',
+    id: 33,
 });
 productList.push({
     name: 'Reloj',
     price: 90,
     image:' https://images.pexels.com/photos/1217573/pexels-photo-1217573.jpeg?auto=compress&cs=tinysrgb&w=1260&h=750&dpr=1',
     parragraph: 'Lorem ipsum dolor sit amet consectetur, adipisicing elit. Suscipit, impedit!',
+    id: 44,
 });
 productList.push({
     name: 'Guitarra',
     price: 190,
     image:' https://images.pexels.com/photos/164729/pexels-photo-164729.jpeg?auto=compress&cs=tinysrgb&w=1260&h=750&dpr=1',
     parragraph: 'Lorem ipsum dolor, sit amet consectetur adipisicing elit. Quam, dolorum.',
+    id: 55,
 });
 productList.push({
     name: 'Gafas',
     price: 140,
     image:' https://images.pexels.com/photos/185769/pexels-photo-185769.jpeg?auto=compress&cs=tinysrgb&w=1260&h=750&dpr=1',
     parragraph: 'Lorem ipsum dolor sit amet consectetur adipisicing elit. Quos, rem?',
+    id: 66,
 });
 
 //
@@ -61,36 +73,42 @@ productList.push({
     price: 120,
     image:' https://images.pexels.com/photos/276517/pexels-photo-276517.jpeg?auto=compress&cs=tinysrgb&dpr=2&h=650&w=940',
     parragraph: 'Lorem ipsum dolor, sit amet consectetur adipisicing elit. Corporis, voluptate?',
+    id: 77,
 });
 productList.push({
     name: 'Pantalla',
     price: 220,
     image:' https://images.pexels.com/photos/1779487/pexels-photo-1779487.jpeg?auto=compress&cs=tinysrgb&w=1260&h=750&dpr=1',
     parragraph: 'Lorem ipsum dolor sit amet consectetur adipisicing elit. Ad, nobis.',
+    id: 88,
 });
 productList.push({
     name: 'Cumputador',
     price: 620,
     image:' https://images.pexels.com/photos/13564604/pexels-photo-13564604.jpeg?auto=compress&cs=tinysrgb&w=1260&h=750&dpr=1',
     parragraph: 'Lorem ipsum dolor sit amet consectetur adipisicing elit. Laboriosam, expedita.',
+    id: 99,
 });
 productList.push({
     name: 'Reloj',
     price: 90,
     image:' https://images.pexels.com/photos/1217573/pexels-photo-1217573.jpeg?auto=compress&cs=tinysrgb&w=1260&h=750&dpr=1',
     parragraph: 'Lorem ipsum dolor sit amet consectetur, adipisicing elit. Suscipit, impedit!',
+    id: 111,
 });
 productList.push({
     name: 'Guitarra',
     price: 190,
     image:' https://images.pexels.com/photos/164729/pexels-photo-164729.jpeg?auto=compress&cs=tinysrgb&w=1260&h=750&dpr=1',
     parragraph: 'Lorem ipsum dolor, sit amet consectetur adipisicing elit. Quam, dolorum.',
+    id: 222,
 });
 productList.push({
     name: 'Gafas',
     price: 140,
     image:' https://images.pexels.com/photos/185769/pexels-photo-185769.jpeg?auto=compress&cs=tinysrgb&w=1260&h=750&dpr=1',
     parragraph: 'Lorem ipsum dolor sit amet consectetur adipisicing elit. Quos, rem?',
+    id: 333,
 });
 
 
@@ -99,13 +117,14 @@ menuEmail.addEventListener('click', toggleDesktopMenu);
 menuHamIcon.addEventListener('click', toggleMobileMenu);
 menuCarritoIcon.addEventListener('click', toggleCarritoAside);
 productDetailCloseIcon.addEventListener('click', closeProductDetailAside);
+addProduct.addEventListener('click', addProductButton);
 
 function toggleDesktopMenu() {
     shoppingCartContainer.classList.add('inactive');
-
     desktopMenu.classList.toggle('inactive');
-
     closeProductDetailAside()
+
+    addProductButton(productList);
 }
 
 function toggleMobileMenu() {
@@ -143,7 +162,6 @@ function toggleCarritoAside () {
 
 function openProductDetailAside(event) {
     shoppingCartContainer.classList.add('inactive');
-
     productDetailContainer.classList.remove('inactive');
 
     //
@@ -176,6 +194,8 @@ function renderProducts(arr) {
         const product = arr[i];
         let productCard = document.createElement('div');
         productCard.classList.add('product-card');
+        productCard.setAttribute('id', product.id);
+       // productCard.addEventListener('click', openProductDetailAside);
      
         // product = {name, price, image} -> product.image
         let productimg = document.createElement('img');
@@ -202,6 +222,7 @@ function renderProducts(arr) {
         let productInfoFigure = document.createElement('figure');
         let productImgCart = document.createElement('img');
         productImgCart.setAttribute('src', './icons/bt_add_to_cart.svg');
+        productImgCart.addEventListener('click', addProductIcon);
      
         productInfoFigure.appendChild(productImgCart);
      
@@ -216,3 +237,14 @@ function renderProducts(arr) {
 }
 
 renderProducts(productList);
+
+//añadir elemento
+
+function addProductButton(productList) {
+    nameOrder.innerHTML = productList.name;
+    console.log("funciona el boton");
+}
+
+function addProductIcon() {
+    console.log("funciona el icon");
+}
