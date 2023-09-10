@@ -25,7 +25,9 @@
     border-bottom: 1px solid var(--very-light-pink);
   }
   .menu {
+    
     display: none;
+    
   }
   .logo {
     width: 100px;
