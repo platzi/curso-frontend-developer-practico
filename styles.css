@@ -12,6 +12,10 @@
     margin: 0;
     font-family: 'Quicksand', sans-serif;
   }
+  .inactive{
+    display:none;
+  }
+
   nav {
     display: flex;
     justify-content: space-between;
@@ -76,6 +80,10 @@
   }
 /*Here start the styles for the disapearring menu*/
   .desktop-menu {
+    position:absolute;
+    background-color: var(--white);
+    right:60px;
+    top:60px;
     width: 100px;
     height: auto;
     border: 1px solid var(--very-light-pink);
