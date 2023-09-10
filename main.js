@@ -3,30 +3,47 @@ const desktopMenu = document.querySelector('.desktop-menu');
 const menuHamburguer = document.querySelector('.menu')
 const menuMobile = document.querySelector('.mobile-menu')
 const menuCarritoIcon = document.querySelector('.navbar-shopping-cart')
-const asideMenuCarrito = document.querySelector('.product-detail')
+const asideMenuCarrito = document.querySelector('.product-detail-nav')
 const cardsContainer = document.querySelector('.cards-container')
+const productDetail = document.querySelector('.product-detail')
+const productDetailClose = document.querySelector('.product-detail-close')
 
 
 navEmail.addEventListener('click', toggleDesktopMenu);
 menuHamburguer.addEventListener('click', toggleMobileMenu);
 menuCarritoIcon.addEventListener('click',toggleAsidepMenuCarrito);
+productDetailClose.addEventListener('click', closeProductDetailAside)
 
 
 
 function toggleDesktopMenu(){
     desktopMenu.classList.toggle('inactive')
     asideMenuCarrito.classList.add('inactive')
+    productDetail.classList.add('inactive')
 }
 
 function toggleMobileMenu(){
     menuMobile.classList.toggle('inactive')
     asideMenuCarrito.classList.add('inactive')
+    productDetail.classList.add('inactive')
 }
 
 function toggleAsidepMenuCarrito(){
     asideMenuCarrito.classList.toggle('inactive')
     menuMobile.classList.add('inactive')
     desktopMenu.classList.add('inactive')
+    productDetail.classList.add('inactive')
+}
+
+function openProductDetailAside(){
+    productDetail.classList.remove('inactive')
+    menuMobile.classList.add('inactive')
+    desktopMenu.classList.add('inactive')
+    asideMenuCarrito.classList.add('inactive')
+}
+
+function closeProductDetailAside(){
+    productDetail.classList.add('inactive');
 }
 
 const productList = [];
@@ -61,7 +78,9 @@ function renderProducts(arr){
         productCard.classList.add('product-card')
     
         const productImg = document.createElement('img');
+        productImg.classList.add('imgProductDetail')
         productImg.setAttribute('src', product.image);
+        productImg.addEventListener('click', openProductDetailAside)
     
         productCard.appendChild(productImg) //Agrego la imagen del producto
     
