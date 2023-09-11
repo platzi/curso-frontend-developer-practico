@@ -1,0 +1,31 @@
+$color-primary: rgb(83, 139, 212);
+$color-secondary: #acd9b2;
+$color-dark: rgb(12, 27, 41);
+$color-extra: rgb(211, 211, 211);
+
+
+@mixin font-size($size) {
+	font-size: $size;
+	font-size: calculateRem($size);
+	line-height: calculateRem($size)*1.5;
+}
+
+@function calculateRem($size){
+	$remSize: $size / 16px;
+	@return $remSize * 1rem;
+}
+
+@function get-opacity($color, $amount) {
+  @return rgba($color, $amount);
+}
+
+.inactive {
+	display: none;
+}
+*{
+	user-select: none;
+}
+
+.show-side {
+	grid-template-columns: 1fr 1fr;
+}

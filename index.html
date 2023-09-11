@@ -1,0 +1,105 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>RiszMarket</title>
+    <link rel="stylesheet" href="css/principal.css">
+  </head>
+  <body> 
+    <header>
+      <nav class="nav"><img class="burguerMenu" src="./icons/icon_menu.svg" alt="menu">
+        <div class="nav-left"><img class="logo" src="./logos/logo_yard_sale.svg" alt="logo">
+          <ul class="nav-left__list">
+            <li><a href="/">All</a></li>
+            <li><a href="/">Clothes</a></li>
+            <li><a href="/">Electronics</a></li>
+            <li><a href="/">Toys</a></li>
+            <li><a href="/">Other</a></li>
+          </ul>
+        </div>
+        <div class="nav-right">
+          <div class="desktop-menu">
+            <div class="desktop-menu__market"> 
+              <h2>My MarketPlace</h2>
+              <div class="navbar-email inactive">
+                <li><a href="/">My orders</a></li>
+                <li><a href="/">My account</a></li>
+                <li><a href="/">Sign out</a></li>
+              </div>
+            </div>
+            <div class="desktop-menu__shopping-cart"> <img src="/icons/icon_shopping_cart.svg" alt="">
+              <div class="counter-product">0</div>
+            </div>
+          </div>
+          <div class="mobile-menu inactive">
+            <ul>
+              <li><a>categories </a></li>
+              <li><a href="/">All</a></li>
+              <li><a href="/">Clothes</a></li>
+              <li><a href="/">Electronics</a></li>
+              <li><a href="/">Toys</a></li>
+              <li><a href="/">Other</a></li>
+            </ul>
+            <ul>
+              <li><a href="/">My orders</a>
+              </li>
+              <li><a href="/">My account</a>
+              </li>
+              <li><a class="email" href="/">platzi@example.com</a>
+              </li>
+              <li><a class="sign-out" href="/">Sign out</a>
+              </li>
+            </ul>
+          </div>
+        </div>
+      </nav>
+      <aside class="shopping-cart inactive">
+        <div class="title-contain"><img src="/icons/flechita.svg" alt="arrow">
+          <p class="tittle">My order</p>
+        </div>
+        <section class="my-order-content"></section>
+        <div class="order">
+          <p>Total</p>
+          <p class="total-product-cost">$</p>
+        </div>
+        <div class="boton">
+          <p class="primary-button">Checkout </p>
+        </div>
+      </aside>
+    </header>
+    <main class="main-container">
+      <section class="cards-container"></section>
+      <section class="detail--item inactive">
+        <div class="detail--item-info"> 
+          <div class="detail--item-info__close"> </div><img class="detail--item-info__image" src="" alt="">
+          <div class="detail--item-info__price-name">
+            <p class="window-item__price">645</p>
+            <p class="window-item__name">fdsf</p>
+          </div>
+          <p class="detail--item-info__detail">Lorem ipsum dolor sit, amet consectetur adipisicing elit. Libero, vitae asperiores sunt qui soluta facere a ad distinctio ut, excepturi tempora. Cumque similique numquam excepturi, expedita suscipit adipisci veniam reiciendis. Lorem ipsum dolor sit amet, consectetur adipisicing elit. Ex rerum alias excepturi eveniet modi quis ducimus, quisquam, iusto earum a enim totam ipsa qui, dolorum doloremque magnam at quod ratione!</p>
+          <div class="detail--item-info__boton"><img src="" alt="">
+            <p>Add to cart</p>
+          </div>
+        </div>
+      </section>
+    </main>
+    <footer> 
+      <div class="footer--icon"><img src="/icons/" alt=""><img src="/icons/" alt=""><img src="/icons/" alt="">
+      </div>
+      <div class="footer--li">
+        <li>Home</li>
+        <li>Services</li>
+        <li>About</li>
+        <li>Terms</li>
+        <li>Privacy Policy</li>
+      </div>
+      <div class="footer--end">
+        <p>AllRight Reserved 2023</p>
+      </div>
+    </footer>
+  </body>
+  <script src="objects.js"> </script>
+  <script src="scriptUpdate.js"> </script>
+</html>

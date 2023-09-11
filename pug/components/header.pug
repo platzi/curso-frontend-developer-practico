@@ -1,0 +1,47 @@
+header
+	nav.nav
+		img(src="./icons/"+ contentImage[2], alt="menu").burguerMenu
+		div.nav-left
+			img(src="./logos/" + contentImage[0], alt="logo").logo
+			ul.nav-left__list
+				each itemNav in nameNav 
+					li
+						a(href="/")=itemNav
+		div.nav-right
+			div.desktop-menu
+				div.desktop-menu__market 
+					h2 My MarketPlace
+					div.navbar-email.inactive
+						each itemNav in otherNameNav
+							if itemNav === "platzi@example.com"
+							else
+								li
+									a(href="/")=itemNav
+				div.desktop-menu__shopping-cart 
+					img(src="/icons/"+ contentImage[1], alt="")
+					div.counter-product 0
+			div.mobile-menu.inactive
+				ul
+					li: a categories 
+					each itemNav in nameNav 
+						li
+							a(href="/")=itemNav
+				ul
+					each itemNav in otherNameNav
+						li
+							if itemNav === "platzi@example.com"
+								a(href="/").email=itemNav
+							else if itemNav === "Sign out"
+								a(href="/").sign-out=itemNav
+							else 
+								a(href="/")=itemNav
+	aside.shopping-cart.inactive
+		div.title-contain
+			img(src="/icons/flechita.svg", alt="arrow")
+			p.tittle My order
+		section.my-order-content
+		div.order
+			p Total
+			p.total-product-cost $
+		div.boton
+			p.primary-button Checkout 
