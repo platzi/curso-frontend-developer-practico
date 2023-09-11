@@ -88,6 +88,13 @@ nav {
     align-items: center;
 }
 
+.main-container {
+    width: 90%;
+    margin: 0 auto;
+    background: white;
+    border-radius: 20px;
+    box-shadow: rgba(0, 0, 0, 0.57) 1px 5px 17px -2px;
+}
 
 /* Menu en desktop*/
 .desktop-menu {
@@ -332,6 +339,7 @@ aside {
     gap: 26px;
     place-content: center;
     margin-top: 20px;
+    padding-top: 20px;
 }
 .product-card {
     width: 100%;
@@ -375,6 +383,9 @@ aside {
 .product-card .product-info figure img {
     width: 35px;
     height: 35px;
+}
+.product-card .product-info figure img:hover {
+    border: 2px solid black;
 }
 .product-card .product-info div p:nth-child(1) {
     font-weight: bold;

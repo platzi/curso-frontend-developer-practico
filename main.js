@@ -117,7 +117,7 @@ menuEmail.addEventListener('click', toggleDesktopMenu);
 menuHamIcon.addEventListener('click', toggleMobileMenu);
 menuCarritoIcon.addEventListener('click', toggleCarritoAside);
 productDetailCloseIcon.addEventListener('click', closeProductDetailAside);
-addProduct.addEventListener('click', addProductButton);
+
 
 function toggleDesktopMenu() {
     shoppingCartContainer.classList.add('inactive');
@@ -147,18 +147,18 @@ function toggleCarritoAside () {
         productDetailContainer.classList.add('inactive');
     }    
     shoppingCartContainer.classList.toggle('inactive');
-    addProductButton(productList)
+    //addProductButton(productList)
 }
 
-function openProductDetailAside(event) {
+function openProductDetailAside() {
     shoppingCartContainer.classList.add('inactive');
     productDetailContainer.classList.remove('inactive');
     //
-    const productIndex = event.target.dataset.index;
-    const product = productList[productIndex];
+    //const productIndex = event.target.dataset.index;
+    //const product = productList[productIndex];
     //console.log(productIndex); 
    
-    mostrarDetalles(product);
+   // mostrarDetalles(productList);
    // console.log(event.target.src)
 }
 
@@ -166,15 +166,32 @@ function closeProductDetailAside() {
     productDetailContainer.classList.add('inactive');
 }
 
-function mostrarDetalles(productList) {
-    // imgProduct.innerHTML = productList.image;
-    imgProduct.setAttribute('src', event.target.src);
-    priceProduct.textContent = '$' + productList.price;
-    nameProduct.textContent = productList.name;
-    descriptionProduct.textContent = productList.parragraph;  
-    //console.log("funciona");   
-}
+// function mostrarDetalles(productList) {
+//     // imgProduct.innerHTML = productList.image;
+//     imgProduct.setAttribute('src', productList.image);
+//     priceProduct.textContent = '$' + productList.price;
+//     nameProduct.textContent = productList.name;
+//     descriptionProduct.textContent = productList.parragraph;  
+//     //console.log("funciona");   
+// }
 
+function showProductDetails(index) {
+    let product = productList[index];
+    imgProduct.setAttribute('src', product.image);
+    priceProduct.textContent = '$' + product.price;
+    nameProduct.textContent = product.name;
+    descriptionProduct.textContent = product.parragraph;
+    productDetailContainer.classList.remove('inactive');
+
+    addProduct.addEventListener('click', addProductButton);
+
+    function addProductButton() {
+        imgOrder.setAttribute('src', product.image);
+        nameOrder.textContent = product.name;
+        priceOrder.textContent = '$' + product.price;
+       console.log("funciona el boton");
+    }
+}
 
 function renderProducts(arr) {
     for (let i = 0; i < arr.length; i++) {
@@ -182,13 +199,15 @@ function renderProducts(arr) {
         let productCard = document.createElement('div');
         productCard.classList.add('product-card');
         productCard.setAttribute('id', product.id);
-       // productCard.addEventListener('click', openProductDetailAside);
+        productCard.addEventListener('click', function () {
+            showProductDetails(i); // Pass the index of the clicked product
+        });
      
         // product = {name, price, image} -> product.image
         let productimg = document.createElement('img');
         productimg.setAttribute('src', product.image);
         productimg.setAttribute('data-index', i);
-        productimg.addEventListener('click', openProductDetailAside);
+        // productimg.addEventListener('click', openProductDetailAside);
      
         let productInfo = document.createElement('div');
         productInfo.classList.add('product-info');
@@ -210,6 +229,12 @@ function renderProducts(arr) {
         let productImgCart = document.createElement('img');
         productImgCart.setAttribute('src', './icons/bt_add_to_cart.svg');
         productImgCart.addEventListener('click', addProductIcon);
+        function addProductIcon() {
+            imgOrder.setAttribute('src', product.image);
+            nameOrder.textContent = product.name;
+            priceOrder.textContent = '$' + product.price;
+            console.log("funciona el icon");           
+        }
      
         productInfoFigure.appendChild(productImgCart);
      
@@ -227,12 +252,6 @@ renderProducts(productList);
 
 //añadir elemento
 
-function addProductButton(productList) {
-    nameOrder.textContent = productList.name;
-    priceOrder.textContent = '$' + productList.price;
-    console.log("funciona el boton");
-}
 
-function addProductIcon() {
-    console.log("funciona el icon");
-}
+
+
