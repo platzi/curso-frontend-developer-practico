@@ -50,6 +50,8 @@ productList.push({
 function renderProducts(arr){
     for (product of arr){
         const productCard = document.createElement("div");
+// El método classList.add se utiliza para agregar una o varias clases a un elemento HTML en el DOM (Modelo de Objetos del Documento).
+
         productCard.classList.add("product-card");
     
         const productImg = document.createElement("img");
@@ -61,11 +63,17 @@ function renderProducts(arr){
         const productInfoDiv = document.createElement("div");
     
         const productPrice= document.createElement("p");
+// La propiedad innerText se utiliza para obtener o establecer el contenido de texto de un elemento en el DOM (Modelo de Objetos del Documento).
+// A diferencia de innerHTML, innerText solo devuelve el texto visible dentro del elemento, sin incluir etiquetas HTML.
+
         productPrice.innerText = "$" + product.price;
         
         const productName = document.createElement("p");
         productName.innerText =  product.name ;
-    
+
+// El método appendChild se utiliza para agregar un elemento como hijo al final de otro elemento dentro del DOM (Modelo de Objetos del Documento).
+
+// Se crean y agregan elementos HTML al DOM para construir una tarjeta de producto en un contenedor de tarjetas.
         productInfoDiv.appendChild(productPrice);
         productInfoDiv.appendChild(productName);
         
