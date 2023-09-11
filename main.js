@@ -122,9 +122,7 @@ addProduct.addEventListener('click', addProductButton);
 function toggleDesktopMenu() {
     shoppingCartContainer.classList.add('inactive');
     desktopMenu.classList.toggle('inactive');
-    closeProductDetailAside()
-
-    addProductButton(productList);
+    closeProductDetailAside()   
 }
 
 function toggleMobileMenu() {
@@ -138,46 +136,35 @@ function toggleMobileMenu() {
 }
 
 function toggleCarritoAside () {
-    /*let isDesktopMenuClosed = desktopMenu.classList.contains('inactive');
-    if (!isDesktopMenuClosed) {
-        mobileMenu.classList.add('inactive');
-    }*/
-
-    // Aside carrito
-    let isMobileMenuClosed = mobileMenu.classList.contains('inactive');
-    
+    let isMobileMenuClosed = mobileMenu.classList.contains('inactive');    
     if (!isMobileMenuClosed) {
         mobileMenu.classList.add('inactive');
     } 
-
     // Aside productDetail
     let isProductDetailClosed = productDetailContainer.classList.contains('inactive');
 
     if(!isProductDetailClosed) {
         productDetailContainer.classList.add('inactive');
-    }
-    
+    }    
     shoppingCartContainer.classList.toggle('inactive');
+    addProductButton(productList)
 }
 
 function openProductDetailAside(event) {
     shoppingCartContainer.classList.add('inactive');
     productDetailContainer.classList.remove('inactive');
-
     //
     const productIndex = event.target.dataset.index;
     const product = productList[productIndex];
-    console.log(productIndex); 
-
-     
+    //console.log(productIndex); 
+   
     mostrarDetalles(product);
-    console.log(event.target.src)
+   // console.log(event.target.src)
 }
 
 function closeProductDetailAside() {
     productDetailContainer.classList.add('inactive');
 }
-
 
 function mostrarDetalles(productList) {
     // imgProduct.innerHTML = productList.image;
@@ -185,7 +172,7 @@ function mostrarDetalles(productList) {
     priceProduct.textContent = '$' + productList.price;
     nameProduct.textContent = productList.name;
     descriptionProduct.textContent = productList.parragraph;  
-    console.log("funciona");   
+    //console.log("funciona");   
 }
 
 
@@ -241,7 +228,8 @@ renderProducts(productList);
 //añadir elemento
 
 function addProductButton(productList) {
-    nameOrder.innerHTML = productList.name;
+    nameOrder.textContent = productList.name;
+    priceOrder.textContent = '$' + productList.price;
     console.log("funciona el boton");
 }
 
