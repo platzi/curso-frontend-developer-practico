@@ -287,6 +287,8 @@ aside {
 }
 .product-detail-close:hover {
     cursor: pointer;
+    border: 2px solid white;
+    background: rgba(81, 83, 85, 0.632);
 }
 #productDetail > img:nth-child(2) {
     width: 100%;
@@ -328,6 +330,11 @@ aside {
     font-size: var(--md);
     font-weight: bold;
     height: 50px;
+}
+.primary-button:hover{
+    border: 1px solid var(--hospital-green);
+    color: var(--hospital-green);
+    background-color: var(--white);
 }
 .add-to-cart-button {
     display: flex;
@@ -387,8 +394,10 @@ aside {
     width: 35px;
     height: 35px;
 }
-.product-card .product-info figure img:hover {
-    border: 2px solid black;
+.product-card .product-info figure:hover {
+    border: 2px solid rgba(0, 124, 62, 0.926);
+    border-radius: 50%;
+    height: 35px;
 }
 .product-card .product-info div p:nth-child(1) {
     font-weight: bold;
