@@ -8,8 +8,6 @@ const cardContainer = document.querySelector('.cards-container');
 const productDetailContainer = document.querySelector('#productDetail');
 const productDetailCloseIcon = document.querySelector('#productDetail');
 
-
-
 navMail.addEventListener('click', toggleDesktopMenu);
 menuHamIcon.addEventListener('click', toggleMobileMenu);
 menuCarritoIcon.addEventListener('click', toggleCarritoAside);
@@ -68,20 +66,39 @@ function closeProductDetailAside(){
     
 const productList = [];
 productList.push({
-    name: 'bike',
-    price: 120,
-    image: 'https://images.pexels.com/photos/276517/pexels-photo-276517.jpeg?auto=compress&cs=tinysrgb&dpr=2&h=650&w=940',
+    name: 'Cream',
+    price: 320,
+    image: 'https://img.freepik.com/psd-gratis/conjunto-envases-cosmeticos-icono-aislado-3d-render-ilustracion_47987-11336.jpg?w=2000',
 });
 productList.push({
-    name: 'Pantalla',
-    price: 220,
-    image: 'https://images.pexels.com/photos/276517/pexels-photo-276517.jpeg?auto=compress&cs=tinysrgb&dpr=2&h=650&w=940',
+    name: 'MakeUp',
+    price: 350,
+    image: 'https://www.verywellhealth.com/thmb/T_OlMhFfEYWW0Igl4A_VvDKZ4gY=/1500x0/filters:no_upscale():max_bytes(150000):strip_icc()/gluten-free-makeup-brands-562443-primary-recirc-b8cf5ac52391436ba4114a6355aac323.jpg',
 });
 productList.push({
-    name: 'Computadora',
+    name: 'Profesional makeup tools',
     price: 620,
-    image: 'https://images.pexels.com/photos/276517/pexels-photo-276517.jpeg?auto=compress&cs=tinysrgb&dpr=2&h=650&w=940',
+    image: 'https://img.freepik.com/premium-photo/professional-makeup-tools-with-beauty-products-flatlay-white-background_971686-1851.jpg?w=2000',
 });
+
+productList.push({
+  name: 'Lipstick',
+  price: 220,
+  image: 'https://images.pexels.com/photos/2533266/pexels-photo-2533266.jpeg?cs=srgb&dl=pexels-suzy-hazelwood-2533266.jpg&fm=jpg',
+});
+productList.push({
+  name: 'Perfume',
+  price: 800,
+  image: 'https://img.freepik.com/free-photo/front-view-yellow-fragrance-bottle-with-golden-cap-white-wall_140725-11697.jpg',
+});
+productList.push({
+  name: '',
+  price: 420,
+  image: 'https://c.pxhere.com/photos/5c/82/brushes_make_up_brush_make_up_brushes_public_domain_images-1570147.jpg!d',
+});
+
+
+
 
  function renderProducts(arr){
   for (product of arr){
