@@ -92,7 +92,7 @@ productList.push({
   image: 'https://img.freepik.com/free-photo/front-view-yellow-fragrance-bottle-with-golden-cap-white-wall_140725-11697.jpg',
 });
 productList.push({
-  name: '',
+  name: 'Makeup brushes',
   price: 420,
   image: 'https://c.pxhere.com/photos/5c/82/brushes_make_up_brush_make_up_brushes_public_domain_images-1570147.jpg!d',
 });
