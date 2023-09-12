@@ -23,7 +23,6 @@ let nameOrder = document.querySelector('#order-name');
 let priceOrder = document.querySelector('#order-price');
 let closeOrder = document.querySelector('#order-close');
 
-
 let productList = [];
 productList.push({
     name: 'Bike',
@@ -179,7 +178,11 @@ function closeProductDetailAside() {
 // }
 
 function closeProductOrder(){
-    shoppingCartProduct.classList.add('inactive');
+    // shoppingCartProduct.classList.add('inactive');
+    nameOrder.textContent = "";
+    priceOrder.textContent = "";
+    imgOrder.classList.add('inactive');
+    closeOrder.removeAttribute('src', './icons/icon_close.png');
 }
 
 function showProductDetails(index) {
@@ -196,9 +199,11 @@ function showProductDetails(index) {
         imgOrder.setAttribute('src', product.image);
         nameOrder.textContent = product.name;
         priceOrder.textContent = '$' + product.price;
+        closeOrder.setAttribute('src', './icons/icon_close.png');
        console.log("funciona el boton");
        closeProductDetailAside();
-       
+       console.log(product.id);
+       //alert("Guardado");
     } 
 }
 
@@ -210,6 +215,7 @@ function renderProducts(arr) {
         productCard.setAttribute('id', product.id);
         productCard.addEventListener('click', function () {
             showProductDetails(i); 
+            console.log(this.id);
         });
      
         // product = {name, price, image} -> product.image
@@ -242,6 +248,7 @@ function renderProducts(arr) {
             imgOrder.setAttribute('src', product.image);
             nameOrder.textContent = product.name;
             priceOrder.textContent = '$' + product.price;
+            closeOrder.setAttribute('src', './icons/icon_close.png');
             console.log("funciona el icon");   
             closeProductDetailAside(); 
         }
