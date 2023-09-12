@@ -128,6 +128,7 @@ for (product of arr) {
     productCard.appendChild(productInfo);
 
     cardContainer.appendChild(productCard);
+    
 }
 
 }
