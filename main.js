@@ -196,7 +196,11 @@ function showProductDetails(index) {
     addProduct.addEventListener('click', addProductButton);
 
     function addProductButton() {
+
+        let orderFirgure = document.createElement('figure');
         imgOrder.setAttribute('src', product.image);
+        
+
         nameOrder.textContent = product.name;
         priceOrder.textContent = '$' + product.price;
         closeOrder.setAttribute('src', './icons/icon_close.png');
@@ -204,6 +208,9 @@ function showProductDetails(index) {
        closeProductDetailAside();
        console.log(product.id);
        //alert("Guardado");
+
+       orderFirgure.appendChild(imgOrder);
+       shoppingCartProduct.appendChild(orderFirgure);
     } 
 }
 
