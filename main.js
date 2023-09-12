@@ -127,14 +127,6 @@ function render_products(products_list){
 
 }
 
-function select_img_card(){
-    img_card = cards_container.querySelectorAll('img');
-    img_card.forEach(button => {
-        button.addEventListener('click',render_detail_card);
-        
-    });
-}
-
 function render_detail_card(e){
     const product = e.target.parentElement;
     const id_btn = product.querySelector('figure:nth-child(1) img').id;
@@ -153,44 +145,6 @@ function render_detail_card(e){
     img.src = product_view.image; // Cambia esto por la nueva URL que deseas usar
     img.alt = 'imagen del producto'; // Cambia el texto alternativo de la imagen
     selector.setAttribute('id', product_view.id);
-}
-
-// selecionar boton para ver detalles del producto
-function select_btn_detail(){
-    btn_add_product_detail.addEventListener('click',upload_cart);
-    close_product_detail();
-}
-
-function update_btn_card(){
-    btn_add = cards_container.querySelectorAll('.btn_add_cart');
-
-    btn_add.forEach(button => {
-        button.addEventListener('click',upload_cart);
-        
-    });
-}
-
-function upload_cart(e){
-    
-    const id_btn = e.target.id;
-    console.log(id_btn);
-    const add_product = product_list.find(product => product.id === id_btn);
-    // nos devuleve un bool si existe o no el producto
-    if(all_products_cart.some(product => product.id === id_btn)){
-        const index = all_products_cart.findIndex(product => product.id === id_btn);
-        all_products_cart[index].quantity++;
-    }else{
-        add_product.quantity = 1;
-        all_products_cart.push(add_product);
-    }
-    //console.log(all_products_cart);
-    update_number_cart();
-    render_shopping_cart();
-}
-
-function update_number_cart(){
-    let  number = all_products_cart.reduce((acc, product) => acc + product.quantity,0);
-    number_cart.textContent = number;
 }
 
 /*cargar los productos al carrito en el html */ 
@@ -247,6 +201,52 @@ function render_shopping_cart() {
 
     });  
 }
+// disparar evento al selecionar una imagen de algun producto
+function select_img_card(){
+    img_card = cards_container.querySelectorAll('img');
+    img_card.forEach(button => {
+        button.addEventListener('click',render_detail_card);
+        
+    });
+}
+// disparar evento para cargar al carrito desde la vista de detalles del producto
+function select_btn_detail(){
+    btn_add_product_detail.addEventListener('click',upload_cart);
+}
+// disparar evento para cargar al carrito desde la carta contenedora del producto
+function update_btn_card(){
+    btn_add = cards_container.querySelectorAll('.btn_add_cart');
+
+    btn_add.forEach(button => {
+        button.addEventListener('click',upload_cart);
+        
+    });
+}
+// cargar a la lista del carrito
+function upload_cart(e){
+    
+    const id_btn = e.target.id;
+    console.log(id_btn);
+    const add_product = product_list.find(product => product.id === id_btn);
+    // nos devuleve un bool si existe o no el producto
+    if(all_products_cart.some(product => product.id === id_btn)){
+        const index = all_products_cart.findIndex(product => product.id === id_btn);
+        all_products_cart[index].quantity++;
+    }else{
+        add_product.quantity = 1;
+        all_products_cart.push(add_product);
+    }
+    //console.log(all_products_cart);
+    product_detail.classList.add('inactive');
+    update_number_cart();
+    render_shopping_cart();
+}
+// aumentar el numero en el icono del carrito por producto
+function update_number_cart(){
+    let  number = all_products_cart.reduce((acc, product) => acc + product.quantity,0);
+    number_cart.textContent = number;
+}
+
 
 // se maneja for ** of *** para valores o for ** in *** para indices
 // representa lo que viene de la BDD basicamente
