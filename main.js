@@ -5,10 +5,13 @@ const mobileMenu = document.querySelector(".mobile-menu");
 const shoppingCarContainer = document.querySelector("#shoppingCarContainer");
 const menuCarritoIcon = document.querySelector(".navbar-shopping-cart");
 const cardsContainer = document.querySelector(".cards-container");
+const productDetailContainer = document.querySelector('#productDetail')
+const productDetailCloseIcon = document.querySelector('.product-detail-close')
 
 emailMenu.addEventListener("click", toggleDesktopMenu);
 burgerMenuIcon.addEventListener("click", toggleMobileMenu);
 menuCarritoIcon.addEventListener("click", toggleCarritoAside);
+productDetailCloseIcon.addEventListener('click',closeProductDetailAside);
 
 function toggleDesktopMenu() {
   const isShoppingCarContainerClosed = shoppingCarContainer.classList.contains("inactive");
@@ -23,6 +26,7 @@ function toggleMobileMenu() {
   if (!isShoppingCarContainerClosed) {
     shoppingCarContainer.classList.add("inactive");
   }
+  closeProductDetailAside();
   mobileMenu.classList.toggle("inactive");
 }
 
@@ -31,9 +35,24 @@ function toggleCarritoAside() {
   if (!isMobileMenuClosed) {
     mobileMenu.classList.add("inactive");
   }
+ const isProductDetailClosed = productDetailContainer.classList.contains('inactive')
+ if (!isProductDetailClosed) {
+  productDetailContainer.classList.add('inactive')
+ }
+
   shoppingCarContainer.classList.toggle("inactive");
+
 }
 
+function openProductDetailAside(){
+  shoppingCarContainer.classList.add('inactive')
+   
+  productDetailContainer.classList.remove('inactive');
+
+}
+function closeProductDetailAside(){
+  productDetailContainer.classList.add('inactive');
+}
 const productList = [];
 
 productList.push({
@@ -83,6 +102,7 @@ function renderProducts(arrayProducts) {
       
         const productImg = document.createElement("img");
         productImg.setAttribute("src", product.image);
+        productImg.addEventListener("click", openProductDetailAside);
       
         const productInfo = document.createElement("div");
         productInfo.classList.add("product-info");
