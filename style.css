@@ -221,7 +221,7 @@
   }
   .shopping-cart {
     display: grid;
-    grid-template-columns: auto 1fr auto auto;
+    grid-template-columns: auto 1fr auto auto auto;
     gap: 16px;
     margin-bottom: 24px;
     align-items: center;
@@ -238,9 +238,39 @@
   .shopping-cart p:nth-child(2) {
     color: var(--very-light-pink);
   }
-  .shopping-cart p:nth-child(3) {
-    font-size: var(--md);
+  .shopping-cart .figure-quantity {
+    margin: 0;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+  }
+  .shopping-cart .figure-quantity i:nth-child(1):hover {
+    cursor: pointer;
+  }
+  .shopping-cart .quantity-container {
+    width: 15px;
+    height: 15px;
+    margin: 5px;
+    border: none;
+    color: var(--very-light-pink);
+    font-size: var(--sm);
     font-weight: bold;
+    
+  }
+  .shopping-cart .figure-quantity i:nth-child(3):hover {
+    cursor: pointer;
+  }
+  .shopping-cart .sub-total-shopping-cart{
+    font-size: var(--sm);
+    font-weight: bold;
+    color: var(--very-light-pink);
+  }
+  .btn-delete{
+    width: 30px;
+    height: 40px;
+    align-items: center;
+    border: none;
+    background-color: var(--white);
   }
   .primary-button {
     background-color: var(--hospital-green);
@@ -253,6 +283,9 @@
     font-weight: bold;
     height: 50px;
     margin-bottom: 10px;
+  }
+  .primary-button:hover{
+    background-color: var(--heal-green);
   }
 
   /*lista de  productos */
@@ -380,7 +413,7 @@
   .add-to-cart-button:hover {
     background-color: var(--heal-green);
   }
-  .delete-product-cart:hover{
+  .btn-delete:hover{
     cursor: pointer;
   }
 
