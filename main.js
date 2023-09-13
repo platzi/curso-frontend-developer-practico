@@ -36,12 +36,14 @@ function toggleMobileMenu(){
 
 function toggleShopMenu(){
     asideMenu.classList.toggle('inactive');
-
-    if(!desktop_menu.classList.contains('inactive')){
+   const isDesktopMenuOpen = desktop_menu.classList.contains('inactive');
+   const isMobileMenuOpen = mobile_menu.classList.contains('inactive'); 
+  
+   if(!isDesktopMenuOpen){
         desktop_menu.classList.toggle('inactive');
     }
 
-    if(!mobile_menu.classList.contains('inactive')){
+    if(!isMobileMenuOpen){
         mobile_menu.classList.toggle('inactive');
     }
 }
