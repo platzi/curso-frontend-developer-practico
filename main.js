@@ -338,7 +338,7 @@ product_list.push({
 });
 product_list.push({
     id: '004',
-    name: 'Silla Gamer Oficina Blanco Con Negro',
+    name: 'Silla Gamer Negro',
     price: '143.35',
     image: 'https://http2.mlstatic.com/D_NQ_NP_838965-MLV70331588740_072023-O.webp',
     description: 'Silla Gamer Rocker Para Oficina en Cuero Acolchada Giratoria, Con un diseño clásico y versátil',
