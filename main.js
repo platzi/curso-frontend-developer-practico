@@ -4,7 +4,7 @@ const menuBurguerIcon = document.querySelector('.menu');
 const mobile_menu = document.querySelector('.mobile-menu');
 
 const menuCarritoIco = document.querySelector('.navbar-shopping-cart');
-const asideMenu = document.querySelector('.product-detail');
+const shoppingCartContainer = document.querySelector('#shoppingCartContainer');
 
 const cardsContainer = document.querySelector('.cards-container');
 
@@ -16,27 +16,27 @@ menuBurguerIcon.addEventListener('click',toggleMobileMenu);
 
 
 menuCarritoIco.addEventListener('click',toggleShopMenu);
-asideMenu.addEventListener('mouseleave',toggleShopMenu);
+shoppingCartContainer.addEventListener('mouseleave',toggleShopMenu);
 
 /**Para que funciona toggle? Esta propiedad de classList, lo que hace es revisar, si el elemento actual, tiene esta clase, si la tiene
  * procede a removersela, sino la tiene, procede agregar esa cLASE. Esto ahorra codigo, permitiendo ahorrar un add or remove de un classList
  */
 function toggleDesktopMenu(){
     desktop_menu.classList.toggle('inactive');
-    if(!asideMenu.classList.contains('inactive')){
-        asideMenu.classList.toggle('inactive');
+    if(!shoppingCartContainer.classList.contains('inactive')){
+        shoppingCartContainer.classList.toggle('inactive');
     }
 }
 
 function toggleMobileMenu(){
     mobile_menu.classList.toggle('inactive');
-    if(!asideMenu.classList.contains('inactive')){
-        asideMenu.classList.toggle('inactive');
+    if(!shoppingCartContainer.classList.contains('inactive')){
+        shoppingCartContainer.classList.toggle('inactive');
     }
 }
 
 function toggleShopMenu(){
-    asideMenu.classList.toggle('inactive');
+    shoppingCartContainer.classList.toggle('inactive');
    const isDesktopMenuOpen = desktop_menu.classList.contains('inactive');
    const isMobileMenuOpen = mobile_menu.classList.contains('inactive'); 
   
