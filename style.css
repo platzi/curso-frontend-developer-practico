@@ -31,6 +31,7 @@ nav {
 }
 .logo {
     width: 100px;
+    cursor: pointer;
 }
 .navbar-left ul,
 .navbar-right ul {
@@ -68,10 +69,15 @@ nav {
 }
 .navbar-email:hover {
     color: #ACD9B2;
+    font-size: var(--md);
 }
 .navbar-shopping-cart {
     position: relative;
     cursor: pointer;
+}
+.navbar-shopping-cart img:hover {
+    width: 28px;
+    height: 28px;
 }
 .navbar-shopping-cart div {
     width: 16px;
@@ -151,7 +157,9 @@ nav {
     left: 0;
     /* padding: 0 0 0 24px; */
     padding-left: 24px;
-    width: 92%;
+    width: 96.6%;
+    border-bottom: 1px solid var(--very-light-pink);
+    /* box-shadow: rgba(0, 0, 0, 0.57) 1px 5px 17px -2px;*/
 }
 .mobile-menu a {
     text-decoration: none;
@@ -165,12 +173,17 @@ nav {
     list-style: none;
 }
 .mobile-menu li:hover {
-    width: 100%;
-    border-bottom: 1px solid red;
+    width: 90%;
+    color: #ACD9B2;
 }
-
+.mobile-menu li a:hover {
+    color: #ACD9B2;
+    font-size: var(--lg);
+    /* border-bottom: 2px solid black; */
+}
 .mobile-menu ul:nth-child(1) {
     border-bottom: 1px solid var(--very-light-pink);
+    width: 90%;
 }
 .mobile-menu ul li {
     margin-bottom: 24px;
@@ -415,6 +428,7 @@ aside {
 @media (max-width: 734px) {
     .menu {
       display: block;
+      cursor: pointer;
     }
     .navbar-left ul {
       display: none;
