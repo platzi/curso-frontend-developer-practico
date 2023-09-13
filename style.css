@@ -78,9 +78,10 @@ nav {
     position: relative;
     cursor: pointer;
 }
-.navbar-shopping-cart img:hover {
-    width: 28px;
-    height: 28px;
+.navbar-shopping-cart:hover {
+    border: 1px solid var(--hospital-green);
+    border-radius: 10px;
+    padding: 2px;
 }
 .navbar-shopping-cart div {
     width: 16px;

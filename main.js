@@ -24,6 +24,8 @@ let nameOrder = document.querySelector('#order-name');
 let priceOrder = document.querySelector('#order-price');
 let closeOrder = document.querySelector('#order-close');
 
+let totalPriceOrder = document.querySelector('#totalPrice');
+
 let productList = [];
 productList.push({
     name: 'Bike',
@@ -178,6 +180,7 @@ function closeProductOrder(){
     closeOrder.removeAttribute('src', './icons/icon_close.png');
     //figureOrder.classList.add('inactive');
     figureOrder.setAttribute('class', 'inactive');
+    totalPriceOrder.textContent =  "";
 }
 
 function showProductDetails(index) {
@@ -187,6 +190,7 @@ function showProductDetails(index) {
     nameProduct.textContent = product.name;
     descriptionProduct.textContent = product.parragraph;
     productDetailContainer.classList.remove('inactive');
+    totalPriceOrder.textContent =  product.price;
 
     addProduct.addEventListener('click', addProductButton);
 
@@ -247,6 +251,7 @@ function renderProducts(arr) {
             nameOrder.textContent = product.name;
             priceOrder.textContent = '$' + product.price;
             
+            totalPriceOrder.textContent =  product.price;
             closeOrder.setAttribute('src', './icons/icon_close.png');
             //console.log("funciona el icon");   
             
