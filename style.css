@@ -260,17 +260,14 @@
   .shopping-cart .figure-quantity i:nth-child(3):hover {
     cursor: pointer;
   }
-  .shopping-cart .sub-total-shopping-cart{
+  .shopping-cart .sub-total{
     font-size: var(--sm);
     font-weight: bold;
     color: var(--very-light-pink);
   }
-  .btn-delete{
-    width: 30px;
-    height: 40px;
-    align-items: center;
-    border: none;
-    background-color: var(--white);
+  .btn-delete:hover{
+    cursor: pointer;
+    
   }
   .primary-button {
     background-color: var(--hospital-green);
