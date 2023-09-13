@@ -19,6 +19,7 @@ let descriptionProduct = document.querySelector('#description');
 
 let addProduct = document.querySelector('#btn-product');
 let imgOrder = document.querySelector('#order-image');
+let figureOrder = document.querySelector('#order-figure');
 let nameOrder = document.querySelector('#order-name');
 let priceOrder = document.querySelector('#order-price');
 let closeOrder = document.querySelector('#order-close');
@@ -168,14 +169,6 @@ function closeProductDetailAside() {
     productDetailContainer.classList.add('inactive');
 }
 
-// function mostrarDetalles(productList) {
-//     // imgProduct.innerHTML = productList.image;
-//     imgProduct.setAttribute('src', productList.image);
-//     priceProduct.textContent = '$' + productList.price;
-//     nameProduct.textContent = productList.name;
-//     descriptionProduct.textContent = productList.parragraph;  
-//     //console.log("funciona");   
-// }
 
 function closeProductOrder(){
     // shoppingCartProduct.classList.add('inactive');
@@ -183,6 +176,8 @@ function closeProductOrder(){
     priceOrder.textContent = "";
     imgOrder.classList.add('inactive');
     closeOrder.removeAttribute('src', './icons/icon_close.png');
+    //figureOrder.classList.add('inactive');
+    figureOrder.setAttribute('class', 'inactive');
 }
 
 function showProductDetails(index) {
@@ -196,21 +191,17 @@ function showProductDetails(index) {
     addProduct.addEventListener('click', addProductButton);
 
     function addProductButton() {
-
-        let orderFirgure = document.createElement('figure');
         imgOrder.setAttribute('src', product.image);
-        
-
         nameOrder.textContent = product.name;
         priceOrder.textContent = '$' + product.price;
         closeOrder.setAttribute('src', './icons/icon_close.png');
+        figureOrder.setAttribute('class', 'active');
+        imgOrder.setAttribute('class', 'active');
+
        console.log("funciona el boton");
        closeProductDetailAside();
        console.log(product.id);
        //alert("Guardado");
-
-       orderFirgure.appendChild(imgOrder);
-       shoppingCartProduct.appendChild(orderFirgure);
     } 
 }
 
@@ -255,9 +246,12 @@ function renderProducts(arr) {
             imgOrder.setAttribute('src', product.image);
             nameOrder.textContent = product.name;
             priceOrder.textContent = '$' + product.price;
+            
             closeOrder.setAttribute('src', './icons/icon_close.png');
-            console.log("funciona el icon");   
-            closeProductDetailAside(); 
+            //console.log("funciona el icon");   
+            
+            figureOrder.setAttribute('class', 'active');
+            imgOrder.setAttribute('class', 'active');
         }
      
         productInfoFigure.appendChild(productImgCart);

@@ -17,6 +17,9 @@ body {
 .inactive {
     display: none;
 }
+.active {
+    display: block;
+}
 
 /* Navbar general */
 nav {
