@@ -202,22 +202,22 @@ function showProductDetails(index) {
         figureOrder.setAttribute('class', 'active');
         imgOrder.setAttribute('class', 'active');
 
-       console.log("funciona el boton");
+       //console.log("funciona el boton");
        closeProductDetailAside();
-       console.log(product.id);
+       //console.log(product.id);
        //alert("Guardado");
     } 
 }
 
 function renderProducts(arr) {
-    for (let i = 0; i < arr.length; i++) {
+    for (let i = 0; i < 12; i++) {
         const product = arr[i];
         let productCard = document.createElement('div');
         productCard.classList.add('product-card');
         productCard.setAttribute('id', product.id);
         productCard.addEventListener('click', function () {
             showProductDetails(i); 
-            console.log(this.id);
+            //console.log(this.id);
         });
      
         // product = {name, price, image} -> product.image
