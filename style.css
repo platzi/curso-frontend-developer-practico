@@ -180,12 +180,23 @@ nav {
 }
 
 /* Aside (Detalle de los productos) */
-aside {
+aside{
     background-color: var(--white);
     width: 360px;
     box-sizing: border-box;
     position: absolute;
     right: 0;
+}
+
+#productDetail{
+    background-color: var(--white);
+    width: 360px;
+    box-sizing: border-box;
+    left: 50%;
+  top: 50%;
+  transform: translate(-50%, -50%);
+    border: var(--hospital-green) solid 1px;
+    border-radius: 15px;
 }
 
 /* Detalle del Producto */
@@ -211,7 +222,7 @@ aside {
     width: 100%;
     height: 360px;
     object-fit: cover;
-    border-radius: 0 0 20px 20px;
+    border-radius: 15px;
   }
   #productDetail .product-info {
     margin: 24px 24px 0 24px;
