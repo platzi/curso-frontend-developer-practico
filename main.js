@@ -112,5 +112,4 @@ function renderProducts(arr){
     CardsContainer.appendChild(productCard);
   }
 }
-
 renderProducts(productList);
