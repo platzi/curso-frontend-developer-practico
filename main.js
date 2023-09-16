@@ -2,13 +2,17 @@ const menuEmail = document.querySelector('.navbar-email');
 const desktopMenu = document.querySelector('.desktop-menu');
 const menuHamIcon = document.querySelector('.menu');
 const mobileMenu = document.querySelector('.mobile-menu');
+const closeProductDetailIcon = document.querySelector('.product-detail-close');
 const menuShoppingCart = document.querySelector('.navbar-shopping-cart');
 const aside = document.querySelector('.product-detail');
 const cardsContainer = document.querySelector('.cards-container');
+const productDetailContainer = document.querySelector('.product-detail-aside');
 
 menuEmail.addEventListener('click', toggleDesktopMenu);
 menuHamIcon.addEventListener('click', toggleMobileMenu);
 menuShoppingCart.addEventListener('click', toggleaside);
+
+
 
 function toggleDesktopMenu(){
     const isAsideClosed = aside.classList.contains('inactive');
@@ -45,6 +49,10 @@ function toggleaside (){
     aside.classList.toggle('inactive');
 }
 
+function openProductDetailAside(){
+    productDetailContainer.classList.remove('inactive')
+}
+
 const productList = [];
 productList.push({
     name: 'Bike',
@@ -75,14 +83,14 @@ productList.push({
         </div>
       </div> */}
 
-
-      for (product of productList){
+function renderProducts(arr){
+    for (product of productList){
         const productCard = document.createElement('div');
         productCard.classList.add('product-card');
         //product = {name, price, image} => product.image
         const productImg = document.createElement('img');
         productImg.setAttribute('src', product.image);
-        console.log(typeof(productCard))
+        productImg.addEventListener('click', openProductDetailAside);
 
         const productInfo = document.createElement('div');
         productInfo.classList.add('product-info');
@@ -111,6 +119,9 @@ productList.push({
 
         cardsContainer.appendChild(productCard);
       }
+}
+renderProducts(productList);
+      
 // for (product of productList){
 //     console.log(product.name)
 // con esto, puedo ver todos los nombres de los arrays que tengo}
