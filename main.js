@@ -13,7 +13,6 @@ menuHamIcon.addEventListener('click', toggleMobileMenu);
 menuShoppingCart.addEventListener('click', toggleaside);
 
 
-
 function toggleDesktopMenu(){
     const isAsideClosed = aside.classList.contains('inactive');
     
@@ -84,7 +83,7 @@ productList.push({
       </div> */}
 
 function renderProducts(arr){
-    for (product of productList){
+    for (product of arr){
         const productCard = document.createElement('div');
         productCard.classList.add('product-card');
         //product = {name, price, image} => product.image
