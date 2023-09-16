@@ -4,6 +4,9 @@ function toggleDesktopMenu() {
     if (!shoppingList.classList.contains('inactive')) {
         shoppingList.classList.toggle('inactive');
     }
+    if (!productDetail.classList.contains('inactive')) {
+        productDetail.classList.toggle('inactive');
+    }
 }
 
 function toggleMobileMenu() {
@@ -16,6 +19,25 @@ function toggleShoppingList() {
     if (!desktopMenu.classList.contains('inactive')) {
         desktopMenu.classList.toggle('inactive');
     }
+    if (!productDetail.classList.contains('inactive')) {
+        productDetail.classList.toggle('inactive');
+    }
+}
+
+function openProductDetail() {
+    if (productDetail.classList.toggle('inactive')) {
+        productDetail.classList.toggle('inactive');
+    }
+    if (!desktopMenu.classList.contains('inactive')) {
+        desktopMenu.classList.toggle('inactive');
+    }
+    if (!shoppingList.classList.contains('inactive')) {
+        shoppingList.classList.toggle('inactive');
+    }
+}
+
+function closeProductDetail() {
+    productDetail.classList.toggle('inactive');
 }
 
 const productList = [];
@@ -53,13 +75,16 @@ const closeMenu = document.querySelector('.close-menu');
 const closeShopping = document.querySelector('.close-shopping');
 const shoppingCar = document.querySelector('.navbar-shopping-cart');
 const shoppingList = document.querySelector('.shopping-list');
-const cardsContainer = document.querySelector('.cards-container')
+const cardsContainer = document.querySelector('.cards-container');
+const productDetail = document.querySelector('.product-detail');
+const productDetailClose = document.querySelector('.product-detail-close');
 
 menuEmail.addEventListener('click', toggleDesktopMenu);
 burgerIcon.addEventListener('click', toggleMobileMenu);
 closeMenu.addEventListener('click', toggleMobileMenu);
 shoppingCar.addEventListener('click', toggleShoppingList)
 closeShopping.addEventListener('click', toggleShoppingList);
+productDetailClose.addEventListener('click', closeProductDetail);
 
 for (product of productList) {
     const productCard = document.createElement('div');
@@ -69,7 +94,7 @@ for (product of productList) {
     img.setAttribute('src', product.image);
 
     const productInfo = document.createElement('div');
-    productInfo.classList.add('product-info');
+    productInfo.classList.add('product-card-info');
 
     const productInfoDiv = document.createElement('div');
     
@@ -89,4 +114,5 @@ for (product of productList) {
     productCard.append(img, productInfo)
 
     cardsContainer.append(productCard);
+    img.addEventListener('click', openProductDetail);
 }
