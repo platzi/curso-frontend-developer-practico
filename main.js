@@ -11,6 +11,12 @@ function toggleDesktopMenu() {
 
 function toggleMobileMenu() {
     mobileMenu.classList.toggle('inactive');
+    if (!shoppingList.classList.contains('inactive')) {
+        shoppingList.classList.toggle('inactive');
+    }
+    if (!productDetail.classList.contains('inactive')) {
+        productDetail.classList.toggle('inactive');
+    }
 }
 
 function toggleShoppingList() {
