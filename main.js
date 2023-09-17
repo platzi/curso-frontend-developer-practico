@@ -4,12 +4,15 @@ const menuHamIcon = document.querySelector('.menu');
 const mobileMenu = document.querySelector('.mobile-menu');
 
 const carrito = document.querySelector('.navbar-shopping-cart');
+const productDetailCloseIcon = document.querySelector('.product-detail-close')
 const shoppingCartContainer = document.querySelector('#shoppingCartContainer');
+const productDetailContainer = document.querySelector('#productDetail')
 const cardsContainer = document.querySelector('.cards-container')
 
 menuEmail.addEventListener('click', toggleDesktopMenu);
 menuHamIcon.addEventListener('click', toggleMobileMenu);
 carrito.addEventListener('click', toggleProductDetail)
+productDetailCloseIcon.addEventListener('click', closeProductDetailAside)
 
 function toggleDesktopMenu(){
     const isProductDetailClosed = shoppingCartContainer.classList.contains('inactive');
@@ -28,6 +31,8 @@ function toggleMobileMenu(){
         shoppingCartContainer.classList.add('inactive');
     }
 
+    closeProductDetailAside();
+
     //cambia de estado la clase inactive lo que hace que aparezca o desaparezca el menu
     mobileMenu.classList.toggle('inactive')
 }
@@ -38,9 +43,25 @@ function toggleProductDetail(){
     if(!ismobileMenuClosed){
         mobileMenu.classList.add('inactive');
     }
+
+    const isProductDetailClosed = productDetailContainer.classList.contains('inactive');
+    
+    if(!isProductDetailClosed){
+        productDetailContainer.classList.add('inactive');
+    }
     
     shoppingCartContainer.classList.toggle('inactive');
 
+}
+
+function openProductDetailAside(){
+    shoppingCartContainer.classList.add('inactive');
+
+    productDetailContainer.classList.remove('inactive');
+}
+
+function closeProductDetailAside(){
+    productDetailContainer.classList.add('inactive');
 }
 
 //Esta es la parte encargada de los productos, va insertar elementos en HTML
@@ -86,7 +107,8 @@ function renderProducts(arr){
         //Agregamos el 'img'
         const productImg = document.createElement('img');
          //Modificamos su propiedad src con la imagen que venga en product.image
-         productImg.setAttribute('src', product.image); 
+         productImg.setAttribute('src', product.image);
+         productImg.addEventListener('click', openProductDetailAside) 
     
     
         //Agregamos el 'div' product-info
