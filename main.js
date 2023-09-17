@@ -1,26 +1,182 @@
 const navEmail = document.querySelector('.navbar-email');
 const signOutMenu = document.querySelector('.desktop-menu');
-
 // Creación del selector para el menú en versión mobile
 const menuHamIcon =  document.querySelector('.menu');
 const mobileMenu = document.querySelector('.mobile-menu');
+// Creación de la constante product detail (aside detail product)
+const aside = document.querySelector('.product-detail');
+// Selector del ícono 'carrito de compras'
+const IconShoppingCart = document.querySelector('.navbar-shopping-cart');
+// Selector del contenedor 'cardsContainer' referente a la img e info de los productos
+const cardsContainer = document.querySelector('.cards-container');
+
 
 // Toggle: cambiar entre dos estados (altenar, ya se que sea visible o no el menu sign out)
 navEmail.addEventListener('click', togglesignOutMenu );
-
+//Toggle: ahora para hacer visible o no el menú de la versión mobile
+menuHamIcon.addEventListener('click', toggleMobileMenu);
+//Toggle: carrito de compras (mostrar la lista de productos al hacer click al carrito)
+IconShoppingCart.addEventListener('click', toggleShowProducts)
 
 
 function togglesignOutMenu()
 {
+    
+    const isAsideOpen = !aside.classList.contains('inactive');
+    
+    if (isAsideOpen) 
+    {
+        aside.classList.add('inactive');
+    }
 
-    signOutMenu.classList.toggle('inactive')
- 
+    signOutMenu.classList.toggle('inactive');
 }
-
-//Togle: ahora para hacer visible o no el menú de la versión mobile
-menuHamIcon.addEventListener('click', toggleMobileMenu);
 
 function toggleMobileMenu()
 {
-    mobileMenu.classList.toggle('inactive')
+   
+    const isAsideOpen = !aside.classList.contains('inactive');
+
+
+    if (isAsideOpen) 
+    {
+        aside.classList.add('inactive');
+    }
+
+    mobileMenu.classList.toggle('inactive');
 }
+
+// Para mostrar productos agregados al carrito:
+function toggleShowProducts()
+{
+    // Si el menú desktop esta abierto:
+    const isDesktopMenuOpen = !signOutMenu.classList.contains('inactive');
+    if (isDesktopMenuOpen) 
+    {
+        signOutMenu.classList.add('inactive');
+    }
+
+    // Si el menú mobile esta abierto es porque NO '!' tenemos la clase inactive.
+    const isMobileMenuOpen = !mobileMenu.classList.contains('inactive');
+
+    // Si está abierto el menú mobile cuando damos click al aside, entonces debemos cerrarlo:
+    if (isMobileMenuOpen) {
+        mobileMenu.classList.add('inactive');
+    }
+
+    aside.classList.toggle('inactive');
+
+
+    
+    
+}
+
+// Bloque de código para creación de productos (imgs, description & AddToCart)
+// Array: 
+const productList = [];
+
+// .Push para crear un nuevo objeto
+productList.push({
+    name: 'Bike', 
+    price: 120,
+    image: 'https://images.pexels.com/photos/276517/pexels-photo-276517.jpeg?auto=compress&cs=tinysrgb&dpr=2&h=650&w=940',
+
+});
+
+productList.push({
+    name: 'Pantalla', 
+    price: 220,
+    image: 'https://images.pexels.com/photos/276517/pexels-photo-276517.jpeg?auto=compress&cs=tinysrgb&dpr=2&h=650&w=940',
+    
+});
+
+productList.push({
+    name: 'Computadora', 
+    price: 400,
+    image: 'https://images.pexels.com/photos/276517/pexels-photo-276517.jpeg?auto=compress&cs=tinysrgb&dpr=2&h=650&w=940',
+    
+});
+
+productList.push({
+    name: 'Sofá', 
+    price: 220,
+    image: 'https://images.pexels.com/photos/276517/pexels-photo-276517.jpeg?auto=compress&cs=tinysrgb&dpr=2&h=650&w=940',
+    
+});
+
+productList.push({
+    name: 'Bocina', 
+    price: 320,
+    image: 'https://images.pexels.com/photos/276517/pexels-photo-276517.jpeg?auto=compress&cs=tinysrgb&dpr=2&h=650&w=940',
+    
+});
+
+/*{ <div class="product-card">
+<img src="https://images.pexels.com/photos/276517/pexels-photo-276517.jpeg?auto=compress&cs=tinysrgb&dpr=2&h=650&w=940" alt="">
+<div class="product-info">
+  <div>
+    <p>$120,00</p>
+    <p>Bike</p>
+  </div>
+  <figure>
+    <img src="./icons/bt_add_to_cart.svg" alt="">
+  </figure>
+</div>
+</div> }*/
+
+
+// Creación de la función con ciclo for, para mostrar cada producto dentro del HTML (manipulación del DOM con JS)
+function renderProducts(arr){
+    for (product of arr)
+{
+    // Creación del contendor div
+    const productCard = document.createElement('div');
+    productCard.classList.add('product-card');
+    
+
+    // Creación e integración del contedor <img> con su imagen
+    const productImg = document.createElement('img');
+    productImg.setAttribute('src', product.image);
+    // se toma como referencia la lista de productos creada en el array productLIst
+
+
+    // Creación del contenedor <div> para la información del producto
+    // Creación del contendor div
+    const productInfo = document.createElement('div');
+    productInfo.classList.add('product-info');
+    // Insertar etiquetas dentro de productInfo
+   
+
+
+    // Creación de un div vacío
+    const productInfoDiv = document.createElement('div');
+    // Creación del contenedor para el precio del producto
+    const productPrice = document.createElement('p');
+    // Le concateno el 'product' del ciclo for
+    productPrice.innerText = '$' + product.price;
+    // Creación del contenedor para el nombre del producto
+    const productName = document.createElement('p');
+    productName.innerText = product.name;
+    
+
+
+    const productFigure = document.createElement('figure');
+    const ImgAddToCart = document.createElement('img');
+    ImgAddToCart.setAttribute('src','./icons/bt_add_to_cart.svg');
+    // Organizar y meter los elementos correspondientes conforme sus etiquetas contenedoras
+    cardsContainer.appendChild(productCard);
+
+    productFigure.appendChild(ImgAddToCart);
+
+    productInfoDiv.appendChild(productPrice,productName);
+    
+    productInfo.appendChild(productInfoDiv);
+    productInfo.appendChild(productFigure);
+
+    productCard.appendChild(productImg);
+    productCard.appendChild(productInfo);
+
+}
+}
+
+renderProducts(productList);
