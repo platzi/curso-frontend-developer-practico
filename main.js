@@ -4,7 +4,7 @@ const menuHamIcon = document.querySelector('.menu');
 const mobileMenu = document.querySelector('.mobile-menu');
 
 const carrito = document.querySelector('.navbar-shopping-cart');
-const productDetail = document.querySelector('.product-detail');
+const shoppingCartContainer = document.querySelector('#shoppingCartContainer');
 const cardsContainer = document.querySelector('.cards-container')
 
 menuEmail.addEventListener('click', toggleDesktopMenu);
@@ -12,20 +12,20 @@ menuHamIcon.addEventListener('click', toggleMobileMenu);
 carrito.addEventListener('click', toggleProductDetail)
 
 function toggleDesktopMenu(){
-    const isProductDetailClosed = productDetail.classList.contains('inactive');
+    const isProductDetailClosed = shoppingCartContainer.classList.contains('inactive');
 
     if(!isProductDetailClosed){
-        productDetail.classList.add('inactive');
+        shoppingCartContainer.classList.add('inactive');
     }
     desktopMenu.classList.toggle('inactive')
 }
 
 function toggleMobileMenu(){
     //Lógica para ocultar el menú del carrito para poder abrir el menu mobile
-    const isProductDetailClosed = productDetail.classList.contains('inactive');
+    const isProductDetailClosed = shoppingCartContainer.classList.contains('inactive');
 
     if(!isProductDetailClosed){
-        productDetail.classList.add('inactive');
+        shoppingCartContainer.classList.add('inactive');
     }
 
     //cambia de estado la clase inactive lo que hace que aparezca o desaparezca el menu
@@ -39,7 +39,7 @@ function toggleProductDetail(){
         mobileMenu.classList.add('inactive');
     }
     
-    productDetail.classList.toggle('inactive');
+    shoppingCartContainer.classList.toggle('inactive');
 
 }
 
@@ -74,7 +74,6 @@ productList.push({
           </figure>
         </div>
       </div> */
-
 
 // Lo que hacemos es ir agregando todos los elementos div, img, div, div
 function renderProducts(arr){
