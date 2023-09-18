@@ -115,7 +115,7 @@ productList.push({
 productList.push({
     name: 'Vestido',
     price: '120000',
-    image: 'https://ae01.alicdn.com/kf/S4ef4556d47734b519be994b2b983f19cj.jpg_640x640q90.jpg'
+    image: 'https://ae01.alicdn.com/kf/Had6028f431b94ffb882e2300ada7567ef/Vestido-de-flores-con-apliques-para-ni-as-vestidos-de-tut-con-cuello-en-V-vestido.jpg'
 })
 productList.push({
     name: 'Vestido',
