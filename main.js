@@ -4,7 +4,7 @@ const signOutMenu = document.querySelector('.desktop-menu');
 const menuHamIcon =  document.querySelector('.menu');
 const mobileMenu = document.querySelector('.mobile-menu');
 // Creación de la constante product detail (aside detail product)
-const aside = document.querySelector('.product-detail');
+const ShoppingCartContainer = document.querySelector('#ShoppingCartContainer');
 // Selector del ícono 'carrito de compras'
 const IconShoppingCart = document.querySelector('.navbar-shopping-cart');
 // Selector del contenedor 'cardsContainer' referente a la img e info de los productos
@@ -22,11 +22,11 @@ IconShoppingCart.addEventListener('click', toggleShowProducts)
 function togglesignOutMenu()
 {
     
-    const isAsideOpen = !aside.classList.contains('inactive');
+    const isAsideOpen = !ShoppingCartContainer.classList.contains('inactive');
     
     if (isAsideOpen) 
     {
-        aside.classList.add('inactive');
+        ShoppingCartContainer.classList.add('inactive');
     }
 
     signOutMenu.classList.toggle('inactive');
@@ -35,12 +35,12 @@ function togglesignOutMenu()
 function toggleMobileMenu()
 {
    
-    const isAsideOpen = !aside.classList.contains('inactive');
+    const isAsideOpen = !ShoppingCartContainer.classList.contains('inactive');
 
 
     if (isAsideOpen) 
     {
-        aside.classList.add('inactive');
+        ShoppingCartContainer.classList.add('inactive');
     }
 
     mobileMenu.classList.toggle('inactive');
@@ -64,7 +64,7 @@ function toggleShowProducts()
         mobileMenu.classList.add('inactive');
     }
 
-    aside.classList.toggle('inactive');
+    ShoppingCartContainer.classList.toggle('inactive');
 
 
     
@@ -179,4 +179,5 @@ function renderProducts(arr){
 }
 }
 
+// Inicialización de la función, parametro: producList en este caso
 renderProducts(productList);
