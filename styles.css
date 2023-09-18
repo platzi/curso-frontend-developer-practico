@@ -233,18 +233,7 @@
     font-size: var(--md);
     font-weight: bold;
   }
-  .primary-button {
-    background-color: var(--hospital-green);
-    border-radius: 8px;
-    border: none;
-    color: var(--white);
-    width: 100%;
-    cursor: pointer;
-    font-size: var(--md);
-    font-weight: bold;
-    height: 50px;
-  }
-
+  
   /*productDetail*/
   .product-detail-close {
     background: var(--white);
@@ -287,12 +276,16 @@
     margin-top: 0;
     margin-bottom: 36px;
   }
+  .container-primary-button{
+    display: flex;
+    justify-content: center;
+  }
   .primary-button {
     background-color: var(--hospital-green);
     border-radius: 8px;
     border: none;
     color: var(--white);
-    width: 100%;
+    width: 50%;
     cursor: pointer;
     font-size: var(--md);
     font-weight: bold;
