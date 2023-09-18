@@ -63,34 +63,64 @@ function closeProductDetailAside() {
 
 const productList = []
 productList.push({
-    name: 'Bike',
-    price: '120',
-    image: 'https://images.pexels.com/photos/276517/pexels-photo-276517.jpeg?auto=compress&cs=tinysrgb&dpr=2&h=650&w=940'
-})
-productList.push({
-    name: 'Pantalla',
-    price: '220',
-    image: 'https://images.pexels.com/photos/276517/pexels-photo-276517.jpeg?auto=compress&cs=tinysrgb&dpr=2&h=650&w=940'
-})
-productList.push({
-    name: 'Computador',
+    name: 'Vestido',
     price: '120000',
-    image: 'https://images.pexels.com/photos/276517/pexels-photo-276517.jpeg?auto=compress&cs=tinysrgb&dpr=2&h=650&w=940'
+    image: 'https://i.pinimg.com/736x/89/5e/7e/895e7eb997dcb603710a6a898b8a5824--floral-print-dresses-flower-dresses.jpg'
 })
 productList.push({
-    name: 'Bike',
-    price: '120',
-    image: 'https://images.pexels.com/photos/276517/pexels-photo-276517.jpeg?auto=compress&cs=tinysrgb&dpr=2&h=650&w=940'
-})
-productList.push({
-    name: 'Pantalla',
-    price: '220',
-    image: 'https://images.pexels.com/photos/276517/pexels-photo-276517.jpeg?auto=compress&cs=tinysrgb&dpr=2&h=650&w=940'
-})
-productList.push({
-    name: 'Computador',
+    name: 'Vestido',
     price: '120000',
-    image: 'https://images.pexels.com/photos/276517/pexels-photo-276517.jpeg?auto=compress&cs=tinysrgb&dpr=2&h=650&w=940'
+    image: 'https://www.dhresource.com/0x0/f2/albu/g21/M01/26/29/rBVaqmITAi-AUTMoAADCUa-4Trc962.jpg'
+})
+productList.push({
+    name: 'Vestido',
+    price: '120000',
+    image: 'https://lindovestido.com/wp-content/uploads/2019/04/polp-nia-vestido-vestido-mujer-verano-vestido-casual-sin-mangas-de.jpg'
+})
+productList.push({
+    name: 'Vestido',
+    price: '120000',
+    image: 'https://ae01.alicdn.com/kf/H8e99aea15cb74fe29011799c7b69d0c5y/Ropa-de-verano-para-ni-as-peque-as-nueva-moda-vestido-de-princesa-vestido-de-flores.jpg'
+})
+productList.push({
+    name: 'Vestido',
+    price: '120000',
+    image: 'https://img.bestdealplus.com/ae04/kf/H59f11202f2f4429bb0ee3d1bbc2bff0df.jpg'
+})
+productList.push({
+    name: 'Vestido',
+    price: '120000',
+    image: 'https://cf.shopee.com.mx/file/c51163cb1b60110d3b0084dc149f3dcc_tn'
+})
+productList.push({
+    name: 'Vestido',
+    price: '120000',
+    image: 'https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcSQpLn9goG90hK9aKeXK68yNVxgmzNMdALwZvPUR0bk3i9Mtq4JfhaL8w2BZ9oFZ1fBKJE&usqp=CAU'
+})
+productList.push({
+    name: 'Vestido',
+    price: '120000',
+    image: 'https://ae01.alicdn.com/kf/S39fa51e46b0043fdacf14006e7f0d6305.jpg_640x640Q90.jpg_.webp'
+})
+productList.push({
+    name: 'Vestido',
+    price: '120000',
+    image: 'https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcSksnqWrlVXPA07Y3mTk0ZY5TYdLI4nrzQ9KQ&usqp=CAU'
+})
+productList.push({
+    name: 'Vestido',
+    price: '120000',
+    image: 'https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcTlxCReEP-z5IBEnXu0skYtxJ7QKroS3STH316r4VRQdJk4jlyJjFxzIAITbqYUqX3vSN4&usqp=CAU'
+})
+productList.push({
+    name: 'Vestido',
+    price: '120000',
+    image: 'https://ae01.alicdn.com/kf/HLB1FCgPajzuK1Rjy0Fpq6yEpFXaM/Vestido-de-princesa-de-Navidad-para-ni-as-nuevo-estilo-ropa-para-ni-os-vestido-de.jpg'
+})
+productList.push({
+    name: 'Vestido',
+    price: '120000',
+    image: 'https://sc04.alicdn.com/kf/H50fa635b13f8460e93d01008ca934310M/200549682/H50fa635b13f8460e93d01008ca934310M.jpg'
 })
 
 
@@ -102,6 +132,7 @@ function renderProductList(arr){
         //product = {name, price, image}-->product.image
         const productImg = document.createElement('img')
         productImg.setAttribute('src', product.image);
+        
         productImg.addEventListener('click', openProductDetailAside);
     
         const productInfo = document.createElement('div')
@@ -114,7 +145,8 @@ function renderProductList(arr){
         const productName = document.createElement('p')
         productName.innerText = product.name;
     
-        productInfoDiv.appendChild(productPrice, productName);
+        productInfoDiv.appendChild(productPrice);
+        productInfoDiv.appendChild(productName);
     
         const productInfoFigure = document.createElement('figure')
         const productImgCart = document.createElement('img')
@@ -122,10 +154,12 @@ function renderProductList(arr){
     
         productInfoFigure.appendChild(productImgCart);
     
-        productInfo.appendChild(productInfoDiv, productInfoFigure);
+        productInfo.appendChild(productInfoDiv);
+        productInfo.appendChild(productInfoFigure);
     
-        productCard.appendChild(productImg, productInfo);
-    
+        productCard.appendChild(productImg);
+        productCard.appendChild(productInfo)
+
         cardsContainer.appendChild(productCard);
     
     }
