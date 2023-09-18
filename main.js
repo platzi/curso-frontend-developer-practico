@@ -80,7 +80,7 @@ productList.push({
 productList.push({
     name: 'Vestido',
     price: '120000',
-    image: 'https://ae01.alicdn.com/kf/H8e99aea15cb74fe29011799c7b69d0c5y/Ropa-de-verano-para-ni-as-peque-as-nueva-moda-vestido-de-princesa-vestido-de-flores.jpg'
+    image: 'https://i.pinimg.com/736x/8f/12/36/8f12364a4e233a889c9410633db1ebe0.jpg'
 })
 productList.push({
     name: 'Vestido',
@@ -115,7 +115,7 @@ productList.push({
 productList.push({
     name: 'Vestido',
     price: '120000',
-    image: 'https://ae01.alicdn.com/kf/HLB1FCgPajzuK1Rjy0Fpq6yEpFXaM/Vestido-de-princesa-de-Navidad-para-ni-as-nuevo-estilo-ropa-para-ni-os-vestido-de.jpg'
+    image: 'https://ae01.alicdn.com/kf/S4ef4556d47734b519be994b2b983f19cj.jpg_640x640q90.jpg'
 })
 productList.push({
     name: 'Vestido',
