@@ -1,0 +1,41 @@
+[33mcommit de7a09d199a1cb490ce3290a9f58cd8ea0441f73[m[33m ([m[1;36mHEAD -> [m[1;32mmain[m[33m, [m[1;31morigin/main[m[33m, [m[1;31morigin/HEAD[m[33m)[m
+Author: Julian Parra <julianparra1230@gmail.com>
+Date:   Sat Sep 16 08:09:41 2023 -0300
+
+    se crea la info principal de los productos en una
+
+[33mcommit d279810a10d1e423037f3b3d447b520e0e2594b2[m
+Author: Julian Parra <julianparra1230@gmail.com>
+Date:   Sat Sep 16 07:03:25 2023 -0300
+
+    se crea funcion para hacer lista de productos y caracteristicas
+
+[33mcommit 8ddab512f028834cb084cb0a4b710108008ba23d[m
+Author: Julian Parra <julianparra1230@gmail.com>
+Date:   Wed Sep 6 10:10:36 2023 -0300
+
+    aplicando java a los menus desktop y mobile
+
+[33mcommit d923017fff5e30f1b006e9624de0a87c413cb939[m
+Author: Julian Parra <julianparra1230@gmail.com>
+Date:   Wed Aug 30 10:13:57 2023 -0300
+
+    primeros avances de fusion
+
+[33mcommit 4774124de4c723d46d6a22da4c93c03f7be9e7bd[m
+Author: Juan David Castro <me@juandc.co>
+Date:   Fri Aug 6 10:22:19 2021 -0500
+
+    Add files via upload
+
+[33mcommit 84bc21bb1cb013e03a0c6d694b632aeec8a77977[m
+Author: Juan David Castro <me@juandc.co>
+Date:   Thu Aug 5 16:50:27 2021 -0500
+
+    Add files via upload
+
+[33mcommit 06d2ccd2293a68614a14db757d1dc3477403e89f[m
+Author: Juan David Castro <me@juandc.co>
+Date:   Mon Aug 2 22:38:03 2021 -0500
+
+    Initial commit

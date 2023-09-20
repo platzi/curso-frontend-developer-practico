@@ -2,13 +2,16 @@ const menuEmail = document.querySelector('.navbar-email');
 const desktopMenu = document.querySelector('.desktop-menu');
 const menuCarritoIcon = document.querySelector('.navbar-shopping-cart');
 const menuHamIcon = document.querySelector('.menu');
+const productDetailCloseIcon = document.querySelector('.product-detail-close');
 const mobileMenu = document.querySelector('.mobile-menu');
 const shoppingCartContainer = document.querySelector('#shoppingCartContainer');
 const cardsContainer = document.querySelector('.cards-container');
+const productDetailContainer = document.querySelector('#productDetail');
 
 menuEmail.addEventListener('click', toggleDesktopMenu);
 menuHamIcon.addEventListener('click', toggleMobileMenu);
 menuCarritoIcon.addEventListener('click', toggleCarritoAside);
+productDetailCloseIcon.addEventListener('click', closeProductDetailAside);
 
 
 function toggleDesktopMenu() {
@@ -28,21 +31,39 @@ function toggleMobileMenu() {
     if(!isAsideClosed){
         shoppingCartContainer.classList.add('inactive');
     }
+//aqui llamamos a la funcion de cerrar el aside, y se activa directamente cuando pasa su evento
+    closeProductDetailAside();
 
     mobileMenu.classList.toggle('inactive');
 }
 
-function toggleCarritoAside(){
+function toggleCarritoAside(){//si el mobile esta open hay que cerrarlo
     const isMobileMenuClosed = mobileMenu.classList.contains('inactive');
-
-
 
     if(!isMobileMenuClosed){
         mobileMenu.classList.add('inactive');
     }
-    //si el mobile esta open hay que cerrarlo
+
+    const isProductDetailClose = productDetailContainer.classList.contains('inactive');
+
+    /*si el product detail aside esta abierto, se  cierra al abrir el carrito */
+    if(!isProductDetailClose){
+        productDetailContainer.classList.add('inactive');
+    }
 
     shoppingCartContainer.classList.toggle('inactive');
+}
+
+/*con esta funcion le quitamos la clase inactive a el aside de detalles del producto*/
+function openProductDetaiAside(){
+    // shoping card container: si cualquier cosa esta abierta, cerrarla al abrir el carrito
+    shoppingCartContainer.classList.add('inactive')
+    productDetailContainer.classList.remove('inactive')
+}
+
+/*con esta funcion volvemos a cerrar la pestaña de info del producto abierta con la funcion anterior */
+function closeProductDetailAside(){
+    productDetailContainer.classList.add('inactive')
 }
 
 
@@ -77,13 +98,14 @@ productList.push({
 });
 
 function renderProducts(arr){
- for (product of arr){
+for (product of arr){
     const productCard = document.createElement('div');
     productCard.classList.add('product-card');
 
     //product={name, price, image} -> product.image
     const productImg = document.createElement('img');
     productImg.setAttribute('src', product.image);
+    productImg.addEventListener('click', openProductDetaiAside);
 
     const productInfo = document.createElement('div');
     productInfo.classList.add('product-info');
@@ -112,7 +134,7 @@ function renderProducts(arr){
     productCard.appendChild(productInfo);
 
     cardsContainer.appendChild(productCard);
- }
+}
 }
 
 renderProducts(productList);
