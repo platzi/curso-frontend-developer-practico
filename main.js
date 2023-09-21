@@ -7,6 +7,8 @@ const mobileMenu = document.querySelector(".mobile-menu");
 const shoppingCartContainer = document.querySelector("#shoppingCartContainer");
 const cardsContainer = document.querySelector(".cards-container");
 const productDetailContainer = document.querySelector("#productDetail");
+const productDetailPrice = document.querySelector('#product_price');
+const productDetailImg = document.querySelector('#img_product');
 
 
 menuEmail.addEventListener("click", toggleDesktopMenu);
@@ -35,6 +37,8 @@ function toggleCartAside(){
 } 
 function openProductDetailAside (){
     productDetailContainer.classList.remove("inactive"); 
+    productDetailImg.setAttribute("src", event.target.src);
+    productDetailPrice.innerText = event.target.nextElementSibling.innerText; 
 }
 function closeProductDetailAside () {
     shoppingCartContainer.classList.add("inactive");
