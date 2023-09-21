@@ -3,7 +3,7 @@ const menuDesktop = document.querySelector('.desktop-menu')
 const burgerMenu = document.querySelector('.menu')
 const mobileMenu = document.querySelector('.mobile-menu')
 const shoppingMenuIcon = document.querySelector('.navbar-shopping-cart')
-const aside = document.querySelector('.product-detail')
+const shoppingCartContainer = document.querySelector('#shoppingCartContainer')
 
 const cardsContainer = document.querySelector('.cards-container')
 
@@ -23,10 +23,10 @@ function toogleDesktopMenu() {
     menuDesktop.classList.toggle('inactive')
 }
 function toogleMobileMenu() {
-    const isAsideCLose = aside.classList.contains('inactive');
+    const isAsideCLose = shoppingCartContainer.classList.contains('inactive');
 
     if (!isAsideCLose) {                            
-        aside.classList.toggle('inactive')
+        shoppingCartContainer.classList.toggle('inactive')
     }
     mobileMenu.classList.toggle('inactive')
 }
@@ -40,7 +40,7 @@ function toogleShoppingMenu() {
     if (!isMenuDesktopClose) {                            
         menuDesktop.classList.toggle('inactive')
     }
-    aside.classList.toggle('inactive')
+    shoppingCartContainer.classList.toggle('inactive')
 }
 
 const productList = [];
