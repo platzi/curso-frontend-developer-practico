@@ -7,9 +7,10 @@ const mobileMenu = document.querySelector(".mobile-menu");
 const shoppingCartContainer = document.querySelector("#shoppingCartContainer");
 const cardsContainer = document.querySelector(".cards-container");
 const productDetailContainer = document.querySelector("#productDetail");
-const productDetailPrice = document.querySelector('#product_price');
 const productDetailImg = document.querySelector('#img_product');
-const productDescription = document.querySelector('#product_descript');
+const productDetailPrice = document.querySelector('#product_price');
+const productDetailName = document.querySelector('#product_name');
+const productDetailDescription = document.querySelector('#product_descript');
 
 menuEmail.addEventListener("click", toggleDesktopMenu);
 burgerIcon.addEventListener("click", toggleMobileMenu);
@@ -35,11 +36,13 @@ function toggleCartAside(){
     desktopMenu.classList.add("inactive");
     productDetailContainer.classList.add("inactive");
 } 
-function openProductDetailAside (){
+function openProductDetailAside (index){
+    const product = productList[index];
     productDetailContainer.classList.remove("inactive"); 
     productDetailImg.setAttribute("src", event.target.src);
-    productDetailPrice.innerText = event.target.nextElementSibling.innerText;
-    productDescription.innerText = product.descript;
+    productDetailPrice.innerText = "$" + product.price;
+    productDetailName.innerText = product.name;
+    productDetailDescription.innerText = product.descript;
 }
 function closeProductDetailAside () {
     shoppingCartContainer.classList.add("inactive");
@@ -75,7 +78,21 @@ productList.push({
 });
 
 function renderProducts(arr){
-    for (product of arr){
+    // El siguiente bloque de código es un bucle 'for' que se utiliza para iterar a través de un arreglo de productos.
+// Este bucle permite procesar cada elemento del arreglo 'arr' de manera individual.
+
+// La estructura del bucle 'for' es la siguiente:
+// - `let i = 0;` Inicializa una variable 'i' que actuará como contador, comenzando en 0.
+// - `i < arr.length;` Establece la condición bajo la cual el bucle se ejecutará. Mientras 'i' sea menor que la longitud del arreglo 'arr', el bucle continuará ejecutándose.
+// - `i++` Es la expresión que se ejecuta después de cada iteración. Incrementa el valor de 'i' en 1 después de procesar cada elemento.
+
+// Dentro del bucle 'for', se realiza lo siguiente:
+// - `const product = arr[i];` Esta línea declara una constante llamada 'product' y la iguala al elemento en la posición 'i' del arreglo 'arr'.
+//   Esto significa que en cada iteración, 'product' contendrá un elemento de la lista de productos, permitiendo que se realicen acciones específicas en cada uno de ellos.
+
+// En resumen, este bucle 'for' recorre el arreglo 'arr' elemento por elemento, permitiendo el procesamiento individual de cada producto almacenado en el arreglo.
+    for (let i= 0; i < arr.length; i++) {
+        const product = arr[i];
         const productCard = document.createElement("div");
 // El método classList.add se utiliza para agregar una o varias clases a un elemento HTML en el DOM (Modelo de Objetos del Documento).
 
@@ -83,8 +100,17 @@ function renderProducts(arr){
     
         const productImg = document.createElement("img");
         productImg.setAttribute("src",product.image);
-        productImg.addEventListener("click",openProductDetailAside)
-    
+// La siguiente línea de código se utiliza para agregar un evento de clic a la imagen de cada producto en la función de renderizado.
+// Cuando se hace clic en una imagen de producto, se llama a la función openProductDetailAside con el índice del producto como argumento.
+// Esto asegura que la descripción y los detalles correctos del producto se muestren cuando se abre el detalle del producto.
+        productImg.addEventListener("click",() => openProductDetailAside(i));
+// Desglose de la línea:
+// - `productImg.addEventListener("click", ...)` agrega un evento de clic a la imagen del producto.
+// - `() => openProductDetailAside(i)` es una función de flecha que se ejecuta cuando se hace clic en la imagen.
+// - `i` es el índice del producto actual en el bucle de renderizado.
+// - `openProductDetailAside(i)` llama a la función openProductDetailAside con el índice como argumento.
+
+// Esta estructura garantiza que se capture el índice correcto del producto y se pase a la función openProductDetailAside, lo que permite mostrar los detalles correctos del producto en el detalle del producto.  
         const productInfo = document.createElement("div");
         productInfo.classList.add("product-info");
     

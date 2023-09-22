@@ -12,6 +12,7 @@
   body {
     margin: 0;
     font-family: 'Quicksand', sans-serif;
+    position: fixed;
   }
   .inactive {
     display: none;
@@ -23,7 +24,15 @@
     justify-content: space-between;
     padding: 0 24px;
     border-bottom: 1px solid var(--very-light-pink);
+    z-index: 1;
   }
+  .darken
+{
+	width: 100%;
+	height: 100%;
+	position: absolute;
+  background-color: rgba(0, 0, 0, 0.5);
+}
   .menu {
     display: none;
   }
@@ -173,6 +182,10 @@
     position: absolute;
     right: 0;
     background: var(--white);
+    border-radius: 20px;
+    margin-right: 5px;
+    overflow: hidden;
+    box-shadow: 0 0 20px rgba(0, 0, 0, 0.3);
   }
   /* ShoppingCart */
   #shoppingCartContainer {
