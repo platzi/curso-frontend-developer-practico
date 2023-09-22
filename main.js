@@ -9,7 +9,7 @@ const cardsContainer = document.querySelector(".cards-container");
 const productDetailContainer = document.querySelector("#productDetail");
 const productDetailPrice = document.querySelector('#product_price');
 const productDetailImg = document.querySelector('#img_product');
-
+const productDescription = document.querySelector('#product_descript');
 
 menuEmail.addEventListener("click", toggleDesktopMenu);
 burgerIcon.addEventListener("click", toggleMobileMenu);
@@ -38,7 +38,8 @@ function toggleCartAside(){
 function openProductDetailAside (){
     productDetailContainer.classList.remove("inactive"); 
     productDetailImg.setAttribute("src", event.target.src);
-    productDetailPrice.innerText = event.target.nextElementSibling.innerText; 
+    productDetailPrice.innerText = event.target.nextElementSibling.innerText;
+    productDescription.innerText = product.descript;
 }
 function closeProductDetailAside () {
     shoppingCartContainer.classList.add("inactive");
@@ -51,22 +52,26 @@ const productList = [];
 productList.push({
     name:"Bike",
     price: 120,
-    image: "https://images.pexels.com/photos/276517/pexels-photo-276517.jpeg?auto=compress&cs=tinysrgb&dpr=2&h=650&w=940"
+    image: "https://images.pexels.com/photos/276517/pexels-photo-276517.jpeg?auto=compress&cs=tinysrgb&dpr=2&h=650&w=940",
+    descript: "Our MTB 29er is meticulously crafted to deliver top-tier performance. The 29-inch wheels roll over obstacles with ease, providing improved stability and control, especially on rough terrains. The lightweight but durable aluminum frame ensures agile handling while absorbing shocks, allowing you to tackle challenging trails without hesitation."
 });
 productList.push({
     name:"Pantalla",
     price: 120,
-    image: "https://images.pexels.com/photos/812264/pexels-photo-812264.jpeg?auto=compress&cs=tinysrgb&w=1260&h=750&dpr=1"
+    image: "https://images.pexels.com/photos/812264/pexels-photo-812264.jpeg?auto=compress&cs=tinysrgb&w=1260&h=750&dpr=1",
+    descript: "Whether you're setting up a new workstation, expanding your gaming rig, or upgrading your entertainment center, our 25-inch used monitor is a cost-effective way to improve your setup."
 });
 productList.push({
     name:"Toyota FJ 80",
     price: 1000,
-    image: "https://images.pexels.com/photos/11756872/pexels-photo-11756872.jpeg?auto=compress&cs=tinysrgb&w=1260&h=750&dpr=1"
+    image: "https://images.pexels.com/photos/11756872/pexels-photo-11756872.jpeg?auto=compress&cs=tinysrgb&w=1260&h=750&dpr=1",
+    descript: "Take on the wildest terrains with confidence. This FJ Model 80 with Hellcat power boasts superior off-road capabilities, including impressive ground clearance, four-wheel drive, and advanced suspension, making it unstoppable in the great outdoors."
 });
 productList.push({
     name:"Yamaha Dt 200",
     price: 500,
-    image: "https://i.ebayimg.com/images/g/GTwAAOSwopRYm1cI/s-l1600.jpg"
+    image: "https://i.ebayimg.com/images/g/GTwAAOSwopRYm1cI/s-l1600.jpg",
+    descript:"The Yamaha DT 200 in white and pink is designed to appeal to riders of all levels of experience. It's an excellent choice for both beginners looking for a stylish ride and seasoned riders seeking a reliable, eye-catching companion."
 });
 
 function renderProducts(arr){
