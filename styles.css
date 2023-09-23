@@ -12,7 +12,7 @@
   body {
     margin: 0;
     font-family: 'Quicksand', sans-serif;
-    position: fixed;
+    position: relative;
   }
   .inactive {
     display: none;
@@ -180,7 +180,7 @@
     width: 360px;
     box-sizing: border-box;
     position: absolute;
-    right: 0;
+    left:calc( 50% - 180px );
     background: var(--white);
     border-radius: 20px;
     margin-right: 5px;

@@ -11,6 +11,7 @@ const productDetailImg = document.querySelector('#img_product');
 const productDetailPrice = document.querySelector('#product_price');
 const productDetailName = document.querySelector('#product_name');
 const productDetailDescription = document.querySelector('#product_descript');
+const filterDarker = document.querySelector(".darken");
 
 menuEmail.addEventListener("click", toggleDesktopMenu);
 burgerIcon.addEventListener("click", toggleMobileMenu);
@@ -21,6 +22,7 @@ function toggleDesktopMenu() {
     desktopMenu.classList.toggle("inactive");
     shoppingCartContainer.classList.add("inactive");
     productDetailContainer.classList.add("inactive");
+    filterDarker.classList.add("inactive");
 }
 
 function toggleMobileMenu() {
@@ -28,6 +30,7 @@ function toggleMobileMenu() {
     desktopMenu.classList.add("inactive");
     shoppingCartContainer.classList.add("inactive");
     productDetailContainer.classList.add("inactive");
+    filterDarker.classList.add("inactive");
 }
 
 function toggleCartAside(){
@@ -35,6 +38,8 @@ function toggleCartAside(){
     mobileMenu.classList.add("inactive");
     desktopMenu.classList.add("inactive");
     productDetailContainer.classList.add("inactive");
+    filterDarker.classList.add("inactive");
+    filterDarker.classList.add("inactive");
 } 
 function openProductDetailAside (index){
     const product = productList[index];
@@ -43,12 +48,14 @@ function openProductDetailAside (index){
     productDetailPrice.innerText = "$" + product.price;
     productDetailName.innerText = product.name;
     productDetailDescription.innerText = product.descript;
+    filterDarker.classList.remove("inactive");
 }
 function closeProductDetailAside () {
     shoppingCartContainer.classList.add("inactive");
     productDetailContainer.classList.add("inactive");
     mobileMenu.classList.add("inactive");
     desktopMenu.classList.add("inactive");
+    filterDarker.classList.add("inactive");
 }
 
 const productList = [];
@@ -75,6 +82,12 @@ productList.push({
     price: 500,
     image: "https://i.ebayimg.com/images/g/GTwAAOSwopRYm1cI/s-l1600.jpg",
     descript:"The Yamaha DT 200 in white and pink is designed to appeal to riders of all levels of experience. It's an excellent choice for both beginners looking for a stylish ride and seasoned riders seeking a reliable, eye-catching companion."
+});
+productList.push({
+    name:"iphone",
+    price: 1200,
+    image: "https://images.pexels.com/photos/3036882/pexels-photo-3036882.jpeg",
+    descript: "The Red iPhone is a true showstopper. Its sleek, alluring design in vibrant red is a testament to Apple's commitment to aesthetics and innovation. It's not just a phone; it's a fashion accessory."
 });
 
 function renderProducts(arr){
