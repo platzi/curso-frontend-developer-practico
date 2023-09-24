@@ -1,9 +1,9 @@
 :root {
     --white: #FFFFFF;
     --black: #000000;
-    --very-light-pink: #747770;
+    --very-light-pink: #8b9084;
     --text-input-field: #F7F7F7;
-    --hospital-green: #ACD9B2;
+    --hospital-green: #569163;
     --sm: 14px;
     --md: 16px;
     --lg: 18px;
@@ -16,7 +16,7 @@
     display: flex;
     justify-content: space-between;
     padding: 0 24px;
-    border-bottom: 1px solid var(--very-light-pink);
+    border-bottom: 1px solid var(--hospital-green);
   }
  
   .inactive{
@@ -25,12 +25,13 @@
 
   .desktop-menu {
     position: absolute;
-    top: 60px;
+    top: 61px;
     right: 60px;
-    background: var(--white);
+    background: #F7F7F7;
     width: 100px;
     height: auto;
-    border: 1px solid var(--very-light-pink);
+    border: 1px solid var(--hospital-green);
+    border-top: none;
     border-radius: 6px;
     padding: 20px 20px 0 20px;
   }
@@ -48,7 +49,7 @@
   }
   .desktop-menu ul li:last-child {
     padding-top: 20px;
-    border-top: 1px solid var(--very-light-pink);
+    border-top: 1px solid var(--hospital-green);
   }
   .desktop-menu ul li:last-child a {
     color: var(--hospital-green);
@@ -63,6 +64,9 @@
 
   .menu {
     display: none;
+  }
+  .menu:hover{
+    cursor: pointer;
   }
   .logo {
     width: 100px;
@@ -92,8 +96,10 @@
   }
   .navbar-left ul li a:hover,
   .navbar-right ul li a:hover {
-    border: 1px solid var(--hospital-green);
+    border: 2px solid var(--hospital-green);
     color: var(--hospital-green);
+    font-weight: 600;
+    margin: auto;
   }
   .navbar-email {
     display: flex;
@@ -111,12 +117,26 @@
   }
 
   .navbar-shopping-cart {
+    display: flex;
+    flex-wrap: wrap;
+    justify-content: center;
+    align-content: center;
+    height: 100%;
+    width: 32px;
+    padding-left: 6px;
+  }
+
+  .navbar-shopping-cart li{
     position: relative;
   }
+  .navbar-shopping-cart:hover {
+    cursor: pointer;
+  }
+
   .navbar-shopping-cart div {
-    width: 16px;
-    height: 16px;
-    background-color: var(--hospital-green);
+    width: 15px;
+    height: 15px;
+    background-color: #ACD9B2;
     border-radius: 50%;
     font-size: var(--sm);
     font-weight: bold;
@@ -130,9 +150,12 @@
 
   .mobile-menu {
     position: absolute;
-    top: 60px;
-    
-    padding: 24px;
+    top: 61px;
+    left: 0;
+    background: #F7F7F7;
+    padding: 0 27px 0 54px;
+    border-radius: 8px;
+    border-right: 1px solid var(--hospital-green);
   }
   .mobile-menu a {
     text-decoration: none;
@@ -142,11 +165,12 @@
   }
   .mobile-menu ul {
     padding: 0;
-    margin: 24px 0 0;
+    margin: 18px 0 0;
     list-style: none;
+    border-bottom: 1px solid var(--hospital-green);
   }
-  .mobile-menu ul:nth-child(1) {
-    border-bottom: 1px solid var(--very-light-pink);
+  .mobile-menu ul:nth-child(0) {
+    border-bottom: none;
   }
   .mobile-menu ul li {
     margin-bottom: 24px;
@@ -158,7 +182,132 @@
   .sign-out {
     font-size: var(--sm);
     color: var(--hospital-green) !important;
+
   }
+  
+  .product-detail {
+    background: var(--white);
+    width: 360px;
+    padding: 0 24px;
+    box-sizing: border-box;
+    position: absolute;
+    right: 0;
+  }
+  .title-container {
+    display: flex;
+  }
+  .title-container img {
+    transform: rotate(180deg);
+    margin-right: 14px;
+  }
+  .title {
+    font-size: var(--lg);
+    font-weight: bold;
+  }
+  .order {
+    display: grid;
+    grid-template-columns: auto 1fr;
+    gap: 16px;
+    align-items: center;
+    background-color: var(--text-input-field);
+    margin-bottom: 24px;
+    border-radius: 8px;
+    padding: 0 24px;
+  }
+  .order p:nth-child(1) {
+    display: flex;
+    flex-direction: column;
+  }
+  .order p span:nth-child(1) {
+    font-size: var(--md);
+    font-weight: bold;
+  }
+  .order p:nth-child(2) {
+    text-align: end;
+    font-weight: bold;
+  }
+  .shopping-cart {
+    display: grid;
+    grid-template-columns: auto 1fr auto auto;
+    gap: 16px;
+    margin-bottom: 24px;
+    align-items: center;
+  }
+  .shopping-cart figure {
+    margin: 0;
+  }
+  .shopping-cart figure img {
+    width: 70px;
+    height: 70px;
+    border-radius: 20px;
+    object-fit: cover;
+  }
+  .shopping-cart p:nth-child(2) {
+    color: var(--very-light-pink);
+  }
+  .shopping-cart p:nth-child(3) {
+    font-size: var(--md);
+    font-weight: bold;
+  }
+  .primary-button {
+    background-color: var(--hospital-green);
+    border-radius: 8px;
+    border: none;
+    color: var(--white);
+    width: 100%;
+    cursor: pointer;
+    font-size: var(--md);
+    font-weight: bold;
+    height: 50px;
+    margin: 0 0 27px;
+  }
+
+  
+  .cards-container {
+    margin: 27px 0;
+    display: grid;
+    grid-template-columns: repeat(auto-fill, 240px);
+    gap: 26px;
+    place-content: center;
+  }
+  .product-card {
+    width: 240px;
+  }
+  .product-card img {
+    width: 240px;
+    height: 240px;
+    border-radius: 20px;
+    object-fit: cover;
+  }
+  .product-info {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    margin-top: 12px;
+  }
+  .product-info figure {
+    margin: 0;
+  }
+  .product-info figure img {
+    width: 35px;
+    height: 35px;
+  }
+  .product-info div p:nth-child(1) {
+    font-weight: bold;
+    font-size: var(--md);
+    margin-top: 0;
+    margin-bottom: 4px;
+  }
+  .product-info div p:nth-child(2) {
+    font-size: var(--sm);
+    margin-top: 0;
+    margin-bottom: 0;
+    color: var(--very-light-pink);
+  }
+
+
+
+
 
   @media (max-width: 640px) {
     .menu {
@@ -169,5 +318,34 @@
     }
     .navbar-email {
       display: none;
+    }
+    .desktop-menu{
+      display: none;
+    }
+    .product-detail {
+      width: 100%;
+    }
+    
+  
+    .cards-container {
+      grid-template-columns: repeat(auto-fill, 140px);
+    }
+    .product-card {
+      width: 140px;
+    }
+    .product-card img {
+      width: 140px;
+      height: 140px;
+    }
+  }
+
+  @media (min-width: 641px) {
+    .mobile-menu{
+      display: none;
+    }
+    .product-detail {
+      border-left: 1px solid var(--hospital-green);
+      border-bottom: 1px solid var(--hospital-green);
+      border-radius: 8px;
     }
   }
