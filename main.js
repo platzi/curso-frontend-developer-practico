@@ -14,7 +14,9 @@ const cardsContainer = document.querySelector('.cards-container');
 
 // Selector que contiene los detalles de un producto
 const productDetailContainer = document.querySelector('#productDetail');
+const numberOfArt = document.querySelector ('.navbar-shopping-cart-number-articles');
 
+let totalClicks = 0;
 
 
 
@@ -26,6 +28,9 @@ menuHamIcon.addEventListener('click', toggleMobileMenu);
 IconShoppingCart.addEventListener('click', toggleShowProducts)
 // Cerrar los detalles del producto al hacer click en el ícono de la X BY MY OWN
 productDetailCloseIcon.addEventListener('click', closeProductDetails);
+
+
+
 
 // Tip: Se puede hacer lo siguiente con cada función toggle:
 // function toggleProductDetail(){
@@ -92,14 +97,14 @@ function toggleShowProducts()
         productDetailContainer.classList.add('inactive');
     }
 
-    
+
     
     // Para que toggle, cambie a inactive si es que no lo tiene al volver a darle click
     ShoppingCartContainer.classList.toggle('inactive');
  
 }
 
-
+                                           
 
 // función para desplegar los detalles de un producto al hacer click en img
 function openProductDetatilAside()
@@ -119,6 +124,8 @@ function closeProductDetails ()
 
 
 }
+
+
 
 // Bloque de código para creación de productos (imgs, description & AddToCart)
 // Array: 
@@ -161,6 +168,19 @@ productList.push({
 });
 
 
+// Array para los productos del shopping cart
+// const ShoppingCartProductsList = [];
+
+
+// // Push para crear datos dinámicos dentro del contenedor 
+// ShoppingCartProductsList.push(
+//     {
+//         cartItemName: product.name,
+//         priceItem: product.price,
+//         imageItem: product.image
+//     }
+// )
+
 /*{ <div class="product-card">
 <img src="https://images.pexels.com/photos/276517/pexels-photo-276517.jpeg?auto=compress&cs=tinysrgb&dpr=2&h=650&w=940" alt="">
 <div class="product-info">
@@ -179,6 +199,9 @@ productList.push({
 function renderProducts(arr){
     for (product of arr)
 {
+
+    let clickCount = 0;
+
     // Creación del contendor div
     const productCard = document.createElement('div');
     productCard.classList.add('product-card');
@@ -218,6 +241,25 @@ function renderProducts(arr){
     const productFigure = document.createElement('figure');
     const ImgAddToCart = document.createElement('img');
     ImgAddToCart.setAttribute('src','./icons/bt_add_to_cart.svg');
+
+
+
+
+    // Agregar un evento de clic al botón "ImgAddToCart"
+    ImgAddToCart.addEventListener('click', () => {
+        clickCount++;
+        totalClicks++;
+        // Actualizar el contenido del contador para este producto
+        numberOfArt.innerText = clickCount;
+        // Actualizar el número total de clics
+        // (puedes mostrarlo en otro elemento si es necesario)
+        // totalClicksElement.innerText = totalClicks;
+        totalClicksElement.innerText = totalClicks;
+      });
+
+
+
+    
     // Organizar y meter los elementos correspondientes conforme sus etiquetas contenedoras
     cardsContainer.appendChild(productCard);
 
@@ -236,5 +278,11 @@ function renderProducts(arr){
 
 // Inicialización de la función, parametro: producList en este caso
 renderProducts(productList);
+const totalClicksElement = document.querySelector('.navbar-shopping-cart-number-articles');
+
+totalClicksElement.innerText = totalClicks;
+
+
+
 
 
