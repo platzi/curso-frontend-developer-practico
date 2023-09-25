@@ -83,6 +83,11 @@ productList.push ({
     price: 1500,
     image: 'https://images.pexels.com/photos/4061525/pexels-photo-4061525.jpeg?auto=compress&cs=tinysrgb&w=1260&h=750&dpr=2',
 })
+productList.push ({
+    name : 'Auriculares',
+    price: 50,
+    image: 'https://images.pexels.com/photos/3394651/pexels-photo-3394651.jpeg?auto=compress&cs=tinysrgb&w=1260&h=750&dpr=2',
+})
 
 function renderProducts(arr) {
     for (product of arr) {

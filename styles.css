@@ -301,6 +301,10 @@ aside {
 }
 
 /* Estilos de Lista de Productos */
+
+/* .main-container {
+} */
+
 .cards-container {
   display: grid;
   grid-template-columns: repeat(auto-fill, 240px);
