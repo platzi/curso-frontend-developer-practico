@@ -321,8 +321,13 @@
     cursor: pointer;
   }
 
+  .delete{
+    cursor: pointer;
+  }
+
   .product-detail-item {
     width: 360px;
+    height: auto;
     padding-bottom: 24px;
     position: absolute;
     right: 0;
@@ -330,7 +335,7 @@
     background-color: var(--text-input-field);
     border-bottom: 1px solid var(--hospital-green);
     border-left: 1px solid var(--hospital-green);
-    border-radius: 9px;
+    border-radius: 0 0 18px 18px;
     border-top: none;
   }
   .product-detail-close {
@@ -344,14 +349,15 @@
     padding: 12px;
     border-radius: 50%;
   }
+  .buy:hover,
   .product-detail-close:hover {
     cursor: pointer;
   }
   .product-detail-item > img:nth-child(2) {
     width: 100%;
-    height: 360px;
+    height: 300px;
     object-fit: cover;
-    border-radius: 9px 0 20px 20px;
+    border-radius: 0 0 20px 20px;
 
   }
   .product-info-details {

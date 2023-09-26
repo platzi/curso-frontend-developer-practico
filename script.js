@@ -7,10 +7,12 @@ const mobileMenu = document.querySelector('.mobile-menu');
 
 const detailsProduct = document.querySelector('.product-detail-item');
 const cerrarDetails = document.querySelector('.product-detail-close');
+const addToCarButton = document.querySelector('.add-to-cart-button');
+const containerProductCar = document.querySelector('.container-product');
 
 const containerProducts = document.querySelector('.cards-container');
 const allProducts = document.querySelectorAll('.all');
-
+const numProduct = document.querySelector('.numProduct');
 
 class product{
     constructor(name, price, image){
@@ -21,18 +23,87 @@ class product{
 }
 
 function openImageDetails () {
+    showMenu(detailsProduct);
     detailsProduct.classList.remove("inactive");
-    // detailsProduct.classList.remove("inactive");
 }
 
 function detallesProduct({name, price, image}) {
     const nombre = document.querySelector('.name')
     const precio = document.querySelector('.price');
-    const img = document.querySelector('.image');
+    const img = document.querySelector('.img');
 
     nombre.innerHTML = name;
     precio.innerHTML = `$${price}`;
-    img.setAttribute("src", image)
+    img.setAttribute("src", image);
+
+    let count = containerProductCar.childNodes.length
+
+    const deleteButton = document.querySelectorAll(".delete");
+    for (let index = 0; index < deleteButton.length; index++){
+        deleteButton[index].addEventListener('click', function (e) {
+            let elementPrecio = deleteButton[index].previousElementSibling.innerHTML 
+            deleteButton[index].parentNode.remove();
+            deleteElementCard(elementPrecio)
+            // bool = true;
+        });
+    }
+}
+
+var bool = true;
+function deleteElementCard(precioDelete){
+    if(bool){
+        let total = document.querySelector('.total');
+        let semiTotal = total.innerHTML
+        
+        console.log(Number(semiTotal.slice(1) - precioDelete.slice(1)));
+        let acum2 = Number(semiTotal.slice(1) - precioDelete.slice(1));
+        total.textContent = `$${acum2}`;
+        
+        // number = number - 1;
+        divNum.textContent = Number(divNum.textContent - 1);
+        // bool = false;
+    }
+}
+
+const divNum = document.createElement("div");
+var acum = 0;
+var number = 0
+function addToCar (price) {
+    bool = true;
+    const nombre = document.querySelector('.name').textContent
+    // const precio = document.querySelector('.price').textContent;
+    const img = document.querySelector('.img').src;
+
+    number = number + 1;
+    divNum.textContent = number;
+    numProduct.appendChild(divNum);
+
+    /**
+     <div class="shopping-cart">
+          <figure>
+            <img src="https://images.pexels.com/photos/276517/pexels-photo-276517.jpeg?auto=compress&cs=tinysrgb&dpr=2&h=650&w=940" alt="bike">
+          </figure>
+          <p>Bike</p>
+          <p>$30,00</p>
+          <img src="./icons/icon_close.png" alt="close">
+        </div>
+     */
+
+    const div = document.createElement("div");
+    div.classList.add("shopping-cart");
+    div.innerHTML = `<figure>
+                        <img src="${img}" alt="bike">
+                    </figure>
+                    <p>${nombre}</p>
+                    <p>$${price}</p>
+                    <img src="./icons/icon_close.png" class="delete" alt="close">`;
+
+    containerProductCar.appendChild(div);
+    const total = document.querySelector('.total');
+
+    acum = (parseFloat(acum) + parseFloat(price)); 
+    total.innerHTML = `$${acum.toFixed(2)}`;
+    
 }
 
 var newProduct = [];
@@ -64,28 +135,46 @@ function cardProduct() {
                                 </div>
                             </div>`;
 
-                            // containerProducts.innerHTML += producto;
-                            
-                            containerProducts.appendChild(producto);
+        containerProducts.appendChild(producto);
     }
 
+    var precioUnit = 0;
     const images = document.querySelectorAll(".image");
     for (let index = 0; index < 9; index++){
         images[index].addEventListener('click', function (e) {
             e.preventDefault();
             openImageDetails();
-            // showMenu(detailsProduct);
             detallesProduct(newProduct[index]);
-            // console.log(newProduct[0]);
+            precioUnit = newProduct[index].price
         });
         
     }
+    addToCarButton.addEventListener('click', function (e) {
+        detailsProduct.classList.toggle("inactive");
+        menuCompras.classList.remove("inactive");
+        numProduct.classList.remove("inactive");
+        addToCar(precioUnit);
+    });
     
     cerrarDetails.addEventListener("click", (e)=>{
         showMenu(detailsProduct);
     })
 
-    
+    const cardBuy = document.querySelectorAll('.buy');
+    for (let index = 0; index < 9; index++){
+        cardBuy[index].addEventListener('click', function (e) {
+            // e.preventDefault();
+            // openImageDetails();
+            detallesProduct(newProduct[index]);
+            precioUnit = newProduct[index].price
+
+            detailsProduct.classList.add("inactive");
+            menuCompras.classList.remove("inactive");
+            numProduct.classList.remove("inactive");
+            addToCar(precioUnit);
+        });
+    }
+
 }
 
 // containerProducts.removeChild(containerProducts.firstElementChild);
