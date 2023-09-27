@@ -5,12 +5,16 @@
     const mobileMenu = document.querySelector('.mobile-menu');
     const shoppingCartContainer = document.querySelector('#shoppingCartContainer');
     const cardsContainer = document.querySelector('.cards-container');
+    const productdetailContainer = document.querySelector('#productDetail');
+    const productDetailCloseIcon = document.querySelector(".product-detail-close")
 
     menuEmail.addEventListener('click', toggleDesktopMenu);
     menuHamIcon.addEventListener('click', toggleMobileMenu);
     menuCarritoIcon.addEventListener('click', toggleCarritoAside);
+    productDetailCloseIcon.addEventListener("click", closeProductDetailAside)
 
-    function toggleDesktopMenu() {
+
+function toggleDesktopMenu() {
     const isAsideClosed = shoppingCartContainer.classList.contains('inactive');
 
     if (!shoppingCartContainer) {
@@ -18,28 +22,40 @@
     }
     
     desktopMenu.classList.toggle('inactive');
-    }
+}
 
-    function toggleMobileMenu() {
+function toggleMobileMenu() {
     const isAsideClosed = shoppingCartContainer.classList.contains('inactive');
 
     if (!isAsideClosed) {
         shoppingCartContainer.classList.add('inactive'); 
     }
+    closeProductDetailAside()
     
     mobileMenu.classList.toggle('inactive');
-    }
-
-    function toggleCarritoAside() {
+}
+function toggleCarritoAside() {
     const isMobileMenuClosed = mobileMenu.classList.contains('inactive');
     
     if (!isMobileMenuClosed) {
         mobileMenu.classList.add('inactive'); 
     }
+    const isProducDetailClosed = productdetailContainer.classList.contains('inactive');
+
+    if (!isProducDetailClosed) {
+        productdetailContainer.classList.add('inactive'); 
+    }
     
     shoppingCartContainer.classList.toggle('inactive');
-    }
+}
+function openProducDetailAside(){
+    shoppingCartContainer.classList.add("inactive")
 
+    productdetailContainer.classList.remove("inactive")
+}
+function closeProductDetailAside(){
+    productdetailContainer.classList.add("inactive")
+}
     const productList = [];
     productList.push({
         name: "Computer",
@@ -78,6 +94,7 @@
         // product= {name, price, image} -> product.image
         const productImg = document.createElement('img');
         productImg.setAttribute('src', product.img);
+        productImg.addEventListener("click" , openProducDetailAside)
     
         const productInfo = document.createElement('div');
         productInfo.classList.add('product-info');
