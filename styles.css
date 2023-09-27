@@ -162,4 +162,10 @@ nav {
   .navbar-email {
     display: none;
   }
+  .desktop-menu {
+    display: none;
+  }
+  .mobile-menu {
+    display: none;
+  }
 }
