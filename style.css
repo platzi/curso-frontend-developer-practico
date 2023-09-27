@@ -90,6 +90,7 @@
     border: 1px solid var(--very-light-pink);
     border-radius: 6px;
     padding: 20px 20px 0 20px;
+    background-color:  #FFFFFF;
   }
   .desktop-menu ul {
     list-style: none;
@@ -124,6 +125,7 @@
     box-sizing: border-box;
     position: absolute;
     right: 0;
+    background-color:  #FFFFFF;
   }
   .title-container {
     display: flex;
@@ -246,6 +248,7 @@
       position: absolute;
       top: 60px;
       padding: 24px;
+      background-color:  #FFFFFF;
     }
     .mobile-menu a {
       text-decoration: none;
