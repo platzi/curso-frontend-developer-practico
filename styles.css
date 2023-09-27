@@ -133,7 +133,8 @@
     background-color: var(--white);
     position: absolute;
     top: 61px;
-   /* padding: 24px; */
+    left: 0px;
+    padding: 20px; */
   }
   .mobile-menu a {
     text-decoration: none;
