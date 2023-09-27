@@ -295,6 +295,7 @@ nav {
 /* product-detail-secundary */
 .product-detail-secundary {
   padding-bottom: 24px;
+  border: 1px solid var(--very-light-pink);
   background-color: var(--white);
 }
 .product-detail-close {

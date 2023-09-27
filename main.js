@@ -208,73 +208,73 @@ let listProductCartShopping = [];
 function addProductToList() {
   productList.push({
     image:
-      "https://images.pexels.com/photos/276517/pexels-photo-276517.jpeg?auto=compress&cs=tinysrgb&dpr=2&h=650&w=940",
-    name: "Bike",
+      "https://www.dexter.com.ar/on/demandware.static/-/Sites-365-dabra-catalog/default/dw0a7f06b2/products/PU389008-09/PU389008-09-1.JPG",
+    name: "Zapatillas Puma Graviton Mega Unisex",
     price: 100,
     description:
       "With its practical position, this bike also fulfills a decorative function, add your hall or workspace.",
   });
   productList.push({
     image:
-      "https://images.pexels.com/photos/2529148/pexels-photo-2529148.jpeg?auto=compress&cs=tinysrgb&w=600",
-    name: "Shoes",
+      "https://www.dexter.com.ar/on/demandware.static/-/Sites-365-dabra-catalog/default/dw40e48acb/products/PU389003-01/PU389003-01-1.JPG",
+    name: "Zapatillas Puma Rbd Game Unisex",
     price: 125,
     description:
       "With its practical position, this bike also fulfills a decorative function, add your hall or workspace.",
   });
   productList.push({
     image:
-      "https://images.pexels.com/photos/701877/pexels-photo-701877.jpeg?auto=compress&cs=tinysrgb&w=600",
-    name: "Sunglasses",
+      "https://www.dexter.com.ar/on/demandware.static/-/Sites-365-dabra-catalog/default/dw4d8367f8/products/NIDM1119-005/NIDM1119-005-1.JPG",
+    name: "Zapatillas Entrenamiento Nike Legend Essential 3 Next Nature Mujer",
     price: 80,
     description:
       "With its practical position, this bike also fulfills a decorative function, add your hall or workspace.",
   });
   productList.push({
     image:
-      "https://images.pexels.com/photos/303383/pexels-photo-303383.jpeg?auto=compress&cs=tinysrgb&w=1260&h=750&dpr=1",
-    name: "Computer",
+      "https://www.dexter.com.ar/on/demandware.static/-/Sites-365-dabra-catalog/default/dwa7e3700d/products/ADHQ1730/ADHQ1730-1.JPG",
+    name: "Zapatillas Running adidas Comfort Mujer",
     price: 680,
     description:
       "With its practical position, this bike also fulfills a decorative function, add your hall or workspace.",
   });
   productList.push({
     image:
-      "https://images.pexels.com/photos/1983037/pexels-photo-1983037.jpeg?auto=compress&cs=tinysrgb&w=1260&h=750&dpr=1",
-    name: "Camara",
+      "https://www.dexter.com.ar/on/demandware.static/-/Sites-365-dabra-catalog/default/dw3f4dd6f9/products/NI_DD9294-001/NI_DD9294-001-1.JPG",
+    name: "Zapatillas Nike Downshifter 12",
     price: 60,
     description:
       "With its practical position, this bike also fulfills a decorative function, add your hall or workspace.",
   });
   productList.push({
     image:
-      "https://images.pexels.com/photos/914996/pexels-photo-914996.jpeg?auto=compress&cs=tinysrgb&w=1260&h=750&dpr=1",
-    name: "ice skates",
+      "https://www.dexter.com.ar/on/demandware.static/-/Sites-365-dabra-catalog/default/dw6cb9cd8d/products/PU_378144-01/PU_378144-01-1.JPG",
+    name: "Zapatillas Puma Retaliate 2",
     price: 300,
     description:
       "With its practical position, this bike also fulfills a decorative function, add your hall or workspace.",
   });
   productList.push({
     image:
-      "https://images.pexels.com/photos/276517/pexels-photo-276517.jpeg?auto=compress&cs=tinysrgb&dpr=2&h=650&w=940",
-    name: "Bike",
+      "https://www.dexter.com.ar/on/demandware.static/-/Sites-365-dabra-catalog/default/dwb6dc54e1/products/NI_DH2987-001/NI_DH2987-001-1.JPG",
+    name: "Zapatillas Nike Court Vision Lo Be",
     price: 100,
     description:
       "With its practical position, this bike also fulfills a decorative function, add your hall or workspace.",
   });
   productList.push({
     image:
-      "https://images.pexels.com/photos/2529148/pexels-photo-2529148.jpeg?auto=compress&cs=tinysrgb&w=600",
-    name: "Shoes",
+      "https://www.dexter.com.ar/on/demandware.static/-/Sites-365-dabra-catalog/default/dwe3806098/products/NIDM9537-002/NIDM9537-002-1.JPG",
+    name: "Zapatillas Nike Nike Air Max Systm Hombre",
     price: 125,
     description:
       "With its practical position, this bike also fulfills a decorative function, add your hall or workspace.",
   });
   productList.push({
     image:
-      "https://images.pexels.com/photos/701877/pexels-photo-701877.jpeg?auto=compress&cs=tinysrgb&w=600",
-    name: "Sunglasses",
-    price: 80,
+      "https://www.dexter.com.ar/on/demandware.static/-/Sites-365-dabra-catalog/default/dw4d5af313/products/NI_CW4555-006/NI_CW4555-006-1.JPG",
+    name: "Zapatillas Nike Air Max Sc",
+    price: 60,
     description:
       "With its practical position, this bike also fulfills a decorative function, add your hall or workspace.",
   });
