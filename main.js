@@ -3,31 +3,31 @@ const desktopMenu = document.querySelector('.desktop-menu');
 const menuHamDesktop = document.querySelector('.menu');
 const desktopMobile = document.querySelector('.mobile-menu');
 const menuCarritoIcon = document.querySelector('.navbar-shopping-cart');
-const aside = document.querySelector('.product-detail');
+const shoppingCartContainer = document.querySelector('#shoppingCartContainer');
 const CardContainer = document.querySelector('.cards-container');
 
 menuEmail.addEventListener('click', toggleDesktopMenu);
 menuHamDesktop.addEventListener('click', tooggleMobileMenu);
-menuCarritoIcon.addEventListener('click', toggleCarritoAside);
+menuCarritoIcon.addEventListener('click', toggleCarritoshoppingCartContainer);
 
 function toggleDesktopMenu() {
-    const isAsideClosed = aside.classList.contains('inactive');
-    if(!isAsideClosed) {
-        aside.classList.add('inactive');
+    const isshoppingCartContainerClosed = shoppingCartContainer.classList.contains('inactive');
+    if(!isshoppingCartContainerClosed) {
+        shoppingCartContainer.classList.add('inactive');
      }
     desktopMenu.classList.toggle('inactive');
 }
 
 function tooggleMobileMenu() {
-    const isAsideClosed = aside.classList.contains('inactive');
-    if(!isAsideClosed) {
-        aside.classList.add('inactive');
+    const isshoppingCartContainerClosed = shoppingCartContainer.classList.contains('inactive');
+    if(!isshoppingCartContainerClosed) {
+        shoppingCartContainer.classList.add('inactive');
      }
 
     desktopMobile.classList.toggle('inactive');
 }
 
-function toggleCarritoAside() {
+function toggleCarritoshoppingCartContainer() {
     const isMobileMenuClosed = desktopMobile.classList.contains('inactive');
     const isDesktopMenuClosed = desktopMenu.classList.contains('inactive');
 
@@ -39,7 +39,7 @@ function toggleCarritoAside() {
        desktopMobile.classList.add('inactive');
     }
 
-    aside.classList.toggle('inactive');
+    shoppingCartContainer.classList.toggle('inactive');
 }
 
 const productList = [];
