@@ -3,7 +3,7 @@ const desktopMenu = document.querySelector('.desktop-menu');
 const hamMenu = document.querySelector('.menu');
 const mobileMenu = document.querySelector('.mobile-menu');
 const carBuy = document.querySelector('.navbar-shopping-cart');
-const myOrders = document.querySelector('.product-detail');
+const shoppingCartContainer = document.querySelector('#shoppingCartContainer');
 const cardsContainer = document.querySelector('.cards-container');
 
 
@@ -15,10 +15,10 @@ carBuy.addEventListener('click', toggleCarBuy);
 //Esta funcion alternará la clase inactive
 function toggleDestopMenu() {
     const isMobileMenuOpen = !mobileMenu.classList.contains('inactive');
-    const isMyOrdersOpen = !carBuy.classList.contains('inactive');
+    const isShoppingCartContainerOpen = !carBuy.classList.contains('inactive');
 
-    if (isMyOrdersOpen) {
-        myOrders.classList.add('inactive');
+    if (isShoppingCartContainerOpen) {
+        shoppingCartContainer.classList.add('inactive');
     }
    
     if (isMobileMenuOpen) {
@@ -30,15 +30,15 @@ function toggleDestopMenu() {
 
 function toggleMobileMenu() {
      //El signo "!" funciona para negar una condicion
-    const isMyOrdersOpen = !carBuy.classList.contains('inactive');
+    const isShoppingCartContainerOpen = !carBuy.classList.contains('inactive');
     const isdesktopMenuOpen = !desktopMenu.classList.contains('inactive');
    
     if (isdesktopMenuOpen) {
         desktopMenu.classList.add('inactive')
     }
     
-    if (isMyOrdersOpen) {
-        myOrders.classList.add('inactive');
+    if (isShoppingCartContainerOpen) {
+        shoppingCartContainer.classList.add('inactive');
     }
 
     mobileMenu.classList.toggle('inactive');
@@ -56,7 +56,7 @@ function toggleCarBuy() {
         mobileMenu.classList.add('inactive');
     }
 
-    myOrders.classList.toggle('inactive');
+    shoppingCartContainer.classList.toggle('inactive');
 
 }
 
@@ -89,7 +89,9 @@ productList.push({
           </figure>
         </div>
     </div>*/
-for (product of productList) {
+
+//recorrido de array con for
+    for (product of productList) {
     const productCard = document.createElement('div');
     productCard.classList.add('product-card');
 
@@ -117,7 +119,6 @@ for (product of productList) {
     productInfoDiv.appendChild(productName); 
     productInfoDiv.appendChild(productprice);
        
-    
     productInfo.appendChild(productInfoFigure);
     productInfo.appendChild(productInfoDiv);
     
