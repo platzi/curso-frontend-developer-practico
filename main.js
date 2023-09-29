@@ -3,7 +3,7 @@ const desktopMenu= document.querySelector('.desktop-menu');
 const menuCarritoIcon= document.querySelector('.navbar-shopping-cart');
 const burguerMenu= document.querySelector('.menu');
 const mobileMenu= document.querySelector('.mobile-menu');
-const aside= document.querySelector('.product-detail');
+const shoppingCartContainer= document.querySelector('#shoppingCartContainer');
 const cardsContainer= document.querySelector('.cards-container');
 
 menuEmail.addEventListener('click', toggleDesktopMenu);
@@ -13,11 +13,11 @@ burguerMenu.addEventListener('click', toggleMobileMenu);
 
 function toggleDesktopMenu(){
 
-    const isAsideClosed= aside.classList.contains('inactive');
+    const isAsideClosed= shoppingCartContainer.classList.contains('inactive');
  
     //  si aside no esta cerrado, lo cerramos
     if(!isAsideClosed){
-        aside.classList.add('inactive'); 
+        shoppingCartContainer.classList.add('inactive'); 
     } 
     // si estaba abierto, cerramos el menumobile y luego activamos el toggle para que se active al dar click   
 
@@ -27,11 +27,11 @@ function toggleDesktopMenu(){
 }
 
 function toggleMobileMenu() {
-    const isAsideClosed= aside.classList.contains('inactive');
+    const isAsideClosed= shoppingCartContainer.classList.contains('inactive');
  
     //  si aside no esta cerrado, lo cerramos
     if(!isAsideClosed){
-        aside.classList.add('inactive'); 
+        shoppingCartContainer.classList.add('inactive'); 
     } 
     // si estaba abierto, cerramos el menumobile y luego activamos el toggle para que se active al dar click   
 
@@ -48,7 +48,7 @@ function toggleCarritoAside() {
     } 
     // si estaba abierto, cerramos el menumobile y luego activamos el toggle para que se active al dar click
     
-    aside.classList.toggle('inactive');
+    shoppingCartContainer.classList.toggle('inactive');
 }
 
 const productList= []; /*Array que nos devolvería nuestro
