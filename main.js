@@ -22,8 +22,10 @@ function toggleDesktopMenu(){
     if(!isAsideMenuClose){
         asideProductDetail.classList.add('inactive');
     }
+    productDetailWindowContainer.classList.add('inactive');
+
     console.log('Click en navbar-email');
-    desktopMenu.classList.toggle('inactive'); 
+    desktopMenu.classList.toggle('inactive');
 }
 
 function toggleMobileMenu(){
@@ -61,6 +63,7 @@ function toggleCarritoAside(){
 function openProductDetailWindow(){
     asideProductDetail.classList.add('inactive');
     mobileMenu.classList.add('inactive');
+    desktopMenu.classList.add('inactive');
     productDetailWindowContainer.classList.remove('inactive');
 }
 function closeProductDetailWindow(){
