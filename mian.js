@@ -9,77 +9,55 @@ const productDetail = document.querySelector(".product-detail");
 
 
 
-menuEmail.addEventListener("click", ghost);
-//hamburguesaMenu.addEventListener("click", aparecerMenuHamburguesa);
+menuEmail.addEventListener("click", aparecerCarritoDesktopMenu);
+hamburguesaMenu.addEventListener("click", aparecerMenuHamburguesa);
 carritoIcon.addEventListener("click", aparecerCarritoDeCompras);
 
 
-function ghost (){
-    if (!asideCarrito.classList.contains("inactive") && desktopMenu.classList.contains("inactive") ) {
-        asideCarrito.classList.add("inactive")
+function aparecerCarritoDesktopMenu (){
+    if (!asideCarrito.classList.contains("inactive")){
+        asideCarrito.classList.add("inactive");
     } 
-    desktopMenu.classList.toggle("inactive");
-} 
-/*
-function ghost1 (){
-    if (!asideCarrito.classList.contains("inactive") && !desktopMenu.classList.contains("inactive") ) {
-        asideCarrito.classList.add("inactive")
-    } 
-    desktopMenu.classList.toggle("inactive");
-}     
-    
-
-function aparecerMenu () {
-    if (!asideCarrito.classList.contains("inactive")) {
-        asideCarrito.classList.add("inactive")
-    }
     desktopMenu.classList.toggle("inactive");
 }
-
+function aparecerCarritoDeCompras () {
+    if (!desktopMenu.classList.contains("inactive") || !MobilMenu.classList.contains("inactive")) {    
+        desktopMenu.classList.add("inactive");
+        MobilMenu.classList.add("inactive");
+    }
+    asideCarrito.classList.toggle("inactive");
+}
 function aparecerMenuHamburguesa () {
-    if (!asideCarrito.classList.contains("inactive")) {
+    if (!asideCarrito.classList.contains("inactive")){
         asideCarrito.classList.add("inactive")
     }
     MobilMenu.classList.toggle("inactive");
 }
-*/
-function aparecerCarritoDeCompras(){
-    if (!MobilMenu.classList.contains("inactive") && !desktopMenu.classList.contains("inactive")) {
-        MobilMenu.classList.add("inactive")
-        desktopMenu.classList.add("inactive")
+
+class product {
+    constructor (nombre, price, image, description){
+        this.nombre = nombre,
+        this.price = price,
+        this.image = image,
+        this.description = description 
     }
-    asideCarrito.classList.toggle("inactive");
 }
+const producto1 = new product ("bike", 120,"https://images.pexels.com/photos/276517/pexels-photo-276517.jpeg?auto=compress&cs=tinysrgb&w=1260&h=750&dpr=1","With its practical position, this bike also fulfills a decorative function, add your hall or workspace")
+const producto2 = new product ("Camera",1250, "https://images.pexels.com/photos/1983037/pexels-photo-1983037.jpeg?auto=compress&cs=tinysrgb&w=1260&h=750&dpr=1","This is a camera")
+const producto3 = new product ("scooter",6480, "https://images.pexels.com/photos/18127120/pexels-photo-18127120/free-photo-of-red-vespa-scooter-parked-in-a-cozy-yard-of-a-house.jpeg?auto=compress&cs=tinysrgb&w=600","This is a scooter")
+
 
 const productList = [];
-
-productList.push({
-    Nombre: "bike",
-    Price: 120,
-    Image: "https://images.pexels.com/photos/276517/pexels-photo-276517.jpeg?auto=compress&cs=tinysrgb&dpr=2&h=650&w=940",
-    Description: "With its practical position, this bike also fulfills a decorative function, add your hall or workspace"  
-});
-productList.push({
-    Nombre: "Camera",
-    Price: 1250,
-    Image: "https://images.pexels.com/photos/1983037/pexels-photo-1983037.jpeg?auto=compress&cs=tinysrgb&w=1260&h=750&dpr=1",
-    Description: "This is a camera"
-});
-productList.push({
-    Nombre: "scooter",
-    Price: 6480,
-    Image: "https://images.pexels.com/photos/18127120/pexels-photo-18127120/free-photo-of-red-vespa-scooter-parked-in-a-cozy-yard-of-a-house.jpeg?auto=compress&cs=tinysrgb&w=600",
-    Description: "This is a scooter"
-});
+productList.push(producto1, producto2, producto3);
 
 
 function showProducts (array) {
-    for (product of productList){
+    for (let i=0; i<productList.length; i++){
         const productCard = document.createElement("div");
         productCard.classList.add("product-card");
         
         const img = document.createElement("img");
-        img.setAttribute("src", product.Image);
+        img.setAttribute("src", productList.image);
         img.addEventListener("click", aparecerProductDetail);
 
         const productInfo = document.createElement("div");
@@ -88,10 +66,10 @@ function showProducts (array) {
         const newDiv = document.createElement("div");
 
         const textoPrice = document.createElement("p");
-        textoPrice.innerText = "$" + product.Price;
+        textoPrice.innerText = "$" + productList.price;
 
         const textoNombre = document.createElement("p");
-        textoNombre.innerText = product.Nombre;
+        textoNombre.innerText = productList.nombre;
         
         const figure = document.createElement("figure");
 
@@ -126,7 +104,7 @@ function aparecerProductDetail () {
     imgClose.setAttribute("src", "./icons/icon_close.png");
 
     const imgProducto = document.createElement("img");
-    imgProducto.setAttribute("src", product.Image);
+    imgProducto.setAttribute("src", "https://images.pexels.com/photos/276517/pexels-photo-276517.jpeg?auto=compress&cs=tinysrgb&dpr=2&h=650&w=940");
     
     const productInfoFromProductDetail = document.createElement("div");
     productInfoFromProductDetail.classList.add("product-info-from-product-detail");
