@@ -245,6 +245,10 @@ nav {
 
 /*Product Detail*/  
 
+#product-detail{
+    top:60px;
+}
+
 .product-detail-close {
     background: var(--white);
     width: 14px;
