@@ -4,7 +4,7 @@ const menuIcon = document.querySelector('.menu');
 const mobileMenuList = document.querySelector('.mobile-menu');
 const menuCartIcon = document.querySelector('.navbar-shopping-cart');
 const aside = document.querySelector('.product-detail');
-
+const cardsContainer = document.querySelector('.cards-container');
 
 navEmail?.addEventListener('click',toogleDesktopMenu);
 
@@ -49,20 +49,28 @@ const productList = [];
 
 productList.push({
     name : 'Bike',
-    prince: 250,
+    price: 250,
     image: 'https://images.pexels.com/photos/276517/pexels-photo-276517.jpeg?auto=compress&cs=tinysrgb&dpr=2&h=650&w=940',
 });
 
 productList.push({
     name : 'Nikon Z6II',
-    prince: 1900,
+    price: 1900,
     image: 'https://www.udeniosite.com/funciones_destacadas/img/z6ii/1659-Z6II-right.png',
 });
 
 productList.push({
     name : 'Xbox Controller',
-    prince: 90,
+    price: 90,
     image: 'https://m.media-amazon.com/images/I/513gfnMEWnL.jpg',
+
+});
+
+productList.push({
+    name : 'Nikon 135mm 1.8 Plena',
+    price: 2560,
+    image: 'https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcR4AIQUcKIcLjPaEyKF3ckA9SOCK5YAmsv9q7B-xUVWFinmVxZw3-1BbOxnS9ntUN9Oo2U&usqp=CAU',
+    
 });
 
 console.log(productList);
@@ -81,14 +89,17 @@ console.log(productList);
         </div>
       </div> */
 
+
+
+function renderProducts(arr){
 let product : any;
 
-for (product of productList){  
+for (product of arr){  
     const productCard = document.createElement('div');
     productCard.classList.add('product-card');
 
-    const img = document.createElement('img');
-    img.setAttribute('src',product.image);
+    const prodImg = document.createElement('img');
+    prodImg.setAttribute('src',product.image);
 
     const productInfo = document.createElement('div');
     productInfo.classList.add('product-info');
@@ -101,8 +112,24 @@ for (product of productList){
     const productName = document.createElement('p');
     productName.innerText = product.name;
 
-    const iconAddCart = document.createElement('figure');
-    iconAddCart.setAttribute('src','../icons/bt_add_to_cart.svg');
 
+    const iconAddCartFigure = document.createElement('figure');
+    const cartIcon = document.createElement('img');
+    cartIcon.setAttribute('src','../icons/bt_add_to_cart.svg');
     
+
+    iconAddCartFigure.appendChild(cartIcon);
+
+    divProductInfo.appendChild(productName);
+    divProductInfo.appendChild(productPrice);
+
+    productCard.appendChild(prodImg);
+    productCard.appendChild(divProductInfo);
+
+    /* ahora tenemos que crear la estrcutura */    
+    cardsContainer?.appendChild(productCard);
 }
+
+}
+
+renderProducts(productList);
