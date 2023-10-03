@@ -8,7 +8,6 @@ const cardsContainer = document.querySelector(".cards-container");
 const productDetail = document.querySelector(".product-detail");
 
 
-
 menuEmail.addEventListener("click", aparecerCarritoDesktopMenu);
 hamburguesaMenu.addEventListener("click", aparecerMenuHamburguesa);
 carritoIcon.addEventListener("click", aparecerCarritoDeCompras);
@@ -43,15 +42,131 @@ class product {
     }
 }
 const producto1 = new product ("bike", 120,"https://images.pexels.com/photos/276517/pexels-photo-276517.jpeg?auto=compress&cs=tinysrgb&w=1260&h=750&dpr=1","With its practical position, this bike also fulfills a decorative function, add your hall or workspace")
-const producto2 = new product ("Camera",1250, "https://images.pexels.com/photos/1983037/pexels-photo-1983037.jpeg?auto=compress&cs=tinysrgb&w=1260&h=750&dpr=1","This is a camera")
+const producto2 = new product ("camera",1250, "https://images.pexels.com/photos/1983037/pexels-photo-1983037.jpeg?auto=compress&cs=tinysrgb&w=1260&h=750&dpr=1","This is a camera")
 const producto3 = new product ("scooter",6480, "https://images.pexels.com/photos/18127120/pexels-photo-18127120/free-photo-of-red-vespa-scooter-parked-in-a-cozy-yard-of-a-house.jpeg?auto=compress&cs=tinysrgb&w=600","This is a scooter")
 
 
 const productList = [];
 productList.push(producto1, producto2, producto3);
 
+productList.forEach((producto) => {
+    imprimirProductos = `
+    <div class="product-card">
+          <img src=${producto.image} id=${producto.nombre}>
+          <div class="product-info">
+          <div>
+            <p>$${producto.price}</p>
+            <p>${producto.nombre}</p>
+          </div>
+          <figure>
+            <img src="./icons/bt_add_to_cart.svg" alt="">
+          </figure>
+        </div>
+      </div>
+      `
+      cardsContainer.innerHTML += imprimirProductos
 
-function showProducts (array) {
+      x = document.getElementById("bike");
+      y = document.getElementById("camera");
+      z = document.getElementById("scooter");
+      
+    })
+
+x.addEventListener("click",aparecerProductDetail1);
+y.addEventListener("click",aparecerProductDetail2);
+z.addEventListener("click",aparecerProductDetail3);
+
+function aparecerProductDetail1 () {
+        imprimirDetalleProducto =`
+        <div class="product-detail-close">
+            <img src="./icons/icon_close.png" alt="close">
+        </div>
+        <img src=${producto1.image} alt="bike">
+        <div class=".product-info-from-product-detail">
+            <p>$${producto1.price}</p>
+            <p>${producto1.nombre}</p>
+            <p>${producto1.description}</p>
+            <button class="primary-button add-to-cart-button">
+            <img src="./icons/bt_add_to_cart.svg" alt="add to cart">
+            <p>Add to cart</p>
+            </button>
+        </div>
+    `
+    productDetail.innerHTML += imprimirDetalleProducto
+    productDetail.classList.remove("inactive");
+    ProductDetailCloseClose = document.querySelector(".product-detail-close");
+    ProductDetailCloseClose.addEventListener("click", OcultarProductDetail)
+
+    function OcultarProductDetail () {
+        imprimirDetalleProducto =`
+        <div class="product-detail-close">
+            <img src="./icons/icon_close.png" alt="close">
+        </div>
+        <img src= alt="bike">
+        <div class=".product-info-from-product-detail">
+            <p></p>
+            <p></p>
+            <p></p>
+            <button class="primary-button add-to-cart-button">
+            <img src="./icons/bt_add_to_cart.svg" alt="add to cart">
+            <p>Add to cart</p>
+            </button>
+        </div>
+    `
+    }
+}
+function aparecerProductDetail2 () {
+    imprimirDetalleProducto =`
+    <div class="product-detail-close">
+        <img src="./icons/icon_close.png" alt="close">
+    </div>
+    <img src=${producto2.image} alt="bike">
+    <div class=".product-info-from-product-detail">
+        <p>${producto2.price}</p>
+        <p>${producto2.nombre}</p>
+        <p>${producto2.description}</p>
+        <button class="primary-button add-to-cart-button">
+        <img src="./icons/bt_add_to_cart.svg" alt="add to cart">
+        <p>Add to cart</p>
+        </button>
+    </div>
+`
+productDetail.innerHTML += imprimirDetalleProducto
+productDetail.classList.remove("inactive");
+ProductDetailCloseClose = document.querySelector(".product-detail-close");
+ProductDetailCloseClose.addEventListener("click", OcultarProductDetail)
+
+function OcultarProductDetail () {
+    productDetail.classList.add("inactive");
+}
+}
+function aparecerProductDetail3 () {
+    imprimirDetalleProducto =`
+    <div class="product-detail-close">
+        <img src="./icons/icon_close.png" alt="close">
+    </div>
+    <img src=${producto3.image} alt="bike">
+    <div class=".product-info-from-product-detail">
+        <p>${producto3.price}</p>
+        <p>${producto3.nombre}</p>
+        <p>${producto3.description}</p>
+        <button class="primary-button add-to-cart-button">
+        <img src="./icons/bt_add_to_cart.svg" alt="add to cart">
+        <p>Add to cart</p>
+        </button>
+    </div>
+`
+productDetail.innerHTML += imprimirDetalleProducto
+productDetail.classList.remove("inactive");
+ProductDetailCloseClose = document.querySelector(".product-detail-close");
+ProductDetailCloseClose.addEventListener("click", OcultarProductDetail)
+
+function OcultarProductDetail () {
+    productDetail.classList.add("inactive");
+}
+}
+
+/*function showProducts (array) {
     for (let i=0; i<productList.length; i++){
         const productCard = document.createElement("div");
         productCard.classList.add("product-card");
@@ -92,9 +207,9 @@ function showProducts (array) {
     }
     
 }
-
-showProducts (productList);
-
+*/
+//showProducts (productList);
+/*
 function aparecerProductDetail () {
 
     const productDetailClose = document.createElement("div");
@@ -150,7 +265,7 @@ function aparecerProductDetail () {
     productDetail.classList.add("inactive");
     }
 }
-
+*/
 /*
       <div class="product-detail-close">
         <img src="./icons/icon_close.png" alt="close">
