@@ -131,5 +131,5 @@ for (product of arr){
 }
 
 }
-
+/* hasta acá todo funciona */
 renderProducts(productList);
