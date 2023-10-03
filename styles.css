@@ -126,8 +126,10 @@ nav {
 /* mobile styles menu class 8 ///////////////////////////////*/
 .mobile-menu {
     position: absolute;
-    top: 40px;
-    padding: 24px;
+    left: 0px;
+    top: 61px;
+    padding: 0 24px;
+    background-color: var(--white);
 }
 .mobile-menu a {
     text-decoration: none;
