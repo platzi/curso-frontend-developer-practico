@@ -3,7 +3,7 @@ const desktopMenu = document.querySelector('.desktop-menu');
 const burguerIcon = document.querySelector('.burguer-icon');
 const mobileMenu = document.querySelector('.mobile-menu');
 const cartIcon = document.querySelector('.navbar-shopping-cart');
-const aside = document.querySelector('.product-detail');
+const shoppingCartAside = document.querySelector('.shopping-cart-aside');
 const cardsContainer = document.querySelector('.cards-container');
 let productList = [];
 
@@ -13,19 +13,19 @@ cartIcon.addEventListener('click', deployAside);
 
 
 function deployDesktopMenu() {
-    const isAsideOpen = !aside.classList.contains('inactive');
+    const isAsideOpen = !shoppingCartAside.classList.contains('inactive');
 
     if (isAsideOpen) {
-        aside.classList.add('inactive');
+        shoppingCartAside.classList.add('inactive');
     }
 
     desktopMenu.classList.toggle('inactive');
 }
 function deployMobileMenu() {
-    const isAsideOpen = !aside.classList.contains('inactive');
+    const isAsideOpen = !shoppingCartAside.classList.contains('inactive');
 
     if (isAsideOpen) {
-        aside.classList.add('inactive');
+        shoppingCartAside.classList.add('inactive');
     }
 
     mobileMenu.classList.toggle('inactive');
@@ -39,7 +39,7 @@ function deployAside() {
         mobileMenu.classList.add('inactive');
     }
 
-    aside.classList.toggle('inactive');
+    shoppingCartAside.classList.toggle('inactive');
 }
 function product(image, price, name) {
     this.image = image;
