@@ -4,12 +4,16 @@ const menuMobileLogo = document.querySelector('.menu');
 const mobileMenu = document.querySelector('.mobile-menu');
 const menuCarrito = document.querySelector('.navbar-shopping-cart');
 const asideCarrito = document.querySelector('#shoppingCartContainer');
+const productDetailContainer = document.querySelector('#productDetail');
+const productDetailClose = document.querySelector('.product-detail-close');
 const cardsContainer = document.querySelector('.cards-container');
 
 
 menuEmail.addEventListener('click', toggleDesktopMenu);
 menuMobileLogo.addEventListener('click', toggleMobilepMenu);
 menuCarrito.addEventListener('click', toggleAsideCarrito);
+
+productDetailClose.addEventListener('click',closeProductDetailAside)
 
 
 function toggleDesktopMenu(){
@@ -28,11 +32,13 @@ function toggleMobilepMenu(){
         asideCarrito.classList.add('inactive')
     }
     mobileMenu.classList.toggle('inactive');
+    closeProductDetailAside(); // Para que me cierre el detalle cuando abro el MenuMobile
 }
 
 function toggleAsideCarrito(){
     const isMobileMenuClosed = mobileMenu.classList.contains('inactive'); // Devuelve True si esta cerrado o False si esta abierto
     const isDesktopMenuClosed = desktopMenu.classList.contains('inactive');
+    const isProductDetailContainerClosed = productDetailContainer.classList.contains('inactive');
 
     // Evalua si el mobileMenu esta abierto, al llegar en False, se cambia a True para que entre al condicional
     if (!isMobileMenuClosed) {
@@ -41,7 +47,28 @@ function toggleAsideCarrito(){
     if (!isDesktopMenuClosed) {
         desktopMenu.classList.add('inactive');
     }
+    if (!isProductDetailContainerClosed) {
+        productDetailContainer.classList.add('inactive');
+    }
+
     asideCarrito.classList.toggle('inactive');
+
+}
+
+function openProductDetailAside(){
+ /*
+    const isAsideCarritoClosed = asideCarrito.classList.contains('inactive');
+    
+    if (!isAsideCarritoClosed) {
+        asideCarrito.classList.add('inactive');
+    }
+ */
+    asideCarrito.classList.add('inactive'); // Resumen del codigo de arriba, siempre cerrare el carrito cuando se abra el detail
+    productDetailContainer.classList.remove('inactive');
+}
+
+function closeProductDetailAside(){
+    productDetailContainer.classList.add('inactive');
 }
 
 const productList = [];
@@ -71,6 +98,7 @@ function renderProducts (arr){
     
         const productImg = document.createElement('img');
         productImg.setAttribute('src', product.image); // Agrego al src el link que se encuentra dentro del elemento producto en Image
+        productImg.addEventListener('click', openProductDetailAside)
     
         const productInfo = document.createElement('div');
         productInfo.classList.add('product-info');
