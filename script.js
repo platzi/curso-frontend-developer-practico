@@ -44,8 +44,8 @@ const isMobileMenuClosed = mobileMenu.classList.contains('inactive');
 const productList = [];
 productList.push({
     name: 'Bike',
-    price: 320,
-    img: 'https://images.pexels.com/photos/276517/pexels-photo-276517.jpeg?auto=compress&cs=tinysrgb&dpr=2&h=650&w=940'
+    price: 752,
+    img: 'https://www.tubici.com/wp-content/uploads/2022/03/060688-BICICLETA-GW-ALLIGATOR-MTB-29-2X11-CON-OBSEQUIOS-1.jpg'
 });
 productList.push({
     name: 'Basketball (ball)',
