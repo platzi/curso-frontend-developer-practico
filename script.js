@@ -4,6 +4,8 @@ const menuHam = document.querySelector('.menu'); //Variable para el menu hamburg
 const mobileMenu = document.querySelector('.mobile-menu');
 const shoppingCart = document.querySelector('.navbar-shopping-cart'); //Variable para el icono de carrito de compra
 const asideProductDetail = document.querySelector('.product-detail');
+const productDetailSecundary = document.querySelector('.product-detail-secundary');
+const btnProductDetailClose = document.querySelector('.product-detail-close');
 const cardsContainer = document.querySelector('.cards-container');
 
 navEmail.addEventListener('click', toggleDesktopMenu);
@@ -27,6 +29,12 @@ const isAsideCartClosed = asideProductDetail.classList.contains('inactive');
         asideProductDetail.classList.add('inactive');
     }
 
+    const isProductDetalSecundaryClosed = productDetailSecundary.classList.contains('inactive');
+
+    if (!isProductDetalSecundaryClosed) {
+        productDetailSecundary.classList.add('inactive');
+    }
+
     mobileMenu.classList.toggle('inactive');
 }
 
@@ -38,8 +46,26 @@ const isMobileMenuClosed = mobileMenu.classList.contains('inactive');
         //si mobileMenu esta abierto, hay que cerrarlo
     }
 
+    const isProductDetalSecundaryClosed = productDetailSecundary.classList.contains('inactive');
+
+    if (!isProductDetalSecundaryClosed) {
+        productDetailSecundary.classList.add('inactive');
+    }
+
     asideProductDetail.classList.toggle('inactive');
 }
+
+function openProductDetailSecundary() {
+    asideProductDetail.classList.add('inactive');
+    productDetailSecundary.classList.remove('inactive');
+    mobileMenu.classList.add('inactive');
+}
+
+function closeProductDetailSecundary() {
+    productDetailSecundary.classList.add('inactive');
+}
+
+
 
 const productList = [];
 productList.push({
@@ -99,6 +125,9 @@ function prodcutRender(arr) {
     for (product of arr){
         const productCard = document.createElement('div');
         productCard.classList.add('product-card');
+
+        productCard.addEventListener('click', openProductDetailSecundary);
+        btnProductDetailClose.addEventListener('click', closeProductDetailSecundary);
     
         const productImg = document.createElement('img');
         productImg.setAttribute('src', product.img);
