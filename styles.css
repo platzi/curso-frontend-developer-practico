@@ -24,6 +24,12 @@
     padding: 0 24px;
     border-bottom: 1px solid var(--very-light-pink);
   }
+  .darken{
+      width: 100%;
+      height: 100%;
+      position: absolute;
+    background-color: rgba(0, 0, 0, 0.5);
+  }
   .menu {
     display: none;
   }
@@ -168,6 +174,17 @@
   /* Shopping Cart */
   #shoppingCartContainer {
     padding: 20px;
+  }
+  #productDetail {
+    width: 360px;
+    box-sizing: border-box;
+    position: absolute;
+    left:calc( 50% - 180px );
+    background: var(--white);
+    border-radius: 20px;
+    margin-right: 5px;
+    overflow: hidden;
+    box-shadow: 0 0 20px rgba(0, 0, 0, 0.3);
   }
   .title-container {
     display: flex;
