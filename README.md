@@ -1,4 +1,4 @@
-# User Interface of an e-commerce webpage - LINK: https://mgn3.github.io/project-frontend-developer-js/
+# E-commerce User Interface - LINK: https://mgn3.github.io/project-frontend-developer-js/
 
 Made with:
 
