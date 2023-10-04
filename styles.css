@@ -12,6 +12,7 @@
 body {
     margin: 0;
     font-family: 'Quicksand', sans-serif;
+    background-color: var(--hospital-green);
 }
 .inactive {
     display: none;
@@ -22,6 +23,7 @@ nav {
     justify-content: space-between;
     padding: 0 24px;
     border-bottom: 1px solid var(--very-light-pink);
+    background-color: var(--white);
 }
 .burguer-icon {
     display: none;
@@ -240,9 +242,12 @@ nav {
     grid-template-columns: repeat(auto-fill, 240px);
     gap: 26px;
     place-content: center;
+    padding-top: 20px;
   }
 .product-card {
     width: 240px;
+    background-color: #22341f;
+    border-radius: 20px;
   }
   .product-card img {
     width: 240px;
@@ -254,7 +259,9 @@ nav {
     display: flex;
     justify-content: space-between;
     align-items: center;
-    margin-top: 12px;
+    margin-top: 8px;
+    margin-bottom: 8px;
+    color: var(--white);
   }
   .product-card .product-info figure {
     margin: 0;
