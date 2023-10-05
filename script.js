@@ -105,7 +105,7 @@ function renderProducts(arr) {
 
     const productFigure = document.createElement('figure')
     const productCartIcon = document.createElement('img')
-    productCartIcon.setAttribute('src', '../icons/bt_add_to_cart.svg')
+    productCartIcon.setAttribute('src', './icons/bt_add_to_cart.svg')
 
     productFigure.append(productCartIcon)
 
