@@ -1,5 +1,4 @@
 window.addEventListener('load', function () {
-  console.log('script working')
   const email = document.querySelector('.navbar-email')
   const hamburgerMenu = document.querySelector('.hamburger-icon')
   const shoppingCart = document.querySelector('.navbar-shopping-cart')
@@ -160,9 +159,7 @@ function addProductDetail() {
   productDetail.append(productImg, productInfo)
 
   const buttonContainer = document.querySelector('.button-container')
-  console.log(buttonContainer)
   productInfo.insertAdjacentElement('beforeend', buttonContainer)
-
 }
 
 function updateProductDetail(product) {
@@ -175,8 +172,6 @@ function updateProductDetail(product) {
   productName.innerText = product.name
   productPrice.innerText = '$' + product.price + ',00'
   productDesc.innerText = product.description
-  console.log(productName)
-
 }
 
 function closeProductDetail() {
