@@ -171,7 +171,7 @@
   }
 
   /*carrito de compras*/
-  .product-detail {
+  aside {
     background-color: var(--white);
     width: 360px;
     padding: 0 24px;
@@ -247,7 +247,7 @@
     height: 50px;
   }
   @media (max-width: 640px) {
-    .product-detail {
+    aside {
       width: 100%;
     }
   }
