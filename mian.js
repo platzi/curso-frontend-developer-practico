@@ -79,7 +79,7 @@ y.addEventListener("click",aparecerProductDetail2);
 z.addEventListener("click",aparecerProductDetail3);
 
 function aparecerProductDetail1(){
-    imprimirDetalleProducto1 =`
+    imprimirDetalleProducto =`
     <div class="product-detail-close">
         <img src="./icons/icon_close.png" alt="close">
     </div>
@@ -94,14 +94,19 @@ function aparecerProductDetail1(){
         </button>
     </div>
         `
-        productDetail.innerHTML += imprimirDetalleProducto1
+        productDetail.innerHTML += imprimirDetalleProducto;
         productDetail.classList.remove("inactive");
-        closeProductDetail = document.querySelector(".product-detail-close");
-        closeProductDetail.addEventListener("click", OcultarProductDetail);
+        closeProductDetail = document.querySelector(".product-detail-close"); 
+        closeProductDetail.addEventListener("click", OcultarProductDetail); 
+        x.removeEventListener("click",aparecerProductDetail1);
+        y.removeEventListener("click",aparecerProductDetail2);
+        z.removeEventListener("click",aparecerProductDetail3);
+            
 }
     
 function aparecerProductDetail2 () {
-    imprimirDetalleProducto2 =`
+    
+    imprimirDetalleProducto =`
     <div class="product-detail-close">
         <img src="./icons/icon_close.png" alt="close">
     </div>
@@ -116,10 +121,13 @@ function aparecerProductDetail2 () {
         </button>
     </div>
 `
-    productDetail.innerHTML += imprimirDetalleProducto2
+    productDetail.innerHTML += imprimirDetalleProducto
     productDetail.classList.remove("inactive");
     closeProductDetail = document.querySelector(".product-detail-close");
     closeProductDetail.addEventListener("click", OcultarProductDetail);
+    x.removeEventListener("click",aparecerProductDetail1);
+    y.removeEventListener("click",aparecerProductDetail2);
+    z.removeEventListener("click",aparecerProductDetail3);
 }
 
 function aparecerProductDetail3 () {
@@ -142,11 +150,17 @@ function aparecerProductDetail3 () {
     productDetail.classList.remove("inactive");
     closeProductDetail = document.querySelector(".product-detail-close");
     closeProductDetail.addEventListener("click", OcultarProductDetail);
+    x.removeEventListener("click",aparecerProductDetail1);
+    y.removeEventListener("click",aparecerProductDetail2);
+    z.removeEventListener("click",aparecerProductDetail3);
 }
 
 function OcultarProductDetail () {
     productDetail.innerHTML = "";
     productDetail.classList.add("inactive");
+    x.addEventListener("click", aparecerProductDetail1);
+    y.addEventListener("click",aparecerProductDetail2);
+    z.addEventListener("click",aparecerProductDetail3);
 }
 
 /*
