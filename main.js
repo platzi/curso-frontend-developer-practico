@@ -11,17 +11,30 @@ carritoMenu.addEventListener("click", toggleAsideMenu);
 
 
 function toggleDesktopMenu(){
-    aside.classList.add("inactive")
+    const isAsideClose = aside.classList.contains("inactive");
+   
+    if(!isAsideClose){
+        aside.classList.add("inactive")
+    }
     desktopMenu.classList.toggle("inactive")
 }
 
 function toggleMobileMenu(){
-    aside.classList.add("inactive")
+    const isAsideClose = aside.classList.contains("inactive");
+   
+    if(!isAsideClose){
+        aside.classList.add("inactive")
+    }
     mobileMenu.classList.toggle("inactive")
 }
 
 function toggleAsideMenu(){
-    desktopMenu.classList.add("inactive")
-    mobileMenu.classList.add("inactive")
+    const isDesktopMenuClosed = desktopMenu.classList.contains("inactive");
+    const isMobileMenuClosed = mobileMenu.classList.contains("inactive");
+
+    if(!isDesktopMenuClosed | !isMobileMenuClosed){
+        desktopMenu.classList.add("inactive")
+        mobileMenu.classList.add("inactive")
+    }
     aside.classList.toggle("inactive")
 }
