@@ -5,8 +5,10 @@ const MobilMenu = document.querySelector(".mobile-menu")
 const carritoIcon = document.querySelector(".navbar-shopping-cart");
 const asideCarrito = document.querySelector(".car-detail");
 const cardsContainer = document.querySelector(".cards-container");
-const productDetail = document.querySelector(".product-detail");
 
+let productDetail = document.querySelector(".product-detail");
+
+let closeProductDetail;
 
 menuEmail.addEventListener("click", aparecerCarritoDesktopMenu);
 hamburguesaMenu.addEventListener("click", aparecerMenuHamburguesa);
@@ -72,51 +74,34 @@ productList.forEach((producto) => {
       
     })
 
-x.addEventListener("click",aparecerProductDetail1);
+x.addEventListener("click", aparecerProductDetail1);
 y.addEventListener("click",aparecerProductDetail2);
 z.addEventListener("click",aparecerProductDetail3);
 
-function aparecerProductDetail1 () {
-        imprimirDetalleProducto =`
-        <div class="product-detail-close">
-            <img src="./icons/icon_close.png" alt="close">
-        </div>
-        <img src=${producto1.image} alt="bike">
-        <div class=".product-info-from-product-detail">
-            <p>$${producto1.price}</p>
-            <p>${producto1.nombre}</p>
-            <p>${producto1.description}</p>
-            <button class="primary-button add-to-cart-button">
-            <img src="./icons/bt_add_to_cart.svg" alt="add to cart">
-            <p>Add to cart</p>
-            </button>
-        </div>
-    `
-    productDetail.innerHTML += imprimirDetalleProducto
-    productDetail.classList.remove("inactive");
-    ProductDetailCloseClose = document.querySelector(".product-detail-close");
-    ProductDetailCloseClose.addEventListener("click", OcultarProductDetail)
-
-    function OcultarProductDetail () {
-        imprimirDetalleProducto =`
-        <div class="product-detail-close">
-            <img src="./icons/icon_close.png" alt="close">
-        </div>
-        <img src= alt="bike">
-        <div class=".product-info-from-product-detail">
-            <p></p>
-            <p></p>
-            <p></p>
-            <button class="primary-button add-to-cart-button">
-            <img src="./icons/bt_add_to_cart.svg" alt="add to cart">
-            <p>Add to cart</p>
-            </button>
-        </div>
-    `
-    }
+function aparecerProductDetail1(){
+    imprimirDetalleProducto1 =`
+    <div class="product-detail-close">
+        <img src="./icons/icon_close.png" alt="close">
+    </div>
+    <img src=${producto1.image} alt="bike">
+    <div class=".product-info-from-product-detail">
+        <p>$${producto1.price}</p>
+        <p>${producto1.nombre}</p>
+        <p>${producto1.description}</p>
+        <button class="primary-button add-to-cart-button">
+        <img src="./icons/bt_add_to_cart.svg" alt="add to cart">
+        <p>Add to cart</p>
+        </button>
+    </div>
+        `
+        productDetail.innerHTML += imprimirDetalleProducto1
+        productDetail.classList.remove("inactive");
+        closeProductDetail = document.querySelector(".product-detail-close");
+        closeProductDetail.addEventListener("click", OcultarProductDetail);
 }
+    
 function aparecerProductDetail2 () {
-    imprimirDetalleProducto =`
+    imprimirDetalleProducto2 =`
     <div class="product-detail-close">
         <img src="./icons/icon_close.png" alt="close">
     </div>
@@ -131,15 +116,12 @@ function aparecerProductDetail2 () {
         </button>
     </div>
 `
-productDetail.innerHTML += imprimirDetalleProducto
-productDetail.classList.remove("inactive");
-ProductDetailCloseClose = document.querySelector(".product-detail-close");
-ProductDetailCloseClose.addEventListener("click", OcultarProductDetail)
+    productDetail.innerHTML += imprimirDetalleProducto2
+    productDetail.classList.remove("inactive");
+    closeProductDetail = document.querySelector(".product-detail-close");
+    closeProductDetail.addEventListener("click", OcultarProductDetail);
+}
 
-function OcultarProductDetail () {
-    productDetail.classList.add("inactive");
-}
-}
 function aparecerProductDetail3 () {
     imprimirDetalleProducto =`
     <div class="product-detail-close">
@@ -147,7 +129,7 @@ function aparecerProductDetail3 () {
     </div>
     <img src=${producto3.image} alt="bike">
     <div class=".product-info-from-product-detail">
-        <p>${producto3.price}</p>
+        <p>$${producto3.price}</p>
         <p>${producto3.nombre}</p>
         <p>${producto3.description}</p>
         <button class="primary-button add-to-cart-button">
@@ -156,16 +138,23 @@ function aparecerProductDetail3 () {
         </button>
     </div>
 `
-productDetail.innerHTML += imprimirDetalleProducto
-productDetail.classList.remove("inactive");
-ProductDetailCloseClose = document.querySelector(".product-detail-close");
-ProductDetailCloseClose.addEventListener("click", OcultarProductDetail)
+    productDetail.innerHTML += imprimirDetalleProducto
+    productDetail.classList.remove("inactive");
+    closeProductDetail = document.querySelector(".product-detail-close");
+    closeProductDetail.addEventListener("click", OcultarProductDetail);
+}
 
 function OcultarProductDetail () {
+    productDetail.innerHTML = "";
     productDetail.classList.add("inactive");
 }
-}
 
+/*
+function OcultarProductDetail () {
+    productDetail.innerHTML = "";
+    productDetail.classList.add("inactive");
+}
+*/
 /*function showProducts (array) {
     for (let i=0; i<productList.length; i++){
         const productCard = document.createElement("div");
