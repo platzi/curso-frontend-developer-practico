@@ -121,7 +121,7 @@ nav {
 
 .desktop-menu ul li:last-child a {
   color: #ACD9B2;
-  font-size: var(--sm);
+  font-size: 14px;
 }
 
 .desktop-menu ul li a {
@@ -140,12 +140,14 @@ nav {
   padding: 12px;
   position: absolute;
   top: 60px;
+  left: 0;
+  width: 100%;
   background-color: #FFFFFF;
 }
 
 .mobile-menu a {
   text-decoration: none;
-  color: var(--black);
+  color: #000000;
   font-weight: bold;
 }
 
@@ -156,7 +158,7 @@ nav {
 }
 
 .mobile-menu ul:nth-child(1) {
-  border-bottom: 1px solid var(--very-light-pink);
+  border-bottom: 1px solid #C7C7C7;
 }
 
 .mobile-menu ul li {
@@ -164,23 +166,26 @@ nav {
 }
 
 .email {
-  font-size: var(--sm);
+  font-size: 14px;
   font-weight: 300 !important;
 }
 
 .sign-out {
-  font-size: var(--sm);
-  color: var(--hospital-green) !important;
+  font-size: 14px;
+  color: #ACD9B2 !important;
 }
 
-/* Aside menu Product Detail y carrito */
-.product-detail {
+/*  carrito */
+aside {
   width: 360px;
-  padding: 0 24px;
   box-sizing: border-box;
   position: absolute;
   right: 0;
   background: #FFFFFF;
+}
+
+#shopping-cart {
+  padding: 0 24px;
 }
 
 .title-container {
@@ -193,7 +198,7 @@ nav {
 }
 
 .title {
-  font-size: var(--lg);
+  font-size: 16px;
   font-weight: bold;
 }
 
@@ -214,7 +219,7 @@ nav {
 }
 
 .order p span:nth-child(1) {
-  font-size: var(--md);
+  font-size: 16px;
   font-weight: bold;
 }
 
@@ -248,7 +253,7 @@ nav {
 }
 
 .shopping-cart p:nth-child(3) {
-  font-size: var(--md);
+  font-size: 16px;
   font-weight: bold;
 }
 
@@ -259,7 +264,7 @@ nav {
   color: #FFFFFF;
   width: 100%;
   cursor: pointer;
-  font-size: var(--md);
+  font-size: 16px;
   font-weight: bold;
   height: 50px;
 }
@@ -303,16 +308,96 @@ nav {
 
 .product-info div p:nth-child(1) {
   font-weight: bold;
-  font-size: var(--md);
+  font-size: 16px;
   margin-top: 0;
   margin-bottom: 4px;
 }
 
 .product-info div p:nth-child(2) {
-  font-size: var(--sm);
+  font-size: 14px;
   margin-top: 0;
   margin-bottom: 0;
-  color: var(--very-light-pink);
+  color: #C7C7C7;
+}
+
+/* Estilos producto detail */
+.product-detail-close {
+  background: #FFFFFF;
+  width: 20px;
+  height: 20px;
+  position: absolute;
+  top: 24px;
+  left: 12px;
+  z-index: 2;
+  border-radius: 50%;
+}
+.product-detail-close .cross-icon {
+  display: inline-block;
+  margin-left: 5px;
+  margin-top: 5px;
+  width: 10px;
+  height: 10px;
+  background-image: url("../icons/icon_close.png");
+  background-size: cover;
+  background-position: center;
+  background-repeat: no-repeat;
+}
+
+.product-detail-close:hover {
+  cursor: pointer;
+}
+
+.product-detail-popup > img:nth-child(2) {
+  width: 100%;
+  height: 360px;
+  -o-object-fit: cover;
+     object-fit: cover;
+  border-radius: 0 0 20px 20px;
+}
+
+.product-info-popup {
+  margin: 24px 24px 0 24px;
+}
+
+.product-info-popup p:nth-child(1) {
+  font-weight: bolder;
+  font-size: 16px;
+  margin-bottom: 4px;
+}
+
+.product-info-popup p:nth-child(2) {
+  color: #C7C7C7;
+  font-size: 16px;
+  margin-top: 0;
+  margin-bottom: 36px;
+}
+
+.product-info-popup p:nth-child(3) {
+  color: #C7C7C7;
+  font-size: 14px;
+  margin-top: 0;
+  margin-bottom: 36px;
+}
+
+.primary-button {
+  background-color: #ACD9B2;
+  border-radius: 8px;
+  border: none;
+  color: #FFFFFF;
+  width: 100%;
+  cursor: pointer;
+  font-size: 16px;
+  font-weight: bold;
+  height: 50px;
+}
+.primary-button:hover {
+  background-color: #86ab8b;
+}
+
+.add-to-cart-button {
+  display: flex;
+  align-items: center;
+  justify-content: center;
 }
 
 /* MEDIA QUERYS */
@@ -329,7 +414,7 @@ nav {
   .desktop-menu {
     display: none;
   }
-  .product-detail {
+  aside {
     width: 100%;
   }
   .cards-container {

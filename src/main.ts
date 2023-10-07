@@ -3,7 +3,7 @@ const menu = document.querySelector('.desktop-menu');
 const menuIcon = document.querySelector('.menu');
 const mobileMenuList = document.querySelector('.mobile-menu');
 const menuCartIcon = document.querySelector('.navbar-shopping-cart');
-const aside = document.querySelector('.product-detail');
+const shoppingCart = document.querySelector('.shoppin-card-detail');
 const cardsContainer = document.querySelector('.cards-container');
 
 navEmail?.addEventListener('click',toogleDesktopMenu);
@@ -13,32 +13,32 @@ menuIcon?.addEventListener('click',toogleMobileMenu);
 menuCartIcon?.addEventListener('click',toggleCarritoAside);
 
 function toogleDesktopMenu(){
-    const isAsideClosed = aside?.classList.contains('inactive');
+    const isAsideClosed = shoppingCart?.classList.contains('inactive');
     menu?.classList.toggle('inactive');
     
     if(!isAsideClosed){
-        aside?.classList.add('inactive');
+        shoppingCart?.classList.add('inactive');
     }
 }
 
 function toogleMobileMenu(){
     mobileMenuList?.classList.toggle('inactive');
-const isAsideClosed = aside?.classList.contains('inactive');
+const isAsideClosed = shoppingCart?.classList.contains('inactive');
 
 if(!isAsideClosed){
-    aside?.classList.add('inactive');
+    shoppingCart?.classList.add('inactive');
 }
 
 }
 
 function toggleCarritoAside(){
     const isMobileMenuClosed = mobileMenuList?.classList.contains('inactive');
-    const isAsideClosed = aside?.classList.contains('inactive');
+    const isAsideClosed = shoppingCart?.classList.contains('inactive');
     const isEmialMenuClosed = menu?.classList.contains('inactive');
     if(!isMobileMenuClosed){
         mobileMenuList?.classList.add('inactive'); 
     }
-    aside?.classList.toggle('inactive');
+    shoppingCart?.classList.toggle('inactive');
 
     if(!isEmialMenuClosed){
         menu?.classList.add('inactive');
@@ -91,7 +91,7 @@ console.log(productList);
 
 
 
-function renderProducts(arr){
+function renderProducts(arr:any[]){
 let product : any;
 
 for (product of arr){  
