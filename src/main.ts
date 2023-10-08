@@ -7,6 +7,7 @@ const shoppingCart = document.querySelector('.shoppin-card-detail');
 const cardsContainer = document.querySelector('.cards-container');
 const productDetailContainer = document.querySelector('.product-detail-popup');
 const closeButtonAsideIcon = document.querySelector('.product-detail-close');
+const orderCloseArrow = document.querySelector('#arrowOrder');
 
 
 navEmail?.addEventListener('click',toogleDesktopMenu);
@@ -16,6 +17,8 @@ menuIcon?.addEventListener('click',toogleMobileMenu);
 menuCartIcon?.addEventListener('click',toggleCarritoAside);
 
 closeButtonAsideIcon?.addEventListener('click',closeProductAside);
+
+orderCloseArrow?.addEventListener('click',closeOrder);
 
 function toogleDesktopMenu(){
     const isAsideClosed = shoppingCart?.classList.contains('inactive');
@@ -69,6 +72,10 @@ function openProductDetail(){
 
 function closeProductAside(){
     productDetailContainer?.classList.add('inactive');
+}
+
+function closeOrder(){
+    shoppingCart?.classList.add('inactive');
 }
 
 const productList = [];

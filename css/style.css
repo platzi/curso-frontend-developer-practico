@@ -175,6 +175,17 @@ nav {
   color: #ACD9B2 !important;
 }
 
+#arrowOrder {
+  cursor: pointer;
+  animation-name: arrowScale;
+}
+#arrowOrder:hover {
+  transform: scale(-1.5);
+  animation-duration: 1s;
+  animation-delay: 0.5ms;
+  animation-timing-function: ease-in;
+}
+
 /*  carrito */
 aside {
   width: 360px;
