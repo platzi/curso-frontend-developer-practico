@@ -14,27 +14,6 @@ menuEmail.addEventListener("click", aparecerCarritoDesktopMenu);
 hamburguesaMenu.addEventListener("click", aparecerMenuHamburguesa);
 carritoIcon.addEventListener("click", aparecerCarritoDeCompras);
 
-
-function aparecerCarritoDesktopMenu (){
-    if (!asideCarrito.classList.contains("inactive")){
-        asideCarrito.classList.add("inactive");
-    } 
-    desktopMenu.classList.toggle("inactive");
-}
-function aparecerCarritoDeCompras () {
-    if (!desktopMenu.classList.contains("inactive") || !MobilMenu.classList.contains("inactive")) {    
-        desktopMenu.classList.add("inactive");
-        MobilMenu.classList.add("inactive");
-    }
-    asideCarrito.classList.toggle("inactive");
-}
-function aparecerMenuHamburguesa () {
-    if (!asideCarrito.classList.contains("inactive")){
-        asideCarrito.classList.add("inactive")
-    }
-    MobilMenu.classList.toggle("inactive");
-}
-
 class product {
     constructor (nombre, price, image, description){
         this.nombre = nombre,
@@ -43,10 +22,9 @@ class product {
         this.description = description 
     }
 }
-const producto1 = new product ("bike", 120,"https://images.pexels.com/photos/276517/pexels-photo-276517.jpeg?auto=compress&cs=tinysrgb&w=1260&h=750&dpr=1","With its practical position, this bike also fulfills a decorative function, add your hall or workspace")
-const producto2 = new product ("camera",1250, "https://images.pexels.com/photos/1983037/pexels-photo-1983037.jpeg?auto=compress&cs=tinysrgb&w=1260&h=750&dpr=1","This is a camera")
-const producto3 = new product ("scooter",6480, "https://images.pexels.com/photos/18127120/pexels-photo-18127120/free-photo-of-red-vespa-scooter-parked-in-a-cozy-yard-of-a-house.jpeg?auto=compress&cs=tinysrgb&w=600","This is a scooter")
-
+const producto1 = new product ("bike", 120,"https://images.pexels.com/photos/276517/pexels-photo-276517.jpeg?auto=compress&cs=tinysrgb&w=1260&h=750&dpr=1","With its practical position, this bike also fulfills a decorative function, add your hall or workspace");
+const producto2 = new product ("camera",1250, "https://images.pexels.com/photos/1983037/pexels-photo-1983037.jpeg?auto=compress&cs=tinysrgb&w=1260&h=750&dpr=1","An elegant relic of yesteryears, this vintage camera is a testament to enduring charm and timeless memories.");
+const producto3 = new product ("scooter",6480, "https://images.pexels.com/photos/18127120/pexels-photo-18127120/free-photo-of-red-vespa-scooter-parked-in-a-cozy-yard-of-a-house.jpeg?auto=compress&cs=tinysrgb&w=600","An urban icon, this scooter embodies sleek style and effortless mobility.");
 
 const productList = [];
 productList.push(producto1, producto2, producto3);
@@ -68,15 +46,15 @@ productList.forEach((producto) => {
       `
       cardsContainer.innerHTML += imprimirProductos
 
-      x = document.getElementById("bike");
-      y = document.getElementById("camera");
-      z = document.getElementById("scooter");
+      bci = document.getElementById("bike");
+      cmera = document.getElementById("camera");
+      scooter = document.getElementById("scooter");
       
     })
 
-x.addEventListener("click", aparecerProductDetail1);
-y.addEventListener("click",aparecerProductDetail2);
-z.addEventListener("click",aparecerProductDetail3);
+bci.addEventListener("click", aparecerProductDetail1);
+cmera.addEventListener("click",aparecerProductDetail2);
+scooter.addEventListener("click",aparecerProductDetail3);
 
 function aparecerProductDetail1(){
     imprimirDetalleProducto =`
@@ -95,12 +73,12 @@ function aparecerProductDetail1(){
     </div>
         `
         productDetail.innerHTML += imprimirDetalleProducto;
-        productDetail.classList.remove("inactive");
+        aparecerDetallesProducto ()
         closeProductDetail = document.querySelector(".product-detail-close"); 
         closeProductDetail.addEventListener("click", OcultarProductDetail); 
-        x.removeEventListener("click",aparecerProductDetail1);
-        y.removeEventListener("click",aparecerProductDetail2);
-        z.removeEventListener("click",aparecerProductDetail3);
+        bci.removeEventListener("click",aparecerProductDetail1);
+        cmera.removeEventListener("click",aparecerProductDetail2);
+        scooter.removeEventListener("click",aparecerProductDetail3);
             
 }
     
@@ -122,12 +100,12 @@ function aparecerProductDetail2 () {
     </div>
 `
     productDetail.innerHTML += imprimirDetalleProducto
-    productDetail.classList.remove("inactive");
+    aparecerDetallesProducto ()
     closeProductDetail = document.querySelector(".product-detail-close");
     closeProductDetail.addEventListener("click", OcultarProductDetail);
-    x.removeEventListener("click",aparecerProductDetail1);
-    y.removeEventListener("click",aparecerProductDetail2);
-    z.removeEventListener("click",aparecerProductDetail3);
+    bci.removeEventListener("click",aparecerProductDetail1);
+    cmera.removeEventListener("click",aparecerProductDetail2);
+    scooter.removeEventListener("click",aparecerProductDetail3);
 }
 
 function aparecerProductDetail3 () {
@@ -147,28 +125,54 @@ function aparecerProductDetail3 () {
     </div>
 `
     productDetail.innerHTML += imprimirDetalleProducto
-    productDetail.classList.remove("inactive");
+    aparecerDetallesProducto ()
     closeProductDetail = document.querySelector(".product-detail-close");
     closeProductDetail.addEventListener("click", OcultarProductDetail);
-    x.removeEventListener("click",aparecerProductDetail1);
-    y.removeEventListener("click",aparecerProductDetail2);
-    z.removeEventListener("click",aparecerProductDetail3);
+    bci.removeEventListener("click",aparecerProductDetail1);
+    cmera.removeEventListener("click",aparecerProductDetail2);
+    scooter.removeEventListener("click",aparecerProductDetail3);
 }
 
 function OcultarProductDetail () {
     productDetail.innerHTML = "";
     productDetail.classList.add("inactive");
-    x.addEventListener("click", aparecerProductDetail1);
-    y.addEventListener("click",aparecerProductDetail2);
-    z.addEventListener("click",aparecerProductDetail3);
+    bci.addEventListener("click", aparecerProductDetail1);
+    cmera.addEventListener("click",aparecerProductDetail2);
+    scooter.addEventListener("click",aparecerProductDetail3);
 }
 
-/*
-function OcultarProductDetail () {
-    productDetail.innerHTML = "";
-    productDetail.classList.add("inactive");
+function aparecerCarritoDesktopMenu (){
+    if (!asideCarrito.classList.contains("inactive") || !productDetail.classList.contains("inactive")){
+        asideCarrito.classList.add("inactive");
+        OcultarProductDetail ();
+    } 
+    desktopMenu.classList.toggle("inactive");
 }
-*/
+function aparecerCarritoDeCompras () {
+    if (!desktopMenu.classList.contains("inactive") || !MobilMenu.classList.contains("inactive") || !productDetail.classList.contains("inactive")) {    
+        desktopMenu.classList.add("inactive");
+        MobilMenu.classList.add("inactive");
+        OcultarProductDetail ();
+    } 
+    asideCarrito.classList.toggle("inactive")
+}
+function aparecerDetallesProducto () {
+    if (!desktopMenu.classList.contains("inactive") || !MobilMenu.classList.contains("inactive") || !asideCarrito.classList.contains("inactive")) {    
+        desktopMenu.classList.add("inactive");
+        MobilMenu.classList.add("inactive");
+        asideCarrito.classList.add("inactive");
+    } 
+    productDetail.classList.remove("inactive");   
+}
+function aparecerMenuHamburguesa () {
+    if (!asideCarrito.classList.contains("inactive")){
+        asideCarrito.classList.add("inactive")
+    }
+    MobilMenu.classList.toggle("inactive");
+}
+
+
+
 /*function showProducts (array) {
     for (let i=0; i<productList.length; i++){
         const productCard = document.createElement("div");
