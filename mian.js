@@ -53,7 +53,7 @@ productList.forEach((producto) => {
     })
 
 bci.addEventListener("click", aparecerProductDetail1);
-cmera.addEventListener("click",aparecerProductDetail2);
+camera.addEventListener("click",aparecerProductDetail2);
 scooter.addEventListener("click",aparecerProductDetail3);
 
 function aparecerProductDetail1(){
@@ -77,13 +77,12 @@ function aparecerProductDetail1(){
         closeProductDetail = document.querySelector(".product-detail-close"); 
         closeProductDetail.addEventListener("click", OcultarProductDetail); 
         bci.removeEventListener("click",aparecerProductDetail1);
-        cmera.removeEventListener("click",aparecerProductDetail2);
+        camera.removeEventListener("click",aparecerProductDetail2);
         scooter.removeEventListener("click",aparecerProductDetail3);
             
 }
     
 function aparecerProductDetail2 () {
-    
     imprimirDetalleProducto =`
     <div class="product-detail-close">
         <img src="./icons/icon_close.png" alt="close">
@@ -104,7 +103,7 @@ function aparecerProductDetail2 () {
     closeProductDetail = document.querySelector(".product-detail-close");
     closeProductDetail.addEventListener("click", OcultarProductDetail);
     bci.removeEventListener("click",aparecerProductDetail1);
-    cmera.removeEventListener("click",aparecerProductDetail2);
+    camera.removeEventListener("click",aparecerProductDetail2);
     scooter.removeEventListener("click",aparecerProductDetail3);
 }
 
@@ -129,7 +128,7 @@ function aparecerProductDetail3 () {
     closeProductDetail = document.querySelector(".product-detail-close");
     closeProductDetail.addEventListener("click", OcultarProductDetail);
     bci.removeEventListener("click",aparecerProductDetail1);
-    cmera.removeEventListener("click",aparecerProductDetail2);
+    camera.removeEventListener("click",aparecerProductDetail2);
     scooter.removeEventListener("click",aparecerProductDetail3);
 }
 
@@ -137,7 +136,7 @@ function OcultarProductDetail () {
     productDetail.innerHTML = "";
     productDetail.classList.add("inactive");
     bci.addEventListener("click", aparecerProductDetail1);
-    cmera.addEventListener("click",aparecerProductDetail2);
+    camera.addEventListener("click",aparecerProductDetail2);
     scooter.addEventListener("click",aparecerProductDetail3);
 }
 
