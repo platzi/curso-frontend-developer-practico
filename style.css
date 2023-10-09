@@ -120,10 +120,13 @@
   }
   /*detalles del producto*/
   .product-detail {
+    background: var(--white);
     width: 360px;
     padding-bottom: 24px;
     position: absolute;
-    right: 0;
+    right: 10px;
+    border-radius: 10px;
+    padding-top: 20px;
   }
   .product-detail-close {
     background: var(--white);
