@@ -39,11 +39,11 @@ function toggleCarritoAside() {
     }
     shoppingCartContainer.classList.toggle('inactive');
 }
-function openProductDetailAside(){
+function openProductDetailAside() {
     shoppingCartContainer.classList.add('inactive');
     productDetailContainer.classList.remove('inactive');
 }
-function closeProductDetailAside(){
+function closeProductDetailAside() {
     productDetailContainer.classList.add('inactive');
 }
 
@@ -82,18 +82,18 @@ productList.push({
     </div>
 </div>*/}
 renderProducts(productList);
-function renderProducts(arr){
+function renderProducts(arr) {
     for (const product of productList) {
         const productCard = document.createElement('div');
         productCard.classList.add('product-card');
-    
+
         const productImg = document.createElement('img');
         productImg.setAttribute('src', product.image);
         productImg.addEventListener('click', openProductDetailAside);
-    
+
         const productInfo = document.createElement('div');
         productInfo.classList.add('product-info');
-    
+
         const productInfoDiv = document.createElement('div');
         const productPrice = document.createElement('p');
         productPrice.innerText = `$${product.price}`;
@@ -101,19 +101,19 @@ function renderProducts(arr){
         productName.innerText = product.name;
         productInfoDiv.appendChild(productPrice);
         productInfoDiv.appendChild(productName);
-    
+
         const cartFigure = document.createElement('figure');
         const imgCart = document.createElement('img');
         imgCart.setAttribute('src', './icons/bt_add_to_cart.svg');
         imgCart.setAttribute('alt', 'producto');
         cartFigure.appendChild(imgCart);
-    
+
         productInfo.appendChild(productInfoDiv);
         productInfo.appendChild(cartFigure);
-    
+
         productCard.appendChild(productImg);
         productCard.appendChild(productInfo);
-    
+
         cardsContainer.appendChild(productCard);
     }
 }
