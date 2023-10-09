@@ -164,8 +164,9 @@ function aparecerDetallesProducto () {
     productDetail.classList.remove("inactive");   
 }
 function aparecerMenuHamburguesa () {
-    if (!asideCarrito.classList.contains("inactive")){
+    if (!asideCarrito.classList.contains("inactive") || !productDetail.classList.contains("inactive")){
         asideCarrito.classList.add("inactive")
+        OcultarProductDetail ();
     }
     MobilMenu.classList.toggle("inactive");
 }
