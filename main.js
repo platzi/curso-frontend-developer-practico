@@ -3,14 +3,17 @@ const desktopMenu = document.querySelector('.desktop-menu');
 const menuHamIcon = document.querySelector('.menu');
 const mobileMenu = document.querySelector('.mobile-menu');
 const menuCarritoIcon = document.querySelector('.navbar-shopping-cart');
+const productDetailCloseIcon = document.querySelector('.product-detail-close');
 const shoppingCartContainer = document.querySelector('#shoppingCartContainer');
+const productDetailContainer = document.querySelector('#productDetail');
+
 const cardsContainer = document.querySelector('.cards-container');
 
 
 menuEmail.addEventListener('click', toggleDesktopMenu);
 menuHamIcon.addEventListener('click', toggleMobileMenu);
 menuCarritoIcon.addEventListener('click', toggleCarritoAside);
-
+productDetailCloseIcon.addEventListener('click',closeProductDetailAside )
 function toggleDesktopMenu() {
     const isAsideClosed = shoppingCartContainer.classList.contains('inactive');
     if (!isAsideClosed) {
@@ -24,6 +27,8 @@ function toggleMobileMenu() {
     if (!isAsideClosed) {
         shoppingCartContainer.classList.add('inactive');
     }
+
+    closeProductDetailAside();
     mobileMenu.classList.toggle('inactive');
 }
 
@@ -32,10 +37,24 @@ function toggleCarritoAside() {
     if (!ismobileMenuClosed) {
         mobileMenu.classList.add('inactive');
     }
+  
+    const isProductDetailClose= productDetailContainer.classList.contains('inactive');
+    if (!isProductDetailClose) {
+        productDetailContainer.classList.add('inactive');
+    }
     shoppingCartContainer.classList.toggle('inactive');
 
 }
 
+function openProdcutDatailAside(){
+    shoppingCartContainer.classList.add('inactive');
+    productDetailContainer.classList.remove('inactive');
+}
+
+
+function closeProductDetailAside (){
+    productDetailContainer.classList.add('inactive');
+}
 
 const productList = [];
 
@@ -89,7 +108,7 @@ for (product of arr) {
     // Crea un elemento de imagen para mostrar la imagen del producto
     const productImg = document.createElement('img');
     productImg.setAttribute('src', product.image); // Establece el atributo 'src' de la imagen
-
+    productImg.addEventListener('click',openProdcutDatailAside)
     // Crea un nuevo elemento div para la información del producto
     const productInfo = document.createElement('div');
     productInfo.classList.add('product-info'); // Agrega la clase 'product-info' al elemento
