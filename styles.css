@@ -11,7 +11,18 @@
   --md: 16px;
   --lg: 18px;
 }
+body::-webkit-scrollbar {
+  width: 2px;
+  background-color: #6665;
+  position: absolute;
+
+}
+body::-webkit-scrollbar-thumb {
+  background-color: rgba(0, 0, 0, 0.5); /* Color del "thumb" con transparencia */
+  border-radius: 5px; /* Radio de las esquinas del "thumb" */
+}
 body {
+  overflow-x: hidden;
   margin: 0;
   font-family: 'Quicksand', sans-serif;
 }

@@ -6,29 +6,45 @@ const desktopMenu = document.querySelector('.desktop-menu')
 const mobileMenu = document.querySelector('.mobile-menu')
 const shoppingCardContainer = document.querySelector('#shoppingCartContainer')
 const cardsContainer = document.querySelector('.cards-container')
+const productDetailContainer = document.querySelector('#product-detail')
+const productDetailCloseIcon = document.querySelector('.product-detail-close')
 
 // EVENT LISTENERS PARA MENUS Y LISTA DE COMPRAS
 menuEmail.addEventListener('click', toggleDesktopMenu);
 menuHamIcon.addEventListener('click', toggleMobileMenu);
 menuCarritoIcon.addEventListener('click', toggleCarritoAside);
+productDetailCloseIcon.addEventListener('click', closeProductDetailAside)
 
 // MOSTRAR Y OCULTAR MENU DESKTOP
 function toggleDesktopMenu() {
+  productDetailContainer.classList.add('inactive')
   shoppingCardContainer.classList.add('inactive')
   desktopMenu.classList.toggle('inactive');
 }
 
 //MOSTRAR Y OCULTAR MENU MOBILE
 function toggleMobileMenu() {
+  productDetailContainer.classList.add('inactive')
   shoppingCardContainer.classList.add('inactive')
   mobileMenu.classList.toggle('inactive')
 }
-
 //MOSTRAR Y OCULTAR ASIDE DE LISTA DE COMPRAS
 function toggleCarritoAside() {
   desktopMenu.classList.add('inactive')
   mobileMenu.classList.add('inactive')
+  productDetailContainer.classList.add('inactive')
   shoppingCardContainer.classList.toggle('inactive')
+}
+//MOSTRAR PRODUCT DETAIL ASIDE 
+function openProductDetailAside() {
+  desktopMenu.classList.add('inactive')
+  mobileMenu.classList.add('inactive')
+  shoppingCardContainer.classList.add('inactive')
+  productDetailContainer.classList.remove('inactive')
+}
+//OCULTAR PRODUCT DETAIL ASIDE 
+function closeProductDetailAside() {
+  productDetailContainer.classList.add('inactive')
 }
 
 const productList = [];
@@ -55,7 +71,7 @@ productList.push({
   image: 'https://images.pexels.com/photos/1295036/pexels-photo-1295036.jpeg?auto=compress&cs=tinysrgb&w=1260&h=750&dpr=1', 
 })
 
-/* <div class="product-card">
+  /* <div class="product-card">
         <img src="https://images.pexels.com/photos/276517/pexels-photo-276517.jpeg?auto=compress&cs=tinysrgb&dpr=2&h=650&w=940" alt="">
         <div class="product-info">
           <div>
@@ -68,15 +84,17 @@ productList.push({
         </div>
       </div> */
 
+
 //AÑADIR PRODUCTOS AL CARD CONTAINER      
 function renderProducts(arr) {
   for (const product of arr) {
     const productCard = document.createElement('div');
     productCard.classList.add('product-card');
-
+    
     const productImg = document.createElement('img');
     productImg.setAttribute('src', product.image);
-
+    productImg.addEventListener('click', openProductDetailAside)
+    
     const productInfo = document.createElement('div');
     productInfo.classList.add('product-info');
 
