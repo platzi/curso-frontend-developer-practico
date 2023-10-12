@@ -4,6 +4,7 @@ const mobileIconMenu = document.querySelector('.menu');
 const menuShoppingCartIcon = document.querySelector('.navbar-shopping-cart');
 const mobileMenu = document.querySelector('.mobile-menu');
 const aside = document.querySelector('.product-detail');
+const cardsContainer = document.querySelector('.cards-container')
 
 menuEmail.addEventListener('click', toggleDesktopMenu);
 mobileIconMenu.addEventListener('click', toggleMobileMenu);
@@ -39,7 +40,6 @@ function toggleShoppingCartAside(){
     }
 }
 
-
 function toggleMobileMenu(){
     const isAsideClosed = aside.classList.contains('inactive');
     
@@ -50,3 +50,74 @@ function toggleMobileMenu(){
     mobileMenu.classList.toggle('inactive');
 }
 
+const productList = [];
+
+productList.push({
+    name: 'Bike',
+    price: 120,
+    image: 'https://images.pexels.com/photos/276517/pexels-photo-276517.jpeg?auto=compress&cs=tinysrgb&dpr=2&h=650&w=940',
+});
+productList.push({
+    name: 'Moto',
+    price: 500,
+    image: 'https://images.unsplash.com/photo-1591637333184-19aa84b3e01f?ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D&auto=format&fit=crop&w=1374&q=80',
+});
+productList.push({
+    name: 'Computadora',
+    price: 300,
+    image: 'https://plus.unsplash.com/premium_photo-1687892170417-f9a11a402ef7?ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D&auto=format&fit=crop&w=1471&q=80',
+});
+productList.push({
+    name: 'Monopatín',
+    price: 258,
+    image: 'https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcRyJR1KAN3KbLu1XisORQT5BDZx8W5OgjezD9_ik_fWNqoQ86nHCEgUR3SHne6LIg2aW0w&usqp=CAU',
+});
+productList.push({
+    name: 'Triciclo',
+    price: 800,
+    image: 'https://http2.mlstatic.com/D_NQ_NP_915957-MLA40209647048_122019-O.webp',
+});
+productList.push({
+    name: 'Auto',
+    price: 3000,
+    image: 'https://www.infobae.com/new-resizer/7WPn0J30BXBWcZ49ADBkpStQYNY=/arc-anglerfish-arc2-prod-infobae/public/NNC7TA7K2NG5HM2REZSAE244XE.jpg',
+});
+
+function renderProducts(array){
+    for (product of array) {
+        const productCard = document.createElement('div');
+        productCard.classList.add('product-card');
+    
+        const productImg = document.createElement('img');
+        productImg.setAttribute('src', product.image);
+    
+        const productInfo = document.createElement('div');
+        productInfo.classList.add('product-info');
+    
+        const productInfoDiv = document.createElement('div');
+    
+        const productPrice = document.createElement('p');
+        productPrice.innerText = '$' + product.price;
+        const productName = document.createElement('p');
+        productName.innerText = product.name;
+    
+        productInfoDiv.appendChild(productPrice);
+        productInfoDiv.appendChild(productName);
+    
+        const productInfoFigure = document.createElement('figure');
+        const productImgCart = document.createElement('img');
+        productImgCart.setAttribute('src', './icons/bt_add_to_cart.svg');
+    
+        productInfoFigure.appendChild(productImgCart);
+    
+        productInfo.appendChild(productInfoDiv);
+        productInfo.appendChild(productInfoFigure);
+    
+        productCard.appendChild(productImg);
+        productCard.appendChild(productInfo);
+    
+        cardsContainer.appendChild(productCard);
+    }
+}
+
+renderProducts(productList);
