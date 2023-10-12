@@ -43,7 +43,11 @@
     <div class="navbar-right">
       <ul>
         <li class="navbar-email">platzi@example.com</li>
-        <li class="navbar-shopping-cart">
+        <li class="navbar-shopping-cart-responsive">
+          <img src="./icons/icon_shopping_cart.svg" alt="shopping cart">
+          <div>6</div>
+        </li>
+        <li class="navbar-shopping-cart-desktop">
           <img src="./icons/icon_shopping_cart.svg" alt="shopping cart">
           <div>6</div>
         </li>
@@ -111,11 +115,15 @@
     </div>
   </nav>
 
-  <aside id="shoppingCartContainer" class="product-detail inactive">
-    <div class="title-container">
-        <img class="arrow-back" src="./icons/flechita.svg" alt="arrow">
-        <p class="title">Shopping Cart</p>
+  <aside id="shoppingCartContainer" class="product-detail inactive"> 
+    <div class="title-container-responsive">
+        <img class="arrow-back-responsive" src="./icons/flechita.svg" alt="arrow">
+        <p class="title-responsive">Shopping Cart</p>
     </div>
+    <div class="title-container-desktop">
+      <img class="arrow-back-desktop" src="./icons/flechita.svg" alt="arrow">
+      <p class="title-desktop">Shopping Cart</p>
+  </div>
     <div class="my-order">
         <div class="my-order-container">
             <div class="my-order-content">
@@ -189,10 +197,13 @@
   </aside>
 
   <aside id="productDetail" class="product-detail-secondary inactive">
-    <div class="product-detail-secondary-close">
+    <div class="product-detail-secondary-close-responsive">
         <img src="./icons/icon_close.png" alt="close">
     </div>
-    <img src="https://http2.mlstatic.com/D_NQ_NP_2X_699538-MCO69510888045_052023-F.webp" alt="chair">
+    <div class="product-detail-secondary-close-desktop">
+      <img src="./icons/icon_close.png" alt="close">
+    </div>
+    <img class="img-product-detail" src="https://http2.mlstatic.com/D_NQ_NP_2X_699538-MCO69510888045_052023-F.webp" alt="chair">
     <div class="product-info-secondary">
         <p>$45</p>
         <p>Chair</p>
@@ -209,8 +220,10 @@
 
   <main>
     <section class="main-container show">
-      <div class="cards-container">
-  
+      <div id="cardsContainerDesktop" class="cards-container-desktop ">  
+      </div>
+      <div id="cardsContainerResponsive" class="cards-container-responsive inactive">
+        
         <!-- <div class="product-card">
           <img src="https://images.pexels.com/photos/276517/pexels-photo-276517.jpeg?auto=compress&cs=tinysrgb&dpr=2&h=650&w=940" alt="">
           <div class="product-info">
