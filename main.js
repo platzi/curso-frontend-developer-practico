@@ -1,29 +1,46 @@
 //constantes del menu desktop
 const menuEmail = document.querySelector('.navbar-email');
 const desktopMenu = document.querySelector('.desktop-menu');
+
 //constantes del shopping cart
 const shoppingCartIcon = document.querySelector('.navbar-shopping-cart');
 const shoppingCartContainer = document.querySelector('#shoppingCartContainer');
+
+//constantes del detalle del producto
+const productDetailContainer = document.querySelector('#productDetail');
+const productDetailClose = document.querySelector('.product-detail-close');
+
 //constantes del menu del mobile
 const burguerMenuIcon = document.querySelector('.menu'); 
 const mobileMenu = document.querySelector('.mobile-menu');
+
 //eventos
 menuEmail.addEventListener('click', toggleDesktopMenu);
 shoppingCartIcon.addEventListener('click', toggleShoppingCart);
 burguerMenuIcon.addEventListener('click', toggleMobileMenu);
+productDetailClose.addEventListener('click', closeProductDetailAside)
+
 //funciones para desplegar y cerrar menus
 function toggleDesktopMenu() {
     if (shoppingCartIcon.addEventListener) {
         shoppingCartContainer.classList.add('inactive');
     }
+    if (productDetailContainer.addEventListener) {
+        closeProductDetailAside();
+    }
     desktopMenu.classList.toggle('inactive');       
 }
+
 function toggleMobileMenu() {
     if (shoppingCartIcon.addEventListener) {
         shoppingCartContainer.classList.add('inactive');
     }
+    if (productDetailContainer.addEventListener) {
+        closeProductDetailAside();
+    }
     mobileMenu.classList.toggle('inactive');       
 }
+
 function toggleShoppingCart() {
     if (burguerMenuIcon.addEventListener) {
         mobileMenu.classList.add('inactive');
@@ -31,7 +48,27 @@ function toggleShoppingCart() {
     if (menuEmail.addEventListener) {
         desktopMenu.classList.add('inactive');
     }
+    if (productDetailContainer.addEventListener) {
+        closeProductDetailAside();
+    }
     shoppingCartContainer.classList.toggle('inactive');            
+}
+
+function openProductDetailAside() {
+    if (burguerMenuIcon.addEventListener) {
+        mobileMenu.classList.add('inactive');
+    }
+    if (menuEmail.addEventListener) {
+        desktopMenu.classList.add('inactive');
+    }
+    if (shoppingCartIcon.addEventListener) {
+        shoppingCartContainer.classList.add('inactive');
+    }
+    productDetailContainer.classList.remove('inactive');
+}
+
+function closeProductDetailAside() {
+    productDetailContainer.classList.add('inactive');
 }
 
 
@@ -75,7 +112,8 @@ function renderProducts(arr) {
         // product= {name, price, image} -> product.image
         const productImg = document.createElement('img');
         productImg.setAttribute('src', product.image);
-
+        productImg.addEventListener('click', openProductDetailAside)
+        
         const productInfo = document.createElement('div');
         productInfo.classList.add('product-info');
 

@@ -169,6 +169,7 @@ aside {
 
 #shoppingCartContainer {
     padding: 0 24px;
+    z-index: 3;
 }
 .title-container {
     display: flex;
@@ -339,9 +340,6 @@ aside {
     align-items: center;
     justify-content: center;
 }
-  @media (max-width: 640px) {
-
-}
 
 
 @media (max-width: 640px) {
@@ -357,7 +355,7 @@ aside {
         .desktop-menu {
             display:none
         }
-        .product-detail {
+        #shoppingCartContainer {
             width: 100%;
         }
         .cards-container {
@@ -372,6 +370,7 @@ aside {
         }
         #productDetail {
             width: 100%;
+            z-index: 2;
         }
 }
 @media (min-width:641px) {
