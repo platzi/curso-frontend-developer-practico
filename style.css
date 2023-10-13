@@ -576,12 +576,15 @@ aside {
         grid-template-columns: repeat(auto-fill, 140px);
     }
     .cards-container-responsive {
+        display: grid;
+    }
+    .cards-container-desktop {
         display: none;
     }
-    .product-card {
+    .product-card-responsive {
         width: 140px;
     }
-    .product-card img {
+    .product-card-responsive img {
         width: 140px;
         height: 140px;
     }

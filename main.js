@@ -109,24 +109,31 @@ function toggleCartShoppingResponsive() {
 function openProductDetailAsideDesktop() {
     productDetailContainerDesktop.classList.remove('inactive');
 }
-function openProductDetailAsideResponsive() {
-    if (!isMainMenuContentClosed) {
-        mainContentProducts.classList.add('inactive');
-    }
-    
-    productDetailContainerResponsive.classList.remove('inactive');
-}
-
-function closeProductDetailAsideResponsive() {
-    /* const isMainMenuContentClosed = mainContentProducts.classList.contains('inactive') */
-
-    
-    productDetailContainerResponsive.classList.remove('inactive');
-}
 
 function closeProductDetailAsideDesktop() {
     productDetailContainerDesktop.classList.add('inactive');
 }
+
+function openProductDetailAsideResponsive() {
+    const isMainMenuContentClosed = mainContentProducts.classList.contains('inactive')
+
+    if (!isMainMenuContentClosed) {
+        mainContentProducts.classList.add('inactive')
+    }
+    
+    productDetailContainerResponsive.classList.toggle('inactive');
+}
+
+function closeProductDetailAsideResponsive() {
+    const isMainMenuContentClosed = mainContentProducts.classList.contains('inactive')
+
+    if (isMainMenuContentClosed) {
+        mainContentProducts.classList.remove('inactive')
+    }
+
+    productDetailContainerResponsive.classList.add('inactive');
+}
+
 
 const productList = []
 productList.push({
