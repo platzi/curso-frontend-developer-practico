@@ -57,6 +57,7 @@ function toggleDesktopMenu() {
 function toggleMobileMenu() {
     const isCartMenuClosed = cartMenu.classList.contains('inactive');
     const isMainMenuContentClosed = mainContentProducts.classList.contains('inactive')
+    const isProductDetailClosed = productDetailContainerResponsive.classList.contains('inactive')
     
     if (!isCartMenuClosed) {
         cartMenu.classList.add('inactive')
@@ -64,6 +65,10 @@ function toggleMobileMenu() {
         mainContentProducts.classList.add('inactive')
     } else if (isCartMenuClosed) {
         mainContentProducts.classList.toggle('inactive');
+    }
+
+    if(!isProductDetailClosed) {
+        productDetailContainerResponsive.classList.add('inactive');
     }
 
     mobileMenu.classList.toggle('inactive');
@@ -105,8 +110,6 @@ function toggleCartShoppingResponsive() {
     
     if(!isProductDetailClosed) {
         productDetailContainerResponsive.classList.add('inactive');
-    } else if (isProductDetailClosed) {
-        productDetailContainerResponsive.classList.remove('inactive')
     }
 
     cartMenu.classList.toggle('inactive');
@@ -127,13 +130,23 @@ function closeProductDetailAsideDesktop() {
 }
 
 function openProductDetailAsideResponsive() {
+    const isCartMenuClosed = cartMenu.classList.contains('inactive');
+    const ismobileMenuClosed = mobileMenu.classList.contains('inactive');
     const isMainMenuContentClosed = mainContentProducts.classList.contains('inactive')
 
-    if (!isMainMenuContentClosed) {
-        mainContentProducts.classList.add('inactive')
+    if(!isCartMenuClosed) {
+        cartMenu.classList.add('inactive');
+    } else if (isMainMenuContentClosed) {
+        mainContentProducts.classList.remove('inactive')
+    }
+
+    if(!ismobileMenuClosed) {
+        mobileMenu.classList.toggle('inactive')
+    } else if (isMainMenuContentClosed) {
+        mainContentProducts.classList.remove('inactive')
     }
     
-    productDetailContainerResponsive.classList.toggle('inactive');
+    productDetailContainerResponsive.classList.remove('inactive');
 }
 
 function closeProductDetailAsideResponsive() {
