@@ -86,12 +86,12 @@ function closeProductDetailAsideDesktop() {
 
 
 function toggleMobileMenu() {
-    const isMainMenuContentClosed = mainContentProducts.classList.contains('inactive')
+    const isCartMenuClosed = cartMenu.classList.contains('inactive')
     
-    if (!isMainMenuContentClosed){
-        mainContentProducts.classList.add('inactive');
+    if(!isCartMenuClosed) {
+        mobileMenu.classList.add('inactive')
     } else {
-        mainContentProducts.classList.remove('inactive');
+        mainContentProducts.classList.toggle('inactive')
     }
     
     productDetailContainerResponsive.classList.add('inactive');
@@ -101,46 +101,32 @@ function toggleMobileMenu() {
 
 function toggleCartShoppingResponsive() {
     const isDesktopMenuClosed = desktopMenu.classList.contains('inactive');
-    const isMainMenuContentClosed = mainContentProducts.classList.contains('inactive')
+    const isMobileMenuClosed = mobileMenu.classList.contains('inactive')
     
     if (!isDesktopMenuClosed) {
         desktopMenu.classList.add('inactive')
     }
 
-    if (!isMainMenuContentClosed) {
-        mainContentProducts.classList.add('inactive')
+    if(!isMobileMenuClosed) {
+        cartMenu.classList.add('inactive')
     } else {
-        mainContentProducts.classList.remove('inactive')
+        mainContentProducts.classList.toggle('inactive')
     }
     
-    mobileMenu.classList.add('inactive')
     productDetailContainerResponsive.classList.add('inactive');
+    mobileMenu.classList.add('inactive');
     cartMenu.classList.toggle('inactive');
 }
 
 
 function toggleProductDetailAsideResponsive() {
-    const isMainMenuContentClosed = mainContentProducts.classList.contains('inactive')
 
-    /* if (!isMainMenuContentClosed) {
-    } */
     mainContentProducts.classList.toggle('inactive')
     mobileMenu.classList.toggle('inactive')
     cartMenu.classList.toggle('inactive');
 
     productDetailContainerResponsive.classList.toggle('inactive');
 }
-
-/* function closeProductDetailAsideResponsive() {
-    const isMainMenuContentClosed = mainContentProducts.classList.contains('inactive')
-
-    if (isMainMenuContentClosed) {
-        mainContentProducts.classList.remove('inactive')
-    }
-
-    productDetailContainerResponsive.classList.add('inactive');
-}
- */
 
 const productList = []
 productList.push({
