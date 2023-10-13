@@ -1,0 +1,246 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta http-equiv="X-UA-Compatible" content="IE=edge">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>YardSale: Tienda Online</title>
+  <link rel="shortcut icon" href="./logos/favicon_yard_sale.svg" type="image/x-icon">
+  <link rel="stylesheet" href="./style.css">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Quicksand:wght@300;500;700&display=swap" rel="stylesheet">
+  <link rel="preconnect" href="https://fonts.googleapis.com">    
+</head>
+<body>
+  <nav id="navBarId">
+    <img src="./icons/icon_menu.svg" alt="menu" class="menu">
+
+    <div class="navbar-left">
+      <img src="./logos/logo_yard_sale.svg" alt="logo" class="logo">
+
+      <ul>
+        <li>
+          <a href="/">All</a>
+        </li>
+        <li>
+          <a href="/">Clothes</a>
+        </li>
+        <li>
+          <a href="/">Electronics</a>
+        </li>
+        <li>
+          <a href="/">Furnitures</a>
+        </li>
+        <li>
+          <a href="/">Toys</a>
+        </li>
+        <li>
+          <a href="/">Others</a>
+        </li>
+      </ul>
+    </div>
+
+    <div class="navbar-right">
+      <ul>
+        <li class="navbar-email">platzi@example.com</li>
+        <li class="navbar-shopping-cart-responsive">
+          <img src="./icons/icon_shopping_cart.svg" alt="shopping cart">
+          <div>6</div>
+        </li>
+        <li class="navbar-shopping-cart-desktop">
+          <img src="./icons/icon_shopping_cart.svg" alt="shopping cart">
+          <div>6</div>
+        </li>
+      </ul>
+    </div>
+
+    <div class="desktop-menu inactive">
+        <ul>
+          <li>
+            <a href="/" class="title">My orders</a>
+          </li>
+    
+          <li>
+            <a href="/">My account</a>
+          </li>
+    
+          <li>
+            <a href="/">Sign out</a>
+          </li>
+        </ul>
+    </div>
+    
+    <div class="mobile-menu inactive">
+      <ul>
+        <li>
+          <a href="/">CATEGORIES</a>
+        </li>
+        <li>
+          <a href="/">All</a>
+        </li>
+        <li>
+          <a href="/">Clothes</a>
+        </li>
+        <li>
+          <a href="/">Electronics</a>
+        </li>
+        <li>
+          <a href="/">Furnitures</a>
+        </li>
+        <li>
+          <a href="/">Toys</a>
+        </li>
+        <li>
+          <a href="/">Other</a>
+        </li>
+      </ul>
+  
+      <ul>
+        <li>
+          <a href="/">My orders</a>
+        </li>
+        <li>
+          <a href="/">My account</a>
+        </li>
+      </ul>
+  
+      <ul class="account-position">
+        <li>
+          <a href="/" class="email">platzi@example.com</a>
+        </li>
+        <li>
+          <a href="/" class="sign-out">Sign out</a>
+        </li>
+      </ul>
+    </div>
+  </nav>
+
+  <aside id="shoppingCartContainer" class="product-detail inactive"> 
+    <div class="title-container-responsive">
+        <img class="arrow-back-responsive" src="./icons/flechita.svg" alt="arrow">
+        <p class="title-responsive">Shopping Cart</p>
+    </div>
+    <div class="title-container-desktop">
+      <img class="arrow-back-desktop" src="./icons/flechita.svg" alt="arrow">
+      <p class="title-desktop">Shopping Cart</p>
+  </div>
+    <div class="my-order">
+        <div class="my-order-container">
+            <div class="my-order-content">
+                <div class="shopping-cart">
+                    <figure>
+                        <img src="https://media.istockphoto.com/id/482965873/es/foto/bicicleta-de-monta%C3%B1a-de-29-pulgadas-con-ruedas-sobre-blanco.jpg?s=1024x1024&w=is&k=20&c=LPHFQ8-e0KIDRBS1AdztC7kKZon-GMedhevjM-CZ7_M=" alt="Bike">
+                    </figure>
+                    <p>Bike</p>
+                    <p>$120.00</p>
+                    <img src="./icons/icon_close.png" alt="close">
+                </div>
+    
+                <div class="shopping-cart">
+                    <figure>
+                        <img src="https://http2.mlstatic.com/D_NQ_NP_2X_782174-MLA72061870845_102023-F.webp" alt="Chair Office">
+                    </figure>
+                    <p>Chair</p>
+                    <p>$45.00</p>
+                    <img src="./icons/icon_close.png" alt="close">
+                </div>
+
+                <div class="shopping-cart">
+                    <figure>
+                        <img src="https://http2.mlstatic.com/D_NQ_NP_2X_641295-MLA69573719686_052023-F.webp" alt="Xbox Console">
+                    </figure>
+                    <p>Xbox One S</p>
+                    <p>$420.00</p>
+                    <img src="./icons/icon_close.png" alt="close">
+                </div>
+    
+                <div class="shopping-cart">
+                    <figure>
+                        <img src="https://http2.mlstatic.com/D_NQ_NP_962770-MLM54029806942_022023-O.webp" alt="Computer">
+                    </figure>
+                    <p>Computer</p>
+                    <p>$635.00</p>
+                    <img src="./icons/icon_close.png" alt="close">
+                </div>
+    
+                <div class="shopping-cart">
+                    <figure>
+                        <img src="https://jumbocolombiaio.vtexassets.com/arquivos/ids/184673-1600-1600?v=637813974873170000&width=1600&height=1600&aspect=true" alt="Diapers of tommy">
+                    </figure>
+                    <p>Diapers</p>
+                    <p>$50,00</p>
+                    <img src="./icons/icon_close.png" alt="close">
+                </div>
+    
+                <div class="shopping-cart">
+                    <figure>
+                        <img src="https://http2.mlstatic.com/D_NQ_NP_2X_739740-MCO47849335494_102021-F.webp" alt="Toys">
+                    </figure>
+                    <p>Toys</p>
+                    <p>$25.00</p>
+                    <img src="./icons/icon_close.png" alt="close">
+                </div>
+
+                <div class="order">
+                    <p>
+                        <span>Total</span>
+                    </p>
+                    <p>$1295.00</p>
+                </div>
+                
+                <button class="primary-button">
+                    Checkout
+                </button>
+            </div>
+        </div>
+    </div>
+  </aside>
+
+  <aside id="productDetail" class="product-detail-secondary inactive">
+    <div class="product-detail-secondary-close-responsive">
+        <img src="./icons/icon_close.png" alt="close">
+    </div>
+    <div class="product-detail-secondary-close-desktop">
+      <img src="./icons/icon_close.png" alt="close">
+    </div>
+    <img class="img-product-detail" src="https://http2.mlstatic.com/D_NQ_NP_2X_699538-MCO69510888045_052023-F.webp" alt="chair">
+    <div class="product-info-secondary">
+        <p>$45</p>
+        <p>Chair</p>
+        <p>
+          DO YOU NEED AN ELECTRONIC INVOICE?
+          Remember that to issue the electronic invoice you have a maximum period of 10 calendar days after receiving the purchase to request it. You must send us the following information: name/company name, CC/NIT, address and email.
+        </p>
+        <button class="primary-button add-to-cart-button">
+            <img src="./icons/bt_add_to_cart.svg" alt="add to cart">
+            Add to cart
+        </button>
+    </div>
+</aside>    
+
+  <main>
+    <section class="main-container">
+      <div id="cardsContainerDesktop" class="cards-container-desktop ">  
+      </div>
+      <div id="cardsContainerResponsive" class="cards-container-responsive ">
+        
+        <!-- <div class="product-card">
+          <img src="https://images.pexels.com/photos/276517/pexels-photo-276517.jpeg?auto=compress&cs=tinysrgb&dpr=2&h=650&w=940" alt="">
+          <div class="product-info">
+            <div>
+              <p>$120,00</p>
+              <p>Bike</p>
+            </div>
+            <figure>
+              <img src="./icons/bt_add_to_cart.svg" alt="">
+            </figure>
+          </div>
+        </div> -->
+  
+      </div>
+    </section>
+  </main>
+
+  <script src="./main.js"></script>
+</body>
+</html>
