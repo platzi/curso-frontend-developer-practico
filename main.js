@@ -5,7 +5,7 @@ const desktopMenu = document.querySelector('.desktop-menu');
 const burgerMenuIcon = document.querySelector('.menu');
 const mobileMenu = document.querySelector('.mobile-menu');
 const shoppingCartIcon = document.querySelector('.navbar-shopping-cart');
-const cartOrderList = document.querySelector('.product-detail');
+const cartOrderList = document.querySelector('.product');
 const cardsContainer = document.querySelector('.cards-container');
 
 function toggleDesktopMenu() {
