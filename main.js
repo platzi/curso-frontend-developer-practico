@@ -13,7 +13,6 @@ mobileIconMenu.addEventListener('click', toggleMobileMenu);
 menuShoppingCartIcon.addEventListener('click', toggleShoppingCartAside);
 productDetailCloseIcon.addEventListener('click', closeProductDetailAside);
 
-
 function toggleDesktopMenu(){
     const isAsideClosed = shoppingCartContainer.classList.contains('inactive');
     const isProductDetailContainerClosed = productDetailContainer.classList.contains('inactive');    
@@ -64,7 +63,7 @@ function toggleMobileMenu(){
 function openProductDetailAside(){
     shoppingCartContainer.classList.add('inactive');
     productDetailContainer.classList.remove('inactive');
-    desktopMenu.classList.add('inactive');
+    desktopMenu.classList.add('inactive');  
 }
 
 function closeProductDetailAside() {
@@ -122,6 +121,7 @@ function renderProducts(array){
         productPrice.innerText = '$' + product.price;
         const productName = document.createElement('p');
         productName.innerText = product.name;
+        //productName.classList.add('product-name-card');
     
         productInfoDiv.appendChild(productPrice);
         productInfoDiv.appendChild(productName);

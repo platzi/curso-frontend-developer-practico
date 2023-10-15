@@ -2,6 +2,7 @@
 :root {
   --white: #FFFFFF;
   --black: #000000;
+  --medium-gray: #646464;
   --very-light-pink: #C7C7C7;
   --text-input-field: #F7F7F7;
   --hospital-green: #ACD9B2;
@@ -78,6 +79,12 @@ nav {
 
 .navbar-shopping-cart {
   position: relative;
+  cursor: pointer;
+  transition: all 0.5s ease ;
+
+  &:hover {
+    transform: scale(1.2);
+  }
 }
 
 .navbar-shopping-cart div {
@@ -338,6 +345,11 @@ aside {
   height: 240px;
   border-radius: 20px;
   object-fit: cover;
+  cursor: pointer;
+  transition: all 0.2s ease-in-out;
+  &:hover{
+    transform: scale(1.03);
+  }
 }
 .product-card .product-info {
   display: flex;
@@ -362,8 +374,29 @@ aside {
   font-size: var(--sm);
   margin-top: 0;
   margin-bottom: 0;
-  color: var(--very-light-pink);
+  color: var(--medium-gray);
 }
+
+/* footer */
+
+footer{
+  margin-top: 10px;
+  height: 80px;
+  border-top: 1px solid var(--very-light-pink);
+  margin-top: 50px;
+  text-align: center;
+}
+
+.logo-github {
+  width: 50px;
+  height: 50px;
+  padding: 15px;
+  cursor: pointer;
+  &:hover{
+    transform: scale(1.2);
+  }
+}
+
 @media (max-width: 640px) {
   .cards-container {
     grid-template-columns: repeat(auto-fill, 140px);
