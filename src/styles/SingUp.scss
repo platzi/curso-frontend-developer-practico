@@ -1,0 +1,73 @@
+.login {
+    width: 100%;
+    height: 100vh;
+    display: grid;
+    place-items: center;
+  }
+  .form-container {
+    display: grid;
+    grid-template-rows: auto 1fr auto;
+    width: 300px;
+  }
+  .logo {
+    width: 150px;
+    margin-bottom: 48px;
+    justify-self: center;
+    display: none;
+  }
+  .title {
+    font-size: var(--lg);
+    margin-bottom: 36px;
+    text-align: start;
+  }
+  .form {
+    display: flex;
+    flex-direction: column;
+  }
+  .form div {
+    display: flex;
+    flex-direction: column;
+  }
+  .label {
+    font-size: var(--sm);
+    font-weight: bold;
+    margin-bottom: 4px;
+  }
+  .input {
+    background-color: var(--text-input-field);
+    border: none;
+    border-radius: 8px;
+    height: 30px;
+    font-size: var(--md);
+    padding: 6px;
+    margin-bottom: 12px;
+  }
+  .input-name,
+  .input-email,
+  .input-password {
+    margin-bottom: 22px;
+  }
+  .primary-button {
+    background-color: var(--hospital-green);
+    border-radius: 8px;
+    border: none;
+    color: var(--white);
+    width: 100%;
+    cursor: pointer;
+    font-size: var(--md);
+    font-weight: bold;
+    height: 50px;
+  }
+  .login-button {
+    margin-top: 14px;
+    margin-bottom: 30px;
+  }
+  @media (max-width: 640px) {
+    .form-container {
+      height: 100%;
+    }
+    .form {
+      height: 100%;
+      justify-content: space-between;
+    }
+  }
