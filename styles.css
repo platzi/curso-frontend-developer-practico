@@ -10,6 +10,11 @@
     --md: 16px;
     --lg: 18px;
   }
+  h3{
+    align-items: center;
+    color: #ACD9B2;
+    margin: top;
+  }
   body {
     margin: 0;
     font-family: 'Quicksand', sans-serif;
@@ -49,7 +54,7 @@
   .navbar-left ul li a,
   .navbar-right ul li a {
     text-decoration: none;
-    color: var(--very-light-pink);
+    color: green;
     border: 1px solid var(--white);
     padding: 8px;
     border-radius: 8px;
@@ -68,6 +73,7 @@
   .navbar-shopping-cart {
     position: relative;
   }
+ 
   .navbar-shopping-cart div {
     width: 16px;
     height: 16px;
@@ -271,7 +277,7 @@ aside {
         margin-bottom: 4px;
       }
       #productDetail .product-info p:nth-child(2) {
-        color: var(--very-light-pink);
+        color: var(--hospital-green);
         font-size: var(--md);
         margin-top: 0;
         margin-bottom: 36px;
