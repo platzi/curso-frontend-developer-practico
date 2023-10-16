@@ -272,7 +272,7 @@ aside {
 /* ProductDetail */
 #productDetail{
   z-index: 1;
-  height: 610px;
+  height: 650px;
 }
 
 .modal {
@@ -325,12 +325,20 @@ aside {
   background: var(--white);
   width: 14px;
   height: 14px;
-  position: absolute;
+  margin:  0 auto 10px;
+/*   position: absolute;
   top: 55px;
-  left: 455px;
+  left: 455px; */
   z-index: 2;
   padding: 12px;
   border-radius: 50%;
+  border-width: 2px;
+  border-style: solid;
+  border-color: var(--text-input-field);
+
+  &:hover{
+    background-color: rgb(250, 76, 76);
+  }
 }
 .product-detail-close:hover {
   cursor: pointer;

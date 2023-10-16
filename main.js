@@ -76,7 +76,6 @@ function openProductDetailAside(){
         modal.className = "modal";
     }, 100);
     container.parentElement.className = "modal-open";
-
 }
 
 function closeProductDetailAside() {
