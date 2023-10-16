@@ -1,3 +1,4 @@
+/*General*/
 :root {
     --white: #FFFFFF;
     --black: #000000;
@@ -18,16 +19,18 @@
     padding: 0 24px;
     border-bottom: 1px solid var(--very-light-pink);
   }
+  .inactive{
+    display: none;
+  }
+/*Navbar (General)*/
   .menu {
     display: none;
+    cursor: pointer;
   }
   .logo {
     width: 100px;
   }
 
-  .inactive{
-    display: none;
-  }
   .navbar-left ul,
   .navbar-right ul {
     list-style: none;
@@ -60,6 +63,11 @@
     color: var(--very-light-pink);
     font-size: var(--sm);
     margin-right: 12px;
+    cursor: pointer;
+  }
+
+  .navbar-email:hover{
+    color: var(--hospital-green);
   }
   .navbar-shopping-cart {
     position: relative;
@@ -78,6 +86,8 @@
     justify-content: center;
     align-items: center;
   }
+
+/*Desktop Menu*/
 
   .desktop-menu {
     position: absolute;
@@ -117,14 +127,59 @@
     display: inline-block;
   }
 
+/*Mobile Menu*/  
+
+  .mobile-menu {
+    position: absolute;
+    top: 60px;
+    padding: 24px;
+  }
+  .mobile-menu a {
+    text-decoration: none;
+    color: var(--black);
+    font-weight: bold;
+    /* margin-bottom: 24px; */
+  }
+  .mobile-menu ul {
+    padding: 0;
+    margin: 24px 0 0;
+    list-style: none;
+  }
+  .mobile-menu ul:nth-child(1) {
+    border-bottom: 1px solid var(--very-light-pink);
+  }
+  .mobile-menu ul li {
+    margin-bottom: 24px;
+  }
+  .email {
+    font-size: var(--sm);
+    font-weight: 300 !important;
+  }
+  .sign-out {
+    font-size: var(--sm);
+    color: var(--hospital-green) !important;
+  }
+
+
   @media (max-width: 640px) {
     .menu {
       display: block;
     }
+
+    .desktop-menu{
+        display: none;
+    }
+
     .navbar-left ul {
       display: none;
     }
     .navbar-email {
       display: none;
+    }
+  }
+
+  @media (min-width: 641px){
+    .mobile-menu{
+        display: none;
     }
   }
