@@ -1,41 +1,15 @@
 const menuEmail = document.querySelector('.navbar-email');
 const iconburger = document.querySelector('.menu');
 const iconCart = document.querySelector('.navbar-shopping-cart');
-const asideProducts = document.querySelector('.product-detail');
+
+
+const asideProductCart = document.querySelector('#productCartShow');
 const mobileMenu = document.querySelector('.mobile-menu');
 const desktopMenu = document.querySelector('.desktop-menu');
 const containercards = document.querySelector('.cards-container');
 
-// * otra forma mas corta per no tan descriptiva
-
-iconburger.addEventListener('click',showMobileMenu);
-
-function showMobileMenu() {
-    asideProducts.classList.add('inactive');
-    mobileMenu.classList.toggle('inactive');
-};
-
-//carrito desplegable version mobile
-
-iconCart.addEventListener('click',showAsideProducts);
-
-function showAsideProducts() {
-    mobileMenu.classList.add('inactive');
-    asideProducts.classList.toggle('inactive');
-    desktopMenu.classList.add('inactive'); //con este oculto el menu de email cuando esta en desktop
-}
-
-menuEmail.addEventListener('click', showDesktopMenu);
-
-//Se muestra en desktop el menu email cuando aside esta inactivo
-function showDesktopMenu(){   
-    asideProducts.classList.add('inactive');
-    desktopMenu.classList.toggle('inactive');
-}
-
 
 //Esta forma se hizo en la clase y es mas larga
-
 
 // iconburger.addEventListener('click', toggleMobileMenu);
 // iconCart.addEventListener('click', toggleCartAside);
@@ -44,10 +18,10 @@ function showDesktopMenu(){
 //funciones para alternar los distintos menus
 
 // function toggleDesktopMenu(){
-//     const isAsideProductsClosed = asideProducts.classList.contains('inactive');
+//     const isasideProductCartClosed = asideProductCart.classList.contains('inactive');
 
-//     if(!isAsideProductsClosed) {
-//         asideProducts.classList.add('inactive');
+//     if(!isasideProductCartClosed) {
+//         asideProductCart.classList.add('inactive');
 //     }
 //     desktopMenu.classList.toggle('inactive');
 // }
@@ -55,10 +29,10 @@ function showDesktopMenu(){
 //tenemos que cerrar el carrito cuando abrimos el menu
 
 // function toggleMobileMenu(){
-//     const isAsideProductsClosed = asideProducts.classList.contains('inactive');
+//     const isasideProductCartClosed = asideProductCart.classList.contains('inactive');
 
-//     if(!isAsideProductsClosed) {
-//         asideProducts.classList.add('inactive');
+//     if(!isasideProductCartClosed) {
+//         asideProductCart.classList.add('inactive');
 //     }
 //     mobileMenu.classList.toggle('inactive');
 // }
@@ -80,8 +54,37 @@ function showDesktopMenu(){
 
 //         desktopMenu.classList.add('inactive');
 //     }
-//     asideProducts.classList.toggle('inactive');
+//     asideProductCart.classList.toggle('inactive');
 // }
+
+// * otra forma mas corta per no tan descriptiva de alternar entre menus para abrir uno y cerrar el otro es la siguiente
+
+iconburger.addEventListener('click',showMobileMenu);
+
+function showMobileMenu() {
+    asideProductCart.classList.add('inactive');
+    mobileMenu.classList.toggle('inactive');
+};
+
+//carrito desplegable version mobile
+
+iconCart.addEventListener('click',showasideProductCart);
+
+function showasideProductCart() {
+    mobileMenu.classList.add('inactive');
+    asideProductCart.classList.toggle('inactive');
+    desktopMenu.classList.add('inactive'); //con este oculto el menu de email cuando esta en desktop
+}
+
+menuEmail.addEventListener('click', showDesktopMenu);
+
+//Se muestra en desktop el menu email cuando aside esta inactivo
+function showDesktopMenu(){   
+    asideProductCart.classList.add('inactive');
+    desktopMenu.classList.toggle('inactive');
+}
+
+
 
 
 const productList =[];  //Comanzamos a mostrar los productos de nuestro ecommerce
