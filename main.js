@@ -20,7 +20,8 @@ productDetailCloseIcon.addEventListener('click', closeProductDetailAside);
 
 function toggleDesktopMenu(){
     const isAsideClosed = shoppingCartContainer.classList.contains('inactive');
-    const isProductDetailContainerClosed = productDetailContainer.classList.contains('inactive');    
+    const isProductDetailContainerClosed = productDetailContainer.classList.contains('inactive');  
+    
     if(!isAsideClosed){
         shoppingCartContainer.classList.add('inactive');
     }
