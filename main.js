@@ -1,24 +1,24 @@
-const menuEmail = document.querySelector('.navbar-email');
-const desktopMenu = document.querySelector('.desktop-menu');
-const mobileIconMenu = document.querySelector('.menu');
-const productDetailCloseIcon = document.querySelector('.product-detail-close');
-const menuShoppingCartIcon = document.querySelector('.navbar-shopping-cart');
-const mobileMenu = document.querySelector('.mobile-menu');
-const shoppingCartContainer = document.querySelector('#shoppingCartContainer');
-const productDetailContainer = document.querySelector('#productDetail');
-const cardsContainer = document.querySelector('.cards-container');
-const modal = document.querySelector('.modal');
-const modalContent = document.querySelector('.modal-content');
-const container = document.querySelector('.container');
+const menuEmail = document.querySelector('.navbar-email'); //--------------------------------->Menu email
+const desktopMenu = document.querySelector('.desktop-menu');//-------------------------------->Menu email - Desplegable
+const mobileIconMenu = document.querySelector('.menu');//------------------------------------->Menu mobile - Icon
+const mobileMenu = document.querySelector('.mobile-menu');//---------------------------------->Menu mobile -Desplegable
+const productDetailCloseIcon = document.querySelector('.product-detail-close');//------------->Modal - boton close
+const productDetailContainer = document.querySelector('#productDetail');//-------------------->Modal - desplegable contenido del modal
+const modal = document.querySelector('.modal');//--------------------------------------------->Modal - div que contiene al modal.
+const modalContent = document.querySelector('.modal-content');//------------------------------>Modal - contenido del modal
+const menuShoppingCartIcon = document.querySelector('.navbar-shopping-cart');//--------------->Carrito -icon
+const shoppingCartContainer = document.querySelector('#shoppingCartContainer');//------------->Carrito - desplegable
+const cardsContainer = document.querySelector('.cards-container');//-------------------------->Productos - contenedor de todos los productos
+const container = document.querySelector('.container');//------------------------------------->Resto modal - contenido bloqueado cuando se abre el modal
+
+menuEmail.addEventListener('click', toggleDesktopMenu);//------------------------------------->Evento del menu email
+mobileIconMenu.addEventListener('click', toggleMobileMenu);//--------------------------------->Evento del menu mobile
+menuShoppingCartIcon.addEventListener('click', toggleShoppingCartAside);//-------------------->Evento del carrito de compras
+productDetailCloseIcon.addEventListener('click', closeProductDetailAside);//------------------>Evento que cierra el modal
 
 
-menuEmail.addEventListener('click', toggleDesktopMenu);
-mobileIconMenu.addEventListener('click', toggleMobileMenu);
-menuShoppingCartIcon.addEventListener('click', toggleShoppingCartAside);
-productDetailCloseIcon.addEventListener('click', closeProductDetailAside);
 
-
-function toggleDesktopMenu(){
+function toggleDesktopMenu(event){
     const isAsideClosed = shoppingCartContainer.classList.contains('inactive');
     const isProductDetailContainerClosed = productDetailContainer.classList.contains('inactive');  
     
@@ -31,6 +31,25 @@ function toggleDesktopMenu(){
     }
 
     desktopMenu.classList.toggle('inactive');
+
+/*     window.onclick = function(event) {
+        if (event.target == desktopMenu) {
+            desktopMenu.classList.add('inactive');
+            cardsContainer.className = "main-container";
+            cardsContainer.parentElement.className = "";
+            desktopMenu.classList.add('inactive');
+        }
+    } */
+
+/*     var evt = document.createEvent("MouseEvents");
+    evt.initMouseEvent("click", true, true, window,
+    0, 0, 0, 0, 0, false, false, false, false, 0, null);
+    cardsContainer = !cardsContainer.dispatchEvent(evt);
+    if(cardsContainer) {
+        alert('hola')
+    }else{
+        alert('nada')
+    } */
 }
 
 function toggleShoppingCartAside(){
@@ -97,6 +116,10 @@ window.onclick = function(event) {
         modal.classList.add('inactive');
     }
 }
+
+
+
+
 
 const productList = [];
 
