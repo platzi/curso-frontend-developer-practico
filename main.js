@@ -52,8 +52,33 @@ function toogleProductDetail() {
         productDetail.classList.toggle('inactive')
     }
 
+}
+//se crea arreglo para poder almacenar los productos 
+const productList = []
+productList.push({
+    name: 'Kitty',
+    price: 120,
+    image: 'https://images.pexels.com/photos/276517/pexels-photo-276517.jpeg?auto=compress&cs=tinysrgb&dpr=2&h=650&w=940'
+})
 
+for (product of productList) {
+    const productCard = document.createElement('div')
+    productCard, classList.add('product-card')
 
+    const img = document.createElement('img')
+    img.setAttribute('src', product.image)
 
+    const productInfo = document.createElement('div')
+    productInfo, classList.add('product-info') 
 
+    const productInfoDiv = document.createAttribute('div')
+
+    const productPrice = document.createAttribute('p')
+    productPrice.innerText = '$' + product.price
+    const productName = document.createAttribute('p')
+    productName.innerText =  product.name
+
+    const productInfoFigure = document.createElement('figure')
+    const productImgCart = document.createElement('img')
+    img.setAttribute('src','./icons/bt_add_to_cart.svg')
 }
