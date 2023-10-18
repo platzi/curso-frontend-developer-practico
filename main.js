@@ -3,7 +3,7 @@ const desktopMenu = document.querySelector('.desktop-menu')//Menu desplegabla
 const burgerMenu = document.querySelector('.burgerMenu')//icono Burger
 const sideMenuMovil = document.querySelector('.mobile-menu')//Menu desplegabla movile
 const shoopingicon = document.querySelector('.navbar-shopping-cart') //shoopingcart icon
-const productDetail = document.querySelector('.product-detail')//carrito de compras
+const productDetail = document.querySelector('.cart-detail')//carrito de compras
 const cardsContainer = document.querySelector('.cards-container')//contenedor de los productos
 
 //click es un evento de escucha, es una palabra reservada para este metodo
@@ -73,6 +73,7 @@ productList.push({
 })
 
 function renderProducts(arr) {
+    //se crea una funcion con el arreglo de productos 
     for (product of arr) {
         const productCard = document.createElement('div')
         productCard.classList.add('product-card')
@@ -81,7 +82,7 @@ function renderProducts(arr) {
         productImg.setAttribute('src', product.image)
 
         const productInfo = document.createElement('div')
-        productInfo.classList.add('product-info')
+        productInfo.classList.add('product-info-cart')
 
         const productInfoDiv = document.createElement('div')
 
