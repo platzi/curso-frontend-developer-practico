@@ -4,6 +4,7 @@ const burgerMenu = document.querySelector('.burgerMenu')//icono Burger
 const sideMenuMovil = document.querySelector('.mobile-menu')//Menu desplegabla movile
 const shoopingicon = document.querySelector('.navbar-shopping-cart') //shoopingcart icon
 const productDetail = document.querySelector('.product-detail')//carrito de compras
+const cardsContainer = document.querySelector('.cards-container')//contenedor de los productos
 
 //click es un evento de escucha, es una palabra reservada para este metodo
 
@@ -58,27 +59,74 @@ const productList = []
 productList.push({
     name: 'Kitty',
     price: 120,
-    image: 'https://images.pexels.com/photos/276517/pexels-photo-276517.jpeg?auto=compress&cs=tinysrgb&dpr=2&h=650&w=940'
+    image: 'https://images.pexels.com/photos/276517/pexels-photo-276517.jpeg?auto=compress&cs=tinysrgb&dpr=2&h=650&w=940',
+})
+productList.push({
+    name: 'Ashu',
+    price: 320,
+    image: 'https://images.pexels.com/photos/276517/pexels-photo-276517.jpeg?auto=compress&cs=tinysrgb&dpr=2&h=650&w=940',
+})
+productList.push({
+    name: 'Salud',
+    price: 420,
+    image: 'https://images.pexels.com/photos/276517/pexels-photo-276517.jpeg?auto=compress&cs=tinysrgb&dpr=2&h=650&w=940',
 })
 
-for (product of productList) {
-    const productCard = document.createElement('div')
-    productCard, classList.add('product-card')
+function renderProducts(arr) {
+    for (product of arr) {
+        const productCard = document.createElement('div')
+        productCard.classList.add('product-card')
 
-    const img = document.createElement('img')
-    img.setAttribute('src', product.image)
+        const productImg = document.createElement('img')
+        productImg.setAttribute('src', product.image)
 
-    const productInfo = document.createElement('div')
-    productInfo, classList.add('product-info') 
+        const productInfo = document.createElement('div')
+        productInfo.classList.add('product-info')
 
-    const productInfoDiv = document.createAttribute('div')
+        const productInfoDiv = document.createElement('div')
 
-    const productPrice = document.createAttribute('p')
-    productPrice.innerText = '$' + product.price
-    const productName = document.createAttribute('p')
-    productName.innerText =  product.name
+        const productPrice = document.createElement('p')
+        productPrice.innerText = '$' + product.price
+        const productName = document.createElement('p')
+        productName.innerText = product.name
 
-    const productInfoFigure = document.createElement('figure')
-    const productImgCart = document.createElement('img')
-    img.setAttribute('src','./icons/bt_add_to_cart.svg')
+        productInfoDiv.appendChild(productPrice);
+        productInfoDiv.appendChild(productName);
+
+        const productInfoFigure = document.createElement('figure')
+        const productImgCart = document.createElement('img')
+        productImgCart.setAttribute('src', './icons/bt_add_to_cart.svg')
+
+        productInfoFigure.appendChild(productImgCart);
+
+        productInfo.appendChild(productInfoDiv);
+        productInfo.appendChild(productInfoFigure);
+
+        productCard.appendChild(productImg);
+        productCard.appendChild(productInfo);
+
+        cardsContainer.appendChild(productCard);
+    }
 }
+renderProducts(productList);
+
+/*
+
+for (product of productList) {
+    const productCard = `<div class="product-card">
+    <img src="${product.image}"
+        alt="product">
+    <div class="product-info">
+        <div>
+            <p>$ ${product.price}</p>
+            <p>${product.name}</p>
+        </div>
+        <figure>
+            <img src="./icons/bt_add_to_cart.svg" alt="">
+        </figure>
+    </div>
+</div>`
+
+*
+
+}*/
