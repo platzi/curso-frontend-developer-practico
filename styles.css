@@ -247,7 +247,7 @@
   }
 
   /*Product Detail Aside*/
-  product-detail-close {
+  .product-detail-close {
     background: var(--white);
     width: 14px;
     height: 14px;
