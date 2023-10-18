@@ -336,10 +336,14 @@ nav {
 
 /*-----------------------------------Detalle de productos---------------------*/
 .product-detail {
+    background-color: var(--white);
     width: 360px;
     padding-bottom: 24px;
     position: absolute;
-    right: 0;
+    right: 8px;
+    border: 1px solid var(--very-light-pink);
+    border-radius: 20px;
+    padding: 8px;
 }
 
 .product-detail-close {
@@ -362,11 +366,11 @@ nav {
     width: 100%;
     height: 360px;
     object-fit: cover;
-    border-radius: 0 0 20px 20px;
+    border-radius: 20px 20px 20px 20px;
 }
 
 .product-info {
-    margin: 24px 24px 0 24px;
+    margin: 24px 24px 24px 24px;
 }
 
 .product-info p:nth-child(1) {
@@ -424,8 +428,10 @@ nav {
 
     .cart-detail {
         width: 95%;
+    }
 
-
+    .product-detail {
+        width: calc(100% - 36px);
     }
 
     /*productos*/
