@@ -5,12 +5,15 @@ const sideMenuMovil = document.querySelector('.mobile-menu')//Menu desplegabla m
 const shoopingicon = document.querySelector('.navbar-shopping-cart') //shoopingcart icon
 const productDetail = document.querySelector('.cart-detail')//carrito de compras
 const cardsContainer = document.querySelector('.cards-container')//contenedor de los productos
+const productDetailContainer = document.querySelector('.product-detail')//Detalle de productos
+const productDetailClose = document.querySelector('.product-detail-close')//
 
 //click es un evento de escucha, es una palabra reservada para este metodo
 
 navEmail.addEventListener('click', toggleDesktopMenu)//evento del email clickeable llama a funcion
 burgerMenu.addEventListener('click', toggleMovileMenu)
 shoopingicon.addEventListener('click', toogleProductDetail)
+productDetailClose.addEventListener('click', closeProductDetail)
 
 //funcion para que detecte click y se inactive o active el menu
 function toggleDesktopMenu() {
@@ -21,9 +24,11 @@ function toggleDesktopMenu() {
     //inactive es la clase que se va a alternar al dar click en navEmail
 
     const isProductDetailOpen = !productDetail.classList.contains('inactive')
+    const isProductDetailContainerOpen = !productDetailContainer.classList.contains('inactive')
 
-    if (isProductDetailOpen) {
+    if (isProductDetailOpen || isProductDetailContainerOpen) {
         productDetail.classList.add('inactive')
+        productDetailContainer.classList.add('inactive')
     } else {
 
         desktopMenu.classList.toggle('inactive')
@@ -34,9 +39,12 @@ function toggleDesktopMenu() {
 
 function toggleMovileMenu() {
     const isProductDetailOpen = !productDetail.classList.contains('inactive')
+    const isProductDetailContainerOpen = !productDetailContainer.classList.contains('inactive')
 
-    if (isProductDetailOpen) { //condicional que detecta si se muestra el componente
+    if (isProductDetailOpen || isProductDetailContainerOpen) { //condicional que detecta si se muestra el componente
         productDetail.classList.add('inactive') //el otro menu se cierra
+
+        productDetailContainer.classList.add('inactive')
     } else {
         sideMenuMovil.classList.toggle('inactive')//de no ser asi, permanece abierto
     }
@@ -45,15 +53,29 @@ function toggleMovileMenu() {
 function toogleProductDetail() {
     const isSideMenuMovilOpen = !sideMenuMovil.classList.contains('inactive')
     const isDesktopMenuOpen = !desktopMenu.classList.contains('inactive')
+    const isProductDetailOpen = !productDetailContainer.classList.contains('inactive')
 
-    if (isSideMenuMovilOpen || isDesktopMenuOpen) {
+    if (isSideMenuMovilOpen || isDesktopMenuOpen || isProductDetailOpen) {
         sideMenuMovil.classList.add('inactive')
         desktopMenu.classList.add('inactive')
+        productDetailContainer.classList.add('inactive')
     } else {
         productDetail.classList.toggle('inactive')
     }
 
 }
+
+function openProductDetail() {
+    productDetailContainer.classList.remove('inactive')
+    sideMenuMovil.classList.add('inactive')
+    desktopMenu.classList.add('inactive')
+    productDetail.classList.add('inactive')
+
+}
+function closeProductDetail() {
+    productDetailContainer.classList.add('inactive')
+}
+
 //se crea arreglo para poder almacenar los productos 
 const productList = []
 productList.push({
@@ -80,6 +102,7 @@ function renderProducts(arr) {
 
         const productImg = document.createElement('img')
         productImg.setAttribute('src', product.image)
+        productImg.addEventListener('click', openProductDetail)
 
         const productInfo = document.createElement('div')
         productInfo.classList.add('product-info-cart')
@@ -111,23 +134,3 @@ function renderProducts(arr) {
 }
 renderProducts(productList);
 
-/*
-
-for (product of productList) {
-    const productCard = `<div class="product-card">
-    <img src="${product.image}"
-        alt="product">
-    <div class="product-info">
-        <div>
-            <p>$ ${product.price}</p>
-            <p>${product.name}</p>
-        </div>
-        <figure>
-            <img src="./icons/bt_add_to_cart.svg" alt="">
-        </figure>
-    </div>
-</div>`
-
-*
-
-}*/
