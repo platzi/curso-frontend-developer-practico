@@ -10,12 +10,26 @@ const productDetailContainer = document.querySelector('#productDetail');
 const productDetailCloseIcon = document.querySelector('.product-detail-close');
 const myOrderContent = document.querySelector('.my-order-content');
 const cantArticulosIcon = document.querySelector('.cantArticulos');
+const flechaAtras = document.querySelector('.flechaAtras');
+const divProdIn = document.querySelector('.productsInCart');
 
-
+flechaAtras.addEventListener('click',closeCarrito);
 navEmail.addEventListener('click',toggleDesktopMenu);
 menuHamIcon.addEventListener('click',toggleMobileMenu);
 menuCarritoIcon.addEventListener('click',toggleCarritoAside);
 productDetailCloseIcon.addEventListener('click',closeProductDetailAside);
+
+
+
+        
+
+function closeCarrito(){
+    const isAsideClosed = shoppingCartContainer.classList.contains('inactive');
+
+    if(!isAsideClosed){
+        shoppingCartContainer.classList.add('inactive');
+    }
+}
 
 function toggleDesktopMenu(){
     const isAsideClosed = shoppingCartContainer.classList.contains('inactive');
@@ -136,8 +150,12 @@ productList.push({
     image: 'https://images.pexels.com/photos/1906795/pexels-photo-1906795.jpeg?auto=compress&cs=tinysrgb&w=1260&h=750&dpr=1'
 });
 
+const productsCart = [];
+
 function renderProducts(arr){
+    let i = 0;
     for (product of productList){
+        i++;
         const productCard = document.createElement('div');
         productCard.classList.add('product-card');
     
@@ -162,6 +180,7 @@ function renderProducts(arr){
         const productInfoFigure = document.createElement('figure');
         const productImgCard = document.createElement('img');
         productImgCard.setAttribute('src', './icons/bt_add_to_cart.svg');
+        productImgCard.classList.add('agCarButton',`ag${i}`);
     
         productInfoFigure.appendChild(productImgCard);
     
@@ -172,13 +191,60 @@ function renderProducts(arr){
         productCard.appendChild(productInfo);
     
         cardsContainer.appendChild(productCard);
+
     
     }
+
 }
+
+let i = 0;
+cantArticulosIcon.innerText = i;
+
+function lol(){
+        const productInCart = document.createElement('div');
+        productInCart.classList.add('shopping-cart');
+
+        const figureImg = document.createElement('figure');
+        const imageIn = document.createElement('img');
+        imageIn.setAttribute('src',product.image);
+
+        const pName = document.createElement('p');
+        pName.innerText = product.name;
+        const pPrice = document.createElement('p');
+        pPrice.innerText = '$ ' + product.price;
+
+        const imgIcon = document.createElement('img');
+        imgIcon.setAttribute('src','./icons/icon_close.png');
+
+
+        figureImg.appendChild(imageIn);
+        productInCart.appendChild(figureImg);
+        productInCart.appendChild(pName);
+        productInCart.appendChild(pPrice);
+        productInCart.appendChild(imgIcon);
+
+        divProdIn.appendChild(productInCart); 
+        
+        sumaTotal =+ product.price;
+        otraSuma = otraSuma + sumaTotal;
+
+        totalPrice.innerText = "$ " + otraSuma;
+
+        i++;
+
+        cantArticulosIcon.innerText = i;
+}
+
+
+
 
 renderProducts(productList);
 
-const productsCart = [];
+
+//const imgAg = document.querySelector('.agCarButton');
+//imgAg.addEventListener('click',lol);
+
+
 
 productsCart.push({
     name: 'Bike',
@@ -252,7 +318,7 @@ productsCart.push({
       </div>*/
 
 
-function addProductsToCart(arr){
+/*function addProductsToCart(arr){
     for (product of productsCart){
         const productInCart = document.createElement('div');
         productInCart.classList.add('shopping-cart');
@@ -277,11 +343,7 @@ function addProductsToCart(arr){
         productInCart.appendChild(pPrice);
         productInCart.appendChild(imgIcon);
 
-        myOrderContent.appendChild(productInCart);
-
-    
-
-        
+        myOrderContent.appendChild(productInCart); 
 
     }
 
@@ -316,14 +378,62 @@ function addProductsToCart(arr){
         cantArticulosIcon.innerText = productsCart.length;
 
 
-}
+}*/
+
+const order = document.createElement('div');
+        order.classList.add('order');
+        const pOrder = document.createElement('p');
+        const spanOrder = document.createElement('span');
+        const totalPrice = document.createElement('p');
+        let sumaTotal = 0;
+        let otraSuma = 0;
+
+        order.appendChild(pOrder);
+        order.appendChild(totalPrice);
+        pOrder.appendChild(spanOrder);
+        myOrderContent.appendChild(order);
+        spanOrder.innerText = 'Total';
+        
+
+        /*for(let i = 0; i < productsCart.length;i++){
+            sumaTotal =+ productsCart[i].price;
+            otraSuma = otraSuma + sumaTotal;
+        }*/
+
+        totalPrice.innerText = '$ ' + otraSuma;
+
+        const buttonCheckout = document.createElement('button');
+        buttonCheckout.classList.add('primary-button');
+        buttonCheckout.innerText = 'Checkout';
+
+        myOrderContent.appendChild(buttonCheckout);
+
+        //cantArticulosIcon.innerText = productsCart.length;
 
 /*<button class="primary-button">
         Checkout
       </button>*/
 
 
-addProductsToCart(productsCart);
+//addProductsToCart(productsCart);
+
+const ag1 = document.querySelector('.ag1');
+const ag2 = document.querySelector('.ag2');
+const ag3 = document.querySelector('.ag3');
+const ag4 = document.querySelector('.ag4');
+const ag5 = document.querySelector('.ag5');
+const ag6 = document.querySelector('.ag6');
+const ag7 = document.querySelector('.ag7');
+const ag8 = document.querySelector('.ag8');
+
+ag1.addEventListener('click',lol);
+ag2.addEventListener('click',lol);
+ag3.addEventListener('click',lol);
+ag4.addEventListener('click',lol);
+ag5.addEventListener('click',lol);
+ag6.addEventListener('click',lol);
+ag7.addEventListener('click',lol);
+ag8.addEventListener('click',lol);
 
 
 

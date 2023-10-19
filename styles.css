@@ -184,6 +184,7 @@
   .title-container img {
     transform: rotate(180deg);
     margin-right: 14px;
+    cursor: pointer;
   }
   .title {
     font-size: var(--lg);
@@ -335,6 +336,7 @@
   .product-card .product-info figure img {
     width: 35px;
     height: 35px;
+    cursor: pointer;
   }
   .product-card .product-info div p:nth-child(1) {
     font-weight: bold;
