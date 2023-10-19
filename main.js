@@ -197,8 +197,8 @@ function renderProducts(arr){
 
 }
 
-let i = 0;
-cantArticulosIcon.innerText = i;
+let cantCarrito = 0;
+cantArticulosIcon.innerText = cantCarrito;
 
 function lol(){
         const productInCart = document.createElement('div');
@@ -206,12 +206,12 @@ function lol(){
 
         const figureImg = document.createElement('figure');
         const imageIn = document.createElement('img');
-        imageIn.setAttribute('src',product.image);
+        imageIn.setAttribute('src',productList[2].image);
 
         const pName = document.createElement('p');
-        pName.innerText = product.name;
+        pName.innerText = productList[2].name;
         const pPrice = document.createElement('p');
-        pPrice.innerText = '$ ' + product.price;
+        pPrice.innerText = '$ ' + productList[2].price;
 
         const imgIcon = document.createElement('img');
         imgIcon.setAttribute('src','./icons/icon_close.png');
@@ -225,15 +225,297 @@ function lol(){
 
         divProdIn.appendChild(productInCart); 
         
-        sumaTotal =+ product.price;
+        sumaTotal =+ productList[2].price;
         otraSuma = otraSuma + sumaTotal;
 
         totalPrice.innerText = "$ " + otraSuma;
 
-        i++;
+        cantCarrito++;
 
-        cantArticulosIcon.innerText = i;
+        cantArticulosIcon.innerText = cantCarrito;
 }
+
+function lol0(){
+    const productInCart = document.createElement('div');
+    productInCart.classList.add('shopping-cart');
+
+    const figureImg = document.createElement('figure');
+    const imageIn = document.createElement('img');
+    imageIn.setAttribute('src',productList[0].image);
+
+    const pName = document.createElement('p');
+    pName.innerText = productList[0].name;
+    const pPrice = document.createElement('p');
+    pPrice.innerText = '$ ' + productList[0].price;
+
+    const imgIcon = document.createElement('img');
+    imgIcon.setAttribute('src','./icons/icon_close.png');
+
+
+    figureImg.appendChild(imageIn);
+    productInCart.appendChild(figureImg);
+    productInCart.appendChild(pName);
+    productInCart.appendChild(pPrice);
+    productInCart.appendChild(imgIcon);
+
+    divProdIn.appendChild(productInCart); 
+    
+    sumaTotal =+ productList[0].price;
+    otraSuma = otraSuma + sumaTotal;
+
+    totalPrice.innerText = "$ " + otraSuma;
+
+    cantCarrito++;
+
+    cantArticulosIcon.innerText = cantCarrito;
+}
+
+function lol1(){
+    const productInCart = document.createElement('div');
+    productInCart.classList.add('shopping-cart');
+
+    const figureImg = document.createElement('figure');
+    const imageIn = document.createElement('img');
+    imageIn.setAttribute('src',productList[1].image);
+
+    const pName = document.createElement('p');
+    pName.innerText = productList[1].name;
+    const pPrice = document.createElement('p');
+    pPrice.innerText = '$ ' + productList[1].price;
+
+    const imgIcon = document.createElement('img');
+    imgIcon.setAttribute('src','./icons/icon_close.png');
+
+
+    figureImg.appendChild(imageIn);
+    productInCart.appendChild(figureImg);
+    productInCart.appendChild(pName);
+    productInCart.appendChild(pPrice);
+    productInCart.appendChild(imgIcon);
+
+    divProdIn.appendChild(productInCart); 
+    
+    sumaTotal =+ productList[1].price;
+    otraSuma = otraSuma + sumaTotal;
+
+    totalPrice.innerText = "$ " + otraSuma;
+
+    cantCarrito++;
+
+    cantArticulosIcon.innerText = cantCarrito;
+}
+
+function lol2(){
+    const productInCart = document.createElement('div');
+    productInCart.classList.add('shopping-cart');
+
+    const figureImg = document.createElement('figure');
+    const imageIn = document.createElement('img');
+    imageIn.setAttribute('src',productList[2].image);
+
+    const pName = document.createElement('p');
+    pName.innerText = productList[2].name;
+    const pPrice = document.createElement('p');
+    pPrice.innerText = '$ ' + productList[2].price;
+
+    const imgIcon = document.createElement('img');
+    imgIcon.setAttribute('src','./icons/icon_close.png');
+
+
+    figureImg.appendChild(imageIn);
+    productInCart.appendChild(figureImg);
+    productInCart.appendChild(pName);
+    productInCart.appendChild(pPrice);
+    productInCart.appendChild(imgIcon);
+
+    divProdIn.appendChild(productInCart); 
+    
+    sumaTotal =+ productList[2].price;
+    otraSuma = otraSuma + sumaTotal;
+
+    totalPrice.innerText = "$ " + otraSuma;
+
+    cantCarrito++;
+
+    cantArticulosIcon.innerText = cantCarrito;
+}
+
+function lol3(){
+    const productInCart = document.createElement('div');
+    productInCart.classList.add('shopping-cart');
+
+    const figureImg = document.createElement('figure');
+    const imageIn = document.createElement('img');
+    imageIn.setAttribute('src',productList[3].image);
+
+    const pName = document.createElement('p');
+    pName.innerText = productList[3].name;
+    const pPrice = document.createElement('p');
+    pPrice.innerText = '$ ' + productList[3].price;
+
+    const imgIcon = document.createElement('img');
+    imgIcon.setAttribute('src','./icons/icon_close.png');
+
+
+    figureImg.appendChild(imageIn);
+    productInCart.appendChild(figureImg);
+    productInCart.appendChild(pName);
+    productInCart.appendChild(pPrice);
+    productInCart.appendChild(imgIcon);
+
+    divProdIn.appendChild(productInCart); 
+    
+    sumaTotal =+ productList[3].price;
+    otraSuma = otraSuma + sumaTotal;
+
+    totalPrice.innerText = "$ " + otraSuma;
+
+    cantCarrito++;
+
+    cantArticulosIcon.innerText = cantCarrito;
+}
+
+function lol4(){
+    const productInCart = document.createElement('div');
+    productInCart.classList.add('shopping-cart');
+
+    const figureImg = document.createElement('figure');
+    const imageIn = document.createElement('img');
+    imageIn.setAttribute('src',productList[4].image);
+
+    const pName = document.createElement('p');
+    pName.innerText = productList[4].name;
+    const pPrice = document.createElement('p');
+    pPrice.innerText = '$ ' + productList[4].price;
+
+    const imgIcon = document.createElement('img');
+    imgIcon.setAttribute('src','./icons/icon_close.png');
+
+
+    figureImg.appendChild(imageIn);
+    productInCart.appendChild(figureImg);
+    productInCart.appendChild(pName);
+    productInCart.appendChild(pPrice);
+    productInCart.appendChild(imgIcon);
+
+    divProdIn.appendChild(productInCart); 
+    
+    sumaTotal =+ productList[4].price;
+    otraSuma = otraSuma + sumaTotal;
+
+    totalPrice.innerText = "$ " + otraSuma;
+
+    cantCarrito++;
+
+    cantArticulosIcon.innerText = cantCarrito;
+}
+
+function lol5(){
+    const productInCart = document.createElement('div');
+    productInCart.classList.add('shopping-cart');
+
+    const figureImg = document.createElement('figure');
+    const imageIn = document.createElement('img');
+    imageIn.setAttribute('src',productList[5].image);
+
+    const pName = document.createElement('p');
+    pName.innerText = productList[5].name;
+    const pPrice = document.createElement('p');
+    pPrice.innerText = '$ ' + productList[5].price;
+
+    const imgIcon = document.createElement('img');
+    imgIcon.setAttribute('src','./icons/icon_close.png');
+
+
+    figureImg.appendChild(imageIn);
+    productInCart.appendChild(figureImg);
+    productInCart.appendChild(pName);
+    productInCart.appendChild(pPrice);
+    productInCart.appendChild(imgIcon);
+
+    divProdIn.appendChild(productInCart); 
+    
+    sumaTotal =+ productList[5].price;
+    otraSuma = otraSuma + sumaTotal;
+
+    totalPrice.innerText = "$ " + otraSuma;
+
+    cantCarrito++;
+
+    cantArticulosIcon.innerText = cantCarrito;
+}
+
+function lol6(){
+    const productInCart = document.createElement('div');
+    productInCart.classList.add('shopping-cart');
+
+    const figureImg = document.createElement('figure');
+    const imageIn = document.createElement('img');
+    imageIn.setAttribute('src',productList[6].image);
+
+    const pName = document.createElement('p');
+    pName.innerText = productList[6].name;
+    const pPrice = document.createElement('p');
+    pPrice.innerText = '$ ' + productList[6].price;
+
+    const imgIcon = document.createElement('img');
+    imgIcon.setAttribute('src','./icons/icon_close.png');
+
+
+    figureImg.appendChild(imageIn);
+    productInCart.appendChild(figureImg);
+    productInCart.appendChild(pName);
+    productInCart.appendChild(pPrice);
+    productInCart.appendChild(imgIcon);
+
+    divProdIn.appendChild(productInCart); 
+    
+    sumaTotal =+ productList[6].price;
+    otraSuma = otraSuma + sumaTotal;
+
+    totalPrice.innerText = "$ " + otraSuma;
+
+    cantCarrito++;
+
+    cantArticulosIcon.innerText = cantCarrito;
+}
+
+function lol7(){
+    const productInCart = document.createElement('div');
+    productInCart.classList.add('shopping-cart');
+
+    const figureImg = document.createElement('figure');
+    const imageIn = document.createElement('img');
+    imageIn.setAttribute('src',productList[7].image);
+
+    const pName = document.createElement('p');
+    pName.innerText = productList[7].name;
+    const pPrice = document.createElement('p');
+    pPrice.innerText = '$ ' + productList[7].price;
+
+    const imgIcon = document.createElement('img');
+    imgIcon.setAttribute('src','./icons/icon_close.png');
+
+
+    figureImg.appendChild(imageIn);
+    productInCart.appendChild(figureImg);
+    productInCart.appendChild(pName);
+    productInCart.appendChild(pPrice);
+    productInCart.appendChild(imgIcon);
+
+    divProdIn.appendChild(productInCart); 
+    
+    sumaTotal =+ productList[7].price;
+    otraSuma = otraSuma + sumaTotal;
+
+    totalPrice.innerText = "$ " + otraSuma;
+
+    cantCarrito++;
+
+    cantArticulosIcon.innerText = cantCarrito;
+}
+
+
 
 
 
@@ -426,14 +708,14 @@ const ag6 = document.querySelector('.ag6');
 const ag7 = document.querySelector('.ag7');
 const ag8 = document.querySelector('.ag8');
 
-ag1.addEventListener('click',lol);
-ag2.addEventListener('click',lol);
-ag3.addEventListener('click',lol);
-ag4.addEventListener('click',lol);
-ag5.addEventListener('click',lol);
-ag6.addEventListener('click',lol);
-ag7.addEventListener('click',lol);
-ag8.addEventListener('click',lol);
+ag1.addEventListener('click',lol0);
+ag2.addEventListener('click',lol1);
+ag3.addEventListener('click',lol2);
+ag4.addEventListener('click',lol3);
+ag5.addEventListener('click',lol4);
+ag6.addEventListener('click',lol5);
+ag7.addEventListener('click',lol6);
+ag8.addEventListener('click',lol7);
 
 
 
