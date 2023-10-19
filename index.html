@@ -9,102 +9,48 @@
         </head>
         <body>
             <div class="container">
-                <nav>
-                    <img src="./icons/icon_menu.svg" alt="menu" class="menu">
-                
+                <nav class="navbar">
                     <div class="navbar-left">
-                        <img src="./logos/logo_yard_sale.svg" alt="logo" class="logo">
-                
-                        <ul>
-                            <li>
-                                <a href="/">All</a>
-                            </li>
-                            <li>
-                                <a href="/">Clothes</a>
-                            </li>
-                            <li>
-                                <a href="/">Electronics</a>
-                            </li>
-                            <li>
-                                <a href="/">Furnitures</a>
-                            </li>
-                            <li>
-                                <a href="/">Toys</a>
-                            </li>
-                            <li>
-                                <a href="/">Others</a>
-                            </li>
+                        <a class="nav-logo-home" href="#home"><img class="logo-img" src="./logos/logo_yard_sale.svg" alt="home"></a>
+                        <ul class="ul-nav-left">
+                            <li><a class="nav-category" href="">All</a></li> 
+                            <li><a class="nav-category" href="">Clothes</a></li> 
+                            <li><a class="nav-category" href="">Electronics</a></li> 
+                            <li><a class="nav-category" href="">Furnitures</a></li> 
+                            <li><a class="nav-category" href="">Toys</li></a>
+                            <li><a class="nav-category" href="">Others</a> </li> 
                         </ul>
+
                     </div>
-                
+
                     <div class="navbar-right">
-                        <ul>
-                            <li class="navbar-email">platzi@example.com</li>
-                            <li class="navbar-shopping-cart">
-                                <img src="./icons/icon_shopping_cart.svg" alt="shopping cart">
+                        <div class="subnav">
+                            <li class="subnavbtn">platzi@example.com <!-- <i class="fa fa-caret-down"></i> --></li>
+                            <div class="subnav-content">
+                                <ul>
+                                    <li>
+                                        <a href="/" class="title">My orders</a>
+                                    </li>
+                                    <li>
+                                        <a href="/">My account</a>
+                                    </li>
+                                    <li>
+                                        <a href="/">Sign out</a>
+                                    </li>
+                                </ul>
+                            </div>
+                        </div> 
+                        <div class="subnav">
+                            <li class="navbar-shopping-cart""> 
+                                <a class="subnavbtn"><img src="./icons/icon_shopping_cart.svg" alt="shopping cart"><!--  <i class="fa fa-caret-down"></i> --></a>
                                 <div>2</div>
                             </li>
-                        </ul>
-                    </div>
-                
-                    <div class="desktop-menu inactive">
-                        <ul>
-                            <li>
-                                <a href="/" class="title">My orders</a>
-                            </li>
-                
-                            <li>
-                                <a href="/">My account</a>
-                            </li>
-                
-                            <li>
-                                <a href="/">Sign out</a>
-                            </li>
-                        </ul>
-                    </div>
-                
-                    <div class="mobile-menu inactive">
-                        <ul>
-                            <li>
-                                <a href="/">CATEGORIES</a>
-                            </li>
-                            <li>
-                                <a href="/">All</a>
-                            </li>
-                            <li>
-                                <a href="/">Clothes</a>
-                            </li>
-                            <li>
-                                <a href="/">Electronics</a>
-                            </li>
-                            <li>
-                                <a href="/">Furnitures</a>
-                            </li>
-                            <li>
-                                <a href="/">Toys</a>
-                            </li>
-                            <li>
-                                <a href="/">Other</a>
-                            </li>
-                        </ul>
-                
-                        <ul>
-                            <li>
-                                <a href="/">My orders</a>
-                            </li>
-                            <li>
-                                <a href="/">My account</a>
-                            </li>
-                        </ul>
-                
-                        <ul>
-                            <li>
-                                <a href="/" class="email">platzi@example.com</a>
-                            </li>
-                            <li>
-                                <a href="/" class="sign-out">Sign out</a>
-                            </li>
-                        </ul>
+                            <div class="subnav-content">
+                                <a href="#company">Company</a>
+                                <a href="#team">Team</a>
+                                <a href="#careers">Careers</a>
+                            </div>
+                        </div> 
                     </div>
                 </nav>
                 
@@ -184,7 +130,7 @@
             </div>
 
             <footer>
-                <a href="https://github.com/Melisa500" target="_blank">
+                <a href="https://github.com/Melisa500/curso-practico-js" target="_blank">
                     <img src="./icons/github.png" alt="github pages" class="logo-github">
                 </a>
             </footer>

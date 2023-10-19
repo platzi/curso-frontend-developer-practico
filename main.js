@@ -11,14 +11,14 @@ const shoppingCartContainer = document.querySelector('#shoppingCartContainer');/
 const cardsContainer = document.querySelector('.cards-container');//-------------------------->Productos - contenedor de todos los productos
 const container = document.querySelector('.container');//------------------------------------->Resto modal - contenido bloqueado cuando se abre el modal
 
-menuEmail.addEventListener('click', toggleDesktopMenu);//------------------------------------->Evento del menu email
-mobileIconMenu.addEventListener('click', toggleMobileMenu);//--------------------------------->Evento del menu mobile
-menuShoppingCartIcon.addEventListener('click', toggleShoppingCartAside);//-------------------->Evento del carrito de compras
+//menuEmail.addEventListener('click', toggleDesktopMenu);//------------------------------------->Evento del menu email
+//mobileIconMenu.addEventListener('click', toggleMobileMenu);//--------------------------------->Evento del menu mobile
+//document.addEventListener('click', closeMenu);//---------------------------------------------->Evento de cierre
+//menuShoppingCartIcon.addEventListener('click', toggleShoppingCartAside);//-------------------->Evento del carrito de compras
 productDetailCloseIcon.addEventListener('click', closeProductDetailAside);//------------------>Evento que cierra el modal
 
-
-
-function toggleDesktopMenu(event){
+/*
+function toggleDesktopMenu(){
     const isAsideClosed = shoppingCartContainer.classList.contains('inactive');
     const isProductDetailContainerClosed = productDetailContainer.classList.contains('inactive');  
     
@@ -32,24 +32,6 @@ function toggleDesktopMenu(event){
 
     desktopMenu.classList.toggle('inactive');
 
-/*     window.onclick = function(event) {
-        if (event.target == desktopMenu) {
-            desktopMenu.classList.add('inactive');
-            cardsContainer.className = "main-container";
-            cardsContainer.parentElement.className = "";
-            desktopMenu.classList.add('inactive');
-        }
-    } */
-
-/*     var evt = document.createEvent("MouseEvents");
-    evt.initMouseEvent("click", true, true, window,
-    0, 0, 0, 0, 0, false, false, false, false, 0, null);
-    cardsContainer = !cardsContainer.dispatchEvent(evt);
-    if(cardsContainer) {
-        alert('hola')
-    }else{
-        alert('nada')
-    } */
 }
 
 function toggleShoppingCartAside(){
@@ -84,6 +66,12 @@ function toggleMobileMenu(){
 
     mobileMenu.classList.toggle('inactive');
 }
+*/
+/* function closeMenu(event) {
+    if (!desktopMenu.contains(event.target)) {
+        desktopMenu.classList.add('inactive');
+    }
+} */
 
 function openProductDetailAside(){
     shoppingCartContainer.classList.add('inactive');
@@ -117,10 +105,6 @@ window.onclick = function(event) {
     }
 }
 
-
-
-
-
 const productList = [];
 
 productList.push({
@@ -147,6 +131,46 @@ productList.push({
     name: 'Triciclo',
     price: 800,
     image: 'https://http2.mlstatic.com/D_NQ_NP_915957-MLA40209647048_122019-O.webp',
+});
+productList.push({
+    name: 'Auto',
+    price: 3000,
+    image: 'https://www.infobae.com/new-resizer/7WPn0J30BXBWcZ49ADBkpStQYNY=/arc-anglerfish-arc2-prod-infobae/public/NNC7TA7K2NG5HM2REZSAE244XE.jpg',
+});
+productList.push({
+    name: 'Auto',
+    price: 3000,
+    image: 'https://www.infobae.com/new-resizer/7WPn0J30BXBWcZ49ADBkpStQYNY=/arc-anglerfish-arc2-prod-infobae/public/NNC7TA7K2NG5HM2REZSAE244XE.jpg',
+});
+productList.push({
+    name: 'Auto',
+    price: 3000,
+    image: 'https://www.infobae.com/new-resizer/7WPn0J30BXBWcZ49ADBkpStQYNY=/arc-anglerfish-arc2-prod-infobae/public/NNC7TA7K2NG5HM2REZSAE244XE.jpg',
+});
+productList.push({
+    name: 'Auto',
+    price: 3000,
+    image: 'https://www.infobae.com/new-resizer/7WPn0J30BXBWcZ49ADBkpStQYNY=/arc-anglerfish-arc2-prod-infobae/public/NNC7TA7K2NG5HM2REZSAE244XE.jpg',
+});
+productList.push({
+    name: 'Auto',
+    price: 3000,
+    image: 'https://www.infobae.com/new-resizer/7WPn0J30BXBWcZ49ADBkpStQYNY=/arc-anglerfish-arc2-prod-infobae/public/NNC7TA7K2NG5HM2REZSAE244XE.jpg',
+});
+productList.push({
+    name: 'Auto',
+    price: 3000,
+    image: 'https://www.infobae.com/new-resizer/7WPn0J30BXBWcZ49ADBkpStQYNY=/arc-anglerfish-arc2-prod-infobae/public/NNC7TA7K2NG5HM2REZSAE244XE.jpg',
+});
+productList.push({
+    name: 'Auto',
+    price: 3000,
+    image: 'https://www.infobae.com/new-resizer/7WPn0J30BXBWcZ49ADBkpStQYNY=/arc-anglerfish-arc2-prod-infobae/public/NNC7TA7K2NG5HM2REZSAE244XE.jpg',
+});
+productList.push({
+    name: 'Auto',
+    price: 3000,
+    image: 'https://www.infobae.com/new-resizer/7WPn0J30BXBWcZ49ADBkpStQYNY=/arc-anglerfish-arc2-prod-infobae/public/NNC7TA7K2NG5HM2REZSAE244XE.jpg',
 });
 productList.push({
     name: 'Auto',
@@ -193,4 +217,6 @@ function renderProducts(array){
     }
 }
 
-renderProducts(productList);
+renderProducts(productList); 
+
+
