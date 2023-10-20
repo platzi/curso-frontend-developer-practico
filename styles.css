@@ -24,13 +24,17 @@ body {
 
 /* Main nav */
 
+nav{
+  z-index: 900px;
+}
+
 .navbar {
   display: flex;
   padding: 0 24px;
   border-bottom: 1px solid var(--very-light-pink);
   height: 60px;
   justify-content: space-between;
-  position: fixed;
+  /* position: fixed; */
   background-color: var(--white);
   width: 100%;
   margin-top: 0;
@@ -114,8 +118,15 @@ ul {
   border: none;
   outline: none;
   color: var(--very-light-pink);
-  margin: 0 12px 0 0 ;
+ /*  margin: 0 12px 0 0 ; */
   cursor: pointer;
+}
+
+.subnavbtn {
+  position: relative;
+  height: 60px;
+  padding: 20px 8px;
+  box-sizing: border-box;
 }
 
 
@@ -142,6 +153,135 @@ ul {
 }
 
 .subnav:hover .subnav-content {
+  display: block;
+}
+
+/* .subnav-content .desktop-menu {
+  top: 21px;
+} */
+
+.desktop-menu {
+  width: 100px;
+  height: auto;
+  border: 1px solid var(--very-light-pink);
+  border-radius: 6px;
+  padding: 20px 20px 0 20px;
+  position: absolute;
+  top: 0px;
+  right: -3px;
+  background-color: var(--white);
+}
+.desktop-menu ul {
+  list-style: none;
+  padding: 0;
+  margin: 0;
+}
+.desktop-menu ul li {
+  text-align: end;
+}
+.desktop-menu ul li:nth-child(1),
+.desktop-menu ul li:nth-child(2) {
+  font-weight: bold;
+}
+.desktop-menu ul li:last-child {
+  padding-top: 20px;
+  border-top: 1px solid var(--very-light-pink);
+}
+.desktop-menu ul li:last-child a {
+  color: var(--hospital-green);
+  font-size: var(--sm);
+}
+.desktop-menu ul li a {
+  color: var(--back);
+  text-decoration: none;
+  margin-bottom: 20px;
+  display: inline-block;
+}
+
+/* Menu isquierdo desplegado */
+.product-detail {
+  display: none;
+  width: 360px;
+  padding: 24px;
+  box-sizing: border-box;
+  position: absolute;
+  right: 0;
+  background-color: var(--white);
+  z-index: 1;
+}
+.title-container {
+  display: flex;
+}
+.title-container img {
+  transform: rotate(180deg);
+  margin-right: 14px;
+}
+.title {
+  font-size: var(--lg);
+  font-weight: bold;
+}
+.order {
+  display: grid;
+  grid-template-columns: auto 1fr;
+  gap: 16px;
+  align-items: center;
+  background-color: var(--text-input-field);
+  margin-bottom: 24px;
+  border-radius: 8px;
+  padding: 0 24px;
+}
+.order p:nth-child(1) {
+  display: flex;
+  flex-direction: column;
+}
+.order p span:nth-child(1) {
+  font-size: var(--md);
+  font-weight: bold;
+}
+.order p:nth-child(2) {
+  text-align: end;
+  font-weight: bold;
+}
+.shopping-cart {
+  display: grid;
+  grid-template-columns: auto 1fr auto auto;
+  gap: 16px;
+  margin-bottom: 24px;
+  align-items: center;
+}
+.shopping-cart figure {
+  margin: 0;
+}
+.shopping-cart figure img {
+  width: 70px;
+  height: 70px;
+  border-radius: 20px;
+  object-fit: cover;
+}
+.shopping-cart p:nth-child(2) {
+  color: var(--very-light-pink);
+}
+.shopping-cart p:nth-child(3) {
+  font-size: var(--md);
+  font-weight: bold;
+}
+.primary-button {
+  background-color: var(--hospital-green);
+  border-radius: 8px;
+  border: none;
+  color: var(--white);
+  width: 100%;
+  cursor: pointer;
+  font-size: var(--md);
+  font-weight: bold;
+  height: 50px;
+}
+@media (max-width: 640px) {
+  .product-detail {
+    width: 100%;
+  }
+}
+.subnav:hover .product-detail {
   display: block;
 }
 /* Desktop menu */
@@ -434,6 +574,61 @@ aside {
 
 /* Product List */
 
+
+.cards-container {
+  display: grid;
+  grid-template-columns: repeat(auto-fill, 240px);
+  gap: 26px;
+  place-content: center;
+}
+.product-card {
+  width: 240px;
+}
+.product-card img {
+  width: 240px;
+  height: 240px;
+  border-radius: 20px;
+  object-fit: cover;
+}
+.product-info {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  margin-top: 12px;
+}
+.product-info figure {
+  margin: 0;
+}
+.product-info figure img {
+  width: 35px;
+  height: 35px;
+}
+.product-info div p:nth-child(1) {
+  font-weight: bold;
+  font-size: var(--md);
+  margin-top: 0;
+  margin-bottom: 4px;
+}
+.product-info div p:nth-child(2) {
+  font-size: var(--sm);
+  margin-top: 0;
+  margin-bottom: 0;
+  color: var(--very-light-pink);
+}
+@media (max-width: 640px) {
+  .cards-container {
+    grid-template-columns: repeat(auto-fill, 140px);
+  }
+  .product-card {
+    width: 140px;
+  }
+  .product-card img {
+    width: 140px;
+    height: 140px;
+  }
+}
+
+/* contenedor de productos */
 .cards-container {
   display: grid;
   grid-template-columns: repeat(auto-fill, 240px);
