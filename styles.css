@@ -14,14 +14,20 @@ body {
 	font-family: 'Quicksand', sans-serif;
 }
 
+.container {
+	max-width: 1440px;
+	margin: 0 auto;
+	display: flex;
+	position: relative;
+	justify-content: space-between;
+	padding: 0 24px;
+}
+
 .inactive {
 	display: none;
 }
 
 nav {
-	display: flex;
-	justify-content: space-between;
-	padding: 0 24px;
 	border-bottom: 1px solid var(--very-light-pink);
 }
 .menu {
