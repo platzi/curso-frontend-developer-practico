@@ -33,7 +33,6 @@
       display: grid;
       grid-template-rows: auto 1fr auto;
       width: 300px;
-      justify-items: center;
     }
     .logo {
       width: 150px;
@@ -54,28 +53,23 @@
       margin-bottom: 32px;
       text-align: center;
     }
-    .email-image {
-      width: 132px;
-      height: 132px;
-      border-radius: 50%;
-      background-color: var(--text-input-field);
+    .form {
       display: flex;
-      justify-content: center;
-      align-items: center;
-      margin-bottom: 24px;
+      flex-direction: column;
     }
-    .email-image img {
-      width: 80px;
-    }
-    .resend {
+    .label {
       font-size: var(--sm);
+      font-weight: bold;
+      margin-bottom: 4px;
     }
-    .resend span {
-      color: var(--very-light-pink);
-    }
-    .resend a {
-      color: var(--hospital-green);
-      text-decoration: none;
+    .input {
+      background-color: var(--text-input-field);
+      border: none;
+      border-radius: 8px;
+      height: 30px;
+      font-size: var(--md);
+      padding: 6px;
+      margin-bottom: 12px;
     }
     .primary-button {
       background-color: var(--hospital-green);
@@ -104,19 +98,18 @@
     <div class="form-container">
       <img src="./logos/logo_yard_sale.svg" alt="logo" class="logo">
 
-      <h1 class="title">Email has been sent!</h1>
-      <p class="subtitle">Please check your inbox for instructions on how to reset the password</p>
+      <h1 class="title">Create a new password</h1>
+      <p class="subtitle">Enter a new passwrd for yue account</p>
 
-      <div class="email-image">
-        <img src="./icons/email.svg" alt="email">
-      </div>
+      <form action="/emailSent.html" class="form">
+        <label for="password" class="label">Password</label>
+        <input type="password" id="password" placeholder="*********" class="input input-password">
 
-      <button class="primary-button login-button">Login</button>
+        <label for="new-password" class="label">Password</label>
+        <input type="password" id="new-password" placeholder="*********" class="input input-password">
 
-      <p class="resend">
-        <span>Didn't receive the email?</span>
-        <a href="/">Resend</a>
-      </p>
+        <input type="submit" value="Confirm" class="primary-button login-button">
+      </form>
     </div>
   </div>
 </body>
