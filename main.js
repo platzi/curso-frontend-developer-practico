@@ -5,7 +5,7 @@ const hamburgerElement = document.querySelector('.menu');
 const mobileMenuElement = document.querySelector('.mobile-menu');
 
 const navbarCartElement = document.querySelector('.navbar-shopping-cart');
-const cartMenuElement = document.querySelector('.product-detail');
+const cartMenuElement = document.querySelector('.shopping-cart-detail');
 
 // 
 class Product {
