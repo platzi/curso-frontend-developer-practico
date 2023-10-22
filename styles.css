@@ -17,6 +17,7 @@
 
 body {
 	font-family: 'Quicksand', sans-serif;
+	overflow-x: hidden;
 }
 
 .nav-container {
