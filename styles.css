@@ -29,6 +29,10 @@ body {
 	padding: 0 24px;
 }
 
+.z-index1 {
+	z-index: 1;
+}
+
 .inactive {
 	display: none;
 }
@@ -262,7 +266,7 @@ nav {
 }
 
 .cards-container {
-	margin-top: 25px;
+	padding-top: 25px;
 	display: grid;
 	grid-template-columns: repeat(auto-fill, 240px);
 	gap: 26px;
@@ -303,14 +307,25 @@ nav {
 	color: var(--very-light-pink);
 }
 
+.gray-out-overlay{
+	position: absolute;
+	width: 140vw;
+	height: 100vh;
+	background: rgba(0, 0, 0, 0.7);
+	top: -61px;
+	left: -40vw;
+	z-index: 3;
+}
+
 .product-detail {
 	background-color: var(--white);
 	width: 360px;
-	padding-bottom: 24px;
+	padding: 20px;
 	border-radius: 20px;
 	position: absolute;
-	right: 0;
-	top: 0;
+	top: 50%;
+	left: 50%;
+	transform: translate(-50%, -50%);
 	z-index: 3;
 }
 .product-detail-close {

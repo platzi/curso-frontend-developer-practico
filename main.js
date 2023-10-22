@@ -1,3 +1,4 @@
+const navbarContainerElement = document.querySelector('.nav-container');
 const navbarEmailElement = document.querySelector('.navbar-email');
 const desktopMenuElement =document.querySelector('.desktop-menu');
 
@@ -8,6 +9,7 @@ const navbarCartElement = document.querySelector('.navbar-shopping-cart');
 const cartMenuElement = document.querySelector('.shopping-cart-detail');
 const cardContainerElement = document.querySelector('.cards-container');
 
+const grayOutOverlayElement = document.querySelector('.gray-out-overlay');
 const productDetailElement = document.querySelector('.product-detail');
 const productDetailImgElement = document.querySelector('.product-detail-img');
 const productInfoNameElement = document.querySelector('.product-info p');
@@ -44,9 +46,12 @@ function renderProducts (arr) {
             productDetailElement.classList.remove('inactive');
             cartMenuElement.classList.add('inactive')
             desktopMenuElement.classList.add('inactive');
-            productDetailImgElement.setAttribute('src', product.img)
-            productInfoNameElement.innerText = product.name
-            productInfoPriceElement.innerText = product.price
+            mobileMenuElement.classList.add('inactive');
+            grayOutOverlayElement.classList.remove('inactive');
+            navbarContainerElement.classList.add('z-index1');
+            productDetailImgElement.setAttribute('src', product.img);
+            productInfoNameElement.innerText = product.name;
+            productInfoPriceElement.innerText = product.price;
         });
         
         const productInfo = document.createElement('div');
@@ -81,7 +86,7 @@ navbarEmailElement.addEventListener('click', () => {
 hamburgerElement.addEventListener('click', () => {
     mobileMenuElement.classList.toggle('inactive');
     cartMenuElement.classList.add('inactive');
-    productDetailElement.classList.add('inactive')
+    productDetailElement.classList.add('inactive');
 })
 
 navbarCartElement.addEventListener('click', () => {
@@ -91,7 +96,9 @@ navbarCartElement.addEventListener('click', () => {
 })
 
 productDetailCloseElement.addEventListener('click', () => {
-    productDetailElement.classList.add('inactive')
+    productDetailElement.classList.add('inactive');
+    grayOutOverlayElement.classList.add('inactive');
+    navbarContainerElement.classList.remove('z-index1');
 })
 
-renderProducts(productList)
+renderProducts(productList);
