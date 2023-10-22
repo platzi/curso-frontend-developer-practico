@@ -10,6 +10,9 @@ const cardContainerElement = document.querySelector('.cards-container');
 
 const productDetailElement = document.querySelector('.product-detail');
 const productDetailImgElement = document.querySelector('.product-detail-img');
+const productInfoNameElement = document.querySelector('.product-info p');
+const productInfoPriceElement = document.querySelector('.product-info p:nth-of-type(2)');
+
 const productDetailCloseElement = document.querySelector('.product-detail-close');
 
 class Product {
@@ -42,6 +45,8 @@ function renderProducts (arr) {
             cartMenuElement.classList.add('inactive')
             desktopMenuElement.classList.add('inactive');
             productDetailImgElement.setAttribute('src', product.img)
+            productInfoNameElement.innerText = product.name
+            productInfoPriceElement.innerText = product.price
         });
         
         const productInfo = document.createElement('div');
