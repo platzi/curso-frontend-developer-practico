@@ -1,23 +1,23 @@
-//desktop-menu
+//desktop-menu - event listener
 const email = document.querySelector('.navbar-email');
 const menu = document.querySelector('.desktop-menu');
 email.addEventListener('click', function () {
     menu.style.display = (menu.style.display === 'block') ? 'none' : 'block';
 });
 
-//mobile-menu
+//mobile-menu - event listener
 const mobileMenuButton = document.querySelector('.mobile-menu-button');
 const mobileMenu = document.querySelector('.mobile-menu');
 mobileMenuButton.addEventListener('click', function () {
     mobileMenu.classList.toggle('inactive');
-    productDetail.classList.add('inactive'); //close product detail
+    cartDetail.classList.add('inactive'); //close cart detail
 });
 
-//product detail
-const productDetail = document.querySelector('.product-detail');
-const productDetailButton = document.querySelector('.navbar-shopping-cart');
-productDetailButton.addEventListener('click', function () {
-    productDetail.classList.toggle('inactive');
+//product detail - event listener
+const cartDetail = document.querySelector('.cart-detail');
+const cartDetailButton = document.querySelector('.navbar-shopping-cart');
+cartDetailButton.addEventListener('click', function () {
+    cartDetail.classList.toggle('inactive');
     mobileMenu.classList.add('inactive'); //close mobile menu
 });
 
@@ -38,11 +38,21 @@ productList.push({
     price: 9000,
     image: 'https://mac-center.com/cdn/shop/products/IMG-6206371.jpg?v=1658325568'
 })
+productList.push({
+    name: 'Mac book air',
+    price: 92000,
+    image: 'https://mac-center.com/cdn/shop/products/IMG-6206371.jpg?v=1658325568'
+})
+productList.push({
+    name: 'Iphone 12',
+    price: 56000,
+    image: 'https://mac-center.com/cdn/shop/products/IMG-6206371.jpg?v=1658325568'
+})
 
 // insert product list to html in cards-container
 const cardsContainer = document.querySelector('.cards-container');
 
-// create card
+// create card for each product
 function createCard(product) {
     const card = document.createElement('div');
     card.classList.add('product-card');
@@ -85,3 +95,19 @@ productList.forEach(function (product) {
     const card = createCard(product);
     cardsContainer.appendChild(card);
 });
+
+
+// SHOW PRODUCT DETAIL
+const productCard = document.querySelectorAll('.product-card');
+const closeProductDetail = document.querySelector('.product-detail-close');
+productCard.forEach(function (card) {
+    card.addEventListener('click', function () {
+        const productDetail = document.querySelector('.product-details');
+        productDetail.classList.toggle('inactive');
+    })
+})
+closeProductDetail.addEventListener('click', function () {
+    const productDetail = document.querySelector('.product-details');
+    productDetail.classList.toggle('inactive');
+    cartDetail.classList.add('inactive'); //close cart detail
+})
