@@ -2,15 +2,12 @@
 const email = document.querySelector('.navbar-email');
 const menu = document.querySelector('.desktop-menu');
 email.addEventListener('click', function () {
-    console.log('clicked');
+    menu.style.display = (menu.style.display === 'block') ? 'none' : 'block';
+});
 
-    //get the current display property
-    var displaySetting = menu.style.display;
-    if(displaySetting == 'block') {
-        //menu is visible. hide it
-        menu.style.display = 'none';
-    } else {
-        //menu is hidden. show it
-        menu.style.display = 'block';
-    }
+//mobile-menu
+const mobileMenuButton = document.querySelector('.mobile-menu-button');
+const mobileMenu = document.querySelector('.mobile-menu');
+mobileMenuButton.addEventListener('click', function () {
+    mobileMenu.classList.toggle('inactive');
 });
