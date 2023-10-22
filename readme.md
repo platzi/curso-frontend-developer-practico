@@ -29,6 +29,7 @@ Welcome to the repository for the Platzi JavaScript Practical course! In this co
 1. Clone this repository:
 ```bash
 git clone https://github.com/your-username/your-repo-name.git
+```
 
 2. Navigate to the project directory:
 ```bash
