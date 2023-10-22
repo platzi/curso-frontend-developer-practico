@@ -224,6 +224,10 @@ nav {
 	text-align: end;
 	font-weight: bold;
 }
+
+.my-order-content {
+    padding-top: 10px;
+}
 .shopping-cart {
 	display: grid;
 	grid-template-columns: auto 1fr auto auto;
@@ -246,6 +250,10 @@ nav {
 .shopping-cart p:nth-child(3) {
 	font-size: var(--md);
 	font-weight: bold;
+}
+
+.remove-product {
+    cursor: pointer;
 }
 .primary-button {
 	background-color: var(--hospital-green);

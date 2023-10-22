@@ -24,10 +24,6 @@ class Product {
     } 
 }
 
-function addProductToCart(img, name, price) {
-     
-}
-
 const productList = [
     new Product('Bike', 120, 'https://images.pexels.com/photos/276517/pexels-photo-276517.jpeg?auto=compress&cs=tinysrgb&dpr=2'),
     new Product('TV', 599, 'https://images.pexels.com/photos/7546602/pexels-photo-7546602.jpeg?auto=compress&cs=tinysrgb&dpr=2'),
@@ -37,10 +33,67 @@ const productList = [
     new Product('Chemex', 69.95, 'https://images.pexels.com/photos/5480759/pexels-photo-5480759.jpeg?auto=compress&cs=tinysrgb&w=1260&h=750&dpr=1'),
 ];
 
+// Add a product to the shopping cart
+let cartItemsQuantity = document.querySelector('#cart-items-quantity');
+function addProductToCart(img, name, price) {
+    const orderContent = document.querySelector('.my-order-content');
+    const orderTotalPrice = document.querySelector('.order-total-price');
+ 
+    const shoppingCart = createShoppingCartItem(img, name, price);
+    
+    shoppingCart.querySelector('.remove-product').addEventListener('click', () => {
+        orderContent.removeChild(shoppingCart);
+
+        Number(cartItemsQuantity.innerText--) 
+        //Send negative price
+        updateTotalPrice(orderTotalPrice, -price);
+    });
+
+    orderContent.prepend(shoppingCart);
+
+    Number(cartItemsQuantity.innerText++) 
+    updateTotalPrice(orderTotalPrice, price);
+}
+
+   // Create the shopping cart item
+function createShoppingCartItem(img, name, price) {
+    const shoppingCart = document.createElement('div');
+    shoppingCart.classList.add('shopping-cart');
+    
+    const shoppingCartProductFigure = document.createElement('figure');
+    const shoppingCartProductImg = document.createElement('img');
+    shoppingCartProductImg.setAttribute('src', img);
+    
+    const shoppingCartProductName = document.createElement('p');
+    shoppingCartProductName.innerText = name;
+    
+    const shoppingCartProductPrice = document.createElement('p');
+    shoppingCartProductPrice.innerText = price;
+    
+    const shoppingCartProductRemove = document.createElement('img');
+    shoppingCartProductRemove.setAttribute('src', './icons/icon_close.png');
+    shoppingCartProductRemove.classList.add('remove-product');
+
+    shoppingCartProductFigure.appendChild(shoppingCartProductImg);
+    shoppingCart.append(shoppingCartProductFigure, shoppingCartProductName, shoppingCartProductPrice, shoppingCartProductRemove);
+
+    return shoppingCart;
+}
+
+// Update the total price
+function updateTotalPrice(orderTotalPrice, priceChange) {
+    let currentTotal = parseFloat(orderTotalPrice.innerText.replace('$', '')) || 0;
+    let newTotal = currentTotal + priceChange;
+
+    orderTotalPrice.innerText = '$' + newTotal.toFixed(2);
+}
+
+
 // Function to create and add a product card to the card container
 function renderProducts(arr) {
     const cardContainerElement = document.querySelector('.cards-container');
 
+    // Function to handle the click event for viewing product details
     function handleProductDetailClick(product) {
         productDetailElement.classList.remove('inactive');
         cartMenuElement.classList.add('inactive');
@@ -53,6 +106,7 @@ function renderProducts(arr) {
         productInfoPriceElement.innerText = product.price;
     }
 
+    // Function to handle the click event for adding a product to the cart
     function handleAddToCartClick(product) {
         addProductToCart(product.img, product.name, product.price);
     }
