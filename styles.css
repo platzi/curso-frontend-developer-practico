@@ -307,6 +307,7 @@ nav {
 	background-color: var(--white);
 	width: 360px;
 	padding-bottom: 24px;
+	border-radius: 20px;
 	position: absolute;
 	right: 0;
 	top: 0;
@@ -314,8 +315,8 @@ nav {
 }
 .product-detail-close {
 	background: var(--white);
-	width: 38px;
-	height: 38px;
+	width: 39px;
+	height: 39px;
 	position: absolute;
 	top: 24px;
 	left: 24px;
