@@ -307,6 +307,9 @@ nav {
 	margin-bottom: 0;
 	color: var(--very-light-pink);
 }
+.product-img-cart {
+	cursor: pointer;
+}
 
 .gray-out-overlay{
 	position: absolute;
