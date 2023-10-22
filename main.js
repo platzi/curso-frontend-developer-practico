@@ -11,6 +11,7 @@ const mobileMenu = document.querySelector('.mobile-menu');
 mobileMenuButton.addEventListener('click', function () {
     mobileMenu.classList.toggle('inactive');
     cartDetail.classList.add('inactive'); //close cart detail
+    productDetail.classList.add('inactive'); //close product detail
 });
 
 //product detail - event listener
@@ -19,6 +20,7 @@ const cartDetailButton = document.querySelector('.navbar-shopping-cart');
 cartDetailButton.addEventListener('click', function () {
     cartDetail.classList.toggle('inactive');
     mobileMenu.classList.add('inactive'); //close mobile menu
+    productDetail.classList.add('inactive'); //close product detail
 });
 
 // MAIN CONTAINER - PRODUCT LIST
@@ -99,15 +101,15 @@ productList.forEach(function (product) {
 
 // SHOW PRODUCT DETAIL
 const productCard = document.querySelectorAll('.product-card');
-const closeProductDetail = document.querySelector('.product-detail-close');
+const buttonCloseProductDetail = document.querySelector('.product-detail-close');
+const productDetail = document.querySelector('.product-details');
 productCard.forEach(function (card) {
     card.addEventListener('click', function () {
-        const productDetail = document.querySelector('.product-details');
         productDetail.classList.toggle('inactive');
+        cartDetail.classList.add('inactive'); //close cart detail
+        mobileMenu.classList.add('inactive'); //close mobile menu
     })
 })
-closeProductDetail.addEventListener('click', function () {
-    const productDetail = document.querySelector('.product-details');
+buttonCloseProductDetail.addEventListener('click', function () {
     productDetail.classList.toggle('inactive');
-    cartDetail.classList.add('inactive'); //close cart detail
 })
