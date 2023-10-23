@@ -25,9 +25,9 @@ class Product {
 }
 
 const productList = [
-    new Product('Bike', 120, 'https://images.pexels.com/photos/276517/pexels-photo-276517.jpeg?auto=compress&cs=tinysrgb&dpr=2'),
-    new Product('TV', 599, 'https://images.pexels.com/photos/7546602/pexels-photo-7546602.jpeg?auto=compress&cs=tinysrgb&dpr=2'),
-    new Product('Laptop', 1799, 'https://images.pexels.com/photos/11673485/pexels-photo-11673485.jpeg?auto=compress&cs=tinysrgb&dpr=2'),
+    new Product('Bike', 120, 'https://images.pexels.com/photos/276517/pexels-photo-276517.jpeg?auto=compress&cs=tinysrgb&dpr=1'),
+    new Product('TV', 599, 'https://images.pexels.com/photos/7546602/pexels-photo-7546602.jpeg?auto=compress&cs=tinysrgb&dpr=1'),
+    new Product('Laptop', 1799, 'https://images.pexels.com/photos/11673485/pexels-photo-11673485.jpeg?auto=compress&cs=tinysrgb&dpr=1'),
     new Product('Desktop Computer', 2700, 'https://images.pexels.com/photos/205316/pexels-photo-205316.png?auto=compress&cs=tinysrgb&w=1260&h=750&dpr=1'),
     new Product('Smartphone', 1889, 'https://images.pexels.com/photos/11772523/pexels-photo-11772523.jpeg?auto=compress&cs=tinysrgb&w=1260&h=750&dpr=1'),
     new Product('Chemex', 69.95, 'https://images.pexels.com/photos/5480759/pexels-photo-5480759.jpeg?auto=compress&cs=tinysrgb&w=1260&h=750&dpr=1'),
