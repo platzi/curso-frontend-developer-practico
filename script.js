@@ -1,5 +1,31 @@
 console.log('JS Conectado');
 
+myOrderList =[];
+
+
+
+myOrderList.push({
+    name: 'Bike',
+    price: 100,
+    image: 'https://images.pexels.com/photos/276517/pexels-photo-276517.jpeg?auto=compress&cs=tinysrgb&dpr=2&h=650&w=940',
+});
+myOrderList.push({
+    name: 'Bike',
+    price: 100,
+    image: 'https://images.pexels.com/photos/276517/pexels-photo-276517.jpeg?auto=compress&cs=tinysrgb&dpr=2&h=650&w=940',
+});
+myOrderList.push({
+    name: 'Bike',
+    price: 100,
+    image: 'https://images.pexels.com/photos/276517/pexels-photo-276517.jpeg?auto=compress&cs=tinysrgb&dpr=2&h=650&w=940',
+});
+myOrderList.push({
+    name: 'Bike',
+    price: 100,
+    image: 'https://images.pexels.com/photos/276517/pexels-photo-276517.jpeg?auto=compress&cs=tinysrgb&dpr=2&h=650&w=940',
+});
+
+
 
 //EMAIL MENU
 const menuEmail = document.querySelector('.navbar-email');
@@ -17,14 +43,24 @@ const mobileMenu = document.querySelector('.mobile-menu');
 
 //CARRITO DE COMPRAS
 const menuCarritoIcon= document.querySelector('.navbar-shopping-cart'); //Aqui guardo en una variable, el elemento de html mediante el cual hacen click 
+const contadorCarrito= document.querySelector('.shoppingcart-counter');
 const shoppingCartContainer = document.querySelector('#shoppingCartContainer'); //Aqui guardo en una variable, el elemento que mostraré atraves del click 
 const productDetailContainer = document.querySelector('#productDetail');
 const cardsContainer = document.querySelector('.cards-container');
+const countShoppingCart = document.querySelector('.navbar-shopping-cart-number');
+const myOrderContent = document.querySelector('.my-order-content');
+const orderT = document.querySelector('.order');
+const btnCheckout = document.querySelector('#checkout')
+const vTotal = document.querySelector('#total')
+
+
+
 
 
 //PRODUCT DETAIL
 
 const productDetailCloseIcon = document.querySelector('.product-detail-close');
+const productCartIcon  = document.querySelector('#addToCart');
 
 
 //EVENT LISTENER DE ICONOS
@@ -32,6 +68,8 @@ menuEmail.addEventListener('click',toggleDesktopMenu);
 burguerMenuIcon.addEventListener('click',toggleMobileMenu); 
 menuCarritoIcon.addEventListener('click', toggleCarritoAside);
 productDetailCloseIcon.addEventListener('click',closeProductDetail);
+productCartIcon.addEventListener('click', renderShoppingCart(myOrderList));
+
 
 //FUNCIONES
 
@@ -93,6 +131,7 @@ function closeProductDetail(){
     productDetailContainer.classList.add('inactive');
 }
 
+
 const productList =[]; 
 productList.push({
     name: 'Bike',
@@ -126,9 +165,6 @@ renderProducts(productList);
 function renderProducts(array){
 
     for (product of array){
-        //console.log(product.name)
-
-        //construyo el html desde Javascript
     
         const productCard = document.createElement('div');
         productCard.classList.add('product-card');
@@ -150,11 +186,13 @@ function renderProducts(array){
         const productName = document.createElement('p');
         productName.innerText = product.name;
     
-        const productInfoFigure = document.createElement('figure');
+        const productInfoFigure = document.createElement('figure');        
+        productInfoFigure.setAttribute('id','addToCart')  
         
         const productImgCart = document.createElement('img');
     
         productImgCart.setAttribute('src', './icons/bt_add_to_cart.svg')  
+        
     
         productInfoFigure.appendChild(productImgCart);
     
@@ -171,7 +209,72 @@ function renderProducts(array){
     
     }
 
+}
 
+
+
+function renderShoppingCart(array){   
+
+    var valorTotal =0;    
+
+    for (product of array){  
+        
+        valorTotal += product.price;             
+        contadorCarrito.innerText = array.length;   
+        vTotal.innerText = valorTotal;  
+
+        const shoppingCart = document.createElement('div');
+        shoppingCart.classList.add('shopping-cart');
+
+        const shoppingCartFigure = document.createElement('figure');
+        
+        const shoppingCartImage = document.createElement('img');
+        shoppingCartImage.setAttribute('src', product.image);
+        
+        const shopingCartName =document.createElement('p');
+        shopingCartName.innerText = product.name;
+
+        const shopingCartPrice =document.createElement('p');
+        shopingCartPrice.innerText = '$' + product.price;
+
+        const shoppingImage = document.createElement('img');
+        shoppingImage.setAttribute('src','./icons/icon_close.png');
+        shoppingImage.setAttribute('alt','close');           
+        
+        shoppingCartFigure.appendChild(shoppingCartImage);
+
+        shoppingCart.appendChild(shoppingCartFigure);
+        shoppingCart.appendChild(shopingCartName);
+        shoppingCart.appendChild(shopingCartPrice);
+        shoppingCart.appendChild(shoppingImage);     
+        myOrderContent.appendChild(shoppingCart);                   
+    }
+
+        
 
 }
+
+
+
+
+
+        
+  
+        
+
+        
+            
+
+        
+    
+        
+
+
+    
+
+
+
+
+
+
 
