@@ -2,15 +2,19 @@ const menuEmail = document.querySelector(".navbar-email");
 const menuHamIcon = document.querySelector(".menu");
 const menuCarBuy = document.querySelector(".navbar-shopping-cart")
 const li = document.querySelectorAll("li")
+const productDetailCloseIcon = document.querySelector(".product-detail-close");
 
 const destopMenu = document.querySelector(".desktop-menu");
 const mobileMenu = document.querySelector(".mobile-menu");
 const shoppingCartContainer = document.querySelector("#shoppingCartContainer")
-const cardsContainer = document.querySelector(".cards-container")
+const productDetailContainer = document.querySelector("#productDetail")
+const cardsContainer = document.querySelector(".cards-container");
+
 
 menuEmail.addEventListener("click", toggleDestopMenu);
 menuHamIcon.addEventListener("click", togglemobileMenu);
 menuCarBuy.addEventListener("click", toggleCarAside);
+productDetailCloseIcon.addEventListener("click", closeProductDetailAside);
 
 
 
@@ -31,6 +35,7 @@ function togglemobileMenu () {
     if (!isAsideClosed) {
         shoppingCartContainer.classList.add("inactive")
     }
+    closeProductDetailAside()
 
     mobileMenu.classList.toggle("inactive")
 
@@ -44,13 +49,29 @@ function toggleCarAside () {
         destopMenu.classList.add("inactive")
 
     }
+    const isProductDetailClosed = productDetailContainer.classList.contains("inactive");
+    if (!isProductDetailClosed) {
+        productDetailContainer.classList.add("inactive")
+
+    }
 
     if (!isMobileMenuClosed) {
         mobileMenu.classList.add("inactive")
     }
+    
 
     shoppingCartContainer.classList.toggle("inactive")
 
+}
+
+function openProductDetailAside () {
+    shoppingCartContainer.classList.add("inactive")
+
+    productDetailContainer.classList.remove("inactive")
+
+}
+function closeProductDetailAside () {
+    productDetailContainer.classList.add("inactive")
 }
 
 const productList = [];
@@ -58,6 +79,7 @@ productList.push ({
     name: "bike",
     price: 350,
     image: "https://images.pexels.com/photos/276517/pexels-photo-276517.jpeg?auto=compress&cs=tinysrgb&dpr=2&h=650&w=940"
+    
 });
 productList.push ({
     name: "computer",
@@ -98,6 +120,7 @@ function renderProducts (arr) {
     
         const productImg = document.createElement("img")
         productImg.setAttribute("src", product.image)
+        productImg.addEventListener("click", openProductDetailAside);
     
         const productInfo = document.createElement("div")
         productInfo.classList.add("product-info");
