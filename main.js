@@ -23,8 +23,10 @@ function toggleDestopMenu () {
 
     if (!isAsideClosed) {
         shoppingCartContainer.classList.add("inactive")
+        
     }
     destopMenu.classList.toggle("inactive")
+    closeProductDetailAside()
 
     
 
