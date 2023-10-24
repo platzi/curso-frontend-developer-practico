@@ -7,126 +7,6 @@ better and easier approach but it was also a first attempt to create reusable fu
 The main purpose is testing all the different ways to create, access and modify HTML elements and its attributes, classes, etc to create and change
 components and interactions between them.
 */
-////////EMAIL MENU///////
-function emailMenu() {
-  let desktopMenu = document.querySelector(".desktop-menu");
-  let navbarEmail = document.querySelector(".navbar-email");
-  // let navbarRight = document.querySelector(".navbar-right");
-  let cartIcon = document.querySelector(".navbar-shopping-cart");
-  let mainContainer = document.querySelector(".main-container");
-  let menuOpen = false;
-
-  function openMenu() {
-    desktopMenu.setAttribute("class", "desktop-menu");
-    menuOpen = true;
-  }
-
-  function hideMenu() {
-    if (menuOpen) {
-      desktopMenu.setAttribute("class", "desktop-menu inactive");
-      menuOpen = false;
-    }
-  }
-
-  //screenSize check alternatives-> window.innerWidth // window.matchMedia("(max-width: 770px)").matches //  $(window).width()
-  function screenSize() {
-    if (document.documentElement.clientWidth < 770) {
-      desktopMenu.style.visibility = "hidden";
-    } else {
-      desktopMenu.style.visibility = "visible";
-    }
-  }
-
-  navbarEmail.addEventListener("click", () => {
-    if (menuOpen) {
-      hideMenu();
-    } else {
-      openMenu();
-    }
-  });
-  cartIcon.addEventListener("click", hideMenu);
-  cartIcon.addEventListener("mouseenter", hideMenu);
-
-  mainContainer.addEventListener("mouseenter", hideMenu);
-
-  window.addEventListener("load", screenSize);
-  window.addEventListener("resize", screenSize);
-  /*The last two eventListeners are in charge of not showing the desktop-menu if the size of the display is mobile.
-There is a need for this because of how the HTML is made, because the elements li didnt work well with mouseover/mouseleave 
-and i had to choose select the whole div instead to make it work. That made that the shopping cart element shows the desktop
- menu in mobile version where its not suppose to do that, because cart icon is intended to open a menu when clicking.*/
-}
-
-////////MOBILE MENU DISPLAY////////
-function mobileHamburgerMenu() {
-  const iconMenu = document.querySelector(".menu");
-  const mobileMenu = document.querySelector(".mobile-menu");
-
-  function toggleMobileMenu() {
-    mobileMenu.classList.toggle("inactive");
-  }
-  //The menu will close if user clicks anything but the menu.
-  function handleDocumentClick(event) {
-    if (
-      !mobileMenu.contains(event.target) &&
-      !iconMenu.contains(event.target)
-    ) {
-      mobileMenu.classList.add("inactive");
-    }
-  }
-
-  iconMenu.addEventListener("click", toggleMobileMenu);
-  document.addEventListener("click", handleDocumentClick);
-}
-
-////////CART ICON////////
-function cartIcon() {
-  let shoppingCartIcon = document.querySelector(".navbar-shopping-cart");
-  let shoppingCartMenu = document.querySelector(".product-detail");
-  let desktopMenu = document.querySelector(".desktop-menu");
-
-  function showShoppingMenu() {
-    shoppingCartMenu.classList.toggle("inactive");
-    //For mobile width desktop-menu will always be hidden
-    if (
-      shoppingCartMenu.classList.contains("inactive") &&
-      document.documentElement.clientWidth > 770
-    ) {
-      desktopMenu.style.visibility = "visible";
-    } else {
-      desktopMenu.style.visibility = "hidden";
-    }
-  }
-
-  function handleDocumentClick(event) {
-    const isShoppingCartMenuClicked = shoppingCartMenu.contains(event.target);
-    const isShoppingCartIconClicked = shoppingCartIcon.contains(event.target);
-    const isDocumentWideEnough = document.documentElement.clientWidth > 770;
-
-    if (!isShoppingCartMenuClicked && !isShoppingCartIconClicked) {
-      shoppingCartMenu.classList.add("inactive");
-    }
-
-    if (
-      !isShoppingCartMenuClicked &&
-      !isShoppingCartIconClicked &&
-      isDocumentWideEnough
-    ) {
-      desktopMenu.style.visibility = "visible";
-    }
-  }
-
-  shoppingCartIcon.addEventListener("click", showShoppingMenu);
-  document.addEventListener("click", handleDocumentClick);
-}
-
-emailMenu();
-mobileHamburgerMenu();
-cartIcon();
-
-//This is where I should query a database to get a resultSet/row/table of results that match an object
-//If this were java(of strongly typed lang), a class with all the specific data types would be necessary
-//to store all the columns of the database into each object.
 const productList = [];
 productList.push(
   {
@@ -302,6 +182,125 @@ productList.push(
       "Take your maintenance and repair game to the next level with our premium toolbox set. Designed for the most discerning enthusiasts, this set offers high-quality tools that guarantee durability and precision for every adjustment and repair. From heavy-duty wrenches and screwdrivers to specialized tools for bearings and axles, this comprehensive kit provides everything you need to maintain and repair your roller skates, skateboards, and surfskates with the utmost excellence. Become an equipment care expert and enjoy unparalleled skating experiences.",
   }
 );
+////////EMAIL MENU///////
+
+let desktopMenu = document.querySelector(".desktop-menu");
+let navbarEmail = document.querySelector(".navbar-email");
+let cartIcon = document.querySelector(".navbar-shopping-cart");
+let mainContainer = document.querySelector(".main-container");
+let menuOpen = false;
+
+function openMenu() {
+  desktopMenu.setAttribute("class", "desktop-menu");
+  menuOpen = true;
+}
+
+function hideMenu() {
+  if (menuOpen) {
+    desktopMenu.setAttribute("class", "desktop-menu inactive");
+    menuOpen = false;
+  }
+}
+
+//screenSize check alternatives-> window.innerWidth // window.matchMedia("(max-width: 770px)").matches //  $(window).width()
+function screenSize() {
+  if (document.documentElement.clientWidth < 770) {
+    desktopMenu.style.visibility = "hidden";
+  } else {
+    desktopMenu.style.visibility = "visible";
+  }
+}
+
+navbarEmail.addEventListener("click", () => {
+  if (menuOpen) {
+    hideMenu();
+  } else {
+    openMenu();
+  }
+});
+cartIcon.addEventListener("click", hideMenu);
+cartIcon.addEventListener("mouseenter", hideMenu);
+
+mainContainer.addEventListener("mouseenter", hideMenu);
+
+window.addEventListener("load", screenSize);
+window.addEventListener("resize", screenSize);
+/*The last two eventListeners are in charge of not showing the desktop-menu if the size of the display is mobile.
+There is a need for this because of how the HTML is made, because the elements li didnt work well with mouseover/mouseleave 
+and i had to choose select the whole div instead to make it work. That made that the shopping cart element shows the desktop
+menu in mobile version where its not suppose to do that, because cart icon is intended to open a menu when clicking.*/
+
+
+////////MOBILE MENU DISPLAY////////
+
+const iconMenu = document.querySelector(".menu");
+const mobileMenu = document.querySelector(".mobile-menu");
+
+function toggleMobileMenu() {
+  mobileMenu.classList.toggle("inactive");
+}
+//The menu will close if user clicks anything but the menu.
+function handleDocumentClick(event) {
+  if (
+    !mobileMenu.contains(event.target) &&
+    !iconMenu.contains(event.target)
+  ) {
+    mobileMenu.classList.add("inactive");
+  }
+}
+
+iconMenu.addEventListener("click", toggleMobileMenu);
+document.addEventListener("click", handleDocumentClick);
+
+
+////////CART ICON////////
+
+let shoppingCartIcon = document.querySelector(".navbar-shopping-cart");
+let shoppingCartMenu = document.querySelector(".product-detail");
+
+
+function showShoppingMenu() {
+  shoppingCartMenu.classList.toggle("inactive");
+  //For mobile width desktop-menu will always be hidden
+  if (
+    shoppingCartMenu.classList.contains("inactive") &&
+    document.documentElement.clientWidth > 770
+  ) {
+    desktopMenu.style.visibility = "visible";
+  } else {
+    desktopMenu.style.visibility = "hidden";
+  }
+}
+
+function handleDocumentClick(event) {
+  const isShoppingCartMenuClicked = shoppingCartMenu.contains(event.target);
+  const isShoppingCartIconClicked = shoppingCartIcon.contains(event.target);
+  const isDocumentWideEnough = document.documentElement.clientWidth > 770;
+
+  if (!isShoppingCartMenuClicked && !isShoppingCartIconClicked) {
+    shoppingCartMenu.classList.add("inactive");
+  }
+
+  if (
+    !isShoppingCartMenuClicked &&
+    !isShoppingCartIconClicked &&
+    isDocumentWideEnough
+  ) {
+    desktopMenu.style.visibility = "visible";
+  }
+}
+
+shoppingCartIcon.addEventListener("click", showShoppingMenu);
+document.addEventListener("click", handleDocumentClick);
+
+
+
+
+
+//This is where I should query a database to get a resultSet/row/table of results that match an object
+//If this were java(of strongly typed lang), a class with all the specific data types would be necessary
+//to store all the columns of the database into each object.
+
 //Making this code a reusable function will be a closer approach to a professional js-doc or practice.
 //The parameter would be the array fetched from a database or another doc.
 
@@ -326,7 +325,7 @@ for (product of productList) {
 
   const productImage = document.createElement("img");
   productImage.src = product.urlImg;
-  productImage.alt = "bike";
+  productImage.alt = product.name;
 
   const productInfoModal = document.createElement("div");
   productInfoModal.classList.add("product-info-modal");
@@ -374,7 +373,7 @@ for (product of productList) {
     overlay.classList.add("inactive");
   });
 
-  //Closes modal if user clicks outside modal
+  //Closes modal if user clicks outside modal card
   overlay.addEventListener("click", (event) => {
     event.target === overlay ? overlay.classList.add("inactive") : null;
   });
@@ -448,12 +447,16 @@ function showProductsByCategory(category) {
   });
 }
 
+/*
+The syntax () => {function(param);});  is needed to pass 
+the function as a parameter instead of the result of the function.
+*/
 allButton.addEventListener("click", () => {
   showProductsByCategory("all");
 });
 
 skateButton.addEventListener("click", () => {
-  showProductsByCategory("skate");
+   showProductsByCategory("skate"); 
 });
 
 surfskateButton.addEventListener("click", () => {
@@ -477,7 +480,6 @@ const surfskateButtonMobile = document.querySelector("#surfskate-mobile");
 const rollerButtonMobile = document.querySelector("#roller-mobile");
 const otherButtonMobile = document.querySelector("#other-mobile");
 //Once category clicked, mobile menu hides.
-const mobileMenu = document.querySelector(".mobile-menu");
 
 allButtonMobile.addEventListener("click", () => {
   showProductsByCategory("all");
@@ -531,7 +533,7 @@ function addToCart(productIndex) {
     count += 1;
     productCount.textContent = count.toString();
   } else { //If the product wasn't added yet, the html element will be created and inserted.
-      
+
     const shoppingCartDiv = document.createElement("div");
     shoppingCartDiv.classList.add("shopping-cart");
     shoppingCartDiv.setAttribute('data-product', product.name);
@@ -551,7 +553,7 @@ function addToCart(productIndex) {
     quantity.classList.add("quantity");
     quantity.textContent = "x1";
     shoppingCartDiv.appendChild(quantity);
-    
+
     const price = document.createElement("p");
     price.textContent = product.price;
     shoppingCartDiv.appendChild(price);
@@ -562,10 +564,10 @@ function addToCart(productIndex) {
     closeButton.src = "./icons/icon_close.png";
     closeButton.alt = "close";
     shoppingCartDiv.appendChild(closeButton);
-    closeButton.addEventListener("click", ()=>{
-    cartItems[product.name];
+    closeButton.addEventListener("click", () => {
+      cartItems[product.name];
     })
-   ////////IMPORTANT: insertBefore useful to add new html blocks or nodes before an already existing element.
+    ////////IMPORTANT: insertBefore useful to add new html blocks or nodes before an already existing element.
     myOrderContent.insertBefore(shoppingCartDiv, myOrderContent.firstChild);
 
     // Agregar el producto al objeto cartItems con cantidad 1
@@ -579,27 +581,3 @@ function addToCart(productIndex) {
 
   totalPriceElement.textContent = "$" + totalPrice.toFixed(2);
 }
-
-//////////EXAMPLE OF REUSABLE FUNCTION:
-/*
-function toggleMenu(menuElement, triggerElement) {
-  const menu = document.querySelector(menuElement);
-  const trigger = document.querySelector(triggerElement);
-  
-  const handleMouseEnter = function () {
-    menu.setAttribute("class", "desktop-menu");
-  };
-  
-  const handleMouseLeave = function () {
-    menu.setAttribute("class", "desktop-menu inactive");
-  };
-  
-  trigger.addEventListener('mouseenter', handleMouseEnter);
-  trigger.addEventListener('mouseleave', handleMouseLeave);
-  menu.addEventListener('mouseenter', handleMouseEnter);
-  menu.addEventListener('mouseleave', handleMouseLeave);
-  }
-  
-  // Ejemplo de uso
-  toggleMenu('.desktop-menu', '.navbar-right');
-  */
