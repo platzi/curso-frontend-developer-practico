@@ -33,6 +33,7 @@ function toggleMobile() {
     mobilMenu.classList.toggle('inactive');
 }
 
+
 // Toggle carrito
 
 const iconoCarrito = document.querySelector('.navbar-shopping-cart');
@@ -52,3 +53,81 @@ function toggleCarrito() {
     }
     aside.classList.toggle('inactive')
 }
+
+
+// Listado de productos
+
+const productList = [];
+productList.push({
+    name: 'Bike',
+    price: 120,
+    img: './logos/pexels-taryn-elliott-4198566.jpg'
+});
+productList.push({
+    name: 'Bike',
+    price: 120,
+    img: "./logos/pexels-taryn-elliott-4198566.jpg",
+});
+productList.push({
+    name: 'Bike',
+    price: 120,
+    img: "./logos/pexels-taryn-elliott-4198566.jpg",
+});
+productList.push({
+    name: 'Bike',
+    price: 120,
+    img: "./logos/pexels-taryn-elliott-4198566.jpg",
+});
+productList.push({
+    name: 'Bike',
+    price: 120,
+    img: "./logos/pexels-taryn-elliott-4198566.jpg",
+});
+productList.push({
+    name: 'Bike',
+    price: 120,
+    img: "./logos/pexels-taryn-elliott-4198566.jpg",
+});
+
+function desgloseArray(array) {
+    for (product of array) {
+        const cardsContainer = document.querySelector('.cards-container')
+    
+        const productCard = document.createElement('div');
+        productCard.classList.add('product-card');
+        
+        const productImg = document.createElement('img');
+        productImg.setAttribute('src', product.img);
+    
+        const productInfo = document.createElement('div');
+        productInfo.classList.add('product-info');
+    
+        const productInfoDiv = document.createElement('div');
+    
+        const productPrice = document.createElement('p');
+        productPrice.innerText = product.price + '€';
+    
+        const productName = document.createElement('p');
+        productName.innerText = product.name;
+    
+        productInfoDiv.appendChild(productPrice)
+        productInfoDiv.appendChild(productName)
+    
+    
+        const productInfoFigure = document.createElement('figure');
+    
+        const productImgCard = document.createElement('img');
+        productImgCard.setAttribute('src','./icons/bt_add_to_cart.svg');
+    
+        productInfoFigure.appendChild(productImgCard)
+    
+        productInfo.appendChild(productInfoDiv);
+        productInfo.appendChild(productInfoFigure);
+    
+        productCard.appendChild(productImg);
+        productCard.appendChild(productInfo);
+    
+        cardsContainer.appendChild(productCard);
+    }
+}
+desgloseArray(productList);
