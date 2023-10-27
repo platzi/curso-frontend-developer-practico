@@ -25,6 +25,12 @@ myOrderList.push({
     image: 'https://images.pexels.com/photos/276517/pexels-photo-276517.jpeg?auto=compress&cs=tinysrgb&dpr=2&h=650&w=940',
 });
 
+myOrderList.push({
+    name: 'Bike',
+    price: 100,
+    image: 'https://images.pexels.com/photos/276517/pexels-photo-276517.jpeg?auto=compress&cs=tinysrgb&dpr=2&h=650&w=940',
+});
+
 
 
 //EMAIL MENU
@@ -44,15 +50,12 @@ const mobileMenu = document.querySelector('.mobile-menu');
 //CARRITO DE COMPRAS
 const menuCarritoIcon= document.querySelector('.navbar-shopping-cart'); //Aqui guardo en una variable, el elemento de html mediante el cual hacen click 
 const contadorCarrito= document.querySelector('.shoppingcart-counter');
+
 const shoppingCartContainer = document.querySelector('#shoppingCartContainer'); //Aqui guardo en una variable, el elemento que mostraré atraves del click 
 const productDetailContainer = document.querySelector('#productDetail');
 const cardsContainer = document.querySelector('.cards-container');
-const countShoppingCart = document.querySelector('.navbar-shopping-cart-number');
 const myOrderContent = document.querySelector('.my-order-content');
-const orderT = document.querySelector('.order');
-const btnCheckout = document.querySelector('#checkout')
 const vTotal = document.querySelector('#total')
-
 
 
 
@@ -60,7 +63,8 @@ const vTotal = document.querySelector('#total')
 //PRODUCT DETAIL
 
 const productDetailCloseIcon = document.querySelector('.product-detail-close');
-const productCartIcon  = document.querySelector('#addToCart');
+//const productCartIcon  = document.querySelector('.navbar-shopping-cart');
+
 
 
 //EVENT LISTENER DE ICONOS
@@ -68,14 +72,16 @@ menuEmail.addEventListener('click',toggleDesktopMenu);
 burguerMenuIcon.addEventListener('click',toggleMobileMenu); 
 menuCarritoIcon.addEventListener('click', toggleCarritoAside);
 productDetailCloseIcon.addEventListener('click',closeProductDetail);
-productCartIcon.addEventListener('click', renderShoppingCart(myOrderList));
+menuCarritoIcon.addEventListener('click', renderShoppingCart(myOrderList));
+
 
 
 //FUNCIONES
 
 //Entra a cada funcion cuando hago click en uno de los iconos
 function toggleDesktopMenu(){ 
-    const isshoppingCartContainerClosed = shoppingCartContainer.classList.contains('inactive');    
+
+    const isAsideClosed = shoppingCartContainer.classList.contains('inactive');    
     
     if(!isAsideClosed){
         desktopMenu.classList.add('inactive');  
@@ -87,8 +93,9 @@ function toggleDesktopMenu(){
 }
 
 function toggleMobileMenu(){   
-    const isshoppingCartContainerClosed = shoppingCartContainer.classList.contains('inactive');
-    if(!isshoppingCartContainerClosed){
+    const isAsideClosed = shoppingCartContainer.classList.contains('inactive');
+
+    if(!isAsideClosed){
         shoppingCartContainer.classList.add('inactive');
     }
 
@@ -118,9 +125,9 @@ function toggleCarritoAside(){
 }
 
 
-function openProductDetailAside(){   
-    shoppingCartContainer.classList.add('inactive');
-    productDetailContainer.classList.remove('inactive');        
+function openProductDetailAside(){ 
+    shoppingCartContainer.classList.add('inactive');    
+    productDetailContainer.classList.remove('inactive');     
 }
 
 function closeProductDetailAside(){
@@ -131,36 +138,49 @@ function closeProductDetail(){
     productDetailContainer.classList.add('inactive');
 }
 
+//Sumando elementos al carrito
 
+
+
+
+
+
+//Productos en página principal
 const productList =[]; 
 productList.push({
+    id: 1,
     name: 'Bike',
     price: 120,
     image: 'https://images.pexels.com/photos/276517/pexels-photo-276517.jpeg?auto=compress&cs=tinysrgb&dpr=2&h=650&w=940',
+    description: 'Description for Bike.',
 });
 
 productList.push({
+    id: 2,
     name: 'Microphone',
     price: 50,
     image: 'https://images.pexels.com/photos/3783471/pexels-photo-3783471.jpeg?auto=compress&cs=tinysrgb&w=400',
+    description: 'Description for Microphone',
 });
 
 productList.push({
+    id: 3,
     name: 'Tv',
     price: 200,
     image: 'https://images.pexels.com/photos/5721865/pexels-photo-5721865.jpeg?auto=compress&cs=tinysrgb&w=400',
+    description: 'Description for TV.',
 });
 
 productList.push({
+    id: 4,
     name: 'Pc',
     price: 300,
     image: 'https://images.pexels.com/photos/1029757/pexels-photo-1029757.jpeg?auto=compress&cs=tinysrgb&w=400',
+    description: 'Description for PC.',
 });
 
 
-
 renderProducts(productList);
-
 
 function renderProducts(array){
 
@@ -170,11 +190,11 @@ function renderProducts(array){
         productCard.classList.add('product-card');
     
         const productImg = document.createElement('img');
-        productImg.setAttribute('src', product.image);
-        productImg.addEventListener('click', openProductDetailAside);
+        productImg.setAttribute('src', product.image);    
+
+        productImg.addEventListener('click', openProductDetailAside);     
 
 
-    
         const productInfo = document.createElement('div');
         productInfo.classList.add('product-info');
     
@@ -187,31 +207,23 @@ function renderProducts(array){
         productName.innerText = product.name;
     
         const productInfoFigure = document.createElement('figure');        
-        productInfoFigure.setAttribute('id','addToCart')  
+        productInfoFigure.setAttribute('id','addToCart')         
         
-        const productImgCart = document.createElement('img');
-    
-        productImgCart.setAttribute('src', './icons/bt_add_to_cart.svg')  
-        
-    
-        productInfoFigure.appendChild(productImgCart);
-    
+        const productImgCart = document.createElement('img');    
+        productImgCart.setAttribute('src', './icons/bt_add_to_cart.svg')       
+            
+        productInfoFigure.appendChild(productImgCart);    
         productInfoDiv.appendChild(productPrice);
-        productInfoDiv.appendChild(productName);
-        
+        productInfoDiv.appendChild(productName);        
         productInfo.appendChild(productInfoFigure);
-        productInfo.appendChild(productInfoDiv);
-    
+        productInfo.appendChild(productInfoDiv);    
         productCard.appendChild(productImg);
-        productCard.appendChild(productInfo);
-    
-        cardsContainer.appendChild(productCard);
-    
+        productCard.appendChild(productInfo);    
+        cardsContainer.appendChild(productCard);    
     }
 
+    
 }
-
-
 
 function renderShoppingCart(array){   
 
@@ -239,7 +251,8 @@ function renderShoppingCart(array){
 
         const shoppingImage = document.createElement('img');
         shoppingImage.setAttribute('src','./icons/icon_close.png');
-        shoppingImage.setAttribute('alt','close');           
+        shoppingImage.setAttribute('alt','close');         
+        shoppingImage.setAttribute('class','delete-cart-product');  
         
         shoppingCartFigure.appendChild(shoppingCartImage);
 
@@ -249,9 +262,6 @@ function renderShoppingCart(array){
         shoppingCart.appendChild(shoppingImage);     
         myOrderContent.appendChild(shoppingCart);                   
     }
-
-        
-
 }
 
 
