@@ -134,7 +134,7 @@
     position: absolute;
     top: 60px;
     left: 0;
-    width: 100%;
+    width: 100% ;
     padding: 24px;
   }
   .mobile-menu a {
@@ -365,7 +365,7 @@
         display: none;
     }
 
-    .product-detail {
+    #productDetail {
       width: 100%;
     }
 
