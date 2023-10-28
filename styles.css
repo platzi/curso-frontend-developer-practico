@@ -246,7 +246,7 @@ aside {
 /* Product Detail */
 
 .product-detail-close {
-    background: var(--white);
+    background: var(--black);
     width: 14px;
     height: 14px;
     position: absolute;
