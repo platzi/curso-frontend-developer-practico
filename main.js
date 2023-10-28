@@ -1,14 +1,15 @@
-const navEmail = document.querySelector('.navbar-email');
-const desktopMenu = document.querySelector('.desktop-menu');
-const menuHamIcon = document.querySelector('.menu');
-const menuCarritoIcon = document.querySelector('.navbar-shopping-cart');
-const productDetailCloseIcon = document.querySelector('.product-detail-close')
-const mobileMenu = document.querySelector('.mobile-menu');
-const shoppingCardContainer = document.querySelector('#shopping-cart-container');
-const productDetailContainer = document.querySelector('#product-detail');
-const cardContainer = document.querySelector('.cards-container');
-const productList = [];
+const navEmail = document.querySelector('.navbar-email'); //component with class '.navbar-email' 
+const desktopMenu = document.querySelector('.desktop-menu'); //component with class '.desktop-menu'
+const menuHamIcon = document.querySelector('.menu'); //component with class '.menu'
+const menuCarritoIcon = document.querySelector('.navbar-shopping-cart'); //component with class '.navbar-shopping-cart'
+const productDetailCloseIcon = document.querySelector('.product-detail-close'); //component with class '.product-detail-close'
+const mobileMenu = document.querySelector('.mobile-menu'); //component with class '.mobile-menu'
+const cardContainer = document.querySelector('.cards-container'); //component with class '.cards-container'
+const shoppingCardContainer = document.querySelector('#shopping-cart-container'); //component with id '#shopping-cart-container'
+const productDetailContainer = document.querySelector('#product-detail'); //component with id '#product-detail'
+const productList = []; //array with products as object
 
+// Adding products to productList
 productList.push({
     name: 'Bike',
     price: 120,
@@ -25,12 +26,14 @@ productList.push({
     image: 'https://images.pexels.com/photos/276517/pexels-photo-276517.jpeg?auto=compress&cs=tinysrgb&dpr=2&h=650&w=940'
 });
 
-navEmail.addEventListener('click', toggleDesktopMenu);
-menuHamIcon.addEventListener('click', toggleMobileMenu);
-menuCarritoIcon.addEventListener('click', toggleCarritoAside);
-productDetailCloseIcon.addEventListener('click', closeProductDetailAside);
+// Adding event listeners to components
+navEmail.addEventListener('click', toggleDesktopMenu); // navEmail event 'click' to function toggleDesktopMenu
+menuHamIcon.addEventListener('click', toggleMobileMenu); // menuHamIcon event 'click' to function toggleMobileMenu
+menuCarritoIcon.addEventListener('click', toggleCarritoAside); // menuCarritoIcon event 'click' to function toggleCarritoAside
+productDetailCloseIcon.addEventListener('click', closeProductDetailAside); //productDetailCloseIcon event 'click' to function closeProductDetailAside
 
-function toggleDesktopMenu() {
+// Adding functions to make dynamic index
+function toggleDesktopMenu() { //function that validates if the container of shopping card (shoppingCardContainer) is active and toggles desktop menu
     const isShoppingCardContainerClosed = shoppingCardContainer.classList.contains('inactive');
 
     if (!isShoppingCardContainerClosed) {
@@ -41,7 +44,7 @@ function toggleDesktopMenu() {
     desktopMenu.classList.toggle('inactive')
 }
 
-function toggleMobileMenu() {
+function toggleMobileMenu() { //function that validates if the container of shopping card (shoppingCardContainer) is active and toggles mobile menu
     const isShoppingCardContainerClosed = shoppingCardContainer.classList.contains('inactive')
 
     if (!isShoppingCardContainerClosed) {
@@ -52,19 +55,17 @@ function toggleMobileMenu() {
     mobileMenu.classList.toggle('inactive')
 }
 
-function toggleCarritoAside() {
+function toggleCarritoAside() { //function that validates if the mobile and desktop menu are toggled and toggles shopping card container (shoppingCardContainer)
     const mobileMenuClosed = mobileMenu.classList.contains('inactive');
     const desktopMenuClosed = desktopMenu.classList.contains('inactive');
-    const isProductDetailClosed = productDetailContainer.classList.contains('inactive')
 
     if (!mobileMenuClosed) {
         mobileMenu.classList.add('inactive')
     } else if (!desktopMenuClosed) {
         desktopMenu.classList.add('inactive')
-    } else if (!isProductDetailClosed) {
-        closeProductDetailAside()
     }
 
+    closeProductDetailAside()
     shoppingCardContainer.classList.toggle('inactive')
 }
 
@@ -112,8 +113,8 @@ function renderProducts(arr) {
         cardContainer.appendChild(productCard)
 
         // Adding event listeners of components
-        img.addEventListener('click', openProductDetailAside)
+        img.addEventListener('click', openProductDetailAside) //open aside of product detail if image is clicked
     }    
 }
 
-renderProducts(productList)
+renderProducts(productList) // render all products in productList
