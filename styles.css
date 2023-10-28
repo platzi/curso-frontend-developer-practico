@@ -131,7 +131,7 @@
     position: absolute;
     top: 61px;
     left: 0;
-    width: calc(100% - 24px);
+    width: calc(100% - 24px); /* para que ocupe todo el width restando el padding y evitar el scroll horizontal */
     padding-left: 24px;
   }
   .mobile-menu a {
