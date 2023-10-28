@@ -5,7 +5,7 @@ const menuHamIcon = document.querySelector('.menu');
 const mobileMenu = document.querySelector('.mobile-menu')
 
 const menuCarritoIcon = document.querySelector('.navbar-shopping-cart');
-const aside = document.querySelector('.product-detail');
+const shoppingCartDetail = document.querySelector('#shoppingCartDetail');
 
 const cardsContainer = document.querySelector('.cards-container');
 
@@ -16,10 +16,10 @@ menuHamIcon.addEventListener('click',toggleMobileMenu);
 menuCarritoIcon.addEventListener('click',toggleProductDetail);
         
 function toggleDesktopMenu(){
-    const isAsideOpenClosed = aside.classList.contains('inactive');
+    const isShoppingCartContainerClosed = aside.classList.contains('inactive');
 
-    if(!isAsideOpenClosed){
-        aside.classList.toggle('inactive');
+    if(!isShoppingCartContainerClosed){
+        shoppingCartDetail.classList.toggle('inactive');
     }
 
     desktopMenu.classList.toggle('inactive'); //classList.toggle lo que hara es poner la clase dependiendo si ya la tiene o no.
@@ -27,13 +27,13 @@ function toggleDesktopMenu(){
 
 function toggleMobileMenu(){
     const isMobileMenuOpenClosed = mobileMenu.classList.contains('inactive');
-    const isAsideOpenClosed = aside.classList.contains('inactive');
+    const isShoppingCartContainerClosed = shoppingCartDetail.classList.contains('inactive');
 
-    if(isAsideOpenClosed==true){
+    if(isShoppingCartContainerClosed==true){
         mobileMenu.classList.toggle('inactive');
     }
     else{
-        aside.classList.toggle('inactive');
+        shoppingCartDetail.classList.toggle('inactive');
         mobileMenu.classList.toggle('inactive');
     }
 }
@@ -47,10 +47,10 @@ function toggleProductDetail() {
     }
 
     if(isMobileMenuOpenClosed==true){
-        aside.classList.toggle('inactive');
+        shoppingCartDetail.classList.toggle('inactive');
     }
     else{
-        aside.classList.toggle('inactive');
+        shoppingCartDetail.classList.toggle('inactive');
         mobileMenu.classList.toggle('inactive');
     }
 }
