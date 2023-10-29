@@ -3,9 +3,10 @@ const desktopMenu = document.querySelector('.desktop-menu');
 const menuBurger = document.querySelector('.menu');
 const mobileMenu = document.querySelector('.mobile-menu');
 const menuCartIcon = document.querySelector('.navbar-shopping-cart');
+const productDetailCloseIcon = document.querySelector('.product-detail-close');
 const shoppingCartContainer = document.querySelector('#shoppingCartContainer');
+const productDetailContainer = document.querySelector('#productDetail');
 const cardsContainer = document.querySelector('.cards-container');
-
 
 
 
@@ -13,31 +14,58 @@ const cardsContainer = document.querySelector('.cards-container');
 menuEmail.addEventListener('click', toggleDesktopMenu);
 menuBurger.addEventListener('click', toggleMobileMenu);
 menuCartIcon.addEventListener('click', toggleCartAside);
+productDetailCloseIcon.addEventListener('click', closeProductDetailAside);
 
 // Desaparecer menus hasta hacer click
 function toggleDesktopMenu() {
-    const isAsideClosed = shoppingCartContainer.classList.contains('inactive');
-     if(!isAsideClosed){
-        shoppingCartContainer.classList.add('inactive');
-     }
+    // const isAsideClosed = shoppingCartContainer.classList.contains('inactive');
+    //  if(!isAsideClosed){
+    //     shoppingCartContainer.classList.add('inactive');
+    //  }
     desktopMenu.classList.toggle('inactive');
+    shoppingCartContainer.classList.add('inactive');
+    productDetailContainer.classList.add('inactive');
 }
 function toggleMobileMenu() {
-    const isAsideClosed = shoppingCartContainer.classList.contains('inactive');
-     if(!isAsideClosed){
-        shoppingCartContainer.classList.add('inactive');
-     }
+    // const isAsideClosed = shoppingCartContainer.classList.contains('inactive');
+    //  if(!isAsideClosed){
+    //     shoppingCartContainer.classList.add('inactive');
+    //  }
     mobileMenu.classList.toggle('inactive');
+    desktopMenu.classList.add('inactive');
+    shoppingCartContainer.classList.add('inactive');
+    productDetailContainer.classList.add('inactive');
 }
 function toggleCartAside() {
-    const isMobileMenuClosed = mobileMenu.classList.contains('inactive');
-    if (!isMobileMenuClosed) {
-         mobileMenu.classList.add('inactive');
-     }
-     shoppingCartContainer.classList.toggle('inactive');
-   }
+    // const isMobileMenuClosed = mobileMenu.classList.contains('inactive');
+    // if (!isMobileMenuClosed) {
+    //     mobileMenu.classList.add('inactive');
+    // }
 
-   const productList = [];
+    // const isProductDetailClosed = productDetailContainer.classList.contains('inactive');
+    //  if (!isMobileMenuClosed) {
+    //      mobileMenu.classList.add('inactive');
+    // }
+
+    shoppingCartContainer.classList.toggle('inactive');
+    mobileMenu.classList.add('inactive');
+    desktopMenu.classList.add('inactive');
+    productDetailContainer.classList.add('inactive');
+
+}
+
+function openProductDetailAside() {
+    productDetailContainer.classList.remove('inactive');  
+}
+function closeProductDetailAside() {
+    shoppingCartContainer.classList.toggle('inactive');
+    productDetailContainer.classList.add('inactive');
+    mobileMenu.classList.add('inactive');
+    desktopMenu.classList.add('inactive');
+
+}
+
+const productList = [];
    productList.push({
     name: 'Pioneer CX (Dj Headphones)',
     price: 180,
@@ -73,12 +101,15 @@ function toggleCartAside() {
     price: 2800,
     image:'https://audiowave.com.co/wp-content/uploads/2023/10/a9.jpg' ,
    })
-   for (product of productList) {
+function renderProducts(arr) {
+    for (product of productList) {
     const productCard = document.createElement('div');
     productCard.classList.add('product-card');
 
+    // product= {name, price, image} -> product.image
     const productImg = document.createElement('img');
-    productImg.setAttribute('src', product.image)
+    productImg.setAttribute('src', product.image);
+    productImg.addEventListener('click', openProductDetailAside);
 
     const productInfo = document.createElement('div');
     productInfo.classList.add('product-info');
@@ -107,3 +138,5 @@ function toggleCartAside() {
 
     cardsContainer.appendChild(productCard);
    }
+}
+renderProducts(productList);
