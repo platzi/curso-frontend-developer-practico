@@ -9,7 +9,58 @@
         </head>
         <body>
             <div class="container">
+                <!-- /* -------------------------Main menu------------------------------ */ -->
                 <nav class="navbar">
+                    <!-- /* -------------------------Mobile menu------------------------------ */ -->
+                    <div class="mobile-menu-icon">
+                        <div class="mobile-icon">
+                            <img src="./icons/icon_menu.svg" alt="">
+                        </div>
+                        <div class="mobile-menu">
+                            <ul>
+                                <li>
+                                    <a href="/">CATEGORIES</a>
+                                </li>
+                                <li>
+                                    <a href="/">All</a>
+                                </li>
+                                <li>
+                                    <a href="/">Clothes</a>
+                                </li>
+                                <li>
+                                    <a href="/">Electronics</a>
+                                </li>
+                                <li>
+                                    <a href="/">Furnitures</a>
+                                </li>
+                                <li>
+                                    <a href="/">Toys</a>
+                                </li>
+                                <li>
+                                    <a href="/">Other</a>
+                                </li>
+                            </ul>
+                        
+                            <ul>
+                                <li>
+                                    <a href="/">My orders</a>
+                                </li>
+                                <li>
+                                    <a href="/">My account</a>
+                                </li>
+                            </ul>
+                        
+                            <ul>
+                                <li>
+                                    <a href="/" class="email">platzi@example.com</a>
+                                </li>
+                                <li>
+                                    <a href="/" class="sign-out">Sign out</a>
+                                </li>
+                            </ul>
+                        </div>
+                    </div>
+                    <!-- /* -------------------------Left menu------------------------------ */ -->
                     <div class="navbar-left">
                         <a class="nav-logo-home" href="#home"><img class="logo-img" src="./logos/logo_yard_sale.svg" alt="home"></a>
                         <ul class="ul-nav-left">
@@ -22,9 +73,10 @@
                         </ul>
 
                     </div>
-
+                    <!-- /* -------------------------Right menu------------------------------ */ -->
                     <div class="navbar-right">
-                        <div class="subnav">
+                        <!-- /* -------------------------Right menu - email------------------------------ */ -->
+                        <div class="subnav media-hidden">
                             <li class="subnavbtn">platzi@example.com <!-- <i class="fa fa-caret-down"></i> --></li>
                             <div class="subnav-content">
                                 <div class="desktop-menu">
@@ -42,10 +94,11 @@
                                 </div>
                             </div>
                         </div> 
+                        <!-- /* -------------------------Right menu - shopping cart------------------------------ */ -->
                         <div class="subnav">
                             <li class="navbar-shopping-cart""> 
                                 <a class="subnavbtn"><img src="./icons/icon_shopping_cart.svg" alt="shopping cart"><!--  <i class="fa fa-caret-down"></i> --></a>
-                                <div>2</div>
+                                <div><p class="product-counter">0</p></div>
                             </li>
                             <div class="product-detail">
                                 <div class="title-container">
@@ -54,43 +107,13 @@
                                 </div>
                                 
                                 <div class="my-order-content">
-                                    <div class="shopping-cart">
-                                        <figure>
-                                            <img src="https://images.pexels.com/photos/276517/pexels-photo-276517.jpeg?auto=compress&cs=tinysrgb&dpr=2&h=650&w=940"
-                                                alt="bike">
-                                        </figure>
-                                        <p>Bike</p>
-                                        <p>$30,00</p>
-                                        <img src="./icons/icon_close.png" alt="close">
-                                    </div>
-                                
-                                    <div class="shopping-cart">
-                                        <figure>
-                                            <img src="https://images.pexels.com/photos/276517/pexels-photo-276517.jpeg?auto=compress&cs=tinysrgb&dpr=2&h=650&w=940"
-                                                alt="bike">
-                                        </figure>
-                                        <p>Bike</p>
-                                        <p>$30,00</p>
-                                        <img src="./icons/icon_close.png" alt="close">
-                                    </div>
-                                
-                                    <div class="shopping-cart">
-                                        <figure>
-                                            <img src="https://images.pexels.com/photos/276517/pexels-photo-276517.jpeg?auto=compress&cs=tinysrgb&dpr=2&h=650&w=940"
-                                                alt="bike">
-                                        </figure>
-                                        <p>Bike</p>
-                                        <p>$30,00</p>
-                                        <img src="./icons/icon_close.png" alt="close">
-                                    </div>
-                                
-                                    <div class="order">
+
+                                    <!-- <div class="order">
                                         <p>
                                             <span>Total</span>
                                         </p>
                                         <p>$560.00</p>
-                                    </div>
-                                
+                                    </div> -->
                                     <button class="primary-button">
                                         Checkout
                                     </button>
@@ -99,11 +122,11 @@
                         </div> 
                     </div>
                 </nav>
-                
-                <aside id="shoppingCartContainer" class="product-detail inactive">
+                <!-- /* -------------------------Dropdown Shopping Cart------------------------------ */ -->
+<!--                 <aside id="shoppingCartContainer" class="product-detail inactive">
                     <div class="title-container">
                         <img src="./icons/flechita.svg" alt="arrow">
-                        <p class="title">My order</p>
+                        <p class="title">My orrrrrder</p>
                     </div>
                 
                     <div class="my-order-content">
@@ -148,14 +171,14 @@
                             Checkout
                         </button>
                     </div>
-                </aside>
+                </aside> -->
 
                 <section class="main-container">
                     <div class="cards-container">
                     </div>
                 </section>
             </div>
-
+            <!-- /* -------------------------Product Detail------------------------------ */ -->
             <div class="modal is-hidden is-visuallyHidden">
                 <div id="productDetail" class="inactive modal-content">
                     <div class="product-detail-close">
@@ -174,7 +197,7 @@
                     </div>
                 </div>
             </div>
-
+            <!-- /* -------------------------Footer------------------------------ */ -->
             <footer>
                 <a href="https://github.com/Melisa500/curso-practico-js" target="_blank">
                     <img src="./icons/github.png" alt="github pages" class="logo-github">
