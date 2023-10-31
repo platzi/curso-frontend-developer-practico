@@ -19,4 +19,5 @@ function toggleMobileMenu() {
 
 function toggleCarritoAside() {
     aside.classList.toggle('inactive');
+    // toggleMobileMenu()
 }
