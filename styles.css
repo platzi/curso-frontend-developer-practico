@@ -232,13 +232,14 @@
         height: 50px;
       }
 
-      /* product listo */
+      /* product list */
 
       .cards-container {
         display: grid;
         grid-template-columns: repeat(auto-fill, 240px);
         gap: 26px;
         place-content: center;
+        margin-top: 20px;
       }
       .product-card {
         width: 240px;
