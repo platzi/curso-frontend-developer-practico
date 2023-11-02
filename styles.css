@@ -122,12 +122,13 @@
         display: inline-block;
       }
  /* Menu en mobile*/
-      .mobile-menu {
-        background-color: var(--white);
-        position: absolute;
-        top: 60px;
-        padding: 24px;
-      }
+  .mobile-menu {
+  background-color: var(--white);
+  position: absolute;
+  top: 60px;
+  padding: 24px;
+}
+
       .mobile-menu a {
         text-decoration: none;
         color: var(--black);
