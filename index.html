@@ -1,0 +1,209 @@
+<!DOCTYPE html>
+    <html lang="en">
+        <head>
+            <meta charset="UTF-8">
+            <meta http-equiv="X-UA-Compatible" content="IE=edge">
+            <meta name="viewport" content="width=device-width, initial-scale=1.0">
+            <title>YardSale Store</title>
+            <link rel="stylesheet" href="./styles.css">
+        </head>
+        <body>
+            <div class="container">
+                <!-- /* -------------------------Main menu------------------------------ */ -->
+                <nav class="navbar">
+                    <!-- /* -------------------------Mobile menu------------------------------ */ -->
+                    <div class="mobile-menu-icon">
+                        <div class="mobile-icon">
+                            <img src="./icons/icon_menu.svg" alt="">
+                        </div>
+                        <div class="mobile-menu">
+                            <ul>
+                                <li>
+                                    <a href="/">CATEGORIES</a>
+                                </li>
+                                <li>
+                                    <a href="/">All</a>
+                                </li>
+                                <li>
+                                    <a href="/">Clothes</a>
+                                </li>
+                                <li>
+                                    <a href="/">Electronics</a>
+                                </li>
+                                <li>
+                                    <a href="/">Furnitures</a>
+                                </li>
+                                <li>
+                                    <a href="/">Toys</a>
+                                </li>
+                                <li>
+                                    <a href="/">Other</a>
+                                </li>
+                            </ul>
+                        
+                            <ul>
+                                <li>
+                                    <a href="/">My orders</a>
+                                </li>
+                                <li>
+                                    <a href="/">My account</a>
+                                </li>
+                            </ul>
+                        
+                            <ul>
+                                <li>
+                                    <a href="/" class="email">platzi@example.com</a>
+                                </li>
+                                <li>
+                                    <a href="/" class="sign-out">Sign out</a>
+                                </li>
+                            </ul>
+                        </div>
+                    </div>
+                    <!-- /* -------------------------Left menu------------------------------ */ -->
+                    <div class="navbar-left">
+                        <a class="nav-logo-home" href="#home"><img class="logo-img" src="./logos/logo_yard_sale.svg" alt="home"></a>
+                        <ul class="ul-nav-left">
+                            <li><a class="nav-category" href="">All</a></li> 
+                            <li><a class="nav-category" href="">Clothes</a></li> 
+                            <li><a class="nav-category" href="">Electronics</a></li> 
+                            <li><a class="nav-category" href="">Furnitures</a></li> 
+                            <li><a class="nav-category" href="">Toys</li></a>
+                            <li><a class="nav-category" href="">Others</a> </li> 
+                        </ul>
+
+                    </div>
+                    <!-- /* -------------------------Right menu------------------------------ */ -->
+                    <div class="navbar-right">
+                        <!-- /* -------------------------Right menu - email------------------------------ */ -->
+                        <div class="subnav media-hidden">
+                            <li class="subnavbtn">platzi@example.com <!-- <i class="fa fa-caret-down"></i> --></li>
+                            <div class="subnav-content">
+                                <div class="desktop-menu">
+                                    <ul>
+                                        <li>
+                                            <a href="/" class="title">My orders</a>
+                                        </li>
+                                        <li>
+                                            <a href="/">My account</a>
+                                        </li>
+                                        <li>
+                                            <a href="/">Sign out</a>
+                                        </li>
+                                    </ul>
+                                </div>
+                            </div>
+                        </div> 
+                        <!-- /* -------------------------Right menu - shopping cart------------------------------ */ -->
+                        <div class="subnav">
+                            <li class="navbar-shopping-cart""> 
+                                <a class="subnavbtn"><img src="./icons/icon_shopping_cart.svg" alt="shopping cart"><!--  <i class="fa fa-caret-down"></i> --></a>
+                                <div><p class="product-counter">0</p></div>
+                            </li>
+                            <div class="product-detail">
+                                <div class="title-container">
+                                    <img src="./icons/flechita.svg" alt="arrow">
+                                    <p class="title">My order</p>
+                                </div>
+                                
+                                <div class="my-order-content">
+
+                                    <!-- <div class="order">
+                                        <p>
+                                            <span>Total</span>
+                                        </p>
+                                        <p>$560.00</p>
+                                    </div> -->
+                                    <button class="primary-button">
+                                        Checkout
+                                    </button>
+                                </div>
+                            </div>
+                        </div> 
+                    </div>
+                </nav>
+                <!-- /* -------------------------Dropdown Shopping Cart------------------------------ */ -->
+<!--                 <aside id="shoppingCartContainer" class="product-detail inactive">
+                    <div class="title-container">
+                        <img src="./icons/flechita.svg" alt="arrow">
+                        <p class="title">My orrrrrder</p>
+                    </div>
+                
+                    <div class="my-order-content">
+                        <div class="shopping-cart">
+                            <figure>
+                                <img src="https://images.unsplash.com/photo-1526170375885-4d8ecf77b99f?auto=format&fit=crop&q=80&w=2070&ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D"
+                                    alt="bike">
+                            </figure>
+                            <p>Bike</p>
+                            <p>$30,00</p>
+                            <img src="./icons/icon_close.png" alt="close">
+                        </div>
+                
+                        <div class="shopping-cart">
+                            <figure>
+                                <img src="https://images.pexels.com/photos/276517/pexels-photo-276517.jpeg?auto=compress&cs=tinysrgb&dpr=2&h=650&w=940"
+                                    alt="bike">
+                            </figure>
+                            <p>Bike</p>
+                            <p>$30,00</p>
+                            <img src="./icons/icon_close.png" alt="close">
+                        </div>
+                
+                        <div class="shopping-cart">
+                            <figure>
+                                <img src="https://images.pexels.com/photos/276517/pexels-photo-276517.jpeg?auto=compress&cs=tinysrgb&dpr=2&h=650&w=940"
+                                    alt="bike">
+                            </figure>
+                            <p>Bike</p>
+                            <p>$30,00</p>
+                            <img src="./icons/icon_close.png" alt="close">
+                        </div>
+                
+                        <div class="order">
+                            <p>
+                                <span>Total</span>
+                            </p>
+                            <p>$560.00</p>
+                        </div>
+                
+                        <button class="primary-button">
+                            Checkout
+                        </button>
+                    </div>
+                </aside> -->
+
+                <section class="main-container">
+                    <div class="cards-container">
+                    </div>
+                </section>
+            </div>
+            <!-- /* -------------------------Product Detail------------------------------ */ -->
+            <div class="modal is-hidden is-visuallyHidden">
+                <div id="productDetail" class="inactive modal-content">
+                    <div class="product-detail-close">
+                        <img src="./icons/icon_close.png" alt="close">
+                    </div>
+                    <img src="https://images.pexels.com/photos/276517/pexels-photo-276517.jpeg?auto=compress&cs=tinysrgb&dpr=2&h=650&w=940"
+                        alt="bike">
+                    <div class="product-info">
+                        <p>$35,00</p>
+                        <p>Bike</p>
+                        <p>With its practical position, this bike also fulfills a decorative function, add your hall or workspace.</p>
+                        <button class="primary-button add-to-cart-button">
+                            <img src="./icons/bt_add_to_cart.svg" alt="add to cart">
+                            Add to cart
+                        </button>
+                    </div>
+                </div>
+            </div>
+            <!-- /* -------------------------Footer------------------------------ */ -->
+            <footer>
+                <a href="https://github.com/Melisa500/curso-practico-js" target="_blank">
+                    <img src="./icons/github.png" alt="github pages" class="logo-github">
+                </a>
+            </footer>
+
+            <script src="./main.js"></script>
+        </body>
+</html>
