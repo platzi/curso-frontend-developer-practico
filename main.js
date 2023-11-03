@@ -6,7 +6,7 @@ const Div= document.querySelector('.cards-container');
 
 const MenuBoxd= document.querySelector('.desktop-menu');     //Box que aparece al hacer click a email
 const MenuMobil= document.querySelector('.mobile-menu');
-const CarBox= document.querySelector('.product-detail');
+const CarBox= document.querySelector('#Carrito');
 
 iconEmailMenu.addEventListener('click', AparecerMD);
 iconMenuMobil.addEventListener('click', AparecerMM);
