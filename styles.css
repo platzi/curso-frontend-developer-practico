@@ -164,7 +164,7 @@
   #Carrito {
     width: 360px;
     padding: 24px;
-    top: 40px;
+    top: 61px;
     background-color: var(--white);
     box-sizing: border-box;
     position: absolute;
@@ -245,6 +245,8 @@
   padding-bottom: 24px;
   position: absolute;
   right: 0;
+  top: 61px;
+  background-color: var(--white);
 }
 .product-detail-close {
   background: var(--white);
