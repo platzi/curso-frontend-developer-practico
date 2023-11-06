@@ -235,6 +235,7 @@ aside {
   box-sizing: border-box;
   position: absolute;
   right: 0;
+  padding-bottom: 100%;
 }
 
 /* ShoppingCart */
