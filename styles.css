@@ -236,6 +236,7 @@ aside {
   position: absolute;
   right: 0;
   padding-bottom: 100%;
+  border-radius: 5px;
 }
 
 /* ShoppingCart */
