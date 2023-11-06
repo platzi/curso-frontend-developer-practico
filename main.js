@@ -9,7 +9,7 @@ navbar.addEventListener('click', toogleMenu);
 menuHamIcon.addEventListener('click', toogleMobileMenu);
 carrito.addEventListener('click', mostrarProductosCarrito);
 
-
+ 
 function toogleMenu(){
     const productoDetalleVisible = productoDetalle.classList.contains('inactive');
     if(!productoDetalleVisible){
