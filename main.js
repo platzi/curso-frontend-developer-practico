@@ -2,30 +2,42 @@ const menuEmail = document.querySelector('.navbar-email');
 const desktopMenu = document.querySelector('.desktop-menu');
 const menuHamIcon = document.querySelector('.menu');
 const menuCarritoIcon = document.querySelector('.navbar-shopping-cart');
+const productDetailCloseIcon = document.querySelector('.product-detail-close');
 const mobileMenu = document.querySelector('.mobile-menu');
-const aside = document.querySelector('.product-detail')
-const cardsContainer = document.querySelector('.cards-container')
+const shoppingCartContainer = document.querySelector('#shoppingCartContainer');
+const cardsContainer = document.querySelector('.cards-container');
+const productDetailContainer = document.querySelector('#productDetail');
+const backDark=document.querySelector('.darken');
 
+
+/* Aqui se ponen los escuchadores de eventos para que escuche si determinado evento ocurre este invoque a determinada 
+funcion para que esa funcion corra su algorito y ejecute sus intrucciones por ejemplo abrir menus desplegables al dar click */
 
 menuEmail.addEventListener('click', showDesktopMenu);
 menuHamIcon.addEventListener('click', showMobileMenu);
 menuCarritoIcon.addEventListener('click', showCarritoAside);
+productDetailCloseIcon.addEventListener('click',closeProductDetailAside);
 
 
-function showDesktopMenu() {
-    const isAsideClosed = aside.classList.contains('inactive');
-    if (!isAsideClosed) {
+function showDesktopMenu() { /* Funcion para verificar si otros menus estan abiertos para cerrarlos(inactivarlos si es que estan abiertos) */
+    const isAsideClosed = shoppingCartContainer.classList.contains('inactive');
+    
+    if (!isAsideClosed) {  /* isAsideClosed lo opuesto a True osea abierto activo el menu */
         
-        aside.classList.add('inactive');
+        shoppingCartContainer.classList.add('inactive'); /* Si la condicion es verdadera inactivar shopingCartContainer osea cerrarlo */
     }
-    desktopMenu.classList.toggle('inactive');   
+    desktopMenu.classList.toggle('inactive');   /* Alternador para mostrar u ocultar el menu del correo */
 }
-function showMobileMenu() {
-    const isAsideClosed = aside.classList.contains('inactive');
+function showMobileMenu() {  /* Funcion para verificar si otros menus estan abiertos para cerrarlos(inactivarlos si es que estan abiertos) */
+    const isAsideClosed = shoppingCartContainer.classList.contains('inactive');
+
     if (!isAsideClosed) {
-        
-        aside.classList.add('inactive');
+
+        shoppingCartContainer.classList.add('inactive');
     }
+
+      closeProductDetailAside()
+    
     mobileMenu.classList.toggle('inactive');
  
 }
@@ -44,8 +56,57 @@ function showCarritoAside() {
         mobileMenu.classList.add('inactive');
     }
 
-    aside.classList.toggle('inactive');
+    const isProductDetailClosed = productDetailContainer.classList.contains('inactive');
+    
+
+    if(!isProductDetailClosed){
+        productDetailContainer.classList.add('inactive');
+    }
+    
+
+
+    shoppingCartContainer.classList.toggle('inactive');
 }
+
+/* Esta funcion es especial ya que se crea despues de buscar la solucion para que al dar click en cualquiera de las
+imagenes de los productos esta abra la ventana de Detalle del Producto por medio de un click y ese evento se convierte 
+en una funcion para ser invocada al dar click por edio de un addEventListener */
+
+function openProductDetailAside() {
+
+  /*Se agrega esta linea para que el aside de detalle de producto pueda convivir y cerrarse cuando damos click en el icono*/
+  const ismobileMenuClosed = mobileMenu.classList.contains('inactive');
+  const isDesktopMenuClosed = desktopMenu.classList.contains('inactive');
+  const isAsideClosed = shoppingCartContainer.classList.contains('inactive');
+  
+
+    if(!isDesktopMenuClosed){
+        desktopMenu.classList.add('inactive');
+    }
+    
+
+    if (!ismobileMenuClosed) {
+        
+        mobileMenu.classList.add('inactive');
+    }
+    
+    if (!isAsideClosed) {  /* isAsideClosed lo opuesto a True osea abierto activo el menu */
+        
+        shoppingCartContainer.classList.add('inactive'); /* Si la condicion es verdadera inactivar shopingCartContainer osea cerrarlo */
+    }
+
+   
+    backDark.classList.remove('inactive');
+ 
+  productDetailContainer.classList.remove('inactive');
+
+}
+
+function closeProductDetailAside() {
+  productDetailContainer.classList.add('inactive');
+  backDark.classList.add('inactive');
+}
+
 /* Aqui crea un arreglo por medio de una variable de nombre productList y le inserta 3 objetos al arreglo por medio de 
  el metodo .push*/
 const productList = [];
@@ -103,6 +164,7 @@ productList.push({
          a la propiedad image de los objetos que se crearon*/
         const productImg = document.createElement('img');
         productImg.setAttribute('src', product.image);
+        productImg.addEventListener('click', openProductDetailAside);
     
         /*Nuevamente se crea primero un div por medio de una variable y un metodo, esto se repite constantemente hasta lograr la estructura 
         deseada, lo mismo en la segunda linea se asigna una clase al div por medio de un metodo add, y se repite y se repite con toda la 
@@ -120,7 +182,7 @@ productList.push({
         const productName = document.createElement('p');
         productName.innerText = product.name;
     
-        /*La propiedad .appendChild adjunta un eleento html a un contenedor padre*/ 
+        /*La propiedad .appendChild adjunta un elemento html a un contenedor padre*/ 
     
         productInfoDiv.appendChild(productPrice);
         productInfoDiv.appendChild(productName);
