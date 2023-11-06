@@ -136,6 +136,7 @@
  /*Menu en mobile */
  
   .mobile-menu {
+    background-color: var(--white);
     position: absolute;
     top: 60px;
     padding: 24px;
@@ -170,6 +171,7 @@
 
   /* Asign (producto detail y carrito) */
   .product-detail {
+    background-color: var(--white);
     width: 360px;
     padding: 0px 24px;
     box-sizing: border-box;

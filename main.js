@@ -15,10 +15,22 @@ desktopMenu.classList.toggle('inactive');
 
 
 function toogleMobileMenu(){
+        const productoDetalleClosed = productoDetalle.classList.contains('inactive');
+        if(!productoDetalleClosed) {
+            productoDetalle.classList.add('inactive');
+        }
+
     mobileMenu.classList.toggle('inactive');
 }
 
 function mostrarProductosCarrito(){
-    productoDetalle.classList.toggle('inactive');
+
+    const mobileMenuClosed = mobileMenu.classList.contains('inactive');
+    
+    if(!mobileMenuClosed){
+        mobileMenu.classList.add('inactive');
+    } 
+
+   productoDetalle.classList.toggle('inactive');
 }
 
