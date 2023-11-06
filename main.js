@@ -1,9 +1,16 @@
 //Codigo de JS para unir Proyecto de HTML y CSS - Curso Practico Frontend
 const navEmail= document.querySelector('.navbar-email');
 const desktopMenu = document.querySelector('.desktop-menu');
+const burguerMenu = document.querySelector('.menu');
+const mobileMenu = document.querySelector('.mobile-menu');
 
 navEmail.addEventListener('click', toggleDesktopMenu);
+burguerMenu.addEventListener('click', toggleMobileMenu);
 
 function toggleDesktopMenu(){
-     desktopMenu.classList.toggle('inactive');
+    desktopMenu.classList.toggle('inactive');
+}
+
+function toggleMobileMenu() {
+    mobileMenu.classList.toggle('inactive');
 }
