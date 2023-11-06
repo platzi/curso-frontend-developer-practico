@@ -235,7 +235,6 @@ aside {
   box-sizing: border-box;
   position: absolute;
   right: 0;
-  padding-bottom: 100%;
   border-radius: 5px;
 }
 
@@ -309,6 +308,7 @@ aside {
   font-size: var(--md);
   font-weight: bold;
   height: 50px;
+  margin-bottom: 20px;
 }
 
 /* ProductDetail */
