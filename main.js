@@ -5,7 +5,7 @@ const menuHamIcon= document.querySelector('.menu');
 const mobilMenu= document.querySelector('.mobile-menu');
 
 const menuShopCardIcon = document.querySelector('.navbar-shopping-card');
-const aside = document.querySelector('.product-detail');
+const shoppingCardContainer = document.querySelector('#shoppingCardContainer');
 
 const cardsContainer = document.querySelector('.cards-container')
 
@@ -18,17 +18,17 @@ menuShopCardIcon.addEventListener('click',toggleShoppingCard)
 function toggleDesktopMenu() {
 desktopMenu.classList.toggle('inactive');
 mobilMenu.classList.toggle('inactive')
-aside.classList.add('inactive')
+shoppingCardContainer.classList.add('inactive')
 }
 
 function toggleMobileMenu(){
     mobilMenu.classList.toggle('inactive');
     desktopMenu.classList.toggle('inactive')
-    aside.classList.add('inactive') 
+    shoppingCardContainer.classList.add('inactive') 
 }
 
 function toggleShoppingCard(){
-    aside.classList.toggle('inactive')
+    shoppingCardContainer.classList.toggle('inactive')
     mobilMenu.classList.add('inactive')
     desktopMenu.classList.add('inactive')
 }
