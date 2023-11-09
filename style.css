@@ -81,6 +81,7 @@ nav {
 }
 /* Menu Desktop */
 .desktop-menu {
+    background-color: var(--white);
     position: absolute;
     top:60px;
     right: 55px;;
