@@ -1,3 +1,5 @@
+
+/* General styles */
 :root {
     --gray-color: #C7C7C7;
     --black-color: #000000;
@@ -14,6 +16,14 @@ body{
     font-family: 'Quicksand', sans-serif;
 }
 
+.inactive {
+    display: none;
+}
+/* menu styles end */
+
+
+/* navbar styles */
+
 nav {
     display: flex;
     justify-content: space-between;
@@ -21,7 +31,7 @@ nav {
     border-bottom: 1px solid var(--gray-color);
 }
 
-.menu {
+.menu-burger {
     display: none;
 }
 
@@ -90,11 +100,49 @@ nav {
     align-items: center;
 }
 
-/* menu styles */
+/* navbar styles end*/
 
-.inactive {
-    display: none;
+/* mobile navbar styles */
+
+.mobile-menu {
+    position: absolute;
+    top: 60px;
+    padding: 24px;
 }
+
+.mobile-menu a {
+    text-decoration: none;
+    color: var(--black-color);
+    font-weight: bold;
+}
+
+.mobile-menu ul {
+    padding: 0;
+    margin: 24px 0 0;
+    list-style: none;
+}
+
+.mobile-menu ul:nth-child(1) {
+    border-bottom: 1px solid var(--gray-color);
+}
+
+.mobile-menu ul li {
+    margin-bottom: 24px;
+}
+
+.mobile-menu .menu-email {
+    font-size: var(--font-small);
+    font-weight: 300;
+}
+
+.mobile-menu .menu-signout {
+    font-size: var(--font-small);
+    color: var(--green-color);
+}
+
+/* mobile navbar styles end*/
+
+/* menu styles */
 
 .desktop-menu {
     width: 100px;
@@ -143,7 +191,7 @@ nav {
 
 @media (max-width: 850px) {
 
-    .menu {
+    .menu-burger {
         display: block;
     }
 
@@ -155,4 +203,15 @@ nav {
         display: none;
     }
 
+    .desktop-menu{
+        display: none;
+    }
+}
+
+@media (min-width: 851px) {
+
+    .mobile-menu{
+        display: none;
+    }
+    
 }
