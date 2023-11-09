@@ -11,19 +11,33 @@ const toggleMobileMenu = () =>{
     if(!isAsideMenuClosed){
         shoppingCartContainer.classList.add("inactive");
     }
+    closeProductDetailAside();
     mobileMenu.classList.toggle("inactive");
 }
 
 const toggleCarritoAside = () => {
     const isMobileMenuClosed = mobileMenu.classList.contains("inactive");
     const isMenuDesktopClosed = desktopMenu.classList.contains("inactive");
+    const isProductDetailClosed = productDetailContainer.classList.contains("inactive");
+
     if(!isMenuDesktopClosed){
         desktopMenu.classList.add("inactive");
     }
     if(!isMobileMenuClosed){
         mobileMenu.classList.add("inactive");
     }
+    if(!isProductDetailClosed){
+        productDetailContainer.classList.add("inactive");
+    }
     shoppingCartContainer.classList.toggle("inactive");
+}
+const openProductDetailAside = () => {
+    shoppingCartContainer.classList.add("inactive");
+    productDetailContainer.classList.remove("inactive");
+}
+
+const closeProductDetailAside = () => {
+    productDetailContainer.classList.add("inactive");
 }
 const renderProducts = (arr) => {
     for(products of arr){
@@ -33,6 +47,7 @@ const renderProducts = (arr) => {
         
         const img = document.createElement("img");
         img.setAttribute("src",products.image);
+        img.addEventListener("click", openProductDetailAside);
     
         const productInfo = document.createElement("div");
         productInfo.classList.add("product-info");
@@ -81,6 +96,11 @@ menuCarritoIcon.addEventListener("click", toggleCarritoAside);
 const shoppingCartContainer = document.querySelector("#shoppingCartContainer");
 
 const cardContainer = document.querySelector(".cards-container");
+
+const productDetailContainer = document.querySelector("#productDetail");
+
+const productDetailCloseIcon = document.querySelector(".product-detail-close");
+productDetailCloseIcon.addEventListener("click", closeProductDetailAside);
 
 const productList = [];
 productList.push({
