@@ -1,0 +1,158 @@
+:root {
+    --gray-color: #C7C7C7;
+    --black-color: #000000;
+    --white-color: #FFFFFF;
+    --green-color: #ACD9B2;
+    --text-input-field: #F7F7F7;
+    --font-small: 14px;
+    --font-medium: 16px;
+    --font-large: 18px;
+}
+
+body{
+    margin: 0;
+    font-family: 'Quicksand', sans-serif;
+}
+
+nav {
+    display: flex;
+    justify-content: space-between;
+    padding: 0 24px;
+    border-bottom: 1px solid var(--gray-color);
+}
+
+.menu {
+    display: none;
+}
+
+.logo {
+    width: 100px;
+}
+
+.navbar-left ul, .navbar-right ul {
+    list-style: none;
+    padding: 0;
+    margin: 0;
+    display: flex;
+    align-items: center;
+    height: 60px;
+}
+
+.navbar-left {
+    display: flex;
+}
+
+.navbar-left ul {
+    margin-left: 12px;
+}
+
+.navbar-left ul li a, .navbar-right ul li a {
+    text-decoration: none;
+    color: var(--gray-color);
+    border: 1px solid var(--white-color);
+    padding: 8px;
+    border-radius: 8px;
+}
+
+.navbar-left ul li a:hover, .navbar-right ul li a:hover {
+    border: 1px solid var(--green-color);
+    color: var(--green-color);
+}
+
+.email-nav img{
+    margin-left: 10px;
+    transform: rotate(90deg);
+}
+
+.email-nav {
+    color: var(--gray-color);
+    font-size: var(--font-small);
+    margin-right: 20px;
+    cursor: pointer;
+}
+
+.navbar-shopping-cart {
+    position: relative;
+}
+
+.navbar-shopping-cart div {
+    width: 16px;
+    height: 16px;
+    background-color: var(--green-color);
+    border-radius: 50%;
+    font-size: var(--font-small);
+    font-weight: bold;
+    position: absolute;
+    top: -6px;
+    right: -3px;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+}
+
+/* menu styles */
+
+.inactive {
+    display: none;
+}
+
+.desktop-menu {
+    width: 100px;
+    top: 60px;
+    right: 60px;
+    height: auto;
+    background-color: var(--white-color);
+    border: 1px solid var(--gray-color);
+    border-radius: 6px;
+    padding: 20px 20px 0 20px;
+    position: absolute;
+}
+
+.desktop-menu ul {
+    list-style: none;
+    padding: 0;
+    margin: 0;
+}
+
+.desktop-menu ul li {
+    text-align: end;
+}
+
+.desktop-menu ul li:nth-child(1), .desktop-menu ul li:nth-child(2) {
+    font-weight: bold;
+}
+
+.desktop-menu ul li:last-child {
+    padding-top: 20px;
+    border-top: 1px solid var(--gray-color);
+}
+
+.desktop-menu ul li:last-child a {
+    color: var(--green-color);
+    font-size: var(--font-small);
+}
+
+.desktop-menu ul li a {
+    color: var(--black-color);
+    text-decoration: none;
+    margin-bottom: 20px;
+    display: inline-block;
+}
+/* menu styles end */
+
+
+@media (max-width: 850px) {
+
+    .menu {
+        display: block;
+    }
+
+    .navbar-left ul {
+        display: none;
+    }
+
+    .email-nav {
+        display: none;
+    }
+
+}
