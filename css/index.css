@@ -208,6 +208,10 @@ nav {
     margin-right: 14px;
 }
 
+.title-container .arrowIcon{
+    display: none;
+}
+
 .title {
     font-size: var(--font-large);
     font-weight: bold;
@@ -303,6 +307,10 @@ nav {
 
     .product-detail {
         width: 100%;
+    }
+
+    .title-container .arrowIcon{
+        display: unset;
     }
 }
 
