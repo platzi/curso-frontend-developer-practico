@@ -2,6 +2,7 @@
 /* General styles */
 :root {
     --gray-color: #C7C7C7;
+    --gray-hard-color: #3e3e3e;
     --black-color: #000000;
     --white-color: #FFFFFF;
     --green-color: #ACD9B2;
@@ -296,6 +297,7 @@ nav {
     padding-bottom: 24px;
     position: absolute;
     right: 0;
+    background-color: var(--white-color);
 }
 
 .product-detail-close {
@@ -312,6 +314,7 @@ nav {
 
 .product-detail-close:hover {
     cursor: pointer;
+    background-color: var(--gray-hard-color);
 }
 
 .product-detail-secondary > img:nth-child(2) {
@@ -322,7 +325,10 @@ nav {
 }
 
 .product-info-secondary {
-    margin: 24px 24px 0 24px;
+    padding: 24px;
+    background-color: var(--white-color);
+    border-bottom-left-radius: 12px;
+    border-bottom-right-radius: 12px;
 }
 
 .product-info-secondary p:nth-child(1) {
