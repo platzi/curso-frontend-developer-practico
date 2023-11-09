@@ -167,6 +167,43 @@ productList.push({
     
 });
 
+productList.push({
+    name: 'Bocina', 
+    price: 320,
+    image: 'https://images.pexels.com/photos/276517/pexels-photo-276517.jpeg?auto=compress&cs=tinysrgb&dpr=2&h=650&w=940',
+    
+});
+productList.push({
+    name: 'Bocina', 
+    price: 320,
+    image: 'https://images.pexels.com/photos/276517/pexels-photo-276517.jpeg?auto=compress&cs=tinysrgb&dpr=2&h=650&w=940',
+    
+});
+productList.push({
+    name: 'Bocina', 
+    price: 320,
+    image: 'https://images.pexels.com/photos/276517/pexels-photo-276517.jpeg?auto=compress&cs=tinysrgb&dpr=2&h=650&w=940',
+    
+});
+productList.push({
+    name: 'Bocina', 
+    price: 320,
+    image: 'https://images.pexels.com/photos/276517/pexels-photo-276517.jpeg?auto=compress&cs=tinysrgb&dpr=2&h=650&w=940',
+    
+});
+productList.push({
+    name: 'Bocina', 
+    price: 320,
+    image: 'https://images.pexels.com/photos/276517/pexels-photo-276517.jpeg?auto=compress&cs=tinysrgb&dpr=2&h=650&w=940',
+    
+});
+productList.push({
+    name: 'Bocina', 
+    price: 320,
+    image: 'https://images.pexels.com/photos/276517/pexels-photo-276517.jpeg?auto=compress&cs=tinysrgb&dpr=2&h=650&w=940',
+    
+});
+
 
 // Array para los productos del shopping cart
 // const ShoppingCartProductsList = [];
