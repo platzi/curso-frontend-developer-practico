@@ -6,43 +6,29 @@ const cardContainer = document.querySelector('.cards-container');
 
 const desktopMenu = document.querySelector('.desktop-menu');
 const mobileMenu = document.querySelector('.mobile-menu');
-const aside = document.querySelector('.product-detail');
+const shoppingCart = document.querySelector('.product-detail-shopping-cart');
 
 navEmail.addEventListener('click', toggleDesktopMenu);
 burguerMenu.addEventListener('click', toggleMobileMenu);
-menuCarritoIcon.addEventListener('click',toggleAsideMenu);
+menuCarritoIcon.addEventListener('click',toggleCartMenu);
 
 function toggleDesktopMenu(){
-    aside.classList.add('inactive');
+    shoppingCart.classList.add('inactive');
     desktopMenu.classList.toggle('inactive');
 }
 
 function toggleMobileMenu() {
-    aside.classList.add('inactive');
+    shoppingCart.classList.add('inactive');
     mobileMenu.classList.toggle('inactive');
 }
 
-function toggleAsideMenu() {
+function toggleCartMenu() {
     desktopMenu.classList.add('inactive');
     mobileMenu.classList.add('inactive');
-    aside.classList.toggle('inactive');
+    shoppingCart.classList.toggle('inactive');
 }
 
-/* <div class="product-card">
-        <img src="https://images.pexels.com/photos/276517/pexels-photo-276517.jpeg?auto=compress&cs=tinysrgb&dpr=2&h=650&w=940" alt="">
-        <div class="product-info">
-          <div>
-            <p>$120,00</p>
-            <p>Bike</p>
-          </div>
-          <figure>
-            <img src="./icons/bt_add_to_cart.svg" alt="">
-          </figure>
-        </div>
-      </div> */
-
 // Code to generate HTML estructured cards with JS (dynamic layout of DOM) 
-
 const productList =[]; //Construir
 productList.push({
     name: 'Bike',
@@ -77,34 +63,37 @@ productList.push({
     image: "https://cdn.britannica.com/77/170477-050-1C747EE3/Laptop-computer.jpg"
 });
 
-
-for (product of productList){
-    const productCard = document.createElement('div');
-    productCard.classList.add('product-card');
-
-    cardContainer.append(productCard);
-
-    const image = document.createElement('img');
-    image.setAttribute('src',product.image);
-
-    const productInfo = document.createElement('div');
-    productInfo.classList.add('product-info');
-
-    productCard.append(image,productInfo);
-
-    const productDiv = document.createElement('div');
-    const productPrice= document.createElement('p');
-    productPrice.innerText="$ "+product.price;
-    const productName=document.createElement('p');
-    productName.innerText=product.name;
-
-    productDiv.append(productPrice,productName);
-
-    const productFigure = document.createElement('figure');
-    const iconImage= document.createElement('img');
-    iconImage.setAttribute('src','./icons/bt_add_to_cart.svg');
-
-    productFigure.append(iconImage);
-    productInfo.append(productDiv,productFigure);
+//This function creates a new structure component in a list of components in HTML 
+renderList(productList);
+function renderList(arrComp){
+    for (product of arrComp){
+        const productCard = document.createElement('div');
+        productCard.classList.add('product-card');
     
+        cardContainer.append(productCard);
+    
+        const image = document.createElement('img');
+        image.setAttribute('src',product.image);
+    
+        const productInfo = document.createElement('div');
+        productInfo.classList.add('product-info');
+    
+        productCard.append(image,productInfo);
+    
+        const productDiv = document.createElement('div');
+        const productPrice= document.createElement('p');
+        productPrice.innerText="$ "+product.price;
+        const productName=document.createElement('p');
+        productName.innerText=product.name;
+    
+        productDiv.append(productPrice,productName);
+    
+        const productFigure = document.createElement('figure');
+        const iconImage= document.createElement('img');
+        iconImage.setAttribute('src','./icons/bt_add_to_cart.svg');
+    
+        productFigure.append(iconImage);
+        productInfo.append(productDiv,productFigure);
+        
+    }
 }
