@@ -107,7 +107,7 @@ function iterativeCreateProducts(arr){
     
         const productFigure = document.createElement('figure');
         const productFigureImage = document.createElement('img');
-        productFigureImage.setAttribute('src', '../images/Icons/Platzi_YardSale_Icons/bt_add_to_cart.svg');
+        productFigureImage.setAttribute('src', './images/Icons/Platzi_YardSale_Icons/bt_add_to_cart.svg');
     
         productFigure.appendChild(productFigureImage);
         productInfo.append(productSubinfo, productFigure);
