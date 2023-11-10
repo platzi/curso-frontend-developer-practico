@@ -1,31 +1,48 @@
 //Codigo de JS para unir Proyecto de HTML y CSS - Curso Practico Frontend
 const navEmail= document.querySelector('.navbar-email');
-const burguerMenu = document.querySelector('.menu');
+const burguerMenuIcon = document.querySelector('.menu');
 const menuCarritoIcon = document.querySelector('.navbar-shopping-cart');
-const cardContainer = document.querySelector('.cards-container');
+const closeProductDetailIcon = document.querySelector('.product-detail-close');
 
 const desktopMenu = document.querySelector('.desktop-menu');
 const mobileMenu = document.querySelector('.mobile-menu');
 const shoppingCart = document.querySelector('.product-detail-shopping-cart');
+const cardContainer = document.querySelector('.cards-container');
+const productDetail = document.querySelector('.product-detail')
 
 navEmail.addEventListener('click', toggleDesktopMenu);
-burguerMenu.addEventListener('click', toggleMobileMenu);
+burguerMenuIcon.addEventListener('click', toggleMobileMenu);
 menuCarritoIcon.addEventListener('click',toggleCartMenu);
+closeProductDetailIcon.addEventListener('click', closeProductDetailAside);
 
 function toggleDesktopMenu(){
     shoppingCart.classList.add('inactive');
     desktopMenu.classList.toggle('inactive');
+    closeProductDetailAside();
 }
 
 function toggleMobileMenu() {
     shoppingCart.classList.add('inactive');
     mobileMenu.classList.toggle('inactive');
+    closeProductDetailAside();
 }
 
 function toggleCartMenu() {
     desktopMenu.classList.add('inactive');
     mobileMenu.classList.add('inactive');
     shoppingCart.classList.toggle('inactive');
+    closeProductDetailAside();
+}
+
+function openProductDetailAside() {
+    productDetail.classList.remove('inactive');
+    desktopMenu.classList.add('inactive');
+    mobileMenu.classList.add('inactive');
+    shoppingCart.classList.add('inactive');
+}
+
+function closeProductDetailAside() {
+    productDetail.classList.add('inactive');
 }
 
 // Code to generate HTML estructured cards with JS (dynamic layout of DOM) 
@@ -72,13 +89,14 @@ function renderList(arrComp){
     
         cardContainer.append(productCard);
     
-        const image = document.createElement('img');
-        image.setAttribute('src',product.image);
+        const productImage = document.createElement('img');
+        productImage.setAttribute('src',product.image);
+        productImage.addEventListener('click',openProductDetailAside)
     
         const productInfo = document.createElement('div');
         productInfo.classList.add('product-info');
     
-        productCard.append(image,productInfo);
+        productCard.append(productImage,productInfo);
     
         const productDiv = document.createElement('div');
         const productPrice= document.createElement('p');
