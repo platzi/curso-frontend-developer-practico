@@ -308,7 +308,7 @@ aside {
   font-size: var(--md);
   font-weight: bold;
   height: 50px;
-  margin-bottom: 20px;
+      margin-bottom: 20px;
 }
 
 /* ProductDetail */
