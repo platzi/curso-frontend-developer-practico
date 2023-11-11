@@ -1,0 +1,126 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Quicksand:wght@300;500;700&display=swap" rel="stylesheet">
+    <title>YARDSALE</title>
+    <style>
+        :root {
+            --gray-color: #C7C7C7;
+            --black-color: #000000;
+            --white-color: #FFFFFF;
+            --green-color: #ACD9B2;
+            --text-input-field: #F7F7F7;
+            --font-small: 14px;
+            --font-medium: 16px;
+            --font-large: 18px;
+        }
+
+        body{
+            margin: 0;
+            font-family: 'Quicksand', sans-serif;
+        }
+
+        .my-order {
+            width: 100%;
+            height: 100vh;
+            display: grid;
+            place-items: center;
+        }
+
+        .title {
+            font-size: var(--font-large);
+            margin-bottom: 40px;
+        }
+
+        .my-order-container {
+            display: grid;
+            grid-template-rows: auto 1fr auto;
+            width: 300px;
+        }
+
+        .my-order-content {
+            display: flex;
+            flex-direction: column;
+        }
+
+        .order {
+            display: grid;
+            grid-template-columns: auto 1fr auto;
+            gap: 16px;
+            align-items: center;
+            margin-bottom: 12px;
+        }
+
+        .order p:nth-child(1) {
+            display: flex;
+            flex-direction: column;
+        }
+
+        .order p span:nth-child(1) {
+            font-size: var(--font-medium);
+            font-weight: bold;
+        }
+
+        .order p span:nth-child(2) {
+            font-size: var(--font-small);
+            color: var(--gray-color);
+        }
+
+        .order p:nth-child(2) {
+            text-align: end;
+            font-weight: bold;
+        }
+        
+    </style>
+</head>
+<body>
+    <div class="my-order">
+        <div class="my-order-container">
+            
+            <h1 class="title">My orders</h1>
+        
+            <div class="my-order-content">
+                <div class="order">
+                    <p>
+                        <span>03.25.21</span>
+                        <span>6 articles</span>
+                    </p>
+                    <p>$560.00</p>
+                    <img src="../images/Icons/Platzi_YardSale_Icons/flechita.svg" alt="arrow">
+                </div>
+        
+                <div class="order">
+                    <p>
+                        <span>03.25.21</span>
+                        <span>6 articles</span>
+                    </p>
+                    <p>$560.00</p>
+                    <img src="../images/Icons/Platzi_YardSale_Icons/flechita.svg" alt="arrow">
+                </div>
+        
+                <div class="order">
+                    <p>
+                        <span>03.25.21</span>
+                        <span>6 articles</span>
+                    </p>
+                    <p>$560.00</p>
+                    <img src="../images/Icons/Platzi_YardSale_Icons/flechita.svg" alt="arrow">
+                </div>
+        
+                <div class="order">
+                    <p>
+                        <span>03.25.21</span>
+                        <span>6 articles</span>
+                    </p>
+                    <p>$560.00</p>
+                    <img src="../images/Icons/Platzi_YardSale_Icons/flechita.svg" alt="arrow">
+                </div>
+            </div>
+        </div>
+    </div>
+</body>
+</html>

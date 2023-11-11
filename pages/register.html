@@ -1,0 +1,135 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Quicksand:wght@300;500;700&display=swap" rel="stylesheet">
+    <title>YARDSALE</title>
+    <style>
+        :root {
+            --gray-color: #C7C7C7;
+            --black-color: #000000;
+            --white-color: #FFFFFF;
+            --green-color: #ACD9B2;
+            --text-input-field: #F7F7F7;
+            --font-small: 14px;
+            --font-medium: 16px;
+            --font-large: 18px;
+        }
+
+        body{
+            font-family: 'Quicksand', sans-serif;
+        }
+
+        .login {
+            width: 100%;
+            height: 100vh;
+            display: grid;
+            place-items: center;
+        }
+        
+        .form-container {
+            display: grid;
+            grid-template-rows: auto 1fr auto;
+            width: 300px;
+        }
+        
+        .logo {
+            width: 150px;
+            margin-bottom: 48px;
+            justify-self: center;
+            display: none;
+        }
+
+        .title {
+            font-size: var(--font-large);
+            margin-bottom: 36px;
+            text-align: start;
+        }
+        
+        .form {
+            display: flex;
+            flex-direction: column;
+        }
+
+        .form div{
+            display: flex;
+            flex-direction: column;
+        }
+        
+        .label {
+            font-size: var(--font-small);
+            font-weight: bold;
+            margin-bottom: 4px;
+        }
+        
+        .input {
+            background-color: var(--text-input-field);
+            border: none;
+            border-radius: 8px;
+            height: 30px;
+            font-size: var(--font-medium);
+            padding: 6px;
+            margin-bottom: 12px;
+        }
+
+        .input-name, .input-email, .input-password {
+            margin-bottom: 22px;
+        }
+        
+        .primary-button {
+            background-color: var(--green-color);
+            border-radius: 8px;
+            border: none;
+            color: var(--white-color);
+            width: 100%;
+            cursor: pointer;
+            font-size: var(--font-medium);
+            font-weight: bold;
+            height: 50px;
+        }
+        
+        .login-button {
+            margin-top: 14px;
+            margin-bottom: 30px;
+        }
+        
+        @media (max-width: 640px) {
+            .logo {
+                display: block;
+            }
+
+            .form {
+                height: 100%;
+                justify-content: space-between;
+            }
+        }
+        
+    </style>
+</head>
+<body>
+    <div class="login">
+        <div class="form-container">
+
+            <h1 class="title">My account</h1>
+        
+            <form action="/" class="form">
+                <div>
+                    <label for="name" class="label">Name</label>
+                    <input type="text" id="name" placeholder="Teff" class="input input-name">
+            
+                    <label for="email" class="label">Email</label>
+                    <input type="text" id="email" placeholder="platzi@example.com" class="input input-email">
+            
+                    <label for="password" class="label">Password</label>
+                    <input type="password" id="password" placeholder="*********" class="input input-password">
+                </div>
+        
+                <input type="submit" value="Create" class="primary-button login-button">
+            </form>
+        </div>
+    </div>
+</body>
+</html>
