@@ -6,9 +6,10 @@ const desktopMenu = document.querySelector('.desktop-menu');
 menuEmail.addEventListener('click', toggleDesktopMenu); 
 
 function toggleDesktopMenu() {
-  mobileMenu.classList.add('inactive');
-  shoppingCartContainer.classList.add('inactive');
   desktopMenu.classList.toggle('inactive');
+  mobileMenu.classList.add('inactive');
+  shoppingCartContainer.classList.add('inactive');  
+  productDetail.classList.add('inactive');
   
 }
 // --------------------------------// 
@@ -22,7 +23,8 @@ menuHamIcon.addEventListener('click', toggleMobileMenu);
 function toggleMobileMenu() {
   desktopMenu.classList.add('inactive');
   shoppingCartContainer.classList.add('inactive');
-  mobileMenu.classList.toggle('inactive');    
+  mobileMenu.classList.toggle('inactive');
+  productDetail.classList.add('inactive');    
 }
 // --------------------------------// 
 
@@ -35,9 +37,27 @@ menuCarritoIcon.addEventListener('click', toggleCarritoAside);
 function toggleCarritoAside() {
   desktopMenu.classList.add('inactive');
   mobileMenu.classList.add('inactive');
-  shoppingCartContainer.classList.toggle('inactive');  
+  shoppingCartContainer.classList.toggle('inactive');
+  productDetail.classList.add('inactive');
 }
-// --------------------------------// 
+// --------------------------------//
+
+// --- DETALLES DEL PRODUCTO --- //
+const productDetail = document.querySelector('#productDetail')
+const closeProductDetail = document.querySelector('.product-detail-close');
+
+function toggleProductDetail () {
+  productDetail.classList.remove('inactive');
+  shoppingCartContainer.classList.add('inactive');
+  mobileMenu.classList.add('inactive');
+  desktopMenu.classList.add('inactive');
+}
+
+function productDetailClose () {
+  productDetail.classList.add('inactive');
+}
+// --------------------------------//
+
 
 // --- AGREGAR PRODUCTOS Y LISTARLOS --- //
 const productList = [];
@@ -98,6 +118,8 @@ for(product of productList){
   productCard.classList.add('product-card');
   const productImg = document.createElement('img');
   productImg.setAttribute('src', product.image);
+  productImg.addEventListener('click', toggleProductDetail);
+  closeProductDetail.addEventListener('click', productDetailClose);
 
   const productInfo = document.createElement('div');
   productInfo.classList.add('product-info');
@@ -123,8 +145,6 @@ for(product of productList){
   // Etiquetas DIV con clase 'product-info' y etiqueta IMG, dentro de DIV padre con clase 'product-card'
   productCard.append(productInfo, productImg);
 
-  // Ingresar todo al contenedor principal
+  // Integrar todo al contenedor principal
   cardContainer.appendChild(productCard);
 };
-
-
