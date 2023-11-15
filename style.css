@@ -366,6 +366,10 @@
       width: 140px;
       height: 140px;
     }
+    #shoppingCardContainer{
+      width: 100%;
+      height: max-content;
+    }
   }
   
   @media (min-width: 641px){
