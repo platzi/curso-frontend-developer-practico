@@ -321,6 +321,7 @@
     width: 240px;
   }
   .product-card img {
+    cursor: pointer;
     width: 240px;
     height: 240px;
     border-radius: 20px;
@@ -365,7 +366,7 @@
     .desktop-menu {
       display: none;
     }
-    .product-detail {
+    .shoppingCartContainer {
       width: 100%;
     }
     .cards-container {
