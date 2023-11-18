@@ -38,6 +38,7 @@ function toggleCarritoAside() {
 }
 
 function openProductDetailAside(e) {
+    // Manipulo el DOM para renderizar el producto seleccionado
     // si existe el aside lo elimino
     if(document.querySelector('.product-individual-detail')){
         document.querySelector('.product-individual-detail').remove();
