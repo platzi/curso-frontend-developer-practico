@@ -4,6 +4,8 @@ const menuIconMobile = document.querySelector(".menu");
 const mobileMenu = document.querySelector(".mobile-menu");
 const menuIconCarrito = document.querySelector(".navbar-shopping-cart");
 const carritoMenu = document.querySelector("#shoppingCartContainer");
+const productDetailContainer = document.querySelector("#productDetail");
+const productDetailCloseIcon = document.querySelector(".product-detail-close");
 const cardContainer = document.querySelector(".cards-container");
 
 //Menu desktop
@@ -12,6 +14,8 @@ menuIconEmail.addEventListener("click", toggleDesktopMenu);
 menuIconMobile.addEventListener("click", toggleMobileMenu);
 //menu carrito
 menuIconCarrito.addEventListener("click", toggleCarritoMenu);
+//Cerrar detalles del producto
+productDetailCloseIcon.addEventListener("click", closeProductDetailAside);
 
 //Menu desktop
 function toggleDesktopMenu() {
@@ -32,6 +36,8 @@ function toggleMobileMenu() {
     carritoMenu.classList.add("inactive");
   }
 
+  closeProductDetailAside();
+
   mobileMenu.classList.toggle("inactive"); //para que lo muestre o no dependiendo si esta activo
 }
 
@@ -39,14 +45,28 @@ function toggleMobileMenu() {
 function toggleCarritoMenu() {
   const isMobileMenuClosed = mobileMenu.classList.contains("inactive");
   const isDesktopMenuClosed = desktopMenu.classList.contains("inactive");
+  const isProductDetailClosed =
+    productDetailContainer.classList.contains("inactive");
 
   if (!isMobileMenuClosed) {
     mobileMenu.classList.add("inactive");
   } else if (!isDesktopMenuClosed) {
     desktopMenu.classList.add("inactive");
+  } else if (!isProductDetailClosed) {
+    productDetailContainer.classList.add("inactive");
   }
 
   carritoMenu.classList.toggle("inactive");
+}
+
+function openProductDetailAside() {
+  desktopMenu.classList.add("inactive");
+  carritoMenu.classList.add("inactive");
+  productDetailContainer.classList.remove("inactive");
+}
+
+function closeProductDetailAside() {
+  productDetailContainer.classList.add("inactive");
 }
 
 const productList = [];
@@ -79,6 +99,7 @@ function renderProducts(arr) {
 
     const productImg = document.createElement("img");
     productImg.setAttribute("src", product.image);
+    productImg.addEventListener("click", openProductDetailAside);
 
     const productInfo = document.createElement("div");
     productInfo.classList.add("product-info");
