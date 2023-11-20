@@ -48,7 +48,7 @@
           <li class="navbar-email">platzi@example.com</li>
           <li class="navbar-shopping-cart">
             <img src="./icons/icon_shopping_cart.svg" alt="shopping cart" />
-            <div>2</div>
+            <div>0</div>
           </li>
         </ul>
       </div>
@@ -77,7 +77,6 @@
       <!------------------------------------------->
 
       <!-- MENÚ PARA MOVIL CLASE 8 -->
-
       <div class="mobile-menu inactive">
         <ul>
           <li>
@@ -126,15 +125,16 @@
       <!------------------------------------------->
     </nav>
 
-       <!-- CARRITO DE COMPRAS CLASE 13 -->
-    <aside id="shoppingCartContainer" class="inactive">
+    <!-- CARRITO DE COMPRAS CLASE 13 -->
+    <!-- <aside id="shoppingCartContainer" class="inactive"> (CAMBIO) -->
+    <aside class="product-detail inactive">
       <div class="title-container">
-        <img src="./icons/flechita.svg" alt="arrow">
+        <img src="./icons/flechita.svg" alt="arrow" />
         <p class="title">My order</p>
       </div>
-  
+
       <div class="my-order-content">
-        <div class="shopping-cart">
+        <!-- <div class="shopping-cart">
           <figure>
             <img src="https://images.pexels.com/photos/276517/pexels-photo-276517.jpeg?auto=compress&cs=tinysrgb&dpr=2&h=650&w=940" alt="bike">
           </figure>
@@ -159,37 +159,47 @@
           <p>Bike</p>
           <p>$30,00</p>
           <img src="./icons/icon_close.png" alt="close">
-        </div>
-  
-        <div class="order">
-          <p>
-            <span>Total</span>
-          </p>
-          <p>$560.00</p>
-        </div>
-  
-        <button class="primary-button">
-          Checkout
-        </button>
+        </div> (CAMBIO) -->
       </div>
-    </div>
+      <!-- Se agrega esta etiqueta (CAMBIO) -->
+
+      <div class="order">
+        <p>
+          <span>Total</span>
+        </p>
+        <p class="total">$560.00</p>
+        <!--se agrega class="total" (CAMBIO) -->
+      </div>
+
+      <div class="button-product-detail--container">
+        <!-- se agrega esta línea (CAMBIO) -->
+        <button class="primary-button">Checkout</button>
+      </div>
+      <!-- </div> (CAMBIO) -->
     </aside>
     <!-- FIN CARRITO DE COMPRAS  -->
     <!------------------------------------------->
     <!------------------------------------------->
 
     <!-- DETALLES DE UN PRODUCTO CLASE 12 -->
-    <aside id="productDetail" class="inactive">
+    <!-- <aside id="productDetail" class="inactive"> (CAMBIO) -->
+    <aside class="product-detail-left inactive">
+      <!-- Se agrega esta línea (CAMBIO)-->
       <div class="product-detail-close">
-        <img src="./icons/icon_close.png" alt="close">
+        <img src="./icons/icon_close.png" alt="close" />
       </div>
-      <img src="https://images.pexels.com/photos/276517/pexels-photo-276517.jpeg?auto=compress&cs=tinysrgb&dpr=2&h=650&w=940" alt="bike" id=>
+      <img
+      src="https://images.pexels.com/photos/276517/pexels-photo-276517.jpeg?auto=compress&cs=tinysrgb&dpr=2&h=650&w=940"
+      alt="bike" id=>
       <div class="product-info">
         <p>$35,00</p>
         <p>Bike</p>
-        <p>With its practical position, this bike also fulfills a decorative function, add your hall or workspace.</p>
+        <p>
+          With its practical position, this bike also fulfills a decorative
+          function, add your hall or workspace.
+        </p>
         <button class="primary-button add-to-cart-button">
-          <img src="./icons/bt_add_to_cart.svg" alt="add to cart">
+          <img src="./icons/bt_add_to_cart.svg" alt="add to cart" />
           Add to cart
         </button>
       </div>
@@ -200,13 +210,20 @@
 
     <!-- LISTA DE PRODUCTOS CLASE 6 -->
     <section class="main-container">
-      <div class="cards-container">
-          
-      </div>
+      <div class="cards-container"></div>
     </section>
     <!-- FIN LISTA DE PRODUCTOS -->
     <!------------------------------------------->
     <!------------------------------------------->
+
+    <div class="modal inactive">
+      <div class="modal-contenido">
+        <p class="modal-title">Este producto ya está agregado en la lista</p>
+        <div class="boton-modal">
+          <p>Aceptar</p>
+        </div>
+      </div>
+    </div>
 
     <script src="main.js"></script>
   </body>

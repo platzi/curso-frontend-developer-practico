@@ -1,4 +1,10 @@
 /*-- VARIABLES GENERALES --*/
+* {
+  margin: 0;
+  padding: 0;
+  /* box-sizing: border-box; */
+}
+
 :root {
   --white: #FFFFFF;
   --black: #000000;
@@ -40,8 +46,7 @@ nav {
   margin: 0;
   display: flex;
   align-items: center;
-  height: 60px;
-  cursor: pointer;
+  height: 60px;  
 }
 .navbar-left {
   display: flex;
@@ -63,15 +68,18 @@ nav {
   color: var(--hospital-green);
 }
 .navbar-email {
+  position: relative;
   color: var(--very-light-pink);
   font-size: var(--sm);
   margin-right: 12px;
+  cursor: pointer;
 }
-.navbar-email:hover {
+.navbar-email:hover { /* Este está pendiente */
   color: var(--hospital-green);
 }
 .navbar-shopping-cart {
   position: relative;
+  cursor: pointer;
 }
 .navbar-shopping-cart div {
   width: 16px;
@@ -96,12 +104,13 @@ nav {
   position: absolute;
   background: var(--white);
   top: 60px;
-  right: 55px;
-  width: 100px;
+  right: 60px;
+  width: 120px;
   height: auto;
   border: 1px solid var(--very-light-pink);
-  border-radius: 6px;
-  padding: 20px 20px 0 20px;
+  border-top: none;
+  border-radius: 0 0 6px 6px;
+  padding: 20px 10px 0 10px;
 }
 .desktop-menu ul {
   list-style: none;
@@ -135,14 +144,14 @@ nav {
 
 /*-- MENÚ PARA MOVIL CLASE 8 --*/
 .mobile-menu {
+  width: calc(100% - 24px);
+  height: 100%;
+  background-color: var(--white);
   position: absolute;
   top: 60px; 
-  box-sizing: border-box;
   left: 0;
-  width: 100%;
-  border: 1px solid var(--very-light-pink);
-  border-radius: 5px; 
-  background-color: var(--white);
+  padding-left: 24px;
+  overflow-y: hidden;  
 }
 .mobile-menu a {
   text-decoration: none;
@@ -151,9 +160,9 @@ nav {
   /* margin-bottom: 24px; */
 }
 .mobile-menu ul {
-  margin: 21px 26px;
-  list-style: none;
-  padding-left: 4px;
+  padding: 0;
+  margin: 24px 0 0;
+  list-style: none;  
 }
 .mobile-menu ul:nth-child(1) {
   border-bottom: 1px solid var(--very-light-pink);
@@ -174,7 +183,7 @@ nav {
 /*-------------------------------------------*/
 
 /*-- CARRITO DE COMPRAS CLASE 13 --*/
-aside {
+/* aside {
   width: 373px;
   padding: 10px 10px 0 10px;
   box-sizing: border-box;
@@ -186,10 +195,11 @@ aside {
 }
 #shoppingCartContainer {
   padding: 0 20px 20px;
-}
+} (SE QUITA) */
 
 .title-container {
   display: flex;
+  padding: 15px 0;
 }
 .title-container img {
   transform: rotate(180deg);
@@ -206,8 +216,10 @@ aside {
   align-items: center;
   background-color: var(--text-input-field);
   margin-bottom: 24px;
+  margin-right: 10px;
   border-radius: 8px;
-  padding: 0 24px;
+  padding: 10px 24px;
+  border-top: 2px solid var(--hospital-green);
 }
 .order p:nth-child(1) {
   display: flex;
@@ -262,10 +274,36 @@ aside {
 /*-- DETALLES DE UN PRODUCTO CLASE 12 --*/
 .product-detail {
   width: 360px;
-  padding-bottom: 24px;
+  padding: 0 0 15px 24px;
+  background-color: var(--white);
+  box-sizing: border-box;
   position: absolute;
   right: 0;
 }
+.button-product-detail--container {
+  padding-right: 10px;
+}
+.my-order-content {
+  max-height: 420px;
+  overflow-y: auto;
+  padding-right: 10px;
+}
+::-webkit-scrollbar {
+  width: 5px;
+}
+::-webkit-scrollbar-thumb {
+  background-color: var(--hospital-green);
+  border-radius: 5px;
+}
+
+.product-detail-left {
+  width: 360px;
+  padding-bottom: 24px;
+  position: absolute;
+  background-color: var(--white);
+  right: 0;
+}
+
 .product-detail-close {
   background: var(--white);
   width: 14px;
@@ -280,34 +318,34 @@ aside {
 .product-detail-close:hover {
   cursor: pointer;
 }
-#productDetail > img:nth-child(2) {
+.product-detail-left > img:nth-child(2) {
   width: 100%;
   height: 360px;
   object-fit: cover;
   border-radius: 0 0 20px 20px;  
 }
-#productDetail .product-info {
-  margin: 24px;
+.product-info-left {
+  margin: 24px 24px 0 24px;
 }
-#productDetail .product-info p:nth-child(1) {
+.product-info-left p:nth-child(1) {
   font-weight: bold;
   font-size: var(--md);
   margin-top: 0;
   margin-bottom: 4px;
 }
-#productDetail .product-info p:nth-child(2) {
+.product-info-left p:nth-child(2) {
   color: var(--very-light-pink);
   font-size: var(--md);
   margin-top: 0;
   margin-bottom: 36px;
 }
-#productDetail .product-info p:nth-child(3) {
+.product-info-left p:nth-child(3) {
   color: var(--very-light-pink);
   font-size: var(--sm);
   margin-top: 0;
   margin-bottom: 36px;
 }
-.primary-button {
+/* .primary-button {
   background-color: var(--hospital-green);
   border-radius: 8px;
   border: none;
@@ -317,7 +355,7 @@ aside {
   font-size: var(--md);
   font-weight: bold;
   height: 50px;
-}
+} */
 .add-to-cart-button {
   display: flex;
   align-items: center;
@@ -328,12 +366,15 @@ aside {
 /*-------------------------------------------*/
 
 /*-- LISTA DE PRODUCTOS CLASE 6 --*/
+.removeList {
+  cursor:pointer;
+}
 .cards-container {
+  margin-top: 20px;
   display: grid;
   grid-template-columns: repeat(auto-fill, 240px);
   gap: 26px;
-  place-content: center;
-  margin-top: 20px;  
+  place-content: center;  
 }
 .product-card {
   width: 240px;
@@ -342,29 +383,29 @@ aside {
   width: 240px;
   height: 240px;
   border-radius: 20px;
-  border: 1px solid var(--very-light-pink);
   object-fit: cover;
+  cursor: pointer;
 }
-.product-card .product-info {
+.product-info {
   display: flex;
   justify-content: space-between;
   align-items: center;
   margin-top: 12px;
 }
-.product-card .product-info figure {
+.product-info figure {
   margin: 0;
 }
-.product-card .product-info figure img {
+.product-info figure img {
   width: 35px;
   height: 35px;
 }
-.product-card .product-info div p:nth-child(1) {
+.product-info div p:nth-child(1) {
   font-weight: bold;
   font-size: var(--md);
   margin-top: 0;
   margin-bottom: 4px;
 }
-.product-card .product-info div p:nth-child(2) {
+.product-info div p:nth-child(2) {
   font-size: var(--sm);
   margin-top: 0;
   margin-bottom: 0;
@@ -374,6 +415,49 @@ aside {
 /*-------------------------------------------*/
 /*-------------------------------------------*/
 
+/* -- MODAL -- */
+.modal{
+  width: 100%;
+  height: 100vh;
+  place-content: center;
+  background-color: rgba(255, 99, 71, 0.317);
+  position: fixed;
+  top: 0;
+  left: 0; 
+}
+.modal-contenido{
+  width: 400px;
+  height: 200px;
+  background-color: var(--white);
+  display: grid;
+  grid-template-rows: 1fr auto;
+  align-items: center;
+  place-content: center;
+  border-radius: 20px;
+}
+.boton-modal{
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  height: 80px;
+}
+.boton-modal p{
+  display: inline-block;
+  padding: 10px 20px;
+  background-color: tomato;
+  color: var(--white);
+  border-radius: 10px;
+  opacity: 0.8;
+  cursor: pointer;
+}
+.boton-modal p:hover{
+  opacity: 1;
+}
+/*-- FIN MODAL --*/
+/*-------------------------------------------*/
+/*-------------------------------------------*/
+
+
 /* ------------ MEDIA QUERY ------------- */
 @media (max-width: 640px) {
   .menu {
@@ -382,13 +466,12 @@ aside {
   .navbar-left ul {
     display: none;
   }
-  .navbar-email {
+  .navbar-email,
+  .desktop-menu {
     display: none;
   }
-  .desktop-menu{
-    display: none;
-  }
-  .product-detail {
+  .product-detail,
+  .product-detail-left {
     width: 100%;
   }
   .cards-container {
