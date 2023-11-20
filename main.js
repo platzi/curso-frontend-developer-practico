@@ -6,17 +6,22 @@ const menuMostrar = document.querySelector(".mobile-menu")
 const menuResponsive = document.querySelector(".menu")
 // menu carro de comprar
 const menuCarrito = document.querySelector(".navbar-shopping-cart")
-const aside = document.querySelector(".product-detail")
+const shoppingCardsContainer= document.querySelector("#shopingCart")
+//  lista de productos
 
 const cardsContainer = document.querySelector(".cards-container")
+// interaccion entre los productos
+const productdeatilContainer = document.querySelector("#productDetail")
+const botonX = document.querySelector(".product-detail-close")
+botonX.addEventListener("click", closeProduct)
 
 // funcion para mostrar o ocultar el menupequño  menu pequeño con click
 navEmail.addEventListener("click",mostrarOcultarMenu)
 
  function mostrarOcultarMenu(){
-    const isaiseclosed = aside.classList.contains("inactive")
+    const isaiseclosed = shoppingCardsContainer.classList.contains("inactive")
     if (!isaiseclosed){
-       aside.classList.add("inactive")
+       shoppingCardsContainer.classList.add("inactive")
      }
     menupequeño.classList.toggle("inactive") // se coloca toggle para agrgar si tiene o no la la clase inactive
     
@@ -25,10 +30,12 @@ navEmail.addEventListener("click",mostrarOcultarMenu)
 /* menu  en responsivo funcion */
 menuResponsive.addEventListener("click",mostrarMenu)
 function mostrarMenu(){
-    const isasideclosed = aside.classList.contains("inactive")
+    const isasideclosed = shoppingCardsContainer.classList.contains("inactive")
     if (!isasideclosed){
-       aside.classList.add("inactive")
+       shoppingCardsContainer.classList.add("inactive")
      }
+
+     closeProduct() // se llama la funcion 
    
     menuMostrar.classList.toggle("inactive")
 }
@@ -38,13 +45,33 @@ menuCarrito.addEventListener("click",toggleCarrito)
 function toggleCarrito (){
     const ismobileClosed=menuMostrar.classList.contains("inactive")
     const ispequeñoclosed = menupequeño.classList.contains("inactive")
+    
     if (!ismobileClosed ||!ispequeñoclosed){
         menuMostrar.classList.add("inactive")
         menupequeño.classList.add("inactive")
-     }
-   
-     aside.classList.toggle("inactive")
+        
+        
+    }
+    
+// interaccion entre los productos
+const cerrar= productdeatilContainer.classList.contains("inactive")
+if(!cerrar){
+productdeatilContainer.classList.add("inactive")
 }
+    
+     shoppingCardsContainer.classList.toggle("inactive")
+}
+
+// interaccion entre los productos
+function openProductoaside (){
+    shoppingCardsContainer.classList.add("inactive")
+
+    productdeatilContainer.classList.remove("inactive")
+}
+function closeProduct(){
+productdeatilContainer.classList.add("inactive")
+}
+
 //  lista de productos
 
 const productoArry = [];
@@ -64,16 +91,22 @@ productoArry.push({
     price:120,
     image:"https://images.pexels.com/photos/276517/pexels-photo-276517.jpeg?auto=compress&cs=tinysrgb&dpr=2&h=650&w=940"
 })
+productoArry.push({
+    name: "pc",
+     price:120,
+     image:"https://www.imgacademy.com/sites/default/files/ncsa-homepage-row-2022.jpg"
+ })
 
 function renderProduct(array){
 for (const product of array) {
 
     const productCard = document.createElement('div');
     productCard.classList.add('product-card');
-  
    
     const productImg = document.createElement('img');
     productImg.setAttribute('src', product.image);
+    productImg.addEventListener("click",openProductoaside)
+
   
     const productInfo = document.createElement('div');
     productInfo.classList.add('product-info');
@@ -104,3 +137,5 @@ for (const product of array) {
 
  }}
 renderProduct(productoArry)
+
+
