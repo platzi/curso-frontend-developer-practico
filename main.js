@@ -1,150 +1,232 @@
+let emailMenu           = document.querySelector('.navbar-email');
+let desktopMenu         = document.querySelector('.desktop-menu');
+let iconMenuMobile      = document.querySelector('.menu');
+let mobileMenu          = document.querySelector('.mobile-menu');
+let iconShopping        = document.querySelector('.navbar-shopping-cart');
+let asideShopping       = document.querySelector('.product-detail');
+let divcardscontainer   = document.querySelector('.cards-container')
+let productDetailLeft   = document.querySelector('.product-detail-left')
+let productDetailClose  = document.querySelector('.product-detail-close')
+let myordercontentContainer = document.querySelector('.my-order-content')
+let countCarrito        = document.querySelector('.navbar-shopping-cart div')
+let totalCarrito        = document.querySelector('.total')
+let modal               = document.querySelector('.modal')
+let cerrarModal         = document.querySelector('.boton-modal')
+let productImageInfor   = document.querySelector('.product-detail-left > img:nth-child(2)')
+let labelPriceInfo      = document.querySelector('.product-info-left p:nth-child(1)')
+let labelNameInfo       = document.querySelector('.product-info-left p:nth-child(2)')
+let labelInforInfo      = document.querySelector('.product-info-left p:nth-child(3)')
+let buttonInfo          = document.querySelector('.add-to-cart-button')
+let productosEnCarrito  = []
+let productoACarrito    = []
 
-// --- MENÚ EMAIL --- //
-const menuEmail = document.querySelector('.navbar-email');
-const desktopMenu = document.querySelector('.desktop-menu');
+countCarrito.innerText = document.querySelectorAll('.shopping-cart').length
+totalCarrito.innerText = '$0.00'
 
-menuEmail.addEventListener('click', toggleDesktopMenu); 
+emailMenu.addEventListener('click', toggleMenu);
+iconMenuMobile.addEventListener('click', toggleMenuMobile);
+iconShopping.addEventListener('click', toggleAsideShopping)
+productDetailClose.addEventListener('click',closeProductDetail)
+buttonInfo.addEventListener('click', butonClick)
+cerrarModal.addEventListener('click', closeModal)
 
-function toggleDesktopMenu() {
-  desktopMenu.classList.toggle('inactive');
-  mobileMenu.classList.add('inactive');
-  shoppingCartContainer.classList.add('inactive');  
-  productDetail.classList.add('inactive');
-  
+
+function butonClick(){
+    agregarCarrito(productoACarrito)
 }
-// --------------------------------// 
-
-// --- MENÚ VERSION MOVIL --- //
-const menuHamIcon = document.querySelector('.menu');
-const mobileMenu = document.querySelector('.mobile-menu');
- 
-menuHamIcon.addEventListener('click', toggleMobileMenu);
-
-function toggleMobileMenu() {
-  desktopMenu.classList.add('inactive');
-  shoppingCartContainer.classList.add('inactive');
-  mobileMenu.classList.toggle('inactive');
-  productDetail.classList.add('inactive');    
-}
-// --------------------------------// 
-
-// --- CARRITO DE COMPRAS --- //
-const menuCarritoIcon = document.querySelector('.navbar-shopping-cart');
-const shoppingCartContainer = document.querySelector('#shoppingCartContainer');
-
-menuCarritoIcon.addEventListener('click', toggleCarritoAside); 
-
-function toggleCarritoAside() {
-  desktopMenu.classList.add('inactive');
-  mobileMenu.classList.add('inactive');
-  shoppingCartContainer.classList.toggle('inactive');
-  productDetail.classList.add('inactive');
-}
-// --------------------------------//
-
-// --- DETALLES DEL PRODUCTO --- //
-const productDetail = document.querySelector('#productDetail')
-const closeProductDetail = document.querySelector('.product-detail-close');
-
-function toggleProductDetail () {
-  productDetail.classList.remove('inactive');
-  shoppingCartContainer.classList.add('inactive');
-  mobileMenu.classList.add('inactive');
-  desktopMenu.classList.add('inactive');
+function toggleMenu(){
+    productDetailLeft.classList.add('inactive')
+    asideShopping.classList.add('inactive');
+    desktopMenu.classList.toggle('inactive');
 }
 
-function productDetailClose () {
-  productDetail.classList.add('inactive');
+function toggleMenuMobile(){
+    productDetailLeft.classList.add('inactive')
+    asideShopping.classList.add('inactive');
+    mobileMenu.classList.toggle('inactive')
+    
 }
-// --------------------------------//
 
+function toggleAsideShopping(){
+    productDetailLeft.classList.add('inactive')
+    mobileMenu.classList.add('inactive');
+    desktopMenu.classList.add('inactive')
+    asideShopping.classList.toggle('inactive')
+}
 
-// --- AGREGAR PRODUCTOS Y LISTARLOS --- //
-const productList = [];
+function openProductDetail(){
+    asideShopping.classList.add('inactive');
+    mobileMenu.classList.add('inactive');
+    desktopMenu.classList.add('inactive');
+    productDetailLeft.classList.remove('inactive')
+}
+
+function closeProductDetail(){
+    productoACarrito = []
+    asideShopping.classList.add('inactive');
+    mobileMenu.classList.add('inactive');
+    desktopMenu.classList.add('inactive');
+    productDetailLeft.classList.add('inactive')
+}
+
+function verificarProducto(nameProduct){
+    return productosEnCarrito.some(function(articulo){
+        return articulo === nameProduct
+    })
+}
+
+function closeModal(){
+    modal.style.display = 'none'
+}
+
+let productList = []
 productList.push({
-  name: 'Bike',
-  price: 120,
-  image: 'https://images.pexels.com/photos/276517/pexels-photo-276517.jpeg?auto=compress&cs=tinysrgb&dpr=2&h=650&w=940'
+    name:"house",
+    price:180,
+    image:"https://images.pexels.com/photos/186077/pexels-photo-186077.jpeg?auto=compress&cs=tinysrgb&w=1260&h=750&dpr=1",
+    desc: 'Casa en fraccionamiento privado en excelente zona residencial con caseta de vigilancia y guardia, a 15 minutos del centro de la ciudad y muy cerca de centros comerciales y escuelas.'
 })
-productList.push ({
-  name:'Bicycle helmet',
-  price: 1200,
-  image: 'https://assets.specialized.com/i/specialized/60821-104_HLMT_ALIGN-II-HLMT-MIPS-CE-BLK-BLKREFL-S-M_HERO?bg=rgb(241,241,241)&w=1600&h=900&fmt=auto'
-});
-productList.push ({
-  name:'Bicycle helmet',
-  price: 1600,
-  image: 'https://m.media-amazon.com/images/I/61eExL-rIAL._AC_SL1001_.jpg'
-});
-productList.push ({
-  name:'Bicycle helmet',
-  price: 1500,
-  image: 'https://assets.specialized.com/i/specialized/60822-140_HLMT_CHAMONIX-HLMT-MIPS-CE-MRN-M-L_HERO?bg=rgb(241,241,241)&w=1600&h=900&fmt=auto'
-});
-productList.push ({
-  name:'Seat',
-  price: 300,
-  image: 'https://m.media-amazon.com/images/I/61e+sZ9rgNL._AC_SL1500_.jpg'
-});
-productList.push ({
-  name:'Tennis Montain Bike',
-  price: 2200,
-  image: 'https://assets.adidas.com/images/h_840,f_auto,q_auto,fl_lossy,c_fill,g_auto/8ea578f6c07847fca2d0ac85011d7f1f_9366/Tenis_para_Mountain_Bike_Five_Ten_Freerider_Negro_FW2835_01_standard.jpg'
-});
-productList.push ({
-  name:'Sunglasses',
-  price: 800,
-  image: 'https://cdn.siroko.com/s/files/1/1220/6874/products/gafas-siroko-tech-k3s-london-lateral/1200x/crop_center.jpg?v=1635209602'
-});
-productList.push ({
-  name:'Sunglasses',
-  price: 600,
-  image: 'https://cdn.siroko.com/s/files/1/1220/6874/products/siroko-tech-k3s-clearfog-lente-antiniebla-frontal/1200x/crop_center.jpg?v=1635209603'
-});
-productList.push ({
-  name:'Bicycle seat bag',
-  price: 876,
-  image: 'https://m.media-amazon.com/images/I/81k2Gmal+VL._AC_SL1500_.jpg'
-}); 
-// --------------------------------//
+productList.push({
+    name:"house model 2",
+    price:120,
+    image: "https://images.pexels.com/photos/2102587/pexels-photo-2102587.jpeg?auto=compress&cs=tinysrgb&w=1260&h=750&dpr=1",
+    desc: 'Renta: $ 30,000\nMetros de construcción: 297m2\nMetros de Terreno: 250m2'
+})
+productList.push({
+    name:"house model 3",
+    price:200,
+    image:"https://images.pexels.com/photos/280229/pexels-photo-280229.jpeg?auto=compress&cs=tinysrgb&w=1260&h=750&dpr=1",
+    desc: 'Oportunidad de casa de dos plantas y con excelente ubicación, cerca de avenidas principales de la ciudad a tres minutos de la Jose María Iglesias, así como de centros comerciales, escuelas y centros de esparcimiento.'
+})
+productList.push({
+    name:"house model 4",
+    price:895,
+    image:"https://images.pexels.com/photos/206172/pexels-photo-206172.jpeg?auto=compress&cs=tinysrgb&w=1260&h=750&dpr=1",
+    desc: 'Casa en Renta recién Remodelada en Paseo de las Misiones'
+})
+productList.push({
+    name:"house model 5",
+    price:1500,
+    image:"https://images.pexels.com/photos/1438832/pexels-photo-1438832.jpeg?auto=compress&cs=tinysrgb&w=1260&h=750&dpr=1",
+    desc: 'Rento casa amueblada en Fraccionamiento Quintas del Sol, muy cerca de la Av. Ortíz Mena, terreno amplio, cochera con capacidad de hasta 4 carros, sala, comedor, cocina, lavandería, medio baño, recamara completa, todo en planta baja'
+})
+productList.push({
+    name:"house model 6",
+    price:100,
+    image:"https://images.pexels.com/photos/2581922/pexels-photo-2581922.jpeg?auto=compress&cs=tinysrgb&w=1260&h=750&dpr=1",
+    desc: 'Propiedad en venta o renta ubicada sobre Av. Mirador'
+})
+productList.push({
+    name:"house model 7",
+    price:3620,
+    image:"https://images.pexels.com/photos/53610/large-home-residential-house-architecture-53610.jpeg?auto=compress&cs=tinysrgb&w=1260&h=750&dpr=1",
+    desc: 'Propiedad en venta o renta ubicada sobre Av. Mirador'
+})
 
-// --- MAQUETANDO ETIQUETAS HTML PARA LOS PRODUCTOS --- //
+function renderListProduct(productList){
+    for (const product of productList) {
+        let divproductCard = document.createElement('div')
+        let imgproductcard = document.createElement('img')
+        let divproductinfo = document.createElement('div')
+        let divdivproductinfo = document.createElement('div')
+        let pprice = document.createElement('p')
+        let pname = document.createElement('p')
+        let figureproductinfo = document.createElement('figure')
+        let imgproductinfo = document.createElement('img')
+        divproductCard.classList.add('product-card')
+        imgproductcard.setAttribute('src', product.image)
+        divproductinfo.classList.add('product-info')
+        pprice.innerText ='$' + product.price
+        pname.innerText = product.name
+        imgproductinfo.setAttribute('src', './icons/bt_add_to_cart.svg')
+        
+        figureproductinfo.appendChild(imgproductinfo)
+        divdivproductinfo.appendChild(pprice)
+        divdivproductinfo.appendChild(pname)
 
-const cardContainer = document.querySelector('.cards-container');
+        divproductinfo.appendChild(divdivproductinfo)
+        divproductinfo.appendChild(figureproductinfo)
 
-for(product of productList){
+        divproductCard.appendChild(imgproductcard)
+        divproductCard.appendChild(divproductinfo)
 
-  const productCard = document.createElement('div');
-  productCard.classList.add('product-card');
-  const productImg = document.createElement('img');
-  productImg.setAttribute('src', product.image);
-  productImg.addEventListener('click', toggleProductDetail);
-  closeProductDetail.addEventListener('click', productDetailClose);
+        divcardscontainer.appendChild(divproductCard)
 
-  const productInfo = document.createElement('div');
-  productInfo.classList.add('product-info');
+        imgproductcard.addEventListener('click', function(){
+            mostrarInfoProduct(product.image, product.price, product.name, product.desc)
+            openProductDetail()
+        });
 
-  const productInfoDiv = document.createElement('div');
-  const productPrice = document.createElement('p');
-  productPrice.innerHTML = '$' + product.price;
-  const productName = document.createElement('p');
-  productName.innerHTML = product.name;
-  // Etiquetas P dentro del Div sin clase
-  productInfoDiv.append(productPrice, productName);
 
-  const productInfoFigure = document.createElement('figure');
+        imgproductinfo.addEventListener('click', function(){
+            let productoAgregado = []
+            productoAgregado.push({
+                name: product.name,
+                price: product.price,
+                image: product.image
+            })
+            agregarCarrito(productoAgregado)
+        })
+    }
+}
 
-  const productImgCart = document.createElement('img');
-  productImgCart.setAttribute('src', './icons/bt_add_to_cart.svg');
-  // Etiqueta IMG dentro de FIGURE
-  productInfoFigure.appendChild(productImgCart);
+/* Funcion para agregar productos al carrito */
+function agregarCarrito(producto){
+    if(verificarProducto(producto[0].name)){
+        productoACarrito= []
+        return modal.style.display = 'grid'
+    }
 
-  // Etiquetas DIV y FIGURE dentro del DIV con clase 'product-info'
-  productInfo.append(productInfoDiv, productInfoFigure);
+    /* Creacion de elemtentos HTML */
+    let divShoppingCart = document.createElement('div')
+    let figureShoppingCart = document.createElement('figure')
+    let imgfigureShoppingCart = document.createElement('img')
+    let pnameShoppingCart = document.createElement('p')
+    let ppriceShoppingCart = document.createElement('p')
+    let imgcloseShoppingCart = document.createElement('img')
 
-  // Etiquetas DIV con clase 'product-info' y etiqueta IMG, dentro de DIV padre con clase 'product-card'
-  productCard.append(productInfo, productImg);
+    /* Se agrega contenido a cada uno de los elementos */
+    divShoppingCart.classList.add('shopping-cart')
+    imgfigureShoppingCart.setAttribute('src', producto[0].image)
+    pnameShoppingCart.innerText = producto[0].name
+    ppriceShoppingCart.innerText ='$' + producto[0].price
+    imgcloseShoppingCart.setAttribute('src','./icons/icon_close.png')
+    imgcloseShoppingCart.classList.add('removeList')
 
-  // Integrar todo al contenedor principal
-  cardContainer.appendChild(productCard);
-};
+    /* Se insertan los documentos */
+    figureShoppingCart.appendChild(imgfigureShoppingCart)
+    divShoppingCart.appendChild(figureShoppingCart)
+    divShoppingCart.appendChild(pnameShoppingCart)
+    divShoppingCart.appendChild(ppriceShoppingCart)
+    divShoppingCart.appendChild(imgcloseShoppingCart)
+    myordercontentContainer.appendChild (divShoppingCart)
+
+    /* Se agregan la cantidad de productos ademas de la suma de precios */
+    countCarrito.innerText = document.querySelectorAll('.shopping-cart').length
+    totalCarrito.innerText = '$' + (Number(totalCarrito.innerText.substring(1)) + Number(producto[0].price))
+    productosEnCarrito.push(producto[0].name)
+    
+    /* Funcion para quitar productos del carrito */
+    imgcloseShoppingCart.addEventListener('click', function(){
+        divShoppingCart.remove()
+        countCarrito.innerText = document.querySelectorAll('.shopping-cart').length
+        totalCarrito.innerText = '$' + (Number(totalCarrito.innerText.substring(1)) - Number(producto[0].price))
+        productosEnCarrito.splice(productosEnCarrito.indexOf(producto[0].name),1)
+    }) 
+
+}
+
+function mostrarInfoProduct(imagen, precio, nombre, descripcion){
+    productImageInfor.setAttribute('src', imagen)
+    labelPriceInfo.innerText = '$' + precio
+    labelNameInfo.innerText = nombre
+    labelInforInfo.innerText = descripcion
+    productoACarrito = []
+    productoACarrito.push({
+        name: nombre,
+        price: precio,
+        image: imagen
+    })
+}
+
+renderListProduct(productList);
