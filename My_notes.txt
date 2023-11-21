@@ -4,3 +4,8 @@ Comando que no conocia
 "shift + Alt + F"       Auto formatero te permite acomodar tu codigo en VSC sin necesidad de ir linea por linea
 
 desktopMenu.classList.toggle('inactive');       toggle te valida si tu etiqueta contiene una clase si la tiene la quita y si no la tiene la pone en lugar de tener que realizar un if para validar si si la tiene o nel.
+
+
+Comando muy interesante de git (Me salvo la vida) jajaja
+git reset --hard HEAD   -- Deshacer cambios en el area de trabajo sin modificar el historial.
+Este comando deshace todos los cambios en tu area de trabajo y establece la cabeza ('HEAD') en el ultimo commit
