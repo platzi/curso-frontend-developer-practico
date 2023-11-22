@@ -8,9 +8,9 @@
 :root {
   --white: #FFFFFF;
   --black: #000000;
-  --very-light-pink: #C7C7C7;
+  --very-light-pink: #686666;
   --text-input-field: #F7F7F7;
-  --hospital-green: #ACD9B2;
+  --hospital-green: #83c28b;
   --sm: 14px;
   --md: 16px;
   --lg: 18px;
@@ -18,6 +18,7 @@
 body {
   margin: 0;
   font-family: 'Quicksand', sans-serif;
+  height: 100vh;
 }
 .inactive {
   display: none;
@@ -103,8 +104,8 @@ nav {
 .desktop-menu {
   position: absolute;
   background: var(--white);
-  top: 60px;
-  right: 60px;
+  top: 61px;
+  right: 57px;
   width: 120px;
   height: auto;
   border: 1px solid var(--very-light-pink);
@@ -131,12 +132,13 @@ nav {
 .desktop-menu ul li:last-child a {
   color: var(--hospital-green);
   font-size: var(--sm);
+  font-weight: bold;
 }
 .desktop-menu ul li a {
   color: var(--back);
   text-decoration: none;
   margin-bottom: 20px;
-  display: inline-block;
+  display: flex;
 }
 /*-- FIN MENÚ EMERGENTE --*/
 /*-------------------------------------------*/
@@ -182,21 +184,6 @@ nav {
 /*-------------------------------------------*/
 /*-------------------------------------------*/
 
-/*-- CARRITO DE COMPRAS CLASE 13 --*/
-/* aside {
-  width: 373px;
-  padding: 10px 10px 0 10px;
-  box-sizing: border-box;
-  border: 1px solid var(--very-light-pink);
-  border-radius: 5px;
-  position: absolute;
-  right: 0;
-  background-color: var(--white);
-}
-#shoppingCartContainer {
-  padding: 0 20px 20px;
-} (SE QUITA) */
-
 .title-container {
   display: flex;
   padding: 15px 0;
@@ -219,7 +206,7 @@ nav {
   margin-right: 10px;
   border-radius: 8px;
   padding: 10px 24px;
-  border-top: 2px solid var(--hospital-green);
+  border: 2px solid var(--hospital-green);
 }
 .order p:nth-child(1) {
   display: flex;
@@ -279,6 +266,8 @@ nav {
   box-sizing: border-box;
   position: absolute;
   right: 0;
+  border: solid 1px var(--very-light-pink);
+  border-radius: 0 0 5px 5px;
 }
 .button-product-detail--container {
   padding-right: 10px;
@@ -296,14 +285,33 @@ nav {
   border-radius: 5px;
 }
 
+.centrar-flex {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+}
 .product-detail-left {
-  width: 360px;
-  padding-bottom: 24px;
+  max-width: 360px;
+  min-width: 360px;
   position: absolute;
   background-color: var(--white);
-  right: 0;
+  padding: 13px;
+  top: 60px;
+  border: solid 1px var(--very-light-pink);
+  border-radius: 0 0 10px 10px;
+  z-index: 2;
 }
 
+.fondo {
+  width: 100%;
+  height: 100vh;
+  place-content: center;
+  background-color: rgba(162, 163, 164, 0.67);
+  position: fixed;
+  top: 0;
+  left: 0;
+  z-index: 1; 
+}
 .product-detail-close {
   background: var(--white);
   width: 14px;
@@ -345,17 +353,6 @@ nav {
   margin-top: 0;
   margin-bottom: 36px;
 }
-/* .primary-button {
-  background-color: var(--hospital-green);
-  border-radius: 8px;
-  border: none;
-  color: var(--white);
-  width: 100%;
-  cursor: pointer;
-  font-size: var(--md);
-  font-weight: bold;
-  height: 50px;
-} */
 .add-to-cart-button {
   display: flex;
   align-items: center;
@@ -384,7 +381,7 @@ nav {
   height: 240px;
   border-radius: 20px;
   object-fit: cover;
-  cursor: pointer;
+  cursor: pointer;  
 }
 .product-info {
   display: flex;
@@ -420,10 +417,11 @@ nav {
   width: 100%;
   height: 100vh;
   place-content: center;
-  background-color: rgba(255, 99, 71, 0.317);
+  background-color: rgba(162, 163, 164, 0.67);
   position: fixed;
   top: 0;
-  left: 0; 
+  left: 0;
+  z-index: 3; 
 }
 .modal-contenido{
   width: 400px;
@@ -433,7 +431,7 @@ nav {
   grid-template-rows: 1fr auto;
   align-items: center;
   place-content: center;
-  border-radius: 20px;
+  border-radius: 20px;  
 }
 .boton-modal{
   display: flex;
@@ -444,7 +442,7 @@ nav {
 .boton-modal p{
   display: inline-block;
   padding: 10px 20px;
-  background-color: tomato;
+  background-color: var(--hospital-green);
   color: var(--white);
   border-radius: 10px;
   opacity: 0.8;

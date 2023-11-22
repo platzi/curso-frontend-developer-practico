@@ -19,6 +19,7 @@ let labelInforInfo      = document.querySelector('.product-info-left p:nth-child
 let buttonInfo          = document.querySelector('.add-to-cart-button')
 let productosEnCarrito  = []
 let productoACarrito    = []
+let backgroundGray = document.querySelector('.fondo');
 
 countCarrito.innerText = document.querySelectorAll('.shopping-cart').length
 totalCarrito.innerText = '$0.00'
@@ -29,7 +30,6 @@ iconShopping.addEventListener('click', toggleAsideShopping)
 productDetailClose.addEventListener('click',closeProductDetail)
 buttonInfo.addEventListener('click', butonClick)
 cerrarModal.addEventListener('click', closeModal)
-
 
 function butonClick(){
     agregarCarrito(productoACarrito)
@@ -67,6 +67,7 @@ function closeProductDetail(){
     mobileMenu.classList.add('inactive');
     desktopMenu.classList.add('inactive');
     productDetailLeft.classList.add('inactive')
+    backgroundGray.classList.add('inactive');
 }
 
 function verificarProducto(nameProduct){
@@ -154,16 +155,16 @@ function renderListProduct(productList){
 
         imgproductcard.addEventListener('click', function(){
             mostrarInfoProduct(product.image, product.price, product.name, product.desc)
-            openProductDetail()
+            openProductDetail()                    
+            backgroundGray.classList.remove('inactive');
         });
-
-
+       
         imgproductinfo.addEventListener('click', function(){
             let productoAgregado = []
             productoAgregado.push({
                 name: product.name,
                 price: product.price,
-                image: product.image
+                image: product.image                
             })
             agregarCarrito(productoAgregado)
         })
