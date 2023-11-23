@@ -5,6 +5,12 @@ const menuCarritoIcon = document.querySelector('.navbar-shopping-cart');
 const mobileMenu = document.querySelector('.mobile-menu');
 const aside = document.querySelector('#shoppingCartContainer');
 const cardsContainer = document.querySelector('.cards-container');
+const productDetail = document.querySelector('#productDetail');
+const productDetail_img = document.querySelector('.productDetail_img');
+const productDetail_price = document.querySelector('.productDetail_price');
+const productDetail_message = document.querySelector('.productDetail_message');
+const productDetail_name = document.querySelector('.productDetail_name');
+
 
 menuEmail.addEventListener('click', toggleDesktopMenu);
 menuHamIcon.addEventListener('click', toggleMobileMenu);
@@ -51,24 +57,32 @@ function outAside() {
 
 const productList = [];
 productList.push({
-    name: 'Bike',
-    price: 120,
-    image: 'https://images.pexels.com/photos/276517/pexels-photo-276517.jpeg?auto=compress&cs=tinysrgb&dpr=2&h=650&w=940'
+    name: 'Hotcakes',
+    price: 45,
+    image: 'https://images.pexels.com/photos/376464/pexels-photo-376464.jpeg?auto=compress&cs=tinysrgb&w=1260&h=750&dpr=2', 
+    class: "photo1", 
+    message: '¡Deléitate con la perfección de nuestros hotcakes! 🥞✨ Esponjosos, dorados y llenos de sabor. ¡Una experiencia única en cada bocado! 😋 ¡Te esperamos para disfrutarlos juntos!'
 });
 productList.push({
-    name: 'Bike',
-    price: 120,
-    image: 'https://images.pexels.com/photos/276517/pexels-photo-276517.jpeg?auto=compress&cs=tinysrgb&dpr=2&h=650&w=940'
+    name: 'Potato Salad',
+    price: 75,
+    image: 'https://images.pexels.com/photos/1640772/pexels-photo-1640772.jpeg?auto=compress&cs=tinysrgb&w=1260&h=750&dpr=2', 
+    class: "photo2", 
+    message: '¡Sorprende tu paladar con nuestra Ensalada de Papas! 🥔🌿 Ingredientes frescos y una mezcla única de sabores se combinan en cada bocado. ¡Una deliciosa explosión de frescura que no querrás perderte! 😋🥗'
 });
 productList.push({
-    name: 'Bike',
-    price: 120,
-    image: 'https://images.pexels.com/photos/276517/pexels-photo-276517.jpeg?auto=compress&cs=tinysrgb&dpr=2&h=650&w=940'
+    name: 'Roasted skewer',
+    price: 135,
+    image: 'https://images.pexels.com/photos/2641886/pexels-photo-2641886.jpeg?auto=compress&cs=tinysrgb&w=1260&h=750&dpr=2', 
+    class: "photo3", 
+    message: 'Descubre la irresistible fusión de sabores en nuestras Brochetas de Carne. 🍢🔥 Jugosas y marinadas a la perfección, estas brochetas son el deleite perfecto para los amantes de la carne. ¡Una experiencia que satisfará tus antojos más exigentes! '
 });
 productList.push({
-    name: 'Bike',
-    price: 120,
-    image: 'https://images.pexels.com/photos/276517/pexels-photo-276517.jpeg?auto=compress&cs=tinysrgb&dpr=2&h=650&w=940'
+    name: 'Fruit with yogurt',
+    price: 56,
+    image: 'https://images.pexels.com/photos/1092730/pexels-photo-1092730.jpeg?auto=compress&cs=tinysrgb&w=1260&h=750&dpr=2', 
+    class: "photo4", 
+    message: 'Refresca tu día con nuestro Platillo de Fruta con Yogurt. 🍓🍍 Una mezcla saludable y deliciosa que te transportará a la frescura de cada mordida. ¡La combinación perfecta entre dulzura y cremosidad para un placer ligero y delicioso! 😋🍇'
 });
 
 function renderProducts(arr) {
@@ -78,11 +92,12 @@ function renderProducts(arr) {
 
 
         productCard.innerHTML = `
-        <img src="${product.image}" alt="Product Image">
+        <img src="${product.image}" alt="Product Image" class="${product.class}">
         <div class="product-info">
             <div>
-                <p>$${product.price}</p>
-                <p>${product.name}</p>
+                <p class="price">$${product.price}.00</p>
+                <p class="name">${product.name}</p>
+                <p class='message inactive'>${product.message}</p>
             </div>
             <figure>
                 <img src="./icons/bt_add_to_cart.svg" alt="Add to Cart">
@@ -94,3 +109,30 @@ function renderProducts(arr) {
 }
 
 renderProducts(productList);
+
+
+cardsContainer.addEventListener("click", details);
+
+function details(e) {
+    if(productDetail.classList.contains('inactive')){
+        productDetail.classList.remove('inactive')
+        console.log(e.target)
+    } else {
+        productDetail.classList.add('inactive');
+    }
+
+
+    productDetail_img.src = e.target.src;
+
+    // Obtengo el contendor padre para poder acceder a la clase .price
+    var contenedor = e.target.parentElement;
+    // Buscamos el elemento con la clase 'price' dentro del contenedor padre(contenedor)
+    var precioElement = contenedor.querySelector('.price');
+    var messageElement = contenedor.querySelector('.message');
+    var nameElement = contenedor.querySelector('.name');
+    // Le cambiamos el valor del precio a nuestra seccion de 'productDetail_price'
+    productDetail_price.innerText = precioElement.innerText;
+    productDetail_message.innerText = messageElement.innerText;
+    productDetail_name.innerText = nameElement.innerText;
+}
+

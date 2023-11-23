@@ -198,8 +198,7 @@ aside {
     width: 360px;
     box-sizing: border-box;
     position: absolute;
-    right: 0;
-    background-color: white;
+    right: 10px;
 }
 
 /* ShoppingCart */

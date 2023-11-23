@@ -9,3 +9,14 @@ desktopMenu.classList.toggle('inactive');       toggle te valida si tu etiqueta 
 Comando muy interesante de git (Me salvo la vida) jajaja
 git reset --hard HEAD   -- Deshacer cambios en el area de trabajo sin modificar el historial.
 Este comando deshace todos los cambios en tu area de trabajo y establece la cabeza ('HEAD') en el ultimo commit
+
+Forma para obtener el padre de un contenedor y guardarlo en una variable
+
+-- Obtener el contendor padre para poder acceder a la clase .price
+var contenedor = e.target.parentElement; 
+
+-- Buscamos el elemento con la clase 'price' dentro de nuestro contenedor padre(contenedor)
+var precioElement = contenedor.querySelector('.price');
+
+-- Obteniendo el valor de la clase '.price' ya lo podemos modificar
+productDetail_price.innerText = precioElement.innerText;
