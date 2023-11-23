@@ -36,8 +36,8 @@ async function fetchData() {
       });
     });
 
-    //Ordenar el array de productos.
-    productList.sort((a, b) => b.price - a.price);
+    //Ordenar el array de productos: elegir en base a atributo u otros(por ejemplo price...)
+    productList.sort((a, b) => b.category - a.category);
 
     //console.log('Datos obtenidos:', productList);
 
@@ -98,8 +98,9 @@ function createProductCards(productList) {
   }
 }
 
+ /////////////MODAL CREATOR//////////////
 function createProductModals(productList) {
-  /////////////MODAL CREATOR//////////////
+ 
   const body = document.body;
 
   for (product of productList) {

@@ -103,21 +103,23 @@
     <div class="form-container">
       <h1 class="title">My account</h1>
 
-      <form action="/" class="form">
+      <form action="/" class="form" id="userForm">
         <div>
           <label for="name" class="label">Name</label>
-          <input type="text" id="name" placeholder="Teff" class="input input-name">
+          <input type="text" id="name" placeholder="John" class="input input-name">
 
           <label for="email" class="label">Email</label>
-          <input type="text" id="email" placeholder="platzi@example.com" class="input input-email">
+          <input type="text" id="email" placeholder="johnsmith@realm.com" class="input input-email">
 
           <label for="password" class="label">Password</label>
           <input type="password" id="password" placeholder="*********" class="input input-password">
         </div>
 
-        <input type="submit" value="Create" class="primary-button login-button">
+        <!-- Cambiar el tipo de input a button para evitar el envío predeterminado del formulario -->
+        <input type="button" value="Create" class="primary-button login-button" id="submitButton">
       </form>
     </div>
   </div>
 </body>
+<script src="../signUp.js"></script>
 </html>
