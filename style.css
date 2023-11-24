@@ -288,7 +288,6 @@ aside {
 
 /* ProductDetail */
 .product-detail-close {
-    background: var(--white);
     width: 14px;
     height: 14px;
     position: absolute;
@@ -297,10 +296,18 @@ aside {
     z-index: 2;
     padding: 12px;
     border-radius: 50%;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    background-color: rgba(255, 255, 255, 0.4);
+}
+.product-detail-close img {
+    width: 20px;
 }
 
 .product-detail-close:hover {
     cursor: pointer;
+    background-color: rgba(255, 255, 255, 0.8);
 }
 
 #productDetail>img:nth-child(2) {
