@@ -117,9 +117,9 @@ renderProducts(productList);
 
 
 /*Define los detalles de la pestalla de cada producto que muestra sus caracteristicas*/
-cardsContainer.addEventListener("click", details);
+cardsContainer.addEventListener("click", openDetails);
 
-function details(e) {
+function openDetails(e) {
     if (mobileMenu.classList.contains('inactive') || aside.classList.contains('inactive') || desktopMenu.classList.contains('inactive')){
         mobileMenu.classList.add('inactive');
         aside.classList.add('inactive');
