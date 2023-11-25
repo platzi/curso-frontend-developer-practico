@@ -1,14 +1,20 @@
-const navBarLeft= document.getElementsByClassName('navbar-left');
-const navBarRight= document.getElementsByClassName('navbar-right');
-const navBarDesktopMenu= document.getElementsByClassName('desktop-menu');
+const navBarLeft= document.querySelector('.navbar-left');
+const navBarRight= document.querySelector('.navbar-right');
+const navBarDesktopMenu= document.querySelector('.desktop-menu');
+const mobileMenu = document.querySelector('.mobile-menu');
+const hamburgerButton = document.querySelector('.menu');
 
 // Asegurándonos de que existen los elementos antes de intentar agregar el manejador de eventos
-if(navBarRight.length > 0 && navBarDesktopMenu.length > 0){
-    const navBarEmail = navBarRight[0].getElementsByClassName('navbar-email')[0];
-    const desktopMenu = navBarDesktopMenu[0];
+if(navBarRight != undefined && navBarDesktopMenu != undefined ){
+    console.log('hola');
+    const navBarEmail = navBarRight.getElementsByClassName('navbar-email')[0];
 
     navBarEmail.addEventListener('click', function(){
         // Alternar la clase 'inactive' en desktopMenu
-        desktopMenu.classList.toggle('inactive');
+        navBarDesktopMenu.classList.toggle('inactive');
     });
 }
+
+hamburgerButton.addEventListener('click', function(){
+    mobileMenu.classList.toggle('inactive')
+});
