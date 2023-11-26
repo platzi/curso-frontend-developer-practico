@@ -13,6 +13,9 @@
     margin: 0;
     font-family: 'Quicksand', sans-serif;
   }
+  .inactive {
+    display: none;
+  }
   /* navbar settings */
   nav {
     display: flex;
@@ -78,8 +81,8 @@
   }
   /* desktop menu settings */
   .desktop-menu {
-    display: none;
     position: absolute;
+    background: var(--white);
     right: 56px;
     top: 60px;
     width: 100px;
