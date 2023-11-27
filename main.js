@@ -3,13 +3,40 @@ const $burguerIcon = document.querySelector('.menu')
 const $cartIcon = document.querySelector('.navbar-shopping-cart')
 const $desktopMenu = document.querySelector('.desktop-menu')
 const $mobileMenu = document.querySelector('.mobile-menu')
-const $asideCart = document.querySelector('.product-detail')
+const $asideCart = document.querySelector('.cart-menu')
 const $cardsContainer = document.querySelector('.cards-container')
+const $productDetail = document.querySelector('.product-detail')
+const $productDetailCloseIcon = document.querySelector('.product-detail-close')
 const productList = []
+
+const openProductDetail = () => {
+  const isAsideCartOpen = !$asideCart.classList.contains('inactive')
+  const isDesktopMenuOpen = !$desktopMenu.classList.contains('inactive')
+  const isMobileMenuOpen = !$mobileMenu.classList.contains('inactive')
+  
+  if (isAsideCartOpen) {
+    $asideCart.classList.add('inactive')
+  }
+
+  if (isDesktopMenuOpen) {
+    $desktopMenu.classList.add('inactive')
+  }
+
+  if (isMobileMenuOpen) {
+    $mobileMenu.classList.add('inactive')
+  }
+
+  $productDetail.classList.remove('inactive')
+}
+
+const closeProductDetail = () => {
+  $productDetail.classList.add('inactive')
+}
+
 const renderProducts = (arr) => {
   for (product of arr) {
     const productCard = document.createElement('div')
-    const img = document.createElement('img')
+    const productImage = document.createElement('img')
     const productInfo = document.createElement('div')
     const productInfoDiv = document.createElement('div')
     const productName = document.createElement('p')
@@ -18,7 +45,9 @@ const renderProducts = (arr) => {
     const productCartIcon = document.createElement('img')
     
     productCard.classList.add('product-card')
-    img.setAttribute('src', product.image)
+    productImage.setAttribute('src', product.image)
+    productImage.addEventListener('click', openProductDetail)
+
     productInfo.classList.add('product-info')
     productName.innerText = `$${product.name}`
     productPrice.innerText = `$${product.price}`
@@ -29,7 +58,7 @@ const renderProducts = (arr) => {
   
     productInfo.append(productFigure, productInfoDiv)
   
-    productCard.append(img, productInfo)
+    productCard.append(productImage, productInfo)
   
     $cardsContainer.append(productCard)
   }
@@ -37,9 +66,14 @@ const renderProducts = (arr) => {
 
 const toggleDesktopMenu = () => {
   const isAsideCartOpen = !$asideCart.classList.contains('inactive')
+  const isProductDetailOpen = !$productDetail.classList.contains('inactive')
 
   if (isAsideCartOpen) {
     $asideCart.classList.add('inactive')
+  }
+
+  if (isProductDetailOpen) {
+    $productDetail.classList.add('inactive')
   }
 
   $desktopMenu.classList.toggle('inactive')
@@ -47,9 +81,14 @@ const toggleDesktopMenu = () => {
 
 const toggleMobileMenu = () => {
   const isAsideCartOpen = !$asideCart.classList.contains('inactive')
-
+  const isProductDetailOpen = !$productDetail.classList.contains('inactive')
+  
   if (isAsideCartOpen) {
     $asideCart.classList.add('inactive')
+  }
+
+  if (isProductDetailOpen) {
+    $productDetail.classList.add('inactive')
   }
 
   $mobileMenu.classList.toggle('inactive')
@@ -58,7 +97,8 @@ const toggleMobileMenu = () => {
 const toggleAsideCart = () => {
   const isMobileMenuOpen = !$mobileMenu.classList.contains('inactive')
   const isDesktopMenuOpen = !$desktopMenu.classList.contains('inactive')
-  
+  const isProductDetailOpen = !$productDetail.classList.contains('inactive')
+
   if (isMobileMenuOpen) {
     $mobileMenu.classList.add('inactive')
   }
@@ -67,12 +107,17 @@ const toggleAsideCart = () => {
     $desktopMenu.classList.add('inactive')
   }
 
+  if (isProductDetailOpen) {
+    $productDetail.classList.add('inactive')
+  }
+
   $asideCart.classList.toggle('inactive')
 }
 
 $menuEmail.addEventListener('click', toggleDesktopMenu)
 $burguerIcon.addEventListener('click', toggleMobileMenu)
 $cartIcon.addEventListener('click', toggleAsideCart)
+$productDetailCloseIcon.addEventListener('click', closeProductDetail)
 
 productList.push({
   name: 'Bike',
