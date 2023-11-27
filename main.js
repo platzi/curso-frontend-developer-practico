@@ -5,13 +5,17 @@ const menuHamIcon = document.querySelector('.menu');
 const mobileMenu = document.querySelector('.mobile-menu');
 
 const menuCarritoIcon = document.querySelector('.navbar-shopping-cart');
-const carritoMenu = document.querySelector('.product-detail');
+const carritoMenu = document.querySelector('#shoppingCartContainer');
+
+const productDetailContainer = document.querySelector('#productDetail');
+const productDetailCloseIcon = document.querySelector('.product-detail-close');
 
 const cardsContainer = document.querySelector('.cards-container');
 
 menuEmail.addEventListener('click', toggleDesktopMenu);
 menuHamIcon.addEventListener('click', toggleMobileMenu);
 menuCarritoIcon.addEventListener('click', toggleCarritoMenu);
+productDetailCloseIcon.addEventListener('click', closeProductDetailAside);
 
 
 function toggleDesktopMenu() {
@@ -28,6 +32,7 @@ function toggleMobileMenu() {
     }
 
     mobileMenu.classList.toggle('inactive');
+    closeProductDetailAside();
 
 }
 
@@ -39,7 +44,25 @@ function toggleCarritoMenu() {
         mobileMenu.classList.add('inactive');
     }
 
+    const isProductDetailContainerOpen = productDetailContainer.classList.contains('inactive');
+
+    if (!isProductDetailContainerOpen) {
+        productDetailContainer.classList.add('inactive');
+    }
+
     carritoMenu.classList.toggle('inactive');
+}
+
+
+function openProductDetailAside() {
+
+    carritoMenu.classList.add('inactive');
+    productDetailContainer.classList.remove('inactive');    
+
+}
+
+function closeProductDetailAside(){
+    productDetailContainer.classList.add('inactive');
 }
 
 const productsList = [];
@@ -96,7 +119,8 @@ function FillProducts(arr) {
         productCard.classList.add('product-card');
 
         const imgProduct = document.createElement('img');
-        imgProduct./*  */setAttribute('src', product.image);
+        imgProduct.setAttribute('src', product.image);
+        imgProduct.addEventListener('click', openProductDetailAside );
 
         const productInfo = document.createElement('div');
         productInfo.classList.add('product-info');
@@ -120,8 +144,6 @@ function FillProducts(arr) {
 
         productInfoFigure.appendChild(productImgCart);
 
-
-
         productInfo.appendChild(productInfoDiv);
         productInfo.appendChild(productInfoFigure);
 
@@ -129,11 +151,7 @@ function FillProducts(arr) {
         productCard.appendChild(productInfo);
 
         cardsContainer.appendChild(productCard);
-
-
-
     }
-
 }
 
 FillProducts(productsList);
