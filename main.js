@@ -1,14 +1,15 @@
 const menuEmail = document.querySelector('.navbar-email');
 const desktopMenu = document.querySelector('.desktop-menu');
-let toggleState = false;
+const burgerMenu = document.querySelector('.menu');
+const mobileMenu = document.querySelector('.mobile-menu');
 
 menuEmail.addEventListener('click', toggleDesktopMenu);
+burgerMenu.addEventListener('click', toggleMobileMenu);
 
 function toggleDesktopMenu() {
-    toggleState = !toggleState;
-    if (toggleState == true) {
-        desktopMenu.setAttribute('class', 'desktop-menu')
-    } else {
-        desktopMenu.setAttribute('class', 'desktop-menu inactive')
-    }
+    desktopMenu.classList.toggle('inactive');
+}
+
+function toggleMobileMenu() {
+    mobileMenu.classList.toggle('inactive');
 }
