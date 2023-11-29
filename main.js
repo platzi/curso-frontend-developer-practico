@@ -6,6 +6,8 @@ const desktopMenu = document.querySelector('.desktop-menu');
 const mobileMenu = document.querySelector('.mobile-menu');
 const aside = document.querySelector('.product-detail')
 
+const cardsContainer = document.querySelector('.cards-container')
+
 menuEmail.addEventListener('click', toggleDesktopMenu)
 menuMobileIcon.addEventListener('click', toggleMobileMenu)
 shopingCart.addEventListener('click', toggleProductInfo)
@@ -35,4 +37,102 @@ function toggleProductInfo(){
     }
     aside.classList.toggle('inactive');
 }
-   
+
+const productList = [];
+productList.push({
+    name: 'bike',
+    price: 120,
+    image: 'https://images.pexels.com/photos/276517/pexels-photo-276517.jpeg?auto=compress&cs=tinysrgb&dpr=2&h=650&w=940',
+
+});
+productList.push({
+    name: 'bike',
+    price: 20,
+    image: 'https://images.pexels.com/photos/276517/pexels-photo-276517.jpeg?auto=compress&cs=tinysrgb&dpr=2&h=650&w=940'
+
+});
+productList.push({
+    name: 'bike',
+    price: 10,
+    image: 'https://images.pexels.com/photos/276517/pexels-photo-276517.jpeg?auto=compress&cs=tinysrgb&dpr=2&h=650&w=940',
+
+});
+productList.push({
+    name: 'bike',
+    price: 12,
+    image: 'https://images.pexels.com/photos/276517/pexels-photo-276517.jpeg?auto=compress&cs=tinysrgb&dpr=2&h=650&w=940',
+
+});
+productList.push({
+    name: 'bike',
+    price: 12,
+    image: 'https://images.pexels.com/photos/276517/pexels-photo-276517.jpeg?auto=compress&cs=tinysrgb&dpr=2&h=650&w=940',
+
+});
+productList.push({
+    name: 'bike',
+    price: 12,
+    image: 'https://images.pexels.com/photos/276517/pexels-photo-276517.jpeg?auto=compress&cs=tinysrgb&dpr=2&h=650&w=940',
+
+});
+productList.push({
+    name: 'bike',
+    price: 12,
+    image: 'https://images.pexels.com/photos/276517/pexels-photo-276517.jpeg?auto=compress&cs=tinysrgb&dpr=2&h=650&w=940',
+
+});
+productList.push({
+    name: 'bike',
+    price: 12,
+    image: 'https://images.pexels.com/photos/276517/pexels-photo-276517.jpeg?auto=compress&cs=tinysrgb&dpr=2&h=650&w=940',
+
+});
+productList.push({
+    name: 'bike',
+    price: 12,
+    image: 'https://images.pexels.com/photos/276517/pexels-photo-276517.jpeg?auto=compress&cs=tinysrgb&dpr=2&h=650&w=940',
+
+});
+productList.push({
+    name: 'bike',
+    price: 12,
+    image: 'https://images.pexels.com/photos/276517/pexels-photo-276517.jpeg?auto=compress&cs=tinysrgb&dpr=2&h=650&w=940',
+
+});
+
+function renderProducts(arr){
+    for(product of arr){
+        const productCart = document.createElement('div');
+        productCart.classList.add('product-card');
+     
+        const img = document.createElement('img');
+        img.setAttribute('src', product.image);
+     
+        const description = document.createElement('div');
+        description.classList.add('product-info');
+     
+        const descriptionDiv = document.createElement('div');
+     
+        const descriptionPrice = document.createElement('p');
+        descriptionPrice.innerText = '$' + product.price;
+        const descriptionName = document.createElement('p');
+        descriptionName.innerText =  product.name;
+        
+        
+        const figureCar = document.createElement('figure');
+     
+        const imgCar = document.createElement('img');
+        imgCar.setAttribute('src', './icons/bt_add_to_cart.svg')
+     
+        figureCar.append(imgCar);
+        descriptionDiv.append(descriptionPrice, descriptionName);
+        description.append(descriptionDiv, figureCar);
+        productCart.append(img, description);
+        cardsContainer.append(productCart);
+     
+     
+        
+     
+     }
+}
+renderProducts(productList);
