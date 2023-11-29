@@ -7,12 +7,12 @@ better and easier approach but it was also a first attempt to create reusable fu
 The main purpose is testing all the different ways to create, access and modify HTML elements and its attributes, classes, etc to create and change
 components and interactions between them.
 */
-const apiUrl = 'https://localhost:7274/api/get/all';
+const getAllProducts = 'https://localhost:7274/api/get/all';
 const productList = [];
 
 async function fetchData() {
   try {
-    const response = await fetch(apiUrl, {
+    const response = await fetch(getAllProducts, {
       method: 'GET',
       headers: {
         'Content-Type': 'application/json',
@@ -36,21 +36,21 @@ async function fetchData() {
       });
     });
 
-    //Ordenar el array de productos: elegir en base a atributo u otros(por ejemplo price...)
+    //Order the array of products by category(or by other property)
     productList.sort((a, b) => b.category - a.category);
 
     //console.log('Datos obtenidos:', productList);
 
-    // Llama a la función para crear las cards y modals
+    // Function call to create product cards and product modals
     createProductCards(productList);
     createProductModals(productList);
   } catch (error) {
-    // Maneja cualquier error que ocurra durante la solicitud
-    console.error('Error al hacer la solicitud:', error);
+    // In case of error:
+    console.error('Error trying to fetch the product list:', error);
   }
 }
 
-// Función para crear las cards
+// Card creation function.
 function createProductCards(productList) {
   const container = document.getElementById("container"); // El contenedor principal que rodea a los elementos generados
 
@@ -98,9 +98,9 @@ function createProductCards(productList) {
   }
 }
 
- /////////////MODAL CREATOR//////////////
+/////////////MODAL CREATOR//////////////
 function createProductModals(productList) {
- 
+
   const body = document.body;
 
   for (product of productList) {
@@ -293,20 +293,6 @@ shoppingCartIcon.addEventListener("click", showShoppingMenu);
 document.addEventListener("click", handleDocumentClick);
 
 
-
-
-
-//This is where I should query a database to get a resultSet/row/table of results that match an object
-//If this were java(of strongly typed lang), a class with all the specific data types would be necessary
-//to store all the columns of the database into each object.
-
-//Making this code a reusable function will be a closer approach to a professional js-doc or practice.
-//The parameter would be the array fetched from a database or another doc.
-
-
-
-
-
 ///////////HIDING AND SHOWING PRODUCT-CARDS BY CATEGORY///////////
 const allButton = document.querySelector("#all");
 const skateButton = document.querySelector("#skate");
@@ -399,20 +385,21 @@ let count = 0;
 const cartItems = {};
 
 function addToCart(productIndex) {
-  const product = productList[productIndex]; // Asegúrate de tener una variable "productList" definida con los productos
+  const product = productList[productIndex]; // productList: the products in the database.
   const productCount = document.querySelector("#count");
   let totalPriceElement = document.getElementById("total-price");
   const myOrderContent = document.querySelector(".my-order-content");
+  let existingCartItem;
 
   if (cartItems.hasOwnProperty(product.name)) {
 
     cartItems[product.name]++;
     // Obtener el elemento del producto en el carrito
-    const existingCartItem = document.querySelector(`.shopping-cart[data-product="${product.name}"]`);
+    existingCartItem = document.querySelector(`.shopping-cart[data-product="${product.name}"]`);
     // Actualizar la cantidad en el elemento existente
     const quantityElement = existingCartItem.querySelector('.quantity');
     quantityElement.textContent = `x${cartItems[product.name]}`;
-    //Cart icon count
+    //Cart icon count on the top right of the web, showing how many products have been added.
     count += 1;
     productCount.textContent = count.toString();
   } else { //If the product wasn't added yet, the html element will be created and inserted.
@@ -428,9 +415,10 @@ function addToCart(productIndex) {
     figure.appendChild(image);
     shoppingCartDiv.appendChild(figure);
 
-    const name = document.createElement("p");
-    name.textContent = product.name;
-    shoppingCartDiv.appendChild(name);
+    //Not showing the product name, could be added if the main div was broader, but the mobile version will make elements stack vertically 
+    // const name = document.createElement("p");
+    // name.textContent = product.name;
+    // shoppingCartDiv.appendChild(name);
 
     const quantity = document.createElement("p");
     quantity.classList.add("quantity");
@@ -438,18 +426,35 @@ function addToCart(productIndex) {
     shoppingCartDiv.appendChild(quantity);
 
     const price = document.createElement("p");
-    price.textContent = product.price;
+    price.textContent = "$"+product.price;
     shoppingCartDiv.appendChild(price);
 
     // Crear el elemento img para el botón de cerrar
     const closeButton = document.createElement("img");
     closeButton.setAttribute("id", product.name);
     closeButton.src = "./icons/icon_close.png";
-    closeButton.alt = "close";
+    closeButton.alt = "X";
     shoppingCartDiv.appendChild(closeButton);
+    //Adding logic inside the eventListener to subtract the price of the product.
     closeButton.addEventListener("click", () => {
-      cartItems[product.name];
-    })
+      existingCartItem = document.querySelector(`.shopping-cart[data-product="${product.name}"]`);
+      const currentQuantity = cartItems[product.name];
+
+      if (currentQuantity > 1) {
+        cartItems[product.name]--;
+        const quantityElement = existingCartItem.querySelector('.quantity');
+        quantityElement.textContent = `x${cartItems[product.name]}`;
+      } else {
+        delete cartItems[product.name];
+        existingCartItem.remove();
+      }
+
+      count--;
+      productCount.textContent = count.toString();
+
+      totalPrice -= product.price; // Subtract only the price of 1 unit of the product
+      totalPriceElement.textContent = "$" + totalPrice.toFixed(2);
+    });
     ////////IMPORTANT: insertBefore useful to add new html blocks or nodes before an already existing element.
     myOrderContent.insertBefore(shoppingCartDiv, myOrderContent.firstChild);
 

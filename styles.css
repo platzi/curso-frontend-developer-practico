@@ -253,6 +253,7 @@ nav {
   font-weight: bold;
 }
 
+/*ASIDE Cart with added products*/
 .shopping-cart {
   display: grid;
   grid-template-columns: auto 1fr auto auto;
@@ -271,10 +272,17 @@ nav {
   border-radius: 20px;
   object-fit: cover;
 }
-
-.shopping-cart p:nth-child(2) {
-  color: var(--very-light-pink);
+/*Special selector for the last child with an specific tag.*/
+.shopping-cart > img:last-child:hover {
+  transform: scale(1.05);
+  box-shadow: 0 0 7px 4px rgba(243, 136, 136, 0.7);
+  border-radius: 15px;
+  cursor: pointer;
 }
+
+/* .shopping-cart p:nth-child(2) {
+  color: var(--very-light-pink);
+} */
 
 .shopping-cart p:nth-child(3) {
   font-size: var(--md);
@@ -302,8 +310,8 @@ nav {
   gap: 26px;
   place-content: center;
   margin-top: 100px;
-  margin-right: 26px;
-  margin-left: 26px;
+  margin-right: 10%;
+  margin-left: 10%;
 }
 
 .product-card {
@@ -379,21 +387,21 @@ nav {
   background-color: #fff;
   border-radius: 20px;
 
- /* Establece una altura máxima según tus necesidades */
+ /* Max height depending on needs */
   overflow-y: auto;
   
 }
 .product-modal::-webkit-scrollbar {
-  width: 4px; /* Ancho de la barra de desplazamiento */
+  width: 4px; /*scrollbar width */
 }
 
 .product-modal::-webkit-scrollbar-track {
-  background: transparent; /* Color de fondo de la barra de desplazamiento */
+  background: transparent; /* background scrollbar color */
 }
 
 .product-modal::-webkit-scrollbar-thumb {
-  background: #888; /* Color del pulgar de la barra de desplazamiento */
-  border-radius: 4px; /* Radio de la esquina del pulgar de la barra de desplazamiento */
+  background: #888; /*  */
+  border-radius: 4px; /* corner radius */
 }
 
 .product-modal.active {
@@ -411,7 +419,6 @@ nav {
   padding: 12px;
   border-radius: 50%;
   border: 2px solid var(--hospital-green);
-
 }
 
 .product-modal-close:hover {
