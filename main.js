@@ -8,7 +8,7 @@ const shoppingCartContainer = document.querySelector('#shoppingCartContainer');
 const ProductDetailContainer = document.querySelector('#productDetail');
 const cardsContainer = document.querySelector('.cards-container');
 const productDetail = document.querySelector('#productDetail');
-let currentProduct = null;
+
 
 menuEmail.addEventListener('click', toggleDesktopMenu);
 menuHamIcon.addEventListener('click', toggleMobileMenu);
@@ -106,7 +106,6 @@ function openProductDetailAside(event){
 
 function closeProductDetailAside(){
   ProductDetailContainer.classList.add('inactive');
-  currentProduct = null; // Reiniciar el producto actual
 }
 
 const productList = [];
