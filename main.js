@@ -1,3 +1,5 @@
+// SELECTORES
+
 const  navEmail = document.querySelector('.navbar-email');
 const desktopMenu = document.querySelector('.desktop-menu');
 const menuHamIcon = document.querySelector('.menu');
@@ -5,12 +7,17 @@ const mobileMenu = document.querySelector('.mobile-menu');
 const menuCarIcon = document.querySelector('.navbar-shopping-cart');
 const shoppingCartContainer = document.querySelector('#shoppingCartContainer');
 const cardsContainer = document.querySelector('.cards-container');
-console.log();
+const productDetailContainer = document.querySelector('#productDetail');
+const productDetailCloseIcon = document.querySelector('.product-detail-close');
 
+
+console.log(productDetailCloseIcon);
+
+// EVENTOS
 navEmail.addEventListener('click', toggleDesktopMenu);
 menuHamIcon.addEventListener('click', toggleMobileMenu);
 menuCarIcon.addEventListener('click', toggleCarAside);
-
+productDetailCloseIcon.addEventListener('click',closeProductDetailAside);
 
 function toggleDesktopMenu(){
     const isnavEmailopen = shoppingCartContainer.classList.contains('inactive');
@@ -32,6 +39,8 @@ function toggleMobileMenu(){
         shoppingCartContainer.classList.add('inactive');
     }
 
+    closeProductDetailAside();
+
     mobileMenu.classList.toggle('inactive');
 
 };
@@ -47,6 +56,22 @@ function toggleCarAside(){
 
     shoppingCartContainer.classList.toggle('inactive');
   
+    const isProductdetailClosed = productDetailContainer.classList.contains('inactive');
+
+    if(!isProductdetailClosed){
+        productDetailContainer.classList.add('inactive');
+     } 
+};
+
+function openProductDetalAside(){
+
+    shoppingCartContainer.classList.add('inactive');
+
+    productDetailContainer.classList.remove('inactive')
+};
+
+function closeProductDetailAside(){
+    productDetailContainer.classList.add('inactive')
 };
 
 const productList = [];
@@ -105,6 +130,9 @@ function renderProducts(arr){
     
         // product = {name,price. image} -> product.image
         const productImg = document.createElement('img');
+        // llamar el evento del objeto creado por js en este caso la imagen que obtenemos del array
+        productImg.addEventListener('click', openProductDetalAside);
+        console.log(productImg)
         productImg.setAttribute('src',product.image);
     
         const productInfo = document.createElement('div');
