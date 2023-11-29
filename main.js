@@ -3,6 +3,7 @@ const navBarRight= document.querySelector('.navbar-right');
 const navBarDesktopMenu= document.querySelector('.desktop-menu');
 const mobileMenu = document.querySelector('.mobile-menu');
 const hamburgerButton = document.querySelector('.menu');
+const asideShoppingCart = document.querySelector('.shopping-cart-detail');
 const asideProductDetail = document.querySelector('.product-detail');
 const productCardsContainer = document.querySelector('.cards-container');
 
@@ -13,25 +14,16 @@ const navBarShoppingCart = navBarRight.querySelector('.navbar-shopping-cart');
 navBarEmail.addEventListener('click',() => {
     toggleVisibilityOf(navBarDesktopMenu);
     turnOffVisibilityOf(mobileMenu);
+    turnOffVisibilityOf(asideShoppingCart);
     turnOffVisibilityOf(asideProductDetail);
 });
 hamburgerButton.addEventListener('click',() => {
     toggleVisibilityOf(mobileMenu);
     turnOffVisibilityOf(navBarDesktopMenu);
+    turnOffVisibilityOf(asideShoppingCart);
     turnOffVisibilityOf(asideProductDetail);
 });
-navBarShoppingCart.addEventListener('click',() => {
-    toggleVisibilityOf(asideProductDetail);
-    turnOffVisibilityOf(navBarDesktopMenu);
-    turnOffVisibilityOf(mobileMenu);
-});
-
-function toggleVisibilityOf(element){
-    element.classList.toggle('inactive');
-}
-function turnOffVisibilityOf(element){
-    element.classList.add('inactive');
-}
+navBarShoppingCart.addEventListener('click', renderShoppingCartMenu);
 
 let productList = [
     {
@@ -132,9 +124,21 @@ let productList = [
     }
 ];
 
+renderProducts(productList);
+
+function toggleVisibilityOf(element){
+    element.classList.toggle('inactive');
+}
+function turnOffVisibilityOf(element){
+    element.classList.add('inactive');
+}
+function turnOnVisibilityOf(element){
+    element.classList.remove('inactive');
+}
+
 function renderProducts(products){
     for(product of products){
-        //Genero la carta que va a contener la informacion del producto
+        //Genero la carta que va a contener la información del producto
         const productCard = document.createElement('div');
         productCard.classList.add('product-card');
     
@@ -143,8 +147,11 @@ function renderProducts(products){
         //img.setAttribute('src', "product.imgSrc");
         img.setAttribute('src', "https://images.pexels.com/photos/276517/pexels-photo-276517.jpeg?auto=compress&cs=tinysrgb&dpr=2&h=650&w=940");
         img.setAttribute('alt', product.imgAlt);
+        //Creo el event listener para abrir los detalles del producto
+        const productDetails = product;
+        img.addEventListener('click', () => renderProductDetails(productDetails));
     
-        //Creo el contenerdor de la info
+        //Creo el contenedor de la info
         const productInfo = document.createElement('div');
         productInfo.classList.add('product-info');
         productCard.append(img, productInfo);
@@ -164,14 +171,44 @@ function renderProducts(products){
         cartImg.setAttribute('alt','Add to cart icon');
         cartFigure.append(cartImg);
     
-        //Agrego finalmente tanto la informacion del producto como la figura de agregar al carrito
+        //Agrego finalmente tanto la información del producto como la figura de agregar al carrito
         productInfo.append(infoDiv, cartFigure);
         productCardsContainer.appendChild(productCard);//Finalmente agrego la carta al contenedor de cartas
     }
 }
 
-renderProducts(productList);
+function renderShoppingCartMenu(){
+    //Mostrar el menu del shopping cart y ocultar los demás.
+    toggleVisibilityOf(asideShoppingCart);
+    turnOffVisibilityOf(navBarDesktopMenu);
+    turnOffVisibilityOf(mobileMenu);
+    turnOffVisibilityOf(asideProductDetail);
+}
 
+function renderProductDetails(productDetails){
+    turnOnVisibilityOf(asideProductDetail);
+    turnOffVisibilityOf(asideShoppingCart);
+    turnOffVisibilityOf(navBarDesktopMenu);
+    turnOffVisibilityOf(mobileMenu);
+
+    //Genero el manejador del botón para cerrar los detalles
+    const closeProductDetailsButton = asideProductDetail.querySelector('.product-detail-close');
+    closeProductDetailsButton.addEventListener('click', () => turnOffVisibilityOf(asideProductDetail));
+
+    //Genero los manejadores de los datos a modificar en el aside
+    const imgOfProduct = asideProductDetail.querySelector('#ProductImage');
+    const priceOfProduct = asideProductDetail.querySelector('#ProductPrice');
+    const nameOfProduct = asideProductDetail.querySelector('#ProductName');
+    const descriptionOFProduct = asideProductDetail.querySelector('#ProductDescription');
+
+    //Cambio los datos placeholder por los datos del producto seleccionado
+    //imgOfProduct.setAttribute('src', productDetails.imgSrc);
+    imgOfProduct.setAttribute('src', "https://images.pexels.com/photos/276517/pexels-photo-276517.jpeg?auto=compress&cs=tinysrgb&dpr=2&h=650&w=940");
+    imgOfProduct.setAttribute('alt', productDetails.imgAlt);
+    priceOfProduct.innerText = productDetails.price;
+    nameOfProduct.innerText = productDetails.name;
+    descriptionOFProduct.innerText = productDetails.description;
+}
 
 
 
