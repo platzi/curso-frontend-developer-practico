@@ -93,9 +93,9 @@ for (product of productList) {
 
     const productInfoFig = document.createElement('figure');
     const productIcon = document.createElement('img');
-    productIcon.setAttribute('src', '/icons/bt_add_to_cart.svg');
+    productIcon.setAttribute('src', "/icons/bt_add_to_cart.svg");
 
-    productInfoFig.appendChild(productImg);
+    productInfoFig.appendChild(productIcon);
 
     productInfo.appendChild(productInfoDiv);
     productInfo.appendChild(productInfoFig);
