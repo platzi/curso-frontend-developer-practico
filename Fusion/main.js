@@ -90,12 +90,12 @@ productList.push({
 productList.push({
     name: 'Xbox',
     precio: 350,
-    imag: "https://images.pexels.com/photos/276517/pexels-photo-276517.jpeg?auto=compress&cs=tinysrgb&dpr=2&h=650&w=940"
+    imag: "https://cdn.forbes.com.mx/2022/01/louis-philippe-poitras-WMMh6BtmTMo-unsplash-640x360.jpg"
 });
 productList.push({
     name: 'Computador gamer',
     precio: 1200,
-    imag: "https://images.pexels.com/photos/276517/pexels-photo-276517.jpeg?auto=compress&cs=tinysrgb&dpr=2&h=650&w=940"
+    imag: "https://cuarteldelmetal.com/wp-content/uploads/2023/07/armado-pc-gamers-sp-digital.jpg"
 });
 
 for (product of productList) {
