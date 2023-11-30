@@ -5,16 +5,25 @@ const carroIcon = document.querySelector('.navbar-shopping-cart');
 const menuMobile = document.querySelector('.mobile-menu');
 const aside = document.querySelector('.product-detail');
 const cardProduct = document.querySelector('.cards-container');
+const productDetail = document.querySelector('.product-detail-secondary');
+const closeIcon = document.querySelector('.product-detail-secondary-close');
 
 emailNav.addEventListener('click', togglesDesktopMenu);
 menuIcon.addEventListener('click', togglesMobileMenu);
 carroIcon.addEventListener('click', togglesCarritoAside);
+closeIcon.addEventListener('click', closeDetail);
 
 function togglesDesktopMenu() {
-    const isAsideClosed = aside.classList.contains('inactive')
+    const isAsideClosed = aside.classList.contains('inactive');
 
     if(!isAsideClosed) {
         aside.classList.add('inactive');
+    }
+
+    const isDetailsClosed = productDetail.classList.contains('inactive');
+
+    if(!isDetailsClosed) {
+        productDetail.classList.add('inactive');
     }
 
     deskNav.classList.toggle('inactive');
@@ -27,22 +36,41 @@ function togglesMobileMenu() {
         aside.classList.add('inactive');
     }
 
+    closeDetail()
+
     menuMobile.classList.toggle('inactive');
 }
 
 function togglesCarritoAside() {
     //esta cerrado = inactive esta en la clase
-    const ismenuMobileClosed = menuMobile.classList.contains('inactive')
-    const isDeskmenuClosed = deskNav.classList.contains('inactive')
+    const ismenuMobileClosed = menuMobile.classList.contains('inactive');
+    const isDeskmenuClosed = deskNav.classList.contains('inactive');
+    const isProductDetailClosed = productDetail.classList.contains('inactive');
     
     //si menu mobile no esta cerrado (esta abierto) lo cierra agregando la clase inactive
     if(!ismenuMobileClosed) {
         menuMobile.classList.add('inactive');
     } else if(!isDeskmenuClosed) {
         deskNav.classList.add('inactive')
+    } else if(!isProductDetailClosed) {
+        productDetail.classList.add('inactive')
     }
 
     aside.classList.toggle('inactive');
+}
+
+function openDetail() {
+    aside.classList.add('inactive');
+    deskNav.classList.add('inactive');
+
+
+    productDetail.classList.remove('inactive');
+}
+
+function closeDetail() {
+
+
+    productDetail.classList.add('inactive')
 }
 
 //recorre el for y product guarda los diferentes arreglos
@@ -76,6 +104,7 @@ for (product of productList) {
 
     const productImg = document.createElement('img');
     productImg.setAttribute('src', product.imag);
+    productImg.addEventListener('click', openDetail);
 
     const productInfo = document.createElement('div');
     productInfo.classList.add('product-info');
