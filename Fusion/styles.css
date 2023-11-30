@@ -165,10 +165,11 @@
 
   .product-detail {
     width: 360px;
-    padding: 24px;
+    padding: 0 24px;
     box-sizing: border-box;
     position: absolute;
     right: 0;
+    background-color: var(--white);
   }
   .title-container {
     display: flex;
@@ -237,11 +238,6 @@
     font-weight: bold;
     height: 50px;
   }
-  @media (max-width: 640px) {
-    .product-detail {
-      width: 100%;
-    }
-  }
 
   /* Media query */
 
@@ -257,6 +253,10 @@
     }
     .desktop-menu {
       display: none;
+    }
+
+    .product-detail {
+      width: 100%;
     }
   }
   
