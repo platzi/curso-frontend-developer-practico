@@ -112,7 +112,7 @@ function closeProductDetailAside() {
 const productList = [];
 productList.push({
 
-  name: 'Bike',
+  name: 'Bicicleta',
   price: 120,
   image:  'https://images.pexels.com/photos/276517/pexels-photo-276517.jpeg?auto=compress&cs=tinysrgb&dpr=2&h=650&w=940',
 })
@@ -121,15 +121,66 @@ productList.push({
 
     name: 'Pantalla',
     price: 220,
-    image:  'https://images.pexels.com/photos/276517/pexels-photo-276517.jpeg?auto=compress&cs=tinysrgb&dpr=2&h=650&w=940',
+    image:  './img/pantalla.png',
   })
 
   productList.push({
 
     name: 'Computadora',
     price: 856,
-    image:  'https://images.pexels.com/photos/276517/pexels-photo-276517.jpeg?auto=compress&cs=tinysrgb&dpr=2&h=650&w=940',
+    image:  './img/computadora.png',
   })
+
+  productList.push({
+
+    name: 'Asador',
+    price: 600,
+    image:  './img/asador.jpg',
+  })
+
+  productList.push({
+
+    name: 'Motocicleta Yamaha',
+    price: 3500,
+    image:  './img/motoyamaha.png',
+  })
+
+  productList.push({
+
+    name: 'Guitarra Electrica',
+    price: 1200,
+    image:  './img/guitarraelectrica.jpg',
+  })
+
+  productList.push({
+
+    name: 'Oso de Peluche',
+    price: 150,
+    image:  './img/osodepeluche.jpg',
+  })
+
+  productList.push({
+
+    name: 'Impresora',
+    price: 250,
+    image:  './img/impresora.jpg',
+  })
+
+  productList.push({
+
+    name: 'Patineta',
+    price: 800,
+    image:  './img/patineta.jpg',
+  })
+
+  productList.push({
+
+    name: 'Chamarra',
+    price: 680,
+    image:  './img/chamarra.jpg',
+  })
+
+
 
  
   /*<div class="product-card">
