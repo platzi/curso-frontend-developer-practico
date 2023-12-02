@@ -9,7 +9,6 @@ const productCardsContainer = document.querySelector('.cards-container');
 
 const navBarEmail = navBarRight.querySelector('.navbar-email');
 const navBarShoppingCart = navBarRight.querySelector('.navbar-shopping-cart');
-//const shoppingCartMenu = document.querySelector('.product-detail');
 
 navBarEmail.addEventListener('click',() => {
     toggleVisibilityOf(navBarDesktopMenu);
@@ -126,6 +125,8 @@ let productList = [
 
 renderProducts(productList);
 
+const isFloat = value => Number(value) === value && value % 1 !== 0;
+
 function toggleVisibilityOf(element){
     element.classList.toggle('inactive');
 }
@@ -170,6 +171,7 @@ function renderProducts(products){
         cartImg.setAttribute('src','./icons/bt_add_to_cart.svg');
         cartImg.setAttribute('alt','Add to cart icon');
         cartFigure.append(cartImg);
+        cartFigure.addEventListener('click', () => addProductToCart(productDetails))
     
         //Agrego finalmente tanto la información del producto como la figura de agregar al carrito
         productInfo.append(infoDiv, cartFigure);
@@ -178,6 +180,8 @@ function renderProducts(products){
 }
 
 function renderShoppingCartMenu(){
+    updateCart();
+
     //Mostrar el menu del shopping cart y ocultar los demás.
     toggleVisibilityOf(asideShoppingCart);
     turnOffVisibilityOf(navBarDesktopMenu);
@@ -210,6 +214,66 @@ function renderProductDetails(productDetails){
     descriptionOFProduct.innerText = productDetails.description;
 }
 
+function addProductToCart(productDetails){
+    const cartOrderContainer = asideShoppingCart.querySelector('.my-order-content');
+    const productCartContainer = document.createElement('div');
+    productCartContainer.classList.add('shopping-cart');
+    const orderDiv = asideShoppingCart.querySelector('.order');
 
+    //Genero la imagen del producto y la agrego un un figure 
+    const productImg = document.createElement('img');
+    productImg.setAttribute('src', "https://images.pexels.com/photos/276517/pexels-photo-276517.jpeg?auto=compress&cs=tinysrgb&dpr=2&h=650&w=940");
+    productImg.setAttribute('alt', productDetails.imgAlt);
+    const productFigure = document.createElement('figure');
+    productFigure.appendChild(productImg);
+
+    //Agrego el precio y nombre del producto
+    const productPrice = document.createElement('p');
+    const productName = document.createElement('p');
+    if(isFloat(productDetails.price)){ //Verifico si tengo que agregar los decimales a mano o es un flotante
+        productPrice.innerText = '$' + productDetails.price;
+    } else {
+        productPrice.innerText = '$' + productDetails.price + '.00';
+    }
+    productName.innerText = productDetails.name;
+    
+    //Agrego la imagen para quitar el producto del carrito junto con el evento para eliminarlo y hacer un update de precios
+    const productDeleteButton = document.createElement('img');
+    productDeleteButton.setAttribute('src', './icons/icon_close.png');
+    productDeleteButton.setAttribute('alt', 'close');
+    productDeleteButton.addEventListener('click', function(){
+        productCartContainer.remove();
+        updateCart();
+    });
+
+    //Integro todos los componentes
+    productCartContainer.append(productFigure, productName, productPrice, productDeleteButton);
+    cartOrderContainer.insertBefore(productCartContainer, orderDiv);
+    updateCart();
+}
+
+function updateCart(){
+    const totalPriceContainer = asideShoppingCart.querySelector('#TotalPrice');
+    const products = asideShoppingCart.getElementsByClassName('shopping-cart');
+    const shoppingCartProductsQty = navBarRight.querySelector('.navbar-shopping-cart').getElementsByTagName('div');
+    let totalPrice = 0.00;
+
+    for(productPos = 0; productPos < products.length; productPos++){
+        // Obtiene el precio del producto (asumiendo que el precio está en el segundo elemento <p>)
+        const priceElement = products[productPos].querySelectorAll('p')[1];
+        const price = parseFloat(priceElement.innerText.replace('$', ''));
+
+        totalPrice += price;
+    }
+
+    if(isFloat(totalPrice)){ //Verifico si tengo que agregar los decimales a mano o es un flotante
+        totalPriceContainer.innerText = '$' + totalPrice;
+    } else {
+
+        totalPriceContainer.innerText = '$' + totalPrice + '.00';
+    }
+
+    shoppingCartProductsQty[0].innerText = products.length;
+}
 
 
