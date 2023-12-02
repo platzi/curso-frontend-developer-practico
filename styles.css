@@ -88,7 +88,7 @@ nav {
   width: 100px;
   height: auto;
   border: 1px solid var(--very-light-pink);
-  border-radius: 6px;
+  border-radius: 8px;
   padding: 20px 20px 0 20px;
 }
 .desktop-menu ul {
@@ -120,13 +120,13 @@ nav {
 
 .mobile-menu {
   position: absolute;
+  width: 360px;
   padding: 24px;
   top: 65px;
-  transition: transform 500ms;
-}
-.hidden-mobile-menu {
-  transform: translateX(-500px);
-  transition: transform 500ms;
+  margin: 8px;
+  box-shadow: 4px 4px 4px 8px rgba(0, 0, 0, 0.2);
+  border-radius: 8px;
+  background-color: var(--white);
 }
 .mobile-menu a {
   text-decoration: none;
@@ -158,16 +158,15 @@ nav {
 
 .product-detail {
   width: 360px;
-  padding: 0 24px;
+  margin-top: 8px;
+  padding: 12px 24px;
   box-sizing: border-box;
   position: absolute;
   top: 61px;
   right: 0;
-  transition: transform 500ms;
-}
-.hidden-product-detail{
-  transform: translateX(800px);
-  transition: transform 500ms;
+  background-color: var(--white);
+  box-shadow: 4px 4px 4px 4px rgba(0, 0, 0, 0.2);
+  border-radius: 8px;
 }
 .title-container {
   display: flex;
@@ -218,14 +217,11 @@ nav {
   border-radius: 20px;
   object-fit: cover;
 }
-.shopping-cart p:nth-child(2) {
-  color: var(--very-light-pink);
-}
 .shopping-cart p:nth-child(3) {
   font-size: var(--md);
   font-weight: bold;
 }
-#shopping-cart-icon:hover{
+#shopping-cart-icon:hover {
   cursor: pointer;
 }
 .primary-button {
@@ -238,6 +234,49 @@ nav {
   font-size: var(--md);
   font-weight: bold;
   height: 50px;
+}
+
+/* this part is for the main container where the product cards are */
+
+.cards-container {
+  display: grid;
+  grid-template-columns: repeat(auto-fill, 240px);
+  gap: 26px;
+  place-content: center;
+}
+.product-card {
+  width: 240px;
+}
+.product-card img {
+  width: 240px;
+  height: 240px;
+  border-radius: 20px;
+  object-fit: cover;
+}
+.product-info {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  margin-top: 12px;
+}
+.product-info figure {
+  margin: 0;
+}
+.product-info figure img {
+  width: 35px;
+  height: 35px;
+}
+.product-info div p:nth-child(1) {
+  font-weight: bold;
+  font-size: var(--md);
+  margin-top: 0;
+  margin-bottom: 4px;
+}
+.product-info div p:nth-child(2) {
+  font-size: var(--sm);
+  margin-top: 0;
+  margin-bottom: 0;
+  color: var(--very-light-pink);
 }
 
 @media (max-width: 800px) {
@@ -258,6 +297,16 @@ nav {
   }
   .product-detail {
     width: 100%;
+  }
+  .cards-container {
+    grid-template-columns: repeat(auto-fill, 140px);
+  }
+  .product-card {
+    width: 140px;
+  }
+  .product-card img {
+    width: 140px;
+    height: 140px;
   }
 }
 @media (min-width: 801px) {

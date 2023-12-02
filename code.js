@@ -14,8 +14,7 @@ mobileMenuImg.addEventListener("click", toggleMobileMenu);
 
 function toggleMobileMenu() {
   productDetailContainer.classList.add('inactive');
-  mobileMenuContainer.classList.remove('inactive');
-  mobileMenuContainer.classList.toggle('hidden-mobile-menu');
+  mobileMenuContainer.classList.toggle('inactive');
 }
 
 //This part is your the shopping cart system
@@ -27,6 +26,5 @@ shoppingCartIcon.addEventListener('click', toggleShoppingCart);
 function toggleShoppingCart(){
   mobileMenuContainer.classList.add('inactive');
   menuEmail.classList.add('inactive');
-  productDetailContainer.classList.remove('inactive');
-  productDetailContainer.classList.toggle('hidden-product-detail');
+  productDetailContainer.classList.toggle('inactive');
 }
