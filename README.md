@@ -1,7 +1,7 @@
 # [YardSale: Tienda Online de Vestidos de Baño 👙🌊](https://sarasegura.github.io/curso-frontend-developer-js-practico/)
 ¡Bienvenid@ a YardSale! Esta es una tienda online de vestidos de baño donde podrás explorar una selección única de trajes de baño para cada ocasión. El proyecto ha sido desarrollado utilizando HTML, JavaScript y CSS.
 
-<img src="http://gifgifs.com/animations/clothing/swimsuit/Swimsuit_pants.gif" width="300" height="300" >
+<img src="http://gifgifs.com/animations/clothing/swimsuit/Swimsuit_pants.gif" width="100" height="100" >
 
 ## Objetivos del Proyecto
 
