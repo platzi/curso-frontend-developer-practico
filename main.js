@@ -219,19 +219,28 @@ function addProductToCart(productDetails){
     const productCartContainer = document.createElement('div');
     productCartContainer.classList.add('shopping-cart');
     const orderDiv = asideShoppingCart.querySelector('.order');
+    const numberOfSameProduct = document.createElement('div');
+
+    if(isThisProductInTheCart(cartOrderContainer, productDetails)){
+        return;
+    } else {
+        numberOfSameProduct.innerText = 1;
+    }
 
     //Genero la imagen del producto y la agrego un un figure 
     const productImg = document.createElement('img');
     productImg.setAttribute('src', "https://images.pexels.com/photos/276517/pexels-photo-276517.jpeg?auto=compress&cs=tinysrgb&dpr=2&h=650&w=940");
     productImg.setAttribute('alt', productDetails.imgAlt);
     const productFigure = document.createElement('figure');
-    productFigure.appendChild(productImg);
+    productFigure.classList.add('cart-product-figure');
+    
+    productFigure.append(productImg, numberOfSameProduct);
 
     //Agrego el precio y nombre del producto
     const productPrice = document.createElement('p');
     const productName = document.createElement('p');
     if(isFloat(productDetails.price)){ //Verifico si tengo que agregar los decimales a mano o es un flotante
-        productPrice.innerText = '$' + productDetails.price;
+        productPrice.innerText = '$' + (productDetails.price*numberOfSameProduct.innerText);
     } else {
         productPrice.innerText = '$' + productDetails.price + '.00';
     }
@@ -242,8 +251,13 @@ function addProductToCart(productDetails){
     productDeleteButton.setAttribute('src', './icons/icon_close.png');
     productDeleteButton.setAttribute('alt', 'close');
     productDeleteButton.addEventListener('click', function(){
-        productCartContainer.remove();
-        updateCart();
+        if(numberOfSameProduct.innerText == 1){
+            productCartContainer.remove();
+            updateCart();
+        } else {
+            numberOfSameProduct.innerText--;
+            updateCart();
+        }
     });
 
     //Integro todos los componentes
@@ -257,13 +271,15 @@ function updateCart(){
     const products = asideShoppingCart.getElementsByClassName('shopping-cart');
     const shoppingCartProductsQty = navBarRight.querySelector('.navbar-shopping-cart').getElementsByTagName('div');
     let totalPrice = 0.00;
+    shoppingCartProductsQty[0].innerText = 0;
 
     for(productPos = 0; productPos < products.length; productPos++){
         // Obtiene el precio del producto (asumiendo que el precio está en el segundo elemento <p>)
         const priceElement = products[productPos].querySelectorAll('p')[1];
-        const price = parseFloat(priceElement.innerText.replace('$', ''));
-
-        totalPrice += price;
+        const amountOfSameProduct = products[productPos].querySelector('.cart-product-figure').querySelector('div');
+        const price = parseFloat(priceElement.innerText.replace('$', '')) * parseInt(amountOfSameProduct.innerText);
+        shoppingCartProductsQty[0].innerText = parseInt(shoppingCartProductsQty[0].innerText) + parseInt(amountOfSameProduct.innerText);
+        totalPrice = parseFloat(totalPrice) + parseFloat(price);
     }
 
     if(isFloat(totalPrice)){ //Verifico si tengo que agregar los decimales a mano o es un flotante
@@ -272,8 +288,20 @@ function updateCart(){
 
         totalPriceContainer.innerText = '$' + totalPrice + '.00';
     }
-
-    shoppingCartProductsQty[0].innerText = products.length;
 }
 
+function isThisProductInTheCart(containerOfProducts, product){
+    const products = containerOfProducts.getElementsByClassName('shopping-cart');
+    for(productNumber = 0; productNumber < products.length; productNumber++){
+        const infoOfProduct = products[productNumber].querySelectorAll('p');
+        //Verifico que tanto el nombre como el precio sean el mismo
+        if(product.name == infoOfProduct[0].innerText && product.price == parseFloat(infoOfProduct[1].innerText.replace('$', ''))){
+            const numberOfSameProduct = products[productNumber].querySelector('.cart-product-figure').querySelector('div');
+            numberOfSameProduct.innerText++;
+            updateCart();
+            return true;
+        } 
+    }
+    return false;
+}
 

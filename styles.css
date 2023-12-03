@@ -344,6 +344,24 @@
     justify-content: center;
   }
 
+  .cart-product-figure{
+    position: relative;
+  }
+  .cart-product-figure div{
+    width: 16px;
+    height: 16px;
+    background-color: var(--hospital-green);
+    border-radius: 50%;
+    font-size: var(--sm);
+    font-weight: bold;
+    position: absolute;
+    top: -6px;
+    right: -3px;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+  }
+
 
   @media (max-width: 640px) {
     .menu {
