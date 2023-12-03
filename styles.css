@@ -117,7 +117,7 @@
     font-size: var(--sm);
   }
   .desktop-menu ul li a {
-    color: var(--back);
+    color: var(--black);
     text-decoration: none;
     margin-bottom: 20px;
     display: inline-block;
@@ -202,9 +202,20 @@
   }
   .shopping-cart {
     display: grid;
+    background-color: var(--text-input-field);
     grid-template-columns: auto 1fr auto auto;
     gap: 16px;
     margin-bottom: 24px;
+    border-radius: 8px;
+    align-items: center;
+  }
+  .shopping-cart img{
+    width: 16px;
+    height: 16px;
+    background-color: var(--white);
+    border-radius: 50%;
+    display: flex;
+    justify-content: center;
     align-items: center;
   }
   .shopping-cart figure {
@@ -343,6 +354,7 @@
     align-items: center;
     justify-content: center;
   }
+
 
   .cart-product-figure{
     position: relative;
