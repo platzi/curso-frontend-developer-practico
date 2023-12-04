@@ -2,7 +2,7 @@ let productList = [ //Productos placeholder
     {
     "name": "Classic Watch",
     "category": "Others",
-    "imgSrc": "images/watch.jpg",
+    "imgSrc": "images/Classic Watch.png",
     "imgAlt": "Elegant classic watch",
     "price": 50.00,
     "description": "A timeless watch for every occasion."
@@ -10,7 +10,7 @@ let productList = [ //Productos placeholder
     {
     "name": "Running Shoes",
     "category": "Clothes",
-    "imgSrc": "images/shoes.jpg",
+    "imgSrc": "images/Running Shoes.png",
     "imgAlt": "Comfortable running shoes",
     "price": 75.00,
     "description": "Comfortable running shoes for the active person."
@@ -18,7 +18,7 @@ let productList = [ //Productos placeholder
     {
     "name": "Casual T-Shirt",
     "category": "Clothes",
-    "imgSrc": "images/tshirt.jpg",
+    "imgSrc": "images/Casual T-Shirt.png",
     "imgAlt": "Soft cotton t-shirt",
     "price": 15.00,
     "description": "Soft cotton t-shirt available in several colors."
@@ -26,7 +26,7 @@ let productList = [ //Productos placeholder
     {
     "name": "Denim Jeans",
     "category": "Clothes",
-    "imgSrc": "images/jeans.jpg",
+    "imgSrc": "images/Denim Jeans.png",
     "imgAlt": "Stylish denim jeans",
     "price": 40.00,
     "description": "Durable and stylish denim jeans."
@@ -34,7 +34,7 @@ let productList = [ //Productos placeholder
     {
     "name": "Smartphone",
     "category": "Electronics",
-    "imgSrc": "images/smartphone.jpg",
+    "imgSrc": "images/Smartphone.png",
     "imgAlt": "Latest model smartphone",
     "price": 299.99,
     "description": "Latest model with high-resolution camera and long-lasting battery."
@@ -42,7 +42,7 @@ let productList = [ //Productos placeholder
     {
     "name": "Bluetooth Headphones",
     "category": "Electronics",
-    "imgSrc": "images/headphones.jpg",
+    "imgSrc": "images/Bluetooth Headphones.png",
     "imgAlt": "Wireless Bluetooth headphones",
     "price": 89.99,
     "description": "Wireless headphones with noise cancellation."
@@ -50,7 +50,7 @@ let productList = [ //Productos placeholder
     {
     "name": "Office Chair",
     "category": "Furnitures",
-    "imgSrc": "images/chair.jpg",
+    "imgSrc": "images/Office Chair.png",
     "imgAlt": "Ergonomic office chair",
     "price": 120.00,
     "description": "Ergonomic office chair with lumbar support."
@@ -58,7 +58,7 @@ let productList = [ //Productos placeholder
     {
     "name": "Wooden Desk",
     "category": "Furnitures",
-    "imgSrc": "images/desk.jpg",
+    "imgSrc": "images/Wooden Desk.png",
     "imgAlt": "Spacious wooden desk",
     "price": 250.00,
     "description": "Spacious wooden desk with modern design."
@@ -66,7 +66,7 @@ let productList = [ //Productos placeholder
     {
     "name": "Teddy Bear",
     "category": "Toys",
-    "imgSrc": "images/teddy.jpg",
+    "imgSrc": "images/Teddy Bear.png",
     "imgAlt": "Cuddly teddy bear",
     "price": 25.00,
     "description": "Soft and cuddly teddy bear for children of all ages."
@@ -74,7 +74,7 @@ let productList = [ //Productos placeholder
     {
     "name": "Remote Control Car",
     "category": "Toys",
-    "imgSrc": "images/rc_car.jpg",
+    "imgSrc": "images/Remote Control Car.png",
     "imgAlt": "Remote control car",
     "price": 45.00,
     "description": "Fast remote control car with rechargeable battery."
@@ -82,7 +82,7 @@ let productList = [ //Productos placeholder
     {
     "name": "Coffee Mug",
     "category": "Others",
-    "imgSrc": "images/mug.jpg",
+    "imgSrc": "images/Coffee Mug.png",
     "imgAlt": "Unique coffee mug",
     "price": 8.99,
     "description": "Ceramic coffee mug with unique design."
@@ -90,7 +90,7 @@ let productList = [ //Productos placeholder
     {
     "name": "Yoga Mat",
     "category": "Others",
-    "imgSrc": "images/yoga_mat.jpg",
+    "imgSrc": "images/Yoga Mat.png",
     "imgAlt": "Eco-friendly yoga mat",
     "price": 20.00,
     "description": "Eco-friendly yoga mat for all levels of yoga practitioners."
@@ -155,8 +155,7 @@ function renderProducts(products){
     
         //Genero la imagen y sus datos
         const img = document.createElement('img');
-        //img.setAttribute('src', "product.imgSrc");
-        img.setAttribute('src', "https://images.pexels.com/photos/276517/pexels-photo-276517.jpeg?auto=compress&cs=tinysrgb&dpr=2&h=650&w=940");
+        img.setAttribute('src', product.imgSrc);
         img.setAttribute('alt', product.imgAlt);
         //Creo el event listener para abrir los detalles del producto
         const productDetails = product;
@@ -217,7 +216,7 @@ function renderProductDetails(productDetails){
 
     //Cambio los datos placeholder por los datos del producto seleccionado
     //imgOfProduct.setAttribute('src', productDetails.imgSrc);
-    imgOfProduct.setAttribute('src', "https://images.pexels.com/photos/276517/pexels-photo-276517.jpeg?auto=compress&cs=tinysrgb&dpr=2&h=650&w=940");
+    imgOfProduct.setAttribute('src', productDetails.imgSrc);
     imgOfProduct.setAttribute('alt', productDetails.imgAlt);
     priceOfProduct.innerText = formatPrice(productDetails.price);
     nameOfProduct.innerText = productDetails.name;
@@ -269,7 +268,7 @@ function addProductToCart(productDetails){
 
     //Genero la imagen del producto y la agrego un figure 
     const productImg = document.createElement('img');
-    productImg.setAttribute('src', "https://images.pexels.com/photos/276517/pexels-photo-276517.jpeg?auto=compress&cs=tinysrgb&dpr=2&h=650&w=940");
+    productImg.setAttribute('src', productDetails.imgSrc);
     productImg.setAttribute('alt', productDetails.imgAlt);
     const productFigure = document.createElement('figure');
     productFigure.classList.add('cart-product-figure');
