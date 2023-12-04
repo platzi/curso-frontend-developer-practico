@@ -213,15 +213,6 @@
   .shopping-cart img{
     width: 16px;
     height: 16px;
-    background-color: var(--hospital-green);
-    border-radius: 50%;
-    display: flex;
-    justify-content: center;
-    align-items: center;
-  }
-  .shopping-cart img:hover{
-    width: 16px;
-    height: 16px;
     background-color: var(--light-red);
     border-radius: 50%;
     display: flex;
