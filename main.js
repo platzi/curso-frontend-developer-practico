@@ -112,6 +112,9 @@ const asideProductDetail = document.querySelector('.product-detail');
 //Productos 
 const productCardsContainer = document.querySelector('.cards-container');
 
+//Verifica si hay un event listener para el btnAddToCart del asideProductDetails
+let currentAddToCartListener = null; 
+let currentProductDetails = null; //Saber si el nuevo producto a añadir desde el aside es el mismo
 
 navBarEmail.addEventListener('click',() => {
     toggleVisibilityOf(navBarDesktopMenu);
@@ -219,6 +222,26 @@ function renderProductDetails(productDetails){
     priceOfProduct.innerText = formatPrice(productDetails.price);
     nameOfProduct.innerText = productDetails.name;
     descriptionOFProduct.innerText = productDetails.description;
+
+    // Botón de agregar al carrito
+    const addToCartBtn = asideProductDetail.querySelector('.add-to-cart-button');
+
+    // Creamos un nuevo event listener solo si no existe o si el producto ha cambiado
+    if (!currentAddToCartListener || currentProductDetails !== productDetails) {
+        // Si ya hay un event listener, lo removemos
+        if (currentAddToCartListener) {
+            addToCartBtn.removeEventListener('click', currentAddToCartListener);
+        }
+
+        // Actualizamos la referencia del producto actual
+        currentProductDetails = productDetails;
+
+        // Creamos un nuevo event listener
+        currentAddToCartListener = () => addProductToCart(currentProductDetails);
+
+        // Añadimos el nuevo event listener al botón
+        addToCartBtn.addEventListener('click', currentAddToCartListener);
+    }
 }
 
 function addProductToCart(productDetails){
@@ -228,6 +251,9 @@ function addProductToCart(productDetails){
         return; // Sal de la función si el precio no es válido
     }
 
+    //Creo los manejadores del carrito
+    const cartOrderContainer = asideShoppingCart.querySelector('.my-order-content');
+    const orderDiv = asideShoppingCart.querySelector('.order');
     //Div que contiene el numero de veces que un producto esta repetido en el carrito
     const numberOfSameProduct = document.createElement('div');
     if(isThisProductInTheCart(cartOrderContainer, productDetails)){
@@ -236,10 +262,6 @@ function addProductToCart(productDetails){
     } else {
         numberOfSameProduct.innerText = 1;
     }
-
-    //Creo los manejadores del carrito
-    const cartOrderContainer = asideShoppingCart.querySelector('.my-order-content');
-    const orderDiv = asideShoppingCart.querySelector('.order');
 
     //Genero el contenedor del producto
     const productCartContainer = document.createElement('div');
