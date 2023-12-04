@@ -43,4 +43,24 @@ function toggleCarro (){
     mobileMenu.classList.toggle('inactivo')
 }
 
+const listaProducto = []
+    listaProducto.push ({
+        nombre: 'Bike',
+        precio: 120,
+        imagen: 'https://images.pexels.com/photos/276517/pexels-photo-276517.jpeg?auto=compress&cs=tinysrgb&dpr=2&h=650&w=940',
+        });
+    listaProducto.push ({
+        nombre: 'Carro',
+        precio: 470,
+        imagen: './imagenes/carro.jpg',
+        });
+    listaProducto.push ({
+        nombre: 'Yate',
+        precio: 470,
+        imagen: './imagenes/yate.jpg',
+        });
+
+
+
+
 
