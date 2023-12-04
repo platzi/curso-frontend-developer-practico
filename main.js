@@ -52,12 +52,12 @@ const listaProducto = []
     listaProducto.push ({
         nombre: 'Carro',
         precio: 470,
-        imagen: './imagenes/carro.jpg',
+        imagen: './imagenes/carro.png',
         });
     listaProducto.push ({
         nombre: 'Yate',
         precio: 470,
-        imagen: './imagenes/yate.jpg',
+        imagen: './imagenes/yate.png',
         });
 
 
