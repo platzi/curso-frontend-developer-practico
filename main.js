@@ -4,6 +4,8 @@ const menuIcon = document.querySelector (".menu");
 const mobileMenu = document.querySelector (".mobile-menu");
 const menuCarro = document.querySelector (".navbar-shopping-cart");
 const aside = document.querySelector (".product-detail");
+const cardsContainer = document.querySelector(".cards-container");
+
 
 
 menuEmail.addEventListener('click', toggleMenu);
@@ -56,11 +58,55 @@ const listaProducto = []
         });
     listaProducto.push ({
         nombre: 'Yate',
-        precio: 470,
+        precio: 270,
+        imagen: './imagenes/yate.png',
+        });
+    listaProducto.push ({
+        nombre: 'Yate',
+        precio: 270,
         imagen: './imagenes/yate.png',
         });
 
+function rederProducts (arr){
+    for (product of arr){
+        const productCard = document.createElement('div');
+        productCard.classList.add('product-card');
+
+        const img = document.createElement('img');
+        img.setAttribute('src', product.imagen);
+
+        const productInfo = document.createElement('div');
+        productInfo.classList.add('product-info');
+
+        const productDiv = document.createElement('div');
+
+        const productPrecio = document.createElement('p');
+        productPrecio.innerText = '$' + product.precio;
+
+        const productNombre = document.createElement('p');
+        productNombre.innerText = product.nombre;
+
+        productDiv.appendChild(productPrecio);
+        productDiv.appendChild(productNombre);
 
 
+        const productFigure = document.createElement('figure');
+        
+        const productImgCart = document.createElement('img');
+        productImgCart.setAttribute('src', './icons/bt_add_to_cart.svg');
 
+        productFigure.appendChild(productImgCart);
+        
 
+        productInfo.appendChild(productDiv);
+        productInfo.appendChild(productFigure);
+
+        productCard.appendChild(img);
+        productCard.appendChild(productInfo);
+
+         cardsContainer.appendChild(productCard);   
+    }
+}
+
+rederProducts(listaProducto);
+        
