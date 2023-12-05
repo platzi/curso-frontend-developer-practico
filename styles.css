@@ -120,8 +120,9 @@ nav {
 
 .mobile-menu {
   position: absolute;
-  width: 360px;
+  width: 80%;
   padding: 24px;
+  left: 0px;
   top: 65px;
   margin: 8px;
   box-shadow: 4px 4px 4px 8px rgba(0, 0, 0, 0.2);
@@ -242,6 +243,7 @@ nav {
   display: grid;
   grid-template-columns: repeat(auto-fill, 240px);
   gap: 26px;
+  margin-top: 20px;
   place-content: center;
 }
 .product-card {
