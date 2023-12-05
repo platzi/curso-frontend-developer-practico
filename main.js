@@ -5,6 +5,7 @@ const mobileMenu= document.querySelector('.mobile-menu');
 const productDetail = document.querySelector('.product-detail');
 const shoppinCart = document.querySelector('.navbar-shopping-cart');
 const cardContainer = document.querySelector('.cards-container');
+const productDetail2 = document.querySelector('.product-detail2');
 
 
 menuEmail.addEventListener('click',toggleDesktopMenu);
