@@ -483,29 +483,29 @@ function sendMessage() {
     newMessage.classList.add("userMessage");
     newMessage.textContent = message;
 
-    //Add the message as a <p>
+    // Add the message as a <p>
     document.getElementById("chat-messages").appendChild(newMessage);
     // Clean the text area.
-    sendToServer(message, "user123Messages"); //username should be an identifier like User Guid or a JWToken.
+    sendToServer(message, "user1"); // username should be an identifier like User Guid or a JWToken.
     
     textArea.value = "";
-
   }
 }
 
 async function sendToServer(message, username) {
   try {
-    // Encode the data if sent through the URL
-    // const encodedMessage = encodeURIComponent(message);
-    // const encodedUsername = encodeURIComponent(username);
+    const url = `https://localhost:7274/insertData`;
 
-    const url = `https://localhost:7274/sendMessage`;
+    // Crear el objeto con los parámetros de la función
+    let content = {};
+    content[username] = [
+      {
+        "Messages": message, // Cambiado a "Messages" para coincidir con el servidor
+        "DateTime": new Date().toISOString() // Cambiado a "DateTime" para coincidir con el servidor
+      }
+    ];
 
-    const content = {
-      user: username,
-      message: message
-    };
-    
+    // Enviar el objeto al servidor
     let response = await fetch(url, {
       method: 'POST',
       body: JSON.stringify(content),
@@ -518,13 +518,11 @@ async function sendToServer(message, username) {
       throw new Error('Error sending the message to the server');
     }
 
-    // Process the server response
+    // Procesar la respuesta del servidor
     const data = await response.json();
-    // handle the server response
     console.log('Server response:', data);
   } catch (error) {
     console.error('Error:', error);
-    //handle the error 
   }
 }
 
@@ -541,6 +539,38 @@ function openForm() {
 function closeForm() {
   document.getElementById("myForm").style.display = "none";
 }
+
+async function getMessagesByUsername(username) {
+  try {
+    const url = `https://localhost:7274/getMessagesByUser/${username}`;
+
+    // Realizar la solicitud GET al servidor
+    let response = await fetch(url);
+
+    if (!response.ok) {
+      throw new Error(`Error fetching messages for user ${username}: ${response.statusText}`);
+    }
+
+    // Procesar la respuesta del servidor
+    const messages = await response.json();
+    console.log(`Messages for user ${username}:`, messages);
+  } catch (error) {
+    console.error('Error:', error);
+  }
+}
+
+// Modificar el elemento para solicitar datos por document onload?
+let chatButton = document.querySelector(".open-button");
+
+chatButton.addEventListener("click", (event) => {
+   // keyCode is deprecated.
+   getMessagesByUsername('user1');
+});
+
+
+
+
+
 // productList.push(
 //   {
 //     id: 0,
