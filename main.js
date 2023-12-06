@@ -1,15 +1,17 @@
 const menuEmail = document.querySelector(".navbar-email");
-const desktopmenu= document.querySelector(".desktop-menu")
+const desktopmenu = document.querySelector(".desktop-menu")
 const hamburgIcon = document.querySelector(".menu");
+const productDetailCloseIcon = document.querySelector(".product-detail-secundary-close")
 const menuCarritoIcon = document.querySelector(".navbar-shopping-cart");
 const aside = document.querySelector(".product-detail")
 const mobileMenu= document.querySelector(".mobile-menu")
 const cardsContainer = document.querySelector(".cards-container")
+const productDetailSecundary = document.querySelector(".product-detail-secundary")
 
 menuEmail.addEventListener("click", toggleDesktopmenu);
 hamburgIcon.addEventListener("click", toggleMobileMenu);
 menuCarritoIcon.addEventListener("click", toggleCarritoAside);
-
+productDetailCloseIcon.addEventListener("click", closeProuctDetailSecundary)
 function toggleDesktopmenu(){
     const isAsideClosed = aside.classList.contains('inactive')
     if(!isAsideClosed){ 
@@ -26,18 +28,25 @@ if(!isAsideClosed){ //tiene la misma que aside
    
     aside.classList.add('inactive')
 }
+closeProuctDetailSecundary();
+
 mobileMenu.classList.toggle('inactive')
 
 }
 function toggleCarritoAside (){
     const isMobileMenuClosed = mobileMenu.classList.contains('inactive')
     //const isAsideClosed = aside.classList.contains('inactive')* se quita esta variable tmbn
-
 if(!isMobileMenuClosed){
     //si mobile menu esta open hay que cerrarlo
     mobileMenu.classList.add('inactive')
 }
 aside.classList.toggle('inactive')
+
+const isProductDetailSecundaryclose = productDetailSecundary.classList.contains('inactive')
+if(!isProductDetailSecundaryclose){
+    productDetailSecundary.classList.add('inactive')
+}
+
 
 // ya no hacemos nada de este y agregamosn el toogle con un else 
 // if (!isAsideClosed){
@@ -46,8 +55,15 @@ aside.classList.toggle('inactive')
 //     aside.classList.add('inactive')
 // }
 // if (mobileMenu.classList.contains('inactive'))
-
-  }
+}
+function openProductDetailSecundary(){
+    aside.classList.add('inactive')
+    productDetailSecundary.classList.remove('inactive')
+}
+function closeProuctDetailSecundary(){
+  
+    productDetailSecundary.classList.add('inactive')
+}
 
 const productList = [];
 productList.push({
@@ -65,13 +81,15 @@ productList.push({
      price:80,
      image:"https://images.pexels.com/photos/276517/pexels-photo-276517.jpeg?auto=compress&cs=tinysrgb&dpr=2&h=650&w=940",
  });
-
+ 
  for (product of productList){
     const productCard = document.createElement('div');
     productCard.classList.add('product-card');
-    
+    // product={name,price,image} product image
+
     const productImg = document.createElement('img');
     productImg.setAttribute('src', product.image);
+    productImg.addEventListener('click', openProductDetailSecundary )
 
     const productInfo = document.createElement('div');
     productInfo.classList.add('product-info')
@@ -82,6 +100,7 @@ productList.push({
     productPrice.innerText = '$' + product.price
     const productName  = document.createElement('p');
     productName.innerText = product.name
+
 
     productInfDiv.appendChild(productPrice);
     productInfDiv.appendChild(productName);
@@ -100,4 +119,5 @@ productList.push({
 
     cardsContainer.appendChild(productCard);
 
- }
+ 
+}
