@@ -6,20 +6,25 @@ const productDetail = document.querySelector('.product-detail');
 const shoppinCart = document.querySelector('.navbar-shopping-cart');
 const cardContainer = document.querySelector('.cards-container');
 const productDetail2 = document.querySelector('.product-detail2');
+const productDetailContainer = document.querySelector('.product-detail2');
+const productDetailCloseIcon= document.querySelector('.product-detail-close2');
 
 
 menuEmail.addEventListener('click',toggleDesktopMenu);
 mobileHam.addEventListener('click',toggleMobilepMenu);
 shoppinCart.addEventListener('click',toggleCarrito);
+productDetailCloseIcon.addEventListener('click',closeProductDetailAside);
 
 function toggleDesktopMenu(){    
+    console.log("2");
  var isMenuCarritoOpen= !productDetail.classList.contains('inactive');
 
  if(isMenuCarritoOpen){
-    productDetail.classList.add('inactive');
+    productDetail.classList.add('inactive');  
+     
 }
-
-    desktopmenu.classList.toggle('inactive');   
+    desktopmenu.classList.toggle('inactive');  
+    closeProductDetailAside()
 }
 
 function toggleMobilepMenu(){
@@ -27,20 +32,38 @@ var isMenuCarritoOpen = !productDetail.classList.contains('inactive');
 
 if (isMenuCarritoOpen){
     productDetail.classList.add('inactive');
+    productDetail2.classList.add('inactive');
+       
 }
-    mobileMenu.classList.toggle('inactive');   
+    mobileMenu.classList.toggle('inactive');       
+    closeProductDetailAside();
 }
 
 function toggleCarrito() {
+   
     var isMenuMobileOpen=!mobileMenu.classList.contains('inactive');
 
     if(isMenuMobileOpen){
         mobileMenu.classList.add('inactive');
+        closeProductDetailAside();
     }
-    productDetail.classList.toggle('inactive')
+    productDetail.classList.toggle('inactive');
+    closeProductDetailAside();
+    desktopmenu.classList.add('inactive'); 
 }
 
+ function openProductDetailAside(){
+       
+   productDetailContainer.classList.remove('inactive');
+   mobileMenu.classList.add('inactive');
+   productDetail.classList.add('inactive');
+   desktopmenu.classList.add('inactive'); 
 
+}
+
+ function closeProductDetailAside(){
+     productDetailContainer.classList.add('inactive');
+ }
 
 const productList = [];
 productList.push({
@@ -90,21 +113,6 @@ productList.push({
     image:  'https://herramientasdee.com/wp-content/uploads/2019/01/cepilladora-para-alizar-y-cortar-madera.jpg'
 });
 
-
-
-/*<div class="product-card">
-<img src="https://images.pexels.com/photos/276517/pexels-photo-276517.jpeg?auto=compress&cs=tinysrgb&dpr=2&h=650&w=940" alt="">
-<div class="product-info">
-  <div>
-    <p>$120,00</p>
-    <p>Bike</p>
-  </div>
-  <figure>
-    <img src="./icons/bt_add_to_cart.svg" alt="">
-  </figure>
-</div>
-</div>     */
-
 function renderProducts(arr){
     for(product of arr){
     const productCard=document.createElement('div');
@@ -112,6 +120,7 @@ function renderProducts(arr){
 
     const productImg = document.createElement('img');
     productImg.setAttribute('src',product.image);
+    productImg.addEventListener('click',openProductDetailAside);
 
     const productInfo= document.createElement('div');
     productInfo.classList.add('product-info');
