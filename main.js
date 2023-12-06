@@ -426,7 +426,7 @@ function addToCart(productIndex) {
     shoppingCartDiv.appendChild(quantity);
 
     const price = document.createElement("p");
-    price.textContent = "$"+product.price;
+    price.textContent = "$" + product.price;
     shoppingCartDiv.appendChild(price);
 
     // Crear el elemento img para el botón de cerrar
@@ -472,6 +472,75 @@ function addToCart(productIndex) {
 
 
 
+////////////////// CHAT CODE /////////////////////
+let textArea = document.getElementById("user-msg");
+
+function sendMessage() {
+  let message = textArea.value.trim();
+
+  if (message !== '') {
+    let newMessage = document.createElement("p");
+    newMessage.classList.add("userMessage");
+    newMessage.textContent = message;
+
+    //Add the message as a <p>
+    document.getElementById("chat-messages").appendChild(newMessage);
+    // Clean the text area.
+    sendToServer(message, "user123Messages"); //username should be an identifier like User Guid or a JWToken.
+    
+    textArea.value = "";
+
+  }
+}
+
+async function sendToServer(message, username) {
+  try {
+    // Encode the data if sent through the URL
+    // const encodedMessage = encodeURIComponent(message);
+    // const encodedUsername = encodeURIComponent(username);
+
+    const url = `https://localhost:7274/sendMessage`;
+
+    const content = {
+      user: username,
+      message: message
+    };
+    
+    let response = await fetch(url, {
+      method: 'POST',
+      body: JSON.stringify(content),
+      headers: {
+        'Content-Type': 'application/json'
+      }
+    });
+
+    if (!response.ok) {
+      throw new Error('Error sending the message to the server');
+    }
+
+    // Process the server response
+    const data = await response.json();
+    // handle the server response
+    console.log('Server response:', data);
+  } catch (error) {
+    console.error('Error:', error);
+    //handle the error 
+  }
+}
+
+textArea.addEventListener("keyup", (event) => {
+  if (event.key === 'Enter') { // keyCode is deprecated.
+    sendMessage();
+  }
+});
+
+function openForm() {
+  document.getElementById("myForm").style.display = "block";
+}
+
+function closeForm() {
+  document.getElementById("myForm").style.display = "none";
+}
 // productList.push(
 //   {
 //     id: 0,

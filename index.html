@@ -204,6 +204,21 @@
 		</aside>
 	</div>
 -->
+
+<button class="open-button" onclick="openForm()">Chat</button>
+
+<div class="chat-popup" id="myForm">
+    <form action="#" class="form-container" onsubmit="sendMessage()">
+        <h3>Chat with us</h3>
+        <div id="chat-messages"></div>
+        <textarea id="user-msg" placeholder="Type message.." name="msg" required></textarea>
+        <button type="submit" class="btn">Send</button>
+        <button type="button" class="btn cancel" onclick="closeForm()">Close</button>
+    </form>
+</div>
+<!--Source: https://codepen.io/tofjadesign/pen/dyKxYQz-->
+
 </body>
 <script type="text/javascript" src="./main.js"></script>
+
 </html>

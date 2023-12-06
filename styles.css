@@ -272,8 +272,9 @@ nav {
   border-radius: 20px;
   object-fit: cover;
 }
+
 /*Special selector for the last child with an specific tag.*/
-.shopping-cart > img:last-child:hover {
+.shopping-cart>img:last-child:hover {
   transform: scale(1.05);
   box-shadow: 0 0 7px 4px rgba(243, 136, 136, 0.7);
   border-radius: 15px;
@@ -387,21 +388,26 @@ nav {
   background-color: #fff;
   border-radius: 20px;
 
- /* Max height depending on needs */
+  /* Max height depending on needs */
   overflow-y: auto;
-  
+
 }
+
 .product-modal::-webkit-scrollbar {
-  width: 4px; /*scrollbar width */
+  width: 4px;
+  /*scrollbar width */
 }
 
 .product-modal::-webkit-scrollbar-track {
-  background: transparent; /* background scrollbar color */
+  background: transparent;
+  /* background scrollbar color */
 }
 
 .product-modal::-webkit-scrollbar-thumb {
-  background: #888; /*  */
-  border-radius: 4px; /* corner radius */
+  background: #888;
+  /*  */
+  border-radius: 4px;
+  /* corner radius */
 }
 
 .product-modal.active {
@@ -478,6 +484,92 @@ nav {
   margin-bottom: 20px;
 }
 
+/************CHAT STYLES**************/
+
+/* Button used to open the chat form - fixed at the bottom of the page */
+.open-button {
+  padding: 10px 40px;
+  background-color: var(--hospital-green);
+  color: white;
+  font-size: 17px;
+  max-width: 300px;
+  border-radius: 20px;
+  border: none;
+  cursor: pointer;
+  position: fixed;
+  bottom: 23px;
+  right: 28px;
+}
+
+/* The popup chat - hidden by default */
+.chat-popup {
+  display: none;
+  position: fixed;
+  bottom: 0;
+  right: 15px;
+  z-index: 9;
+}
+.userMessage {
+  text-align: right;
+  /*To avoid overflow*/
+  word-wrap: break-word; 
+}
+/* Add styles to the form container */
+.form-container {
+  max-width: 300px;
+  padding: 10px;
+  border-radius: 20px;
+  background-color: white;
+  color: #777;
+  border: 2px solid var(--hospital-green);
+}
+
+/* Full-width textarea */
+.form-container textarea {
+  /*Apply before anything with "*"? */
+  box-sizing: border-box;
+  width: 100%;
+  padding: 15px;
+  margin: 5px 0 22px 0;
+  border: none;
+  border-radius: 20px;
+  background: #ddd;
+  resize: none;
+  min-height: 80px;
+  color: #777;
+}
+
+/* When the textarea gets focus, do something */
+.form-container textarea:focus {
+  background-color: #ddd;
+  outline: none;
+}
+
+/* Set a style for the submit/send button */
+.form-container .btn {
+  background-color: var(--hospital-green);
+  color: white;
+  font-size: 17px;
+  padding: 10px 20px;
+  border: none;
+  border-radius: 20px;
+  cursor: pointer;
+  width: 100%;
+  margin-bottom: 10px;
+}
+
+/* Add a red background color to the cancel button */
+.form-container .cancel {
+  background-color: #7ca7d1;
+}
+
+/* Add some hover effects to buttons */
+.form-container .btn:hover,
+.open-button:hover {
+  color: black;
+  font-weight: bold;
+  opacity: 0.8;
+}
 
 @media (max-width: 770px) {
   .menu {
@@ -537,8 +629,9 @@ nav {
     width: 100%;
     height: 100%;
     margin-top: 60px;
-    
+
   }
+
   .product-modal>img:nth-child(2) {
     width: 100%;
     height: 400px;
@@ -550,7 +643,7 @@ nav {
     width: 127px;
     height: 64px;
   }
- 
+
 }
 
 @media (min-width: 771px) {
