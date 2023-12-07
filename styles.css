@@ -277,6 +277,7 @@ nav {
 
 /* Producto seleccionado */
 .product-detail-selector {
+    background-color: var(--white);
     width: 360px;
     padding-bottom: 24px;
     position: absolute;
@@ -370,7 +371,7 @@ nav {
     }
 
     /* Producto seleccionado */
-    .product-detail {
+    .product-detail-selector {
         width: 100%;
     }
 }
