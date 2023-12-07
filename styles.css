@@ -509,10 +509,27 @@ nav {
   right: 15px;
   z-index: 9;
 }
+.userMessage, .responseMessage {
+  /* inline-block is key to make sure elements are displayed one afte the other vertically and enables the use of padding, margin...*/
+  display: inline-block; 
+  word-wrap: break-word; /*To avoid overflow*/
+  padding: 5px;
+  border-radius: 7px;
+  margin: 5px 0;
+}
+
 .userMessage {
   text-align: right;
-  /*To avoid overflow*/
-  word-wrap: break-word; 
+  background-color: var(--hospital-green);
+    float: right; /* Align properly to the right */
+    clear: both; /* Needed */
+}
+
+.responseMessage {
+  text-align: left;
+  background-color: paleturquoise;
+  float: left; /* Align propely to the left */
+  clear: both; /* Needed */
 }
 /* Add styles to the form container */
 .form-container {

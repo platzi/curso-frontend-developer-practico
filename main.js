@@ -50,11 +50,13 @@ async function fetchData() {
   }
 }
 
-// Card creation function.
-function createProductCards(productList) {
-  const container = document.getElementById("container"); // El contenedor principal que rodea a los elementos generados
+fetchData();
 
-  //CARD CREATOR
+///////////// Card creation function. //////////////////
+function createProductCards(productList) {
+  // Main container to enclose the rest of elements, CHECK
+  const container = document.getElementById("container");
+
   for (product of productList) {
     const cardsContainer = document.querySelector(".cards-container");
 
@@ -84,7 +86,6 @@ function createProductCards(productList) {
     productIconImg.setAttribute("onclick", "addToCart(" + product.id + ")");
     productIconImg.setAttribute("alt", "Cart Icon");
 
-    //
     productData.append(productDataChild, productIconFigure);
     productDataChild.append(productPrice, productName);
     productIconFigure.append(productIconImg);
@@ -98,7 +99,7 @@ function createProductCards(productList) {
   }
 }
 
-/////////////MODAL CREATOR//////////////
+/////////////PRODUCT MODALS CREATOR//////////////
 function createProductModals(productList) {
 
   const body = document.body;
@@ -177,10 +178,6 @@ function createProductModals(productList) {
 
 }
 
-// Llama a la función para cargar los datos y crear las cards
-fetchData();
-
-
 
 ////////EMAIL MENU///////
 let desktopMenu = document.querySelector(".desktop-menu");
@@ -201,6 +198,8 @@ function hideMenu() {
   }
 }
 
+
+//not showing the desktop-menu if the size of the display is mobile
 //screenSize check alternatives-> window.innerWidth // window.matchMedia("(max-width: 770px)").matches //  $(window).width()
 function screenSize() {
   if (document.documentElement.clientWidth < 770) {
@@ -231,7 +230,6 @@ menu in mobile version when it shouldn't, because cart icon is intended to open 
 
 
 ////////MOBILE MENU DISPLAY////////
-
 const iconMenu = document.querySelector(".menu");
 const mobileMenu = document.querySelector(".mobile-menu");
 
@@ -253,10 +251,8 @@ document.addEventListener("click", handleDocumentClick);
 
 
 ////////CART ICON////////
-
 let shoppingCartIcon = document.querySelector(".navbar-shopping-cart");
 let shoppingCartMenu = document.querySelector(".product-detail");
-
 
 function showShoppingMenu() {
   shoppingCartMenu.classList.toggle("inactive");
@@ -291,7 +287,6 @@ function handleDocumentClick(event) {
 
 shoppingCartIcon.addEventListener("click", showShoppingMenu);
 document.addEventListener("click", handleDocumentClick);
-
 
 ///////////HIDING AND SHOWING PRODUCT-CARDS BY CATEGORY///////////
 const allButton = document.querySelector("#all");
@@ -340,16 +335,14 @@ otherButton.addEventListener("click", () => {
   showProductsByCategory("other");
 });
 
-
-
 ///////////HIDING AND SHOWING PRODUCT-CARDS BY CATEGORY///////////
 const allButtonMobile = document.querySelector("#all-mobile");
 const skateButtonMobile = document.querySelector("#skate-mobile");
 const surfskateButtonMobile = document.querySelector("#surfskate-mobile");
 const rollerButtonMobile = document.querySelector("#roller-mobile");
 const otherButtonMobile = document.querySelector("#other-mobile");
-//Once category clicked, mobile menu hides.
 
+//Once category clicked, mobile menu hides.
 allButtonMobile.addEventListener("click", () => {
   showProductsByCategory("all");
   mobileMenu.classList.add("inactive");
@@ -394,9 +387,9 @@ function addToCart(productIndex) {
   if (cartItems.hasOwnProperty(product.name)) {
 
     cartItems[product.name]++;
-    // Obtener el elemento del producto en el carrito
+    // Get element in the cart
     existingCartItem = document.querySelector(`.shopping-cart[data-product="${product.name}"]`);
-    // Actualizar la cantidad en el elemento existente
+    // Update amount of existing product
     const quantityElement = existingCartItem.querySelector('.quantity');
     quantityElement.textContent = `x${cartItems[product.name]}`;
     //Cart icon count on the top right of the web, showing how many products have been added.
@@ -429,7 +422,7 @@ function addToCart(productIndex) {
     price.textContent = "$" + product.price;
     shoppingCartDiv.appendChild(price);
 
-    // Crear el elemento img para el botón de cerrar
+    // IMG element to "close"
     const closeButton = document.createElement("img");
     closeButton.setAttribute("id", product.name);
     closeButton.src = "./icons/icon_close.png";
@@ -458,7 +451,7 @@ function addToCart(productIndex) {
     ////////IMPORTANT: insertBefore useful to add new html blocks or nodes before an already existing element.
     myOrderContent.insertBefore(shoppingCartDiv, myOrderContent.firstChild);
 
-    // Agregar el producto al objeto cartItems con cantidad 1
+    // Add products to the cartItems object with the number 1
     cartItems[product.name] = 1;
 
     count += 1;
@@ -470,10 +463,10 @@ function addToCart(productIndex) {
   totalPriceElement.textContent = "$" + totalPrice.toFixed(2);
 }
 
-
-
 ////////////////// CHAT CODE /////////////////////
 let textArea = document.getElementById("user-msg");
+// Change for document onload?
+let chatButton = document.querySelector(".open-button");
 
 function sendMessage() {
   let message = textArea.value.trim();
@@ -487,7 +480,7 @@ function sendMessage() {
     document.getElementById("chat-messages").appendChild(newMessage);
     // Clean the text area.
     sendToServer(message, "user1"); // username should be an identifier like User Guid or a JWToken.
-    
+
     textArea.value = "";
   }
 }
@@ -496,16 +489,16 @@ async function sendToServer(message, username) {
   try {
     const url = `https://localhost:7274/insertData`;
 
-    // Crear el objeto con los parámetros de la función
+    // Object to be sent
     let content = {};
     content[username] = [
       {
-        "Messages": message, // Cambiado a "Messages" para coincidir con el servidor
-        "DateTime": new Date().toISOString() // Cambiado a "DateTime" para coincidir con el servidor
+        "Messages": message, // Messages to match the server name
+        "DateTime": new Date().toISOString() //DateTime to match server name
       }
     ];
 
-    // Enviar el objeto al servidor
+    // Send
     let response = await fetch(url, {
       method: 'POST',
       body: JSON.stringify(content),
@@ -518,9 +511,43 @@ async function sendToServer(message, username) {
       throw new Error('Error sending the message to the server');
     }
 
-    // Procesar la respuesta del servidor
     const data = await response.json();
+    if (data !== '') {
+      let newMessage = document.createElement("p");
+      newMessage.classList.add("responseMessage");
+      newMessage.textContent = data.message;
+  
+      // Add the message as a <p>
+      document.getElementById("chat-messages").appendChild(newMessage);
+    }
     console.log('Server response:', data);
+  } catch (error) {
+    console.error('Error:', error);
+  }
+}
+
+
+function openForm() {
+  document.getElementById("myForm").style.display = "block";
+}
+
+function closeForm() {
+  document.getElementById("myForm").style.display = "none";
+}
+
+//To get the messages by user in the json 
+async function getMessagesByUsername(username) {
+  try {
+    const url = `https://localhost:7274/getMessagesByUser/${username}`;
+
+    let response = await fetch(url);
+
+    if (!response.ok) {
+      throw new Error(`Error fetching messages for user ${username}: ${response.statusText}`);
+    }
+
+    const messages = await response.json();
+    console.log(`Messages for user ${username}:`, messages);
   } catch (error) {
     console.error('Error:', error);
   }
@@ -532,40 +559,12 @@ textArea.addEventListener("keyup", (event) => {
   }
 });
 
-function openForm() {
-  document.getElementById("myForm").style.display = "block";
-}
-
-function closeForm() {
-  document.getElementById("myForm").style.display = "none";
-}
-
-async function getMessagesByUsername(username) {
-  try {
-    const url = `https://localhost:7274/getMessagesByUser/${username}`;
-
-    // Realizar la solicitud GET al servidor
-    let response = await fetch(url);
-
-    if (!response.ok) {
-      throw new Error(`Error fetching messages for user ${username}: ${response.statusText}`);
-    }
-
-    // Procesar la respuesta del servidor
-    const messages = await response.json();
-    console.log(`Messages for user ${username}:`, messages);
-  } catch (error) {
-    console.error('Error:', error);
-  }
-}
-
-// Modificar el elemento para solicitar datos por document onload?
-let chatButton = document.querySelector(".open-button");
-
-chatButton.addEventListener("click", (event) => {
-   // keyCode is deprecated.
-   getMessagesByUsername('user1');
+chatButton.addEventListener("click", () => {
+  // keyCode is deprecated.
+  getMessagesByUsername('user1');
 });
+
+
 
 
 
