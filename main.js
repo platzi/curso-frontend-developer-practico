@@ -1,43 +1,63 @@
 const menuEmail = document.querySelector('.navbar-email');
 const menuHamIcon = document.querySelector('.menu');
 const menuCarritoIcon = document.querySelector('.navbar-shopping-cart');
+const ProductDetailCloseIcon = document.querySelector('.product-detail-close');
 const desktopMenu = document.querySelector('.desktop-menu');
 const mobileMenu = document.querySelector('.mobile-menu');
-const aside = document.querySelector('.product-detail');
+const shoppingCartContainer = document.querySelector('#shoppingCartContainer');
+const ProductDetailContainer = document.querySelector('#productDetail');
 const cardsContainer = document.querySelector('.cards-container');
 
 menuEmail.addEventListener('click', toggleDesktopMenu);
 menuHamIcon.addEventListener('click', toggleMobileMenu);
 menuCarritoIcon.addEventListener('click', toggleCarritoAside);
+ProductDetailCloseIcon.addEventListener('click', closeProductDetailAside);
 
 function toggleDesktopMenu() {
-  const isAsideClosed = aside.classList.contains('inactive');
+  const isAsideClosed = shoppingCartContainer.classList.contains('inactive');
 
   if (!isAsideClosed) {
-    aside.classList.add('inactive');
+    shoppingCartContainer.classList.add('inactive');
   }
   
   desktopMenu.classList.toggle('inactive');
 }
 
 function toggleMobileMenu() {      //si esta abierto el menu se ciera el carrito y al revez
-
-  const isAsideClosed = aside.classList.contains('inactive');
+  const isAsideClosed = shoppingCartContainer.classList.contains('inactive');
 
   if (!isAsideClosed) {
-    aside.classList.add('inactive'); 
+    shoppingCartContainer.classList.add('inactive'); 
   }
-  
+
+  closeProductDetailAside();
+
   mobileMenu.classList.toggle('inactive');
 }
+
 function toggleCarritoAside() {
   const isMobileMenuClosed = mobileMenu.classList.contains('inactive');
   
   if (!isMobileMenuClosed) {
     mobileMenu.classList.add('inactive'); 
   }
+
+  const isProductDetailClosed = ProductDetailContainer.classList.contains('inactive');
+ 
+  if (!isProductDetailClosed) {
+    ProductDetailContainer.classList.add('inactive'); 
+  }
   
-  aside.classList.toggle('inactive');
+  shoppingCartContainer.classList.toggle('inactive');
+}
+
+function openProductDetailAside(){
+  shoppingCartContainer.classList.add('inactive');
+  ProductDetailContainer.classList.remove('inactive')
+}
+
+function closeProductDetailAside(){
+  ProductDetailContainer.classList.add('inactive')
 }
 
 const productList = [];
@@ -58,17 +78,17 @@ productList.push({
 });
 productList.push({
   name: 'Audifonos Gamer',
-  price: 120,
+  price: 50,
   Image: 'https://queimpresion3d.mx/wp-content/uploads/2021/10/Soporte-para-audifonos-Fortnite-Gamer-2.jpg',
 });
 productList.push({
   name: 'Consola PS5',
-  price: 220,
+  price: 200,
   Image: 'https://cdn.computerhoy.com/sites/navi.axelspringer.es/public/media/image/2023/04/ps5-3011390.jpg',
 });
 productList.push({
   name: 'Gafas Realidad Virtual',
-  price: 620,
+  price: 300,
   Image: 'https://cloudfront-us-east-1.images.arcpublishing.com/metroworldnews/EXF2DD2CQZH2XOYGQFYIZICPSE.jpg',
 });
 
@@ -80,6 +100,7 @@ function renderProducts(arr){
     //produc= {name, price, image} - produc.image
     const productImg = document.createElement('img');
     productImg.setAttribute('src', product.Image);
+    productImg.addEventListener('click', openProductDetailAside);
 
     const productInfo = document.createElement('div');
     productInfo.classList.add('product-info');
