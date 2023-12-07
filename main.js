@@ -28,6 +28,8 @@ function toggleMobile (){
     if( !isAsideClosed){
         shoppingCart.classList.add('inactivo')
     }
+
+    closedProductaside ();
     mobileMenu.classList.toggle('inactivo');
 
 }
@@ -88,7 +90,7 @@ function rederProducts (arr){
 
         const img = document.createElement('img');
         img.setAttribute('src', product.imagen);
-        img.addEventListener('click', openProductDetailAside);
+        img.addEventListener('click', openProductDetailAside,);
 
         const productInfo = document.createElement('div');
         productInfo.classList.add('product-info');
