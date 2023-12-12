@@ -29,11 +29,12 @@ function toggleShoppingCart() {
   productDetailContainer.classList.toggle("inactive");
 }
 
-//this part is for the products cards
+//this part is for the products cards and the script that will generate new elements for them
 
 const productList = [];
 const productsContainer = document.querySelector(".cards-container");
 
+//here i'm hard-coding the new products, obviously the products should come from a database, but for now, this will be the entry of data
 productList.push({
   name: "Samsung galaxy S7",
   price: "$300",
@@ -81,6 +82,7 @@ function productCreator() {
     let figure = document.createElement('figure');
     let shoppingCartImg = document.createElement('img');
     shoppingCartImg.setAttribute('src', './icons/bt_add_to_cart.svg');
+    shoppingCartImg.className = 'btn-add-to-cart';
     figure.appendChild(shoppingCartImg);
 
     secondDiv.appendChild(figure);
@@ -92,3 +94,13 @@ function productCreator() {
 }
 
 productCreator();
+
+//this section is for the script that will change the icon of the add-to-cart
+let addToCart = document.querySelector(".btn-add-to-cart");
+//Here, I'm changing the icon of the add to cart, to the 'added to cart icon' when an user clicks on the icon.
+addToCart.addEventListener('click', aux)
+
+function aux(){
+  console.log('im being clickeddd');
+  addToCart.setAttribute("src", './icons/bt_added_to_cart.svg');
+}

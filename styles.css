@@ -280,6 +280,9 @@ nav {
   margin-bottom: 0;
   color: var(--very-light-pink);
 }
+.btn-add-to-cart{
+  cursor: pointer;
+}
 
 @media (max-width: 800px) {
   .menu {
