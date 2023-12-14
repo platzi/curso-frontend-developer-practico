@@ -7,10 +7,11 @@ const aside = document.querySelector('.product-detail');
 const cardProduct = document.querySelector('.cards-container');
 const productDetail = document.querySelector('.product-detail-secondary');
 const closeIcon = document.querySelector('.product-detail-secondary-close');
+const orderCart = document.querySelector('.product');
 
 emailNav.addEventListener('click', togglesDesktopMenu);
 menuIcon.addEventListener('click', togglesMobileMenu);
-carroIcon.addEventListener('click', togglesCarritoAside);
+carroIcon.addEventListener('click', openCarritoAside);
 closeIcon.addEventListener('click', closeDetail);
 
 function togglesDesktopMenu() {
@@ -41,30 +42,54 @@ function togglesMobileMenu() {
     menuMobile.classList.toggle('inactive');
 }
 
-function togglesCarritoAside() {
-    //esta cerrado = inactive esta en la clase
+function openCarritoAside() {
+    // esta cerrado = inactive esta en la clase
     const ismenuMobileClosed = menuMobile.classList.contains('inactive');
     const isDeskmenuClosed = deskNav.classList.contains('inactive');
     const isProductDetailClosed = productDetail.classList.contains('inactive');
-    
-    //si menu mobile no esta cerrado (esta abierto) lo cierra agregando la clase inactive
-    if(!ismenuMobileClosed) {
+
+    // si menu mobile no esta cerrado (esta abierto) lo cierra agregando la clase inactive
+    if (!ismenuMobileClosed) {
         menuMobile.classList.add('inactive');
-    } else if(!isDeskmenuClosed) {
+    } else if (!isDeskmenuClosed) {
         deskNav.classList.add('inactive')
-    } else if(!isProductDetailClosed) {
+    } else if (!isProductDetailClosed) {
         productDetail.classList.add('inactive')
     }
 
     aside.classList.toggle('inactive');
 }
 
+function addToCarrito(productName) {
+    // Busca el producto en productList según el nombre
+    const product = getProductByName(productName);
+
+    // Verifica si el producto ya está en el carrito
+    const existingProduct = carritoProductos.find(p => p.name === product.name);
+
+    if (existingProduct) {
+        // Si ya está en el carrito, incrementa la cantidad
+        existingProduct.cantidad += 1;
+    } else {
+        // Si no está en el carrito, agrégalo con cantidad 1
+        carritoProductos.push({ name: product.name, precio: product.precio, cantidad: 1 });
+    }
+
+    // Actualiza el carrito
+    productCart(product);
+    console.log(carritoProductos);
+}
+
 function openDetail(productName) {
-    const product = getProductByName(productName); // Obtener el producto según el nombre
-    createProductDetail(product); // Crear la vista detallada del producto
     aside.classList.add('inactive');
     deskNav.classList.add('inactive');
     productDetail.classList.remove('inactive');
+
+    // Busca el producto en productList según el nombre
+    const product = getProductByName(productName);
+
+    // Actualiza el carrito
+    createProductDetail(product);
 }
 
 function closeDetail() {
@@ -100,8 +125,6 @@ productList.push({
 });
 
 for (product of productList) {
-    console.log(product.name); // Agrega este log para verificar si se está capturando el nombre correctamente
-
     const productCard = document.createElement('div');
     productCard.classList.add('product-card');
 
@@ -111,7 +134,6 @@ for (product of productList) {
     // Utiliza una función intermedia para capturar el valor correcto de product.name
     const clickHandler = (productName) => {
         return function() {
-            console.log(productName); // Agrega este log para verificar si se está pasando correctamente al evento click
             openDetail(productName);
         };
     };
@@ -135,6 +157,17 @@ for (product of productList) {
     const productInfoFig = document.createElement('figure');
     const productIcon = document.createElement('img');
     productIcon.setAttribute('src', "/icons/bt_add_to_cart.svg");
+    const clickHandler1 = (productName) => {
+        return function() {
+            if (product) {
+                addToCarrito(productName);
+            } else {
+                console.error('El producto no se encontró.');
+            }
+        };
+    };
+
+    productIcon.addEventListener('click', clickHandler1(product.name));
 
     productInfoFig.appendChild(productIcon);
 
@@ -147,53 +180,6 @@ for (product of productList) {
     cardProduct.appendChild(productCard);
 }
 
-
-// for()
-// {
-//     const detailImg = document.createElement('div');
-//     detailImg.classList.add('product-detail-secondary-close');
-
-//     const productIconClosed = document.createElement('img');
-//     productIconClosed.setAttribute('src', '/icons/icon_close.png');
-
-//     const productImg = document.createElement('img');
-//     productImg.setAttribute('src', product.imag);
-
-//     const detailText = document.createElement('div');
-//     detailText.classList.add('product-info-secondary');
-
-//     const priceText = document.createElement('p');
-//     priceText.innerText = '$' + product.precio;
-
-//     const nametext = document.createElement('p');
-//     nametext.innerText = product.name;
-
-//     const descriptiontext = document.createElement('p');
-//     descriptiontext.innerText = product.descripcion;
-
-//     const buttonCart = document.createElement('button');
-//     buttonCart.classList.add('primary-button-secondary', 'add-to-cart-button');
-
-//     const addCart = document.createElement('img');
-//     addCart.setAttribute('src', "/icons/bt_add_to_cart.svg");
-
-//     const buttonText = document.createTextNode('Add to cart');
-
-//     buttonCart.appendChild(buttonText);
-//     buttonCart.appendChild(addCart);
-
-//     detailText.appendChild(priceText);
-//     detailText.appendChild(nametext);
-//     detailText.appendChild(descriptiontext);
-//     detailText.appendChild(buttonCart);
-
-//     detailImg.appendChild(productIconClosed);
-    
-//     productDetail.appendChild(detailText);
-//     productDetail.appendChild(productImg);
-//     productDetail.appendChild(detailImg);
-// }
-
 function createProductDetail(product) {
     const productDetail = document.querySelector('.product-detail-secondary');
     productDetail.innerHTML = ''; // Limpiar el contenido existente
@@ -202,7 +188,7 @@ function createProductDetail(product) {
     detailImg.classList.add('product-detail-secondary-close');
     const productIconClosed = document.createElement('img');
     productIconClosed.setAttribute('src', '/icons/icon_close.png');
-    productIconClosed.addEventListener('click', closeDetail);
+    detailImg.addEventListener('click', closeDetail);
     detailImg.appendChild(productIconClosed);
 
     const productImg = document.createElement('img');
@@ -225,6 +211,14 @@ function createProductDetail(product) {
 
     const addCart = document.createElement('img');
     addCart.setAttribute('src', '/icons/bt_add_to_cart.svg');
+    addCart.addEventListener('click', function() {
+        const product = getProductByName('Xbox');
+        if (product) {
+            addToCarrito(product.name);
+        } else {
+            console.error('El producto no se encontró.');
+        }
+    });
 
     const buttonText = document.createTextNode('Add to cart');
 
@@ -250,4 +244,32 @@ function getProductByName(productName) {
         }
     }
     return null; // Devuelve null si no se encuentra el producto
+}
+
+const carritoProductos = [];
+
+function productCart(product) {
+    const productDiv = document.createElement('div');
+    productDiv.classList.add('shopping-cart');
+
+    const productImgFig = document.createElement('figure');
+    const productImg = document.createElement('img');
+    productImg.setAttribute('src', product.imag);
+    productImgFig.appendChild(productImg);
+
+    const productName = document.createElement('p');
+    productName.innerText = product.name;
+
+    const productPrice = document.createElement('p');
+    productPrice.innerText = '$' + product.precio;
+
+    const closeIcon = document.createElement('img');
+    closeIcon.setAttribute('src', "/icons/icon_close.png");
+
+    productDiv.appendChild(productImgFig);
+    productDiv.appendChild(productName);
+    productDiv.appendChild(productPrice);
+    productDiv.appendChild(closeIcon);
+
+    orderCart.appendChild(productDiv);
 }

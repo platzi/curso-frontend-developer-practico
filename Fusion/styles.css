@@ -168,11 +168,13 @@
 
   .product-detail {
     width: 360px;
-    padding: 0 24px;
+    padding: 0 24px 24px;
     box-sizing: border-box;
     position: absolute;
     right: 0;
     background-color: var(--white);
+    border-radius: 18px;
+
   }
   .title-container {
     display: flex;
@@ -184,6 +186,13 @@
   .title {
     font-size: var(--lg);
     font-weight: bold;
+  }
+  .product {
+    display: grid;
+    max-height: 270px;
+    overflow-y: auto;
+    margin-bottom: 20px;
+    padding-right: 15px;
   }
   .order {
     display: grid;
