@@ -5,27 +5,57 @@ const mobileMenu = document.querySelector('.mobile-menu');
 const carritoMenu = document.querySelector('.navbar-shopping-cart');
 const shoppingCartContainer = document.querySelector('#shoppingCartContainer');
 const cardsContainer = document.querySelector('.cards-container');
+const productDetailContainer = document.querySelector('#productDetail');
+const productDetailCloseIcon = document.querySelector('.product-detail-close');
+const dark = document.querySelector('.dark');
 
 navbarEmail.addEventListener('click', toggleDesktopMenu);
 carritoMenu.addEventListener('click', toogleCarritoAside);
 
+function closeDark() {
+  dark.classList.remove('inactive');
+}
+
+dark.addEventListener('click', () => {
+  dark.classList.add('inactive');
+  desktopMenu.classList.add('inactive');
+  shoppingCartContainer.classList.add('inactive');
+  productDetailContainer.classList.add('inactive');
+});
+
 function toggleDesktopMenu() {
+    closeDark();
     desktopMenu.classList.toggle('inactive');
     shoppingCartContainer.classList.add('inactive');
+    productDetailContainer.classList.add('inactive');    
 }
 
 burguerMenu.addEventListener('click', () => {
     mobileMenu.classList.toggle('inactive');
-    shoppingCartContainer.classList.add('inactive');    
+    shoppingCartContainer.classList.add('inactive');
+    productDetailContainer.classList.add('inactive');     
 });
 
 function toogleCarritoAside() {
     // const isMobileMenuClosed = mobileMenu.classList.contains('inactive');
     // const isAsideClosed = aside.classList.contains('inactive');
+    closeDark();
     shoppingCartContainer.classList.toggle('inactive');
     mobileMenu.classList.add('inactive'); 
     desktopMenu.classList.add('inactive');
+    productDetailContainer.classList.add('inactive');       
 }
+
+function openProductDetailAside() {
+  closeDark();
+  productDetailContainer.classList.remove('inactive');
+  shoppingCartContainer.classList.add('inactive');  
+}
+
+productDetailCloseIcon.addEventListener('click', () => {
+  dark.classList.add('inactive');
+  productDetailContainer.classList.add('inactive');
+});
 
 const productList = [];
 productList.push({
@@ -76,7 +106,8 @@ function renderProducts(arr) {
     // A esta imagen no tenemos que agregarle una clase sino un atributo src
     // Pero esa imagen no tiene que ser la url sino la propiedad image de cada uno de los objetos dentro del array
     productImg.setAttribute('src', product.image);
-    // product = {name, price, image} -> product.image  
+    // product = {name, price, image} -> product.image
+    productImg.addEventListener('click', openProductDetailAside);  
   
     const productoInfo = document.createElement('div');
     productoInfo.classList.add('product-info');

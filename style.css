@@ -96,6 +96,7 @@ nav {
     border: 1px solid var(--very-light-pink);
     border-radius: 6px;
     padding: 20px 20px 0 20px;
+    z-index: 2;
 }
 .desktop-menu ul {
     list-style: none;
@@ -174,6 +175,7 @@ aside {
 
 #shoppingCartContainer {
     padding: 0 24px;
+    z-index: 2;
 }
 
 .title-container {
@@ -268,6 +270,7 @@ aside {
 }
 #productDetail {
     margin: 0 24px 0 24px;
+    z-index: 2;
 }
 #productDetail p:nth-child(1) {
     font-weight: bold;
@@ -306,13 +309,23 @@ aside {
 
 /* Product List */
 
+.dark {
+    width: 100%;
+    height: 100%;
+    background-color: gray;
+    position: absolute;
+    opacity: 60%;
+    z-index: 1;        
+}
+
 .cards-container {
     display: grid;
     grid-template-columns: repeat(auto-fill, 240px);
     gap: 26px;
     place-content: center;
-    margin-top: 20px;
+    margin-top: 20px;    
 }
+
 .product-card {
     width: 240px;
 }
