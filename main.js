@@ -72,6 +72,12 @@ productList.push ({
 });
 
 productList.push({
+    name: 'Dron',
+    price: 250,
+    image: 'https://images.pexels.com/photos/724921/pexels-photo-724921.jpeg?auto=compress&cs=tinysrgb&w=400'
+});
+
+productList.push({
     name: 'Tv',
     price: 250,
     image: 'https://images.pexels.com/photos/5490302/pexels-photo-5490302.jpeg?auto=compress&cs=tinysrgb&w=1260&h=750&dpr=1'
