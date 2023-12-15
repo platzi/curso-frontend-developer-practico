@@ -113,6 +113,30 @@ productList.push({
     image: 'https://images.pexels.com/photos/16130228/pexels-photo-16130228/free-photo-of-camara-libros-vintage-vista-de-alto-angulo.jpeg?auto=compress&cs=tinysrgb&w=1260&h=750&dpr=1'
 });
 
+productList.push({
+    name: 'Headphones',
+    price: 100,
+    image: 'https://images.pexels.com/photos/3587478/pexels-photo-3587478.jpeg?auto=compress&cs=tinysrgb&w=1260&h=750&dpr=1'
+});
+
+productList.push({
+    name: 'Memory',
+    price: 70,
+    image: 'https://images.pexels.com/photos/1738641/pexels-photo-1738641.jpeg?auto=compress&cs=tinysrgb&w=400'
+});
+
+productList.push({
+    name: 'Android',
+    price: 600,
+    image: 'https://images.pexels.com/photos/1092644/pexels-photo-1092644.jpeg?auto=compress&cs=tinysrgb&w=1260&h=750&dpr=1'
+});
+
+productList.push({
+    name: 'Mac',
+    price: 1000,
+    image: 'https://images.pexels.com/photos/38568/apple-imac-ipad-workplace-38568.jpeg?auto=compress&cs=tinysrgb&w=400'
+});
+
 for (product of productList){
     const productCard = document.createElement('div');
      productCard.classList.add('product-card');
