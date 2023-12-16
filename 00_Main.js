@@ -13,13 +13,25 @@ const cardsContainer = document.querySelector('.cards-container');
 
 const productDetailClose = document.querySelector('.product-detail-close');
 
-menuEmail.addEventListener('click',toggleDesktopMenu); /*A la variable menuEmail en el evento de darle click, mandamos a llamar a la funcion 
-                                                        toggleDesktopMenu*/
+
+
+menuEmail.addEventListener('click',toggleDesktopMenu); /*A la variable menuEmail en el evento de darle click, mandamos a llamar a la funcion toggleDesktopMenu*/
 menuHamIcon.addEventListener('click',toggleMobileMenu);
 
 menuCarritoIcon.addEventListener('click',toggleProductDetail);
 
 productDetailClose.addEventListener('click', closeProductDetailAside);
+
+function mostrarProducto(e){
+
+    if(e.target.classList.contains('img-product')){
+        const producto = e.target.parentElement;
+        console.log(producto.querySelector('img').src);
+        console.log(productDetailContainer.querySelector('.img-cambiar').src)
+        productDetailContainer.querySelector('.img-cambiar').src = producto.querySelector('img').src
+    }
+    
+}
         
 function toggleDesktopMenu(){
     const isShoppingCartContainerClosed = shoppingCartDetail.classList.contains('inactive');
@@ -154,6 +166,7 @@ function renderProducts(arr){
         productCard.classList.add('product-card');
     
         const productImg = document.createElement('img');
+        productImg.classList.add('img-product');
         productImg.setAttribute('src',product.image);
         productImg.addEventListener('click',openProductDetailAside);
     
@@ -187,3 +200,7 @@ function renderProducts(arr){
 }
 
 renderProducts(productList);
+
+const productCard = document.querySelector('.cards-container');
+
+productCard.addEventListener('click',mostrarProducto);
