@@ -53,54 +53,52 @@ productList.push({
 });
 
 //This is all the code that is necessary to create new products
-function productCreator() {
-  for (product of productList) {
-    let mainDiv = document.createElement("div");
-    mainDiv.className = "product-card";
+for (product of productList) {
+  let mainDiv = document.createElement("div");
+  mainDiv.className = "product-card";
 
-    let mainImg = document.createElement("img");
-    let img = product.imgSrc;
-    mainImg.setAttribute("src", img);
-    mainImg.setAttribute("alt", "A product");
-    mainDiv.appendChild(mainImg);
+  let mainImg = document.createElement("img");
+  let img = product.imgSrc;
+  mainImg.setAttribute("src", img);
+  mainImg.setAttribute("alt", "A product");
+  mainDiv.appendChild(mainImg);
 
-    let secondDiv = document.createElement("div");
-    secondDiv.className = "product-info";
-    mainDiv.appendChild(secondDiv);
+  let secondDiv = document.createElement("div");
+  secondDiv.className = "product-info";
+  mainDiv.appendChild(secondDiv);
 
-    let thirdDiv = document.createElement("div");
-    secondDiv.appendChild(thirdDiv);
+  let thirdDiv = document.createElement("div");
+  secondDiv.appendChild(thirdDiv);
 
-    let priceP = document.createElement("p");
-    priceP.innerText = product.price;
-    let nameProductP = document.createElement("p");
-    nameProductP.innerText = product.name;
+  let priceP = document.createElement("p");
+  priceP.innerText = product.price;
+  let nameProductP = document.createElement("p");
+  nameProductP.innerText = product.name;
 
-    thirdDiv.appendChild(priceP);
-    thirdDiv.appendChild(nameProductP);
+  thirdDiv.appendChild(priceP);
+  thirdDiv.appendChild(nameProductP);
 
-    let figure = document.createElement('figure');
-    let shoppingCartImg = document.createElement('img');
-    shoppingCartImg.setAttribute('src', './icons/bt_add_to_cart.svg');
-    shoppingCartImg.className = 'btn-add-to-cart';
-    figure.appendChild(shoppingCartImg);
+  let figure = document.createElement('figure');
+  let shoppingCartImg = document.createElement('img');
+  shoppingCartImg.setAttribute('src', './icons/bt_add_to_cart.svg');
+  shoppingCartImg.className = 'btn-add-to-cart';
+  figure.appendChild(shoppingCartImg);
 
-    secondDiv.appendChild(figure);
+  secondDiv.appendChild(figure);
 
-    //After all this code, I'mg appending this code to the main div where the products will be
-    const cardContainer = document.querySelector(".cards-container");
-    cardContainer.append(mainDiv);
-  }
+  //After all this code, I'mg appending this code to the main div where the products will be
+  const cardContainer = document.querySelector(".cards-container");
+  cardContainer.append(mainDiv);
 }
-
-productCreator();
 
 //this section is for the script that will change the icon of the add-to-cart
-let addToCart = document.querySelector(".btn-add-to-cart");
-//Here, I'm changing the icon of the add to cart, to the 'added to cart icon' when an user clicks on the icon.
-addToCart.addEventListener('click', aux)
+let addToCart = document.querySelectorAll(".btn-add-to-cart");
+//Here, I'm adding an eventListener so that every element reacts.
+// addToCart.forEach((product) => {
+//   if(product.a)
+// });
 
-function aux(){
-  console.log('im being clickeddd');
-  addToCart.setAttribute("src", './icons/bt_added_to_cart.svg');
-}
+function shoppingCartImgChanger(){
+ console.log(Event);
+  // product.setAttribute("src", './icons/bt_added_to_cart.svg');
+};
