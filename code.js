@@ -58,6 +58,7 @@ for (product of productList) {
   mainDiv.className = "product-card";
 
   let mainImg = document.createElement("img");
+  mainImg.classList.add('product-img');
   let img = product.imgSrc;
   mainImg.setAttribute("src", img);
   mainImg.setAttribute("alt", "A product");
@@ -91,14 +92,26 @@ for (product of productList) {
   cardContainer.append(mainDiv);
 }
 
-//this section is for the script that will change the icon of the add-to-cart
-let addToCart = document.querySelectorAll(".btn-add-to-cart");
-//Here, I'm adding an eventListener so that every element reacts.
-// addToCart.forEach((product) => {
-//   if(product.a)
-// });
+// //this section is for the script that will change the icon of the add-to-cart
+// let addToCart = document.querySelectorAll(".btn-add-to-cart");
+// //Here, I'm adding an eventListener so that every element reacts.
+// // addToCart.forEach((product) => {
+// //   if(product.a)
+// // });
 
-function shoppingCartImgChanger(){
- console.log(Event);
-  // product.setAttribute("src", './icons/bt_added_to_cart.svg');
-};
+// function shoppingCartImgChanger(){
+//  console.log(Event);
+//   // product.setAttribute("src", './icons/bt_added_to_cart.svg');
+// };
+
+//This part of the code above is for the aside
+
+const asideCardProduct = document.querySelector('.product-detailed');
+const productImgArr = document.querySelectorAll('.product-img');
+
+for (product of productImgArr){
+  product.addEventListener('click', () => {
+    asideCardProduct.classList.toggle('inactive');
+  });
+}
+
