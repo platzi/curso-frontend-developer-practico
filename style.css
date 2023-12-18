@@ -383,6 +383,10 @@ aside {
         width: 140px;
         height: 140px;
     }
+    #productDetail {
+        width: 80%;
+        height: 80%; 
+    }
 }
 
 @media (min-width: 641px) {
