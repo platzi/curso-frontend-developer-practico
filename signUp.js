@@ -47,7 +47,7 @@ function verifyPassword() {
             }
         }
         finalMessage.innerHTML = passwordMessage;
-    }, 1200); // Ejecutar la verificación después de 1500 ms (1.5 segundos)
+    }, 1200); // 1200 ms  1.2 seconds delay
 	return isPasswordValid;
 }
 
@@ -61,11 +61,15 @@ sendUser.addEventListener("click", function (event) {
 	let newUser = {
 		Name: name,
 		Email: email,
-		Password: password
+		Password: password,
+		Nickname: "nickname",
+		Gender: 3, //ENUM
+		ProfilePictureUrl: "https://example.com/profile.jpg",
+		PhoneNumber: "1234567890"
 	};
 
 	let xhr = new XMLHttpRequest();
-	let route = "https://localhost:7274/addUser";
+	let route = "https://localhost:7202/api/Users"; //MVC: https://localhost:7202/api/Users MINIMAL API: https://localhost:7274/api/Users"
 	// Request configuration
 	xhr.open("POST", route, true);//True for Asyncronous.
 	xhr.setRequestHeader("Content-Type", "application/json"); //XMLHttpRequest admits JSON and other formats.
@@ -77,7 +81,7 @@ sendUser.addEventListener("click", function (event) {
 
 	// Manage response once its ready. xhr.onreadystatechange() is also a valid option.
 	xhr.onload = function () {
-		if (xhr.status === 200) {
+		if (xhr.status >= 200) { //p
 			console.log(xhr.response);
 			// We could do something with the response, show the data in the console, manipulate DOM...
 		} else {
@@ -164,7 +168,7 @@ nameInput.addEventListener("keyup", function () {
 		})
 			.then(response => response.json())
 			.then(data => {
-				if (data === true) {
+				if (data === false) {
 					nameInput.style.backgroundColor = "rgb(255, 128, 128)";
 				} else {
 					nameInput.style.backgroundColor = "var(--hospital-green)";

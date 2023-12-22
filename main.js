@@ -7,7 +7,7 @@ better and easier approach but it was also a first attempt to create reusable fu
 The main purpose is testing all the different ways to create, access and modify HTML elements and its attributes, classes, etc to create and change
 components and interactions between them.
 */
-const getAllProducts = 'https://localhost:7274/api/get/all';
+const getAllProducts = 'https://localhost:7202/api/Products'; // MoveITMVC url: https://localhost:7202 Minimal: https://localhost:7202
 const productList = [];
 
 async function fetchData() {
@@ -75,7 +75,7 @@ function createProductCards(productList) {
     const productDataChild = document.createElement("div");
 
     const productPrice = document.createElement("p");
-    productPrice.innerText = "$" + product.price;
+    productPrice.textContent = "$" + product.price;
 
     const productName = document.createElement("p");
     productName.innerText = product.name;
@@ -198,11 +198,11 @@ function hideMenu() {
   }
 }
 
-
 //not showing the desktop-menu if the size of the display is mobile
 //screenSize check alternatives-> window.innerWidth // window.matchMedia("(max-width: 770px)").matches //  $(window).width()
 function screenSize() {
   if (document.documentElement.clientWidth < 770) {
+    // Is this better?:  desktopMenu.setAttribute('style', 'visibility:hidden');
     desktopMenu.style.visibility = "hidden";
   } else {
     desktopMenu.style.visibility = "visible";
@@ -384,6 +384,7 @@ function addToCart(productIndex) {
   const myOrderContent = document.querySelector(".my-order-content");
   let existingCartItem;
 
+  //If the item has already been added
   if (cartItems.hasOwnProperty(product.name)) {
 
     cartItems[product.name]++;
@@ -395,8 +396,9 @@ function addToCart(productIndex) {
     //Cart icon count on the top right of the web, showing how many products have been added.
     count += 1;
     productCount.textContent = count.toString();
-  } else { //If the product wasn't added yet, the html element will be created and inserted.
 
+    //If the product hasn't been added, the html element will be created and inserted.
+  } else { 
     const shoppingCartDiv = document.createElement("div");
     shoppingCartDiv.classList.add("shopping-cart");
     shoppingCartDiv.setAttribute('data-product', product.name);
@@ -447,6 +449,7 @@ function addToCart(productIndex) {
 
       totalPrice -= product.price; // Subtract only the price of 1 unit of the product
       totalPriceElement.textContent = "$" + totalPrice.toFixed(2);
+      console.log(cartItems);
     });
     ////////IMPORTANT: insertBefore useful to add new html blocks or nodes before an already existing element.
     myOrderContent.insertBefore(shoppingCartDiv, myOrderContent.firstChild);
@@ -461,6 +464,11 @@ function addToCart(productIndex) {
   totalPrice += product.price;
 
   totalPriceElement.textContent = "$" + totalPrice.toFixed(2);
+  console.log(cartItems);
+  // return cartItems;
+
+
+  //ENVIAR AL SERVIDOR LOS DATOS DEL CARRITO Y GENERAR UN NUEVO REGISTRO EN LA BASE DE DATOS. ¿¿Hacer primero inicio de sesion??¿
 }
 
 ////////////////// CHAT CODE /////////////////////
@@ -487,7 +495,7 @@ function sendMessage() {
 
 async function sendToServer(message, username) {
   try {
-    const url = `https://localhost:7274/insertData`;
+    const url = `https://localhost:7202/insertData`;
 
     // Object to be sent
     let content = {};
@@ -538,7 +546,7 @@ function closeForm() {
 //To get the messages by user in the json 
 async function getMessagesByUsername(username) {
   try {
-    const url = `https://localhost:7274/getMessagesByUser/${username}`;
+    const url = `https://localhost:7202/getMessagesByUser/${username}`;
 
     let response = await fetch(url);
 
@@ -563,8 +571,6 @@ chatButton.addEventListener("click", () => {
   // keyCode is deprecated.
   getMessagesByUsername('user1');
 });
-
-
 
 
 

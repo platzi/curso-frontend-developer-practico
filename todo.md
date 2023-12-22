@@ -16,3 +16,18 @@ Enfoque para aprender y comprender los fundamentos de la gestión de sesiones de
 - Escalabilidad y rendimiento: A medida que avances, considera la escalabilidad y el rendimiento de tu sistema de gestión de sesiones. PUNTOS CLAVE:  almacenamiento en caché, escalabilidad horizontal, etc.
 
 - Seguimiento y registro de actividad: Implementar un registro de actividad para registrar las acciones de los usuarios y poder analizar comportamientos.
+
+
+Conceptos clave:
+Controladores o Drivers de Base de Datos: Software que permite la comunicación entre la aplicación y la base de datos.
+
+Configuración de conexión: Incluye detalles como el nombre de usuario, contraseña, dirección IP, puerto, nombre de la base de datos, etc.
+
+Elementos de código:
+
+Importar o incluir el controlador/driver adecuado: Dependiendo del lenguaje de programación y la base de datos que se esté utilizando.
+Establecer la conexión: Usar las credenciales y la configuración para conectarse a la base de datos.
+
+Manejo de errores: Implementar lógica para manejar posibles errores de conexión.
+
+Acciones CRUD (Crear, Leer, Actualizar, Eliminar)

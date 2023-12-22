@@ -1,30 +1,39 @@
-//CODE TO TEST SERVER REQUEST
-//Peticion al set una nueva instancia, con mayúsculas.
-const Peticion = new XMLHttpRequest();
-const ruta = "https://localhost:7274/user";
-let dato = 4;
-let nuevaRuta = ruta + "?number="+dato; 
-//La ? es necesaria, y la palabra después de ? debe coincidir con
-// la variable en el backend
-Peticion.open("GET", nuevaRuta);
-Peticion.send("data="+dato);
+async function logIn(email, password) {
+  try {
+    const formData = new URLSearchParams();
+    formData.append('email', email);
+    formData.append('password', password);
 
-try {
-  Peticion.onreadystatechange = function (e) {
-    console.log("Estado de la conexión: " + Peticion.readyState)
-    console.log("El codigo de la conexión: " + Peticion.status)
+    const response = await fetch('https/7202/api/Authenticate', {
+      method: 'POST',
+      headers: {
+        'Content-Type': 'application/x-www-form-urlencoded',
+      },
+      body: formData,
+    });
 
-    console.log(Peticion.responseText);
+    if (!response.ok) {
+      const errorData = await response.text();
+      throw new Error('Error al iniciar sesión: ' + errorData);
+    }
+
+    const data = await response.json();
+    if (data && data.token) {
+      // Manejar token de JWT recibido, guardar en localStorage para usar en las próximas solicitudes
+      localStorage.setItem('token', data.token);
+      //// UN RETURN AQUI??? return data.token; // Devuelve el token si se autenticó correctamente
+    } else {
+      throw new Error('No se recibió un token válido después de la autenticación');
+    }
+  } catch (error) {
+    console.error('Error al iniciar sesión:', error.message);
+    return { error: 'Error al iniciar sesión. Por favor, inténtalo de nuevo.' };
   }
-} catch (error) {
-  console.log('Error: ' + Peticion.status + "--" + error);
 }
 
- // Obtener el botón por su ID
- let signupButton = document.getElementById('signupButton');
 
- // Agregar un listener para el evento 'click'
+ let signupButton = document.getElementById('signupButton');
  signupButton.addEventListener('click', function () {
-   // Redirigir a la URL especificada al hacer clic en el botón
+   // redirect to the following page
    window.location.href = './signUp.html';
  });
