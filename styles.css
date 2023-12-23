@@ -66,9 +66,11 @@
     margin-right: 12px;
   }
   .navbar-shopping-cart {
+    cursor: pointer;
     position: relative;
   }
   .navbar-shopping-cart div {
+    
     width: 16px;
     height: 16px;
     background-color: var(--hospital-green);
@@ -312,6 +314,8 @@
     width: 240px;
   }
   .product-card img {
+    cursor: pointer;
+
     width: 240px;
     height: 240px;
     border-radius: 20px;

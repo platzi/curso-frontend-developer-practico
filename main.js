@@ -7,11 +7,16 @@ const mobileMenu = document.querySelector('.mobile-menu');
 const menuCarritoIcon = document.querySelector('.navbar-shopping-cart');
 const shoppingCartContainer = document.querySelector('#shoppingCartContainer');
 
+const productDetailClosedIcon = document.querySelector('.product-detail-close');
+
+const productDetailContainer = document.querySelector('#productDetail');
+
 const cadrsContainer =document.querySelector('.cards-container');
 
 navEmail.addEventListener('click', toggleDesktopMenu);
 menuHamIcon.addEventListener('click', toggleMobileMenu);
 menuCarritoIcon.addEventListener('click', toggleCarritoAside)
+productDetailClosedIcon.addEventListener('click', closedProductDetailAside);
 
 function toggleDesktopMenu(){
     const isAsideClosed = shoppingCartContainer.classList.contains('inactive'); 
@@ -29,6 +34,8 @@ function toggleMobileMenu(){
     if (!isAsideClosed){
         shoppingCartContainer.classList.add('inactive')
     }
+
+    closedProductDetailAside();
     
     mobileMenu.classList.toggle('inactive');
 }
@@ -37,16 +44,31 @@ function toggleCarritoAside(){
     // Si contiene la clase inactive, es porque está cerrado.
     const isMobileMenuClosed = mobileMenu.classList.contains('inactive'); 
     const isDestopMenuClosed = desktopMenu.classList.contains('inactive'); 
-   
+    const isProductDetailClosed = productDetailContainer.classList.contains('inactive'); 
+    
     if (!isMobileMenuClosed){
         mobileMenu.classList.add('inactive')
     }
     
     if (!isDestopMenuClosed){
         desktopMenu.classList.add('inactive')
+    }    
+
+    if (!isProductDetailClosed){
+        productDetailContainer.classList.add('inactive')
     }
     
     shoppingCartContainer.classList.toggle('inactive');
+}
+
+function openProductDetailAside(){
+    productDetailContainer.classList.remove('inactive');
+    shoppingCartContainer.classList.add('inactive');
+    
+}
+
+function closedProductDetailAside () {
+    productDetailContainer.classList.add('inactive');
 }
 
 const productList = [];
@@ -128,6 +150,7 @@ function renderProducts(arr){
         //Luego creamos una etiqueta img y le asignamos un elemnto src.
         const productImg = document.createElement('img');
         productImg.setAttribute('src', product.image);
+        productImg.addEventListener('click', openProductDetailAside)
 
         //Ahora creamos otro div que tambien tendrá una clase.
         const productInfo = document.createElement('div');
