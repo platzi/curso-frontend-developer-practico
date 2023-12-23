@@ -1,12 +1,5 @@
-/*The main reason of structuring the code in functions was purely for didactic purposes, this is like a test field to learn the basic concepts of 
-front-end with javascript.
 
-Probably encapsulating all theses funcitonalities in a function is not the best strategy since the global scope of the listeners would be a 
-better and easier approach but it was also a first attempt to create reusable functions that can be applied to different elements.
-
-The main purpose is testing all the different ways to create, access and modify HTML elements and its attributes, classes, etc to create and change
-components and interactions between them.
-*/
+/* */
 const getAllProducts = 'https://localhost:7202/api/Products'; // MoveITMVC url: https://localhost:7202 Minimal: https://localhost:7202
 const productList = [];
 
@@ -398,7 +391,7 @@ function addToCart(productIndex) {
     productCount.textContent = count.toString();
 
     //If the product hasn't been added, the html element will be created and inserted.
-  } else { 
+  } else {
     const shoppingCartDiv = document.createElement("div");
     shoppingCartDiv.classList.add("shopping-cart");
     shoppingCartDiv.setAttribute('data-product', product.name);
@@ -524,7 +517,7 @@ async function sendToServer(message, username) {
       let newMessage = document.createElement("p");
       newMessage.classList.add("responseMessage");
       newMessage.textContent = data.message;
-  
+
       // Add the message as a <p>
       document.getElementById("chat-messages").appendChild(newMessage);
     }
@@ -573,6 +566,26 @@ chatButton.addEventListener("click", () => {
 });
 
 
+
+//token1 is the logIn Token with Email UserId & Name
+const token = localStorage.getItem('token');
+
+if (token) {
+  // Dividir el token en sus partes: encabezado, carga útil (payload), firma
+  const [header, payload, signature] = token.split('.');
+
+  // Decodificar el payload, que es la parte central del token
+  const decodedPayload = atob(payload);
+
+  // Parsear el payload decodificado a JSON
+  const payloadObj = JSON.parse(decodedPayload);
+
+  // Acceder al valor del campo "Email" si existe en el payload
+  navbarEmail.textContent = payloadObj['http://schemas.xmlsoap.org/ws/2005/05/identity/claims/emailaddress'];
+} else {
+  console.log('El token no está presente en el localStorage');
+  
+}
 
 
 

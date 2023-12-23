@@ -69,7 +69,7 @@ sendUser.addEventListener("click", function (event) {
 	};
 
 	let xhr = new XMLHttpRequest();
-	let route = "https://localhost:7202/api/Users"; //MVC: https://localhost:7202/api/Users MINIMAL API: https://localhost:7274/api/Users"
+	let route = "https://localhost:7202/api/Users/Register"; //MVC: https://localhost:7202/api/Users MINIMAL API: https://localhost:7274/api/Users"
 	// Request configuration
 	xhr.open("POST", route, true);//True for Asyncronous.
 	xhr.setRequestHeader("Content-Type", "application/json"); //XMLHttpRequest admits JSON and other formats.
