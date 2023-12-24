@@ -5,7 +5,10 @@ const containerProductos = document.querySelector(".cards-container");
 
 const menuPerfil = document.querySelector(".desktop-menu");
 const movilMenu =  document.querySelector(".mobile-menu");
-const asideCarrito = document.querySelector(".product-detail");
+
+const carritoInfo = document.querySelector("#carrito");
+const productInfo = document.querySelector("#productoInfo");
+const btn_productInfo = document.querySelector(".product-detalles-close");
 
 //Array de Productos 
 const productos = [];
@@ -19,52 +22,73 @@ productos.push({
 productos.push({
     name:"TV",
     price:"110",
-    img:"https://images.pexels.com/photos/276517/pexels-photo-276517.jpeg?auto=compress&cs=tinysrgb&dpr=2&h=650&w=940"
+    img:"https://images.pexels.com/photos/5721865/pexels-photo-5721865.jpeg?auto=compress&cs=tinysrgb&w=600"
 });
 
 productos.push({
     name:"Carro",
     price:"220",
-    img:"https://images.pexels.com/photos/276517/pexels-photo-276517.jpeg?auto=compress&cs=tinysrgb&dpr=2&h=650&w=940"
+    img:"https://images.pexels.com/photos/1592384/pexels-photo-1592384.jpeg?auto=compress&cs=tinysrgb&w=1260&h=750&dpr=1"
 });
 
 productos.push({
     name:"Paleta",
     price:"10",
-    img:"https://images.pexels.com/photos/276517/pexels-photo-276517.jpeg?auto=compress&cs=tinysrgb&dpr=2&h=650&w=940"
+    img:"https://images.pexels.com/photos/2838605/pexels-photo-2838605.jpeg?auto=compress&cs=tinysrgb&w=1260&h=750&dpr=1"
 });
 
 productos.push({
     name:"Arroz",
     price:"320",
-    img:"https://images.pexels.com/photos/276517/pexels-photo-276517.jpeg?auto=compress&cs=tinysrgb&dpr=2&h=650&w=940"
+    img:"https://images.pexels.com/photos/724300/pexels-photo-724300.jpeg?auto=compress&cs=tinysrgb&w=1260&h=750&dpr=1"
 });
 
 //Control de aparición de interfaces
 navbarR.addEventListener("click",()=>{
     menuPerfil.classList.toggle("inactive");
-    asideCarrito.classList.add("inactive");
+    
+    if(!carritoInfo.classList.contains("inactive")){
+        carritoInfo.classList.add("inactive");
+        carritoInfo.classList.remove("product-detail");
+    }
+
+    if(!productInfo.classList.contains("inactive")){
+        productInfo.classList.add("inactive");
+    }
 });
 
 btn_movilMenu.addEventListener("click",()=>{
     movilMenu.classList.toggle("inactive");
     
-    if(asideCarrito.classList.contains("inactive")){
-        return;
-    }else{
-        asideCarrito.classList.add("inactive");
+    if(!carritoInfo.classList.contains("inactive")){
+        carritoInfo.classList.add("inactive");
+        carritoInfo.classList.remove("product-detail");
+    }
+
+    if(!productInfo.classList.contains("inactive")){
+        productInfo.classList.add("inactive");
     }
 });
 
 carrito.addEventListener("click",()=>{
-    asideCarrito.classList.toggle("inactive");
-    menuPerfil.classList.add("inactive");
+    carritoInfo.classList.toggle("inactive");
+    carritoInfo.classList.add("product-detail");
 
-    if(movilMenu.classList.contains("inactive")){
-        return;
-    }else{
-        movilMenu.classList.add("inactive");
+    if(!menuPerfil.classList.contains("inactive")){
+        menuPerfil.classList.add("inactive");
     }
+
+    if(!productInfo.classList.contains("inactive")){
+        productInfo.classList.add("inactive");
+    }
+
+    if(!movilMenu.classList.contains("inactive")){
+        movilMenu.classList.add("inactive")
+    }
+});
+
+btn_productInfo.addEventListener("click",()=>{
+    productInfo.classList.add("inactive");
 });
 
 //Integración de  los productos usando el DOM
@@ -73,6 +97,10 @@ function renderProductos(x){
         let tarjeta = document.createElement("div");
         
         tarjeta.setAttribute("class","product-card");
+        tarjeta.addEventListener("click",()=>{
+            verProducto();
+        });
+
         tarjeta.innerHTML = `
             <img src="${x[i].img}" alt="${x[i].name}">
             <div class="product-info">
@@ -88,6 +116,21 @@ function renderProductos(x){
     
         containerProductos.append(tarjeta);
     }
+}
+
+function verProducto(){
+    productInfo.classList.remove("inactive");
+
+    if(!menuPerfil.classList.contains("inactive")){
+        menuPerfil.classList.add("inactive");
+    }
+
+    if(!carritoInfo.classList.contains("inactive")){
+        carritoInfo.classList.add("inactive");
+        carritoInfo.classList.remove("product-detail");
+    }
+
+
 }
 
 renderProductos(productos);
