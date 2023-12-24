@@ -14,6 +14,7 @@ body {
   font-family: 'Quicksand', sans-serif;
 }
 
+/*Barra de Navegacióin*/
 nav {
   display: flex;
   justify-content: space-between;
@@ -90,6 +91,7 @@ nav {
   align-items: center;
 }
 
+/*Menu de Perfil*/
 .desktop-menu {
   position: absolute;
   right: 0;
@@ -138,6 +140,42 @@ nav {
   display: none;
 }
 
+/*Menu Smartphones*/
+.mobile-menu {
+  padding: 24px;
+  position: absolute;
+  left: 0;
+  height: 100vh;
+  background: var(--white);
+  border-right: solid 2px #0000003b;
+  box-sizing: border-box;
+}
+.mobile-menu a {
+  text-decoration: none;
+  color: var(--black);
+  font-weight: bold;
+  /* margin-bottom: 24px; */
+}
+.mobile-menu ul {
+  padding: 0;
+  margin: 24px 0 0;
+  list-style: none;
+}
+.mobile-menu ul:nth-child(1) {
+  border-bottom: 1px solid var(--very-light-pink);
+}
+.mobile-menu ul li {
+  margin-bottom: 24px;
+}
+.email {
+  font-size: var(--sm);
+  font-weight: 300 !important;
+}
+.sign-out {
+  font-size: var(--sm);
+  color: var(--hospital-green) !important;
+}
+
 @media (max-width: 640px) {
   .menu {
     display: block;
@@ -146,6 +184,16 @@ nav {
     display: none;
   }
   .navbar-email {
+    display: none;
+  }
+  
+  .desktop-menu{
+    display: none;
+  }
+}
+
+@media (min-width:641px) {
+  .mobile-menu{
     display: none;
   }
 }
