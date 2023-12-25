@@ -5,10 +5,13 @@ const mobileMenu = document.querySelector('.mobile-menu');
 const CarritoIcon = document.querySelector('.navbar-shopping-cart');
 const detalleDeProductos = document.querySelector('.product-detail');
 const cardsContainer = document.querySelector('.cards-container');
+const closePDSecundary = document.querySelector('.product-detail-close-secundary');
+const productDetailSecundary = document.querySelector('.product-detail-secundary');
 
 menuEmail.addEventListener('click', toggleDesktopMenu);
 HamburgerIcon.addEventListener('click', toggleHamburgerIcon);
 CarritoIcon.addEventListener('click', toggleCarritoIcon);
+closePDSecundary.addEventListener('click', closePDSecundaryF);
 
 // toggle = intercabiar
 // remove elimina y toggle es un switf de true o false
@@ -19,6 +22,8 @@ function toggleDesktopMenu() {
   // }
   desktopMenu.classList.toggle('inactive');
   detalleDeProductos.classList.add('inactive');
+  productDetailSecundary.classList.add('inactive');
+
 }
 function toggleHamburgerIcon() {
   // const isDetalleProducClosed = detalleDeProductos.classList.contains('inactive');
@@ -27,6 +32,8 @@ function toggleHamburgerIcon() {
   // }
   mobileMenu.classList.toggle('inactive');
   detalleDeProductos.classList.add('inactive');
+  productDetailSecundary.classList.add('inactive');
+
 }
 function toggleCarritoIcon() {
 
@@ -37,6 +44,15 @@ function toggleCarritoIcon() {
   detalleDeProductos.classList.toggle('inactive');
   mobileMenu.classList.add('inactive');
   desktopMenu.classList.add('inactive');
+  productDetailSecundary.classList.add('inactive');
+
+}
+function closePDSecundaryF() {
+
+
+  productDetailSecundary.classList.toggle('inactive');
+  // mobileMenu.classList.add('inactive');
+  // desktopMenu.classList.add('inactive');
 
 }
 
