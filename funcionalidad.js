@@ -57,7 +57,7 @@ function openPDSecundaryF(event) {
   productDetailSecundary.classList.toggle('inactive');
   detalleDeProductos.classList.add('inactive');
   desktopMenu.classList.add('inactive');
-  renderProductSelecc(event.target.src)
+  renderProductSelect(event.target.src)
 
 }
 
@@ -114,42 +114,47 @@ function renderProducts(arr) {
     cardsContainer.appendChild(productCard);
   }
 }
-function renderProductSelecc(url) {
+function renderProductSelect(url) {
   let numero = 0;
   for (x in productList) {
     if (productList[x].img === url) {
       numero = x;
     }
   }
-  // product = {name, price, imagen} -> product.image
-  const imagen = document.createElement('img');
-  imagen.setAttribute('src', productList[numero].img);
-  imagen.setAttribute('alt', productList[numero].name);
+  const imgPrincipal = document.querySelector('.asideImg');
+  imgPrincipal.setAttribute('src', productList[numero].img);
+  imgPrincipal.setAttribute('alt', productList[numero].name);
 
-  const divPadre = document.createElement('div');
-  divPadre.classList.add('product-info-secundary');
+  const pricePrincipal = document.querySelector('.asidePrice');
+  pricePrincipal.innerText = '$' + productList[numero].price;
+  const namePrincipal = document.querySelector('.asideName');
+  namePrincipal.innerText = productList[numero].name;
+  const desPrincipal = document.querySelector('.asideDes');
+  desPrincipal.innerText = productList[numero].description;
 
-  const price = document.createElement('p');
-  price.innerText = '$' + productList[numero].price;
-  const name = document.createElement('p');
-  name.innerText = productList[numero].name;
+  // const imagen = document.createElement('img');
 
-  const description = document.createElement('p');
-  description.innerText = productList[numero].description;
+  // const divPadre = document.createElement('div');
+  // divPadre.classList.add('product-info-secundary');
 
-  const boton = document.createElement('button');
-  boton.classList.add('primary-button');
-  boton.classList.add('add-to-cart-button');
-  boton.innerText = 'Add to cart';
+  // const price = document.createElement('p');
+  // price.innerText = '$' + productList[numero].price;
+  // const name = document.createElement('p');
+  // name.innerText = productList[numero].name;
 
-  const imgboton = document.createElement('img');
-  imgboton.setAttribute('src', './icons/bt_add_to_cart.svg');
-  imgboton.setAttribute('alt', 'Add to cart');
+  // const description = document.createElement('p');
+  // description.innerText = productList[numero].description;
 
-  boton.appendChild(imgboton);
-  divPadre.append(price, name, description, boton);
-  productDetailSecundary.append(imagen, divPadre);
+  // const boton = document.createElement('button');
+  // boton.classList.add('primary-button');
+  // boton.classList.add('add-to-cart-button');
+  // boton.innerText = 'Add to cart';
 
+  // const imgboton = document.createElement('img');
+  // imgboton.setAttribute('src', './icons/bt_add_to_cart.svg');
+  // imgboton.setAttribute('alt', 'Add to cart');
 
-
+  // boton.appendChild(imgboton);
+  // divPadre.append(price, name, description, boton);
+  // productDetailSecundary.append(imagen, divPadre);
 }
