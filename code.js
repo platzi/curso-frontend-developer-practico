@@ -95,16 +95,14 @@ for (product of productList) {
   cardContainer.append(mainDiv);
 }
 
-// //this section is for the script that will change the icon of the add-to-cart
-// let addToCart = document.querySelectorAll(".btn-add-to-cart");
-// //Here, I'm adding an eventListener so that every element reacts.
-// // addToCart.forEach((product) => {
-// //   if(product.a)
-// // });
+//this section is for the script that will change the icon of the add-to-cart
+// let addToCart = [];
+// addToCart = document.querySelector(".btn-add-to-cart");
 
-// function shoppingCartImgChanger(){
-//  console.log(Event);
-//   // product.setAttribute("src", './icons/bt_added_to_cart.svg');
+// for (aux of addToCart){
+//   aux.addEventListener('click', () => {
+//     aux.setAttribute("src", './icons/bt_added_to_cart.svg');
+//   })
 // };
 
 //This part of the code above is for the aside

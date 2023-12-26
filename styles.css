@@ -120,13 +120,11 @@ nav {
 
 .mobile-menu {
   position: absolute;
-  width: (100% -24px);
-  padding-left: 24px;
+  width: 100%;
   left: 0px;
-  top: 65px;
-  margin: 8px;
+  top: 60px;
+  padding: 16px;
   box-shadow: 4px 4px 4px 8px rgba(0, 0, 0, 0.2);
-  border-radius: 8px;
   background-color: var(--white);
 }
 .mobile-menu a {
@@ -353,6 +351,9 @@ nav {
   justify-content: center;
 }
 @media (max-width: 800px) {
+  .inactive{
+    display: none;
+  }
   .menu {
     display: block;
   }
@@ -384,9 +385,7 @@ nav {
   .product-detailed {
     width: 100%;
     height: 100%;
-    display: flex;
-    flex-direction: column;
-    justify-content: space-around;
+    margin: 20px 0 20px 0;
   }
 }
 @media (min-width: 801px) {
