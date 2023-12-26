@@ -6,6 +6,7 @@ navEmail.addEventListener("click", toggleDesktopMenu);
 function toggleDesktopMenu() {
   productDetailContainer.classList.add("inactive");
   menuEmail.classList.toggle("inactive");
+  asideCardProduct.classList.add('inactive');
 }
 //This is the code that I used to show/hide the mobile-menu
 const mobileMenuImg = document.querySelector(".menu-img");
@@ -15,6 +16,7 @@ mobileMenuImg.addEventListener("click", toggleMobileMenu);
 function toggleMobileMenu() {
   productDetailContainer.classList.add("inactive");
   mobileMenuContainer.classList.toggle("inactive");
+  asideCardProduct.classList.add('inactive');
 }
 
 //This part is your the shopping cart system
@@ -27,6 +29,7 @@ function toggleShoppingCart() {
   mobileMenuContainer.classList.add("inactive");
   menuEmail.classList.add("inactive");
   productDetailContainer.classList.toggle("inactive");
+  asideCardProduct.classList.add('inactive');
 }
 
 //this part is for the products cards and the script that will generate new elements for them
@@ -114,4 +117,12 @@ for (product of productImgArr){
     asideCardProduct.classList.toggle('inactive');
   });
 }
+
+//Here, I'm just creating an arrow function so that when the user clicks over the X icon, the aside product detailed disappears.
+const closeIcon = document.querySelector('.product-detail-close');
+closeIcon.addEventListener('click', () => {
+  asideCardProduct.classList.add('inactive');
+});
+
+
 
