@@ -48,26 +48,32 @@ function toggleCarritoIcon() {
 
 }
 function closePDSecundaryF() {
-
-
   productDetailSecundary.classList.toggle('inactive');
   // mobileMenu.classList.add('inactive');
   // desktopMenu.classList.add('inactive');
 
 }
+function openPDSecundaryF(event) {
+  productDetailSecundary.classList.toggle('inactive');
+  detalleDeProductos.classList.add('inactive');
+  desktopMenu.classList.add('inactive');
+  renderProductSelecc(event.target.src)
+
+}
 
 const productList = [];
-function addProduct(name, price, img) {
+function addProduct(name, price, img, description) {
   productList.push({
     name: name,
     price: price,
-    img: img
+    img: img,
+    description: description
   });
 }
-addProduct('Suzuki Swift', 20, 'https://images.pexels.com/photos/276517/pexels-photo-276517.jpeg?auto=compress&cs=tinysrgb&dpr=2&h=650&w=940');
-addProduct('Hyundai H-1', 20, 'https://images.pexels.com/photos/276517/pexels-photo-276517.jpeg?auto=compress&cs=tinysrgb&dpr=2&h=650&w=940');
-addProduct('Clase S', 80, 'https://images.pexels.com/photos/276517/pexels-photo-276517.jpeg?auto=compress&cs=tinysrgb&dpr=2&h=650&w=940');
-addProduct('Lobo Raptor', 50, 'https://images.pexels.com/photos/276517/pexels-photo-276517.jpeg?auto=compress&cs=tinysrgb&dpr=2&h=650&w=940');
+addProduct('Suzuki Swift', 20, 'https://previews.123rf.com/images/chudtsankov/chudtsankov1005/chudtsankov100500018/6905197-dibujos-animados-el-car%C3%A1cter-n%C3%BAmero-uno.jpg', 'Auto liviano');
+addProduct('Hyundai H-1', 20, 'https://c8.alamy.com/compes/2eaht3t/divertido-sonriente-numero-dos-en-estilo-de-dibujos-animados-2eaht3t.jpg', 'Auto de mercancias');
+addProduct('Clase S', 80, 'https://thumbs.dreamstime.com/z/divertido-naranja-n%C3%BAmero-tres-personaje-de-dibujos-animados-que-muestra-la-mano-ilustraci%C3%B3n-vectorial-dibujada-aislada-sobre-220165887.jpg', 'Auto de lujo');
+addProduct('Lobo Raptor', 50, 'https://images.pexels.com/photos/276517/pexels-photo-276517.jpeg?auto=compress&cs=tinysrgb&dpr=2&h=650&w=940', 'Camioneta apta para los topes, rompemuelles y pistas de mal estado de Lima');
 
 
 renderProducts(productList);
@@ -75,6 +81,8 @@ function renderProducts(arr) {
   for (const product of arr) {
     const productCard = document.createElement('div');
     productCard.classList.add('product-card');
+    productCard.addEventListener('click', openPDSecundaryF);
+
 
     // product = {name, price, imagen} -> product.image
     const productImg = document.createElement('img');
@@ -104,7 +112,44 @@ function renderProducts(arr) {
 
 
     cardsContainer.appendChild(productCard);
-
-
   }
+}
+function renderProductSelecc(url) {
+  let numero = 0;
+  for (x in productList) {
+    if (productList[x].img === url) {
+      numero = x;
+    }
+  }
+  // product = {name, price, imagen} -> product.image
+  const imagen = document.createElement('img');
+  imagen.setAttribute('src', productList[numero].img);
+  imagen.setAttribute('alt', productList[numero].name);
+
+  const divPadre = document.createElement('div');
+  divPadre.classList.add('product-info-secundary');
+
+  const price = document.createElement('p');
+  price.innerText = '$' + productList[numero].price;
+  const name = document.createElement('p');
+  name.innerText = productList[numero].name;
+
+  const description = document.createElement('p');
+  description.innerText = productList[numero].description;
+
+  const boton = document.createElement('button');
+  boton.classList.add('primary-button');
+  boton.classList.add('add-to-cart-button');
+  boton.innerText = 'Add to cart';
+
+  const imgboton = document.createElement('img');
+  imgboton.setAttribute('src', './icons/bt_add_to_cart.svg');
+  imgboton.setAttribute('alt', 'Add to cart');
+
+  boton.appendChild(imgboton);
+  divPadre.append(price, name, description, boton);
+  productDetailSecundary.append(imagen, divPadre);
+
+
+
 }
