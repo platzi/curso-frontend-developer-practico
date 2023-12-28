@@ -7,6 +7,8 @@ const burgerMenu=document.querySelector ('.menu');
 const mobileMenu=document.querySelector ('.mobile-menu');
 const cartIcon=document.querySelector ('.navbar-shopping-cart');
 const myOrder=document.querySelector ('#shoppingCart');
+const productDetail =document.querySelector ('#product-detail');
+const closeDetail = document.querySelector ('.product-detail-close')
 const cardsContainer = document.querySelector ('.cards-container');
 const productList = [];
 
@@ -23,8 +25,11 @@ function toggleDesktopMenu (){
 
 function toggleMobileMenu (){
     const myOrderClosed = myOrder.classList.contains('inactive');
+    const productDetailClosed = productDetail.classList.contains('inactive');
     if (!myOrderClosed){
         myOrder.classList.add('inactive');
+    }else if (!productDetailClosed){
+        productDetail.classList.add('inactive');
     }
     mobileMenu.classList.toggle ('inactive');
 }
@@ -32,15 +37,26 @@ function toggleMobileMenu (){
 function toggleCartIcon (){
     const desktopMenuClosed = desktopMenu.classList.contains('inactive');
     const mobileMenuClosed = mobileMenu.classList.contains('inactive');
+    const productDetailClosed = productDetail.classList.contains('inactive');
+
     if (!mobileMenuClosed){
         mobileMenu.classList.add('inactive');
     }else if (!desktopMenuClosed){
         desktopMenu.classList.add('inactive');
+    }else if (!productDetailClosed){
+        productDetail.classList.add('inactive');
     }
-
     myOrder.classList.toggle ('inactive');
 }
 
+function openProductDetail(){
+   myOrder.classList.add('inactive');
+   productDetail.classList.remove('inactive'); 
+}
+
+function closeProductDetail(){
+    productDetail.classList.add('inactive'); 
+ }
 
 //Event listeners
 menuEmail.addEventListener('click', toggleDesktopMenu);
@@ -48,6 +64,8 @@ menuEmail.addEventListener('click', toggleDesktopMenu);
 burgerMenu.addEventListener('click', toggleMobileMenu);
 
 cartIcon.addEventListener('click', toggleCartIcon);
+
+closeDetail.addEventListener('click', closeProductDetail);
 
 //Array methods
 productList.push({
@@ -66,7 +84,7 @@ productList.push({
     image: 'https://images.pexels.com/photos/51383/photo-camera-subject-photographer-51383.jpeg?auto=compress&cs=tinysrgb&w=1260&h=750&dpr=2',
 });
 
-
+//Functions
 function renderProducts (arr){
     for (const product of arr){
     
@@ -75,6 +93,7 @@ function renderProducts (arr){
         
         const productImg = document.createElement('img');
         productImg.setAttribute('src', product.image);
+        productImg.addEventListener('click', openProductDetail)
     
         const productInfo = document.createElement('div');
         productInfo.classList.add ('product-info');
