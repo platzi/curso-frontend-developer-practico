@@ -51,3 +51,94 @@ function toggleCarritoAside(){
     }
        aside.classList.toggle('inactive')    
 }
+
+//crearemos una lista de prodcuto desde cero
+const productList = []; // creamos un array que nos devuel la lista
+//creamos productos y lo insertamos al array mediante un objeto
+productList.push({
+    name: 'BIKE',
+    price: 120,
+    image: 'https://images.pexels.com/photos/276517/pexels-photo-276517.jpeg?auto=compress&cs=tinysrgb&dpr=2&h=650&w=940',
+
+});
+productList.push({
+    name: 'BIKE',
+    price: 120,
+    image: 'https://images.pexels.com/photos/276517/pexels-photo-276517.jpeg?auto=compress&cs=tinysrgb&dpr=2&h=650&w=940',
+
+});
+productList.push({
+    name: 'BIKE2',
+    price: 122,
+    image: 'https://images.pexels.com/photos/276517/pexels-photo-276517.jpeg?auto=compress&cs=tinysrgb&dpr=2&h=650&w=940',
+
+});
+productList.push({
+    name: 'BIKE3',
+    price: 124,
+    image: 'https://images.pexels.com/photos/276517/pexels-photo-276517.jpeg?auto=compress&cs=tinysrgb&dpr=2&h=650&w=940',
+
+});
+
+/*
+<div class="product-card">
+        <img src="https://images.pexels.com/photos/276517/pexels-photo-276517.jpeg?auto=compress&cs=tinysrgb&dpr=2&h=650&w=940" alt="">
+        <div class="product-info">
+          <div>
+            <p>$120,00</p>
+            <p>Bike</p>
+          </div>
+          <figure>
+            <img src="./icons/bt_add_to_cart.svg" alt="">
+          </figure>
+        </div>
+      </div>
+*/
+const cardsContainer = document.querySelector('.cards-container')
+
+
+//insertamos en nuestro HTML los objetos y lo devemos recorrer con un ciclo for
+for (product of productList){
+    //creamos cada uno de los elementos del HTML
+    const productcard = document.createElement('div') // creamos el div como primero que tiene la clase productcard
+    productcard.classList.add('product-card')//le asignamos la clase que tiene el elemento
+
+    const productImg = document.createElement('img')// creamos el elemento imagen img
+    productImg.setAttribute('src', product.image) // se pasamos la imagen al atributo
+
+    const productInfo = document.createElement('div')
+    productInfo.classList.add('product-info')
+
+    const producInfoDiv = document.createElement('div')
+
+    //creamos las etiquetas parrafos y se les pasa el valor 
+    const producPrice = document.createElement('p')
+    producPrice.innerText='$' + product.price // asinamos el valor en la etiqueta p
+    const producName = document.createElement('p')
+    producName.innerText= product.name // asinamos el valor en la etiqueta p
+
+    const productInfoFigure = document.createElement('figure')
+    const productImgCart = document.createElement('img')
+    productImgCart.setAttribute('src', './icons/bt_add_to_cart.svg') // se pasamos la imagen al atributo
+
+
+    //metemos cada etiqueta HTML dentro de su Etiqueta padre
+    productInfoFigure.appendChild(productImgCart)
+    producInfoDiv.appendChild(producPrice)
+    producInfoDiv.appendChild(producName)
+    productInfo.appendChild(producInfoDiv)
+    productInfo.appendChild(productInfoFigure)
+    productcard.appendChild(productImg)
+    productcard.appendChild(productInfo)
+    cardsContainer.appendChild(productcard)
+
+
+
+
+
+ 
+
+
+
+
+}
