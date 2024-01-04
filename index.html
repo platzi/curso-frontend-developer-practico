@@ -14,6 +14,7 @@
   <title>YardSle: Tienda online</title>
 
 </head>
+
 <body>
   <nav>
     <img src="./icons/icon_menu.svg" alt="menu" class="menu">
@@ -58,11 +59,11 @@
         <li>
           <a href="/" class="title">My orders</a>
         </li>
-  
+
         <li>
           <a href="/">My account</a>
         </li>
-  
+
         <li>
           <a href="/">Sign out</a>
         </li>
@@ -93,7 +94,7 @@
           <a href="/">Other</a>
         </li>
       </ul>
-  
+
       <ul>
         <li>
           <a href="/">My orders</a>
@@ -102,7 +103,7 @@
           <a href="/">My account</a>
         </li>
       </ul>
-  
+
       <ul>
         <li>
           <a href="/" class="email">platzi@example.com</a>
@@ -114,7 +115,7 @@
     </div>
   </nav>
 
-  <aside class="product-detail inactive">
+  <aside id="shoppingCartConainer" class="inactive">
     <div class="title-container">
       <img src="./icons/flechita.svg" alt="arrow">
       <p class="title">My order</p>
@@ -123,7 +124,9 @@
     <div class="my-order-content">
       <div class="shopping-cart">
         <figure>
-          <img src="https://images.pexels.com/photos/276517/pexels-photo-276517.jpeg?auto=compress&cs=tinysrgb&dpr=2&h=650&w=940" alt="bike">
+          <img
+            src="https://images.pexels.com/photos/276517/pexels-photo-276517.jpeg?auto=compress&cs=tinysrgb&dpr=2&h=650&w=940"
+            alt="bike">
         </figure>
         <p>Bike</p>
         <p>$30,00</p>
@@ -132,7 +135,9 @@
 
       <div class="shopping-cart">
         <figure>
-          <img src="https://images.pexels.com/photos/276517/pexels-photo-276517.jpeg?auto=compress&cs=tinysrgb&dpr=2&h=650&w=940" alt="bike">
+          <img
+            src="https://images.pexels.com/photos/276517/pexels-photo-276517.jpeg?auto=compress&cs=tinysrgb&dpr=2&h=650&w=940"
+            alt="bike">
         </figure>
         <p>Bike</p>
         <p>$30,00</p>
@@ -141,7 +146,9 @@
 
       <div class="shopping-cart">
         <figure>
-          <img src="https://images.pexels.com/photos/276517/pexels-photo-276517.jpeg?auto=compress&cs=tinysrgb&dpr=2&h=650&w=940" alt="bike">
+          <img
+            src="https://images.pexels.com/photos/276517/pexels-photo-276517.jpeg?auto=compress&cs=tinysrgb&dpr=2&h=650&w=940"
+            alt="bike">
         </figure>
         <p>Bike</p>
         <p>$30,00</p>
@@ -159,7 +166,25 @@
         Checkout
       </button>
     </div>
-  </div>
+    </div>
+  </aside>
+
+  <aside id="productDetail" class="inactive">
+    <div class="product-detail-close">
+      <img src="./icons/icon_close.png" alt="close">
+    </div>
+    <img
+      src="https://images.pexels.com/photos/276517/pexels-photo-276517.jpeg?auto=compress&cs=tinysrgb&dpr=2&h=650&w=940"
+      alt="bike">
+    <div class="product-info">
+      <p>$35,00</p>
+      <p>Bike</p>
+      <p>With its practical position, this bike also fulfills a decorative function, add your hall or workspace.</p>
+      <button class="primary-button add-to-cart-button">
+        <img src="./icons/bt_add_to_cart.svg" alt="add to cart">
+        Add to cart
+      </button>
+    </div>
   </aside>
 
   <section class="main-container">
@@ -183,4 +208,5 @@
 
   <script src="./main.js"></script>
 </body>
+
 </html>
