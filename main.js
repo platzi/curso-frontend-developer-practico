@@ -6,7 +6,7 @@ const menuHamIcon = document.querySelector('.menu') // selecionamos el elemento 
 const mobileMenu = document.querySelector('.mobile-menu') // selecionamos el elemento mostraremos al dar click shopping cart
 
 const menuCarritoIcon = document.querySelector('.navbar-shopping-cart') // selecionamos el elemento que daremos click 
-const aside = document.querySelector('.product-detail') // selecionamos el elemento mostraremos al dar click 
+const shoopingCartContainer = document.querySelector('#shoppingCartContainer') // selecionamos el elemento mostraremos al dar click 
 
 
 
@@ -22,21 +22,21 @@ menuCarritoIcon.addEventListener('click', toggleCarritoAside) // metodo para eje
 //FUNCIONES
 // funcion para que el menu aparezca y desaparezca 
 function toggleDesktopMenu (){
-    const isAsideClosed = aside.classList.contains('inactive')
+    const isAsideClosed = shoopingCartContainer.classList.contains('inactive')
     
     if(!isAsideClosed)
     {
-        aside.classList.add('inactive')
+        shoopingCartContainer.classList.add('inactive')
     }
     desktopMenu.classList.toggle('inactive')// le pone o le quita la clase inactive si la tiene o no 
 }
 
 function toggleMobileMenu(){
-    const isAsideClosed = aside.classList.contains('inactive')
+    const isAsideClosed = shoopingCartContainer.classList.contains('inactive')
     
     if(!isAsideClosed)
     {
-        aside.classList.add('inactive')
+        shoopingCartContainer.classList.add('inactive')
     }
        
     mobileMenu.classList.toggle('inactive')// le pone o le quita la clase inactive si la tiene o no 
@@ -49,7 +49,7 @@ function toggleCarritoAside(){
     {
         mobileMenu.classList.add('inactive')
     }
-       aside.classList.toggle('inactive')    
+       shoopingCartContainer.classList.toggle('inactive')    
 }
 
 //crearemos una lista de prodcuto desde cero
@@ -80,65 +80,46 @@ productList.push({
 
 });
 
-/*
-<div class="product-card">
-        <img src="https://images.pexels.com/photos/276517/pexels-photo-276517.jpeg?auto=compress&cs=tinysrgb&dpr=2&h=650&w=940" alt="">
-        <div class="product-info">
-          <div>
-            <p>$120,00</p>
-            <p>Bike</p>
-          </div>
-          <figure>
-            <img src="./icons/bt_add_to_cart.svg" alt="">
-          </figure>
-        </div>
-      </div>
-*/
 const cardsContainer = document.querySelector('.cards-container')
 
 
 //insertamos en nuestro HTML los objetos y lo devemos recorrer con un ciclo for
-for (product of productList){
-    //creamos cada uno de los elementos del HTML
-    const productcard = document.createElement('div') // creamos el div como primero que tiene la clase productcard
-    productcard.classList.add('product-card')//le asignamos la clase que tiene el elemento
-
-    const productImg = document.createElement('img')// creamos el elemento imagen img
-    productImg.setAttribute('src', product.image) // se pasamos la imagen al atributo
-
-    const productInfo = document.createElement('div')
-    productInfo.classList.add('product-info')
-
-    const producInfoDiv = document.createElement('div')
-
-    //creamos las etiquetas parrafos y se les pasa el valor 
-    const producPrice = document.createElement('p')
-    producPrice.innerText='$' + product.price // asinamos el valor en la etiqueta p
-    const producName = document.createElement('p')
-    producName.innerText= product.name // asinamos el valor en la etiqueta p
-
-    const productInfoFigure = document.createElement('figure')
-    const productImgCart = document.createElement('img')
-    productImgCart.setAttribute('src', './icons/bt_add_to_cart.svg') // se pasamos la imagen al atributo
-
-
-    //metemos cada etiqueta HTML dentro de su Etiqueta padre
-    productInfoFigure.appendChild(productImgCart)
-    producInfoDiv.appendChild(producPrice)
-    producInfoDiv.appendChild(producName)
-    productInfo.appendChild(producInfoDiv)
-    productInfo.appendChild(productInfoFigure)
-    productcard.appendChild(productImg)
-    productcard.appendChild(productInfo)
-    cardsContainer.appendChild(productcard)
-
-
-
-
-
- 
-
-
-
-
+function renderproducts(arr){
+    for (product of arr){
+        //creamos cada uno de los elementos del HTML
+        const productcard = document.createElement('div') // creamos el div como primero que tiene la clase productcard
+        productcard.classList.add('product-card')//le asignamos la clase que tiene el elemento
+    
+        const productImg = document.createElement('img')// creamos el elemento imagen img
+        productImg.setAttribute('src', product.image) // se pasamos la imagen al atributo
+    
+        const productInfo = document.createElement('div')
+        productInfo.classList.add('product-info')
+    
+        const producInfoDiv = document.createElement('div')
+    
+        //creamos las etiquetas parrafos y se les pasa el valor 
+        const producPrice = document.createElement('p')
+        producPrice.innerText='$' + product.price // asinamos el valor en la etiqueta p
+        const producName = document.createElement('p')
+        producName.innerText= product.name // asinamos el valor en la etiqueta p
+    
+        const productInfoFigure = document.createElement('figure')
+        const productImgCart = document.createElement('img')
+        productImgCart.setAttribute('src', './icons/bt_add_to_cart.svg') // se pasamos la imagen al atributo
+    
+    
+        //metemos cada etiqueta HTML dentro de su Etiqueta padre
+        productInfoFigure.appendChild(productImgCart)
+        producInfoDiv.appendChild(producPrice)
+        producInfoDiv.appendChild(producName)
+        productInfo.appendChild(producInfoDiv)
+        productInfo.appendChild(productInfoFigure)
+        productcard.appendChild(productImg)
+        productcard.appendChild(productInfo)
+        cardsContainer.appendChild(productcard)
+    
+    }
 }
+
+renderproducts(productList)
