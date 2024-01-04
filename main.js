@@ -8,6 +8,9 @@ const mobileMenu = document.querySelector('.mobile-menu') // selecionamos el ele
 const menuCarritoIcon = document.querySelector('.navbar-shopping-cart') // selecionamos el elemento que daremos click 
 const shoopingCartContainer = document.querySelector('#shoppingCartContainer') // selecionamos el elemento mostraremos al dar click 
 
+const ProductDetailContainer = document.querySelector('#ProductDetail')// selecciona el id del detalle del producto
+const productDetailClosedIcom = document.querySelector('.product-detail-close')
+
 
 
 
@@ -15,6 +18,7 @@ const shoopingCartContainer = document.querySelector('#shoppingCartContainer') /
 menuEmail.addEventListener('click', toggleDesktopMenu) // metodo para ejecutar algo cuando le demos click al elemento selecionado
 menuHamIcon.addEventListener('click', toggleMobileMenu) // metodo para ejecutar algo cuando le demos click al elemento selecionado
 menuCarritoIcon.addEventListener('click', toggleCarritoAside) // metodo para ejecutar algo cuando le demos click al elemento selecionado
+productDetailClosedIcom.addEventListener('click', closedProductdetailAside) 
 
 
 
@@ -38,6 +42,7 @@ function toggleMobileMenu(){
     {
         shoopingCartContainer.classList.add('inactive')
     }
+    closedProductdetailAside();
        
     mobileMenu.classList.toggle('inactive')// le pone o le quita la clase inactive si la tiene o no 
 }
@@ -49,7 +54,23 @@ function toggleCarritoAside(){
     {
         mobileMenu.classList.add('inactive')
     }
+
+    const isproductDetailClosed = ProductDetailContainer.classList.contains('inactive')
+
+    if(!isproductDetailClosed)
+    {
+        ProductDetailContainer.classList.add('inactive')
+    }
        shoopingCartContainer.classList.toggle('inactive')    
+}
+
+function openProductDetailAside(){
+   shoopingCartContainer.classList.add('inactive') // cada que intente abril otra cosa cierre el carrito si esta abierto
+    ProductDetailContainer.classList.remove('inactive')
+}
+
+function closedProductdetailAside(){
+    ProductDetailContainer.classList.add('inactive')
 }
 
 //crearemos una lista de prodcuto desde cero
@@ -92,6 +113,9 @@ function renderproducts(arr){
     
         const productImg = document.createElement('img')// creamos el elemento imagen img
         productImg.setAttribute('src', product.image) // se pasamos la imagen al atributo
+
+        // para ver el detalla del producto al cual damos click
+        productImg.addEventListener('click', openProductDetailAside)
     
         const productInfo = document.createElement('div')
         productInfo.classList.add('product-info')
