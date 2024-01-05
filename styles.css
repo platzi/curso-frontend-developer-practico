@@ -132,7 +132,7 @@
         padding: 24px;
         background-color: var(--white);
         left: 0;
-        width: 100%;
+        width: calc(100% - 24px);
       }
       .mobile-menu a {
         text-decoration: none;
