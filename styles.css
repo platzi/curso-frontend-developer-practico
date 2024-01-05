@@ -369,9 +369,14 @@
         display: none;
     }
 
-    .product-detail {
-        width: 100%;
-      }
+    #shoppingCartContainer {
+      width: 100%;
+    }
+
+    #productDetail {
+      width: 100%;
+    }
+
   }
 
   @media (min-width: 641px) {
