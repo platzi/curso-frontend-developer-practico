@@ -14,6 +14,11 @@
     font-family: 'Quicksand', sans-serif;
   }
 
+  .sombreado{
+    background-color: var(--back);
+    opacity: .8;
+  }
+
   .inactive{
     display: none;
   }
@@ -244,8 +249,10 @@
   width: 360px;
   padding-bottom: 24px;
   position: absolute;
-  right: 0;
+  right: 40%;
+  top: 10%;
   background-color: var(--white);
+  border-radius: 10px;
 }
 
 .product-detailing-close {
@@ -259,14 +266,18 @@
   padding: 12px;
   border-radius: 50%;
 }
+
 .product-detailing-close:hover {
   cursor: pointer;
+  background: var(--black);
+  opacity: .1;
 }
+
 .product-detailing > img:nth-child(2) {
   width: 100%;
   height: 360px;
   object-fit: cover;
-  border-radius: 0 0 20px 20px;
+  border-radius: 10px;
 }
 .producto-info {
   margin: 24px 24px 0 24px;

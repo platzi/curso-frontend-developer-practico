@@ -5,28 +5,50 @@ const mobileMenu = document.querySelector(".mobile-menu");
 const menuCarritoIcon = document.querySelector(".navbar-shopping-cart");
 const aside = document.querySelector(".product-detail");
 const cardsContainer = document.querySelector(".cards-container");
-
+const productDetail = document.querySelector(".product-detailing");
+const productDetailClose = document.querySelector(".product-detailing-close");
+// const resaltarProduct = document.querySelector(".cards-container");
 
 
 menuEmail.addEventListener("click", toggleDesktopMenu);
 menuBurger.addEventListener("click", toggleMobileMenu);
-menuCarritoIcon.addEventListener("click", toggleCarritoAside)
+menuCarritoIcon.addEventListener("click", toggleCarritoAside);
+productDetailClose.addEventListener("click", closeDetail);
+
 
 
 function toggleDesktopMenu(){
     desktopMenu.classList.toggle("inactive")
     aside.classList.add("inactive")
+    productDetail.classList.add("inactive")
 }
 function toggleMobileMenu(){
     mobileMenu.classList.toggle("inactive")
     aside.classList.add("inactive")
+    productDetail.classList.add("inactive")
 }
 
 function toggleCarritoAside(){
     mobileMenu.classList.add("inactive")
     aside.classList.toggle("inactive")
     desktopMenu.classList.add("inactive")
+    productDetail.classList.add("inactive")
 }
+
+function openDetail(){
+    productDetail.classList.toggle("inactive");
+    aside.classList.add("inactive");
+    desktopMenu.classList.add("inactive");
+    // resaltarProduct.classList.toggle("sombreado");
+    
+}
+
+function closeDetail(){
+    productDetail.classList.add("inactive")
+}
+
+
+
 
 const productList = [];
 
@@ -73,6 +95,7 @@ function renderProducts(arr){
     
         const productImg = document.createElement("img");
         productImg.setAttribute("src", product.image);
+        productImg.addEventListener("click", openDetail)
     
         const productInfo = document.createElement("div");
         productInfo.classList.add("product-info");
@@ -103,3 +126,4 @@ function renderProducts(arr){
 }
 
 renderProducts(productList)
+
