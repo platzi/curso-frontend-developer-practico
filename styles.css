@@ -1,3 +1,4 @@
+/*GENERAL*/
 :root {
   --white: #FFFFFF;
   --black: #000000;
@@ -18,12 +19,23 @@ nav {
   padding: 0 24px;
   border-bottom: 1px solid var(--very-light-pink);
 }
+/*Se copian los estilos del menu desplegable de la derecha, excepto el body y root */
+/*se agrega la clase inactive a la etiqueta para hacer desaparecer y aparecer el menú*/
+.inactive {
+  display: none;
+  /*la etiqueta que tenga la clase inective se oculta del display*/
+  /*con js se quita y agrega esta clase a la etiqueta segun se da
+  click en cierto lugar*/
+}
+
 .menu {
   display: none;
 }
 .logo {
   width: 100px;
 }
+
+/*NAV general*/
 .navbar-left ul,
 .navbar-right ul {
   list-style: none;
@@ -47,7 +59,7 @@ nav {
   padding: 8px;
   border-radius: 8px;
 }
-.navbar-left ul li a:hover,
+.navbar-lefSt ul li a:hover,
 .navbar-right ul li a:hover {
   border: 1px solid var(--hospital-green);
   color: var(--hospital-green);
@@ -75,6 +87,136 @@ nav {
   justify-content: center;
   align-items: center;
 }
+
+/*Aside (detalles de productos y Carrito)*/
+.product-detail {
+  background-color: var(--white);
+  width: 360px;
+  padding: 0 24px;
+  box-sizing: border-box;
+  position: absolute;
+  right: 0;
+}
+.title-container {
+  display: flex;
+}
+.title-container img {
+  transform: rotate(180deg);
+  margin-right: 14px;
+}
+.title {
+  font-size: var(--lg);
+  font-weight: bold;
+}
+.order {
+  display: grid;
+  grid-template-columns: auto 1fr;
+  gap: 16px;
+  align-items: center;
+  background-color: var(--text-input-field);
+  margin-bottom: 24px;
+  border-radius: 8px;
+  padding: 0 24px;
+}
+.order p:nth-child(1) {
+  display: flex;
+  flex-direction: column;
+}
+.order p span:nth-child(1) {
+  font-size: var(--md);
+  font-weight: bold;
+}
+.order p:nth-child(2) {
+  text-align: end;
+  font-weight: bold;
+}
+.shopping-cart {
+  display: grid;
+  grid-template-columns: auto 1fr auto auto;
+  gap: 16px;
+  margin-bottom: 24px;
+  align-items: center;
+}
+.shopping-cart figure {
+  margin: 0;
+}
+.shopping-cart figure img {
+  width: 70px;
+  height: 70px;
+  border-radius: 20px;
+  object-fit: cover;
+}
+.shopping-cart p:nth-child(2) {
+  color: var(--very-light-pink);
+}
+.shopping-cart p:nth-child(3) {
+  font-size: var(--md);
+  font-weight: bold;
+}
+.primary-button {
+  background-color: var(--hospital-green);
+  border-radius: 8px;
+  border: none;
+  color: var(--white);
+  width: 100%;
+  cursor: pointer;
+  font-size: var(--md);
+  font-weight: bold;
+  height: 50px;
+}
+
+/*LISTA DE PRODUCTOS*/
+
+.cards-container {
+  display: grid;
+  grid-template-columns: repeat(auto-fill, 240px);
+  gap: 26px;
+  place-content: center;
+  margin-top: 20px;
+}
+.product-card {
+  width: 240px;
+}
+.product-card img {
+  width: 240px;
+  height: 240px;
+  border-radius: 20px;
+  object-fit: cover;
+}
+.product-info {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  margin-top: 12px;
+}
+.product-info figure {
+  margin: 0;
+}
+.product-info figure img {
+  width: 35px;
+  height: 35px;
+}
+.product-info div p:nth-child(1) {
+  font-weight: bold;
+  font-size: var(--md);
+  margin-top: 0;
+  margin-bottom: 4px;
+}
+.product-info div p:nth-child(2) {
+  font-size: var(--sm);
+  margin-top: 0;
+  margin-bottom: 0;
+  color: var(--very-light-pink);
+}
+@media (max-width: 640px) {
+
+}
+
+/*  "MEDIA QUIERYS"  */
+/*
+se ejecuta este codigo css cuando esta desde cero a el maximo que es 640px
+o sea, LA VERSIÓN MOBILE
+*/
 @media (max-width: 640px) {
   .menu {
     display: block;
@@ -85,17 +227,36 @@ nav {
   .navbar-email {
     display: none;
   }
+  .desktop-menu {
+    display:none;
+  }
+  /*quita el menú desktop cuando esta en versión mobile (pequeña)*/
+  .product-detail {
+    width: 100%;
+  }
+  .cards-container {
+    grid-template-columns: repeat(auto-fill, 140px);
+  }
+  .product-card {
+    width: 140px;
+  }
+  .product-card img {
+    width: 140px;
+    height: 140px;
+  }
 }
 
-/*Se copian los estilos del menu desplegable de la derecha, excepto el body y root */
-/*se agrega la clase inactive a la etiqueta para hacer desaparecer y aparecer el menú*/
-.inactive {
-  display: none;
-  /*la etiqueta que tenga la clase inective se oculta del display*/
-  /*con js se quita y agrega esta clase a la etiqueta segun se da
-  click en cierto lugar*/
+/*este se ejecuta desde el minimo(641) hasta el maximo
+Para que desaparezca el menu mobile cuando se agrande la panalla
+*/
+@media (min-width: 641px) {
+  .mobile-menu{
+    display: none;
+  }
 }
 
+
+/*Menu en destop*/
 .desktop-menu {
   position: absolute; /*porque desfiguraba lo que habia antes*/
   top:60px;
@@ -132,4 +293,37 @@ nav {
   text-decoration: none;
   margin-bottom: 20px;
   display: inline-block;
+}
+
+/*Menu en mobile*/
+.mobile-menu {
+  background-color: var(--white);
+  position: absolute; /*porque desfiguraba lo que habia antes*/
+  top:60px;
+  padding: 24px;
+}
+.mobile-menu a {
+  text-decoration: none;
+  color: var(--black);
+  font-weight: bold;
+  /* margin-bottom: 24px; */
+}
+.mobile-menu ul {
+  padding: 0;
+  margin: 24px 0 0;
+  list-style: none;
+}
+.mobile-menu ul:nth-child(1) {
+  border-bottom: 1px solid var(--very-light-pink);
+}
+.mobile-menu ul li {
+  margin-bottom: 24px;
+}
+.email {
+  font-size: var(--sm);
+  font-weight: 300 !important;
+}
+.sign-out {
+  font-size: var(--sm);
+  color: var(--hospital-green) !important;
 }
