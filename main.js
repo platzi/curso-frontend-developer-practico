@@ -43,23 +43,22 @@ function toggleCarritoAside() {
   aside.classList.toggle("inactive");
 }
 
-const productList = [];
+/*NUmero aleatorio para saber el numero de productos a mostrar*/
+var min = 6;
+var max = 30;
 
-productList.push({
-  name: "Bike",
-  price: 120,
-  img: "https://images.pexels.com/photos/276517/pexels-photo-276517.jpeg?auto=compress&cs=tinysrgb&dpr=2&h=650&w=940",
-});
-productList.push({
-  name: "Pantalla",
-  price: 620,
-  img: "https://images.pexels.com/photos/276517/pexels-photo-276517.jpeg?auto=compress&cs=tinysrgb&dpr=2&h=650&w=940",
-});
-productList.push({
-  name: "Compu",
-  price: 1220,
-  img: "https://images.pexels.com/photos/276517/pexels-photo-276517.jpeg?auto=compress&cs=tinysrgb&dpr=2&h=650&w=940",
-});
+var x = Math.floor(Math.random() * (max - min) + min);
+
+console.log(x);
+
+const productList = [];
+for (let i = 0; i < x; i++) {
+  productList.push({
+    name: "Bike",
+    price: 120,
+    img: "https://images.pexels.com/photos/276517/pexels-photo-276517.jpeg?auto=compress&cs=tinysrgb&dpr=2&h=650&w=940",
+  });
+}
 
 function renderProducts(arr) {
   for (product of productList) {
