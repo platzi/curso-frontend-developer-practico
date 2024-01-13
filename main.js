@@ -6,11 +6,15 @@ const mobileMenu = document.querySelector(".mobile-menu")
 const shoppingCart = document.querySelector(".product-detail")
 const cartIcon = document.querySelector(".navbar-shopping-cart")
 const cardsContainer = document.querySelector(".cards-container")
+const productCard = document.querySelector(".product-card")
+const productDetailDescription = document.querySelector(".product-detail-description")
+const productDetailClose = document.querySelector(".product-detail-close")
 
 //EventListeners
 menuEmail.addEventListener("click", toogleDesktopMenu)
 burgerIcon.addEventListener("click", tooglemobileMenu)
 cartIcon.addEventListener("click", toogleShoppingCart)
+
 
 //NavFunctions
 function closeShoppingCartIfOpen () {
@@ -20,8 +24,30 @@ function closeShoppingCartIfOpen () {
     }
 }
 
+function closeDesktopMenuIfOpen () {
+    const isDesktopMenuOpen = !desktopMenu.classList.contains("inactive")
+    if (isDesktopMenuOpen) {
+        desktopMenu.classList.add("inactive")
+    }
+}
+
+function closeMobileMenuIfOpen () {
+    const isMobileMenuOpen = !mobileMenu.classList.contains("inactive")
+    if (isMobileMenuOpen) {
+        mobileMenu.classList.add("inactive")
+    }
+}
+
+function closeProductDetailIfOpen () {
+    const isProductDescriptionOpen = !productDetailDescription.classList.contains("inactive")
+    if (isProductDescriptionOpen) {
+        productDetailDescription.classList.add("inactive")
+    }
+}
+
 function toogleDesktopMenu () {
     closeShoppingCartIfOpen()
+    closeProductDetailIfOpen()
     desktopMenu.classList.toggle("inactive")
 }
 
@@ -31,16 +57,22 @@ function tooglemobileMenu () {
 }
 
 function toogleShoppingCart () {
-    const isMobileMenuOpen = !mobileMenu.classList.contains("inactive")
-    const isDesktopMenuOpen = !desktopMenu.classList.contains("inactive")
-
-    if (isMobileMenuOpen) {
-        mobileMenu.classList.add("inactive")
-    } else if (isDesktopMenuOpen) {
-        desktopMenu.classList.add("inactive")
-    }
+    closeDesktopMenuIfOpen()
+    closeMobileMenuIfOpen()
+    closeProductDetailIfOpen()
     shoppingCart.classList.toggle("inactive")
 } 
+
+function openProductDescription () {
+    closeShoppingCartIfOpen()
+    closeDesktopMenuIfOpen()
+    closeMobileMenuIfOpen()
+    productDetailDescription.classList.remove("inactive")
+}
+
+function closeProductDescription () {
+    productDetailDescription.classList.add("inactive")
+}
 
 const productList = []
 productList.push({
@@ -66,6 +98,9 @@ function renderProducts(arr) {
      
         const productImg = document.createElement("img")
         productImg.setAttribute("src", product.image)
+        //ESTA PARTE ES PARA ABRIR/CERRAR EL PRODUCT DESCRIPTION
+        productImg.addEventListener("click", openProductDescription)
+        productDetailClose.addEventListener("click", closeProductDescription)
      
         const productInfo = document.createElement("div")
         productInfo.classList.add("product-info")
