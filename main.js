@@ -70,19 +70,19 @@ productList.push({
     "https://images.pexels.com/photos/276517/pexels-photo-276517.jpeg?auto=compress&cs=tinysrgb&dpr=2&h=650&w=940",
 });
 productList.push({
-  name: "Pantalla",
+  name: "Pantalla LED",
   price: 1100,
   image:
-    "https://images.pexels.com/photos/276517/pexels-photo-276517.jpeg?auto=compress&cs=tinysrgb&dpr=2&h=650&w=940",
+    "https://images.pexels.com/photos/13988977/pexels-photo-13988977.jpeg?auto=compress&cs=tinysrgb&w=1260&h=750&dpr=1",
 });
 productList.push({
-  name: "Compu",
+  name: "Computador",
   price: 150,
   image:
-    "https://images.pexels.com/photos/276517/pexels-photo-276517.jpeg?auto=compress&cs=tinysrgb&dpr=2&h=650&w=940",
+    "https://images.pexels.com/photos/2528118/pexels-photo-2528118.jpeg?auto=compress&cs=tinysrgb&w=600",
 });
 productList.push({
-  name: "Compu",
+  name: "Celular",
   price: 50,
   image:
     "https://th.bing.com/th/id/OIG.w4q4uOBtLzcSMYMahzNy?w=1024&h=1024&rs=1&pid=ImgDetMain",
