@@ -3,12 +3,13 @@
 const getAllProducts = 'https://localhost:7202/api/Products'; // MoveITMVC url: https://localhost:7202 Minimal: https://localhost:7202
 const productList = [];
 
+
 async function fetchData() {
   try {
     const response = await fetch(getAllProducts, {
       method: 'GET',
       headers: {
-        'Content-Type': 'application/json',
+        'Content-Type': 'application/json', 
       },
     });
 
@@ -565,26 +566,34 @@ chatButton.addEventListener("click", () => {
   getMessagesByUsername('user1');
 });
 
+////// ADD MORE LOGIC TO MANAGE THE JWT TOKEN(removal, check more info...)
 
 
-//token1 is the logIn Token with Email UserId & Name
-const token = localStorage.getItem('token');
+// token1 is the logIn Token with Email UserId & Name
+const token = localStorage.getItem('token1');
 
 if (token) {
-  // Dividir el token en sus partes: encabezado, carga útil (payload), firma
+  // Divide token in its smaller parts. Only using payload though
   const [header, payload, signature] = token.split('.');
 
-  // Decodificar el payload, que es la parte central del token
+  // Decoding payload from ASCII to Binary atob()
   const decodedPayload = atob(payload);
 
-  // Parsear el payload decodificado a JSON
+  // Parsing payload of the JWT. The object is complex, contains a lot of information. CHECK
   const payloadObj = JSON.parse(decodedPayload);
 
-  // Acceder al valor del campo "Email" si existe en el payload
+  // Accessing Email and using it to show the email in the main page.
   navbarEmail.textContent = payloadObj['http://schemas.xmlsoap.org/ws/2005/05/identity/claims/emailaddress'];
+
+  /////////////  REMAKE   /////////
+  // const currentTimeInSeconds = Math.floor(Date.now() / 1000);
+  // if (payloadObj.exp && payloadObj.exp < currentTimeInSeconds) {
+  //   // Token has expired, remove it from localStorage
+  //   localStorage.removeItem('token');
+  //   console.log('JWT expired. Removed from localStorage.');
+  // }
 } else {
-  console.log('El token no está presente en el localStorage');
-  
+  console.log('JWT not found.');
 }
 
 

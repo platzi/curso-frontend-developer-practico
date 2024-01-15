@@ -24,6 +24,7 @@ document.getElementById('logInButton').addEventListener('click', async function(
         }
   
         const responseData = await response.json();
+        //Check what user sends with Token token.
         if (responseData && responseData.token) {
             localStorage.setItem('token1', responseData.token);
             console.log('Login successful. Token:', responseData.token);
