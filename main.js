@@ -5,16 +5,20 @@ const mobileMenu= document.querySelector(".mobile-menu")
 const productDetail = document.querySelector(".product-detail")
 const shoppingCart = document.querySelector(".shopping-cart-image")
 const cardContainer = document.querySelector(".cards-container")
+const productDetail2 = document.querySelector(".product-detail_2")
+const close = document.getElementById("close")
 
 nav_bar.addEventListener("click", quitarInactive)
 menu.addEventListener("click", quitarInactive2)
 shoppingCart.addEventListener ("click", quitarInactive3)
+close.addEventListener("click", quitarInactive4)
 
 const productList = []
 
 function quitarInactive(){
 nav_email.classList.toggle ("inactive")
 productDetail.classList.add("inactive")
+productDetail2.classList.add("inactive")
 }
 
 function quitarInactive2(){
@@ -26,6 +30,11 @@ function quitarInactive3(){
     productDetail.classList.toggle("inactive")
     nav_email.classList.add("inactive")
     mobileMenu.classList.add("inactive")
+    productDetail2.classList.add("inactive")
+}
+
+function quitarInactive4(){
+    productDetail2.classList.toggle("inactive")
 }
 
 productList.push({
