@@ -276,6 +276,9 @@
         margin-bottom: 0;
         color: var(--very-light-pink);
       }
+      .product-image{
+        cursor: pointer;
+      }
 
       /* PRODUCT DETAIL COMPLETO */
       .product-detail_2 {

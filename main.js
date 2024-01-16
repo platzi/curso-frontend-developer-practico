@@ -8,6 +8,7 @@ const cardContainer = document.querySelector(".cards-container")
 const productDetail2 = document.querySelector(".product-detail_2")
 const close = document.getElementById("close")
 
+
 nav_bar.addEventListener("click", quitarInactive)
 menu.addEventListener("click", quitarInactive2)
 shoppingCart.addEventListener ("click", quitarInactive3)
@@ -24,6 +25,8 @@ productDetail2.classList.add("inactive")
 function quitarInactive2(){
     mobileMenu.classList.toggle ("inactive")
     productDetail.classList.add ("inactive")
+    productDetail2.classList.add("inactive")
+    nav_email.classList.add("inactive")
 }
 
 function quitarInactive3(){
@@ -35,6 +38,13 @@ function quitarInactive3(){
 
 function quitarInactive4(){
     productDetail2.classList.toggle("inactive")
+}
+
+function borrarInactive(){
+    productDetail2.classList.remove("inactive")
+    nav_email.classList.add("inactive")
+    productDetail.classList.add("inactive")
+    mobileMenu.classList.add("inactive")
 }
 
 productList.push({
@@ -72,6 +82,8 @@ for (product of productList){
 
     const img= document.createElement("img")
     img.setAttribute("src", product.image)
+    img.classList.add ("product-image")
+    img.addEventListener("click", borrarInactive)
 
     const productInfo = document.createElement("div")
     productInfo.classList.add("product-info")
@@ -104,3 +116,4 @@ for (product of productList){
     cardContainer.appendChild(productCard)
 
 }
+
