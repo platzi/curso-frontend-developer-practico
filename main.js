@@ -1,28 +1,26 @@
 
-/*Quita y pone el menu del usiario d ela derecha*/
-
-
 const menuEmail = document.querySelector('.navbar-email');
-const desktopMenu = document.querySelector('.desktop-menu');
 const menuHamIcon = document.querySelector('.menu');
-const mobileMenu = document.querySelector('.mobile-menu');
 const menuCarritoIcon = document.querySelector('.navbar-shopping-cart');
-const aside = document.querySelector('.product-detail');
+const productDetailCloseIcon = document.querySelector('.product-detail-close')
+const desktopMenu = document.querySelector('.desktop-menu');
+const mobileMenu = document.querySelector('.mobile-menu');
+const shoppingCartContainer = document.querySelector('#shoppingCartContainer');
+const productDetailContainer = document.querySelector('#productDetail');
 const cardsContainer = document.querySelector('.cards-container');
 
-menuEmail.addEventListener('click', toggDesktopMenu);
+menuEmail.addEventListener('click', toggleDesktopMenu);
 menuHamIcon.addEventListener('click', toggleMobileMenu);
 menuCarritoIcon.addEventListener('click', toggleCarritoAside);
+productDetailCloseIcon.addEventListener('click', closeProductDetailAside);
 
-function toggDesktopMenu(){
-
-  const isAsideClosed = aside.classList.contains('inactive');
+function toggleDesktopMenu() {
+  const isAsideClosed = shoppingCartContainer.classList.contains('inactive');
 
   if (!isAsideClosed) {
-    aside.classList.add('inactive');
+    shoppingCartContainer.classList.add('inactive');
   }
-  //si el aside esta abierto, lo cierra
-
+  //si el shoppingCartContainer esta abierto, lo cierra
   desktopMenu.classList.toggle('inactive');
   //varía entre quitar y poner la clase inactive a al menú desplegable
   //la clase inactive tiene un estilo(css) que oculta el menú
@@ -30,37 +28,49 @@ function toggDesktopMenu(){
 }
 
 function toggleMobileMenu() {
-
-  const isAsideClosed = aside.classList.contains('inactive');
+  const isAsideClosed = shoppingCartContainer.classList.contains('inactive');
 
   if (!isAsideClosed) {
-    aside.classList.add('inactive');
+    shoppingCartContainer.classList.add('inactive');
   }
-  //si el aside estaba abierto, lo cierra
+  //si el shoppingCartContainer estaba abierto, lo cierra
+
+  //cierro los datalles si abro el menumobile
+  closeProductDetailAside();
 
   mobileMenu.classList.toggle('inactive');
   //lo mismo pero para el menú en mobile
 }
 
 function toggleCarritoAside() {
-  //si el menu mobile o el desktop están abiertos, los cierra
+  //para cerrar el menu cuando se abre el carrito y viceversa
   const isMobileMenuClosed = mobileMenu.classList.contains('inactive');
+
   if (!isMobileMenuClosed) {
     mobileMenu.classList.add('inactive');
   }
 
-  const isDesktopMenuClosed = desktopMenu.classList.contains('inactive');
-  if (!isDesktopMenuClosed) {
-    desktopMenu.classList.add('inactive');
+  //lo mismo pero entre el carrito y el producDetail(visualización de detalles)
+  const isProductDetailClosed = productDetailContainer.classList.contains('inactive');
+
+  if (!isProductDetailClosed) {
+    productDetailContainer.classList.add('inactive');
   }
 
-  aside.classList.toggle('inactive');
-  //lo mismo pero para el carrito
+  shoppingCartContainer.classList.toggle('inactive');
 }
 
+function openProductDetailAside() {
+  //cierro el carrito y abro los detalles
+  shoppingCartContainer.classList.add('inactive');
+  productDetailContainer.classList.remove('inactive');
+}
+
+function closeProductDetailAside() {
+  productDetailContainer.classList.add('inactive');
+}
 
 const productList = [];
-
 productList.push({
   name: 'Bike',
   price: 120,
@@ -102,6 +112,7 @@ function renderProducts(arr) {
     // product= {name, price, image} -> product.image
     const productImg = document.createElement('img');
     productImg.setAttribute('src', product.image);
+    productImg.addEventListener('click', openProductDetailAside);
 
     const productInfo = document.createElement('div');
     productInfo.classList.add('product-info');
@@ -113,14 +124,14 @@ function renderProducts(arr) {
     const productName = document.createElement('p');
     productName.innerText = product.name;
 
+    productInfoDiv.appendChild(productPrice);
+    productInfoDiv.appendChild(productName);
+
     const productInfoFigure = document.createElement('figure');
     const productImgCart = document.createElement('img');
     productImgCart.setAttribute('src', './icons/bt_add_to_cart.svg');
 
     //voy agregando unas a otras
-    productInfoDiv.appendChild(productPrice);
-    productInfoDiv.appendChild(productName);
-
     productInfoFigure.appendChild(productImgCart);
 
     productInfo.appendChild(productInfoDiv);

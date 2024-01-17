@@ -1,6 +1,6 @@
 /*GENERAL*/
 :root {
-  --white: #FFFFFF;
+  --white: #FFFFFF;/*se crean elementos con ciertos valores, para usar sus valores mas adelante var(--white)*/
   --black: #000000;
   --very-light-pink: #C7C7C7;
   --text-input-field: #F7F7F7;
@@ -89,14 +89,19 @@ nav {
 }
 
 /*Aside (detalles de productos y Carrito)*/
-.product-detail {
+aside {
   background-color: var(--white);
   width: 360px;
-  padding: 0 24px;
+  /*antes aqui habia un padin, pero no queriamos que lo tuvieran todos los aside*/
   box-sizing: border-box;
   position: absolute;
   right: 0;
 }
+/* ShoppingCart, pongo ese padin que habia solo para el shoppingcart*/
+#shoppingCartContainer {
+  padding: 0 24px;
+}
+
 .title-container {
   display: flex;
 }
@@ -183,26 +188,26 @@ nav {
   border-radius: 20px;
   object-fit: cover;
 }
-.product-info {
+.product-card .product-info {
   display: flex;
   justify-content: space-between;
   align-items: center;
   margin-top: 12px;
 }
-.product-info figure {
+.product-card .product-info figure {
   margin: 0;
 }
-.product-info figure img {
+.product-card .product-info figure img {
   width: 35px;
   height: 35px;
 }
-.product-info div p:nth-child(1) {
+.product-card .product-info div p:nth-child(1) {
   font-weight: bold;
   font-size: var(--md);
   margin-top: 0;
   margin-bottom: 4px;
 }
-.product-info div p:nth-child(2) {
+.product-card .product-info div p:nth-child(2) {
   font-size: var(--sm);
   margin-top: 0;
   margin-bottom: 0;
@@ -231,7 +236,7 @@ o sea, LA VERSIÓN MOBILE
     display:none;
   }
   /*quita el menú desktop cuando esta en versión mobile (pequeña)*/
-  .product-detail {
+  aside {
     width: 100%;
   }
   .cards-container {
@@ -300,7 +305,10 @@ Para que desaparezca el menu mobile cuando se agrande la panalla
   background-color: var(--white);
   position: absolute; /*porque desfiguraba lo que habia antes*/
   top:60px;
-  padding: 24px;
+  left: 0; /*para que se acomode a 100% a la izquierda*/
+   width: calc(100% - 24px); /*para que ocupe todo el ancho, aunque si no es suficientemente
+  largo, por debajo se ve la parte de atras calc para que haga el calculo*/
+  padding-left: 24px;
 }
 .mobile-menu a {
   text-decoration: none;
@@ -326,4 +334,68 @@ Para que desaparezca el menu mobile cuando se agrande la panalla
 .sign-out {
   font-size: var(--sm);
   color: var(--hospital-green) !important;
+}
+
+
+/* PRODUCT DETAIL*/
+/*aqui se hizo el arreglo de que se mezclaban las clases de product info, entonces
+se aplica aqui solo el al produt-info solo si esta dentro del produc-detail, y para la de arriba
+(de la lista de productos) se aplica su produc info solo si esta dentro de la clase product card
+*/
+.product-detail-close {
+  background: var(--white);
+  width: 14px;
+  height: 14px;
+  position: absolute;
+  top: 24px;
+  left: 24px;
+  z-index: 2;
+  padding: 12px;
+  border-radius: 50%;
+}
+.product-detail-close:hover {
+  cursor: pointer;
+}
+#product-detail > img:nth-child(2) {
+  width: 100%;
+  height: 360px;
+  object-fit: cover;
+  border-radius: 0 0 20px 20px;
+}
+#productDetail .product-info {
+  margin: 24px 24px 0 24px;
+}
+#productDetail .product-info p:nth-child(1) {
+  font-weight: bold;
+  font-size: var(--md);
+  margin-top: 0;
+  margin-bottom: 4px;
+}
+#productDetail .product-info p:nth-child(2) {
+  color: var(--very-light-pink);
+  font-size: var(--md);
+  margin-top: 0;
+  margin-bottom: 36px;
+}
+#productDetail .product-info p:nth-child(3) {
+  color: var(--very-light-pink);
+  font-size: var(--sm);
+  margin-top: 0;
+  margin-bottom: 36px;
+}
+.primary-button {
+  background-color: var(--hospital-green);
+  border-radius: 8px;
+  border: none;
+  color: var(--white);
+  width: 100%;
+  cursor: pointer;
+  font-size: var(--md);
+  font-weight: bold;
+  height: 50px;
+}
+.add-to-cart-button {
+  display: flex;
+  align-items: center;
+  justify-content: center;
 }
