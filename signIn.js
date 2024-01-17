@@ -28,6 +28,7 @@ document.getElementById('logInButton').addEventListener('click', async function(
         if (responseData && responseData.token) {
             localStorage.setItem('token1', responseData.token);
             console.log('Login successful. Token:', responseData.token);
+            window.location.href = '../index.html';
             //Redirect to another page / actions after successful login 
         } else {
             throw new Error('No valid token received after authentication');

@@ -81,8 +81,9 @@ sendUser.addEventListener("click", function (event) {
 
 	// Manage response once its ready. xhr.onreadystatechange() is also a valid option.
 	xhr.onload = function () {
-		if (xhr.status >= 200) { //p
+		if (xhr.status >= 200) { //
 			console.log(xhr.response);
+			window.location.href = './signIn.html';
 			// We could do something with the response, show the data in the console, manipulate DOM...
 		} else {
 			console.error("Error adding the user:", xhr.responseText);
