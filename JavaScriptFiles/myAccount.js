@@ -28,11 +28,12 @@ if (token) {
 
 console.log(userId);
 
+
 //añadir JWT a la petición:
 async function getUserData() {
 	try {
 		userid = userId.toUpperCase;
-		const userInfoEndpoint = `https://localhost:7202/api/Users/${userId}`;
+		const userInfoEndpoint = `https://localhost:7202/api/Users/Auth/${userId}`;
 
 		console.log(userInfoEndpoint);
 		const token = localStorage.getItem('token1');
@@ -41,7 +42,7 @@ async function getUserData() {
 			method: 'GET',
 			headers: {
 				'Content-Type': 'application/json',
-				//'Authorization': `Bearer ${token}` //adding token to the headers
+				'Authorization': `Bearer ${token}` //adding token to the headers
 			},
 		});
 		if (!response.ok) {
@@ -49,11 +50,23 @@ async function getUserData() {
 			throw new Error('Error retrieving user data: ' + errorData);
 		}
 
-		const responseData = await response.json();
-		console.log(responseData);
+		const myAccountUser = await response.json();
+
+		showMyAccountUser(myAccountUser);
+		console.log(myAccountUser);
 	} catch (error) {
 		console.error('Error retrieving data in:', error.message);
 	}
 }
 
 getUserData();
+
+
+function showMyAccountUser(myAccountUser) {
+    document.getElementById("showName").innerText = myAccountUser.name;
+    document.getElementById("showEmail").innerText = myAccountUser.email;
+    document.getElementById("showNickname").innerText = myAccountUser.nickname;
+    document.getElementById("showGender").innerText = myAccountUser.gender;
+    document.getElementById("showPofilePictureUrl").innerText = myAccountUser.profilePictureUrl;
+    document.getElementById("showPhoneNumber").innerText = myAccountUser.phoneNumber;
+}
