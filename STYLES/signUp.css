@@ -14,6 +14,10 @@ body {
 	font-family: 'Quicksand', sans-serif;
 }
 
+.inactive {
+	display: none;
+  }
+
 .login {
 	width: 100%;
 	height: 100vh;
@@ -56,18 +60,18 @@ body {
 	margin-bottom: 4px;
 }
 
-.input {
+.input, select {
 	background-color: var(--text-input-field);
 	border: none;
 	border-radius: 8px;
 	height: 30px;
 	font-size: var(--md);
 	padding: 6px;
-
 }
 
 .input-name,
-.input-email {
+.input-email,
+select {
 	margin-bottom: 22px;
 }
 

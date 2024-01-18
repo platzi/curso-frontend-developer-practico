@@ -31,3 +31,7 @@ Establecer la conexión: Usar las credenciales y la configuración para conectar
 Manejo de errores: Implementar lógica para manejar posibles errores de conexión.
 
 Acciones CRUD (Crear, Leer, Actualizar, Eliminar)
+
+------------
+### 18/01/24
+Modificar el codigo para que el select predefinido sea nulo/enblanco o la opción del usuario que viene de la petición get.

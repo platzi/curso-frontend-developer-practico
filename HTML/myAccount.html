@@ -15,52 +15,64 @@
 </head>
 
 <body>
-  <div class="login">
+  <div id="editDataDiv" class="login">
     <div class="form-container">
       <h1 class="title">My account</h1>
 
-      <form action="/" class="form">
+      <form class="form">
         <div>
           <label for="name" class="label">Name</label>
-          <p id="showName"class="value">John Smith</p>
+          <p id="showName" class="value">John Smith</p>
 
           <label for="email" class="label">Email</label>
-          <p id="showEmail"class="value">johnsmith@realm.com</p>
+          <p id="showEmail" class="value">johnsmith@realm.com</p>
 
           <label for="nickname" class="label">Nickname</label>
-          <p id="showNickname"class="value">placeholder</p>
+          <p id="showNickname" class="value">placeholder</p>
 
           <label for="gender" class="label">Gender</label>
-          <p id="showGender"class="value">placeholder</p>
+          <p id="showGender" class="value">placeholder</p>
 
           <label for="profilePictureUrl" class="label">Profile picture URL</label>
-          <p id="showPofilePictureUrl"class="value">placeholder</p>
+          <p id="showProfilePictureUrl" class="value">placeholder</p>
 
           <label for="phoneNumber" class="label">Phone number</label>
-          <p id="showPhoneNumber"class="value">placeholder</p>
+          <p id="showPhoneNumber" class="value">placeholder</p>
         </div>
-        <input type="submit" value="Edit" class="secondary-button login-button">
+        <input id="editData" type="submit" value="Edit" class="secondary-button login-button">
       </form>
     </div>
   </div>
 
-  <div class="login">
+  <div id="changeDataDiv" class="inactive">
     <div class="form-container">
-      <h1 class="title">New account</h1>
+      <h1 class="title">Update your user information</h1>
 
-      <form action="/" class="form" id="userForm">
+      <form class="form" id="userForm">
         <div>
           <label for="name" class="label">Name</label>
-          <input type="text" id="name" placeholder="John" class="input input-name">
+          <input type="text" id="newName" placeholder="John Smith" class="input input-name">
 
           <label for="email" class="label">Email</label>
-          <input type="text" id="email" placeholder="johnsmith@realm.com" class="input input-email">
+          <input type="text" id="newEmail" placeholder="johnsmith@realm.com" class="input input-email">
 
-          <label for="password" class="label">Password</label>
-          <input type="password" id="password" placeholder="*********" class="input input-password">
-          <div>
-            <p id="passwordResult"></p>
-          </div>
+          <label for="nickname" class="label">Nickname</label>
+          <input type="text" id="newNickname" placeholder="usernickname" class="input input-email">
+
+          <label for="gender" class="label">Gender</label>
+          <select id="newGender" class="input input-email" style="height: 40px;">
+            <option value="NonSpecified">Not-Specified</option>
+            <option value="Male">Male</option>
+            <option value="Female">Female</option>
+            <option value="NonBinary">Non-Binary</option>
+          </select>
+
+          <label for="profilePictureUrl" class="label">Profile Picture URL</label>
+          <input type="text" id="newProfilePictureUrl" placeholder="https//:www.mypic.com" class="input input-email">
+
+          <label for="phoneNumber" class="label">Phone number</label>
+          <input type="text" id="newPhoneNumber" placeholder="+34 688885512" class="input input-email">
+
         </div>
 
         <!-- type button to avoid predefined form sending.-->
@@ -69,6 +81,7 @@
       </form>
     </div>
   </div>
+
 </body>
 <script type="text/javascript" src="../JavaScriptFiles/myAccount.js"></script>
 

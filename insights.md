@@ -67,3 +67,64 @@ When you give:
 variable.addEventListener('click', myFunction(randomParameter));
 ```
 This listener will receive the output of myFunction instead of performint it, working weirly, like running myFunction even when the event was not triggered.
+
+## About Request to the server, JSON format and Objects
+I need to research and understand better the data formats that a request to the server can carry and how the API manage it.
+Example:
+```C#
+		[HttpPut("Auth/Update/{id}")]
+		[Authorize]
+		public async Task<IActionResult> UpdateUser(Guid id) {
+			if (!UserExists(id)) {
+				return NotFound();
+			}
+
+			var existingUser = await _context.Users.FindAsync(id);
+
+			if (existingUser == null) {
+				return NotFound();
+			}
+
+			using (var reader = new StreamReader(Request.Body)) {
+				var requestBody = await reader.ReadToEndAsync();
+
+				// Deserializar el JSON  JsonDocument
+				using (JsonDocument document = JsonDocument.Parse(requestBody)) {
+					if (document.RootElement.TryGetProperty("name", out var newName) && newName.ValueKind == JsonValueKind.String && !string.IsNullOrEmpty(newName.GetString())) {
+						existingUser.Name = newName.GetString();
+					}
+
+					if (document.RootElement.TryGetProperty("email", out var correoElement) && correoElement.ValueKind == JsonValueKind.String && !string.IsNullOrEmpty(correoElement.GetString())) {
+						existingUser.Email = correoElement.GetString();
+					}
+
+					if (document.RootElement.TryGetProperty("nickname", out var nicknameElement) && nicknameElement.ValueKind == JsonValueKind.String && !string.IsNullOrEmpty(nicknameElement.GetString())) {
+						existingUser.Nickname = nicknameElement.GetString();
+					}
+
+					//One of the most complex ifs I have ever written... -.-
+					if (document.RootElement.TryGetProperty("gender", out var genderElement) && genderElement.ValueKind == JsonValueKind.String && Enum.TryParse<Gender>(genderElement.GetString(), out var gender)) {
+						existingUser.Gender = gender;
+					}
+
+					if (document.RootElement.TryGetProperty("profilePictureUrl", out var profilePictureUrlElement) && profilePictureUrlElement.ValueKind == JsonValueKind.String && !string.IsNullOrEmpty(profilePictureUrlElement.GetString())) {
+						existingUser.ProfilePictureUrl = profilePictureUrlElement.GetString();
+					}
+
+					if (document.RootElement.TryGetProperty("phoneNumber", out var phoneNumberElement) && phoneNumberElement.ValueKind == JsonValueKind.String && !string.IsNullOrEmpty(phoneNumberElement.GetString())) {
+						existingUser.PhoneNumber = phoneNumberElement.GetString();
+					}
+
+					// Add or remove 
+
+					try {
+						await _context.SaveChangesAsync();
+					} catch (DbUpdateConcurrencyException) {
+						// Add concurrency errors here
+					}
+				}
+			}
+
+			return NoContent();
+		}
+```
