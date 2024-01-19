@@ -68,7 +68,6 @@ if (token) {
 	console.log('JWT not found.');
 }
 
-
 function showMyAccountUser(myAccountUser) {
 	showName.innerText = myAccountUser.name;
 	showEmail.innerText = myAccountUser.email;
@@ -86,7 +85,6 @@ function showMyAccountUserToUpdate(myAccountUser) {
 	newProfilePictureUrl.setAttribute("placeholder", myAccountUser.profilePictureUrl);
 	newPhoneNumber.setAttribute("placeholder", myAccountUser.phoneNumber);
 }
-
 
 
 async function getUserData() {
@@ -123,35 +121,6 @@ async function getUserData() {
 
 getUserData();
 
-
-// async function modifyUserData() {
-
-// 	try {
-
-// 		const userInfoEndpoint = `https://localhost:7202/api/Users/Auth/Update${userId}`;
-
-// 		const response = await fetch(userInfoEndpoint, {
-// 			method: 'PUT',
-// 			headers: {
-// 				'Content-Type': 'application/json',
-// 				'Authorization': `Bearer ${token}` //adding token to the headers
-// 			},
-// 		});
-// 		if (!response.ok) {
-// 			const errorData = await response.text();
-// 			throw new Error('Error updating user data: ' + errorData);
-// 		}
-
-// 		const myAccountUser = await response.json();
-// 		console.log(myAccountUser);
-
-// 		// POP UP?
-
-// 	} catch (error) {
-// 		console.error('Error retrieving data in:', error.message);
-// 	}
-// }
-
 async function modifyUserData() {
 	try {
 		const changeDataUrl = `https://localhost:7202/api/Users/Auth/Update/${userId}`;
@@ -161,12 +130,12 @@ async function modifyUserData() {
 		const modifiedUser = {
 			name: document.getElementById("newName").value,
 			email: document.getElementById("newEmail").value,
-			password: null, //ELIMINAR?
 			nickname: document.getElementById("newNickname").value,
 			gender: document.getElementById("newGender").value, //UPDATE THE html predefined value with the actual user value.
 			profilePictureUrl: document.getElementById("newProfilePictureUrl").value,
 			phoneNumber: document.getElementById("newPhoneNumber").value
 		};
+
 		console.log(modifiedUser);
 
 		const response = await fetch(changeDataUrl, {
