@@ -3,24 +3,28 @@ const desktopMenu = document.querySelector('.desktop-menu');
 const mobileMenu = document.querySelector('.mobile-menu');
 const menuBurger = document.querySelector('.menu');
 const carrito = document.querySelector('.navbar-shopping-cart');
-const menuCarrito = document.querySelector('.product-detail');
+const menuCarrito = document.querySelector('.product-detail-cart');
 const cardContainer = document.querySelector('.cards-container');
-const productlit = [];
+const detalleProducto = document.querySelector('.product-detail');
+const productlist = [];
 
-productlit.push({
+productlist.push({
     name: 'pantalla',
     price: 120,
-    image: 'https://images.pexels.com/photos/276517/pexels-photo-276517.jpeg?auto=compress&cs=tinysrgb&dpr=2&h=650&w=940'
+    image: 'https://images.pexels.com/photos/276517/pexels-photo-276517.jpeg?auto=compress&cs=tinysrgb&dpr=2&h=650&w=940',
+    detalle: 'Hermosa pantalla de 24 pulgadas, full HD IPS 75hz'
 },
 {
     name: 'mouse',
     price: 60,
-    image: 'https://images.pexels.com/photos/276517/pexels-photo-276517.jpeg?auto=compress&cs=tinysrgb&dpr=2&h=650&w=940'
+    image: 'https://images.pexels.com/photos/276517/pexels-photo-276517.jpeg?auto=compress&cs=tinysrgb&dpr=2&h=650&w=940',
+    detalle: 'Mouse gamer de 120DPI ergonomico'
 },
 {
     name: 'teclado',
     price: 80,
-    image: 'https://images.pexels.com/photos/276517/pexels-photo-276517.jpeg?auto=compress&cs=tinysrgb&dpr=2&h=650&w=940'
+    image: 'https://images.pexels.com/photos/276517/pexels-photo-276517.jpeg?auto=compress&cs=tinysrgb&dpr=2&h=650&w=940',
+    detalle: 'Teclado mecanico rgb blue white jerry logitech'
 }
 )
 
@@ -51,6 +55,7 @@ function abrirDetalle() {
     }
 }
 
+let contador = 0;
 function renderProducts(arr){
     for (product of arr) {
         const productCard = document.createElement('div');
@@ -58,7 +63,32 @@ function renderProducts(arr){
     
         const imagen = document.createElement('img');
         imagen.setAttribute('src', product.image);
-    
+        imagen.classList.add('img-product-' + contador);   
+        const productoDescripcion = productlist.imagen
+        imagen.addEventListener('click', detalleProductoUnico);
+        function detalleProductoUnico() {
+            const productDetailClose = document.createElement('div');
+            productDetailClose.classList.add('product-detail-close');
+            const iconClose = document.createElement('img');
+            iconClose.setAttribute('src', './icons/icon_close.png');
+            const productInfoDetail = document.createElement('div');
+            productInfoDetail.classList.add('product-info-detail');
+            const addToCartButton = document.createElement('button');
+            addToCartButton.classList.add('primary-button');
+            addToCartButton.classList.add('add-to-cart-button');
+            const botonLogo = document.createElement('img');
+            botonLogo.setAttribute('src', './icons/bt_add_to_cart.svg');
+            botonLogo.setAttribute('alt', 'add to cart');
+            const descriptionProduct = document.createElement('p');
+            descriptionProduct.innerText = product.detalle;
+            addToCartButton.append(botonLogo);
+            productInfoDetail.append(productPrice, productName, descriptionProduct, addToCartButton);
+            productDetailClose.append(iconClose);
+            detalleProducto.append(productDetailClose, imagen, productInfoDetail);
+
+            detalleProducto.classList.toggle('inactive');
+        } 
+
         const productInfo = document.createElement('div');
         productInfo.classList.add('product-info');
     
@@ -77,6 +107,8 @@ function renderProducts(arr){
         productInfo.append(productInfoDiv, productoInfoFigure);
         productCard.append(imagen, productInfo);
         cardContainer.append(productCard);
+
+        contador ++;
     }
 }
-renderProducts(productlit);
+renderProducts(productlist);
