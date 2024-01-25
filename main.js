@@ -2,7 +2,7 @@
 const menuEmail = document.querySelector('.navbar-email');
 // Variable menú hamburguesa / selector / classe menú 
 const menuHamIcon = document.querySelector('.menu');
-// variable amb referència al corret de la compra del navbar
+// variable amb referència al carret de la compra del navbar
 const menuCarritoIcon = document.querySelector('.navbar-shopping-cart');
 const productDetailCloseIcon = document.querySelector('.product-detail-close')
 const desktopMenu = document.querySelector('.desktop-menu');
