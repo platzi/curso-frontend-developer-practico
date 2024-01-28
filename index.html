@@ -1,0 +1,238 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Quicksand:wght@300;500;700&display=swap" rel="stylesheet">
+    
+    <link rel="stylesheet" href="./styles.css">
+
+    <title>TresD: Tienda Online</title>
+
+</head>
+<body>
+    <nav>
+        <!--Menu de hamburguesa-->
+        <img src="./icons/lista.png" alt="menu" class="menu">
+
+        <!--Menu en desktop izquierda-->
+        <div class="navbar-left">
+            <img src="./logos/logo.svg" alt="Logo" class="logo">
+            <ul>
+                <li>
+                    <a href="/" class="dktitle">All</a>
+                </li>
+                <li>
+                    <a href="/">Toys</a>
+                </li>
+                <li>
+                    <a href="/">Collection</a>
+                </li>
+                <li>
+                    <a href="/">Pots</a>
+                </li>
+                <li>
+                    <a href="/">Drone</a>
+                </li>
+                <li>
+                    <a href="/">Others</a>
+                </li>
+            </ul>
+        </div>
+
+        <!--Menu en desktop derecha-->
+        <div class="navbar-right">
+            <ul>
+                <li class="nav-email">example@tresd.com
+
+                    <!--Menu desplegable-->
+                   <img src="./icons/flechita.svg" alt="flechita" class="flechita">
+
+                    <div class="mobile-menu">
+                        <div class="menu">
+                            <ul>
+                                <li>
+                                    <a href="/">My Orders</a>
+                                </li>
+                    
+                                <li>
+                                    <a href="/">My Account</a>
+                                </li>
+                            </ul>
+                        </div>
+                
+                        <div class="signup">
+                            <ul>
+                                <li>
+                                    <a href="/" class="signup">Sign Up</a>
+                                </li>
+                            </ul>
+                        </div>
+                        
+                    </div>
+                </li>
+                <li class="nav-shopping">
+                    <img src="./icons/added.png" alt="Shopping car" class="added">
+                    <div>3</div>
+                </li>
+            </ul>
+        </div>
+
+        <!--Destok Menu-->
+
+        <div class="desktop-menu inactive">
+            <ul>
+                <li>
+                    <a href="/" class="title">My Orders</a>
+                </li>
+    
+                <li>
+                    <a href="/">My Account</a>
+                </li>
+    
+                <li>
+                    <a href="/">Sign Out</a>
+                </li>
+            </ul>
+    
+        </div>
+
+        <!--Mobile Menu-->
+        <div class="mobileMenuWeb inactive">
+            <ul>
+                <li>
+                    <a href="/">CATEGORIES</a>
+                </li>
+    
+                <li>
+                    <a href="/">All</a>
+                </li>
+
+                <li>
+                    <a href="/">Toys</a>
+                </li>
+    
+                <li>
+                    <a href="/">Collection</a>
+                </li>
+    
+                <li>
+                    <a href="/">Pots</a>
+                </li>
+    
+                <li>
+                    <a href="/">Drone</a>
+                </li>
+                <li>
+                    <a href="/">Other</a>
+                </li>
+    
+            </ul>
+    
+            <ul>
+                <li>
+                    <a href="/">My Orders</a>
+                </li>
+        
+                <li>
+                    <a href="/">My Account</a>
+                </li>
+            </ul>
+        
+            <ul>
+                <li>
+                    <a href="/" class="email">example@tresd.com</a>
+                </li>
+        
+                <li>
+                    <a href="/" class="sign-up">Sign Up</a>
+                </li>
+            </ul>
+    
+        </div>
+
+    </nav>
+
+     <!--Detalle del Producto-->
+    <aside class="details">
+        <div class="title-container">
+            <img src="./icons/flechita.svg" alt="" clas="arrow">
+            <p class="title">My Order</p>
+        </div>
+
+        <div class="my-order-content">
+
+            <div class="shopping">
+                <figure>
+                    <img src="./products/2.png" alt="Squid Game">
+                </figure>
+                <p>Figure Squid Game</p>
+                <p>$10.00</p>
+                <img src="./icons/close.png" alt="close" class="close">
+            </div>
+
+            <div class="shopping">
+                <figure>
+                    <img src="./products/3.jpg" alt="Dragon">
+                </figure>
+                <p>Dragon</p>
+                <p>$15.00</p>
+                <img src="./icons/close.png" alt="close" class="close">
+            </div>
+
+            <div class="shopping">
+                <figure>
+                    <img src="./products/4.jpg" alt="Red Dinosaur">
+                </figure>
+                <p>Red Dinosaur</p>
+                <p>$12.00</p>
+                <img src="./icons/close.png" alt="close" class="close">
+            </div>
+
+            <div class="order">
+                <p>
+                    <span>Total</span>
+                </p>
+                <p>$37.00</p>
+            </div>
+
+            <button class="primary-button">
+                Chekout
+            </button>
+
+        </div>
+    </aside>
+
+    <!--Detalle individual del Producto: click a cualquier img-->
+    <aside id="individualDetails" class="inactive">
+        <div class="close">
+            <img src="./icons/close.png" alt="Close" class="closeIcon">
+        </div>
+        <img src="./products/13.jpg" alt="Drone" class="imageProduct">
+        <div class="product-info">
+            <p>$30.00</p>
+            <p>Drone</p>
+            <p>Made by 3d printing. Ideal for children and adolecents from the age of 10.</p>
+            <button class="primary-button addtocar">
+                <img src="./icons/addtocar.png" alt="Addtocar">
+                Add to car
+            </button>
+        </div>
+    </aside>
+
+    <!--Home de productos-->
+    <section class="main-container">
+
+        <div class="cards-container">
+            <!--Código de los productos realizado con JS-->
+        </div>
+
+    </section>
+
+    <script src="./main.js"></script>
+</body>
+</html>

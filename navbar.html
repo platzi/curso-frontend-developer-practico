@@ -1,0 +1,294 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Quicksand:wght@300;500;700&display=swap" rel="stylesheet">
+    
+    <title>Navbar</title>
+
+    <style>
+        /*Variables de colores*/
+        :root{
+            --very-light-pink: #C7C7C7;
+            --text-input-field: #F7F7F7;
+            --azul-claro: #b9cdfb;
+            --azul-medio1: #5c9afb;
+            --azul-medio2: #4064ec;
+            --azul-baby: #1272f0;
+            --azul-oscuro: #2d21eb ;
+            --white: #FFFFFF;
+            --black: #000000;
+
+            /*Medidas del texto*/
+            --sm: 14px;
+            --md: 16px;
+            --lg: 18px;
+        }
+
+        body{
+            margin: 0;
+            font-family:'Quicksand', sans-serif;
+            background: var(--azul-medio2);
+            color:var(--text-input-field);
+            font-size: var(--md);
+        }
+        .menu{
+            display: none;
+        }
+
+        /*Logo*/
+        .logo{
+            width: 60px;
+            margin-right: 14px;
+        }
+
+        /*Decoracion textos*/
+        ul{
+            list-style: none;
+            padding: 0;
+        }
+        a{
+            text-decoration: none;
+            align-items: center;
+            cursor: pointer;
+        }
+        
+        /*Centrar elementos*/
+        nav{
+            display: flex;
+            justify-content: space-between;
+            padding: 0 22px;
+            box-shadow: 0 10px 10px var(--azul-oscuro);
+
+        }
+        .navbar-left{
+            display: flex;
+        }
+        .navbar-left ul,
+        .navbar-right ul{
+            display: flex;
+            align-items: center;
+        }
+        .navbar-left ul li a,
+        .navbar-right ul li a{
+            border-radius: 8px;
+            padding: 8px 12px 8px 12px;
+            border: 1px solid var(--azul-medio2);
+            color:var(--text-input-field);
+        }
+        .navbar-left ul li a:hover,
+        .navbar-right ul li a:hover{
+            border: 1px solid var(--azul-claro);
+            color:var(--azul-claro);
+        }
+
+        /*Nav derecho*/
+        .nav-email{
+            color: var(--very-light-pink);
+            font-size: var(--sm);
+            margin-right: 12px;
+        }
+        .nav-shopping{
+            position: relative;
+        }
+        .nav-shopping div{
+            display: flex;
+            position: absolute;
+            justify-content: center;
+            align-items: center;
+            top: 2px;
+            right: 1px;
+
+            width: 16px;
+            height: 16px;
+
+            border-radius: 50%;
+            background-color: transparent;
+
+            font-size: var(--sm);
+            font-weight: bold;
+            color: var(--black);
+
+        }
+        .flechita{
+            width: 12px;
+            height: 12px;
+        }
+        .nav-email img{
+            margin-left: 10px;
+            transform: rotate(90deg);
+            cursor: pointer;
+        }
+
+        /*Carrito*/
+        .added{
+            width: 45px;
+        }
+
+        /*Media Queries*/
+        @media (max-width:720px){
+            .menu{
+                display: block;
+                width: 40px;
+                height: 40px;
+                padding-top: 18px;
+            }
+            .navbar-left ul{
+                display: none;
+            }
+            .nav-email{
+                display: none;
+            }
+        
+        }
+
+        /*Menu desplegable*/
+
+        .mobile-menu{
+            display: none;
+        }
+        .mobile-menu .menu1{
+            grid-template-rows: auto 1fr auto;
+        }
+
+        .menu1 a {
+            display: inline-block;
+            text-decoration: none;
+            margin-bottom: 20px;
+
+            font-size: var(--md);
+            font-weight: bold;
+
+            color: var(--text-input-field);
+        }
+        .menu1 ul{
+            list-style: none;
+            margin: 24px 0 0;
+            padding: 0;
+        }
+        .menu1 ul li{
+            margin-bottom: 20px;
+        }
+        /*Margin My orders*/
+
+        .menu1 ul li:nth-child(8){
+            border-top: 2px solid var(--azul-claro);
+        }
+        .menu1 ul li:nth-child(8){
+            padding-top: 30px;
+        }
+        .menu1{
+            font-size: var(--md);
+            font-weight: bold;
+
+            color: var(--text-input-field);
+        }
+
+        /*Sign Up*/
+        .signup ul{
+            list-style: none;
+            margin: 24px 0 0;
+            padding: 0;
+        }
+        .signup a{
+            display: inline-block;
+            text-decoration: none;
+            margin-bottom: 20px;
+
+            font-size: var(--sm);
+        }
+        .signup ul li:nth-child(1) a{
+            color: var(--very-light-pink);
+            font-weight: 300;
+        }
+        .signup ul li:last-child a{
+            color: var(--azul-claro);
+            font-weight: bold;
+        }
+
+        /*Responsive*/
+
+        @media (max-width: 640px){
+            .signup {
+                display: flex;
+                align-items: flex-end;
+            }
+        }
+
+    </style>
+</head>
+<body>
+    <nav>
+        <!--Menu de hamburguesa-->
+        <img src="./icons/lista.png" alt="menu" class="menu">
+
+        <!--Menu en desktop izquierda-->
+        <div class="navbar-left">
+            <img src="./logos/logo.svg" alt="Logo" class="logo">
+            <ul>
+                <li>
+                    <a href="/" class="dktitle">All</a>
+                </li>
+                <li>
+                    <a href="/">Toys</a>
+                </li>
+                <li>
+                    <a href="/">Collection</a>
+                </li>
+                <li>
+                    <a href="/">Pots</a>
+                </li>
+                <li>
+                    <a href="/">Drone</a>
+                </li>
+                <li>
+                    <a href="/">Others</a>
+                </li>
+            </ul>
+        </div>
+
+        <!--Menu en desktop derecha-->
+        <div class="navbar-right">
+            <ul>
+                <li class="nav-email">example@tresd.com
+
+                    <!--Menu desplegable-->
+                   <img src="./icons/flechita.svg" alt="flechita" class="flechita">
+
+                    <div class="mobile-menu">
+                        <div class="menu1">
+                            <ul>
+                                <li>
+                                    <a href="/">My Orders</a>
+                                </li>
+                    
+                                <li>
+                                    <a href="/">My Account</a>
+                                </li>
+                            </ul>
+                        </div>
+                
+                        <div class="signup">
+                            <ul>
+                                <li>
+                                    <a href="/" class="signup">Sign Up</a>
+                                </li>
+                            </ul>
+                        </div>
+                        
+                    </div>
+                </li>
+                <li class="nav-shopping">
+                    <img src="./icons/added.png" alt="Shopping car" class="added">
+                    <div>3</div>
+                </li>
+            </ul>
+        </div>
+    </nav>
+</body>
+</html>

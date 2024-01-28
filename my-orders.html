@@ -1,0 +1,155 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Quicksand:wght@300;500;700&display=swap" rel="stylesheet">
+    
+    <title>My Order</title>
+
+    <style>
+        /*Variables de colores*/
+        :root{
+            --very-light-pink: #C7C7C7;
+            --text-input-field: #F7F7F7;
+            --azul-claro: #b9cdfb;
+            --azul-medio1: #5c9afb;
+            --azul-medio2: #4064ec;
+            --azul-baby: #1272f0;
+            --azul-oscuro: #2d21eb ;
+            --white: #FFFFFF;
+            --black: #000000;
+
+            /*Medidas del texto*/
+            --sm: 14px;
+            --md: 16px;
+            --lg: 18px;
+        }
+
+        body{
+            margin: 0;
+            font-family:'Quicksand', sans-serif;
+            background: var(--azul-medio2);
+            color:var(--text-input-field);
+        }
+
+        /*container completo*/
+        .my-order{
+            display: grid;
+            place-items: center;
+            width: 100%;
+            height: 100vh;
+        }
+        /*titulo*/
+
+        .title-mo{
+            margin-bottom: 40px;
+            font-size: var(--lg);
+        }
+
+        /*container de total*/
+
+        .my-order-container{
+            display: grid;
+            grid-template-rows: auto 1fr auto;
+            width: 300px;
+        }
+        .my-order-content{
+            display: flex;
+            flex-direction: column;
+        }
+        .my-order-content{
+            margin-bottom: 24px;
+            border-radius: 8px;
+
+            color: var(--black);
+        }
+        /*grid elementos dentro del total*/
+        .order{
+            display: grid;
+            grid-template-columns: auto 1fr auto;
+            gap: 16px;
+        }
+        .order p:nth-child(1){
+            display: flex;
+            flex-direction: column;
+        }
+        .order p:nth-child(2){
+            text-align: end;
+            font-weight: bold;
+        }
+        .order p span:nth-child(1){
+           font-size: var(--md);
+           font-weight: bold;
+        }
+        .order p span:nth-child(2){
+            padding-top: 4px;
+            font-size: var(--sm);
+            font-weight: 500;
+            color: var(--text-input-field);
+        }
+        .my-order-content img{
+            margin-top: 18px;
+        }
+
+        @media (max-width: 720px) {
+            .title-mo{
+                display: none;
+            }
+        }
+        
+    </style>
+
+</head>
+<body>
+    <div class="my-order">
+        <div class="my-order-container">
+
+            <h1 class="title-mo">My Orders</h1>
+
+            <div class="my-order-content">
+
+                <div class="order">
+                    <p>
+                        <span>09 - 01 - 2024</span>
+                        <span>4 articles</span>
+                    </p>
+                    <p>$67.00</p>
+                    <img src="/icons/flechita.svg" alt="Arrow">
+                </div>
+
+                <div class="order">
+                    <p>
+                        <span>10 - 01 - 2024</span>
+                        <span>8 articles</span>
+                    </p>
+                    <p>$100.00</p>
+                    <img src="/icons/flechita.svg" alt="Arrow">
+                </div>
+
+                <div class="order">
+                    <p>
+                        <span>12- 01 - 2024</span>
+                        <span>3 articles</span>
+                    </p>
+                    <p>$45.00</p>
+                    <img src="/icons/flechita.svg" alt="Arrow">
+                </div>
+
+                <div class="order">
+                    <p>
+                        <span>13 - 01 - 2024</span>
+                        <span>5 articles</span>
+                    </p>
+                    <p>$78.00</p>
+                    <img src="/icons/flechita.svg" alt="Arrow">
+                </div>
+
+            </div>
+    </div>
+</body>
+</html>
