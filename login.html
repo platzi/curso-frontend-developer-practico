@@ -1,0 +1,201 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Login</title>
+
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Quicksand:wght@300;500;700&display=swap" rel="stylesheet">
+    
+    <title>Email Sent</title>
+
+    <!--Aplicación de Estilos-->
+    <style>
+
+        :root{
+            /*Variables de colores*/
+            --very-light-pink: #C7C7C7;
+            --text-input-field: #F7F7F7;
+            --azul-claro: #b9cdfb;
+            --azul-medio1: #5c9afb;
+            --azul-medio2: #4064ec;
+            --azul-baby: #1272f0;
+            --azul-oscuro: #2d21eb ;
+            --white: #FFFFFF;
+            --black: #000000;
+
+            /*Medidas del texto*/
+            --sm: 14px;
+            --md: 16px;
+            --lg: 18px;
+        }
+
+        body{
+            margin: 0;
+            font-family: 'Quicksand', sans-serif;
+            background-color: var(--azul-medio2);
+        }
+
+        .login{
+            width: 100%;
+            height: 100vh;
+
+            /*Centra el contenido vertical y
+            horizontalmente*/
+            display: grid;
+            place-items: center;
+        }
+
+        .form-container{
+            display: grid;
+            grid-template-rows: auto 1fr auto;
+            justify-items: center;
+
+            width: 300px;
+            margin: 8px;
+
+        }
+
+        .logo{
+            justify-self: center;
+            display: none; /*no aparece en Desktop*/
+
+            margin-bottom: 25px;
+
+            width: 100px;
+        }
+
+        .form{
+            display: flex;
+            flex-direction: column;
+            margin: 16px 0 16px 0;
+            width: 100%;
+
+        }
+
+        .label{
+            margin: 4px 0 4px 0;
+
+            font-size: var(--sm);
+            font-weight: bold;
+
+            color: var(--text-input-field);
+        }
+
+        input{
+            margin: 8px 4px 8px 4px;
+            padding: 8px 8px 4px 8px;
+            border: none;
+            border-radius: 8px;
+
+            background-color: var(--text-input-field);
+
+            height: 30px;
+
+            font-size: var(--md);
+        }
+
+        .primary-button{
+            margin: 12px 4px 12px 4px;
+            padding: 0;
+            border-radius: 8px;
+            border: none;
+
+            background-color: var(--azul-oscuro);
+            color: var(--white);
+
+            font-family: 'Quicksand', sans-serif;
+            font-size: var(--md);
+            font-weight: bold;
+
+            height: 50px;
+
+            cursor: pointer;
+        }
+        
+        a{
+            margin: 4px;
+            text-decoration: none;
+            text-align: center;
+
+            color: var(--text-input-field);
+
+            size: var(--sm);
+        }
+
+        .signup-container{
+            display: flex;
+            align-items: flex-end;
+
+            height: 15vh;
+            width: 300px;
+        }
+
+        .secondary-button{
+            margin: 12px 4px 12px 4px;
+            padding: 0;
+            border-radius: 8px;
+            border: 2px solid var(--azul-oscuro);
+
+            background-color: var(--azul-claro);
+            color: var(--azul-oscuro);
+
+            font-family: 'Quicksand', sans-serif;
+            font-size: var(--md);
+            font-weight: bold;
+
+            height: 50px;
+            width: 100%;
+
+            cursor: pointer;
+        }
+        
+        @media (max-width: 720px){
+            
+            .logo{
+                display: block;
+            }
+
+            .signup-container{
+                display: flex;
+                align-items: flex-end;
+
+                height: 30vh;
+                width: 300px;
+            }
+        }
+
+
+    </style>
+</head>
+<body>
+    <div class="login">
+
+        <div class="form-container">
+            <img src="/logos/logo.svg" alt="Logo" class="logo">
+
+            <form action="/" class="form">
+
+                <label for="email" class="label">Email address</label>
+                <input type="email" id="email" placeholder="example@tresd.com" class="input input-email">
+
+                <label for="password" class="label">Password</label>
+                <input type="password" id="password" placeholder="*********" class="input input-password">
+
+                <input type="submit" value="Login" class="primary-button login-button">
+
+                <a href="/">Forgot my password</a>
+
+                <div class="signup-container">
+                    <input type="submit" value="Sign Up" class="secondary-button">
+                </div>
+
+            </form>
+
+        </div>
+
+    </div>
+</body>
+</html>
