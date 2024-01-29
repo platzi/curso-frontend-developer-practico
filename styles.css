@@ -84,6 +84,8 @@
 
   /*Menu en desktop*/
   .desktop-menu {
+    transform: translateX(-100%);
+    transition: 1s ease-in-out;
     position: absolute;
     top: 60px;
     right: 60px;
@@ -126,7 +128,7 @@
     background-color: var(--white);
     position: absolute;
     top: 61px;   
-    left:0px;
+    left: 0px;
     padding: 24px;
     width: calc(100% - 48px);
   }
@@ -168,9 +170,8 @@
   /*ShoppingCart (aside1)*/
 
   #shoppingCartContainer {
-    padding: 0 24px;
+    padding: 0 24px 24px;
   }
-
   .title-container {
     display: flex;
   }
@@ -262,7 +263,7 @@
       border-radius: 0 0 20px 20px;
     }
     #productDetail .product-info {
-      margin: 24px 24px 0 24px;
+      margin: 24px 24px 24px 24px;  /*margin bottom*/
     }
     #productDetail .product-info p:nth-child(1) {
       font-weight: bold;
@@ -306,6 +307,7 @@
     gap: 26px;
     place-content: center;
     margin-top: 20px;
+    margin-bottom: 20px;
   }
   .product-card {
     width: 240px;
@@ -341,6 +343,7 @@
     margin-bottom: 0;
     color: var(--very-light-pink);
   }
+
 
   @media (max-width: 640px) {
     .menu {

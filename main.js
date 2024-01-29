@@ -87,38 +87,100 @@ const productList = [];
 // recordemos que product = {name, price, image}  
 
 productList.push({
-  name: 'Bike',
-  price: '220',
-  image: 'https://images.pexels.com/photos/276517/pexels-photo-276517.jpeg?auto=compress&cs=tinysrgb&dpr=2&h=650&w=940'
+  name: 'Black chair',
+  price: '120.00',
+  image: './img/Silla-negra.jpg'
 });
 
 productList.push({
-  name: 'Sombrilla',
-  price: '25',
-  image: 'https://images.pexels.com/photos/276517/pexels-photo-276517.jpeg?auto=compress&cs=tinysrgb&dpr=2&h=650&w=940'
+  name: 'Curved chair',
+  price: '210.00',
+  image: './img/Poltrona-curva.jpg'
 });
 
 productList.push({
-  name: 'Libreta',
-  price: '40',
-  image: 'https://images.pexels.com/photos/276517/pexels-photo-276517.jpeg?auto=compress&cs=tinysrgb&dpr=2&h=650&w=940'
+  name: 'Basket white chair',
+  price: '120.00',
+  image: './img/Silla-tejida.jpg'
 });
 
 productList.push({
-  name: 'Calculadora',
-  price: '90',
+  name: 'Gray chair',
+  price: '100.00',
+  image: './img/Silla-gris.jpg'
+});
+
+productList.push({
+  name: 'Classic chair',
+  price: '150.00',
+  image: './img/Silla-clasica.jpg'
+});
+
+productList.push({
+  name: 'Salmon chair',
+  price: '130.00',
+  image: './img/Silla-tripode.jpg'
+});
+
+productList.push({
+  name: 'Grid chair',
+  price: '100.00',
+  image: './img/Silla-rejilla.jpg'
+});
+
+productList.push({
+  name: 'Basket light-blue chair',
+  price: '120.00',
+  image: './img/Silla-tejida-gris.jpg'
+});
+
+productList.push({
+  name: 'Leather armchair',
+  price: '200.00',
+  image: './img/Poltrona-cafe.jpg'
+});
+
+productList.push({
+  name: 'Wooden armchair',
+  price: '185.00',
+  image: './img/Poltrona-blanca.jpg'
+});
+
+productList.push({
+  name: 'Fabric armchair',
+  price: '200.00',
+  image: './img/Poltrona-gris.jpg'
+});
+
+productList.push({
+  name: 'Modern armchair',
+  price: '230.00',
+  image: './img/Poltrona-moderna.jpg'
+});
+
+productList.push({
+  name: 'Bicicleta',
+  price: '380.00',
   image: 'https://images.pexels.com/photos/276517/pexels-photo-276517.jpeg?auto=compress&cs=tinysrgb&dpr=2&h=650&w=940'
 });
+
+
+//funcionK
+//function obtenersource(ProductImg){
+  //const atributo = element.getAttribute('src');
+// console.log(ProductImg.getAttribute('src'));
+//}
 
 function renderProducts(arra){
   for (product of arra){
     const productCard = document.createElement('div');
     productCard.classList.add('product-card');
   
-   // recordemos que product = {name, price, image} ->  product.image (esta imagen varia dependiendo de cada producto)
+    //recordemos que product = {name, price, image} ->  product.image (esta imagen varia dependiendo de cada producto)
     const productImg = document.createElement('img');
     productImg.setAttribute('src', product.image)
     productImg.addEventListener('click', openProductDetailAside);
+    //productImg.addEventListener('click', obtenersource);
   
     const productInfo = document.createElement('div');
     productInfo.classList.add('product-info');
@@ -144,3 +206,13 @@ function renderProducts(arra){
 }
 
 renderProducts(productList);
+
+// funciones de Karen
+//const ProductoImg = document.querySelectorAll('img');
+
+//function obtenersource(ProductoImg){
+//  const atributo = ProductoImg.getAttribute("src");
+//  console.log(atributo);
+//}
+
+//ProductoImg.addEventListener('click', obtenersource);
