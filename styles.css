@@ -84,8 +84,6 @@
 
   /*Menu en desktop*/
   .desktop-menu {
-    transform: translateX(-100%);
-    transition: 1s ease-in-out;
     position: absolute;
     top: 60px;
     right: 60px;
