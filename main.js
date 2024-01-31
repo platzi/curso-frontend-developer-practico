@@ -1,15 +1,18 @@
+const burgerMenuIcon = document.querySelector('.mobileMenuIcon');
+const menuCarritoIcon = document.querySelector('.navbar-shopping-cart');
+const productDetailCloseIcon = document.querySelector('.product-detail-close');
 const menuEmail = document.querySelector('.navbar-email');
 const desktopMenu = document.querySelector('.desktop-menu');
-const menuCarritoIcon = document.querySelector('.navbar-shopping-cart');
-const carritoDetail = document.querySelector('.product-detail');
-const burgerMenuIcon = document.querySelector('.mobileMenuIcon');
 const mobileMenu = document.querySelector('.mobile-menu');
+const carritoDetail = document.querySelector('#shoppingCartCoinainer');
+const productDetail = document.querySelector('#productDetail');
 const cardsContainer = document.querySelector('.cards-container');
+/*const productDetailContainer = document.querySelector('')*/
 
 menuEmail.addEventListener('click', toggleDesktopMenu);
 burgerMenuIcon.addEventListener('click', toggleMobileMenu);
 menuCarritoIcon.addEventListener('click', toggleCarritoAside);
-
+productDetailCloseIcon.addEventListener('click', closeProductDetailAside);
 
 function toggleDesktopMenu() {
     const isCarritoDetailClosed = carritoDetail.classList.contains('inactive');
@@ -17,6 +20,7 @@ function toggleDesktopMenu() {
     if (!isCarritoDetailClosed){
         carritoDetail.classList.add('inactive');
     }
+    closeProductDetailAside();
     desktopMenu.classList.toggle('inactive');
 }
 
@@ -26,12 +30,14 @@ function toggleMobileMenu() {
     if (!isCarritoDetailClosed){
         carritoDetail.classList.add('inactive');
     }
+    closeProductDetailAside();
     mobileMenu.classList.toggle('inactive');
 }
 
 function toggleCarritoAside() {
     const isMobileMenuClosed = mobileMenu.classList.contains('inactive');
     const isDesktopMenuClosed = desktopMenu.classList.contains('inactive');
+    const isProductDetailClosed = productDetail.classList.contains('inactive')
 
     if (!isMobileMenuClosed){
         mobileMenu.classList.add('inactive');
@@ -39,7 +45,21 @@ function toggleCarritoAside() {
     if (!isDesktopMenuClosed){
         desktopMenu.classList.add('inactive');
     }
-    carritoDetail.classList.toggle('inactive')
+    if (!isProductDetailClosed){
+        productDetail.classList.add('inactive');
+    }
+
+    carritoDetail.classList.toggle('inactive');
+}
+
+function openProductDetailAside() {
+    carritoDetail.classList.add('inactive');
+    productDetail.classList.remove('inactive');
+    desktopMenu.classList.add('inactive');
+    }
+
+function closeProductDetailAside() {
+    productDetail.classList.add('inactive')
 }
 
 const productList = [];
@@ -67,6 +87,7 @@ function renderProducts(arr){
         // cada objeto product tiene -> {name, price, image}
         const productImg = document.createElement('img');
         productImg.setAttribute('src', product.image);
+        productImg.addEventListener('click', openProductDetailAside)
     
         const productInfo = document.createElement('div');
         productInfo.classList.add('product-info');
@@ -97,26 +118,4 @@ function renderProducts(arr){
     }
 }
 
-/* La funcion render Product equivale a hacer este codigo HTML pero con manipulacion del DOM desde JS
-<section class="main-container">
-<div class="cards-container">
-
-  <div class="product-card">
-    <img src="https://images.pexels.com/photos/276517/pexels-photo-276517.jpeg?auto=compress&cs=tinysrgb&dpr=2&h=650&w=940" alt="">
-    <div class="product-info">
-      <div>
-        <p>$120,00</p>
-        <p>Bike</p>
-      </div>
-      <figure>
-        <img src="./icons/bt_add_to_cart.svg" alt="">
-      </figure>
-    </div>
-  </div>
-  */
 renderProducts(productList);
-
-
-
-
-
