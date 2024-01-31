@@ -12,6 +12,9 @@
 body {
     margin: 0;
     font-family: 'Quicksand', sans-serif;
+    overflow-x: hidden;
+    overflow-y: auto;
+    width: 100vw;
 }
 .inactive{
     display: none;
@@ -27,6 +30,7 @@ nav {
   
 .menu {
     display: none;
+    cursor: pointer;
 }
   
 .logo {
@@ -75,6 +79,7 @@ nav {
   
 .navbar-shopping-cart {
     position: relative;
+    cursor: pointer;
 }
   
 .navbar-shopping-cart div {
@@ -289,12 +294,18 @@ aside {
     top: 24px;
     left: 24px;
     z-index: 2;
-    padding: 12px;
+    padding: 12px 12px;
+    padding-bottom: 15px;
     border-radius: 50%;
 }
   
 .product-detail-close:hover {
     cursor: pointer;
+}
+
+#productDetail{
+    right: -600px;
+    transition: all 600ms;
 }
   
 #productDetail > img:nth-child(2) {
