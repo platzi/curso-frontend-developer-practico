@@ -138,4 +138,4 @@ function renderProducts(arr) {
 
     }
 }
- renderProducts(productlist);
+renderProducts(productlist);
