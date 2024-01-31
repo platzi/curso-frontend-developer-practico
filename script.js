@@ -5,23 +5,34 @@ const mobileMenu = document.querySelector('.mobile-menu');
 const carritoIcon = document.querySelector('.navbar-shopping-cart');
 const asideBuyList = document.querySelector('#cartContainer');
 const cardsContainer =document.querySelector('.cards-container');
+const detailContainer = document.querySelector('#detailProduct');
+const closeDetail = document.querySelector('.product-detail-close')
 
 menu.addEventListener('click', toggleMobileMenu);
 menuUser.addEventListener('click', toggleDesktopMenu);
 carritoIcon.addEventListener('click', toggleCarrito);
+closeDetail.addEventListener('click', closeProductDetail);
 
 function toggleDesktopMenu(){
+    const isProductDetailClose = detailContainer.classList.contains('inactive');
     const isAsideMenuClosed = asideBuyList.classList.contains('inactive');//esto devuelve un booleano, ese booleano sera usado como condicion a continuación.
     if (!isAsideMenuClosed){
         asideBuyList.classList.add('inactive');
+    }
+    else if (!isProductDetailClose){
+        detailContainer.classList.add('inactive');
     }
     desktopMenu.classList.toggle('inactive');
 }
 
 function toggleMobileMenu(){
     const isAsideMenuClosed = asideBuyList.classList.contains('inactive');
+    const isProductDetailClose = detailContainer.classList.contains('inactive');
     if (!isAsideMenuClosed){
         asideBuyList.classList.add('inactive');
+    }
+    else if (!isProductDetailClose){
+        detailContainer.classList.add('inactive');
     }
     mobileMenu.classList.toggle('inactive');
 }
@@ -29,15 +40,28 @@ function toggleMobileMenu(){
 function toggleCarrito(){
     const isMobileMenuClosed = mobileMenu.classList.contains('inactive');
     const isDesktopMenuClosed = desktopMenu.classList.contains('inactive');
+    const isProductDetailClose = detailContainer.classList.contains('inactive');
     if (!isMobileMenuClosed){
         mobileMenu.classList.add('inactive');
     }
     else if (!isDesktopMenuClosed){
         desktopMenu.classList.add('inactive');
     }
+    else if (!isProductDetailClose){
+        detailContainer.classList.add('inactive');
+    }
     asideBuyList.classList.toggle('inactive');
 }
-
+function openProductDetail(){
+    mobileMenu.classList.add('inactive');
+    desktopMenu.classList.add('inactive');
+    asideBuyList.classList.add('inactive');
+    
+    detailContainer.classList.remove('inactive'); 
+}
+function closeProductDetail(){
+    detailContainer.classList.add('inactive');
+}
 const productList =[];
 productList.push({
     name: "Bike",
@@ -82,6 +106,7 @@ productList.push({
         </div>
       </div>*/
 
+
 function renderProducts (arr){
     for (product of arr){
         const productCard = document.createElement('div');
@@ -89,6 +114,7 @@ function renderProducts (arr){
 
         const imgProduct = document.createElement('img');
         imgProduct.setAttribute('src', product.imagen);
+        imgProduct.addEventListener('click', openProductDetail);
 
         const infoProduct = document.createElement('div');
         infoProduct.classList.add('product-info');
