@@ -3,7 +3,7 @@ const desktopMenu = document.querySelector(".desktop-menu");
 const menu = document.querySelector(".menu");
 const mobileMenu = document.querySelector('.mobile-menu');
 const carritoIcon = document.querySelector('.navbar-shopping-cart');
-const asideBuyList = document.querySelector('.product-detail');
+const asideBuyList = document.querySelector('#cartContainer');
 const cardsContainer =document.querySelector('.cards-container');
 
 menu.addEventListener('click', toggleMobileMenu);
@@ -54,6 +54,21 @@ productList.push({
     price: 95,
     imagen: "https://images.pexels.com/photos/276517/pexels-photo-276517.jpeg?auto=compress&cs=tinysrgb&dpr=2&h=650&w=940",
 })
+productList.push({
+    name: "Wheels",
+    price: 95,
+    imagen: "https://images.pexels.com/photos/276517/pexels-photo-276517.jpeg?auto=compress&cs=tinysrgb&dpr=2&h=650&w=940",
+})
+productList.push({
+    name: "Wheels",
+    price: 95,
+    imagen: "https://images.pexels.com/photos/276517/pexels-photo-276517.jpeg?auto=compress&cs=tinysrgb&dpr=2&h=650&w=940",
+})
+productList.push({
+    name: "Wheels",
+    price: 95,
+    imagen: "https://images.pexels.com/photos/276517/pexels-photo-276517.jpeg?auto=compress&cs=tinysrgb&dpr=2&h=650&w=940",
+})
 /*<div class="product-card">
         <img src="https://images.pexels.com/photos/276517/pexels-photo-276517.jpeg?auto=compress&cs=tinysrgb&dpr=2&h=650&w=940" alt="">
         <div class="product-info">
@@ -91,14 +106,11 @@ function renderProducts (arr){
         
         productFigure.appendChild(imgCart);
         
-        productInfoDiv.appendChild(parrafoPrice);
-        productInfoDiv.appendChild(parrafoName);
+        productInfoDiv.append(parrafoPrice, parrafoName);
         
-        infoProduct.appendChild(productInfoDiv);
-        infoProduct.appendChild(productFigure);
-    
-        productCard.appendChild(imgProduct);
-        productCard.appendChild(infoProduct);
+        infoProduct.append(productInfoDiv, productFigure);
+        
+        productCard.append(imgProduct, infoProduct);
 
         cardsContainer.appendChild(productCard);
 
