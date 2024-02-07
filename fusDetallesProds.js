@@ -7,7 +7,7 @@ const DesktopMenuEmail = document.querySelector('.desktop-menu');
 const menuHamIcon = document.querySelector('.menu');
 const mobileMenuIHam = document.querySelector('.mobile-menu');
 const menuCarritoIcon  = document.querySelector('.navbar-shopping-cart');
-const menuCarritoCompras = document.querySelector('.product-detail');
+const menuCarritoCompras = document.querySelector('#shoppingCartContainer');
 const cardsContainer = document.querySelector('.cards-container'); // lo traemos para meter el div que contiene el template de nuestro objeto productos
 
 
@@ -17,6 +17,7 @@ menuEmail.addEventListener('click', toggleDesktopMenuEmail);
 menuHamIcon.addEventListener('click', ToggleMobilMenu);
 
 menuCarritoIcon.addEventListener('click', ToggleCarritoCompras);
+
 
 
 function toggleDesktopMenuEmail() {
