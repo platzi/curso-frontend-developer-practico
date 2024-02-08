@@ -9,6 +9,9 @@ const mobileMenuIHam = document.querySelector('.mobile-menu');
 const menuCarritoIcon  = document.querySelector('.navbar-shopping-cart');
 const menuCarritoCompras = document.querySelector('#shoppingCartContainer');
 const cardsContainer = document.querySelector('.cards-container'); // lo traemos para meter el div que contiene el template de nuestro objeto productos
+const menuDetalleCadaCompra = document.querySelector('#productDetail');
+const productDetailCloseIcono = document.querySelector('.product-detail-close') // lo creamos para cerrar el aside 2 que tiene la descripcion de cada compra
+
 
 
 
@@ -17,6 +20,8 @@ menuEmail.addEventListener('click', toggleDesktopMenuEmail);
 menuHamIcon.addEventListener('click', ToggleMobilMenu);
 
 menuCarritoIcon.addEventListener('click', ToggleCarritoCompras);
+
+productDetailCloseIcono.addEventListener('click', closeDesplegableCompra)
 
 
 
@@ -52,6 +57,15 @@ function ToggleCarritoCompras() {
     }
     menuCarritoCompras.classList.toggle('inactive');
 
+}
+
+
+function openDesplegableCompra() {
+    menuDetalleCadaCompra.classList.remove('inactive');// no add, por que queremos quiotarle la clase inactive que ya tiene y asi aparezca el menu detalles de esa compra. no le pusimos add o toggle, por que la idea es que se pueda cerrar la imagen desde el icono o imagen  "X" que tiene cada imagen.
+}
+
+function closeDesplegableCompra() {
+    menuDetalleCadaCompra.classList.add('inactive');
 }
 
 const productList = [];// este vendria siendo la abase de datos que estaria en el backend, pero vbamos a hacer uno similar aqui, para organizar el forntend
@@ -111,6 +125,8 @@ for (product of arrElements) {
     const productImg = document.createElement('img');
     // product = {name, price, image} --> product.image
     productImg.setAttribute('src', product.image);
+
+    productImg.addEventListener('click', openDesplegableCompra);// que me habra una funcion para desplegar el aside que contiene el menu con el detalle de cada compra. Le pusimos open y no toggle, por que solo queremos que lo habra, no que lo aparezca y desaparezca.
     
     const productInfo = document.createElement('div');
     productInfo.classList.add('product-info');
@@ -153,7 +169,7 @@ for (product of arrElements) {
     cardsContainer.appendChild(productCard);
     }; // este for esta bien yy completo, pèro no es buena practica que este ahi tirado. lo mejor meterlo en una funcion y llamarlo, enviandole c0mo parametro  un array y de ese array se hace el for (product of array)
     
-    
+
     }
 
 //ahora si la llamamos:
