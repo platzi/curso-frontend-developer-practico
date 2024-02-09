@@ -42,6 +42,9 @@ function ToggleMobilMenu() {
     if (!ismMenuCarritoComprasClosed) {
         menuCarritoCompras.classList.add('inactive');
     }
+
+    closeDesplegableCompra()
+    
         mobileMenuIHam.classList.toggle('inactive');//quiere decir que el toggle lo activa e inactiva
     
 }
@@ -67,7 +70,18 @@ function ToggleCarritoCompras() {
 
 
 function openDesplegableCompra() {
-    
+
+    // const ismMenuCarritoComprasClosed = menuCarritoCompras.classList.contains('inactive');//Si contiene esa clase, entonces esta el menu cerrado
+    // if (!ismMenuCarritoComprasClosed) {
+    //     menuCarritoCompras.classList.add('inactive');
+    // }
+    // menuCarritoCompras.classList.toggle('inactive');
+
+    //👇👇👇👇👇El uso de classList.contains('inactive') seguido de classList.add('inactive') dentro de una condición if se refiere a verificar primero si el elemento ya tiene la clase inactive antes de añadirla. Esto se utiliza para asegurarse de que la clase inactive solo se añada si el elemento no está ya oculto. En el caso específico de la función openDesplegableCompra(), se utiliza classList.add('inactive') directamente porque el objetivo es cerrar el elemento de todos modos, independientemente de su estado actual.
+
+    menuCarritoCompras.classList.add('inactive');
+
+    //aqui no hubo necesidad de poner condicionales y todo eso, por que no se 
 
     menuDetalleCadaCompra.classList.remove('inactive');// no add, por que queremos quiotarle la clase inactive que ya tiene y asi aparezca el menu detalles de esa compra. no le pusimos add o toggle, por que la idea es que se pueda cerrar la imagen desde el icono o imagen  "X" que tiene cada imagen.
 }
