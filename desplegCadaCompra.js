@@ -55,12 +55,20 @@ function ToggleCarritoCompras() {
     if (!ismobileMenuIHamClosed) {
         mobileMenuIHam.classList.add('inactive');
     }
+
+    const ismenuDetalleCadaCompraClosed = menuDetalleCadaCompra.classList.contains('inactive');
+
+    if (!ismenuDetalleCadaCompraClosed) {
+        menuDetalleCadaCompra.classList.add('inactive');
+    }
     menuCarritoCompras.classList.toggle('inactive');
 
 }
 
 
 function openDesplegableCompra() {
+    
+
     menuDetalleCadaCompra.classList.remove('inactive');// no add, por que queremos quiotarle la clase inactive que ya tiene y asi aparezca el menu detalles de esa compra. no le pusimos add o toggle, por que la idea es que se pueda cerrar la imagen desde el icono o imagen  "X" que tiene cada imagen.
 }
 
