@@ -135,7 +135,8 @@ function renderProducts(arr){
 
 renderProducts(productList);
 
-/*function renderProductDetail(arr){
+//prueba para crear un detalle individual de producto que muestre la información del producto al que se da click
+function renderProductDetail(list){
 
     const detailClose = document.createElement('div');
     detailClose.classList.add('product-detail-close');
@@ -178,5 +179,5 @@ renderProducts(productList);
     productDetailContainer.appendChild(productInfo)
 };
 
-renderProductDetail(productList);*/
+renderProductDetail(productList);
 
