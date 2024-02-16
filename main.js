@@ -2,13 +2,16 @@ const menuEmail = document.querySelector('.navbar-email')
 const desktopMenu = document.querySelector('.desktop-menu')
 const burguerMenu = document.querySelector('.menu')
 const menuCarrito = document.querySelector('.navbar-shopping-cart')
+const productDetailCloseCoin = document.querySelector('.product-detail-close')
 const mobileMenu = document.querySelector('.mobile-menu')
 const shoppingCartContainer = document.querySelector('#shoppingCartContainer')
+const productDetailContainer = document.querySelector('#productDetail')
 const cardsContainer = document.querySelector('.cards-container')
 
 menuEmail.addEventListener('click', toggleDesktopMenu);
 burguerMenu.addEventListener('click', toggleMobileMenu);
 menuCarrito.addEventListener('click', toggleCarritoAside);
+productDetailCloseCoin.addEventListener('click', closeProductDetailAside);
 
 function toggleDesktopMenu () {
 
@@ -44,6 +47,15 @@ function toggleCarritoAside () {
     shoppingCartContainer.classList.toggle('inactive')
 }
 
+function openProductDetailAside () {
+    productDetailContainer.classList.remove('inactive')
+}
+
+
+function closeProductDetailAside() {
+    productDetailContainer.classList.add('inactive');
+}
+
 const productList = [];
 productList.push({
     name: 'bike',
@@ -68,7 +80,8 @@ function rendersProduct (arr) {
     
         const productImg = document.createElement('img')
         productImg.setAttribute('src', product.image)
-    
+        productImg.addEventListener('click', openProductDetailAside)
+
         const productInfo = document.createElement('div')
         productInfo.classList.add('product-info')
     
