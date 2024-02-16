@@ -1,14 +1,18 @@
 const menuEmail = document.querySelector('.navbar-email');
 const desktopMenu = document.querySelector('.desktop-menu');
 const menuCarritoIcon = document.querySelector('.navbar-shopping-cart');
+const productDetailCloseIcon = document.querySelector('.product-detail-close');
 const menuHamIcon = document.querySelector('.menu');
 const mobileMenu = document.querySelector('.mobile-menu');
-const aside = document.querySelector('.product-detail');
+const shoppingCartContainer = document.querySelector('#shoppingCartContainer');
+const productDetailContainer = document.querySelector('#productDetail');
 const cardsContainer = document.querySelector('.cards-container');
+
 
 menuEmail.addEventListener('click', toggleDesktopMenu);
 menuHamIcon.addEventListener('click', toggleMobileMenu);
 menuCarritoIcon.addEventListener('click', toggleCarritoAside);
+productDetailCloseIcon.addEventListener('click', closeProductDetailAside);
 
 const productList = [];
 
@@ -18,7 +22,7 @@ productList.push({
     image:'https://images.pexels.com/photos/276517/pexels-photo-276517.jpeg?auto=compress&cs=tinysrgb&dpr=2&h=650&w=940',
 });
 productList.push({
-    name: 'Reloj',
+    name: 'Smart watch',
     price: 100,
     image:'https://bodegavirtualmedellin.com/cdn/shop/files/Capturadepantalla2023-08-16005445.png?v=1694145011&width=600',
 });
@@ -30,75 +34,63 @@ productList.push({
 
 
 function toggleDesktopMenu(){
-    const isAsideClosed = aside.classList.contains('inactive');
-    if (!isAsideClosed){
-        aside.classList.add('inactive');
-    }
     desktopMenu.classList.toggle('inactive');
+    mobileMenu.classList.add('inactive');
+    shoppingCartContainer.classList.add('inactive');
+    productDetailContainer.classList.add('inactive');
+    
 }
 
 function toggleMobileMenu(){
-    const isAsideClosed = aside.classList.contains('inactive');
-    if (!isAsideClosed){
-        aside.classList.add('inactive');
-    }
     mobileMenu.classList.toggle('inactive');
+    shoppingCartContainer.classList.add('inactive');
+    desktopMenu.classList.add('inactive');
+    productDetailContainer.classList.add('inactive');
+    
 }
 
 function toggleCarritoAside(){
-    const isMobileMenuClosed = mobileMenu.classList.contains('inactive');
-    const isDesktopMenuClosed = desktopMenu.classList.contains('inactive');
+    shoppingCartContainer.classList.toggle('inactive');
+    mobileMenu.classList.add('inactive');
+    desktopMenu.classList.add('inactive');
+    productDetailContainer.classList.add('inactive');
     
-
-    if (!isMobileMenuClosed){
-        mobileMenu.classList.add('inactive');
-    }
-    aside.classList.toggle('inactive');   
-    if (!isDesktopMenuClosed){
-        desktopMenu.classList.add('inactive');
-    }
-   
-    aside.classList.toggle('inactive');    
+        
+}
+function toggleProductDetailAside(){
+    productDetailContainer.classList.toggle('inactive');
+    shoppingCartContainer.classList.add('inactive');
+    mobileMenu.classList.add('inactive');
+    desktopMenu.classList.add('inactive');
+    
+}
+function closeProductDetailAside(){
+    productDetailContainer.classList.add('inactive');
 }
 
+function renderProducts(arr){
 
-
-/*
-<div class="product-card">
-<img src="https://images.pexels.com/photos/276517/pexels-photo-276517.jpeg?auto=compress&cs=tinysrgb&dpr=2&h=650&w=940" alt="">
-<div class="product-info">
-  <div>
-    <p>$120,00</p>
-    <p>Bike</p>
-  </div>
-  <figure>
-    <img src="./icons/bt_add_to_cart.svg" alt="">
-  </figure>
-</div>
-</div>
-*/
-
-function renderProducts (arr){
-
-    // creamos este ciclo para publicar articulos
+    // creamos este ciclo para publicar artículos
     for (product of arr){
     //empezamos creando los elemento de afuera hacia adentro
     //primero creamos el div class="product-card 
         const productCard =document.createElement('div');
         productCard.classList.add('product-card');
+       
     
     // insertamos la imagen del producto...la img del product = img del productList[.product.image]
         const productImg = document.createElement('img');
         productImg.setAttribute('src', product.image);
+        productImg.addEventListener('click', toggleProductDetailAside)
     
     //segundo creamos el div class="product-info
         const productInfo =document.createElement('div');
         productInfo.classList.add('product-info');
     
-    //despues creamos el div anonimo
+    //después creamos el div anónimo
         const productInfoDiv =document.createElement('div');
     
-        //dentro del div anonimo insrtamos el precio y el nombre
+        //dentro del div anónimo insertamos el precio y el nombre
         const productPrice =document.createElement('p');
         productPrice.innerText = '$' + product.price;
         const productName =document.createElement('p');
