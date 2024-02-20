@@ -87,48 +87,42 @@ productList.push({
     name: 'bike',
     price: 120,
     image: 'https://images.pexels.com/photos/276517/pexels-photo-276517.jpeg?auto=compress&cs=tinysrgb&dpr=2&h=650&w=940',
-    msg: 'With its practical position, this bike also fulfills a decorative function, add your hall or workspace.',
-    class: 'imageBike_1',
+    msg: 'With its practical position, this bike also fulfills a decorative function, add your hall or workspace.',    
 });
 
 productList.push({
     name: 'iMac',
     price: 220,
     image: 'https://images.pexels.com/photos/10963241/pexels-photo-10963241.jpeg?auto=compress&cs=tinysrgb&w=1260&h=750&dpr=1',
-    msg: 'iMac A1419 2017 8gb 1tb Video 4gb',
-    class: 'imageImac_1',
+    msg: 'iMac A1419 2017 8gb 1tb Video 4gb',    
 });
 
 productList.push({
     name: 'portátil',
     price: 620,
     image: 'https://images.pexels.com/photos/4067506/pexels-photo-4067506.jpeg?auto=compress&cs=tinysrgb&w=1260&h=750&dpr=1',
-    msg: 'Portátil Dell Inspiron 3511 negra 15.6", Intel Core i5 1135G7 8GB de RAM 256GB SSD',
-    class: 'imagePortatil_1',
+    msg: 'Portátil Dell Inspiron 3511 negra 15.6", Intel Core i5 1135G7 8GB de RAM 256GB SSD',    
 });
 
 productList.push({
   name: 'bike',
   price: 120,
   image: 'https://images.pexels.com/photos/276517/pexels-photo-276517.jpeg?auto=compress&cs=tinysrgb&dpr=2&h=650&w=940',
-  msg: 'With its practical position, this bike also fulfills a decorative function, add your hall or workspace.',
-  class: 'imageBike_2',
+  msg: 'With its practical position, this bike also fulfills a decorative function, add your hall or workspace.',  
 });
 
 productList.push({
   name: 'iMac',
   price: 220,
   image: 'https://images.pexels.com/photos/10963241/pexels-photo-10963241.jpeg?auto=compress&cs=tinysrgb&w=1260&h=750&dpr=1',
-  msg: 'iMac A1419 2017 8gb 1tb Video 4gb',
-  class: 'imageImac_2',
+  msg: 'iMac A1419 2017 8gb 1tb Video 4gb',  
 });
 
 productList.push({
   name: 'portátil',
   price: 620,
   image: 'https://images.pexels.com/photos/4067506/pexels-photo-4067506.jpeg?auto=compress&cs=tinysrgb&w=1260&h=750&dpr=1',
-  msg: 'Portátil Dell Inspiron 3511 negra 15.6", Intel Core i5 1135G7 8GB de RAM 256GB SSD',
-  class: 'imagePortatil_2',
+  msg: 'Portátil Dell Inspiron 3511 negra 15.6", Intel Core i5 1135G7 8GB de RAM 256GB SSD',  
 });
 
 function renderProducts(arr) {

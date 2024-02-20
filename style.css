@@ -88,7 +88,7 @@ nav {
 /* Menú en desktop */
 .desktop-menu {
     position: absolute;
-    top: 60px;
+    top: 61px;
     right: 60px;
     background-color: var(--white);
     width: 100px;
@@ -130,7 +130,7 @@ nav {
 .mobile-menu {    
     position: absolute;
     background-color: var(--white);
-    top: 60px;
+    top: 61px;
     padding: 24px;
     left: 0;
     width: 100%;    
