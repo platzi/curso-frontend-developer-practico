@@ -1,0 +1,34 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta http-equiv="X-UA-Compatible" content="IE=edge">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Poppins:wght@400;600;800&display=swap" rel="stylesheet">
+
+  <link rel="stylesheet" href="styles.css">
+  <title>Porcentajes</title>
+</head>
+<body>
+  <div class="title">
+    <h2>Temporada verano 2023!!!!</h2>
+  </div>
+  
+  <div class="contain-precioDescuento">
+    <input type="number" placeholder="Precio" id="price" />
+    
+    <div class="check-descuento">
+      <span>Tenes un cupón de descuento?</span>
+      <label for="check">Si<input type="checkbox" name="check" id="checkSi"/></label>
+    </div>
+    <input type="text" placeholder="Introduzca su cupón" class="inactive" id="discount" />
+    <button id="calcular">Calcular descuento</button>
+  
+    <p id="resolve" class="resolve"></p>
+  </div>
+
+  <script src="./script.js"></script>
+</body>
+</html>

@@ -1,0 +1,115 @@
+body {
+  background-color:indigo;
+  color:#fff;
+  font-family:Verdana,Geneva,Tahoma,sans-serif;
+  margin:0;
+  padding:0
+}
+.conteo-juego {
+  position: absolute;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  width: 100vw;
+  height: 100vh;
+  background: rgba(21, 10, 32, .9);
+  overflow: hidden;
+}
+.number-conteo {
+  font-size: 50px;
+  color: #FFF;
+  animation-name: numeroConteo;
+  animation-duration: 1.5s;
+  animation-iteration-count: infinite;
+  position: relative;
+}
+@keyframes numeroConteo {
+  0% {transform: scale(1); color: rgba(255,255,255,.8);}
+  50% {transform: scale(15); color: rgba(255,255,255,.6);}
+  75% {color: rgba(255,255,255,.4);}
+  100% {color: transparent;}
+}
+.game-container {
+  display:flex;
+  align-items:center;
+  justify-content:center;
+  flex-wrap:wrap;
+  height:100vh;
+  width:100vw
+}
+.fin-juego {
+  display: none;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+  row-gap: 10px;
+  width: 100vw;
+  height: 100vh;
+  background: rgba(21, 10, 32, .9);
+  position: absolute;
+  backdrop-filter: blur(5px);
+}
+.active {
+  display: flex;
+}
+.d-none {
+  display: none;
+}
+.fin-juego div {
+  font-size: 60px;
+}
+.fin-juego p {
+  text-align: center;
+  font-size: 30px;
+}
+.game-restart {
+  width: 150px;
+}
+canvas {
+  border:4px solid #f60;
+  border-radius:8px;
+  background-color:#feff9d
+}
+.group-btn {
+  display:flex;
+  justify-content:center;
+  flex-wrap:wrap;
+  margin:0 auto;
+  width:100%
+}
+button {
+  background-color:#fdef05;
+  border-radius:8px;
+  border-color:#f60;
+  font-family:inherit;
+  margin:0;
+  padding:5px 20px;
+  width:100px;
+  cursor: pointer;
+}
+button:not(:last-child) {
+  margin-right:10px
+}
+.messages {
+  display: grid;
+  grid-template-columns: repeat(2, 1fr);
+  margin: 0 auto;
+  width: 80%;
+  max-width:460px
+}
+p {
+  display:block;
+  text-align: center;
+  margin:0;
+  width:100%;
+  margin-bottom: 1rem;
+}
+@media(max-width:440px) {
+  button {
+    margin-top:5px
+  }
+  #up,#down {
+    margin-left:100%;
+    margin-right:100%
+  }
+}
