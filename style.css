@@ -21,11 +21,13 @@ body {
 nav {
     display: flex;
     justify-content: space-between;
+    width: auto;
     padding: 0 24px;
     border-bottom: 1px solid var(--very-light-pink);
 }
 .menu {
     display: none;
+    cursor:pointer;
 }
 .logo {
     width: 100px;
@@ -66,6 +68,7 @@ nav {
 }
 .navbar-shopping-cart {
     position: relative;
+    cursor:pointer;
 }
 .navbar-shopping-cart div {
     width: 16px;
@@ -85,12 +88,12 @@ nav {
 /* estilos Menu en Desktop */
 .desktop-menu {
     position:absolute;
-    top: 60px;
+    top: 62px;
     right: 60px;
     background: var(--white);
-    width: 100px;
+    /* width: 100px; */
     height: auto;
-    border: 1px solid var(--very-light-pink);
+    border: 1px;
     border-radius: 6px;
     padding: 20px 20px 0 20px;
 }
@@ -129,6 +132,7 @@ nav {
     width: calc(100% - 24px);
     padding-left: 24px;
     background-color: var(--white);
+    cursor:pointer;
 }
 .mobile-menu a {
     text-decoration: none;
@@ -162,7 +166,9 @@ aside {
     width: 360px;
     box-sizing: border-box;
     position: absolute;
-    right: 0;
+    right: 16px;
+    height: auto;
+    border-radius: 6px;
 }
 
 /* Shopping Card */
@@ -235,6 +241,7 @@ aside {
     font-size: var(--md);
     font-weight: bold;
     height: 50px;
+    cursor:pointer;
 }
 
 /* ProductDetail */
@@ -259,7 +266,7 @@ aside {
     border-radius: 0 0 20px 20px;
 }
 #productDetail .product-info {
-    margin: 24px 24px 0 24px;
+    margin: 24px 24px 24px 24px;
 }
 #productDetail .product-info p:nth-child(1) {
     font-weight: bold;
@@ -289,6 +296,7 @@ aside {
     font-size: var(--md);
     font-weight: bold;
     height: 50px;
+    margin-bottom: 24px;
 }
 .add-to-cart-button {
     display: flex;
@@ -305,6 +313,8 @@ aside {
 }
 .product-card {
     width: 240px;
+    cursor:pointer;
+    
 }
 .product-card img {
     width: 240px;
@@ -338,7 +348,7 @@ aside {
     color: var(--very-light-pink);
 }
 
-@media (max-width: 640px) {
+@media (max-width: 840px) {
 .menu {
     display: block;
     }
@@ -347,6 +357,7 @@ aside {
     }
     aside {
         width: 100%;
+        right: 0;
     }
     .cards-container {
         grid-template-columns: repeat(auto-fill, 140px);
@@ -359,7 +370,7 @@ aside {
         height: 140px;
     }
 }
-@media (min-width: 641px) {
+@media (min-width: 841px) {
     .mobile-menu{
         display: none;
     }
