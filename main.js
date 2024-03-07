@@ -5,19 +5,22 @@ const desktopMenu = document.querySelector('.desktop-menu')
 const hamburguerMenu = document.querySelector('.menu')
 const mobileMenu = document.querySelector('.mobile-menu')
 const shoppingCart = document.querySelector('.navbar-shopping-cart')
-const itemsCart = document.querySelector('.product-detail')
+const itemsCart = document.querySelector('#shoppingCartContainer')
 const cardsContainer = document.querySelector('.cards-container')
-
-
+const productDetailContainer = document.querySelector('#productDetail')
+const prodcutDetailIconClose = document.querySelector('.product-detail-close')
 
 shoppingCart.addEventListener('click', toggleShoppingCart)
 navEmail.addEventListener('click', toggleDesktopMenu)
 hamburguerMenu.addEventListener('click', toggleMobileMenu)
+prodcutDetailIconClose.addEventListener('click', closeProductDetailAside)
 
 //Funcipon de carrito de compras
 function toggleShoppingCart(){
     mobileMenu.classList.add('inactive')
     desktopMenu.classList.add('inactive')
+    productDetailContainer.classList.add('inactive')
+    closeProductDetailAside()
     itemsCart.classList.toggle('inactive')
     console.log('Te amo Takemi')
 }
@@ -25,6 +28,7 @@ function toggleShoppingCart(){
 function toggleMobileMenu(){
     itemsCart.classList.add('inactive')
     mobileMenu.classList.toggle('inactive')
+    productDetailContainer.classList.add('inactive')
     console.log('Te amo kawakami')
 }
 
@@ -64,7 +68,8 @@ function templateProductos(arr){
     
         const productImg = document.createElement('img')
         productImg.setAttribute('src', product.image)
-    
+        productImg.addEventListener('click', openProductDetailAside)
+
         const productInfo = document.createElement('div')
         productInfo.classList.add('product-info')
     
@@ -100,3 +105,12 @@ function templateProductos(arr){
 }
 
 templateProductos(productList)
+
+function openProductDetailAside(){
+    itemsCart.classList.add('inactive')
+    productDetailContainer.classList.remove('inactive')
+}
+
+function closeProductDetailAside(){
+    productDetailContainer.classList.add('inactive')
+}
