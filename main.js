@@ -465,7 +465,7 @@ function addToCart(productIndex) {
   //ENVIAR AL SERVIDOR LOS DATOS DEL CARRITO Y GENERAR UN NUEVO REGISTRO EN LA BASE DE DATOS. ¿¿Hacer primero inicio de sesion??¿
 }
 
-////////////////// CHAT CODE /////////////////////
+////////////////// CHAT CODE //////////////////////
 let textArea = document.getElementById("user-msg");
 // Change for document onload?
 let chatButton = document.querySelector(".open-button");
@@ -489,7 +489,7 @@ function sendMessage() {
 
 async function sendToServer(message, username) {
   try {
-    const url = `https://localhost:7202/insertData`;
+    const url = `https://localhost:7274/insertData`;
 
     // Object to be sent
     let content = {};
@@ -540,7 +540,7 @@ function closeForm() {
 //To get the messages by user in the json 
 async function getMessagesByUsername(username) {
   try {
-    const url = `https://localhost:7202/getMessagesByUser/${username}`;
+    const url = `https://localhost:7274/getMessagesByUser/${username}`;
 
     let response = await fetch(url);
 
