@@ -4,6 +4,7 @@ const carritoIcon = document.querySelector(".navbar-shopping-cart");
 
 const mobileMenu = document.querySelector(".mobile-menu");
 const desktopMenu = document.querySelector(".desktop-menu");
+const cartContainer = document.querySelector(".shopping-cart-container");
 const productDetail = document.querySelector(".product-detail");
 
 navEmail.addEventListener("click", toggleDesktopMenu);
@@ -11,14 +12,14 @@ menuIcon.addEventListener("click", toggleMobileMenu);
 carritoIcon.addEventListener("click", toggleProductDetail);
 
 function toggleDesktopMenu() {
-	if (!productDetail.classList.contains("inactive")) {
-		productDetail.classList.add("inactive");
+	if (!cartContainer.classList.contains("inactive")) {
+		cartContainer.classList.add("inactive");
 	}
 	desktopMenu.classList.toggle("inactive");
 }
 function toggleMobileMenu() {
-	if (!productDetail.classList.contains("inactive")) {
-		productDetail.classList.add("inactive");
+	if (!cartContainer.classList.contains("inactive")) {
+		cartContainer.classList.add("inactive");
 	}
 	mobileMenu.classList.toggle("inactive");
 }
@@ -29,7 +30,7 @@ function toggleProductDetail() {
 	if (!desktopMenu.classList.contains("inactive")) {
 		desktopMenu.classList.add("inactive");
 	}
-	productDetail.classList.toggle("inactive");
+	cartContainer.classList.toggle("inactive");
 }
 
 // Carga productos
