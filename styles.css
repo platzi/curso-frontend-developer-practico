@@ -9,9 +9,6 @@
 	--lg: 18px;
 }
 
-* {
-	box-sizing: border-box;
-}
 body {
 	margin: 0;
 	font-family: "Quicksand", sans-serif;
@@ -19,6 +16,14 @@ body {
 
 .inactive {
 	opacity: 0;
+	display: none;
+}
+
+.dark {
+	width: 100vw;
+	height: 100vh;
+	position: fixed;
+	background-color: rgba(0, 0, 0, 0.3);
 }
 
 /* Navbar */
@@ -27,6 +32,8 @@ nav {
 	justify-content: space-between;
 	padding: 0 24px;
 	border-bottom: 1px solid var(--very-light-pink);
+	position: relative;
+	z-index: 2;
 }
 .menu {
 	display: none;
@@ -146,6 +153,7 @@ nav {
 	/* width: calc(100% - 48px); */
 	width: 100%;
 	padding: 24px;
+	box-sizing: border-box;
 }
 .mobile-menu a {
 	text-decoration: none;
@@ -299,6 +307,7 @@ nav {
 	height: 240px;
 	border-radius: 20px;
 	object-fit: cover;
+	cursor: pointer;
 }
 .cards-container .product-info {
 	display: flex;
@@ -338,11 +347,14 @@ nav {
 	}
 }
 
+/* Product detail */
+
 .product-detail {
 	width: 360px;
 	padding-bottom: 24px;
 	position: absolute;
-	right: 0;
+	left: calc(50vw - 180px);
+	margin-top: 20px;
 	background-color: var(--white);
 	transition: 0.1s;
 	box-shadow: 5px 5px 10px var(--very-light-pink);
@@ -367,6 +379,8 @@ nav {
 	height: 360px;
 	object-fit: cover;
 	border-radius: 0 0 20px 20px;
+	border-top-left-radius: inherit;
+	border-top-right-radius: inherit;
 }
 .product-detail .product-info {
 	margin: 24px 24px 0 24px;
@@ -408,5 +422,6 @@ nav {
 @media (max-width: 640px) {
 	.product-detail {
 		width: 100%;
+		left: 0;
 	}
 }
