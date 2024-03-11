@@ -5,7 +5,7 @@ const menuHamburger = document.querySelector('.menuHamburger');
 const mobileMenu = document.querySelector('.mobile-menu');
 
 const carritoCompras = document.querySelector('.carritoCompras');
-const detallecarrito = document.querySelector('.product-detail');
+const detallecarrito = document.querySelector('#shoppingCartContainer');
 
 menuEmail.addEventListener('click', toggleDesktopMenu); //Crear funcion con ese nombre
 
