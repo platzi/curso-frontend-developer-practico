@@ -9,4 +9,5 @@ function toggleDesktopMenu(){
     desktopMenu.classList.toggle('inactive')
 }
 
+console.log('JS funcionando')
 
