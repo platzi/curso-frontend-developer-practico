@@ -1,0 +1,224 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+	<meta charset="UTF-8">
+	<meta http-equiv="X-UA-Compatible" content="IE=edge">
+	<meta name="viewport" content="width=device-width, initial-scale=1.0">
+	<title>MoveIT - Work hard, move hard</title>
+	<link rel="preconnect" href="https://fonts.googleapis.com">
+	<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+	<link href="https://fonts.googleapis.com/css2?family=Quicksand:wght@300;500;700&display=swap" rel="stylesheet">
+	<link rel="stylesheet" type="text/css" href="./styles.css">
+</head>
+
+<body>
+	<nav>
+		<img src="./icons/icon_menu.svg" alt="menu" class="menu">
+
+		<div class="navbar-left">
+			<img src="./logos/twitter_header_photo_1.png" alt="logo" class="logo">
+
+			<ul>
+				<li id="all">
+					<div>All</div>
+				</li>
+
+				<li id="skate">
+					<div>Skates</div>
+				</li>
+
+				<li id="surfskate">
+					<div>SurfSkates</div>
+				</li>
+
+				<li id="roller">
+					<div>Rollers</div>
+				</li>
+
+				<li id="other">
+					<div>Others</div>
+				</li>
+			</ul>
+		</div>
+
+		<div class="navbar-right">
+			<ul>
+				<li class="navbar-email">email@moveit.com</li>
+				<li class="navbar-shopping-cart">
+					<img src="./icons/icon_shopping_cart.svg" alt="shopping cart">
+					<div id="count">0</div>
+				</li>
+			</ul>
+		</div>
+
+		<div class="desktop-menu inactive">
+			<ul>
+				<li>
+					<a href="/" class="title">My orders</a>
+				</li>
+
+				<li>
+					<a href="./HTML/myAccount.html">My account</a>
+				</li>
+
+				<li>
+					<a href="./HTML/signIn.html">Sign in</a>
+				</li>
+			</ul>
+		</div>
+		<!--<li id="all">
+					<div>All</div>
+				</li>
+
+				<li id="skate">
+					<div>Skates</div>
+				</li>
+
+				<li id="surfskate">
+					<div>SurfSkates</div>
+				</li>
+
+				<li id="roller">
+					<div>Rollers</div>
+				</li>
+
+				<li id="other">
+					<div>Others</div>
+				</li>-->
+		<div class="mobile-menu inactive">
+			<ul>
+				<li id="all-mobile">
+					<div>All</div>
+				</li>
+				<li id="skate-mobile">
+					<div>Skates</div>
+				</li>
+				<li id="surfskate-mobile">
+					<div>SurfSkates</div>
+				</li>
+				<li id="roller-mobile">
+					<div>Rollers</div>
+				</li>
+				<li id="other-mobile">
+					<div>Others</div>
+				</li>
+			</ul>
+
+			<ul>
+				<li>
+					<a href="/">My orders</a>
+				</li>
+				<li>
+					<a href="/">My account</a>
+				</li>
+			</ul>
+
+			<ul>
+				<li>
+					<a href="/" class="email">youremail@example.com</a>
+				</li>
+				<li>
+					<a href="./HTML/signIn.html" class="sign-in">Sign in</a>
+				</li>
+			</ul>
+		</div>
+	</nav>
+
+	<aside class="product-detail inactive">
+		<div class="title-container">
+			<img src="./icons/flechita.svg" alt="arrow">
+			<p class="title">My order</p>
+		</div>
+
+		<div class="my-order-content">
+
+			<!--
+			<div class="shopping-cart">
+				<figure>
+					<img src="https://images.pexels.com/photos/276517/pexels-photo-276517.jpeg?auto=compress&cs=tinysrgb&dpr=2&h=650&w=940"
+						alt="bike">
+				</figure>
+				<p>Bike</p>
+				<p>$30,00</p>
+				<img src="./icons/icon_close.png" alt="close">
+			</div>
+		-->
+
+			<div class="order">
+				<p>
+					<span>Total</span>
+				</p>
+				<p id="total-price">$0.00</p>
+			</div>
+
+			<button class="primary-button">
+				Checkout
+			</button>
+		</div>
+	</aside>
+
+
+
+
+	<section class="main-container">
+		<div class="cards-container">
+			<!--
+			<div class="product-card">
+				<img src="https://img.freepik.com/free-photo/cool-roller-skate-still-life_23-2150304799.jpg?t=st=1687771841~exp=1687772441~hmac=bdc0a961d1491bdd83434804deed065d4b7288e816ca1c370843c852eefe584d&w=740"
+					alt="Image by freepik">
+					
+				<div class="product-info">
+					<div>
+						<p>€€$120,00</p>
+						<p>Bike</p>
+					</div>
+					<figure>
+						<img src="./icons/bt_add_to_cart.svg" alt="">
+					</figure>
+				</div>
+			</div>
+		-->
+
+		</div>
+
+	</section>
+	<!--
+	<div id="overlay" class="active">
+		<aside class="product-modal active" id="modal">
+			<div class="product-modal-close">
+				<img src="./icons/icon_close.png" alt="close">
+			</div>
+			<img src="https://images.pexels.com/photos/276517/pexels-photo-276517.jpeg?auto=compress&cs=tinysrgb&dpr=2&h=650&w=940"
+				alt="bike">
+			<div class="product-info-modal">
+				<p>€€$35,00</p>
+				<p>Bike</p>
+				<p>With its practical position, this bike also fulfills a decorative function, add your hall or
+					workspace.</p>
+				<button class="primary-button add-to-cart-button">
+					<img src="./icons/bt_add_to_cart.svg" alt="add to cart">
+					Add to cart
+				</button>
+			</div>
+		</aside>
+	</div>
+-->
+
+<button class="open-button" onclick="openForm()">Chat</button>
+
+<div class="chat-popup" id="myForm">
+    <form action="#" class="form-container" onsubmit="sendMessage()">
+        <h3>Chat with us</h3>
+        <div id="chat-messages"></div>
+        <textarea id="user-msg" placeholder="Type message.." name="msg" required></textarea>
+        <button type="submit" class="btn">Send</button>
+        <button type="button" class="btn cancel" onclick="closeForm()">Close</button>
+    </form>
+</div>
+<!--Source: https://codepen.io/tofjadesign/pen/dyKxYQz-->
+
+</body>
+<script type="text/javascript" src="./main.js"></script>
+
+</html>

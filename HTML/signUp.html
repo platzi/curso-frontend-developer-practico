@@ -1,0 +1,42 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta http-equiv="X-UA-Compatible" content="IE=edge">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Quicksand:wght@300;500;700&display=swap" rel="stylesheet">
+  <link rel="stylesheet" href="../STYLES/signUp.css">
+  <title>MoveIT - Register</title>
+
+</head>
+<body>
+  <div class="login">
+    <div class="form-container">
+      <h1 class="title">New account</h1>
+
+      <form action="/" class="form" id="userForm">
+        <div>
+          <label for="name" class="label">Name</label>
+          <input type="text" id="name" placeholder="John" class="input input-name">
+
+          <label for="email" class="label">Email</label>
+          <input type="text" id="email" placeholder="johnsmith@realm.com" class="input input-email">
+
+          <label for="password" class="label">Password</label>
+          <input type="password" id="password" placeholder="*********" class="input input-password">
+          <div>
+            <p id="passwordResult"></p>
+          </div>
+        </div>
+
+        <!-- type button to avoid predefined form sending.-->
+        <input type="button" value="Create" class="primary-button login-button" id="submitButton">
+
+      </form>
+    </div>
+  </div>
+</body>
+<script src="../signUp.js"></script>
+</html>
