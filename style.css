@@ -167,7 +167,8 @@
 
   /*Shopping Cart Container*/
   #shoppingCartContainer{
-    padding: 0 24px;
+    padding: 0 24px 24px 24px;
+    border-radius: 8px;
   }
   .title-container {
     display: flex;
@@ -363,6 +364,9 @@
     .product-card img {
       width: 140px;
       height: 140px;
+    }
+    #productDetail{
+      width: 100%;
     }
   }
   @media (min-width: 641px){
