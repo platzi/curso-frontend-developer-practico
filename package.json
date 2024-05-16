@@ -1,0 +1,39 @@
+{
+  "name": "curso-frontend-developer",
+  "version": "1.0.0",
+  "description": "Bienvenido a Kpaez",
+  "main": "index.js",
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1",
+    "build": "webpack --mode production --config webpack.config.js",
+    "dev": "webpack --config webpack.config.dev.js",
+    "watch": "npm run dev --watch"
+
+  },
+
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/AlejandroPaez1/curso-frontend-developer-js.git"
+  },
+  "author": "Alejandro Paez <alejandro334paez@gmail.com>",
+  "license": "MIT",
+  "bugs": {
+    "url": "https://github.com/AlejandroPaez1/curso-frontend-developer-js/issues"
+  },
+  "homepage": "https://github.com/AlejandroPaez1/curso-frontend-developer-js#readme",
+  "devDependencies": {
+    "clean-webpack-plugin": "^4.0.0",
+    "copy-webpack-plugin": "^11.0.0",
+    "css-loader": "^6.7.3",
+    "css-minimizer-webpack-plugin": "^5.0.0",
+    "dotenv-webpack": "^8.0.1",
+    "file-loader": "^6.2.0",
+    "html-webpack-plugin": "^5.5.0",
+    "mini-css-extract-plugin": "^2.7.5",
+    "stylus-loader": "^7.1.0",
+    "terser-webpack-plugin": "^5.3.7",
+    "url-loader": "^4.1.1",
+    "webpack": "^5.78.0",
+    "webpack-cli": "^5.0.1"
+  }
+}
