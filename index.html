@@ -1,0 +1,217 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8" />
+    <meta http-equiv="X-UA-Compatible" content="IE=edge" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+
+    <link rel="preconnect" href="https://fonts.googleapis.com" />
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+    <link href="https://fonts.googleapis.com/css2?family=Quicksand:wght@300;500;700&display=swap" rel="stylesheet" />
+
+    <link rel="shortcut icon" href="./logos/archguilar52.ico" />
+    <title>Tineda de Cosistas Chivatada SV</title>
+    <link rel="stylesheet" href="./styles.css" />
+</head>
+
+<body>
+    <nav>
+        <img src="./icons/icon_menu.svg" alt="menu" class="menu" />
+
+        <!-- Barra de NAvegacion Izquierda -->
+        <div class="navbar-left">
+            <img src="./logos/logo_yard_sale.svg" alt="logo" class="logo" />
+
+            <ul>
+                <li>
+                    <a href="/">Todo</a>
+                </li>
+                <li>
+                    <a href="/">Ropa</a>
+                </li>
+                <li>
+                    <a href="/">Electronica</a>
+                </li>
+                <li>
+                    <a href="/">Muebles</a>
+                </li>
+                <li>
+                    <a href="/">Juguetes</a>
+                </li>
+                <li>
+                    <a href="/">Otros</a>
+                </li>
+            </ul>
+        </div>
+
+        <!-- barra de navegacion derecha -->
+        <div class="navbar-right">
+            <ul>
+                <li class="navbar-email">jaco@example.com</li>
+                <li class="navbar-shopping-cart">
+                    <img src="./icons/icon_shopping_cart.svg" alt="shopping cart" />
+                    <div>2</div>
+                </li>
+            </ul>
+        </div>
+
+        <!-- menu interactivo a la derecha en Desktop -->
+        <div class="desktop-menu inactivo">
+            <ul>
+                <li>
+                    <a href="/" class="title">Mi PEDIDO</a>
+                </li>
+
+                <li>
+                    <a href="/">Mi Cuenta</a>
+                </li>
+
+                <li>
+                    <a href="/">Cerrar Sesion</a>
+                </li>
+            </ul>
+        </div>
+
+        <!-- menu movil -->
+        <div class="mobile-menu inactivo">
+            <ul>
+                <li>
+                    <a href="/">CATEGORIAS</a>
+                </li>
+                <li>
+                    <a href="/">TODO</a>
+                </li>
+                <li>
+                    <a href="/">ROPA</a>
+                </li>
+                <li>
+                    <a href="/">ELECTRONICA</a>
+                </li>
+                <li>
+                    <a href="/">MUEBLES</a>
+                </li>
+                <li>
+                    <a href="/">JUGUETES</a>
+                </li>
+                <li>
+                    <a href="/">OTROS</a>
+                </li>
+            </ul>
+
+            <ul>
+                <li>
+                    <a href="/">MI PEDIDO</a>
+                </li>
+                <li>
+                    <a href="/">MI CUENTA</a>
+                </li>
+            </ul>
+
+            <ul>
+                <li>
+                    <a href="/" class="email">jaco@example.com</a>
+                </li>
+                <li>
+                    <a href="/" class="sign-out">Cerrar Sesion</a>
+                </li>
+            </ul>
+        </div>
+    </nav>
+
+    <aside id="shoppingCarContainer" class="inactivo">
+        <div class="title-container">
+            <img src="./icons/flechita.svg" alt="arrow">
+            <p class="title">Mi Orden</p>
+        </div>
+
+        <div class="my-order-content">
+            <div class="shopping-cart">
+                <figure>
+                    <img src="https://images.pexels.com/photos/276517/pexels-photo-276517.jpeg?auto=compress&cs=tinysrgb&dpr=2&h=650&w=940"
+                        alt="bike">
+                </figure>
+                <p>Bike</p>
+                <p>$30,00</p>
+                <img src="./icons/icon_close.png" alt="close">
+            </div>
+
+            <div class="shopping-cart">
+                <figure>
+                    <img src="https://images.pexels.com/photos/276517/pexels-photo-276517.jpeg?auto=compress&cs=tinysrgb&dpr=2&h=650&w=940"
+                        alt="bike">
+                </figure>
+                <p>Bike</p>
+                <p>$30,00</p>
+                <img src="./icons/icon_close.png" alt="close">
+            </div>
+
+            <div class="shopping-cart">
+                <figure>
+                    <img src="https://images.pexels.com/photos/276517/pexels-photo-276517.jpeg?auto=compress&cs=tinysrgb&dpr=2&h=650&w=940"
+                        alt="bike">
+                </figure>
+                <p>Bike</p>
+                <p>$30,00</p>
+                <img src="./icons/icon_close.png" alt="close">
+            </div>
+
+            <div class="order">
+                <p>
+                    <span>Total</span>
+                </p>
+                <p>$560.00</p>
+            </div>
+
+            <button class="primary-button">
+                Checkout
+            </button>
+        </div>
+        </div>
+    </aside>
+
+      <aside id="productDetail" class="inactivo">
+    <div class="product-detail-close">
+      <img src="./icons/icon_close.png" alt="close">
+    </div>
+    <img src="https://images.pexels.com/photos/276517/pexels-photo-276517.jpeg?auto=compress&cs=tinysrgb&dpr=2&h=650&w=940" alt="bike">
+    <div class="product-info">
+      <p>$35,00</p>
+      <p>Bici</p>
+      <p>Con su práctica posición, esta bicicleta también cumple una función decorativa, añade tu recibidor o espacio de trabajo.</p>
+      <button class="primary-button add-to-cart-button">
+        <img src="./icons/bt_add_to_cart.svg" alt="add to cart">
+        Añadir al Carrito
+      </button>
+    </div>
+  </aside>
+
+
+
+    <section class="main-container">
+        <div class="cards-container">
+
+<!--             <div class="product-card">
+                <img src="https://images.pexels.com/photos/276517/pexels-photo-276517.jpeg?auto=compress&cs=tinysrgb&dpr=2&h=650&w=940"
+                    alt="">
+                <div class="product-info">
+                    <div>
+                        <p>$120,00</p>
+                        <p>Bike</p>
+                    </div>
+                    <figure>
+                        <img src="./icons/bt_add_to_cart.svg" alt="">
+                    </figure>
+                </div>
+            </div> -->
+
+
+        </div>
+    </section>
+    <script src="./JS/menusDesktop.js"></script>
+    <script src="./JS/toggles.js"></script>
+    <script src="./JS/Catalogo.js"></script>
+    <script src="./JS/main.js"></script>
+</body>
+
+</html>
