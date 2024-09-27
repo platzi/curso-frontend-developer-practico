@@ -1,0 +1,52 @@
+"Pasos para fusionar proyectos HTML y CSS con JS"
+
+1 Analizar código de proyectos open-source
+
+Creamos: index.html, styles.css, main.js
+
+2 Fusión del menú en desktop: Ocuparse de si todas los links, fuentes, 
+colores coincidan una pantalla con la otra. CSS
+
+3 Ir colapsando codigo para poder ver donde incluir todas las partes 
+del codigo de manera coherente. Incluirlo donde no rompa codigo armado. HTML
+
+4. Arrastrar El css que haga falta  de las demas pantallas
+
+5. revisar el responsive
+
+6. describir clases en css
+
+<elemento class="nombre _inactive_" >
+
+Clase .inactive{display: none;} En CSS Para hacer desaparecer un bloque 
+de codigo HTML de la pantalla. Luego podemos hacerla a aparecer con 
+codigo JS
+
+elemento.classList.toggle("inactive") = Para hacer y desaparecer un bloque 
+de codigo HTML de la pantalla desde JS
+
+El efecto .toggle() solo te permite alternar entre 2 acciones mientras 
+que .click() hace una acción concreta por cada click
+
+{cursor: pointer} solo hace que se de cuenta del cursor   
+.elemento:hover{} hace que se de cuenta del cursor, pudiendose 
+cambiar una caracteristica mientras 
+
+Al usar el media query para el responsive entre min y max dejar al menos 1px de
+diferencia por las dudas
+
+glosario: toggle, add
+
+Apuntes nuevos: 
+
+Hacer un ciclo foreach maquetando todo el codigo html que va a crear cada parte 
+del objeto para automatizar lo que se vaya agregando 
+
+Al crear elementos de HTML desde agregarles addEventListener desde el mismo 
+bloque decodigo en JS 
+
+para mostrar un bloque de codigo inactive y que no se cierre al volver a dar
+click en el mismo lugar se coloca x.inactive.remove('');
+
+
+github pages: Es un servicio de alojamiento de sitio estático(Hace el backent por nosotros)
