@@ -1,0 +1,16 @@
+:root {
+  color-scheme: light dark;
+}
+
+*, *::before, *::after {
+  box-sizing: border-box;
+}
+body {
+  margin: 0;
+}
+
+img {
+  width: 100vw;
+  height: 100dvh;
+  object-fit: cover;
+}

@@ -1,0 +1,64 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <link rel="stylesheet" href="styles.css">
+  <title>Perritos App</title>
+</head>
+<body>
+  <div class="portada">
+    <span class="msj-guardado-gatito">Perrito guardado en favoritos</span>
+
+    <div class="container-portada">
+      <h1>Perritos App</h1>
+    </div>
+  </div>
+
+  <div class="container">
+    <section id="random-gatitos" class="random-gatitos">
+      <h2>Random Perritos</h2>
+
+      <span id="status-error" class="status-error"></span>
+
+      <div class="main-article">
+        <article class="article">
+          <img id="img1" alt="Random Cats" class="img-gatitos">
+          <button id="btn-save1" class="btn-favorites"><img src="./heart-circle-plus-solid.svg"></button>
+        </article>
+        
+        <article class="article">
+          <img id="img2" alt="Random Cats" class="img-gatitos">
+          <button id="btn-save2" class="btn-favorites"><img src="./heart-circle-plus-solid.svg"></button>
+        </article>
+        
+        <article class="article">
+          <img id="img3" alt="Random Cats" class="img-gatitos">
+          <button id="btn-save3" class="btn-favorites"><img src="./heart-circle-plus-solid.svg"></button>
+        </article>
+      </div>
+
+      <button id="reload" class="reload">Dame nuevos gatitos</button>
+    </section>
+
+    <section id="uploadingMichis">
+      <h2>Sube la foto de tu michi</h2>
+
+      <form id="uploadingForm">
+        <input type="file" name="file" id="file" />
+        <button type="button" onclick="uploadPerritoPhoto()">Subir foto</button>
+      </form>
+    </section>
+
+    <section id="favorites" class="favorites">
+      <h2>Favorites Michis</h2>
+      <div id="container-favorites" class="container-favorites"></div>
+    </section>
+
+  </div>
+
+  <script src="https://cdn.jsdelivr.net/npm/axios/dist/axios.min.js"></script>
+  <script src="./indexFetch.js"></script>
+  <script src="./indexAxios.js"></script>
+</body>
+</html>

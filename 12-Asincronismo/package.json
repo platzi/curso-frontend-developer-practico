@@ -1,0 +1,19 @@
+{
+  "name": "curso-asincronismo",
+  "version": "1.0.0",
+  "description": "",
+  "main": "index.js",
+  "scripts": {
+    "callback": "node src/callback/challenge.js"
+  },
+  "keywords": [
+    "javascript"
+  ],
+  "author": "oscar barajas <oscar@platzi.com>",
+  "license": "MIT",
+  "dependencies": {
+    "node-fetch": "^3.3.1",
+    "xmlhttprequest": "^1.8.0"
+  },
+  "type": "module"
+}

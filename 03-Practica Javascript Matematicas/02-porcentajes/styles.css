@@ -1,0 +1,82 @@
+* {
+  margin: 0;
+  padding: 0;
+  box-sizing: border-box;
+}
+body {
+  font-family: 'Poppins', sans-serif;
+  background-image: url('./summer.jpg');
+  background-repeat: no-repeat;
+  background-size: cover;
+  background-position-x: 50%;
+  backdrop-filter: blur(5px);
+  width: 100vw;
+  height: 100vh;
+}
+.inactive {
+  display: none;
+}
+.title {
+  display: flex;
+  flex-direction: column;
+  max-width: 800px;
+  margin: 0 auto 30px;
+  padding-top: 30px;
+  text-align: center;
+}
+.title h2 {
+  font-size: 32px;
+  font-weight: 800;
+  color: #d8ff00;
+}
+.contain-precioDescuento {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  max-width: 550px;
+  margin: auto;
+  row-gap: 15px;
+}
+.contain-precioDescuento span {
+  margin: 15px 0 0;
+  font-size: 16px;
+}
+.contain-precioDescuento .check-descuento {
+  font-size: 16px;
+}
+.contain-precioDescuento input {
+  max-width: 180px;
+  padding: 10px 15px;
+  margin: auto;
+  border-radius: 7px;
+  border: none;
+  font-size: 16px;
+  outline: none;
+}
+.contain-precioDescuento input::-webkit-inner-spin-button {
+  display: none;
+}
+.contain-precioDescuento button {
+  padding: 10px;
+  margin: auto;
+  border-radius: 7px;
+  border: none;
+  background: #484848;
+  font-size: 18px;
+  color: white;
+  cursor: pointer;
+}
+.contain-precioDescuento .resolve {
+  max-width: 360px;
+  text-align: center;
+  font-size: 16px;
+  color: #0a0a0a;
+  padding: 5px 15px;
+  border-radius: 7px;
+}
+.contain-precioDescuento .conDescuento {
+  background-color: rgba(52, 247, 176, .8);
+}
+.contain-precioDescuento .sinDescuento {
+  background-color: rgba(255, 86, 74, .8);
+}
