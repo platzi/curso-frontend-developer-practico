@@ -1,0 +1,132 @@
+/* carrito de compra con HTML CSS y JS, unir index.html styles.css cod.js  */
+
+/* 1. Estilos para el contenedor del carrito */
+#carrito {
+    width: 100%;
+    height: 100%;
+    background-color: #fff;
+    position: fixed;
+    top: 0;
+    left: 0;
+    z-index: 100;
+    display: none;
+    flex-direction: column;
+    justify-content: space-between;
+    align-items: center;
+    padding: 20px;
+    box-sizing: border-box;
+    transition: all 0.5s ease;
+}
+
+/* 2. Estilos para el contenedor de los productos */
+#carrito .productos {
+    width: 100%;
+    height: 100%;
+    overflow-y: auto;
+    padding: 20px 0;
+}
+
+/* 3. Estilos para el contenedor de los productos */
+#carrito .productos .producto {
+    width: 100%;
+    height: 100px;
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    margin-bottom: 20px;
+}
+
+/* 4. Estilos para el contenedor de los productos */
+#carrito .productos .producto .imagen {
+    width: 100px;
+    height: 100px;
+    background-color: #ccc;
+    border-radius: 10px;
+    overflow: hidden;
+}
+
+/* 5. Estilos para el contenedor de los productos */
+#carrito .productos .producto .imagen img {
+    width: 100%;
+    height: 100%;
+    object-fit: cover;
+}
+
+/* 6. Estilos para el contenedor de los productos */
+#carrito .productos .producto .info {
+    width: 100%;
+    height: 100%;
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    padding: 0 20px;
+}
+
+/* 7. Estilos para el contenedor de los productos */
+#carrito .productos .producto .info .nombre {
+    font-size: 20px;
+    font-weight: 600;
+}
+
+/* 8. Estilos para el contenedor de los productos */
+#carrito .productos .producto .info .precio {
+    font-size: 20px;
+    font-weight: 600;
+}
+
+/* 9. Estilos para el contenedor de los productos */
+
+#carrito .productos .producto .info .cantidad {
+    width: 100px;
+    height: 30px;
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    border: 1px solid #ccc;
+    border-radius: 5px;
+    padding: 0 10px;
+}
+
+/* 10. Estilos para el contenedor de los productos */
+#carrito .productos .producto .info .cantidad .cantidad-numero {
+    font-size: 20px;
+    font-weight: 600;
+}
+
+/* 11. Estilos para el contenedor de los productos */
+#carrito .productos .producto .info .cantidad .cantidad-mas,
+#carrito .productos .producto .info .cantidad .cantidad-menos {
+    width: 30px;
+    height: 30px;
+    background-color: #ccc;
+    border-radius: 50%;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    cursor: pointer;
+}
+
+/* 12. Estilos para el contenedor de los productos */
+#carrito .productos .producto .info .cantidad .cantidad-mas:hover,
+#carrito .productos .producto .info .cantidad .cantidad-menos:hover {
+    background-color: #000;
+}
+
+/* 13. Estilos para el contenedor de los productos */
+#carrito .productos .producto .info .cantidad .cantidad-mas:hover i,
+#carrito .productos .producto .info .cantidad .cantidad-menos:hover i {
+    color: #fff;
+}
+
+/* 14. Estilos para el contenedor de los productos */
+#carrito .productos .producto .info .cantidad .cantidad-mas i,
+#carrito .productos .producto .info .cantidad .cantidad-menos i {
+    font-size: 20px;
+    color: #000;
+}
+
+/* 15. Estilos para el contenedor de los productos */
+#carrito .productos .producto .info .cantidad .cantidad-mas i:hover,
+#carrito .productos .producto .info .cantidad .cantidad-menos i:hover {
+    color: #fff;
+}
