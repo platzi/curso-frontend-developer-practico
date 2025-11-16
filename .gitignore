@@ -1,0 +1,19 @@
+# Ignore operating system files
+.DS_Store
+Thumbs.db
+
+# Ignore build artifacts
+/build/
+*.o
+*.exe
+
+# Ignore dependency directories
+node_modules/
+vendor/
+
+# Ignore sensitive configuration files
+.env
+config.local.php
+
+# Ignore logs
+*.log

@@ -1,0 +1,24 @@
+{
+  "name": "yearsale.github.io",
+  "version": "1.0.0",
+  "description": "Es una pagina web MultiPage(No funcional), parte de una pagina para E-commerce que se especialisa en crear una web basica de primeras y se pueda aumentar su capacidad con el tiempo, se utilizo js para darle dinamismo a su contenido principal.\r - Le añadimos secciones para diferentes tipos de compras.\r - API Rest con JSON para guardar los productos en venta.\r - Responsive Desing desde mobile a desktop.\r #### Creada en:\r - **HTML**\r - **CSS**\r - **JavaScript**\r - **LocalHost**",
+  "main": "index.js",
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/diegohansselperez/yearsale.github.io.git"
+  },
+  "keywords": [],
+  "author": "",
+  "license": "ISC",
+  "type": "commonjs",
+  "bugs": {
+    "url": "https://github.com/diegohansselperez/yearsale.github.io/issues"
+  },
+  "homepage": "https://github.com/diegohansselperez/yearsale.github.io#readme",
+  "dependencies": {
+    "json-server": "^1.0.0-beta.3"
+  }
+}
